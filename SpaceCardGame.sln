@@ -5,11 +5,17 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceCardGame", "SpaceCardGame\SpaceCardGame.csproj", "{B285543F-A717-4F8F-8915-1D06CF8B2BF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2DEngine", "..\WindowsGame\2DEngine\2DEngine.csproj", "{B56F5AA9-69A8-454A-9EE5-A815735804B7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2DEngine", "..\2DEngine\2DEngine\2DEngine.csproj", "{B56F5AA9-69A8-454A-9EE5-A815735804B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test2DEngine", "..\WindowsGame\Test2DEngine\Test2DEngine.csproj", "{0BFD4CC0-EC54-4960-8D01-2C96CC3FECA9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2DEngineData", "..\2DEngine\2DEngineData\2DEngineData.csproj", "{ED8A2787-963C-45CE-9405-D4A031B3A977}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2DEngineData", "..\WindowsGame\2DEngineData\2DEngineData.csproj", "{ED8A2787-963C-45CE-9405-D4A031B3A977}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test2DEngine", "..\2DEngine\Test2DEngine\Test2DEngine.csproj", "{0BFD4CC0-EC54-4960-8D01-2C96CC3FECA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardGameEngine", "CardGameEngine\CardGameEngine.csproj", "{DF91D356-E1B8-4DBA-96E6-95A95FBEAA89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardGameEngineData", "CardGameEngineData\CardGameEngineData.csproj", "{B0F38153-06F2-4085-AC2A-E0069E00808C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceCardGameData", "SpaceCardGameData\SpaceCardGameData.csproj", "{ABB06FBE-BAD5-424A-8B9B-C1548A1A4B76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +37,12 @@ Global
 		{B56F5AA9-69A8-454A-9EE5-A815735804B7}.Release|Any CPU.ActiveCfg = Release|x86
 		{B56F5AA9-69A8-454A-9EE5-A815735804B7}.Release|x86.ActiveCfg = Release|x86
 		{B56F5AA9-69A8-454A-9EE5-A815735804B7}.Release|x86.Build.0 = Release|x86
+		{ED8A2787-963C-45CE-9405-D4A031B3A977}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{ED8A2787-963C-45CE-9405-D4A031B3A977}.Debug|x86.ActiveCfg = Debug|x86
+		{ED8A2787-963C-45CE-9405-D4A031B3A977}.Debug|x86.Build.0 = Debug|x86
+		{ED8A2787-963C-45CE-9405-D4A031B3A977}.Release|Any CPU.ActiveCfg = Release|x86
+		{ED8A2787-963C-45CE-9405-D4A031B3A977}.Release|x86.ActiveCfg = Release|x86
+		{ED8A2787-963C-45CE-9405-D4A031B3A977}.Release|x86.Build.0 = Release|x86
 		{0BFD4CC0-EC54-4960-8D01-2C96CC3FECA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0BFD4CC0-EC54-4960-8D01-2C96CC3FECA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BFD4CC0-EC54-4960-8D01-2C96CC3FECA9}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -39,12 +51,24 @@ Global
 		{0BFD4CC0-EC54-4960-8D01-2C96CC3FECA9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0BFD4CC0-EC54-4960-8D01-2C96CC3FECA9}.Release|x86.ActiveCfg = Release|Any CPU
 		{0BFD4CC0-EC54-4960-8D01-2C96CC3FECA9}.Release|x86.Build.0 = Release|Any CPU
-		{ED8A2787-963C-45CE-9405-D4A031B3A977}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{ED8A2787-963C-45CE-9405-D4A031B3A977}.Debug|x86.ActiveCfg = Debug|x86
-		{ED8A2787-963C-45CE-9405-D4A031B3A977}.Debug|x86.Build.0 = Debug|x86
-		{ED8A2787-963C-45CE-9405-D4A031B3A977}.Release|Any CPU.ActiveCfg = Release|x86
-		{ED8A2787-963C-45CE-9405-D4A031B3A977}.Release|x86.ActiveCfg = Release|x86
-		{ED8A2787-963C-45CE-9405-D4A031B3A977}.Release|x86.Build.0 = Release|x86
+		{DF91D356-E1B8-4DBA-96E6-95A95FBEAA89}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{DF91D356-E1B8-4DBA-96E6-95A95FBEAA89}.Debug|x86.ActiveCfg = Debug|x86
+		{DF91D356-E1B8-4DBA-96E6-95A95FBEAA89}.Debug|x86.Build.0 = Debug|x86
+		{DF91D356-E1B8-4DBA-96E6-95A95FBEAA89}.Release|Any CPU.ActiveCfg = Release|x86
+		{DF91D356-E1B8-4DBA-96E6-95A95FBEAA89}.Release|x86.ActiveCfg = Release|x86
+		{DF91D356-E1B8-4DBA-96E6-95A95FBEAA89}.Release|x86.Build.0 = Release|x86
+		{B0F38153-06F2-4085-AC2A-E0069E00808C}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{B0F38153-06F2-4085-AC2A-E0069E00808C}.Debug|x86.ActiveCfg = Debug|x86
+		{B0F38153-06F2-4085-AC2A-E0069E00808C}.Debug|x86.Build.0 = Debug|x86
+		{B0F38153-06F2-4085-AC2A-E0069E00808C}.Release|Any CPU.ActiveCfg = Release|x86
+		{B0F38153-06F2-4085-AC2A-E0069E00808C}.Release|x86.ActiveCfg = Release|x86
+		{B0F38153-06F2-4085-AC2A-E0069E00808C}.Release|x86.Build.0 = Release|x86
+		{ABB06FBE-BAD5-424A-8B9B-C1548A1A4B76}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{ABB06FBE-BAD5-424A-8B9B-C1548A1A4B76}.Debug|x86.ActiveCfg = Debug|x86
+		{ABB06FBE-BAD5-424A-8B9B-C1548A1A4B76}.Debug|x86.Build.0 = Debug|x86
+		{ABB06FBE-BAD5-424A-8B9B-C1548A1A4B76}.Release|Any CPU.ActiveCfg = Release|x86
+		{ABB06FBE-BAD5-424A-8B9B-C1548A1A4B76}.Release|x86.ActiveCfg = Release|x86
+		{ABB06FBE-BAD5-424A-8B9B-C1548A1A4B76}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CardData>
+  <TextureAsset>Sprites\Cards\Resources\Electronics\ElectronicsResourceCard</TextureAsset>
+  <ObjectTextureAsset></ObjectTextureAsset>
+  <DisplayName>Electronics</DisplayName>
+  <Rarity>Common</Rarity>
+</CardData>

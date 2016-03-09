@@ -1,0 +1,159 @@
+﻿using _2DEngine;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
+namespace CardGameEngine
+{
+    /// <summary>
+    /// A class containing UI used in our DeckManager screen for a deck slot.
+    /// Represents a thumbnail indicating whether our deck has been created and contains buttons to create/edit/delete where appropriate.
+    /// </summary>
+    public class DeckSlotUI : UIObjectContainer
+    {
+        #region Properties and Fields
+
+        /// <summary>
+        /// A label displaying the deck's name, or empty if no deck exists
+        /// </summary>
+        private Label DeckName { get; set; }
+
+        /// <summary>
+        /// A button for creating a deck for this thumbnail.  
+        /// Disabled if we have a valid deck, enabled otherwise
+        /// </summary>
+        private Button CreateButton { get; set; }
+
+        /// <summary>
+        /// A button for editing the cards in a deck.
+        /// Disabled if we have no deck, enabled otherwise
+        /// </summary>
+        private Button EditButton { get; set; }
+
+        /// <summary>
+        /// A button for deleting a deck.
+        /// Disabled if we have no deck, enabled otherwise
+        /// </summary>
+        private Button DeleteButton { get; set; }
+
+        /// <summary>
+        /// The Deck in our PlayerCardRegistry this slot represents (could be initially null).
+        /// </summary>
+        private Deck Deck { get; set; }
+
+        #endregion
+
+        public DeckSlotUI(Deck deck, Vector2 localPosition, string textureAsset = Card.CardBackTextureAsset) :
+            this(deck, Vector2.Zero, localPosition, textureAsset)
+        {
+            
+        }
+
+        public DeckSlotUI(Deck deck, Vector2 size, Vector2 localPosition, string textureAsset = Card.CardBackTextureAsset) :
+            base(size, localPosition, textureAsset)
+        {
+            Deck = deck;
+        }
+
+        #region Virtual Functions
+
+        public override void Initialise()
+        {
+            CheckShouldInitialise();
+
+            base.Initialise();
+
+            // Use this to change the initial state of our UI
+            bool deckExists = Deck != null;
+            float padding = 5;
+
+            string deckName = deckExists ? Deck.Name : "";
+            DeckName = AddObject(new Label(deckName, new Vector2(0, -(Size.Y * 0.5f + padding))), true, true) as Label;
+
+            CreateButton = AddObject(new Button("Create", new Vector2(0, Size.Y * 0.5f + padding)), true, true) as Button;
+            CreateButton.OnLeftClicked += CreateButton_OnLeftClicked;
+
+            EditButton = AddObject(new Button("Edit", new Vector2(0, CreateButton.Size.Y + padding)), true, true) as Button;
+            EditButton.OnLeftClicked += EditButton_OnLeftClicked;
+            EditButton.SetParent(CreateButton, true);
+
+            DeleteButton = AddObject(new Button("Delete", new Vector2(0, EditButton.Size.Y + padding)), true, true) as Button;
+            DeleteButton.OnLeftClicked += DeleteButton_OnLeftClicked;
+            DeleteButton.SetParent(EditButton, true);
+
+            if (deckExists)
+            {
+                // If we have a deck then disable our create button - a deck already exists!
+                CreateButton.Disable();
+            }
+            else
+            {
+                // If we have no deck, hide our image, and disable our edit and delete buttons - we have nothing to edit or delete!
+                ShouldDraw.Value = false;
+                EditButton.Disable();
+                DeleteButton.Disable();
+            }
+        }
+
+        #endregion
+
+        #region Event Callbacks
+
+        /// <summary>
+        /// Creates a deck and updates UI
+        /// </summary>
+        /// <param name="image"></param>
+        private void CreateButton_OnLeftClicked(IClickable image)
+        {
+            Deck = new Deck();
+            UpdateUIStatus();
+        }
+
+        /// <summary>
+        /// Transitions to a new deck editting screen
+        /// </summary>
+        /// <param name="image"></param>
+        private void EditButton_OnLeftClicked(IClickable image)
+        {
+            // Transition
+        }
+
+        /// <summary>
+        /// Deletes a deck
+        /// </summary>
+        /// <param name="image"></param>
+        private void DeleteButton_OnLeftClicked(IClickable image)
+        {
+            Deck = null;
+            UpdateUIStatus();
+        }
+
+        #endregion
+
+        #region Utility Function
+
+        /// <summary>
+        /// Updates each element of our UI based on whether the deck has been created or not.
+        /// </summary>
+        private void UpdateUIStatus()
+        {
+            bool deckExists = Deck != null;
+
+            if (deckExists)
+            {
+                ShouldDraw.Value = true;
+                CreateButton.Disable();
+                EditButton.Enable();
+                DeleteButton.Enable();
+            }
+            else
+            {
+                ShouldDraw.Value = false;
+                CreateButton.Enable();
+                EditButton.Disable();
+                DeleteButton.Disable();
+            }
+        }
+
+        #endregion
+    }
+}

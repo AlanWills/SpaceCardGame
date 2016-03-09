@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Effects/LightEffect.fx</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/SpriteFonts/DefaultSpriteFont.spritefont</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/UI/BarBackground.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/UI/BlueSliderDown.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/UI/ColourButtonTrial1.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/UI/Cursor.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/UI/EmptyPanelBackground.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/UI/Logo.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/UI/SliderBar.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Back.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Resources/Crew/CrewResourceCard.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Resources/Electronics/ElectronicsResourceCard.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Resources/Fuel/FuelResourceCard.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Resources/Metal/MetalResourceCard.png</File>
+  </SourceFiles>
+</SourceFileCollection>

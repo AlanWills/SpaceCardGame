@@ -1,7 +1,9 @@
 ﻿using _2DEngine;
+using CardGameEngine;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using SpaceCardGame.Screens;
 
 namespace SpaceCardGame
 {
@@ -40,7 +42,10 @@ namespace SpaceCardGame
             base.Initialize();
 
             ScreenManager.Instance.Initialise();
-            //ScreenManager.Instance.StartGame(new MainMenuScreen(null));
+
+            StartupLogoScreen.LoadAssets += CentralCardRegistry.LoadAssets;
+
+            ScreenManager.Instance.StartGame(new MainMenuScreen());
         }
 
         /// <summary>

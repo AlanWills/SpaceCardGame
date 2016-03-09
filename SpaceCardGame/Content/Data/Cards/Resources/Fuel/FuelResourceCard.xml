@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CardData>
+  <TextureAsset>Sprites\Cards\Resources\Fuel\FuelResourceCard</TextureAsset>
+  <ObjectTextureAsset></ObjectTextureAsset>
+  <DisplayName>Fuel</DisplayName>
+  <Rarity>Common</Rarity>
+</CardData>
