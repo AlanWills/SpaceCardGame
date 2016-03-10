@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using _2DEngine;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework.Content;
+using CardGameEngineData;
 
 namespace CardGameEngine
 {
@@ -6,7 +9,7 @@ namespace CardGameEngine
     /// A class for the player's cards and decks.
     /// Singleton.
     /// </summary>
-    public class PlayerCardRegistry
+    public class PlayerCardRegistry : IAsset
     {
         #region Properties and Fields
 
@@ -29,7 +32,8 @@ namespace CardGameEngine
         /// </summary>
         public Deck[] Decks { get; private set; }
 
-        public const int maxDeckNumber = 1;
+        public const int maxDeckNumber = 8;
+        private const string PlayerCardRegistryDataAsset = "Content\\Data\\Player\\PlayerCardRegistryData.xml";
 
         #endregion
 
@@ -37,6 +41,21 @@ namespace CardGameEngine
         {
             AvailableCards = new List<string>();
             Decks = new Deck[maxDeckNumber];
+
+        }
+
+        /// <summary>
+        /// Load our player's card and deck data.
+        /// </summary>
+        /// <param name="content"></param>
+        public void LoadAssets(ContentManager content)
+        {
+            PlayerCardRegistryData playerData = AssetManager.GetData<PlayerCardRegistryData>(PlayerCardRegistryDataAsset);
+            DebugUtils.AssertNotNull(playerData);
+
+            AvailableCards.AddRange(playerData.CardDataAssets);
+
+            // Load decks too
         }
     }
 }

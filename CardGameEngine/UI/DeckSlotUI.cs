@@ -1,6 +1,5 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace CardGameEngine
 {
@@ -87,8 +86,7 @@ namespace CardGameEngine
             }
             else
             {
-                // If we have no deck, hide our image, and disable our edit and delete buttons - we have nothing to edit or delete!
-                ShouldDraw.Value = false;
+                // If we have no deck, disable our edit and delete buttons - we have nothing to edit or delete!
                 EditButton.Disable();
                 DeleteButton.Disable();
             }
@@ -114,7 +112,10 @@ namespace CardGameEngine
         /// <param name="image"></param>
         private void EditButton_OnLeftClicked(IClickable image)
         {
-            // Transition
+            DebugUtils.AssertNotNull(Deck);
+            DebugUtils.AssertNotNull(ScreenManager.Instance.CurrentScreen as MenuScreen);
+
+            ScreenManager.Instance.Transition(new DeckEditingScreen(Deck, ScreenManager.Instance.CurrentScreen as MenuScreen));
         }
 
         /// <summary>
@@ -140,14 +141,12 @@ namespace CardGameEngine
 
             if (deckExists)
             {
-                ShouldDraw.Value = true;
                 CreateButton.Disable();
                 EditButton.Enable();
                 DeleteButton.Enable();
             }
             else
             {
-                ShouldDraw.Value = false;
                 CreateButton.Enable();
                 EditButton.Disable();
                 DeleteButton.Disable();

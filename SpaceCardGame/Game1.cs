@@ -2,7 +2,6 @@
 using CardGameEngine;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using SpaceCardGame.Screens;
 
 namespace SpaceCardGame
@@ -20,13 +19,14 @@ namespace SpaceCardGame
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             // Uncomment this to set the window to the same size as the current screen resolution
-            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - 75; // -75 just to take into account the taskbar
             graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
             // If you have a crash for whatever reason in whilst you are debugging and you are in fullscreen, it is a pain in the ass
             // Do not enable fullscreen whilst debugging unless you are CERTAIN you have a stable program
 #if !DEBUG
             // Uncomment this to enable fullscreen
+            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             graphics.IsFullScreen = true;
 #endif
         }
@@ -44,6 +44,7 @@ namespace SpaceCardGame
             ScreenManager.Instance.Initialise();
 
             StartupLogoScreen.LoadAssets += CentralCardRegistry.LoadAssets;
+            StartupLogoScreen.LoadAssets += PlayerCardRegistry.Instance.LoadAssets;
 
             ScreenManager.Instance.StartGame(new MainMenuScreen());
         }

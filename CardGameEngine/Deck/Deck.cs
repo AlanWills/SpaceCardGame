@@ -1,5 +1,6 @@
 ﻿using _2DEngine;
 using CardGameEngineData;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace CardGameEngine
@@ -7,12 +8,12 @@ namespace CardGameEngine
     /// <summary>
     /// A class representing our current usable deck - cards chosen from the player's registry
     /// </summary>
-    public class Deck : Component
+    public class Deck : List<CardData>
     {
         /// <summary>
-        /// A list of our deck's card data
+        /// The name of the deck
         /// </summary>
-        public List<CardData> CardData { get; private set; }
+        public string Name { get; set; }
 
         public Deck()
         {
