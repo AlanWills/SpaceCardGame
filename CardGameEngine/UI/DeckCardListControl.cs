@@ -174,7 +174,7 @@ namespace CardGameEngine
 #region Card Image Callbacks
 
         /// <summary>
-        /// The function to call when one of our cards is clicked on - removes it from the deck and this UI.
+        /// The function to call when one of our cards is clicked on - removes it from the deck and this UI and rebuilds our list.
         /// </summary>
         /// <param name="image">The image we clicked on</param>
         private void CardImage_OnRightClicked(IClickable clickable)
@@ -189,6 +189,8 @@ namespace CardGameEngine
             Deck.Remove(cardData);
 
             image.Die();
+
+            RebuildList();
         }
 
 #endregion
