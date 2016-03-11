@@ -10,6 +10,11 @@ namespace CardGameEngineData
         public string ObjectTextureAsset { get; set; }
 
         /// <summary>
+        /// The type of this card
+        /// </summary>
+        public string Type { get; set; }
+
+        /// <summary>
         /// The name of the card (for UI purposes)
         /// </summary>
         public string DisplayName { get; set; }

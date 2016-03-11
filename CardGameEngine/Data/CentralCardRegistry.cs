@@ -18,6 +18,7 @@ namespace CardGameEngine
         public static List<string> CardDataAssets { get; set; }
 
         private const string cardRegistryDataPath = "\\Data\\Cards\\CardRegistryData.xml";
+        public const string CardFolderPath = "Content\\Data\\Cards\\";
 
         /// <summary>
         /// Load all the data for the cards.
@@ -31,7 +32,7 @@ namespace CardGameEngine
 
             foreach (string cardDataAsset in cardRegistryData.CardDataAssets)
             {
-                CardData data = AssetManager.GetData<CardData>("Content\\Data\\Cards\\" + cardDataAsset);
+                CardData data = AssetManager.GetData<CardData>(CardFolderPath + cardDataAsset);
                 DebugUtils.AssertNotNull(data);
 
                 CardData.Add(cardDataAsset, data);

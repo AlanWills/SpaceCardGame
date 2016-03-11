@@ -5,5 +5,6 @@
     <Item>Resources\Electronics\ElectronicsResourceCard.xml</Item>
     <Item>Resources\Fuel\FuelResourceCard.xml</Item>
     <Item>Resources\Metal\MetalResourceCard.xml</Item>
+    <Item>Resources\Metal\MetalResourceCard.xml</Item>
   </CardDataAssets>
 </PlayerCardRegistryData>

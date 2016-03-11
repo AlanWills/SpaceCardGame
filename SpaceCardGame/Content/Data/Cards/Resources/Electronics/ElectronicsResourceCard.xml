@@ -2,6 +2,7 @@
 <CardData>
   <TextureAsset>Sprites\Cards\Resources\Electronics\ElectronicsResourceCard</TextureAsset>
   <ObjectTextureAsset></ObjectTextureAsset>
+  <Type>Resource</Type>s
   <DisplayName>Electronics</DisplayName>
   <Rarity>Common</Rarity>
 </CardData>

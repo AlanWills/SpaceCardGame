@@ -25,7 +25,7 @@ namespace CardGameEngine
         /// <summary>
         /// A list of all the available cards that the player has unlocked
         /// </summary>
-        public List<string> AvailableCards { get; private set; }
+        public List<CardData> AvailableCards { get; private set; }
 
         /// <summary>
         /// A data structure for all of the player's decks the player has created
@@ -39,13 +39,15 @@ namespace CardGameEngine
 
         public PlayerCardRegistry()
         {
-            AvailableCards = new List<string>();
+            AvailableCards = new List<CardData>();
             Decks = new Deck[maxDeckNumber];
 
         }
 
         /// <summary>
         /// Load our player's card and deck data.
+        /// Don't copy from the Central Card registry because we want to create multiples instances of the same card.
+        /// If we used the Central Card Registry, they would all be the same?
         /// </summary>
         /// <param name="content"></param>
         public void LoadAssets(ContentManager content)
@@ -53,7 +55,13 @@ namespace CardGameEngine
             PlayerCardRegistryData playerData = AssetManager.GetData<PlayerCardRegistryData>(PlayerCardRegistryDataAsset);
             DebugUtils.AssertNotNull(playerData);
 
-            AvailableCards.AddRange(playerData.CardDataAssets);
+            foreach (string cardAsset in playerData.CardDataAssets)
+            {
+                CardData cardData = AssetManager.GetData<CardData>(CentralCardRegistry.CardFolderPath + cardAsset);
+                DebugUtils.AssertNotNull(cardData);
+
+                AvailableCards.Add(cardData);
+            }
 
             // Load decks too
         }
