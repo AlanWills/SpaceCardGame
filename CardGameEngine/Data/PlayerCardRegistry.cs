@@ -80,6 +80,7 @@ namespace CardGameEngine
                 DebugUtils.AssertNotNull(Decks[deckIndex]);
 
                 Decks[deckIndex].Create(CentralCardRegistry.ConvertToDataList(playerData.ResourceCardDataAssets));
+                Decks[deckIndex].Name = deckData.Name;
 
                 deckIndex++;
             }

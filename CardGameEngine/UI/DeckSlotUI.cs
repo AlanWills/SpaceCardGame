@@ -101,6 +101,11 @@ namespace CardGameEngine
         /// <param name="image"></param>
         private void CreateButton_OnLeftClicked(IClickable image)
         {
+            TextEntryDialogBox deckName = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new TextEntryDialogBox(Deck.Name, "Deck Name", ScreenManager.Instance.ScreenCentre), true, true) as TextEntryDialogBox;
+            TextEntryScript deckNameEntryScript = ScriptManager.Instance.AddObject(new TextEntryScript(deckName), true, true) as TextEntryScript;
+
+            Deck.Create();
+
             UpdateUIStatus();
         }
 
