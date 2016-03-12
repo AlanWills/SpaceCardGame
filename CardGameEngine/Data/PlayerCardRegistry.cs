@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
 using CardGameEngineData;
+using System.Diagnostics;
 
 namespace CardGameEngine
 {
@@ -42,6 +43,10 @@ namespace CardGameEngine
             AvailableCards = new List<CardData>();
             Decks = new Deck[maxDeckNumber];
 
+            for (int i = 0; i < maxDeckNumber; i++)
+            {
+                Decks[i] = new Deck();
+            }
         }
 
         /// <summary>
@@ -52,18 +57,76 @@ namespace CardGameEngine
         /// <param name="content"></param>
         public void LoadAssets(ContentManager content)
         {
-            PlayerCardRegistryData playerData = AssetManager.GetData<PlayerCardRegistryData>(PlayerCardRegistryDataAsset);
+            PlayerCardRegistryData playerData = AssetManager.LoadData<PlayerCardRegistryData>(PlayerCardRegistryDataAsset);
             DebugUtils.AssertNotNull(playerData);
 
-            foreach (string cardAsset in playerData.CardDataAssets)
+            // Load resource cards
+            foreach (string cardAsset in playerData.ResourceCardDataAssets)
             {
-                CardData cardData = AssetManager.GetData<CardData>(CentralCardRegistry.CardFolderPath + cardAsset);
+                // Change this to resource data when we create it
+                CardData cardData = AssetManager.LoadData<CardData>(CentralCardRegistry.CardFolderPath + cardAsset);
                 DebugUtils.AssertNotNull(cardData);
 
                 AvailableCards.Add(cardData);
             }
 
             // Load decks too
+            Debug.Assert(playerData.Decks.Count <= maxDeckNumber);
+
+            int deckIndex = 0;
+            foreach (DeckData deckData in playerData.Decks)
+            {
+                Debug.Assert(deckIndex < maxDeckNumber);
+                DebugUtils.AssertNotNull(Decks[deckIndex]);
+
+                Decks[deckIndex].Create(CentralCardRegistry.ConvertToDataList(playerData.ResourceCardDataAssets));
+
+                deckIndex++;
+            }
+        }
+
+        /// <summary>
+        /// Save our player's configuration to XML.
+        /// </summary>
+        public void SaveAssets()
+        {
+            // Create a map of card types and a list of card assets we will serialize
+            Dictionary<string, List<string>> dataMap = new Dictionary<string, List<string>>();
+
+            // Set up all of our lists of card data for each resource type
+            foreach (string cardType in CentralCardRegistry.CardTypes)
+            {
+                dataMap.Add(cardType, new List<string>());
+            }
+
+            // Loop through our available cards and add them into the appropriate list in our map
+            foreach (CardData cardData in AvailableCards)
+            {
+                Debug.Assert(dataMap.ContainsKey(cardData.Type));
+                Debug.Assert(CentralCardRegistry.CardData.ContainsValue(cardData));
+
+                dataMap[cardData.Type].Add(CentralCardRegistry.FindCardDataAsset(cardData));
+            }
+
+            // This is fragile at the moment - need to have a way of mapping card type to Asset list
+            PlayerCardRegistryData playerData = new PlayerCardRegistryData();
+            playerData.ResourceCardDataAssets = dataMap["Resource"];
+
+            // Now add our decks to our data
+            for (int i = 0; i < maxDeckNumber; i++)
+            {
+                if (Decks[i].IsCreated)
+                {
+                    // If we have created this deck then create deck data and add to our PlayerCardRegistryData
+                    DeckData deckData = new DeckData();
+                    deckData.CardDataAssets = CentralCardRegistry.ConvertToAssetList(Decks[i]);
+
+                    playerData.Decks.Add(deckData);
+                }
+            }
+
+            // Save our player card registry data
+            AssetManager.SaveData(playerData, PlayerCardRegistryDataAsset);
         }
     }
 }

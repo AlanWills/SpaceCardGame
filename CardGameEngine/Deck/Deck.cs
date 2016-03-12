@@ -1,7 +1,6 @@
-﻿using _2DEngine;
-using CardGameEngineData;
-using System.Collections;
+﻿using CardGameEngineData;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace CardGameEngine
 {
@@ -10,14 +9,65 @@ namespace CardGameEngine
     /// </summary>
     public class Deck : List<CardData>
     {
+        #region Properties and Fields
+
         /// <summary>
         /// The name of the deck
         /// </summary>
         public string Name { get; set; }
 
+        /// <summary>
+        /// A flag to indicate that this deck has been created.
+        /// All decks are constructed at startup so that we can pass references, but we still need them to be 'created' in the manager screen.
+        /// </summary>
+        public bool IsCreated { get; private set; }
+
+        #endregion
+
         public Deck()
         {
-
+            Name = "";
         }
+
+        #region Creation/State methods
+
+        /// <summary>
+        /// The function to call to create a deck and mark it as created.
+        /// </summary>
+        public void Create()
+        {
+            Debug.Assert(!IsCreated);
+            IsCreated = true;
+        }
+
+        /// <summary>
+        /// Creates a list and adds the inputted cards to it.
+        /// </summary>
+        /// <param name="cards">The initial cards to add to this deck</param>
+        public void Create(List<CardData> cards)
+        {
+            Create();
+
+            AddRange(cards);
+        }
+
+        /// <summary>
+        /// The function to call to remove a deck and mark it as not created.
+        /// Sends any cards inside of it back to the PlayerCardRegistry.
+        /// </summary>
+        public void Delete()
+        {
+            // Send all cards back to our PlayerCardRegistry.
+            PlayerCardRegistry.Instance.AvailableCards.AddRange(this);
+
+            // Clear our deck and mark it as not created.
+            Clear();
+            IsCreated = false;
+        }
+
+        #endregion
+
+        // Create the deck as an empty list and store flags for whether it's been created etc. rather than storing null to begin with in PlayerCardRegistry.
+        // This SHOULD mean we can pass the deck reference around rather than the index
     }
 }

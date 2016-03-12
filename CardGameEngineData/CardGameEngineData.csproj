@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Cards\CardData.cs" />
     <Compile Include="Cards\CardRegistryData.cs" />
+    <Compile Include="Cards\DeckData.cs" />
     <Compile Include="Player\PlayerCardRegistryData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

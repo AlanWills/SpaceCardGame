@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <CardRegistryData>
-  <CardDataAssets>
+  <ResourceCardDataAssets>
     <Item>Resources\Crew\CrewResourceCard.xml</Item>
     <Item>Resources\Electronics\ElectronicsResourceCard.xml</Item>
     <Item>Resources\Fuel\FuelResourceCard.xml</Item>
     <Item>Resources\Metal\MetalResourceCard.xml</Item>
-  </CardDataAssets>
+  </ResourceCardDataAssets>
 </CardRegistryData>

@@ -33,8 +33,11 @@ namespace CardGameEngine
 
             TabControl tabControl = AddScreenUIObject(new TabControl(new Vector2(ScreenDimensions.X, tabControlHeight), new Vector2(ScreenCentre.X, tabControlHeight * 0.5f))) as TabControl;
 
-            // Add a DeckCardTypeControl for Resource type
-            tabControl.AddObject(new DeckCardTypeControl(Deck, "Resource", new Vector2(ScreenDimensions.X, ScreenDimensions.Y - tabControlHeight), new Vector2(0, ScreenCentre.Y)));
+            // Add a DeckCardTypeControl for each resource type
+            foreach (string cardType in CentralCardRegistry.CardTypes)
+            {
+                tabControl.AddObject(new DeckCardTypeControl(Deck, cardType, new Vector2(ScreenDimensions.X, ScreenDimensions.Y - tabControlHeight), new Vector2(0, ScreenCentre.Y)));
+            }
         }
 
         #endregion

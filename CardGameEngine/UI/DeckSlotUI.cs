@@ -62,10 +62,9 @@ namespace CardGameEngine
             base.Initialise();
 
             // Use this to change the initial state of our UI
-            bool deckExists = Deck != null;
             float padding = 5;
 
-            string deckName = deckExists ? Deck.Name : "";
+            string deckName = Deck.IsCreated ? Deck.Name : "";
             DeckName = AddObject(new Label(deckName, new Vector2(0, -(Size.Y * 0.5f + padding))), true, true) as Label;
 
             CreateButton = AddObject(new Button("Create", new Vector2(0, Size.Y * 0.5f + padding)), true, true) as Button;
@@ -79,7 +78,7 @@ namespace CardGameEngine
             DeleteButton.OnLeftClicked += DeleteButton_OnLeftClicked;
             DeleteButton.SetParent(EditButton, true);
 
-            if (deckExists)
+            if (Deck.IsCreated)
             {
                 // If we have a deck then disable our create button - a deck already exists!
                 CreateButton.Disable();
@@ -102,7 +101,6 @@ namespace CardGameEngine
         /// <param name="image"></param>
         private void CreateButton_OnLeftClicked(IClickable image)
         {
-            Deck = new Deck();
             UpdateUIStatus();
         }
 
@@ -124,7 +122,6 @@ namespace CardGameEngine
         /// <param name="image"></param>
         private void DeleteButton_OnLeftClicked(IClickable image)
         {
-            Deck = null;
             UpdateUIStatus();
         }
 
@@ -137,9 +134,7 @@ namespace CardGameEngine
         /// </summary>
         private void UpdateUIStatus()
         {
-            bool deckExists = Deck != null;
-
-            if (deckExists)
+            if (Deck.IsCreated)
             {
                 CreateButton.Disable();
                 EditButton.Enable();

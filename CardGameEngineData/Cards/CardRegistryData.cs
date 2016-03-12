@@ -11,6 +11,6 @@ namespace CardGameEngineData
         /// Do not need to add 'Content\Data\Cards\' on the front, e.g. an item in the XML may be <Item>Resources\Crew\CrewResourceCard.xml</Item>
         /// </summary>
         [XmlArrayItem(ElementName = "Item")]
-        public List<string> CardDataAssets { get; set; }
+        public List<string> ResourceCardDataAssets { get; set; }
     }
 }

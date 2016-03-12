@@ -73,6 +73,12 @@ namespace CardGameEngine
             // Do this here because we need to add the IncludePredicate before we initialise the control.
             AddObject(DeckCardListControl, true, true);
 
+            // Add a save button here which will serialise the deck to XML
+            // Don't parent to list control because otherwise it will move when we scroll
+            Button saveButton = AddObject(new Button("Save Deck", Size * 0.5f), true, true) as Button;
+            saveButton.LocalPosition -= saveButton.Size * 0.5f;
+            saveButton.OnLeftClicked += SaveDeck;
+
             RegistryCardListControl = new CardGridControl(PlayerCardRegistry.Instance.AvailableCards, registryColumns, new Vector2(Size.X * (1 - ratio), Size.Y), new Vector2(-ratio * 0.5f * Size.X, 0));
             // Find all cards of our type that are also not in our deck already
             RegistryCardListControl.IncludePredicate = new Predicate<CardData>(x => x.Type == CardType && !Deck.Exists(y => ReferenceEquals(y, x)));
@@ -128,6 +134,17 @@ namespace CardGameEngine
             PlayerCardRegistry.Instance.AvailableCards.Remove(cardData);
 
             DeckCardListControl.AddCard(cardData);
+        }
+
+        /// <summary>
+        /// The function to call when our save button is clicked.
+        /// Saves the deck to XML.
+        /// </summary>
+        /// <param name="clickable"></param>
+        private void SaveDeck(IClickable clickable)
+        {
+            //Deck.Save();
+            PlayerCardRegistry.Instance.Decks[0] = Deck;
         }
 
         #endregion
