@@ -1,5 +1,6 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
+using System.Diagnostics;
 
 namespace CardGameEngine
 {
@@ -12,9 +13,9 @@ namespace CardGameEngine
         #region Properties and Fields
 
         /// <summary>
-        /// A label displaying the deck's name, or empty if no deck exists
+        /// A button displaying the deck's name; hidden if no deck exists
         /// </summary>
-        private Label DeckName { get; set; }
+        private Button DeckNameButton { get; set; }
 
         /// <summary>
         /// A button for creating a deck for this thumbnail.  
@@ -64,8 +65,8 @@ namespace CardGameEngine
             // Use this to change the initial state of our UI
             float padding = 5;
 
-            string deckName = Deck.IsCreated ? Deck.Name : "";
-            DeckName = AddObject(new Label(deckName, new Vector2(0, -(Size.Y * 0.5f + padding))), true, true) as Label;
+            DeckNameButton = AddObject(new Button(Deck.Name, new Vector2(0, -(Size.Y * 0.5f + padding))), true, true) as Button;
+            DeckNameButton.OnLeftClicked += DeckNameButton_OnLeftClicked;
 
             CreateButton = AddObject(new Button("Create", new Vector2(0, Size.Y * 0.5f + padding)), true, true) as Button;
             CreateButton.OnLeftClicked += CreateButton_OnLeftClicked;
@@ -78,22 +79,23 @@ namespace CardGameEngine
             DeleteButton.OnLeftClicked += DeleteButton_OnLeftClicked;
             DeleteButton.SetParent(EditButton, true);
 
-            if (Deck.IsCreated)
-            {
-                // If we have a deck then disable our create button - a deck already exists!
-                CreateButton.Disable();
-            }
-            else
-            {
-                // If we have no deck, disable our edit and delete buttons - we have nothing to edit or delete!
-                EditButton.Disable();
-                DeleteButton.Disable();
-            }
+            UpdateUIStatus();
         }
 
         #endregion
 
         #region Event Callbacks
+
+        /// <summary>
+        /// Brings up a dialog box for editing the deck's name
+        /// </summary>
+        /// <param name="clickable">The button which fires this event</param>
+        private void DeckNameButton_OnLeftClicked(IClickable clickable)
+        {
+            TextEntryDialogBox deckName = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new TextEntryDialogBox(Deck.Name, "Deck Name", ScreenManager.Instance.ScreenCentre), true, true) as TextEntryDialogBox;
+            TextEntryScript deckNameEntryScript = ScriptManager.Instance.AddObject(new TextEntryScript(deckName), true, true) as TextEntryScript;
+            deckNameEntryScript.OnDeathCallback += EnterDeckName;
+        }
 
         /// <summary>
         /// Creates a deck and updates UI
@@ -103,6 +105,7 @@ namespace CardGameEngine
         {
             TextEntryDialogBox deckName = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new TextEntryDialogBox(Deck.Name, "Deck Name", ScreenManager.Instance.ScreenCentre), true, true) as TextEntryDialogBox;
             TextEntryScript deckNameEntryScript = ScriptManager.Instance.AddObject(new TextEntryScript(deckName), true, true) as TextEntryScript;
+            deckNameEntryScript.OnDeathCallback += EnterDeckName;
 
             Deck.Create();
 
@@ -130,6 +133,19 @@ namespace CardGameEngine
             UpdateUIStatus();
         }
 
+        /// <summary>
+        /// Enters the name for the deck.
+        /// </summary>
+        /// <param name="image"></param>
+        private void EnterDeckName(Script script)
+        {
+            Debug.Assert(script is TextEntryScript);
+
+            TextEntryScript textEntryScript = script as TextEntryScript;
+            Deck.Name = textEntryScript.TextEntryDialogBox.TextEntryControl.Text;
+            DeckNameButton.Label.Text = Deck.Name;
+        }
+
         #endregion
 
         #region Utility Function
@@ -141,12 +157,14 @@ namespace CardGameEngine
         {
             if (Deck.IsCreated)
             {
+                DeckNameButton.Enable();
                 CreateButton.Disable();
                 EditButton.Enable();
                 DeleteButton.Enable();
             }
             else
             {
+                DeckNameButton.Disable();
                 CreateButton.Enable();
                 EditButton.Disable();
                 DeleteButton.Disable();

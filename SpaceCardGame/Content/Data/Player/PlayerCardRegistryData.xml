@@ -1,10 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <PlayerCardRegistryData>
   <ResourceCardDataAssets>
-    <Item>Resources\Crew\CrewResourceCard.xml</Item>
-    <Item>Resources\Electronics\ElectronicsResourceCard.xml</Item>
-    <Item>Resources\Fuel\FuelResourceCard.xml</Item>
-    <Item>Resources\Metal\MetalResourceCard.xml</Item>
-    <Item>Resources\Metal\MetalResourceCard.xml</Item>
+    <Item>Resources\CrewResource\CrewResource.xml</Item>
+    <Item>Resources\ElectronicsResource\ElectronicsResource.xml</Item>
+    <Item>Resources\FuelResource\FuelResource.xml</Item>
+    <Item>Resources\MetalResource\MetalResource.xml</Item>
+    <Item>Resources\MetalResource\MetalResource.xml</Item>
   </ResourceCardDataAssets>
+  <ShipCardDataAssets>
+    <Item>Ships\BlazeInterceptor\BlazeInterceptor.xml</Item>
+  </ShipCardDataAssets>
 </PlayerCardRegistryData>

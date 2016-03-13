@@ -41,6 +41,7 @@ namespace CardGameEngine
             CardData = new Dictionary<string, CardData>();
 
             LoadCardType<CardData>(content, cardRegistryData.ResourceCardDataAssets, "Resource");
+            LoadCardType<CardData>(content, cardRegistryData.ShipCardDataAssets, "Ship");
 
             IsLoaded = true;
         }

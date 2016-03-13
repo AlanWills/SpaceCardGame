@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<CardData>
-  <TextureAsset>Sprites\Cards\Resources\Crew\CrewResourceCard</TextureAsset>
-  <ObjectTextureAsset></ObjectTextureAsset>
-  <Type>Resource</Type>
-  <DisplayName>Crew</DisplayName>
-  <Rarity>Common</Rarity>
-</CardData>

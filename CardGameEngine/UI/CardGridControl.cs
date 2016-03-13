@@ -85,17 +85,6 @@ namespace CardGameEngine
             RebuildList();
         }
 
-        /// <summary>
-        /// Rebuild our list if we have flagged that we need to.
-        /// </summary>
-        /// <param name="elapsedGameTime"></param>
-        public override void Update(float elapsedGameTime)
-        {
-            base.Update(elapsedGameTime);
-
-            
-        }
-
         #endregion
 
         #region Utility Functions

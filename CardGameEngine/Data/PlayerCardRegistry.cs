@@ -60,15 +60,8 @@ namespace CardGameEngine
             PlayerCardRegistryData playerData = AssetManager.LoadData<PlayerCardRegistryData>(PlayerCardRegistryDataAsset);
             DebugUtils.AssertNotNull(playerData);
 
-            // Load resource cards
-            foreach (string cardAsset in playerData.ResourceCardDataAssets)
-            {
-                // Change this to resource data when we create it
-                CardData cardData = AssetManager.LoadData<CardData>(CentralCardRegistry.CardFolderPath + cardAsset);
-                DebugUtils.AssertNotNull(cardData);
-
-                AvailableCards.Add(cardData);
-            }
+            LoadCardType<CardData>(content, playerData.ResourceCardDataAssets);
+            LoadCardType<CardData>(content, playerData.ShipCardDataAssets);
 
             // Load decks too
             Debug.Assert(playerData.Decks.Count <= maxDeckNumber);
@@ -79,7 +72,7 @@ namespace CardGameEngine
                 Debug.Assert(deckIndex < maxDeckNumber);
                 DebugUtils.AssertNotNull(Decks[deckIndex]);
 
-                Decks[deckIndex].Create(CentralCardRegistry.ConvertToDataList(playerData.ResourceCardDataAssets));
+                //Decks[deckIndex].Create(Player.CardData);
                 Decks[deckIndex].Name = deckData.Name;
 
                 deckIndex++;
@@ -129,5 +122,29 @@ namespace CardGameEngine
             // Save our player card registry data
             AssetManager.SaveData(playerData, PlayerCardRegistryDataAsset);
         }
+
+        #region Utility Functions for saving and loading
+
+        /// <summary>
+        /// Load our resource cards
+        /// </summary>
+        /// <param name="content"></param>
+        private void LoadCardType<T>(ContentManager content, List<string> assetsToLoad) where T : CardData
+        {
+            // Check we actually have cards to load
+            Debug.Assert(assetsToLoad.Count > 0);
+
+            // Load the resource cards
+            foreach (string cardDataAsset in assetsToLoad)
+            {
+                // Add resource data when we implement it
+                CardData data = AssetManager.LoadData<T>(CentralCardRegistry.CardFolderPath + cardDataAsset);
+                DebugUtils.AssertNotNull(data);
+
+                AvailableCards.Add(data);
+            }
+        }
+
+        #endregion
     }
 }

@@ -34,7 +34,7 @@ namespace CardGameEngine
                 int row = i / columns;
                 int column = (i % columns) + 1;
 
-                Vector2 position = new Vector2(column * ScreenDimensions.X / (columns + 2), ScreenDimensions.Y * (0.25f + row * 0.4f));
+                Vector2 position = new Vector2(column * ScreenDimensions.X / (columns + 2), ScreenDimensions.Y * (0.2f + row * 0.5f));
 
                 AddScreenUIObject(new DeckSlotUI(PlayerCardRegistry.Instance.Decks[i], slotSize, position));
             }

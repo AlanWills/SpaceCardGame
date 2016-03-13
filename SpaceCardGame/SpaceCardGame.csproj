@@ -60,16 +60,19 @@
     <Content Include="Content\Data\Cards\CardRegistryData.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Data\Cards\Resources\Crew\CrewResourceCard.xml">
+    <Content Include="Content\Data\Cards\Resources\CrewResource\CrewResource.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Data\Cards\Resources\Electronics\ElectronicsResourceCard.xml">
+    <Content Include="Content\Data\Cards\Resources\ElectronicsResource\ElectronicsResource.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Data\Cards\Resources\Fuel\FuelResourceCard.xml">
+    <Content Include="Content\Data\Cards\Resources\FuelResource\FuelResource.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Data\Cards\Resources\Metal\MetalResourceCard.xml">
+    <Content Include="Content\Data\Cards\Resources\MetalResource\MetalResource.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Cards\Ships\BlazeInterceptor\BlazeInterceptor.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Player\PlayerCardRegistryData.xml">
@@ -99,19 +102,49 @@
     <Content Include="Content\Effects\LightEffect.fx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Sprites\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbility.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Sprites\Cards\Back.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Resources\Crew\CrewResourceCard.png">
+    <Content Include="Content\Sprites\Cards\Defence\Shields\PhaseEnergyShield\PhaseEnergyShield.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Resources\Electronics\ElectronicsResourceCard.png">
+    <Content Include="Content\Sprites\Cards\Resources\CrewResource\CrewResource.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Resources\Fuel\FuelResourceCard.png">
+    <Content Include="Content\Sprites\Cards\Resources\ElectronicsResource\ElectronicsResource.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Resources\Metal\MetalResourceCard.png">
+    <Content Include="Content\Sprites\Cards\Resources\FuelResource\FuelResource.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\Resources\MetalResource\MetalResource.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\Ships\BlazeInterceptor\BlazeInterceptor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\Ships\EagleFrigate\EagleFrigate.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\Ships\VenatorCruiser\VenatorCruiser.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\Ships\WaspFighter\WaspFighter.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\Stations\BastionShipyard\BastionShipyard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurret.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurret.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurret.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\UI\Menu.png">
@@ -181,24 +214,25 @@
     <Content Include="Content\Sprites\Cards\Back.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Resources\Crew\CrewResourceCard.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Sprites\Cards\Resources\Electronics\ElectronicsResourceCard.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Sprites\Cards\Resources\Fuel\FuelResourceCard.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Sprites\Cards\Resources\Metal\MetalResourceCard.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\Sprites\UI\Menu.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\UI\TextEntryBox.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Content\Sprites\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbility.xnb" />
+    <None Include="Content\Sprites\Cards\Defence\Shields\PhaseEnergyShield\PhaseEnergyShield.xnb" />
+    <None Include="Content\Sprites\Cards\Resources\CrewResource\CrewResource.xnb" />
+    <None Include="Content\Sprites\Cards\Resources\ElectronicsResource\ElectronicsResource.xnb" />
+    <None Include="Content\Sprites\Cards\Resources\FuelResource\FuelResource.xnb" />
+    <None Include="Content\Sprites\Cards\Resources\MetalResource\MetalResource.xnb" />
+    <None Include="Content\Sprites\Cards\Ships\BlazeInterceptor\BlazeInterceptor.xnb" />
+    <None Include="Content\Sprites\Cards\Ships\EagleFrigate\EagleFrigate.xnb" />
+    <None Include="Content\Sprites\Cards\Ships\VenatorCruiser\VenatorCruiser.xnb" />
+    <None Include="Content\Sprites\Cards\Ships\WaspFighter\WaspFighter.xnb" />
+    <None Include="Content\Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurret.xnb" />
+    <None Include="Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurret.xnb" />
+    <None Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurret.xnb" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\2DEngine\2DEngineData\2DEngineData.csproj">
