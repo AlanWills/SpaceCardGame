@@ -44,7 +44,6 @@ namespace SpaceCardGame
             ScreenManager.Instance.Initialise();
 
             StartupLogoScreen.LoadAssets += CentralCardRegistry.LoadAssets;
-            StartupLogoScreen.LoadAssets += PlayerCardRegistry.Instance.LoadAssets;
 
             ScreenManager.Instance.StartGame(new MainMenuScreen());
         }

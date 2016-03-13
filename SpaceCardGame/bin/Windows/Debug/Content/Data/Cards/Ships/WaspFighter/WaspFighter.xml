@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CardData>
+  <TextureAsset>Sprites\Cards\Ships\WaspFighter\WaspFighter</TextureAsset>
+  <ObjectTextureAsset></ObjectTextureAsset>
+  <Type>Ship</Type>
+  <DisplayName>Wasp Fighter</DisplayName>
+  <Rarity>Common</Rarity>
+</CardData>

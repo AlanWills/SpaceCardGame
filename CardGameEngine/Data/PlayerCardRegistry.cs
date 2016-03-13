@@ -10,7 +10,7 @@ namespace CardGameEngine
     /// A class for the player's cards and decks.
     /// Singleton.
     /// </summary>
-    public class PlayerCardRegistry : IAsset
+    public class PlayerCardRegistry
     {
         #region Properties and Fields
 
@@ -33,20 +33,15 @@ namespace CardGameEngine
         /// </summary>
         public Deck[] Decks { get; private set; }
 
+        public const string playerCardRegistryDataAsset = "\\Data\\Player\\PlayerCardRegistryData.xml";
+        public const string startingCardRegistryDataAsset = "\\Data\\Player\\StartingPlayerCardRegistryData.xml";
         public const int maxDeckNumber = 8;
-        private const string PlayerCardRegistryDataAsset = "Content\\Data\\Player\\PlayerCardRegistryData.xml";
 
         #endregion
 
         public PlayerCardRegistry()
         {
-            AvailableCards = new List<CardData>();
-            Decks = new Deck[maxDeckNumber];
-
-            for (int i = 0; i < maxDeckNumber; i++)
-            {
-                Decks[i] = new Deck();
-            }
+            
         }
 
         /// <summary>
@@ -55,13 +50,24 @@ namespace CardGameEngine
         /// If we used the Central Card Registry, they would all be the same?
         /// </summary>
         /// <param name="content"></param>
-        public void LoadAssets(ContentManager content)
+        public void LoadAssets(string path)
         {
-            PlayerCardRegistryData playerData = AssetManager.LoadData<PlayerCardRegistryData>(PlayerCardRegistryDataAsset);
+            AvailableCards = new List<CardData>();
+            Decks = new Deck[maxDeckNumber];
+
+            for (int i = 0; i < maxDeckNumber; i++)
+            {
+                Decks[i] = new Deck();
+            }
+
+            PlayerCardRegistryData playerData = AssetManager.LoadData<PlayerCardRegistryData>("Content" + path);
             DebugUtils.AssertNotNull(playerData);
 
-            LoadCardType<CardData>(content, playerData.ResourceCardDataAssets);
-            LoadCardType<CardData>(content, playerData.ShipCardDataAssets);
+            LoadCardType<CardData>(playerData.AbilityCardDataAssets);
+            LoadCardType<CardData>(playerData.DefenceCardDataAssets);
+            LoadCardType<CardData>(playerData.ResourceCardDataAssets);
+            LoadCardType<CardData>(playerData.ShipCardDataAssets);
+            LoadCardType<CardData>(playerData.WeaponCardDataAssets);
 
             // Load decks too
             Debug.Assert(playerData.Decks.Count <= maxDeckNumber);
@@ -104,7 +110,11 @@ namespace CardGameEngine
 
             // This is fragile at the moment - need to have a way of mapping card type to Asset list
             PlayerCardRegistryData playerData = new PlayerCardRegistryData();
+            playerData.ResourceCardDataAssets = dataMap["Ability"];
+            playerData.ResourceCardDataAssets = dataMap["Defence"];
             playerData.ResourceCardDataAssets = dataMap["Resource"];
+            playerData.ResourceCardDataAssets = dataMap["Ship"];
+            playerData.ResourceCardDataAssets = dataMap["Weapon"];
 
             // Now add our decks to our data
             for (int i = 0; i < maxDeckNumber; i++)
@@ -120,7 +130,7 @@ namespace CardGameEngine
             }
 
             // Save our player card registry data
-            AssetManager.SaveData(playerData, PlayerCardRegistryDataAsset);
+            AssetManager.SaveData(playerData, playerCardRegistryDataAsset);
         }
 
         #region Utility Functions for saving and loading
@@ -129,7 +139,7 @@ namespace CardGameEngine
         /// Load our resource cards
         /// </summary>
         /// <param name="content"></param>
-        private void LoadCardType<T>(ContentManager content, List<string> assetsToLoad) where T : CardData
+        private void LoadCardType<T>(List<string> assetsToLoad) where T : CardData
         {
             // Check we actually have cards to load
             Debug.Assert(assetsToLoad.Count > 0);

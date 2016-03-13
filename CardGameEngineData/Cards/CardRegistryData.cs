@@ -7,6 +7,20 @@ namespace CardGameEngineData
     public class CardRegistryData : BaseData
     {
         /// <summary>
+        /// The central list of all the available ability cards in the game.
+        /// Do not need to add 'Content\Data\Cards\' on the front, e.g. an item in the XML may be <Item>Abilities\MissileBarrageAbility\MissileBarrageAbility.xml</Item>
+        /// </summary>
+        [XmlArrayItem(ElementName = "Item")]
+        public List<string> AbilityCardDataAssets { get; set; }
+
+        /// <summary>
+        /// The central list of all the available defence cards in the game.
+        /// Do not need to add 'Content\Data\Cards\' on the front, e.g. an item in the XML may be <Item>Defence\Shields\PhaseEnergyShield\PhaseEnergyShield.xml</Item>
+        /// </summary>
+        [XmlArrayItem(ElementName = "Item")]
+        public List<string> DefenceCardDataAssets { get; set; }
+
+        /// <summary>
         /// The central list of all the available resource cards in the game.
         /// Do not need to add 'Content\Data\Cards\' on the front, e.g. an item in the XML may be <Item>Resources\Crew\CrewResourceCard.xml</Item>
         /// </summary>
@@ -15,9 +29,16 @@ namespace CardGameEngineData
 
         /// <summary>
         /// The central list of all the available ship cards in the game.
-        /// Do not need to add 'Content\Data\Cards\' on the front, e.g. an item in the XML may be <Item>Resources\Crew\CrewResourceCard.xml</Item>
+        /// Do not need to add 'Content\Data\Cards\' on the front, e.g. an item in the XML may be <Item>Ships\BlazeInterceptor\BlazeInterceptor.xml</Item>
         /// </summary>
         [XmlArrayItem(ElementName = "Item")]
         public List<string> ShipCardDataAssets { get; set; }
+
+        /// <summary>
+        /// The central list of all the available weapon cards in the game.
+        /// Do not need to add 'Content\Data\Cards\' on the front, e.g. an item in the XML may be <Item>Weapons\Beam\LaserBeamTurret\LaserBeamTurret.xml</Item>
+        /// </summary>
+        [XmlArrayItem(ElementName = "Item")]
+        public List<string> WeaponCardDataAssets { get; set; }
     }
 }

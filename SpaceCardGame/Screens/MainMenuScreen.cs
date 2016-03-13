@@ -1,6 +1,7 @@
 ﻿using _2DEngine;
 using CardGameEngine;
 using Microsoft.Xna.Framework;
+using System.IO;
 
 namespace SpaceCardGame.Screens
 {
@@ -30,9 +31,20 @@ namespace SpaceCardGame.Screens
             float padding = ScreenDimensions.Y * 0.1f;
             BaseObject parent = null;
 
-            Button playButton = AddScreenUIObject(new Button("Play", ScreenCentre)) as Button;
-            playButton.OnLeftClicked += OnPlayGameButtonClicked;
-            parent = playButton;
+            Button newGameButton = AddScreenUIObject(new Button("New Game", new Vector2(ScreenDimensions.X * 0.5f, ScreenDimensions.Y * 0.25f))) as Button;
+            newGameButton.OnLeftClicked += OnNewGameButtonLeftClicked;
+            parent = newGameButton;
+
+            Button continueGameButton = AddScreenUIObject(new Button("Continue", new Vector2(0, padding))) as Button;
+            continueGameButton.SetParent(parent);
+            continueGameButton.OnLeftClicked += OnContinueButtonLeftClicked;
+            parent = continueGameButton;
+
+            // Disable the continue button if we have no saved data file
+            if (!File.Exists(ScreenManager.Instance.Content.RootDirectory + PlayerCardRegistry.playerCardRegistryDataAsset))
+            {
+                continueGameButton.Disable();
+            }
 
             Button deckManagerButton = AddScreenUIObject(new Button("Decks", new Vector2(0, padding))) as Button;
             deckManagerButton.SetParent(parent);
@@ -58,11 +70,25 @@ namespace SpaceCardGame.Screens
         /// The callback to execute when we press the 'Play' button
         /// </summary>
         /// <param name="image">The image that was clicked</param>
-        private void OnPlayGameButtonClicked(IClickable image)
+        private void OnNewGameButtonLeftClicked(IClickable image)
         {
             //Transition(new PlatformGameplayScreen("Content\\Data\\Screens\\Levels\\Level1.xml"));
+            PlayerCardRegistry.Instance.LoadAssets(PlayerCardRegistry.startingCardRegistryDataAsset);
         }
 
+        /// <summary>
+        /// The callback to execute when we press the 'Continue' button
+        /// </summary>
+        /// <param name="image"></param>
+        private void OnContinueButtonLeftClicked(IClickable image)
+        {
+            PlayerCardRegistry.Instance.LoadAssets(PlayerCardRegistry.playerCardRegistryDataAsset);
+        }
+
+        /// <summary>
+        /// The callback to execute when we press the 'Decks' button
+        /// </summary>
+        /// <param name="image"></param>
         private void OnDeckManagerButtonClicked(IClickable image)
         {
             Transition(new DeckManagerScreen(this));

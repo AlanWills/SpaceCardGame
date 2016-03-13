@@ -57,7 +57,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Data\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbility.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Data\Cards\CardRegistryData.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Cards\Defence\Shields\PhaseEnergyShield\PhaseEnergyShield.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Cards\Resources\CrewResource\CrewResource.xml">
@@ -75,7 +81,28 @@
     <Content Include="Content\Data\Cards\Ships\BlazeInterceptor\BlazeInterceptor.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Data\Cards\Ships\EagleFrigate\EagleFrigate.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Cards\Ships\VenatorCruiser\VenatorCruiser.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Cards\Ships\WaspFighter\WaspFighter.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurret.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurret.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurret.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Data\Player\PlayerCardRegistryData.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Player\StartingPlayerCardRegistryData.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Screens\DeckEditingScreen.xml">

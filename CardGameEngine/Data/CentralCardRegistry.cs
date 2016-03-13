@@ -40,8 +40,11 @@ namespace CardGameEngine
             CardTypes = new List<string>();
             CardData = new Dictionary<string, CardData>();
 
+            LoadCardType<CardData>(content, cardRegistryData.AbilityCardDataAssets, "Ability");
+            LoadCardType<CardData>(content, cardRegistryData.DefenceCardDataAssets, "Defence");
             LoadCardType<CardData>(content, cardRegistryData.ResourceCardDataAssets, "Resource");
             LoadCardType<CardData>(content, cardRegistryData.ShipCardDataAssets, "Ship");
+            LoadCardType<CardData>(content, cardRegistryData.WeaponCardDataAssets, "Weapon");
 
             IsLoaded = true;
         }

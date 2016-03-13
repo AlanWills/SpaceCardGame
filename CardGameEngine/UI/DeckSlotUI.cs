@@ -94,7 +94,7 @@ namespace CardGameEngine
         {
             TextEntryDialogBox deckName = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new TextEntryDialogBox(Deck.Name, "Deck Name", ScreenManager.Instance.ScreenCentre), true, true) as TextEntryDialogBox;
             TextEntryScript deckNameEntryScript = ScriptManager.Instance.AddObject(new TextEntryScript(deckName), true, true) as TextEntryScript;
-            deckNameEntryScript.OnDeathCallback += EnterDeckName;
+            deckName.ConfirmButton.OnLeftClicked += EnterDeckName;
         }
 
         /// <summary>
@@ -105,7 +105,7 @@ namespace CardGameEngine
         {
             TextEntryDialogBox deckName = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new TextEntryDialogBox(Deck.Name, "Deck Name", ScreenManager.Instance.ScreenCentre), true, true) as TextEntryDialogBox;
             TextEntryScript deckNameEntryScript = ScriptManager.Instance.AddObject(new TextEntryScript(deckName), true, true) as TextEntryScript;
-            deckNameEntryScript.OnDeathCallback += EnterDeckName;
+            deckName.ConfirmButton.OnLeftClicked += EnterDeckName;
 
             Deck.Create();
 
@@ -137,12 +137,15 @@ namespace CardGameEngine
         /// Enters the name for the deck.
         /// </summary>
         /// <param name="image"></param>
-        private void EnterDeckName(Script script)
+        private void EnterDeckName(IClickable clickable)
         {
-            Debug.Assert(script is TextEntryScript);
+            Debug.Assert(clickable is Button);
+            Button button = clickable as Button;
 
-            TextEntryScript textEntryScript = script as TextEntryScript;
-            Deck.Name = textEntryScript.TextEntryDialogBox.TextEntryControl.Text;
+            Debug.Assert(button.GetParent() is TextEntryDialogBox);
+
+            TextEntryDialogBox dialogBox = button.GetParent() as TextEntryDialogBox;
+            Deck.Name = dialogBox.Text;
             DeckNameButton.Label.Text = Deck.Name;
         }
 

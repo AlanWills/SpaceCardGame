@@ -1,5 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <CardRegistryData>
+  <AbilityCardDataAssets>
+    <Item>Abilities\MissileBarrageAbility\MissileBarrageAbility.xml</Item>
+  </AbilityCardDataAssets>
+  <DefenceCardDataAssets>
+    <Item>Defence\Shields\PhaseEnergyShield\PhaseEnergyShield.xml</Item>
+  </DefenceCardDataAssets>
   <ResourceCardDataAssets>
     <Item>Resources\CrewResource\CrewResource.xml</Item>
     <Item>Resources\ElectronicsResource\ElectronicsResource.xml</Item>
@@ -8,5 +14,13 @@
   </ResourceCardDataAssets>
   <ShipCardDataAssets>
     <Item>Ships\BlazeInterceptor\BlazeInterceptor.xml</Item>
+    <Item>Ships\EagleFrigate\EagleFrigate.xml</Item>
+    <Item>Ships\VenatorCruiser\VenatorCruiser.xml</Item>
+    <Item>Ships\WaspFighter\WaspFighter.xml</Item>
   </ShipCardDataAssets>
+  <WeaponCardDataAssets>
+    <Item>Weapons\Beam\LaserBeamTurret\LaserBeamTurret.xml</Item>
+    <Item>Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurret.xml</Item>
+    <Item>Weapons\Missile\VulcanMissileTurret\VulcanMissileTurret.xml</Item>
+  </WeaponCardDataAssets>
 </CardRegistryData>

@@ -64,7 +64,6 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\Menu.png
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\Menu.xnb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Screens\DeckEditingScreen.xml
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Player\PlayerCardRegistryData.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\TextEntryBox.png
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\TextEntryBox.xnb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbility.png
@@ -99,3 +98,13 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Cards\Resources\FuelResource\FuelResource.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Cards\Resources\MetalResource\MetalResource.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Cards\Ships\BlazeInterceptor\BlazeInterceptor.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbility.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Cards\Defence\Shields\PhaseEnergyShield\PhaseEnergyShield.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Cards\Ships\EagleFrigate\EagleFrigate.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Cards\Ships\VenatorCruiser\VenatorCruiser.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurret.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurret.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurret.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Player\StartingPlayerCardRegistryData.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Cards\Ships\WaspFighter\WaspFighter.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Player\PlayerCardRegistryData.xml
