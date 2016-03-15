@@ -6,16 +6,16 @@ namespace CardGameEngine
     /// <summary>
     /// A screen for managing the player's current decks
     /// </summary>
-    public class DeckManagerScreen : MenuScreen
+    public abstract class DeckManagerScreen : MenuScreen
     {
         #region Properties and Fields
 
         #endregion
 
-        public DeckManagerScreen(MenuScreen previousMenuScreen, string screenDataAsset = "Content\\Data\\Screens\\DeckManagerScreen.xml") :
-            base(previousMenuScreen, screenDataAsset)
+        public DeckManagerScreen(string screenDataAsset = "Content\\Data\\Screens\\DeckManagerScreen.xml") :
+            base(screenDataAsset)
         {
-
+            
         }
 
         #region Virtual Functions
@@ -36,7 +36,9 @@ namespace CardGameEngine
 
                 Vector2 position = new Vector2(column * ScreenDimensions.X / (columns + 2), ScreenDimensions.Y * (0.2f + row * 0.5f));
 
-                AddScreenUIObject(new DeckSlotUI(PlayerCardRegistry.Instance.Decks[i], slotSize, position));
+                DebugUtils.AssertNotNull(PlayerCardRegistry.Instance.Decks[i]);
+                DeckSlotUI deckSlotUI = AddScreenUIObject(new DeckSlotUI(PlayerCardRegistry.Instance.Decks[i], slotSize, position)) as DeckSlotUI;
+                deckSlotUI.StoredObject = PlayerCardRegistry.Instance.Decks[i];
             }
         }
 

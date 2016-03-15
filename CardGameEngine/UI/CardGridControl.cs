@@ -1,9 +1,9 @@
 ﻿using _2DEngine;
 using CardGameEngineData;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace CardGameEngine
 {
@@ -23,6 +23,13 @@ namespace CardGameEngine
         /// A predicate which can be used to indicate whether a card should be added or not.
         /// </summary>
         public Predicate<CardData> IncludePredicate { get; set; }
+
+        /// <summary>
+        /// Optional keyboard keys to trigger the click events if set
+        /// </summary>
+        public Keys LeftClickAccelerator { get; set; }
+        public Keys MiddleClickAccelerator { get; set; }
+        public Keys RightClickAccelerator { get; set; }
 
         // Events we will use for our cards when clicked on
         public event OnClicked OnLeftClicked;
@@ -131,6 +138,11 @@ namespace CardGameEngine
 
             ClickableImage image = AddObject(new ClickableImage(ElementSize, Vector2.Zero, cardData.TextureAsset), true, true) as ClickableImage;
             image.StoredObject = cardData;
+
+            // These are probably not going to be used, but set them up anyway
+            image.LeftClickAccelerator = LeftClickAccelerator;
+            image.MiddleClickAccelerator = MiddleClickAccelerator;
+            image.RightClickAccelerator = RightClickAccelerator;
 
             // Add the click callbacks if they exist
             if (OnLeftClicked != null)

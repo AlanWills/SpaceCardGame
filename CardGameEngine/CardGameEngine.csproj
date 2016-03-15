@@ -58,6 +58,7 @@
     <Compile Include="Screens\DeckEditingScreen.cs" />
     <Compile Include="Screens\DeckManagerScreen.cs" />
     <Compile Include="UI\CardGridControl.cs" />
+    <Compile Include="UI\ChooseDeckBox.cs" />
     <Compile Include="UI\DeckCardTypeControl.cs" />
     <Compile Include="UI\DeckSlotUI.cs" />
   </ItemGroup>

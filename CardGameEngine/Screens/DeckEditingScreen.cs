@@ -1,9 +1,10 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
+using System;
 
 namespace CardGameEngine
 {
-   public class DeckEditingScreen : MenuScreen
+   public abstract class DeckEditingScreen : MenuScreen
     {
         #region Properties and Fields
 
@@ -14,8 +15,8 @@ namespace CardGameEngine
 
         #endregion
 
-        public DeckEditingScreen(Deck deck, MenuScreen previousMenuScreen, string dataAsset = "Content\\Data\\Screens\\DeckEditingScreen.xml") :
-            base(previousMenuScreen, dataAsset)
+        public DeckEditingScreen(Deck deck, string dataAsset = "Content\\Data\\Screens\\DeckEditingScreen.xml") :
+            base(dataAsset)
         {
             Deck = deck;
         }

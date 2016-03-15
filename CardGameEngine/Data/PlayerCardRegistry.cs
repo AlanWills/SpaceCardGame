@@ -1,8 +1,8 @@
 ﻿using _2DEngine;
 using System.Collections.Generic;
-using Microsoft.Xna.Framework.Content;
 using CardGameEngineData;
 using System.Diagnostics;
+using System;
 
 namespace CardGameEngine
 {
@@ -33,6 +33,17 @@ namespace CardGameEngine
         /// </summary>
         public Deck[] Decks { get; private set; }
 
+        /// <summary>
+        /// A property just to return the number of created decks the player has 
+        /// </summary>
+        public int AvailableDecks
+        {
+            get
+            {
+                return Array.FindAll(Decks, x => x.IsCreated).Length;
+            }
+        }
+
         public const string playerCardRegistryDataAsset = "\\Data\\Player\\PlayerCardRegistryData.xml";
         public const string startingCardRegistryDataAsset = "\\Data\\Player\\StartingPlayerCardRegistryData.xml";
         public const int maxDeckNumber = 8;
@@ -41,7 +52,7 @@ namespace CardGameEngine
 
         public PlayerCardRegistry()
         {
-            
+            ScreenManager.Instance.SaveAssets += SaveAssets;
         }
 
         /// <summary>
@@ -103,18 +114,18 @@ namespace CardGameEngine
             foreach (CardData cardData in AvailableCards)
             {
                 Debug.Assert(dataMap.ContainsKey(cardData.Type));
-                Debug.Assert(CentralCardRegistry.CardData.ContainsValue(cardData));
 
                 dataMap[cardData.Type].Add(CentralCardRegistry.FindCardDataAsset(cardData));
             }
 
             // This is fragile at the moment - need to have a way of mapping card type to Asset list
             PlayerCardRegistryData playerData = new PlayerCardRegistryData();
-            playerData.ResourceCardDataAssets = dataMap["Ability"];
-            playerData.ResourceCardDataAssets = dataMap["Defence"];
+            playerData.AbilityCardDataAssets = dataMap["Ability"];
+            playerData.DefenceCardDataAssets = dataMap["Defence"];
             playerData.ResourceCardDataAssets = dataMap["Resource"];
-            playerData.ResourceCardDataAssets = dataMap["Ship"];
-            playerData.ResourceCardDataAssets = dataMap["Weapon"];
+            playerData.ShipCardDataAssets = dataMap["Ship"];
+            playerData.WeaponCardDataAssets = dataMap["Weapon"];
+            playerData.Decks = new List<DeckData>();
 
             // Now add our decks to our data
             for (int i = 0; i < maxDeckNumber; i++)
@@ -130,7 +141,7 @@ namespace CardGameEngine
             }
 
             // Save our player card registry data
-            AssetManager.SaveData(playerData, playerCardRegistryDataAsset);
+            AssetManager.SaveData(playerData, "Content" + playerCardRegistryDataAsset);
         }
 
         #region Utility Functions for saving and loading

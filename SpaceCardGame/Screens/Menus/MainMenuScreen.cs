@@ -3,18 +3,12 @@ using CardGameEngine;
 using Microsoft.Xna.Framework;
 using System.IO;
 
-namespace SpaceCardGame.Screens
+namespace SpaceCardGame
 {
     public class MainMenuScreen : MenuScreen
     {
         public MainMenuScreen(string screenDataAsset = "Content\\Data\\Screens\\MainMenuScreen.xml") :
-            this(null, screenDataAsset)
-        {
-
-        }
-
-        public MainMenuScreen(MenuScreen previousMenuScreen, string screenDataAsset = "Content\\Data\\Screens\\MainMenuScreen.xml") :
-            base(previousMenuScreen, screenDataAsset)
+            base(screenDataAsset)
         {
 
         }
@@ -31,7 +25,7 @@ namespace SpaceCardGame.Screens
             float padding = ScreenDimensions.Y * 0.1f;
             BaseObject parent = null;
 
-            Button newGameButton = AddScreenUIObject(new Button("New Game", new Vector2(ScreenDimensions.X * 0.5f, ScreenDimensions.Y * 0.25f))) as Button;
+            Button newGameButton = AddScreenUIObject(new Button("New Game", new Vector2(ScreenDimensions.X * 0.5f, ScreenDimensions.Y * 0.35f))) as Button;
             newGameButton.OnLeftClicked += OnNewGameButtonLeftClicked;
             parent = newGameButton;
 
@@ -45,11 +39,6 @@ namespace SpaceCardGame.Screens
             {
                 continueGameButton.Disable();
             }
-
-            Button deckManagerButton = AddScreenUIObject(new Button("Decks", new Vector2(0, padding))) as Button;
-            deckManagerButton.SetParent(parent);
-            deckManagerButton.OnLeftClicked += OnDeckManagerButtonClicked;
-            parent = deckManagerButton;
 
             Button optionsButton = AddScreenUIObject(new Button("Options", new Vector2(0, padding))) as Button;
             optionsButton.SetParent(parent);
@@ -72,8 +61,9 @@ namespace SpaceCardGame.Screens
         /// <param name="image">The image that was clicked</param>
         private void OnNewGameButtonLeftClicked(IClickable image)
         {
-            //Transition(new PlatformGameplayScreen("Content\\Data\\Screens\\Levels\\Level1.xml"));
+            // Need to load assets before we transition to the next screen
             PlayerCardRegistry.Instance.LoadAssets(PlayerCardRegistry.startingCardRegistryDataAsset);
+            Transition(new LobbyMenuScreen());
         }
 
         /// <summary>
@@ -82,16 +72,9 @@ namespace SpaceCardGame.Screens
         /// <param name="image"></param>
         private void OnContinueButtonLeftClicked(IClickable image)
         {
+            // Need to load assets before we transition to the next screen
             PlayerCardRegistry.Instance.LoadAssets(PlayerCardRegistry.playerCardRegistryDataAsset);
-        }
-
-        /// <summary>
-        /// The callback to execute when we press the 'Decks' button
-        /// </summary>
-        /// <param name="image"></param>
-        private void OnDeckManagerButtonClicked(IClickable image)
-        {
-            Transition(new DeckManagerScreen(this));
+            Transition(new LobbyMenuScreen());
         }
 
         /// <summary>
@@ -100,7 +83,7 @@ namespace SpaceCardGame.Screens
         /// <param name="image">The image that was clicked</param>
         private void OnOptionsButtonClicked(IClickable image)
         {
-            Transition(new OptionsScreen(this));
+            Transition(new GameOptionsScreen());
         }
 
         /// <summary>

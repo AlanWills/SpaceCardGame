@@ -91,9 +91,6 @@ namespace CardGameEngine
             // If we have not loaded we are going to run into trouble here
             Debug.Assert(IsLoaded);
 
-            // Check the card data actually exists!
-            Debug.Assert(CardData.ContainsValue(cardData));
-
             foreach (string dataAsset in CardData.Keys)
             {
                 if (CardData[dataAsset] != null)

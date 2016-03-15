@@ -27,7 +27,7 @@ namespace CardGameEngine
         /// A button for editing the cards in a deck.
         /// Disabled if we have no deck, enabled otherwise
         /// </summary>
-        private Button EditButton { get; set; }
+        public Button EditButton { get; private set; }
 
         /// <summary>
         /// A button for deleting a deck.
@@ -71,9 +71,9 @@ namespace CardGameEngine
             CreateButton = AddObject(new Button("Create", new Vector2(0, Size.Y * 0.5f + padding)), true, true) as Button;
             CreateButton.OnLeftClicked += CreateButton_OnLeftClicked;
 
-            EditButton = AddObject(new Button("Edit", new Vector2(0, CreateButton.Size.Y + padding)), true, true) as Button;
-            EditButton.OnLeftClicked += EditButton_OnLeftClicked;
-            EditButton.SetParent(CreateButton, true);
+            // The edit button is parented to this so we can access this DeckSlotUI from an event callback
+            EditButton = AddObject(new Button("Edit", new Vector2(0, CreateButton.LocalPosition.Y + CreateButton.Size.Y + padding)), true, true) as Button;
+            EditButton.SetParent(this, true);
 
             DeleteButton = AddObject(new Button("Delete", new Vector2(0, EditButton.Size.Y + padding)), true, true) as Button;
             DeleteButton.OnLeftClicked += DeleteButton_OnLeftClicked;
@@ -92,7 +92,7 @@ namespace CardGameEngine
         /// <param name="clickable">The button which fires this event</param>
         private void DeckNameButton_OnLeftClicked(IClickable clickable)
         {
-            TextEntryDialogBox deckName = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new TextEntryDialogBox(Deck.Name, "Deck Name", ScreenManager.Instance.ScreenCentre), true, true) as TextEntryDialogBox;
+            TextEntryBox deckName = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new TextEntryBox(Deck.Name, "Deck Name", ScreenManager.Instance.ScreenCentre), true, true) as TextEntryBox;
             TextEntryScript deckNameEntryScript = ScriptManager.Instance.AddObject(new TextEntryScript(deckName), true, true) as TextEntryScript;
             deckName.ConfirmButton.OnLeftClicked += EnterDeckName;
         }
@@ -103,25 +103,13 @@ namespace CardGameEngine
         /// <param name="image"></param>
         private void CreateButton_OnLeftClicked(IClickable image)
         {
-            TextEntryDialogBox deckName = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new TextEntryDialogBox(Deck.Name, "Deck Name", ScreenManager.Instance.ScreenCentre), true, true) as TextEntryDialogBox;
+            TextEntryBox deckName = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new TextEntryBox(Deck.Name, "Deck Name", ScreenManager.Instance.ScreenCentre), true, true) as TextEntryBox;
             TextEntryScript deckNameEntryScript = ScriptManager.Instance.AddObject(new TextEntryScript(deckName), true, true) as TextEntryScript;
             deckName.ConfirmButton.OnLeftClicked += EnterDeckName;
 
             Deck.Create();
 
             UpdateUIStatus();
-        }
-
-        /// <summary>
-        /// Transitions to a new deck editting screen
-        /// </summary>
-        /// <param name="image"></param>
-        private void EditButton_OnLeftClicked(IClickable image)
-        {
-            DebugUtils.AssertNotNull(Deck);
-            DebugUtils.AssertNotNull(ScreenManager.Instance.CurrentScreen as MenuScreen);
-
-            ScreenManager.Instance.Transition(new DeckEditingScreen(Deck, ScreenManager.Instance.CurrentScreen as MenuScreen));
         }
 
         /// <summary>
@@ -142,9 +130,9 @@ namespace CardGameEngine
             Debug.Assert(clickable is Button);
             Button button = clickable as Button;
 
-            Debug.Assert(button.GetParent() is TextEntryDialogBox);
+            Debug.Assert(button.GetParent() is TextEntryBox);
 
-            TextEntryDialogBox dialogBox = button.GetParent() as TextEntryDialogBox;
+            TextEntryBox dialogBox = button.GetParent() as TextEntryBox;
             Deck.Name = dialogBox.Text;
             DeckNameButton.Label.Text = Deck.Name;
         }
