@@ -32,7 +32,7 @@ namespace CardGameEngine
 
             float tabControlHeight = ScreenDimensions.Y * 0.035f;
 
-            TabControl tabControl = AddScreenUIObject(new TabControl(new Vector2(ScreenDimensions.X, tabControlHeight), new Vector2(ScreenCentre.X, tabControlHeight * 0.5f))) as TabControl;
+            TabControl tabControl = AddScreenUIObject(new TabControl(new Vector2(ScreenDimensions.X, tabControlHeight), new Vector2(ScreenCentre.X, tabControlHeight * 0.5f)));
 
             // Add a DeckCardTypeControl for each resource type
             foreach (string cardType in CentralCardRegistry.CardTypes)

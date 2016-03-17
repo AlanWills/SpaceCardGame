@@ -1,6 +1,7 @@
 ﻿using _2DEngine;
 using CardGameEngine;
 using Microsoft.Xna.Framework;
+using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -27,7 +28,7 @@ namespace SpaceCardGame
             float padding = ScreenDimensions.Y * 0.1f;
             UIObject parent = null;
 
-            Button playGameButton = AddScreenUIObject(new Button("Play", new Vector2(ScreenDimensions.X * 0.5f, ScreenDimensions.Y * 0.40f))) as Button;
+            Button playGameButton = AddScreenUIObject(new Button("Play", new Vector2(ScreenDimensions.X * 0.5f, ScreenDimensions.Y * 0.40f)));
             playGameButton.OnLeftClicked += OnPlayGameButtonLeftClicked;
             parent = playGameButton;
 
@@ -37,10 +38,18 @@ namespace SpaceCardGame
                 playGameButton.Disable();
             }
 
-            Button deckManagerButton = AddScreenUIObject(new Button("Decks", new Vector2(0, padding))) as Button;
+            Button deckManagerButton = AddScreenUIObject(new Button("Decks", new Vector2(0, padding)));
             deckManagerButton.SetParent(parent);
             deckManagerButton.OnLeftClicked += OnDeckManagerButtonClicked;
             parent = deckManagerButton;
+        }
+
+        /// <summary>
+        /// Transition back to our main menu screen
+        /// </summary>
+        protected override void GoToPreviousScreen()
+        {
+            Transition(new MainMenuScreen());
         }
 
         #endregion
@@ -54,7 +63,7 @@ namespace SpaceCardGame
         private void OnPlayGameButtonLeftClicked(IClickable clickable)
         {
             // Have to do this separately so we get the callbacks added to our objects during load
-            ChooseDeckBox chooseDeckBox = AddScreenUIObject(new ChooseDeckBox("Choose Deck", ScreenCentre), true, true) as ChooseDeckBox;
+            ChooseDeckBox chooseDeckBox = AddScreenUIObject(new ChooseDeckBox("Choose Deck", ScreenCentre), true, true);
             chooseDeckBox.OnLeftClicked += ChooseDeckBoxClicked;
         }
 
@@ -71,9 +80,15 @@ namespace SpaceCardGame
         /// The callback to execute when we choose our deck
         /// </summary>
         /// <param name="image"></param>
-        private void ChooseDeckBoxClicked(IClickable image)
+        private void ChooseDeckBoxClicked(IClickable clickable)
         {
+            Debug.Assert(clickable is ClickableImage);
+            ClickableImage clickableImage = clickable as ClickableImage;
 
+            DebugUtils.AssertNotNull(clickableImage.StoredObject);
+            Debug.Assert(clickableImage.StoredObject is Deck);
+
+            Transition(new BattleScreen(clickableImage.StoredObject as Deck, "Content\\Data\\Screens\\BattleScreen.xml"));
         }
 
         #endregion

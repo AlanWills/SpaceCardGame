@@ -93,7 +93,8 @@ namespace CardGameEngine
 
             foreach (string dataAsset in CardData.Keys)
             {
-                if (CardData[dataAsset] != null)
+                // Match on display names - GULP!
+                if (CardData[dataAsset].DisplayName == cardData.DisplayName)
                 {
                     return dataAsset;
                 }

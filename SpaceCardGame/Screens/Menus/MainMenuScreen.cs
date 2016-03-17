@@ -25,11 +25,11 @@ namespace SpaceCardGame
             float padding = ScreenDimensions.Y * 0.1f;
             BaseObject parent = null;
 
-            Button newGameButton = AddScreenUIObject(new Button("New Game", new Vector2(ScreenDimensions.X * 0.5f, ScreenDimensions.Y * 0.35f))) as Button;
+            Button newGameButton = AddScreenUIObject(new Button("New Game", new Vector2(ScreenDimensions.X * 0.5f, ScreenDimensions.Y * 0.35f)));
             newGameButton.OnLeftClicked += OnNewGameButtonLeftClicked;
             parent = newGameButton;
 
-            Button continueGameButton = AddScreenUIObject(new Button("Continue", new Vector2(0, padding))) as Button;
+            Button continueGameButton = AddScreenUIObject(new Button("Continue", new Vector2(0, padding)));
             continueGameButton.SetParent(parent);
             continueGameButton.OnLeftClicked += OnContinueButtonLeftClicked;
             parent = continueGameButton;
@@ -40,12 +40,12 @@ namespace SpaceCardGame
                 continueGameButton.Disable();
             }
 
-            Button optionsButton = AddScreenUIObject(new Button("Options", new Vector2(0, padding))) as Button;
+            Button optionsButton = AddScreenUIObject(new Button("Options", new Vector2(0, padding)));
             optionsButton.SetParent(parent);
             optionsButton.OnLeftClicked += OnOptionsButtonClicked;
             parent = optionsButton;
 
-            Button exitGameButton = AddScreenUIObject(new Button("Exit", new Vector2(0, padding))) as Button;
+            Button exitGameButton = AddScreenUIObject(new Button("Exit", new Vector2(0, padding)));
             exitGameButton.SetParent(parent);
             exitGameButton.OnLeftClicked += OnExitGameButtonClicked;
             parent = exitGameButton;

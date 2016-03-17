@@ -51,7 +51,8 @@
     <Compile Include="Cards\Card.cs" />
     <Compile Include="Data\CentralCardRegistry.cs" />
     <Compile Include="Data\PlayerCardRegistry.cs" />
-    <Compile Include="Deck\Deck.cs" />
+    <Compile Include="Decks\DeckInstance.cs" />
+    <Compile Include="Decks\Deck.cs" />
     <Compile Include="Players\Opponent.cs" />
     <Compile Include="Players\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

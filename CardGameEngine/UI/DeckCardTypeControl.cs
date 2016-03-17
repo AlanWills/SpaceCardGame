@@ -1,6 +1,7 @@
 ﻿using _2DEngine;
 using CardGameEngineData;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System;
 
 namespace CardGameEngine
@@ -65,7 +66,7 @@ namespace CardGameEngine
         {
             base.Initialise();
 
-            DeckCardListControl = new CardGridControl(Deck, deckColumns, new Vector2(Size.X * ratio, Size.Y), new Vector2(Size.X * (0.5f - 0.5f * ratio), 0));
+            DeckCardListControl = new CardGridControl(Deck.Cards, deckColumns, new Vector2(Size.X * ratio, Size.Y), new Vector2(Size.X * (0.5f - 0.5f * ratio), 0));
             // Add all the cards in our deck that are of our type
             DeckCardListControl.IncludePredicate = new Predicate<CardData>(x => x.Type == CardType);
             DeckCardListControl.OnRightClicked += RemoveFromDeck;
@@ -75,13 +76,15 @@ namespace CardGameEngine
 
             // Add a save button here which will serialise the deck to XML
             // Don't parent to list control because otherwise it will move when we scroll
-            Button saveButton = AddObject(new Button("Save Deck", Size * 0.5f), true, true) as Button;
+            // For now have the accelerator as the escape key so we automatically save when we exit the screen
+            /*Button saveButton = AddObject(new Button("Save Deck", Size * 0.5f), true, true);
+            saveButton.LeftClickAccelerator = Keys.Escape;
             saveButton.LocalPosition -= saveButton.Size * 0.5f;
-            saveButton.OnLeftClicked += SaveDeck;
+            saveButton.OnLeftClicked += SaveDeck;*/
 
             RegistryCardListControl = new CardGridControl(PlayerCardRegistry.Instance.AvailableCards, registryColumns, new Vector2(Size.X * (1 - ratio), Size.Y), new Vector2(-ratio * 0.5f * Size.X, 0));
             // Find all cards of our type that are also not in our deck already
-            RegistryCardListControl.IncludePredicate = new Predicate<CardData>(x => x.Type == CardType && !Deck.Exists(y => ReferenceEquals(y, x)));
+            RegistryCardListControl.IncludePredicate = new Predicate<CardData>(x => x.Type == CardType && !Deck.Cards.Exists(y => ReferenceEquals(y, x)));
             RegistryCardListControl.OnLeftClicked += AddToDeck;
 
             // Do this here because we need to add the IncludePredicate before we initialise the control.
@@ -108,7 +111,7 @@ namespace CardGameEngine
             CardData cardData = image.StoredObject as CardData;
             DebugUtils.AssertNotNull(cardData);
 
-            Deck.Remove(cardData);
+            Deck.Cards.Remove(cardData);
             PlayerCardRegistry.Instance.AvailableCards.Add(cardData);
 
             RegistryCardListControl.AddCard(cardData);
@@ -130,7 +133,7 @@ namespace CardGameEngine
             CardData cardData = image.StoredObject as CardData;
             DebugUtils.AssertNotNull(cardData);
 
-            Deck.Add(cardData);
+            Deck.Cards.Add(cardData);
             PlayerCardRegistry.Instance.AvailableCards.Remove(cardData);
 
             DeckCardListControl.AddCard(cardData);

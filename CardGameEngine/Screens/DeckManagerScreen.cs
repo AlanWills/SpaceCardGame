@@ -37,7 +37,7 @@ namespace CardGameEngine
                 Vector2 position = new Vector2(column * ScreenDimensions.X / (columns + 2), ScreenDimensions.Y * (0.2f + row * 0.5f));
 
                 DebugUtils.AssertNotNull(PlayerCardRegistry.Instance.Decks[i]);
-                DeckSlotUI deckSlotUI = AddScreenUIObject(new DeckSlotUI(PlayerCardRegistry.Instance.Decks[i], slotSize, position)) as DeckSlotUI;
+                DeckSlotUI deckSlotUI = AddScreenUIObject(new DeckSlotUI(PlayerCardRegistry.Instance.Decks[i], slotSize, position));
                 deckSlotUI.StoredObject = PlayerCardRegistry.Instance.Decks[i];
             }
         }

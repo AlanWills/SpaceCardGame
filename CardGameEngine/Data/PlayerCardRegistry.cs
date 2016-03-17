@@ -89,7 +89,7 @@ namespace CardGameEngine
                 Debug.Assert(deckIndex < maxDeckNumber);
                 DebugUtils.AssertNotNull(Decks[deckIndex]);
 
-                //Decks[deckIndex].Create(Player.CardData);
+                Decks[deckIndex].Create(CentralCardRegistry.ConvertToDataList(deckData.CardDataAssets));
                 Decks[deckIndex].Name = deckData.Name;
 
                 deckIndex++;
@@ -134,7 +134,8 @@ namespace CardGameEngine
                 {
                     // If we have created this deck then create deck data and add to our PlayerCardRegistryData
                     DeckData deckData = new DeckData();
-                    deckData.CardDataAssets = CentralCardRegistry.ConvertToAssetList(Decks[i]);
+                    deckData.Name = Decks[i].Name;
+                    deckData.CardDataAssets = CentralCardRegistry.ConvertToAssetList(Decks[i].Cards);
 
                     playerData.Decks.Add(deckData);
                 }
@@ -147,14 +148,11 @@ namespace CardGameEngine
         #region Utility Functions for saving and loading
 
         /// <summary>
-        /// Load our resource cards
+        /// Load our resource cards not being used in decks
         /// </summary>
         /// <param name="content"></param>
         private void LoadCardType<T>(List<string> assetsToLoad) where T : CardData
         {
-            // Check we actually have cards to load
-            Debug.Assert(assetsToLoad.Count > 0);
-
             // Load the resource cards
             foreach (string cardDataAsset in assetsToLoad)
             {

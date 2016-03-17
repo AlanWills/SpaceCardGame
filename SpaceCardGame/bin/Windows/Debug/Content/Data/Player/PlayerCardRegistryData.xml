@@ -1,31 +1,28 @@
 <?xml version="1.0"?>
 <PlayerCardRegistryData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <AbilityCardDataAssets>
-    <Item>Abilities\MissileBarrageAbility\MissileBarrageAbility.xml</Item>
-  </AbilityCardDataAssets>
-  <DefenceCardDataAssets>
-    <Item>Abilities\MissileBarrageAbility\MissileBarrageAbility.xml</Item>
-  </DefenceCardDataAssets>
-  <ResourceCardDataAssets>
-    <Item>Abilities\MissileBarrageAbility\MissileBarrageAbility.xml</Item>
-    <Item>Abilities\MissileBarrageAbility\MissileBarrageAbility.xml</Item>
-    <Item>Abilities\MissileBarrageAbility\MissileBarrageAbility.xml</Item>
-    <Item>Abilities\MissileBarrageAbility\MissileBarrageAbility.xml</Item>
-  </ResourceCardDataAssets>
-  <ShipCardDataAssets>
-    <Item>Abilities\MissileBarrageAbility\MissileBarrageAbility.xml</Item>
-    <Item>Abilities\MissileBarrageAbility\MissileBarrageAbility.xml</Item>
-    <Item>Abilities\MissileBarrageAbility\MissileBarrageAbility.xml</Item>
-    <Item>Abilities\MissileBarrageAbility\MissileBarrageAbility.xml</Item>
-  </ShipCardDataAssets>
-  <WeaponCardDataAssets>
-    <Item>Abilities\MissileBarrageAbility\MissileBarrageAbility.xml</Item>
-    <Item>Abilities\MissileBarrageAbility\MissileBarrageAbility.xml</Item>
-    <Item>Abilities\MissileBarrageAbility\MissileBarrageAbility.xml</Item>
-  </WeaponCardDataAssets>
+  <AbilityCardDataAssets />
+  <DefenceCardDataAssets />
+  <ResourceCardDataAssets />
+  <ShipCardDataAssets />
+  <WeaponCardDataAssets />
   <Decks>
     <DeckData>
-      <CardDataAssets />
+      <Name>TEST</Name>
+      <CardDataAssets>
+        <Item>Abilities\MissileBarrageAbility\MissileBarrageAbility.xml</Item>
+        <Item>Defence\Shields\PhaseEnergyShield\PhaseEnergyShield.xml</Item>
+        <Item>Resources\CrewResource\CrewResource.xml</Item>
+        <Item>Resources\ElectronicsResource\ElectronicsResource.xml</Item>
+        <Item>Resources\FuelResource\FuelResource.xml</Item>
+        <Item>Resources\MetalResource\MetalResource.xml</Item>
+        <Item>Ships\BlazeInterceptor\BlazeInterceptor.xml</Item>
+        <Item>Ships\EagleFrigate\EagleFrigate.xml</Item>
+        <Item>Ships\VenatorCruiser\VenatorCruiser.xml</Item>
+        <Item>Ships\WaspFighter\WaspFighter.xml</Item>
+        <Item>Weapons\Beam\LaserBeamTurret\LaserBeamTurret.xml</Item>
+        <Item>Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurret.xml</Item>
+        <Item>Weapons\Missile\VulcanMissileTurret\VulcanMissileTurret.xml</Item>
+      </CardDataAssets>
     </DeckData>
   </Decks>
 </PlayerCardRegistryData>

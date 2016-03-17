@@ -7,9 +7,14 @@ namespace CardGameEngine
     /// <summary>
     /// A class representing our current usable deck - cards chosen from the player's registry
     /// </summary>
-    public class Deck : List<CardData>
+    public class Deck
     {
         #region Properties and Fields
+
+        /// <summary>
+        /// The cards in this deck
+        /// </summary>
+        public List<CardData> Cards { get; private set; }
 
         /// <summary>
         /// The name of the deck
@@ -27,6 +32,7 @@ namespace CardGameEngine
         public Deck()
         {
             Name = "";
+            Cards = new List<CardData>();
         }
 
         #region Creation/State methods
@@ -48,7 +54,7 @@ namespace CardGameEngine
         {
             Create();
 
-            AddRange(cards);
+            Cards.AddRange(cards);
         }
 
         /// <summary>
@@ -58,10 +64,10 @@ namespace CardGameEngine
         public void Delete()
         {
             // Send all cards back to our PlayerCardRegistry.
-            PlayerCardRegistry.Instance.AvailableCards.AddRange(this);
+            PlayerCardRegistry.Instance.AvailableCards.AddRange(Cards);
 
             // Clear our deck and mark it as not created.
-            Clear();
+            Cards.Clear();
             IsCreated = false;
         }
 
