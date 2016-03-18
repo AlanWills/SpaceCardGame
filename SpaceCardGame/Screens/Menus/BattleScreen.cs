@@ -48,7 +48,7 @@ namespace SpaceCardGame
             base.Update(elapsedGameTime);
 
             timer += elapsedGameTime;
-            if (timer > 0.5f && index < 6)
+            if (timer > 0.35f && index < 6)
             {
                 Player.Draw();
                 timer = 0;

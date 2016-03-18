@@ -46,7 +46,6 @@
   <ItemGroup>
     <Compile Include="UI\BattleScreenHUD.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="Playables\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Screens\Menus\BattleScreen.cs" />
@@ -55,7 +54,6 @@
     <Compile Include="Screens\Menus\GameOptionsScreen.cs" />
     <Compile Include="Screens\Menus\LobbyMenuScreen.cs" />
     <Compile Include="Screens\Menus\MainMenuScreen.cs" />
-    <Compile Include="UI\PlayerHandCardUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
