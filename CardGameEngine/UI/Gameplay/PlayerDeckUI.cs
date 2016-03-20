@@ -53,7 +53,6 @@ namespace CardGameEngine
             CheckShouldLoad();
 
             DeckCountLabel = AddObject(new Label(cardsLeftString + Player.CardsLeftInDeck.ToString(), Vector2.Zero));
-            DeckCountLabel.Colour = Color.Yellow;
             DeckCountLabel.Hide();
 
             base.LoadContent();

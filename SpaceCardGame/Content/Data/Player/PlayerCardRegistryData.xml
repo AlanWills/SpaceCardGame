@@ -11,6 +11,10 @@
     <Item>Resources\ElectronicsResource\ElectronicsResource.xml</Item>
     <Item>Resources\FuelResource\FuelResource.xml</Item>
     <Item>Resources\MetalResource\MetalResource.xml</Item>
+    <Item>Resources\CrewResource\CrewResource.xml</Item>
+    <Item>Resources\ElectronicsResource\ElectronicsResource.xml</Item>
+    <Item>Resources\FuelResource\FuelResource.xml</Item>
+    <Item>Resources\MetalResource\MetalResource.xml</Item>
   </ResourceCardDataAssets>
   <ShipCardDataAssets>
     <Item>Ships\BlazeInterceptor\BlazeInterceptor.xml</Item>

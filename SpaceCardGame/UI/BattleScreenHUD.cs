@@ -20,14 +20,19 @@ namespace SpaceCardGame
         /// </summary>
         private PlayerDeckUI PlayerDeckUI { get; set; }
 
+        /// <summary>
+        /// A button which will end the current player's turn
+        /// </summary>
+        private Button EndTurnButton { get; set; }
+
         private float padding = 35;
 
         #endregion
 
-        public BattleScreenHUD(Player player, string hudTextureAsset) :
+        public BattleScreenHUD(string hudTextureAsset) :
             base(ScreenManager.Instance.ScreenDimensions, ScreenManager.Instance.ScreenCentre, hudTextureAsset)
         {
-            Player = player;
+            Player = BattleScreen.Player;
         }
 
         #region Virtual Functions
@@ -43,7 +48,22 @@ namespace SpaceCardGame
 
             PlayerDeckUI = AddObject(new PlayerDeckUI(Player, new Vector2(ScreenManager.Instance.ScreenDimensions.X * 0.45f, ScreenManager.Instance.ScreenDimensions.Y * 0.4f)));
 
+            EndTurnButton = AddObject(new Button("End Turn", Vector2.Zero));
+            EndTurnButton.OnLeftClicked += OnEndTurnButtonClicked;
+
             base.LoadContent();
+        }
+
+        /// <summary>
+        /// Fixup some UI
+        /// </summary>
+        public override void Initialise()
+        {
+            CheckShouldInitialise();
+
+            base.Initialise();
+
+            EndTurnButton.LocalPosition += new Vector2((Size.X - EndTurnButton.Size.X) * 0.5f - 10, 0);
         }
 
         /// <summary>
@@ -84,12 +104,26 @@ namespace SpaceCardGame
         #region Click Callbacks
 
         /// <summary>
+        /// Nothing more than a callback wrapper around the NewPlayerTurn - but this is specifically for callbacks.
+        /// Want to keep the original function too, so that we can end the turn after a certain amount of time too.
+        /// </summary>
+        /// <param name="clickable"></param>
+        private void OnEndTurnButtonClicked(IClickable clickable)
+        {
+            Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
+
+            (ScreenManager.Instance.CurrentScreen as BattleScreen).NewPlayerTurn();
+        }
+
+        /// <summary>
         /// A callback which adds a card in our hand to the game
         /// </summary>
         /// <param name="clickable"></param>
         private void AddCardToGame(IClickable clickable)
         {
+            Debug.Assert(clickable is PlayerHandCardThumbnail);
 
+            ScriptManager.Instance.AddObject(new PlaceCardScript(clickable as PlayerHandCardThumbnail), true, true);
         }
 
         /// <summary>

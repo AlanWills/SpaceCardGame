@@ -44,6 +44,13 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Cards\CardFactory.cs" />
+    <Compile Include="Cards\ResourceCard.cs" />
+    <Compile Include="Data\IntermediateCardDeserializer.cs" />
+    <Compile Include="Game Objects\GameBoard.cs" />
+    <Compile Include="Game Objects\PlayerGameBoardSection.cs" />
+    <Compile Include="Players\GamePlayer.cs" />
+    <Compile Include="Scripts\Gameplay\PlaceCardScript.cs" />
     <Compile Include="UI\BattleScreenHUD.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
@@ -104,6 +111,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurret.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\GameObjects\Empty.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Player\PlayerCardRegistryData.xml">

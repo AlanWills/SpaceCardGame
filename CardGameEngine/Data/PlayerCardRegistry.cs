@@ -153,15 +153,10 @@ namespace CardGameEngine
         /// <param name="content"></param>
         private void LoadCardType<T>(List<string> assetsToLoad) where T : CardData
         {
-            // Load the resource cards
-            foreach (string cardDataAsset in assetsToLoad)
-            {
-                // Add resource data when we implement it
-                CardData data = AssetManager.LoadData<T>(CentralCardRegistry.CardFolderPath + cardDataAsset);
-                DebugUtils.AssertNotNull(data);
+            // Load the resource cards from the central registry
+            List<CardData> data = CentralCardRegistry.ConvertToDataList(assetsToLoad);
 
-                AvailableCards.Add(data);
-            }
+            AvailableCards.AddRange(data);
         }
 
         #endregion

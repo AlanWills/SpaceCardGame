@@ -38,30 +38,52 @@ namespace CardGameEngine
         /// </summary>
         public event OnCardDrawHandler OnCardDraw;
 
+        /// <summary>
+        /// The maximum number of cards allowed in our hand.
+        /// </summary>
+        public int MaxHandSize { get; private set; }
+
         #endregion
 
         public Player(Deck chosenDeck)
         {
             ChosenDeck = new DeckInstance(chosenDeck);
             CurrentHand = new List<CardData>();
+            MaxHandSize = 10;
         }
+
+        #region Virtual Functions
+
+        /// <summary>
+        /// The behaviour to perform when we start a new turn
+        /// </summary>
+        public virtual void NewTurn()
+        {
+            // Draw a card - in the draw method we will add it to our hand if we can
+            Draw();
+        }
+
+        #endregion
 
         #region Utility Functions
 
         /// <summary>
-        /// Draw cards from our deck instance
+        /// Draw cards from our deck instance if we have room in our hand
         /// </summary>
         /// <param name="numberOfCards"></param>
         public void Draw(int numberOfCards = 1)
         {
             for (int i = 0; i < numberOfCards; i++)
             {
-                CardData cardData = ChosenDeck.Draw();
-                CurrentHand.Add(cardData);
-
-                if (OnCardDraw != null)
+                if (CurrentHand.Count < MaxHandSize)
                 {
-                    OnCardDraw(cardData);
+                    CardData cardData = ChosenDeck.Draw();
+                    CurrentHand.Add(cardData);
+
+                    if (OnCardDraw != null)
+                    {
+                        OnCardDraw(cardData);
+                    }
                 }
             }
         }

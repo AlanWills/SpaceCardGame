@@ -1,6 +1,7 @@
 ﻿using _2DEngine;
 using CardGameEngineData;
 using Microsoft.Xna.Framework.Content;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -19,10 +20,15 @@ namespace CardGameEngine
         public static Dictionary<string, CardData> CardData { get; set; }
 
         /// <summary>
+        /// A reference to our loaded card registry data.
+        /// </summary>
+        public static CardRegistryData CardRegistryData { get; private set; }
+
+        /// <summary>
         /// A flag to indicate whether we have loaded the data for this class.
         /// We will have serious problems if we start to do stuff without this being loaded.
         /// </summary>
-        private static bool IsLoaded { get; set; }
+        public static bool IsLoaded { get; private set; }
 
         private const string cardRegistryDataPath = "\\Data\\Cards\\CardRegistryData.xml";
         public const string CardFolderPath = "Content\\Data\\Cards\\";
@@ -34,17 +40,14 @@ namespace CardGameEngine
         /// </summary>
         public static void LoadAssets(ContentManager content)
         {
-            CardRegistryData cardRegistryData = AssetManager.LoadData<CardRegistryData>(content.RootDirectory + cardRegistryDataPath);
-            DebugUtils.AssertNotNull(cardRegistryData);
+            CardRegistryData = AssetManager.LoadData<CardRegistryData>(content.RootDirectory + cardRegistryDataPath);
+            DebugUtils.AssertNotNull(CardRegistryData);
 
             CardTypes = new List<string>();
             CardData = new Dictionary<string, CardData>();
 
-            LoadCardType<CardData>(content, cardRegistryData.AbilityCardDataAssets, "Ability");
-            LoadCardType<CardData>(content, cardRegistryData.DefenceCardDataAssets, "Defence");
-            LoadCardType<CardData>(content, cardRegistryData.ResourceCardDataAssets, "Resource");
-            LoadCardType<CardData>(content, cardRegistryData.ShipCardDataAssets, "Ship");
-            LoadCardType<CardData>(content, cardRegistryData.WeaponCardDataAssets, "Weapon");
+            // Load our universal card back texture
+            Card.CardBackTexture = AssetManager.GetSprite(Card.CardBackTextureAsset);
 
             IsLoaded = true;
         }
@@ -53,7 +56,7 @@ namespace CardGameEngine
         /// Load our resource cards
         /// </summary>
         /// <param name="content"></param>
-        private static void LoadCardType<T>(ContentManager content, List<string> assetsToLoad, string typeName) where T : CardData
+        public static void LoadCardType<T>(ContentManager content, List<string> assetsToLoad, string typeName) where T : CardData
         {
             // Check we actually have cards to load
             Debug.Assert(assetsToLoad.Count > 0);

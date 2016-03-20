@@ -1,5 +1,6 @@
 ﻿using _2DEngine;
 using CardGameEngine;
+using Microsoft.Xna.Framework;
 
 namespace SpaceCardGame
 {
@@ -8,17 +9,34 @@ namespace SpaceCardGame
     /// </summary>
     public class BattleScreen : GameplayScreen
     {
+        public delegate void NewTurnHandler(GamePlayer newActivePlayer);
+
         #region Properties and Fields
 
         /// <summary>
         /// A reference to our human playable character
         /// </summary>
-        private Player Player { get; set; }
+        public static GamePlayer Player { get; private set; }
 
         /// <summary>
-        /// A reference to our HUD
+        /// A reference to the current player who's turn it is
         /// </summary>
-        private BattleScreenHUD HUD { get; set; }
+        public GamePlayer CurrentActivePlayer { get; private set; }
+
+        /// <summary>
+        /// A reference to our HUD - handles all the UI side
+        /// </summary>
+        public BattleScreenHUD HUD { get; private set; }
+
+        /// <summary>
+        /// A reference to our GameBoard - handles all the actual Game Objects
+        /// </summary>
+        public GameBoard GameBoard { get; private set; }
+
+        /// <summary>
+        /// An event which will be fired when we begin a new turn
+        /// </summary>
+        public event NewTurnHandler OnNewTurn;
 
         private float timer = 0;
         private int index = 0;
@@ -28,10 +46,28 @@ namespace SpaceCardGame
         public BattleScreen(Deck playerChosenDeck, string screenDataAsset) :
             base(screenDataAsset)
         {
-            Player = new Player(playerChosenDeck);
+            Player = new GamePlayer(playerChosenDeck);
         }
 
         #region Virtual Functions
+
+        /// <summary>
+        /// Set up our game board.
+        /// </summary>
+        protected override void AddInitialGameObjects()
+        {
+            base.AddInitialGameObjects();
+
+            GameBoard = AddGameObject(new GameBoard(ScreenCentre));
+        }
+
+        /// <summary>
+        /// Sets up our ambient light as white with full intensity for now
+        /// </summary>
+        protected override void AddInitialLights()
+        {
+            Lights.AddObject(new AmbientLight(Color.White));
+        }
 
         /// <summary>
         /// Set up our game HUD.
@@ -40,19 +76,37 @@ namespace SpaceCardGame
         {
             base.AddInitialUI();
 
-            HUD = AddScreenUIObject(new BattleScreenHUD(Player, AssetManager.DefaultEmptyPanelTextureAsset));
+            HUD = AddScreenUIObject(new BattleScreenHUD(AssetManager.DefaultEmptyPanelTextureAsset));
         }
 
         public override void Update(float elapsedGameTime)
         {
             base.Update(elapsedGameTime);
 
-            timer += elapsedGameTime;
+            /*timer += elapsedGameTime;
             if (timer > 0.35f && index < 6)
             {
                 Player.Draw();
                 timer = 0;
                 index++;
+            }*/
+        }
+
+        #endregion
+
+        #region Utility Functions
+
+        /// <summary>
+        /// Updates the current active player and triggers all the events for a new turn.
+        /// </summary>
+        public void NewPlayerTurn()
+        {
+            CurrentActivePlayer = Player;
+            CurrentActivePlayer.NewTurn();
+
+            if (OnNewTurn != null)
+            {
+                OnNewTurn(CurrentActivePlayer);
             }
         }
 

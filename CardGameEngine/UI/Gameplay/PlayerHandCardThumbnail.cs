@@ -10,9 +10,9 @@ namespace CardGameEngine
     public class PlayerHandCardThumbnail : ClickableImage
     {
         /// <summary>
-        /// A reference to the card data for this card
+        /// A reference to the card data for this card UI
         /// </summary>
-        private CardData CardData { get; set; }
+        public CardData CardData { get; private set; }
 
         /// <summary>
         /// Used for some effects - our card if the mouse is over will move up the screen slightly
