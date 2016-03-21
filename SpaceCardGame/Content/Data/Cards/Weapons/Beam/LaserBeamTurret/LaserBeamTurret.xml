@@ -1,8 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<CardData>
+<WeaponCardData>
   <TextureAsset>Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurret</TextureAsset>
   <ObjectTextureAsset></ObjectTextureAsset>
   <Type>Weapon</Type>
   <DisplayName>Laser Beam Turret</DisplayName>
   <Rarity>Common</Rarity>
-</CardData>
+  <ResourceCosts>
+    <Resource>0</Resource>
+    <Resource>2</Resource>
+    <Resource>0</Resource>
+    <Resource>1</Resource>
+  </ResourceCosts>
+</WeaponCardData>

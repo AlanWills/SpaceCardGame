@@ -1,5 +1,4 @@
 ﻿using CardGameEngine;
-using Microsoft.Xna.Framework;
 using SpaceCardGameData;
 using System;
 using System.Diagnostics;

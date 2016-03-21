@@ -1,8 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<CardData>
+<ShipCardData>
   <TextureAsset>Sprites\Cards\Ships\VenatorCruiser\VenatorCruiser</TextureAsset>
   <ObjectTextureAsset></ObjectTextureAsset>
   <Type>Ship</Type>
   <DisplayName>Venator Cruiser</DisplayName>
   <Rarity>Common</Rarity>
-</CardData>
+    <ResourceCosts>
+    <Resource>3</Resource>
+    <Resource>4</Resource>
+    <Resource>0</Resource>
+    <Resource>4</Resource>
+  </ResourceCosts>
+</ShipCardData>

@@ -44,8 +44,12 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Cards\AbilityCard.cs" />
     <Compile Include="Cards\CardFactory.cs" />
+    <Compile Include="Cards\DefenceCard.cs" />
     <Compile Include="Cards\ResourceCard.cs" />
+    <Compile Include="Cards\ShipCard.cs" />
+    <Compile Include="Cards\WeaponCard.cs" />
     <Compile Include="Data\IntermediateCardDeserializer.cs" />
     <Compile Include="Game Objects\GameBoard.cs" />
     <Compile Include="Game Objects\PlayerGameBoardSection.cs" />

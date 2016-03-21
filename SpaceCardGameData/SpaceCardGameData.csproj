@@ -47,7 +47,11 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Cards\AbilityCardData.cs" />
+    <Compile Include="Cards\DefenceCardData.cs" />
     <Compile Include="Cards\ResourceCardData.cs" />
+    <Compile Include="Cards\ShipCardData.cs" />
+    <Compile Include="Cards\WeaponCardData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,6 @@
 ﻿using _2DEngineData;
+using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace CardGameEngineData
 {
@@ -23,5 +25,11 @@ namespace CardGameEngineData
         /// A string to indicate the rarity of this card
         /// </summary>
         public string Rarity { get; set; }
+
+        /// <summary>
+        /// A list of the resources required to lay this card
+        /// </summary>
+        [XmlArrayItem(ElementName = "Resource")]
+        public List<int> ResourceCosts { get; set; }
     }
 }

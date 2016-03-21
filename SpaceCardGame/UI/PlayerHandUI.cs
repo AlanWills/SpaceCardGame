@@ -2,7 +2,6 @@
 using CardGameEngine;
 using CardGameEngineData;
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace SpaceCardGame
@@ -10,7 +9,7 @@ namespace SpaceCardGame
     /// <summary>
     /// Specifically handles the UI for the player's hand
     /// </summary>
-    public class PlayerHandUI : UIObjectContainer
+    public class PlayerHandUI : GridControl
     {
         #region Properties and Fields
 
@@ -19,64 +18,46 @@ namespace SpaceCardGame
         /// </summary>
         private Player Player { get; set; }
 
-        /// <summary>
-        /// A list of all the current player card thumbnails, used for rebuilding the UI
-        /// </summary>
-        private List<PlayerHandCardThumbnail> PlayerCardThumbnails { get; set; }
-
-        /// <summary>
-        /// A flag to indicate whether we should rebuild the UI.
-        /// </summary>
-        private bool NeedsRebuild { get; set; }
-
-        private float padding = 35;
-
         #endregion
 
         public PlayerHandUI(Player player, Vector2 localPosition, string backgroundTextureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
-            base(new Vector2(ScreenManager.Instance.ScreenDimensions.X, ScreenManager.Instance.ScreenDimensions.Y * 0.15f), localPosition, backgroundTextureAsset)
+            base(10, new Vector2(ScreenManager.Instance.ScreenDimensions.X * 0.8f, ScreenManager.Instance.ScreenDimensions.Y * 0.15f), localPosition, backgroundTextureAsset)
         {
             Player = player;
             Player.OnCardAddedToHand += AddPlayerHandCardUI;
-            PlayerCardThumbnails = new List<PlayerHandCardThumbnail>();
+
+            // Don't want any cut off on this UI
+            UseScissorRectangle = false;
         }
 
         #region Virtual Functions
 
         /// <summary>
-        /// Rebuilds the UI if needed
+        /// Rebuilds the spacing of the thumbnails
         /// </summary>
-        /// <param name="elapsedGameTime"></param>
-        public override void Update(float elapsedGameTime)
+        protected override void RebuildList()
         {
-            base.Update(elapsedGameTime);
+            base.RebuildList();
 
-            PlayerCardThumbnails.RemoveAll(x => x.IsAlive == false);
-            if (NeedsRebuild)
+            foreach (PlayerHandCardThumbnail thumbnail in UIObjects)
             {
-                Rebuild();
+                thumbnail.UpdatePositions(thumbnail.LocalPosition);
             }
         }
 
-        #endregion
-
-        #region UI rebuilding
-
         /// <summary>
-        /// Rebuilds the spacing of the thumbnails
+        /// This just does a check to make sure we are ONLY adding PlayerHandCardThumbnails
         /// </summary>
-        private void Rebuild()
+        /// <typeparam name="T"></typeparam>
+        /// <param name="uiObjectToAdd"></param>
+        /// <param name="load"></param>
+        /// <param name="initialise"></param>
+        /// <returns></returns>
+        public override T AddObject<T>(T uiObjectToAdd, bool load = false, bool initialise = false)
         {
-            Debug.Assert(NeedsRebuild);
+            Debug.Assert(uiObjectToAdd is PlayerHandCardThumbnail);
 
-            int index = 0;
-            foreach (PlayerHandCardThumbnail thumbnail in PlayerCardThumbnails)
-            {
-                thumbnail.UpdatePositions(new Vector2((thumbnail.Size.X + padding) * index + (thumbnail.Size.X - Size.X) * 0.5f + padding, 0));
-                index++;
-            }
-
-            NeedsRebuild = false;
+            return base.AddObject(uiObjectToAdd, load, initialise);
         }
 
         #endregion
@@ -99,8 +80,6 @@ namespace SpaceCardGame
             cardUI.OnRightClicked += AddInfoImage;
             cardUI.OnDeath += SyncPlayerHand;
             cardUI.OnDeath += RebuildCallback;
-
-            PlayerCardThumbnails.Add(cardUI);
         }
 
         /// <summary>
@@ -125,7 +104,8 @@ namespace SpaceCardGame
             string cardTextureAsset = (clickable as UIObject).TextureAsset;
             Vector2 screenDimensions = ScreenManager.Instance.ScreenDimensions;
 
-            Image infoImage = AddObject(new Image(new Vector2(screenDimensions.X * 0.5f, screenDimensions.Y * 0.5f), Vector2.Zero, cardTextureAsset), true, true);
+            // Add the info image to the screen rather than this, because we want this to be exclusively for PlayerHandCardThumbnails
+            Image infoImage = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new Image(new Vector2(screenDimensions.X * 0.5f, screenDimensions.Y * 0.5f), ScreenManager.Instance.ScreenCentre, cardTextureAsset), true, true);
             ScriptManager.Instance.AddObject(new ClickDismissScript(infoImage), true, true);
         }
 

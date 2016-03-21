@@ -1,8 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<CardData>
+<ShipCardData>
   <TextureAsset>Sprites\Cards\Ships\WaspFighter\WaspFighter</TextureAsset>
   <ObjectTextureAsset></ObjectTextureAsset>
   <Type>Ship</Type>
   <DisplayName>Wasp Fighter</DisplayName>
   <Rarity>Common</Rarity>
-</CardData>
+  <ResourceCosts>
+    <Resource>0</Resource>
+    <Resource>0</Resource>
+    <Resource>1</Resource>
+    <Resource>1</Resource>
+  </ResourceCosts>
+</ShipCardData>

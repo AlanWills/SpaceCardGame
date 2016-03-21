@@ -1,8 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<CardData>
+<ShipCardData>
   <TextureAsset>Sprites\Cards\Ships\EagleFrigate\EagleFrigate</TextureAsset>
   <ObjectTextureAsset></ObjectTextureAsset>
   <Type>Ship</Type>
   <DisplayName>Eagle Frigate</DisplayName>
   <Rarity>Common</Rarity>
-</CardData>
+  <ResourceCosts>
+    <Resource>2</Resource>
+    <Resource>2</Resource>
+    <Resource>1</Resource>
+    <Resource>3</Resource>
+  </ResourceCosts>
+</ShipCardData>

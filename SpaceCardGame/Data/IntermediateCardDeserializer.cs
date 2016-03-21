@@ -15,11 +15,11 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(CentralCardRegistry.CardData);
             CardRegistryData cardRegistryData = CentralCardRegistry.CardRegistryData;
 
-            CentralCardRegistry.LoadCardType<CardData>(content, cardRegistryData.AbilityCardDataAssets, "Ability");
-            CentralCardRegistry.LoadCardType<CardData>(content, cardRegistryData.DefenceCardDataAssets, "Defence");
+            CentralCardRegistry.LoadCardType<AbilityCardData>(content, cardRegistryData.AbilityCardDataAssets, "Ability");
+            CentralCardRegistry.LoadCardType<DefenceCardData>(content, cardRegistryData.DefenceCardDataAssets, "Defence");
             CentralCardRegistry.LoadCardType<ResourceCardData>(content, cardRegistryData.ResourceCardDataAssets, "Resource");
-            CentralCardRegistry.LoadCardType<CardData>(content, cardRegistryData.ShipCardDataAssets, "Ship");
-            CentralCardRegistry.LoadCardType<CardData>(content, cardRegistryData.WeaponCardDataAssets, "Weapon");
+            CentralCardRegistry.LoadCardType<ShipCardData>(content, cardRegistryData.ShipCardDataAssets, "Ship");
+            CentralCardRegistry.LoadCardType<WeaponCardData>(content, cardRegistryData.WeaponCardDataAssets, "Weapon");
         }
     }
 }

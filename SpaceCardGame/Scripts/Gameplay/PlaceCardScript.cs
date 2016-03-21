@@ -65,30 +65,60 @@ namespace SpaceCardGame
 
             if (GameMouse.Instance.IsClicked(MouseButton.kLeftButton))
             {
-                BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
-                DebugUtils.AssertNotNull(battleScreen);
-
-                // Set the size first so that when we add the object it will have the correct size.
-                // Later on when we fix up the assets, we can remove this
-                Card card = CardFactory.CreateCard(CardData);
-                card.Size = CardImage.Size;
-                card = battleScreen.GameBoard.PlayerGameBoardSection.AddObject(card, true, true);
-
-                CardImage.Die();
-                CardThumbnail.Die();
-
-                Die();
+                Debug.Assert(ParentScreen is BattleScreen);
+                if ((ParentScreen as BattleScreen).CurrentActivePlayer.CanLayCard(CardData))
+                {
+                    AddCardToGame();
+                }
+                else
+                {
+                    SendCardBackToHand();
+                }
             }
             else if (GameMouse.Instance.IsClicked(MouseButton.kRightButton))
             {
-                BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
-                DebugUtils.AssertNotNull(battleScreen);
-
-                CardThumbnail.Show();
-
-                CardImage.Die();
-                Die();
+                SendCardBackToHand();
             }
+        }
+
+        #endregion
+
+        #region Utility Functions
+
+        /// <summary>
+        /// Converts the inputted card data into a game card and removes any UI we have that we no longer need.
+        /// Also kills the script.
+        /// </summary>
+        /// <param name="cardData"></param>
+        private void AddCardToGame()
+        {
+            BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
+            DebugUtils.AssertNotNull(battleScreen);
+
+            // Set the size first so that when we add the object it will have the correct size.
+            // Later on when we fix up the assets, we can remove this
+            Card card = CardFactory.CreateCard(CardData);
+            card.Size = CardImage.Size;
+            card = battleScreen.GameBoard.PlayerGameBoardSection.AddObject(card, true, true);
+
+            CardImage.Die();
+            CardThumbnail.Die();
+            Die();
+        }
+
+        /// <summary>
+        /// Cancels the placement and sends the card back to the player's hand.
+        /// Deals with any UI and kills the script.
+        /// </summary>
+        private void SendCardBackToHand()
+        {
+            BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
+            DebugUtils.AssertNotNull(battleScreen);
+
+            CardThumbnail.Show();
+
+            CardImage.Die();
+            Die();
         }
 
         #endregion

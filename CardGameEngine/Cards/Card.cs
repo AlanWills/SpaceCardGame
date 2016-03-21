@@ -22,7 +22,7 @@ namespace CardGameEngine
         /// <summary>
         /// The card data for this card
         /// </summary>
-        private CardData CardData { get; set; }
+        public CardData CardData { get; private set; }
 
         /// <summary>
         /// The current flip state of this card
@@ -76,9 +76,9 @@ namespace CardGameEngine
             }
             else
             {
-                DebugUtils.AssertNotNull(Texture);
+                DebugUtils.AssertNotNull(CardBackTexture);
                 spriteBatch.Draw(
-                    Texture,
+                    CardBackTexture,
                     WorldPosition,
                     null,
                     SourceRectangle,

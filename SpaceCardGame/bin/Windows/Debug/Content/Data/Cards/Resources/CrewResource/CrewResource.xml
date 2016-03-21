@@ -6,4 +6,10 @@
   <DisplayName>Crew</DisplayName>
   <Rarity>Common</Rarity>
   <ResourceType>Crew</ResourceType>
+  <ResourceCosts>
+    <Resource>0</Resource>
+    <Resource>0</Resource>
+    <Resource>0</Resource>
+    <Resource>0</Resource>
+  </ResourceCosts>
 </ResourceCardData>

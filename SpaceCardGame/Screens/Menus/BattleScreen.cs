@@ -9,8 +9,6 @@ namespace SpaceCardGame
     /// </summary>
     public class BattleScreen : GameplayScreen
     {
-        public delegate void NewTurnHandler(GamePlayer newActivePlayer);
-
         #region Properties and Fields
 
         /// <summary>
@@ -32,11 +30,6 @@ namespace SpaceCardGame
         /// A reference to our GameBoard - handles all the actual Game Objects
         /// </summary>
         public GameBoard GameBoard { get; private set; }
-
-        /// <summary>
-        /// An event which will be fired when we begin a new turn
-        /// </summary>
-        public event NewTurnHandler OnNewTurn;
 
         #endregion
 
@@ -87,11 +80,6 @@ namespace SpaceCardGame
         {
             CurrentActivePlayer = Player;
             CurrentActivePlayer.NewTurn();
-
-            if (OnNewTurn != null)
-            {
-                OnNewTurn(CurrentActivePlayer);
-            }
         }
 
         #endregion

@@ -1,8 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<CardData>
+<WeaponCardData>
   <TextureAsset>Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurret</TextureAsset>
   <ObjectTextureAsset></ObjectTextureAsset>
   <Type>Weapon</Type>
   <DisplayName>Vulcan Missile Turret</DisplayName>
   <Rarity>Common</Rarity>
-</CardData>
+  <ResourceCosts>
+    <Resource>0</Resource>
+    <Resource>1</Resource>
+    <Resource>0</Resource>
+    <Resource>1</Resource>
+  </ResourceCosts>
+</WeaponCardData>

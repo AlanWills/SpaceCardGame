@@ -6,4 +6,10 @@
   <DisplayName>Fuel</DisplayName>
   <Rarity>Common</Rarity>
   <ResourceType>Fuel</ResourceType>
+  <ResourceCosts>
+    <Resource>0</Resource>
+    <Resource>0</Resource>
+    <Resource>0</Resource>
+    <Resource>0</Resource>
+  </ResourceCosts>
 </ResourceCardData>

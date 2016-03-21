@@ -74,11 +74,11 @@ namespace CardGameEngine
             PlayerCardRegistryData playerData = AssetManager.LoadData<PlayerCardRegistryData>("Content" + path);
             DebugUtils.AssertNotNull(playerData);
 
-            LoadCardType<CardData>(playerData.AbilityCardDataAssets);
-            LoadCardType<CardData>(playerData.DefenceCardDataAssets);
-            LoadCardType<CardData>(playerData.ResourceCardDataAssets);
-            LoadCardType<CardData>(playerData.ShipCardDataAssets);
-            LoadCardType<CardData>(playerData.WeaponCardDataAssets);
+            LoadCardType(playerData.AbilityCardDataAssets);
+            LoadCardType(playerData.DefenceCardDataAssets);
+            LoadCardType(playerData.ResourceCardDataAssets);
+            LoadCardType(playerData.ShipCardDataAssets);
+            LoadCardType(playerData.WeaponCardDataAssets);
 
             // Load decks too
             Debug.Assert(playerData.Decks.Count <= maxDeckNumber);
@@ -151,7 +151,7 @@ namespace CardGameEngine
         /// Load our resource cards not being used in decks
         /// </summary>
         /// <param name="content"></param>
-        private void LoadCardType<T>(List<string> assetsToLoad) where T : CardData
+        private void LoadCardType(List<string> assetsToLoad)
         {
             // Load the resource cards from the central registry
             List<CardData> data = CentralCardRegistry.ConvertToDataList(assetsToLoad);

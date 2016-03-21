@@ -41,21 +41,14 @@ namespace SpaceCardGame
             {
                 ResourceCards[type] = new List<Card>();
             }
+
+            // Set up events
+            AfterCardPlaced += UseResourcesToLayCard;
+            Player.OnNewTurn += FlipResourceCardsFaceUp;
+            Player.OnNewTurn += GivePlayerFullResources;
         }
 
         #region Virtual Functions
-
-        /// <summary>
-        /// Hook into the screen events
-        /// </summary>
-        public override void Begin()
-        {
-            base.Begin();
-
-            // Hook into the screen events
-            Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
-            (ScreenManager.Instance.CurrentScreen as BattleScreen).OnNewTurn += UpdateResourceCardsAtTurnStart;
-        }
 
         /// <summary>
         /// Adds our card to the section, but calls a particular function based on it's type to perform extra stuff like adding a reference to it to a list
@@ -72,9 +65,25 @@ namespace SpaceCardGame
 
             base.AddObject(gameObjectToAdd, load, initialise);
 
-            if (card is ResourceCard)
+            if (card is AbilityCard)
+            {
+                
+            }
+            else if (card is DefenceCard)
+            {
+                
+            }
+            else if (card is ResourceCard)
             {
                 AddResourceCard(card as ResourceCard);
+            }
+            else if (card is ShipCard)
+            {
+
+            }
+            else if (card is WeaponCard)
+            {
+
             }
 
             if (AfterCardPlaced != null)
@@ -94,12 +103,54 @@ namespace SpaceCardGame
         /// </summary>
         private void AddResourceCard(ResourceCard resourceCard)
         {
-            ResourceCards[(int)resourceCard.ResourceType].Add(resourceCard);
+            Debug.Assert(Player.ResourceCardsPlacedThisTurn < GamePlayer.ResourceCardsCanLay);
 
             float padding = 10;
-            float xPos = ((float)resourceCard.ResourceType + 0.5f) * (resourceCard.Size.X + padding) - Size.X * 0.5f;
+            int typeIndex = (int)resourceCard.ResourceType;
+            int cardCount = ResourceCards[typeIndex].Count;
 
-            resourceCard.LocalPosition = new Vector2(xPos, 0);
+            // Make our resource card thumbnails smaller as their detail is not going to be hugely important
+            resourceCard.Size *= 0.75f;
+
+            if (cardCount == 0)
+            {
+                // We are adding the first resource card of this type
+                resourceCard.LocalPosition = new Vector2((-Size.X + resourceCard.Size.X) * 0.5f + padding, Size.Y * 0.5f - resourceCard.Size.Y * 0.5f - padding - typeIndex * (resourceCard.Size.Y + padding));
+            }
+            else
+            {
+                // We are adding another resource card, so overlay it on top and slightly to the side of the previous one
+                resourceCard.LocalPosition = ResourceCards[typeIndex][cardCount - 1].LocalPosition + new Vector2(resourceCard.Size.X * 0.15f, 0);
+            }
+
+            ResourceCards[typeIndex].Add(resourceCard);
+
+            Player.AvailableResources[typeIndex]++;
+            Player.ResourceCardsPlacedThisTurn++;
+        }
+
+        /// <summary>
+        /// Removes resources from the player when they lay a card and updates the resource cards by flipping them face down
+        /// </summary>
+        /// <param name="card"></param>
+        private void UseResourcesToLayCard(Card card)
+        {
+            for (int typeIndex = 0; typeIndex < (int)ResourceType.kNumResourceTypes; typeIndex++)
+            {
+                int numResourceCardsTotal = ResourceCards[typeIndex].Count;
+                int numAvailableResourceCards = Player.AvailableResources[typeIndex];
+                Debug.Assert(numAvailableResourceCards >= card.CardData.ResourceCosts[typeIndex]);
+
+                for (int cost = 0; cost < card.CardData.ResourceCosts[typeIndex]; cost++)
+                {
+                    // Flip our bottom most available card face down
+                    Debug.Assert(numResourceCardsTotal - numAvailableResourceCards >= 0);
+                    ResourceCards[typeIndex][numResourceCardsTotal - numAvailableResourceCards].Flip(CardFlipState.kFaceDown);
+
+                    // Remove one from our player's available resources.
+                    Player.AvailableResources[typeIndex]--;
+                }
+            }
         }
 
         #endregion
@@ -107,10 +158,10 @@ namespace SpaceCardGame
         #region Event Callbacks
 
         /// <summary>
-        /// A callback for when we begin a new turn - updates the resource cards so that they are all face up and active again.
+        /// A callback for when this player begins a new turn - updates the resource cards so that they are all face up and active again.
         /// </summary>
         /// <param name="newActivePlayer"></param>
-        private void UpdateResourceCardsAtTurnStart(GamePlayer newActivePlayer)
+        private void FlipResourceCardsFaceUp(GamePlayer newActivePlayer)
         {
             for (int type = 0; type < (int)ResourceType.kNumResourceTypes; type++)
             {
@@ -118,6 +169,20 @@ namespace SpaceCardGame
                 {
                     resourceCard.Flip(CardFlipState.kFaceUp);
                 }
+
+                Player.AvailableResources[type] = ResourceCards[type].Count;
+            }
+        }
+
+        /// <summary>
+        /// A callback for when this player begins a new turn - resets all of our player's available resources.
+        /// </summary>
+        /// <param name="newActivePlayer"></param>
+        private void GivePlayerFullResources(GamePlayer newActivePlayer)
+        {
+            for (int type = 0; type < (int)ResourceType.kNumResourceTypes; type++)
+            {
+                Player.AvailableResources[type] = ResourceCards[type].Count;
             }
         }
 
