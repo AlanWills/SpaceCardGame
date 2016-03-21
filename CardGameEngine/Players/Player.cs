@@ -10,6 +10,12 @@ namespace CardGameEngine
     public delegate void OnCardDrawHandler(CardData drawnCard);
 
     /// <summary>
+    /// A delegate for an event that will be fired when we add cards to our hand
+    /// </summary>
+    /// <param name="drawnCard"></param>
+    public delegate void OnCardAddedToHandHandler(CardData drawnCard);
+
+    /// <summary>
     /// A class used in the battle screen to control the logic of each player's during the battle
     /// </summary>
     public class Player
@@ -39,6 +45,12 @@ namespace CardGameEngine
         public event OnCardDrawHandler OnCardDraw;
 
         /// <summary>
+        /// An event that is fired each time we add a card to our hand.
+        /// Is called after the card is added to our hand.
+        /// </summary>
+        public event OnCardAddedToHandHandler OnCardAddedToHand;
+
+        /// <summary>
         /// The maximum number of cards allowed in our hand.
         /// </summary>
         public int MaxHandSize { get; private set; }
@@ -60,7 +72,7 @@ namespace CardGameEngine
         public virtual void NewTurn()
         {
             // Draw a card - in the draw method we will add it to our hand if we can
-            Draw();
+            DrawCard();
         }
 
         #endregion
@@ -71,18 +83,22 @@ namespace CardGameEngine
         /// Draw cards from our deck instance if we have room in our hand
         /// </summary>
         /// <param name="numberOfCards"></param>
-        public void Draw(int numberOfCards = 1)
+        public void DrawCard(int numberOfCards = 1)
         {
             for (int i = 0; i < numberOfCards; i++)
             {
+                CardData cardData = ChosenDeck.Draw();
+                if (OnCardDraw != null)
+                {
+                    OnCardDraw(cardData);
+                }
+
                 if (CurrentHand.Count < MaxHandSize)
                 {
-                    CardData cardData = ChosenDeck.Draw();
                     CurrentHand.Add(cardData);
-
-                    if (OnCardDraw != null)
+                    if (OnCardAddedToHand != null)
                     {
-                        OnCardDraw(cardData);
+                        OnCardAddedToHand(cardData);
                     }
                 }
             }

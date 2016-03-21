@@ -70,12 +70,12 @@ namespace SpaceCardGame
             Debug.Assert(gameObjectToAdd is Card);
             Card card = gameObjectToAdd as Card;
 
+            base.AddObject(gameObjectToAdd, load, initialise);
+
             if (card is ResourceCard)
             {
                 AddResourceCard(card as ResourceCard);
             }
-
-            base.AddObject(gameObjectToAdd, load, initialise);
 
             if (AfterCardPlaced != null)
             {
@@ -96,7 +96,8 @@ namespace SpaceCardGame
         {
             ResourceCards[(int)resourceCard.ResourceType].Add(resourceCard);
 
-            float xPos = ((float)resourceCard.ResourceType + 0.5f) * (Size.X / (int)ResourceType.kNumResourceTypes) - Size.X * 0.5f;
+            float padding = 10;
+            float xPos = ((float)resourceCard.ResourceType + 0.5f) * (resourceCard.Size.X + padding) - Size.X * 0.5f;
 
             resourceCard.LocalPosition = new Vector2(xPos, 0);
         }

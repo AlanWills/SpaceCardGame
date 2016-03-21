@@ -4,6 +4,8 @@ using Microsoft.Xna.Framework;
 
 namespace CardGameEngine
 {
+    public delegate void OnPlayerHandCardDeathHandler(PlayerHandCardThumbnail cardThumbnail);
+
     /// <summary>
     /// A class to represent a card in our player's cand - deals with animation effects and playing it on the board
     /// </summary>
@@ -13,6 +15,11 @@ namespace CardGameEngine
         /// A reference to the card data for this card UI
         /// </summary>
         public CardData CardData { get; private set; }
+
+        /// <summary>
+        /// An event that will be called after this object dies
+        /// </summary>
+        public OnPlayerHandCardDeathHandler OnDeath;
 
         /// <summary>
         /// Used for some effects - our card if the mouse is over will move up the screen slightly
@@ -36,8 +43,7 @@ namespace CardGameEngine
         {
             base.Begin();
 
-            RestingPosition = LocalPosition;
-            HighlightedPosition = RestingPosition - new Vector2(0, 35);
+            UpdatePositions(LocalPosition);
 
             // Experimental - have the card drop down to it's resting position
             LocalPosition = HighlightedPosition;
@@ -80,6 +86,30 @@ namespace CardGameEngine
                     LocalPosition = RestingPosition;
                 }
             }
+        }
+
+        /// <summary>
+        /// Calls the OnDeath event if it is hooked up
+        /// </summary>
+        public override void Die()
+        {
+            base.Die();
+
+            if (OnDeath != null)
+            {
+                OnDeath(this);
+            }
+        }
+
+        #endregion
+
+        #region Utility Functions
+
+        public void UpdatePositions(Vector2 newLocalPosition)
+        {
+            LocalPosition = newLocalPosition;
+            RestingPosition = newLocalPosition;
+            HighlightedPosition = newLocalPosition - new Vector2(0, 35);
         }
 
         #endregion

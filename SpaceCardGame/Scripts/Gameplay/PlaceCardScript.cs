@@ -2,6 +2,7 @@
 using CardGameEngine;
 using CardGameEngineData;
 using Microsoft.Xna.Framework;
+using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -67,11 +68,15 @@ namespace SpaceCardGame
                 BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
                 DebugUtils.AssertNotNull(battleScreen);
 
-                Card card = battleScreen.GameBoard.PlayerGameBoardSection.AddObject(CardFactory.CreateCard(CardData), true, true);
+                // Set the size first so that when we add the object it will have the correct size.
+                // Later on when we fix up the assets, we can remove this
+                Card card = CardFactory.CreateCard(CardData);
                 card.Size = CardImage.Size;
+                card = battleScreen.GameBoard.PlayerGameBoardSection.AddObject(card, true, true);
 
                 CardImage.Die();
                 CardThumbnail.Die();
+
                 Die();
             }
             else if (GameMouse.Instance.IsClicked(MouseButton.kRightButton))

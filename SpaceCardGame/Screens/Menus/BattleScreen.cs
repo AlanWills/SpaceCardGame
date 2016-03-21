@@ -38,9 +38,6 @@ namespace SpaceCardGame
         /// </summary>
         public event NewTurnHandler OnNewTurn;
 
-        private float timer = 0;
-        private int index = 0;
-
         #endregion
 
         public BattleScreen(Deck playerChosenDeck, string screenDataAsset) :
@@ -77,19 +74,6 @@ namespace SpaceCardGame
             base.AddInitialUI();
 
             HUD = AddScreenUIObject(new BattleScreenHUD(AssetManager.DefaultEmptyPanelTextureAsset));
-        }
-
-        public override void Update(float elapsedGameTime)
-        {
-            base.Update(elapsedGameTime);
-
-            /*timer += elapsedGameTime;
-            if (timer > 0.35f && index < 6)
-            {
-                Player.Draw();
-                timer = 0;
-                index++;
-            }*/
         }
 
         #endregion
