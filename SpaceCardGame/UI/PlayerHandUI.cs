@@ -70,14 +70,10 @@ namespace SpaceCardGame
         /// </summary>
         /// <param name="drawnCard"></param>
         private void AddPlayerHandCardUI(CardData drawnCard)
-        {
-            Vector2 size = new Vector2(Size.X * 0.1f, Size.Y);
-            PlayerHandCardThumbnail cardUI = AddObject(new PlayerHandCardThumbnail(drawnCard, size, Vector2.Zero), true, true);
-            size = cardUI.Size;
-            cardUI.LocalPosition = new Vector2((size.X + padding) * (Player.CurrentHand.Count - 1) + (size.X - Size.X) * 0.5f + padding, 0);
+        { 
+            PlayerHandCardThumbnail cardUI = AddObject(new PlayerHandCardThumbnail(drawnCard, new Vector2(Size.X * 0.1f, Size.Y), Vector2.Zero), true, true);
 
             cardUI.OnLeftClicked += AddCardToGame;
-            cardUI.OnRightClicked += AddInfoImage;
             cardUI.OnDeath += SyncPlayerHand;
             cardUI.OnDeath += RebuildCallback;
         }
@@ -91,22 +87,6 @@ namespace SpaceCardGame
             Debug.Assert(clickable is PlayerHandCardThumbnail);
 
             ScriptManager.Instance.AddObject(new PlaceCardScript(clickable as PlayerHandCardThumbnail), true, true);
-        }
-
-        /// <summary>
-        /// A callback which displays an image with more in depth information about a card, bound to a click dismiss script (which will remove it as soon as we click anywhere)
-        /// </summary>
-        /// <param name="clickable"></param>
-        private void AddInfoImage(IClickable clickable)
-        {
-            Debug.Assert(clickable is UIObject);
-
-            string cardTextureAsset = (clickable as UIObject).TextureAsset;
-            Vector2 screenDimensions = ScreenManager.Instance.ScreenDimensions;
-
-            // Add the info image to the screen rather than this, because we want this to be exclusively for PlayerHandCardThumbnails
-            Image infoImage = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new Image(new Vector2(screenDimensions.X * 0.5f, screenDimensions.Y * 0.5f), ScreenManager.Instance.ScreenCentre, cardTextureAsset), true, true);
-            ScriptManager.Instance.AddObject(new ClickDismissScript(infoImage), true, true);
         }
 
         /// <summary>

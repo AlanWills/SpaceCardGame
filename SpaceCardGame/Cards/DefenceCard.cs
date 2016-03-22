@@ -3,7 +3,7 @@ using SpaceCardGameData;
 
 namespace SpaceCardGame
 {
-    public class DefenceCard : Card
+    public class DefenceCard : GameCard
     {
         public DefenceCard(DefenceCardData defenceCardData) :
             base(defenceCardData)

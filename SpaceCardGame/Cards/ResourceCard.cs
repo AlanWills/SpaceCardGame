@@ -1,5 +1,4 @@
-﻿using CardGameEngine;
-using SpaceCardGameData;
+﻿using SpaceCardGameData;
 using System;
 using System.Diagnostics;
 
@@ -17,7 +16,7 @@ namespace SpaceCardGame
         kNumResourceTypes
     }
 
-    public class ResourceCard : Card
+    public class ResourceCard : GameCard
     {
         /// <summary>
         /// An indicator of the resource type of this
@@ -40,6 +39,24 @@ namespace SpaceCardGame
             base.Begin();
 
             Debug.Assert(ResourceType != ResourceType.kNumResourceTypes);
+        }
+
+        /// <summary>
+        /// Checks to see whether we have already laid our quota of resouce cards.
+        /// Then checks the available resources.
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
+        public override bool CanLay(GamePlayer player)
+        {
+            // Check to make sure we haven't laid 2 resource cards already
+            Debug.Assert(CardData.Type == "Resource");
+            if (player.ResourceCardsPlacedThisTurn >= GamePlayer.ResourceCardsCanLay)
+            {
+                return false;
+            }
+            // Do our check for resources
+            return base.CanLay(player);
         }
 
         #endregion

@@ -1,6 +1,7 @@
 ﻿using _2DEngine;
 using CardGameEngineData;
 using Microsoft.Xna.Framework;
+using System.Diagnostics;
 
 namespace CardGameEngine
 {
@@ -15,6 +16,11 @@ namespace CardGameEngine
         /// A reference to the card data for this card UI
         /// </summary>
         public CardData CardData { get; private set; }
+
+        /// <summary>
+        /// A reference to a larger version of the card thumbnail the player will see when mousing over
+        /// </summary>
+        private Image CardInfoImage { get; set; }
 
         /// <summary>
         /// An event that will be called after this object dies
@@ -34,6 +40,24 @@ namespace CardGameEngine
         }
 
         #region Virtual Functions
+
+        /// <summary>
+        /// Sets up the DetailImage in our main screen
+        /// </summary>
+        public override void LoadContent()
+        {
+            CheckShouldLoad();
+
+            DebugUtils.AssertNotNull(ScreenManager.Instance.CurrentScreen);
+            Debug.Assert(ScreenManager.Instance.CurrentScreen is GameplayScreen);
+
+            Vector2 screenDimensions = ScreenManager.Instance.ScreenDimensions;
+            CardInfoImage = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new Image(new Vector2(screenDimensions.X * 0.5f, screenDimensions.Y * 0.5f), ScreenManager.Instance.ScreenCentre, CardData.TextureAsset), true, true);
+            CardInfoImage.IsAlive.Connect(IsAlive); // Set this object to die when the thumbnail dies
+            CardInfoImage.Hide();
+
+            base.LoadContent();
+        }
 
         /// <summary>
         /// Set up some constants for our animation effects here.
@@ -71,6 +95,8 @@ namespace CardGameEngine
                     // We are close enough to be at the end position
                     LocalPosition = HighlightedPosition;
                 }
+
+                CardInfoImage.Show();
             }
             else
             {
@@ -85,7 +111,20 @@ namespace CardGameEngine
                     // We are close enough to be at the initial position
                     LocalPosition = RestingPosition;
                 }
+
+                CardInfoImage.Hide();
             }
+        }
+
+        /// <summary>
+        /// If we hide this, we also wish to hide the detail image if it is still showing
+        /// </summary>
+        /// <param name="showChildren"></param>
+        public override void Hide(bool showChildren = true)
+        {
+            base.Hide(showChildren);
+
+            CardInfoImage.Hide();
         }
 
         /// <summary>
@@ -105,6 +144,10 @@ namespace CardGameEngine
 
         #region Utility Functions
 
+        /// <summary>
+        /// Recalculates the extra positions we use for our lerping effect
+        /// </summary>
+        /// <param name="newLocalPosition"></param>
         public void UpdatePositions(Vector2 newLocalPosition)
         {
             LocalPosition = newLocalPosition;

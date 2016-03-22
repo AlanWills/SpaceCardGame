@@ -1,5 +1,4 @@
 ﻿using CardGameEngine;
-using CardGameEngineData;
 
 namespace SpaceCardGame
 {
@@ -21,17 +20,26 @@ namespace SpaceCardGame
         public int ResourceCardsPlacedThisTurn { get; set; }
 
         /// <summary>
+        /// A cap to limit the number of ships the player can have placed at any one time
+        /// </summary>
+        public int CurrentShipsPlaced { get; set; }
+
+        /// <summary>
         /// An event which will be fired when we begin a new turn
         /// </summary>
         public event NewTurnHandler OnNewTurn;
 
         public const int ResourceCardsCanLay = 2;
+        public const int MaxShipNumber = 8;
 
         #endregion
 
         public GamePlayer(Deck chosenDeck) :
             base(chosenDeck)
         {
+            ResourceCardsPlacedThisTurn = 0;
+            CurrentShipsPlaced = 0;
+
             AvailableResources = new int[(int)ResourceType.kNumResourceTypes];
             for (ResourceType resourceType = ResourceType.Crew; resourceType < ResourceType.kNumResourceTypes; resourceType++)
             {
@@ -55,36 +63,6 @@ namespace SpaceCardGame
             {
                 OnNewTurn(this);
             }
-        }
-
-        #endregion
-
-        #region Card Utility Functions
-
-        /// <summary>
-        /// Analyses the cost of the card compared to our available resources to work out whether we have the resources to lay this
-        /// </summary>
-        /// <param name="cardData"></param>
-        /// <returns><c>true</c>We have enough resources available to lay this card.<c>false</c>We do not have enough resources to lay this card</returns>
-        public bool CanLayCard(CardData cardData)
-        {
-            // Check to make sure we haven't laid 2 resource cards already
-            if (cardData.Type == "Resource" && ResourceCardsPlacedThisTurn >= ResourceCardsCanLay)
-            {
-                return false;
-            }
-
-            for (int i = 0; i < (int)ResourceType.kNumResourceTypes; i++)
-            {
-                if (AvailableResources[i] < cardData.ResourceCosts[i])
-                {
-                    // We do not have enough of the current resource we are analysing to lay this card so return false
-                    return false;
-                }
-            }
-
-            // We have enough of each resource type for this card
-            return true;
         }
 
         #endregion

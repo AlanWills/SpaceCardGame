@@ -15,7 +15,7 @@ namespace CardGameEngine
     /// <summary>
     /// A base class for our card object
     /// </summary>
-    public class Card : GameObject
+    public abstract class Card : GameObject
     {
         #region Properties and Fields
 
@@ -55,16 +55,6 @@ namespace CardGameEngine
         }
 
         /// <summary>
-        /// Override this function to do on laid abilities
-        /// </summary>
-        public override void Begin()
-        {
-            base.Begin();
-        }
-
-        // Do normal during fight ability, plus a function to determine whether we can do it?
-
-        /// <summary>
         /// Either draw our normal card if we are face up, or the back of the card if we are face down
         /// </summary>
         /// <param name="spriteBatch"></param>
@@ -89,14 +79,6 @@ namespace CardGameEngine
                     SpriteEffect,
                     0);
             }
-        }
-
-        /// <summary>
-        /// Override this function to do on death abilities
-        /// </summary>
-        public override void Die()
-        {
-            base.Die();
         }
 
         #endregion

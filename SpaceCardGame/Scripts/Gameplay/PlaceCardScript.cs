@@ -36,12 +36,13 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(cardThumbnail.CardData);
             CardData = cardThumbnail.CardData;
             CardThumbnail = cardThumbnail;
-
-            CardThumbnail.Hide();
         }
 
         #region Virtual Functions
 
+        /// <summary>
+        /// Loads our intermidiary image and sets it's parent to be the mouse
+        /// </summary>
         public override void LoadContent()
         {
             CheckShouldLoad();
@@ -51,6 +52,19 @@ namespace SpaceCardGame
             CardImage.SetParent(GameMouse.Instance, true);
 
             base.LoadContent();
+        }
+
+        /// <summary>
+        /// Hides the card thumbnail.
+        /// </summary>
+        public override void Begin()
+        {
+            base.Begin();
+
+            // We do this here, because we add this script during the thumbnail's update script.
+            // It will then continue to run it's handle input function and make the info image visible.
+            // Since this is executed one frame later, this will successfully hide the UI.
+            CardThumbnail.Hide();
         }
 
         /// <summary>
@@ -66,9 +80,12 @@ namespace SpaceCardGame
             if (GameMouse.Instance.IsClicked(MouseButton.kLeftButton))
             {
                 Debug.Assert(ParentScreen is BattleScreen);
-                if ((ParentScreen as BattleScreen).CurrentActivePlayer.CanLayCard(CardData))
+                DebugUtils.AssertNotNull((ParentScreen as BattleScreen).CurrentActivePlayer);
+                GameCard card = CardFactory.CreateCard(CardData);
+
+                if (card.CanLay((ParentScreen as BattleScreen).CurrentActivePlayer))
                 {
-                    AddCardToGame();
+                    AddCardToGame(card);
                 }
                 else
                 {
@@ -86,18 +103,16 @@ namespace SpaceCardGame
         #region Utility Functions
 
         /// <summary>
-        /// Converts the inputted card data into a game card and removes any UI we have that we no longer need.
+        /// Adds the inputted card to the game screen and removes any UI we have that we no longer need.
         /// Also kills the script.
         /// </summary>
-        /// <param name="cardData"></param>
-        private void AddCardToGame()
+        private void AddCardToGame(Card card)
         {
             BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
             DebugUtils.AssertNotNull(battleScreen);
 
             // Set the size first so that when we add the object it will have the correct size.
             // Later on when we fix up the assets, we can remove this
-            Card card = CardFactory.CreateCard(CardData);
             card.Size = CardImage.Size;
             card = battleScreen.GameBoard.PlayerGameBoardSection.AddObject(card, true, true);
 

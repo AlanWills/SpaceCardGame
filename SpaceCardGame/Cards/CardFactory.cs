@@ -16,7 +16,7 @@ namespace SpaceCardGame
         /// </summary>
         /// <param name="cardData"></param>
         /// <returns></returns>
-        public static Card CreateCard(CardData cardData)
+        public static GameCard CreateCard(CardData cardData)
         {
             if (cardData is AbilityCardData)
             {

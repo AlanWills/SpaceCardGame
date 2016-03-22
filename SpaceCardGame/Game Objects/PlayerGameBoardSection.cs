@@ -20,6 +20,11 @@ namespace SpaceCardGame
         public List<Card>[] ResourceCards { get; private set; }
 
         /// <summary>
+        /// A container to group our ships together and automatically space them.
+        /// </summary>
+        private GameCardControl PlayerShipCardControl { get; set; }
+
+        /// <summary>
         /// A reference to the human player
         /// </summary>
         private GamePlayer Player { get; set; }
@@ -42,6 +47,8 @@ namespace SpaceCardGame
                 ResourceCards[type] = new List<Card>();
             }
 
+            PlayerShipCardControl = AddObject(new GameCardControl(new Vector2(Size.X * 0.8f, Size.Y * 0.5f), GamePlayer.MaxShipNumber, 1, new Vector2(0, - Size.Y * 0.25f)));
+
             // Set up events
             AfterCardPlaced += UseResourcesToLayCard;
             Player.OnNewTurn += FlipResourceCardsFaceUp;
@@ -60,35 +67,44 @@ namespace SpaceCardGame
         /// <returns></returns>
         public override T AddObject<T>(T gameObjectToAdd, bool load = false, bool initialise = false)
         {
-            Debug.Assert(gameObjectToAdd is Card);
+            // If we are adding a card, deal with special cases here
             Card card = gameObjectToAdd as Card;
+            if (card != null)
+            {
+                if (card is AbilityCard)
+                {
 
-            base.AddObject(gameObjectToAdd, load, initialise);
+                }
+                else if (card is DefenceCard)
+                {
 
-            if (card is AbilityCard)
-            {
-                
-            }
-            else if (card is DefenceCard)
-            {
-                
-            }
-            else if (card is ResourceCard)
-            {
-                AddResourceCard(card as ResourceCard);
-            }
-            else if (card is ShipCard)
-            {
+                }
+                else if (card is ResourceCard)
+                {
+                    AddResourceCard(card as ResourceCard);
+                }
+                else if (card is ShipCard)
+                {
+                    AddShipCard(card as ShipCard);
+                }
+                else if (card is WeaponCard)
+                {
 
-            }
-            else if (card is WeaponCard)
-            {
+                }
+                else
+                {
+                    Debug.Fail("Adding an unregistered card to game board");
+                }
 
+                if (AfterCardPlaced != null)
+                {
+                    AfterCardPlaced(card);
+                }
             }
-
-            if (AfterCardPlaced != null)
+            else
             {
-                AfterCardPlaced(card);
+                // Otherwise just add the object as normal
+                base.AddObject(gameObjectToAdd, load, initialise);
             }
 
             return gameObjectToAdd;
@@ -100,6 +116,7 @@ namespace SpaceCardGame
 
         /// <summary>
         /// A function which will be called when we add a resource card to this section.
+        /// Adds the resource card to this game board section and edits the available resource cards.
         /// </summary>
         private void AddResourceCard(ResourceCard resourceCard)
         {
@@ -127,6 +144,23 @@ namespace SpaceCardGame
 
             Player.AvailableResources[typeIndex]++;
             Player.ResourceCardsPlacedThisTurn++;
+
+            base.AddObject(resourceCard, true, true);
+        }
+
+        /// <summary>
+        /// Adds a ship card to our ship control and increments the player's total number of ships placed.
+        /// </summary>
+        /// <param name="shipCard"></param>
+        private void AddShipCard(ShipCard shipCard)
+        {
+            Debug.Assert(Player.CurrentShipsPlaced < GamePlayer.MaxShipNumber);
+
+            // Can remove this once we fix our card sizes
+            shipCard.Size *= 0.75f;
+
+            PlayerShipCardControl.AddObject(shipCard, true, true);
+            Player.CurrentShipsPlaced++;
         }
 
         /// <summary>
