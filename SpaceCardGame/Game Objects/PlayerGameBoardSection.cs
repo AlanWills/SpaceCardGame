@@ -47,7 +47,7 @@ namespace SpaceCardGame
                 ResourceCards[type] = new List<Card>();
             }
 
-            PlayerShipCardControl = AddObject(new GameCardControl(new Vector2(Size.X * 0.8f, Size.Y * 0.5f), GamePlayer.MaxShipNumber, 1, new Vector2(0, - Size.Y * 0.25f)));
+            PlayerShipCardControl = AddObject(new GameCardControl(typeof(ShipCard), new Vector2(Size.X * 0.8f, Size.Y * 0.5f), GamePlayer.MaxShipNumber, 1, new Vector2(0, - Size.Y * 0.25f)));
 
             // Set up events
             AfterCardPlaced += UseResourcesToLayCard;

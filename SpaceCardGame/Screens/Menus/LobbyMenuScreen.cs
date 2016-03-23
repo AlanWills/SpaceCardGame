@@ -42,6 +42,11 @@ namespace SpaceCardGame
             deckManagerButton.SetParent(parent);
             deckManagerButton.OnLeftClicked += OnDeckManagerButtonClicked;
             parent = deckManagerButton;
+
+            Button openPacksButton = AddScreenUIObject(new Button("Open Packs", new Vector2(0, padding)));
+            openPacksButton.SetParent(parent);
+            openPacksButton.OnLeftClicked += OnDeckManagerButtonClicked;
+            parent = openPacksButton;
         }
 
         /// <summary>

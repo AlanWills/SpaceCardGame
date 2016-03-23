@@ -82,6 +82,7 @@ namespace CardGameEngine
         {
             base.HandleInput(elapsedGameTime, mousePosition);
 
+            DebugUtils.AssertNotNull(Collider);
             if (Collider.IsMouseOver)
             {
                 // We are sufficiently far away from the end position

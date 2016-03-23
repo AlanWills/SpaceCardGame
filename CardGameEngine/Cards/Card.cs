@@ -3,6 +3,7 @@ using _2DEngineData;
 using CardGameEngineData;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Diagnostics;
 
 namespace CardGameEngine
 {
@@ -23,6 +24,11 @@ namespace CardGameEngine
         /// The card data for this card
         /// </summary>
         public CardData CardData { get; private set; }
+
+        /// <summary>
+        /// A reference to a larger version of the card the player will see when mousing over
+        /// </summary>
+        protected Image CardInfoImage { get; private set; }
 
         /// <summary>
         /// The current flip state of this card
@@ -55,6 +61,39 @@ namespace CardGameEngine
         }
 
         /// <summary>
+        /// Sets up our CardInfoImage
+        /// </summary>
+        public override void LoadContent()
+        {
+            CheckShouldLoad();
+
+            DebugUtils.AssertNotNull(ScreenManager.Instance.CurrentScreen);
+            Debug.Assert(ScreenManager.Instance.CurrentScreen is GameplayScreen);
+
+            Vector2 screenDimensions = ScreenManager.Instance.ScreenDimensions;
+            CardInfoImage = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new Image(new Vector2(screenDimensions.X * 0.5f, screenDimensions.Y * 0.5f), ScreenManager.Instance.ScreenCentre, CardData.TextureAsset), true, true);
+            CardInfoImage.IsAlive.Connect(IsAlive); // Set this object to die when the thumbnail dies
+            CardInfoImage.Hide();
+
+            base.LoadContent();
+        }
+
+        public override void HandleInput(float elapsedGameTime, Vector2 mousePosition)
+        {
+            base.HandleInput(elapsedGameTime, mousePosition);
+
+            DebugUtils.AssertNotNull(Collider);
+            if (Collider.IsMouseOver)
+            {
+                CardInfoImage.Show();
+            }
+            else
+            {
+                CardInfoImage.Hide();
+            }
+        }
+
+        /// <summary>
         /// Either draw our normal card if we are face up, or the back of the card if we are face down
         /// </summary>
         /// <param name="spriteBatch"></param>
@@ -79,6 +118,17 @@ namespace CardGameEngine
                     SpriteEffect,
                     0);
             }
+        }
+
+        /// <summary>
+        /// If we hide this, we also wish to hide the detail image if it is still showing
+        /// </summary>
+        /// <param name="showChildren"></param>
+        public override void Hide(bool showChildren = true)
+        {
+            base.Hide(showChildren);
+
+            CardInfoImage.Hide();
         }
 
         #endregion

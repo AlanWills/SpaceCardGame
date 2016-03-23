@@ -21,7 +21,7 @@ namespace SpaceCardGame
         #endregion
 
         public PlayerHandUI(Player player, Vector2 localPosition, string backgroundTextureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
-            base(10, new Vector2(ScreenManager.Instance.ScreenDimensions.X * 0.8f, ScreenManager.Instance.ScreenDimensions.Y * 0.15f), localPosition, backgroundTextureAsset)
+            base(player.MaxHandSize, new Vector2(ScreenManager.Instance.ScreenDimensions.X * 0.8f, ScreenManager.Instance.ScreenDimensions.Y * 0.15f), localPosition, backgroundTextureAsset)
         {
             Player = player;
             Player.OnCardAddedToHand += AddPlayerHandCardUI;
@@ -39,9 +39,18 @@ namespace SpaceCardGame
         {
             base.RebuildList();
 
+            // Early out if we don't actually have any thumbnails in our hand
+            if (UIObjects.ActiveObjectsCount == 0) { return; }
+
+            // Correct the elements in our grid control so that they are centred around the middle
+            DebugUtils.AssertNotNull(UIObjects.First());
+            float xCorrectionForOneCard = (UIObjects.First().Size.X + padding) * 0.5f;
+            xCorrectionForOneCard *= Player.MaxHandSize - Player.CurrentHand.Count;
+            xCorrectionForOneCard += padding * 0.5f;
+
             foreach (PlayerHandCardThumbnail thumbnail in UIObjects)
             {
-                thumbnail.UpdatePositions(thumbnail.LocalPosition);
+                thumbnail.UpdatePositions(thumbnail.LocalPosition + new Vector2(xCorrectionForOneCard, 0));
             }
         }
 
