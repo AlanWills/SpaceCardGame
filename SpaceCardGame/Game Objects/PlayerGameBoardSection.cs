@@ -81,11 +81,11 @@ namespace SpaceCardGame
                 }
                 else if (card is ResourceCard)
                 {
-                    AddResourceCard(card as ResourceCard);
+                    AddResourceCard(card as ResourceCard, load, initialise);
                 }
                 else if (card is ShipCard)
                 {
-                    AddShipCard(card as ShipCard);
+                    AddShipCard(card as ShipCard, load, initialise);
                 }
                 else if (card is WeaponCard)
                 {
@@ -95,6 +95,8 @@ namespace SpaceCardGame
                 {
                     Debug.Fail("Adding an unregistered card to game board");
                 }
+
+                card.IsPlaced = true;
 
                 if (AfterCardPlaced != null)
                 {
@@ -118,7 +120,7 @@ namespace SpaceCardGame
         /// A function which will be called when we add a resource card to this section.
         /// Adds the resource card to this game board section and edits the available resource cards.
         /// </summary>
-        private void AddResourceCard(ResourceCard resourceCard)
+        private void AddResourceCard(ResourceCard resourceCard, bool load, bool initialise)
         {
             Debug.Assert(Player.ResourceCardsPlacedThisTurn < GamePlayer.ResourceCardsCanLay);
 
@@ -145,21 +147,21 @@ namespace SpaceCardGame
             Player.AvailableResources[typeIndex]++;
             Player.ResourceCardsPlacedThisTurn++;
 
-            base.AddObject(resourceCard, true, true);
+            base.AddObject(resourceCard, load, initialise);
         }
 
         /// <summary>
         /// Adds a ship card to our ship control and increments the player's total number of ships placed.
         /// </summary>
         /// <param name="shipCard"></param>
-        private void AddShipCard(ShipCard shipCard)
+        private void AddShipCard(ShipCard shipCard, bool load, bool initialise)
         {
             Debug.Assert(Player.CurrentShipsPlaced < GamePlayer.MaxShipNumber);
 
             // Can remove this once we fix our card sizes
             shipCard.Size *= 0.75f;
 
-            PlayerShipCardControl.AddObject(shipCard, true, true);
+            PlayerShipCardControl.AddObject(shipCard, load, initialise);
             Player.CurrentShipsPlaced++;
         }
 

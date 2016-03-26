@@ -52,9 +52,10 @@ namespace CardGameEngine
             Debug.Assert(ScreenManager.Instance.CurrentScreen is GameplayScreen);
 
             Vector2 screenDimensions = ScreenManager.Instance.ScreenDimensions;
-            CardInfoImage = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new Image(new Vector2(screenDimensions.X * 0.5f, screenDimensions.Y * 0.5f), ScreenManager.Instance.ScreenCentre, CardData.TextureAsset), true, true);
+            CardInfoImage = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new Image(new Vector2(screenDimensions.X * 0.5f, screenDimensions.Y * 0.5f), ScreenManager.Instance.ScreenCentre - WorldPosition, CardData.TextureAsset), true, true);
             CardInfoImage.IsAlive.Connect(IsAlive); // Set this object to die when the thumbnail dies
             CardInfoImage.Hide();
+            CardInfoImage.SetParent(this, true);
 
             base.LoadContent();
         }

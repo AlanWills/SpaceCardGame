@@ -1,4 +1,5 @@
 ﻿using _2DEngine;
+using CardGameEngineData;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -14,15 +15,16 @@ namespace SpaceCardGame
     /// </summary>
     public class GameCardControl : GameObjectContainer
     {
+        private enum Space
+        {
+            kWorldSpace,
+            kLocalSpace
+        }
+
         /// <summary>
         /// This control is going to be used for one type of card
         /// </summary>
         private Type CardType { get; set; }
-
-        /// <summary>
-        /// A flag to indicate whether we need to reposition our elements
-        /// </summary>
-        private bool NeedsRebuild { get; set; }
 
         /// <summary>
         /// The number of columns we spread our cards over
@@ -34,13 +36,9 @@ namespace SpaceCardGame
         /// </summary>
         private int Rows { get; set; }
 
-        /// <summary>
-        /// An array of preset x positions and objects placed there.
-        /// We will use to place our objects and update their positions.
-        /// </summary>
-        private KeyValuePair<float, GameObject>[] Positions { get; set; }
+        private float[] LocalXPositions { get; set; }
+        //private GameObject[] StoredCards { get; set; }
 
-        private float padding = 35f;
         private float columnWidth;
 
         public GameCardControl(Type cardType, Vector2 size, int columns, int rows, Vector2 localPosition, string dataAsset = AssetManager.EmptyGameObjectDataAsset) :
@@ -52,10 +50,13 @@ namespace SpaceCardGame
             Size = size;
 
             columnWidth = Size.X / GamePlayer.MaxShipNumber;
-            Positions = new KeyValuePair<float, GameObject>[GamePlayer.MaxShipNumber];
-            for (int i = 0; i < Positions.Length; i++)
+            LocalXPositions = new float[GamePlayer.MaxShipNumber];
+            //StoredCards = new GameObject[GamePlayer.MaxShipNumber];
+
+            for (int i = 0; i < GamePlayer.MaxShipNumber; i++)
             {
-                Positions[i] = new KeyValuePair<float, GameObject>(-Size.X * 0.5f + (i + 0.5f) * columnWidth, null);
+                LocalXPositions[i] = -Size.X * 0.5f + (i + 0.5f) * columnWidth;
+                //StoredCards[i] = null;
             }
         }
 
@@ -70,8 +71,26 @@ namespace SpaceCardGame
         {
             base.HandleInput(elapsedGameTime, mousePosition);
 
-            // If our mouse has a child that is a card of this type then we can shift UI around depending on where the mouse is
-            // If not, then do nothing
+            // Check to see whether we have an image representing a card of out type parented under the game mouse - this currently doesn't work fully
+            // Maybe need to rethink our place card script?
+            GameMouse gameMouse = GameMouse.Instance;
+            if (gameMouse.Children.Exists(x => x is GameCard && x.GetType() == CardType))
+            {
+                float gameMouseLocalYPos = gameMouse.InGamePosition.Y - WorldPosition.Y;
+                if (gameMouseLocalYPos < Size.Y * 0.5f && gameMouseLocalYPos > -Size.Y * 0.5f)
+                {
+                    int positionIndex = GetPositionIndex(GameMouse.Instance.WorldPosition.X, Space.kWorldSpace);
+                    float localXPos = LocalXPositions[positionIndex];
+
+                    // Might need to change this at some point
+                    gameMouse.LocalPosition = new Vector2(WorldPosition.X + localXPos, WorldPosition.Y);
+
+                    /*if (StoredCards[positionIndex] != null)
+                    {
+                        Shift();
+                    }*/
+                }
+            }
         }
 
         /// <summary>
@@ -83,20 +102,12 @@ namespace SpaceCardGame
             base.Update(elapsedGameTime);
 
             // May not actually need to do this
-            for (int i = 0; i < Positions.Length; i++)
+            /*for (int i = 0; i < StoredCards.Length; i++)
             {
-                // Sets all dead objects in our Positions array to be null instead
-                KeyValuePair<float, GameObject> pair = Positions[i];
-                if (pair.Value != null && !pair.Value.IsAlive)
+                if (StoredCards[i] != null && !StoredCards[i].IsAlive)
                 {
-                    pair = new KeyValuePair<float, GameObject>(pair.Key, null);
+                    StoredCards[i] = null;
                 }
-            }
-
-            /*if (NeedsRebuild)
-            {
-                Rebuild();
-                NeedsRebuild = false;
             }*/
         }
 
@@ -113,19 +124,19 @@ namespace SpaceCardGame
             Debug.Assert(gameObjectToAdd is GameCard);
             Debug.Assert(gameObjectToAdd.GetType() == CardType);
 
-            NeedsRebuild = true;
-
             // Check we have room left!
             Debug.Assert(GameObjects.ActiveObjectsCount < Rows * Columns);
 
-            // In here we do the reshuffling of spacing and setting up references to added objects in our map
-            float gameMouseXPos = GameMouse.Instance.InGamePosition.X;
-            // Find the position closest to our gameMouseXPos
-            // Add it
-            // Reshuffle
-            // What if something is there?
-            // Maybe don't allow adding it, or add it to the closest free one?
-            // Won't need rebuilding now
+            // In our handle input we do shifting so that by the time we add a card the space under it should be empty
+            // Need to get the mouse position and work out the appropriate section we are in
+            int pairIndex = GetPositionIndex(GameMouse.Instance.InGamePosition.X, Space.kWorldSpace);
+            Debug.Assert(pairIndex >= 0 && pairIndex < LocalXPositions.Length);
+            //DebugUtils.AssertNull(StoredCards[pairIndex]);
+
+            //StoredCards[pairIndex] = gameObjectToAdd;
+
+            // Set game object's local position
+            gameObjectToAdd.LocalPosition = new Vector2(LocalXPositions[pairIndex], 0);
 
             // Can remove this once we fix our sizes!
             return base.AddObject(gameObjectToAdd, load, initialise);
@@ -136,40 +147,91 @@ namespace SpaceCardGame
         #region UI Rebuilding
 
         /// <summary>
-        /// Recalculate our spacing
+        /// Get the appropriate position pair
         /// </summary>
-        /*private void Rebuild()
+        /// <param name="positionX"></param>
+        /// <returns></returns>
+        private int GetPositionIndex(float positionX, Space inputPositionSpace)
         {
-            Debug.Assert(NeedsRebuild);
+            Debug.Assert(LocalXPositions.Length > 0);
 
-            int index = 0;
-            GameObject previous = null;
-
-            foreach (GameObject card in GameObjects)
+            if (inputPositionSpace == Space.kWorldSpace)
             {
-                Debug.Assert(card is GameCard);
-                if (index == 0)
-                {
-                    card.LocalPosition = new Vector2(0, (-Size.Y + card.Size.Y) * 0.5f + padding);
-                }
-                else
-                {
-                    DebugUtils.AssertNotNull(previous);
+                // Convert position to local space
+                positionX -= WorldPosition.X;
+            }
 
-                    if (index % Columns == 0)
+            for (int i = 0; i < LocalXPositions.Length; i++)
+            {
+                float halfWidth = columnWidth * 0.5f;
+
+                if (positionX >= LocalXPositions[i] - halfWidth && positionX <= LocalXPositions[i] + halfWidth)
+                {
+                    return i;
+                }
+            }
+
+            Debug.Fail("Position not registered");
+            return -1;
+        }
+
+        /*private void Shift()
+        {
+            // In here we do the reshuffling of spacing and setting up references to added objects in our map
+            float gameMouseXPos = GameMouse.Instance.InGamePosition.X;
+            for (int i = 0; i < LocalXPositions.Length; i++)
+            {
+                int pairIndex = GetPositionIndex(gameMouseXPos, Space.kWorldSpace);
+                Debug.Assert(pairIndex >= 0 && pairIndex < LocalXPositions.Length);
+
+                // We have found the matching pair
+                if (pairIndex == i)
+                {
+                    if (StoredCards[i] != null)
                     {
-                        // We should start on a new row
-                        card.LocalPosition = new Vector2(0, previous.LocalPosition.Y + card.Size.Y + padding);
-                    }
-                    else
-                    {
-                        int side = 2 * (index % Columns) - 1;
-                        card.LocalPosition = previous.LocalPosition + new Vector2(side * (card.Size.X + padding), 0);
+                        if (i > 0)
+                        {
+                            int lowestIndexOfUnfilledGap = i - 1;
+                            while (lowestIndexOfUnfilledGap >= 0 && StoredCards[lowestIndexOfUnfilledGap] != null)
+                            {
+                                lowestIndexOfUnfilledGap--;
+                            }
+
+                            // We have already established we are placing into a non empty space and if it and all things to the left are filled we are a bit screwed
+                            Debug.Assert(lowestIndexOfUnfilledGap >= 0);
+
+                            for (int index = lowestIndexOfUnfilledGap; index < i; index++)
+                            {
+                                // Shift game object's positions
+                                StoredCards[index + 1].LocalPosition = new Vector2(LocalXPositions[index], 0);
+
+                                // Shift game object down in array
+                                StoredCards[index] = StoredCards[index + 1];
+                            }
+
+                            StoredCards[i] = null;
+                        }
+                        else
+                        {
+                            // Shift stuff up if possible
+                        }
+
+                        if (i < Positions.Length - 1)
+                        {
+                            for (int upperIndex = i + 1; upperIndex < Positions.Length; upperIndex++)
+                            {
+
+                            }
+                        }
+                        else
+                        {
+                            // shift stuff down
+                        }
+
+                        // i == 0 we shift everything up
+                        // i == Positions.Length - 1 we shift everything down
                     }
                 }
-
-                previous = card;
-                index++;
             }
         }*/
 

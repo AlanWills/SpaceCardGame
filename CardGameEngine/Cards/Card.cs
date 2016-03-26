@@ -35,6 +35,11 @@ namespace CardGameEngine
         /// </summary>
         private CardFlipState FlipState { get; set; }
 
+        /// <summary>
+        /// A flag to indicate whether this card has been placed on the board
+        /// </summary>
+        public bool IsPlaced { get; set; }
+
         #endregion
 
         public const string CardBackTextureAsset = "Sprites\\Cards\\Back";
@@ -71,25 +76,34 @@ namespace CardGameEngine
             Debug.Assert(ScreenManager.Instance.CurrentScreen is GameplayScreen);
 
             Vector2 screenDimensions = ScreenManager.Instance.ScreenDimensions;
-            CardInfoImage = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new Image(new Vector2(screenDimensions.X * 0.5f, screenDimensions.Y * 0.5f), ScreenManager.Instance.ScreenCentre, CardData.TextureAsset), true, true);
+            CardInfoImage = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new Image(new Vector2(screenDimensions.X * 0.5f, screenDimensions.Y * 0.5f), Vector2.Zero, CardData.TextureAsset), true, true);
             CardInfoImage.IsAlive.Connect(IsAlive); // Set this object to die when the thumbnail dies
             CardInfoImage.Hide();
+            CardInfoImage.SetParent(this, true);
 
             base.LoadContent();
         }
 
+        /// <summary>
+        /// If the mouse is over the card we show the info image, otherwise we hide it
+        /// </summary>
+        /// <param name="elapsedGameTime"></param>
+        /// <param name="mousePosition"></param>
         public override void HandleInput(float elapsedGameTime, Vector2 mousePosition)
         {
             base.HandleInput(elapsedGameTime, mousePosition);
 
             DebugUtils.AssertNotNull(Collider);
-            if (Collider.IsMouseOver)
+            if (IsPlaced)
             {
-                CardInfoImage.Show();
-            }
-            else
-            {
-                CardInfoImage.Hide();
+                if (Collider.IsMouseOver)
+                {
+                    CardInfoImage.Show();
+                }
+                else
+                {
+                    CardInfoImage.Hide();
+                }
             }
         }
 

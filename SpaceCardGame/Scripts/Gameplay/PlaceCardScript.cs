@@ -24,9 +24,9 @@ namespace SpaceCardGame
         private PlayerHandCardThumbnail CardThumbnail { get; set; }
 
         /// <summary>
-        /// The card image UI we will be manipulating in this script
+        /// A reference to the card we will be placing
         /// </summary>
-        private Image CardImage { get; set; }
+        private GameCard Card { get; set; }
 
         #endregion
 
@@ -41,15 +41,21 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
-        /// Loads our intermidiary image and sets it's parent to be the mouse
+        /// Sets up our card and sets it's parent to be the mouse
         /// </summary>
         public override void LoadContent()
         {
             CheckShouldLoad();
 
             DebugUtils.AssertNotNull(ParentScreen);
-            CardImage = ParentScreen.AddScreenUIObject(new Image(CardThumbnail.Size, Vector2.Zero, CardData.TextureAsset), true, true);
-            CardImage.SetParent(GameMouse.Instance, true);
+            Card = CardFactory.CreateCard(CardData);
+
+            // Set the size first so that when we add the object it will have the correct size.
+            // Later on when we fix up the assets, we can remove this
+            Card.Size = CardThumbnail.Size;
+
+            ParentScreen.AddGameObject(Card, true, true);
+            Card.SetParent(GameMouse.Instance, true);
 
             base.LoadContent();
         }
@@ -81,11 +87,10 @@ namespace SpaceCardGame
             {
                 Debug.Assert(ParentScreen is BattleScreen);
                 DebugUtils.AssertNotNull((ParentScreen as BattleScreen).CurrentActivePlayer);
-                GameCard card = CardFactory.CreateCard(CardData);
 
-                if (card.CanLay((ParentScreen as BattleScreen).CurrentActivePlayer))
+                if (Card.CanLay((ParentScreen as BattleScreen).CurrentActivePlayer))
                 {
-                    AddCardToGame(card);
+                    AddCardToGame();
                 }
                 else
                 {
@@ -106,17 +111,13 @@ namespace SpaceCardGame
         /// Adds the inputted card to the game screen and removes any UI we have that we no longer need.
         /// Also kills the script.
         /// </summary>
-        private void AddCardToGame(Card card)
+        private void AddCardToGame()
         {
             BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
             DebugUtils.AssertNotNull(battleScreen);
 
-            // Set the size first so that when we add the object it will have the correct size.
-            // Later on when we fix up the assets, we can remove this
-            card.Size = CardImage.Size;
-            card = battleScreen.GameBoard.PlayerGameBoardSection.AddObject(card, true, true);
+            battleScreen.GameBoard.PlayerGameBoardSection.AddObject(Card);
 
-            CardImage.Die();
             CardThumbnail.Die();
             Die();
         }
@@ -127,12 +128,9 @@ namespace SpaceCardGame
         /// </summary>
         private void SendCardBackToHand()
         {
-            BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
-            DebugUtils.AssertNotNull(battleScreen);
-
             CardThumbnail.Show();
 
-            CardImage.Die();
+            Card.Die();
             Die();
         }
 
