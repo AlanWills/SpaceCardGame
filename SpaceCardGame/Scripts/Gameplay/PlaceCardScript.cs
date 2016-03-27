@@ -21,7 +21,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to our card thumbnail
         /// </summary>
-        private PlayerHandCardThumbnail CardThumbnail { get; set; }
+        private BaseUICard CardThumbnail { get; set; }
 
         /// <summary>
         /// A reference to the card we will be placing
@@ -30,7 +30,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public PlaceCardScript(PlayerHandCardThumbnail cardThumbnail) :
+        public PlaceCardScript(BaseUICard cardThumbnail) :
             base()
         {
             DebugUtils.AssertNotNull(cardThumbnail.CardData);

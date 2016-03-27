@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace SpaceCardGame
 {
-    public delegate void AfterCardPlacedHandler(Card card);
+    public delegate void AfterCardPlacedHandler(GameCard card);
 
     /// <summary>
     /// A class to organise the cards in the game board for one player
@@ -17,7 +17,7 @@ namespace SpaceCardGame
         /// A list of the player's currently laid resource cards indexed by resource type.
         /// Useful easy access for changing their appearance based on what has happened in the game.
         /// </summary>
-        public List<Card>[] ResourceCards { get; private set; }
+        public List<GameCard>[] ResourceCards { get; private set; }
 
         /// <summary>
         /// A container to group our ships together and automatically space them.
@@ -41,10 +41,10 @@ namespace SpaceCardGame
             Size = new Vector2(ScreenManager.Instance.ScreenDimensions.X, ScreenManager.Instance.ScreenDimensions.Y * 0.5f);
 
             // Create an array with a list for each resource type
-            ResourceCards = new List<Card>[(int)ResourceType.kNumResourceTypes];
+            ResourceCards = new List<GameCard>[(int)ResourceType.kNumResourceTypes];
             for (int type = 0; type < (int)ResourceType.kNumResourceTypes; type++)
             {
-                ResourceCards[type] = new List<Card>();
+                ResourceCards[type] = new List<GameCard>();
             }
 
             PlayerShipCardControl = AddObject(new GameCardControl(typeof(ShipCard), new Vector2(Size.X * 0.8f, Size.Y * 0.5f), GamePlayer.MaxShipNumber, 1, new Vector2(0, - Size.Y * 0.25f)));
@@ -68,7 +68,7 @@ namespace SpaceCardGame
         public override T AddObject<T>(T gameObjectToAdd, bool load = false, bool initialise = false)
         {
             // If we are adding a card, deal with special cases here
-            Card card = gameObjectToAdd as Card;
+            GameCard card = gameObjectToAdd as GameCard;
             if (card != null)
             {
                 if (card is AbilityCard)
@@ -174,7 +174,7 @@ namespace SpaceCardGame
         /// Removes resources from the player when they lay a card and updates the resource cards by flipping them face down
         /// </summary>
         /// <param name="card"></param>
-        private void UseResourcesToLayCard(Card card)
+        private void UseResourcesToLayCard(GameCard card)
         {
             for (int typeIndex = 0; typeIndex < (int)ResourceType.kNumResourceTypes; typeIndex++)
             {

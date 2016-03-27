@@ -61,7 +61,7 @@ namespace CardGameEngine
         {
             foreach (Deck deck in Array.FindAll(PlayerCardRegistry.Instance.Decks, x => x.IsCreated))
             {
-                ClickableImage deckUI = DeckGridControl.AddObject(new ClickableImage(DeckGridControl.ElementSize, Vector2.Zero, Card.CardBackTextureAsset), true, true);
+                ClickableImage deckUI = DeckGridControl.AddObject(new ClickableImage(DeckGridControl.ElementSize, Vector2.Zero, BaseUICard.CardBackTextureAsset), true, true);
                 deckUI.StoredObject = deck;
 
                 // A lot of these will be unused but it will avoid bugs down the road if we just do this in case they are used

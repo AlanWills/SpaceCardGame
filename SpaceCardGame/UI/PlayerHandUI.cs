@@ -48,7 +48,7 @@ namespace SpaceCardGame
             xCorrectionForOneCard *= Player.MaxHandSize - Player.CurrentHand.Count;
             xCorrectionForOneCard += padding * 0.5f;
 
-            foreach (PlayerHandCardThumbnail thumbnail in UIObjects)
+            foreach (BaseUICard thumbnail in UIObjects)
             {
                 thumbnail.UpdatePositions(thumbnail.LocalPosition + new Vector2(xCorrectionForOneCard, 0));
             }
@@ -64,7 +64,7 @@ namespace SpaceCardGame
         /// <returns></returns>
         public override T AddObject<T>(T uiObjectToAdd, bool load = false, bool initialise = false)
         {
-            Debug.Assert(uiObjectToAdd is PlayerHandCardThumbnail);
+            Debug.Assert(uiObjectToAdd is BaseUICard);
 
             return base.AddObject(uiObjectToAdd, load, initialise);
         }
@@ -80,7 +80,7 @@ namespace SpaceCardGame
         /// <param name="drawnCard"></param>
         private void AddPlayerHandCardUI(CardData drawnCard)
         { 
-            PlayerHandCardThumbnail cardUI = AddObject(new PlayerHandCardThumbnail(drawnCard, new Vector2(Size.X * 0.1f, Size.Y), Vector2.Zero), true, true);
+            BaseUICard cardUI = AddObject(new BaseUICard(drawnCard, new Vector2(Size.X * 0.1f, Size.Y), Vector2.Zero), true, true);
 
             cardUI.OnLeftClicked += AddCardToGame;
             cardUI.OnDeath += SyncPlayerHand;
@@ -93,15 +93,15 @@ namespace SpaceCardGame
         /// <param name="clickable"></param>
         private void AddCardToGame(IClickable clickable)
         {
-            Debug.Assert(clickable is PlayerHandCardThumbnail);
+            Debug.Assert(clickable is BaseUICard);
 
-            ScriptManager.Instance.AddObject(new PlaceCardScript(clickable as PlayerHandCardThumbnail), true, true);
+            ScriptManager.Instance.AddObject(new PlaceCardScript(clickable as BaseUICard), true, true);
         }
 
         /// <summary>
         /// Removes the card data the dead card thumbnail UI represents from the player's hand.
         /// </summary>
-        public void SyncPlayerHand(PlayerHandCardThumbnail cardThumbnail)
+        public void SyncPlayerHand(BaseUICard cardThumbnail)
         {
             Player.CurrentHand.Remove(cardThumbnail.CardData);
         }
@@ -109,7 +109,7 @@ namespace SpaceCardGame
         /// <summary>
         /// Indicates that we need to rebuild this UI
         /// </summary>
-        public void RebuildCallback(PlayerHandCardThumbnail cardThumbnail)
+        public void RebuildCallback(BaseUICard cardThumbnail)
         {
             NeedsRebuild = true;
         }

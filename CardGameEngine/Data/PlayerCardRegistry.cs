@@ -99,6 +99,8 @@ namespace CardGameEngine
 
                 deckIndex++;
             }
+
+            AvailablePacksToOpen = playerData.AvailablePacksToOpen;
         }
 
         /// <summary>
@@ -145,6 +147,8 @@ namespace CardGameEngine
                     playerData.Decks.Add(deckData);
                 }
             }
+
+            playerData.AvailablePacksToOpen = AvailablePacksToOpen;
 
             // Save our player card registry data
             AssetManager.SaveData(playerData, "Content" + playerCardRegistryDataAsset);

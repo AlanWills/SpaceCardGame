@@ -35,7 +35,7 @@ namespace CardGameEngine
 
         #endregion
 
-        public PlayerDeckUI(Player player, Vector2 localPosition, string textureAsset = Card.CardBackTextureAsset) :
+        public PlayerDeckUI(Player player, Vector2 localPosition, string textureAsset = BaseUICard.CardBackTextureAsset) :
             base(localPosition, textureAsset)
         {
             Player = player;
@@ -127,7 +127,7 @@ namespace CardGameEngine
         private void SpawnCardUIWhenCardDrawn(CardData cardData)
         {
             // Image will be automatically parented under this
-            CardImagesList.Add(AddObject(new Image(Size, Vector2.Zero, Card.CardBackTextureAsset, cardLifeTime), true, true));
+            CardImagesList.Add(AddObject(new Image(Size, Vector2.Zero, BaseUICard.CardBackTextureAsset, cardLifeTime), true, true));
         }
 
         /// <summary>

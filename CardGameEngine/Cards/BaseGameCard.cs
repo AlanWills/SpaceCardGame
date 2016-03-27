@@ -7,16 +7,10 @@ using System.Diagnostics;
 
 namespace CardGameEngine
 {
-    public enum CardFlipState
-    {
-        kFaceUp,
-        kFaceDown,
-    }
-
     /// <summary>
-    /// A base class for our card object
+    /// A base class for any game object card
     /// </summary>
-    public abstract class Card : GameObject
+    public abstract class BaseGameCard : GameObject
     {
         #region Properties and Fields
 
@@ -36,6 +30,12 @@ namespace CardGameEngine
         private CardFlipState FlipState { get; set; }
 
         /// <summary>
+        /// An event which is called when the card flip state is changed.
+        /// Passes the new flip state.
+        /// </summary>
+        public event OnFlipHandler OnFlip;
+
+        /// <summary>
         /// A flag to indicate whether this card has been placed on the board
         /// </summary>
         public bool IsPlaced { get; set; }
@@ -46,7 +46,7 @@ namespace CardGameEngine
         public static Texture2D CardBackTexture;
 
         // Our card is always going to be added to a specific location, so don't bother inputting a position
-        public Card(CardData cardData) :
+        public BaseGameCard(CardData cardData) :
             base(Vector2.Zero, "")
         {
             DebugUtils.AssertNotNull(cardData);
@@ -57,7 +57,26 @@ namespace CardGameEngine
         #region Virtual Functions
 
         /// <summary>
-        /// Look up our data from the Card Registry rather than loading it from disc
+        /// Create and set up our card info image.
+        /// </summary>
+        public override void Initialise()
+        {
+            CheckShouldInitialise();
+
+            DebugUtils.AssertNotNull(ScreenManager.Instance.CurrentScreen);
+            Debug.Assert(ScreenManager.Instance.CurrentScreen is GameplayScreen);
+
+            Vector2 screenDimensions = ScreenManager.Instance.ScreenDimensions;
+            CardInfoImage = new Image(new Vector2(screenDimensions.X * 0.5f, screenDimensions.Y * 0.5f), Vector2.Zero, CardData.TextureAsset);
+            CardInfoImage.IsAlive.Connect(IsAlive); // Set the card info object to die when the thumbnail dies
+            CardInfoImage.Hide();
+            CardInfoImage.SetParent(this, true);
+
+            base.Initialise();
+        }
+
+        /// <summary>
+        /// Return our card data rather than reloading data files
         /// </summary>
         /// <returns></returns>
         protected override GameObjectData LoadGameObjectData()
@@ -66,22 +85,14 @@ namespace CardGameEngine
         }
 
         /// <summary>
-        /// Sets up our CardInfoImage
+        /// Add our card info image to the parent screen
         /// </summary>
-        public override void LoadContent()
+        public override void Begin()
         {
-            CheckShouldLoad();
+            base.Begin();
 
-            DebugUtils.AssertNotNull(ScreenManager.Instance.CurrentScreen);
-            Debug.Assert(ScreenManager.Instance.CurrentScreen is GameplayScreen);
-
-            Vector2 screenDimensions = ScreenManager.Instance.ScreenDimensions;
-            CardInfoImage = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new Image(new Vector2(screenDimensions.X * 0.5f, screenDimensions.Y * 0.5f), Vector2.Zero, CardData.TextureAsset), true, true);
-            CardInfoImage.IsAlive.Connect(IsAlive); // Set this object to die when the thumbnail dies
-            CardInfoImage.Hide();
-            CardInfoImage.SetParent(this, true);
-
-            base.LoadContent();
+            // We do this here, because we want this to be drawn on top.  If we add the object in load content or initialise, it will be added before the BaseUICard and so will be drawn underneath
+            ScreenManager.Instance.CurrentScreen.AddScreenUIObject(CardInfoImage, true, true);
         }
 
         /// <summary>
@@ -93,9 +104,9 @@ namespace CardGameEngine
         {
             base.HandleInput(elapsedGameTime, mousePosition);
 
-            DebugUtils.AssertNotNull(Collider);
             if (IsPlaced)
             {
+                DebugUtils.AssertNotNull(Collider);
                 if (Collider.IsMouseOver)
                 {
                     CardInfoImage.Show();
@@ -155,6 +166,12 @@ namespace CardGameEngine
         public void Flip(CardFlipState flipState)
         {
             FlipState = flipState;
+
+            // Call our on flip event if it's not null
+            if (OnFlip != null)
+            {
+                OnFlip(FlipState);
+            }
         }
 
         #endregion

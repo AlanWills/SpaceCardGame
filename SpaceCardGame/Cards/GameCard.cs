@@ -6,7 +6,7 @@ namespace SpaceCardGame
     /// <summary>
     /// A class used in our game for doing additional checks involving the resources in the GamePlayer class
     /// </summary>
-    public class GameCard : Card
+    public class GameCard : BaseGameCard
     {
         public GameCard(CardData cardData) :
             base(cardData)

@@ -33,6 +33,8 @@ namespace CardGameEngine
         private const string cardRegistryDataPath = "\\Data\\Cards\\CardRegistryData.xml";
         public const string CardFolderPath = "Content\\Data\\Cards\\";
 
+        public const int PackSize = 5;
+
         #region Asset Management Functions
 
         /// <summary>
@@ -47,7 +49,7 @@ namespace CardGameEngine
             CardData = new Dictionary<string, CardData>();
 
             // Load our universal card back texture
-            Card.CardBackTexture = AssetManager.GetSprite(Card.CardBackTextureAsset);
+            BaseUICard.CardBackTexture = AssetManager.GetSprite(BaseUICard.CardBackTextureAsset);
 
             IsLoaded = true;
         }
@@ -146,6 +148,25 @@ namespace CardGameEngine
             }
 
             return cardDataList;
+        }
+
+        /// <summary>
+        /// Picks cards from all the registered cards for when our player opens a pack.
+        /// </summary>
+        /// <returns></returns>
+        public static List<CardData> PickCardsForPackOpening()
+        {
+            List<CardData> cards = new List<CardData>(PackSize);
+            CardData[] registeredCards = new CardData[CardData.Count];
+            CardData.Values.CopyTo(registeredCards, 0);
+
+            for (int i = 0; i < PackSize; i++)
+            {
+                int randomIndex = MathUtils.GenerateInt(0, registeredCards.Length - 1);
+                cards.Add(registeredCards[randomIndex]);
+            }
+
+            return cards;
         }
 
         #endregion

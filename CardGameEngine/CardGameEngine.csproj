@@ -48,7 +48,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CardGameplayScreen.cs" />
-    <Compile Include="Cards\Card.cs" />
+    <Compile Include="Cards\BaseGameCard.cs" />
+    <Compile Include="Cards\BaseUICard.cs" />
     <Compile Include="Data\CentralCardRegistry.cs" />
     <Compile Include="Data\PlayerCardRegistry.cs" />
     <Compile Include="Decks\DeckInstance.cs" />
@@ -62,7 +63,6 @@
     <Compile Include="UI\DeckCardTypeControl.cs" />
     <Compile Include="UI\DeckSlotUI.cs" />
     <Compile Include="UI\Gameplay\PlayerDeckUI.cs" />
-    <Compile Include="UI\Gameplay\PlayerHandCardThumbnail.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
