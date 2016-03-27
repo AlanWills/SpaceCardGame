@@ -142,6 +142,11 @@ namespace SpaceCardGame
                 resourceCard.LocalPosition = ResourceCards[typeIndex][cardCount - 1].LocalPosition + new Vector2(resourceCard.Size.X * 0.15f, 0);
             }
 
+            // We do this update because of the order in which events occur.  We have changed local position and reparented, but since we were parented to the mouse our collider has yet to be updated.
+            // Therefore the card will show it's info image for one frame, before the update collider function is called automatically.
+            // By updating the collider automatically here, we avoid this problem.
+            resourceCard.Collider.Update();
+
             ResourceCards[typeIndex].Add(resourceCard);
 
             Player.AvailableResources[typeIndex]++;
@@ -159,7 +164,7 @@ namespace SpaceCardGame
             Debug.Assert(Player.CurrentShipsPlaced < GamePlayer.MaxShipNumber);
 
             // Can remove this once we fix our card sizes
-            shipCard.Size *= 0.75f;
+            //shipCard.Size *= 0.75f;
 
             PlayerShipCardControl.AddObject(shipCard, load, initialise);
             Player.CurrentShipsPlaced++;

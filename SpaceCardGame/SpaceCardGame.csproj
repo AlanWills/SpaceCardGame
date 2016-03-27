@@ -56,6 +56,7 @@
     <Compile Include="Game Objects\GameCardControl.cs" />
     <Compile Include="Game Objects\PlayerGameBoardSection.cs" />
     <Compile Include="Players\GamePlayer.cs" />
+    <Compile Include="Screens\Menus\OpenCardPacksScreen.cs" />
     <Compile Include="Scripts\Gameplay\PlaceCardScript.cs" />
     <Compile Include="UI\BattleScreenHUD.cs" />
     <Compile Include="Game1.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Screens\Menus\GameOptionsScreen.cs" />
     <Compile Include="Screens\Menus\LobbyMenuScreen.cs" />
     <Compile Include="Screens\Menus\MainMenuScreen.cs" />
+    <Compile Include="UI\CardPack.cs" />
     <Compile Include="UI\PlayerHandUI.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +150,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Options.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Screens\OpenCardPacksScreen.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Screens\OptionsScreen.xml">

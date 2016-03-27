@@ -44,6 +44,11 @@ namespace CardGameEngine
             }
         }
 
+        /// <summary>
+        /// A flag to indicate the number of packs our player can open
+        /// </summary>
+        public int AvailablePacksToOpen { get; set; }
+
         public const string playerCardRegistryDataAsset = "\\Data\\Player\\PlayerCardRegistryData.xml";
         public const string startingCardRegistryDataAsset = "\\Data\\Player\\StartingPlayerCardRegistryData.xml";
         public const int maxDeckNumber = 8;

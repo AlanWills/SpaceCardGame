@@ -103,7 +103,7 @@ namespace SpaceCardGame
         /// </summary>
         public void SyncPlayerHand(PlayerHandCardThumbnail cardThumbnail)
         {
-            Player.CurrentHand.RemoveAll(x => ReferenceEquals(x, cardThumbnail.CardData));
+            Player.CurrentHand.Remove(cardThumbnail.CardData);
         }
 
         /// <summary>

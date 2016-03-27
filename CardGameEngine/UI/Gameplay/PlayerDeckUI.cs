@@ -67,7 +67,7 @@ namespace CardGameEngine
 
             // Set up our event callbacks for when a card is drawn
             Player.OnCardDraw += SpawnCardUIWhenCardDrawn;
-            Player.OnCardDraw += UpdateDeckCountLabel;
+            Player.OnCardDraw += UpdateDeckUI;
 
             base.Initialise();
         }
@@ -131,12 +131,23 @@ namespace CardGameEngine
         }
 
         /// <summary>
-        /// A callback for updating our card label UI when we draw a new card.
+        /// A callback for updating our UI when we draw a new card.
         /// </summary>
         /// <param name="cardData"></param>
-        private void UpdateDeckCountLabel(CardData cardData)
+        private void UpdateDeckUI(CardData cardData)
         {
             DeckCountLabel.Text = cardsLeftString + Player.CardsLeftInDeck.ToString();
+
+            if (Player.CardsLeftInDeck == 0)
+            {
+                // If we have no cards left, hide the main deck UI
+                Hide();
+            }
+            else
+            {
+                // Otherwise make it visible
+                Show();
+            }
         }
     }
 }

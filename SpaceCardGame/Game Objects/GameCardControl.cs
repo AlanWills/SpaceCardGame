@@ -1,8 +1,6 @@
 ﻿using _2DEngine;
-using CardGameEngineData;
 using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace SpaceCardGame
@@ -48,6 +46,7 @@ namespace SpaceCardGame
             Columns = columns;
             Rows = rows;
             Size = size;
+            TextureAsset = AssetManager.DefaultMenuTextureAsset;
 
             columnWidth = Size.X / GamePlayer.MaxShipNumber;
             LocalXPositions = new float[GamePlayer.MaxShipNumber];
@@ -71,14 +70,12 @@ namespace SpaceCardGame
         {
             base.HandleInput(elapsedGameTime, mousePosition);
 
-            // Check to see whether we have an image representing a card of out type parented under the game mouse - this currently doesn't work fully
-            // Maybe need to rethink our place card script?
             GameMouse gameMouse = GameMouse.Instance;
-            if (gameMouse.Children.Exists(x => x is GameCard && x.GetType() == CardType))
+            if (Collider.CheckIntersects(gameMouse.InGamePosition))
             {
-                float gameMouseLocalYPos = gameMouse.InGamePosition.Y - WorldPosition.Y;
-                if (gameMouseLocalYPos < Size.Y * 0.5f && gameMouseLocalYPos > -Size.Y * 0.5f)
+                if (gameMouse.Children.Exists(x => x is GameCard && x.GetType() == CardType))
                 {
+                    float gameMouseLocalYPos = gameMouse.InGamePosition.Y - WorldPosition.Y;
                     int positionIndex = GetPositionIndex(GameMouse.Instance.WorldPosition.X, Space.kWorldSpace);
                     float localXPos = LocalXPositions[positionIndex];
 

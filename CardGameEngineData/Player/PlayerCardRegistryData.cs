@@ -13,5 +13,10 @@ namespace CardGameEngineData
         /// </summary>
         [XmlArrayItem(ElementName = "DeckData")]
         public List<DeckData> Decks { get; set; }
+
+        /// <summary>
+        /// The number of packs this player has left to open
+        /// </summary>
+        public int AvailablePacksToOpen { get; set; }
     }
 }

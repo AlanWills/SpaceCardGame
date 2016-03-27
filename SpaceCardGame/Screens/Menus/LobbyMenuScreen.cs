@@ -45,7 +45,7 @@ namespace SpaceCardGame
 
             Button openPacksButton = AddScreenUIObject(new Button("Open Packs", new Vector2(0, padding)));
             openPacksButton.SetParent(parent);
-            openPacksButton.OnLeftClicked += OnDeckManagerButtonClicked;
+            openPacksButton.OnLeftClicked += OnOpenPacksButtonLeftClicked;
             parent = openPacksButton;
         }
 
@@ -79,6 +79,15 @@ namespace SpaceCardGame
         private void OnDeckManagerButtonClicked(IClickable clickable)
         {
             Transition(new GameDeckManagerScreen());
+        }
+
+        /// <summary>
+        /// The callback to execute when we press the 'Open Packs' button
+        /// </summary>
+        /// <param name=""></param>
+        private void OnOpenPacksButtonLeftClicked(IClickable clickable)
+        {
+            Transition(new OpenCardPacksScreen());
         }
 
         /// <summary>
