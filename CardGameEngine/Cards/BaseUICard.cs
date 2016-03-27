@@ -29,11 +29,6 @@ namespace CardGameEngine
         public CardData CardData { get; private set; }
 
         /// <summary>
-        /// A reference to a larger version of the card the player will see when mousing over
-        /// </summary>
-        protected Image CardInfoImage { get; private set; }
-
-        /// <summary>
         /// The current flip state of this card
         /// </summary>
         private CardFlipState FlipState { get; set; }
@@ -55,6 +50,16 @@ namespace CardGameEngine
         private Vector2 RestingPosition { get; set; }
         private Vector2 HighlightedPosition { get; set; }
 
+        /// <summary>
+        /// A vector property that is a local offset from the position of this card to it's highlighted position
+        /// </summary>
+        public Vector2 OffsetToHighlightedPosition { get; set; }
+
+        /// <summary>
+        /// A reference to our original size we will use to alter the size of this card if hovered over
+        /// </summary>
+        private Vector2 OriginalSize { get; set; }
+
         #endregion
 
         public const string CardBackTextureAsset = "Sprites\\Cards\\Back";
@@ -74,27 +79,10 @@ namespace CardGameEngine
             CardData = cardData;
             TextureAsset = cardData.TextureAsset;
             FlipState = CardFlipState.kFaceUp;
+            OffsetToHighlightedPosition = new Vector2(0, -35);
         }
 
         #region Virtual Functions
-
-        /// <summary>
-        /// Create and set up our CardInfoImage.
-        /// </summary>
-        public override void Initialise()
-        {
-            CheckShouldInitialise();
-
-            DebugUtils.AssertNotNull(ScreenManager.Instance.CurrentScreen);
-
-            Vector2 screenDimensions = ScreenManager.Instance.ScreenDimensions;
-            CardInfoImage = new Image(new Vector2(screenDimensions.X * 0.5f, screenDimensions.Y * 0.5f), Vector2.Zero, CardData.TextureAsset);
-            CardInfoImage.IsAlive.Connect(IsAlive); // Set the card info object to die when the thumbnail dies
-            CardInfoImage.Hide();
-            CardInfoImage.SetParent(this, true);
-
-            base.Initialise();
-        }
 
         /// <summary>
         /// Add our CardInfoImage to the parent screen.
@@ -105,8 +93,8 @@ namespace CardGameEngine
         {
             base.Begin();
 
-            // We do this here, because we want this to be drawn on top.  If we add the object in load content or initialise, it will be added before the BaseUICard and so will be drawn underneath
-            ScreenManager.Instance.CurrentScreen.AddScreenUIObject(CardInfoImage, true, true);
+            Debug.Assert(Size != Vector2.Zero);
+            OriginalSize = Size;
 
             UpdatePositions(LocalPosition);
 
@@ -130,7 +118,7 @@ namespace CardGameEngine
                 if (LocalPosition.Y - HighlightedPosition.Y > 2)
                 {
                     // Move upwards slightly if we are hovering over
-                    LocalPosition = Vector2.Lerp(LocalPosition, RestingPosition - new Vector2(0, 25), elapsedGameTime * 5);
+                    LocalPosition = Vector2.Lerp(LocalPosition, HighlightedPosition, elapsedGameTime * 5);
                 }
                 else
                 {
@@ -141,12 +129,7 @@ namespace CardGameEngine
                 // If our card is face up, show the info image and hide our base card
                 if (FlipState == CardFlipState.kFaceUp)
                 {
-                    CardInfoImage.Show();
-                    ShouldDraw.Value = false;
-                }
-                else
-                {
-                    ShouldDraw.Value = true;
+                    Size = OriginalSize * 1.5f;
                 }
             }
             else
@@ -163,8 +146,7 @@ namespace CardGameEngine
                     LocalPosition = RestingPosition;
                 }
 
-                CardInfoImage.Hide();
-                ShouldDraw.Value = true;
+                Size = OriginalSize;
             }
         }
 
@@ -193,17 +175,6 @@ namespace CardGameEngine
                     SpriteEffect,
                     0);
             }
-        }
-
-        /// <summary>
-        /// If we hide this, we also wish to hide the detail image if it is still showing
-        /// </summary>
-        /// <param name="showChildren"></param>
-        public override void Hide(bool showChildren = true)
-        {
-            base.Hide(showChildren);
-
-            CardInfoImage.Hide();
         }
 
         /// <summary>
@@ -245,7 +216,7 @@ namespace CardGameEngine
         {
             LocalPosition = newLocalPosition;
             RestingPosition = newLocalPosition;
-            HighlightedPosition = newLocalPosition - new Vector2(0, 35);
+            HighlightedPosition = newLocalPosition + OffsetToHighlightedPosition;
         }
 
         #endregion

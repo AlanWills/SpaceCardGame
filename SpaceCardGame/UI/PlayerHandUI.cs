@@ -55,7 +55,7 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// This just does a check to make sure we are ONLY adding PlayerHandCardThumbnails
+        /// This just does a check to make sure we are ONLY adding BaseUICards
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="uiObjectToAdd"></param>
@@ -65,6 +65,7 @@ namespace SpaceCardGame
         public override T AddObject<T>(T uiObjectToAdd, bool load = false, bool initialise = false)
         {
             Debug.Assert(uiObjectToAdd is BaseUICard);
+            (uiObjectToAdd as BaseUICard).OffsetToHighlightedPosition = new Vector2(0, -100);
 
             return base.AddObject(uiObjectToAdd, load, initialise);
         }

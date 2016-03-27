@@ -20,11 +20,6 @@ namespace CardGameEngine
         public CardData CardData { get; private set; }
 
         /// <summary>
-        /// A reference to a larger version of the card the player will see when mousing over
-        /// </summary>
-        protected Image CardInfoImage { get; private set; }
-
-        /// <summary>
         /// The current flip state of this card
         /// </summary>
         private CardFlipState FlipState { get; set; }
@@ -39,6 +34,11 @@ namespace CardGameEngine
         /// A flag to indicate whether this card has been placed on the board
         /// </summary>
         public bool IsPlaced { get; set; }
+
+        /// <summary>
+        /// A reference to our original size we will use to alter the size of this card if hovered over
+        /// </summary>
+        private Vector2 OriginalSize { get; set; }
 
         #endregion
 
@@ -57,25 +57,6 @@ namespace CardGameEngine
         #region Virtual Functions
 
         /// <summary>
-        /// Create and set up our card info image.
-        /// </summary>
-        public override void Initialise()
-        {
-            CheckShouldInitialise();
-
-            DebugUtils.AssertNotNull(ScreenManager.Instance.CurrentScreen);
-            Debug.Assert(ScreenManager.Instance.CurrentScreen is GameplayScreen);
-
-            Vector2 screenDimensions = ScreenManager.Instance.ScreenDimensions;
-            CardInfoImage = new Image(new Vector2(screenDimensions.X * 0.5f, screenDimensions.Y * 0.5f), Vector2.Zero, CardData.TextureAsset);
-            CardInfoImage.IsAlive.Connect(IsAlive); // Set the card info object to die when the thumbnail dies
-            CardInfoImage.Hide();
-            CardInfoImage.SetParent(this, true);
-
-            base.Initialise();
-        }
-
-        /// <summary>
         /// Return our card data rather than reloading data files
         /// </summary>
         /// <returns></returns>
@@ -91,8 +72,8 @@ namespace CardGameEngine
         {
             base.Begin();
 
-            // We do this here, because we want this to be drawn on top.  If we add the object in load content or initialise, it will be added before the BaseUICard and so will be drawn underneath
-            ScreenManager.Instance.CurrentScreen.AddScreenUIObject(CardInfoImage, true, true);
+            Debug.Assert(Size != Vector2.Zero);
+            OriginalSize = Size;
         }
 
         /// <summary>
@@ -109,11 +90,11 @@ namespace CardGameEngine
                 DebugUtils.AssertNotNull(Collider);
                 if (Collider.IsMouseOver)
                 {
-                    CardInfoImage.Show();
+                    Size = OriginalSize * 1.5f;
                 }
                 else
                 {
-                    CardInfoImage.Hide();
+                    Size = OriginalSize;
                 }
             }
         }
@@ -143,17 +124,6 @@ namespace CardGameEngine
                     SpriteEffect,
                     0);
             }
-        }
-
-        /// <summary>
-        /// If we hide this, we also wish to hide the detail image if it is still showing
-        /// </summary>
-        /// <param name="showChildren"></param>
-        public override void Hide(bool showChildren = true)
-        {
-            base.Hide(showChildren);
-
-            CardInfoImage.Hide();
         }
 
         #endregion
