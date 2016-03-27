@@ -84,7 +84,7 @@ namespace CardGameEngine
 
             RegistryCardListControl = new CardGridControl(PlayerCardRegistry.Instance.AvailableCards, registryColumns, new Vector2(Size.X * (1 - ratio), Size.Y), new Vector2(-ratio * 0.5f * Size.X, 0));
             // Find all cards of our type that are also not in our deck already
-            RegistryCardListControl.IncludePredicate = new Predicate<CardData>(x => x.Type == CardType && !Deck.Cards.Exists(y => ReferenceEquals(y, x)));
+            RegistryCardListControl.IncludePredicate = new Predicate<CardData>(x => x.Type == CardType);
             RegistryCardListControl.OnLeftClicked += AddToDeck;
 
             // Do this here because we need to add the IncludePredicate before we initialise the control.

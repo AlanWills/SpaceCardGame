@@ -31,7 +31,7 @@ namespace CardGameEngine
         /// <summary>
         /// The current flip state of this card
         /// </summary>
-        private CardFlipState FlipState { get; set; }
+        public CardFlipState FlipState { get; private set; }
 
         /// <summary>
         /// An event which is called when the card flip state is changed.

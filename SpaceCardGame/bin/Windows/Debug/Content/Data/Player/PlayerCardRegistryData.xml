@@ -1,10 +1,29 @@
 <?xml version="1.0"?>
 <PlayerCardRegistryData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <AbilityCardDataAssets />
+  <AbilityCardDataAssets>
+    <Item>Abilities\MissileBarrageAbility\MissileBarrageAbility.xml</Item>
+  </AbilityCardDataAssets>
   <DefenceCardDataAssets />
-  <ResourceCardDataAssets />
-  <ShipCardDataAssets />
-  <WeaponCardDataAssets />
+  <ResourceCardDataAssets>
+    <Item>Resources\FuelResource\FuelResource.xml</Item>
+    <Item>Resources\FuelResource\FuelResource.xml</Item>
+    <Item>Resources\CrewResource\CrewResource.xml</Item>
+  </ResourceCardDataAssets>
+  <ShipCardDataAssets>
+    <Item>Ships\WaspFighter\WaspFighter.xml</Item>
+    <Item>Ships\VenatorCruiser\VenatorCruiser.xml</Item>
+    <Item>Ships\VenatorCruiser\VenatorCruiser.xml</Item>
+  </ShipCardDataAssets>
+  <WeaponCardDataAssets>
+    <Item>Weapons\Missile\VulcanMissileTurret\VulcanMissileTurret.xml</Item>
+    <Item>Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurret.xml</Item>
+    <Item>Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurret.xml</Item>
+    <Item>Weapons\Missile\VulcanMissileTurret\VulcanMissileTurret.xml</Item>
+    <Item>Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurret.xml</Item>
+    <Item>Weapons\Missile\VulcanMissileTurret\VulcanMissileTurret.xml</Item>
+    <Item>Weapons\Beam\LaserBeamTurret\LaserBeamTurret.xml</Item>
+    <Item>Weapons\Beam\LaserBeamTurret\LaserBeamTurret.xml</Item>
+  </WeaponCardDataAssets>
   <Decks>
     <DeckData>
       <Name>TEST</Name>
@@ -29,5 +48,5 @@
       </CardDataAssets>
     </DeckData>
   </Decks>
-  <AvailablePacksToOpen>3</AvailablePacksToOpen>
+  <AvailablePacksToOpen>0</AvailablePacksToOpen>
 </PlayerCardRegistryData>
