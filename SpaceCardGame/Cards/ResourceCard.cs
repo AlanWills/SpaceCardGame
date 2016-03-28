@@ -47,16 +47,17 @@ namespace SpaceCardGame
         /// </summary>
         /// <param name="player"></param>
         /// <returns></returns>
-        public override bool CanLay(GamePlayer player)
+        public override bool CanLay(GamePlayer player, ref string error)
         {
             // Check to make sure we haven't laid 2 resource cards already
             Debug.Assert(CardData.Type == "Resource");
             if (player.ResourceCardsPlacedThisTurn >= GamePlayer.ResourceCardsCanLay)
             {
+                error = "Already laid two resource cards this turn";
                 return false;
             }
-            // Do our check for resources
-            return base.CanLay(player);
+
+            return true;
         }
 
         #endregion

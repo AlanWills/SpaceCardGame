@@ -76,7 +76,7 @@ namespace SpaceCardGame
         /// <summary>
         /// Handles input from the mouse - left clicking will place a new card into our game board.
         /// Right clicking will cancel the action and place it back into our hand.
-        /// </summary>
+        /// </summary>5
         /// <param name="elapsedGameTime"></param>
         /// <param name="mousePosition"></param>
         public override void HandleInput(float elapsedGameTime, Vector2 mousePosition)
@@ -88,13 +88,15 @@ namespace SpaceCardGame
                 Debug.Assert(ParentScreen is BattleScreen);
                 DebugUtils.AssertNotNull((ParentScreen as BattleScreen).ActivePlayer);
 
-                if (Card.CanLay((ParentScreen as BattleScreen).ActivePlayer))
+                string error = "";
+                if (Card.CanLay((ParentScreen as BattleScreen).ActivePlayer, ref error))
                 {
                     AddCardToGame();
                 }
                 else
                 {
                     SendCardBackToHand();
+                    ScriptManager.Instance.AddObject(new FlashingTextScript(error, ScreenManager.Instance.ScreenCentre, Color.White, 3), true, true);
                 }
             }
             else if (GameMouse.Instance.IsClicked(MouseButton.kRightButton))

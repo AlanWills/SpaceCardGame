@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <DefenceCardData>
   <TextureAsset>Sprites\Cards\Defence\Shields\PhaseEnergyShield\PhaseEnergyShield</TextureAsset>
-  <ObjectTextureAsset></ObjectTextureAsset>
+  <ObjectDataAsset></ObjectDataAsset>
   <Type>Defence</Type>
   <DisplayName>Phase Energy Shield</DisplayName>
   <Rarity>Common</Rarity>

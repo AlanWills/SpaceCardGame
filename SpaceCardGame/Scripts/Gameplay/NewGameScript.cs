@@ -71,7 +71,7 @@ namespace SpaceCardGame
             base.Die();
 
             BattleScreen.ShouldHandleInput.Value = true;
-            BattleScreen.NewPlayerTurn();
+            BattleScreen.ProgressTurnButton.ForceClick();
         }
 
         #endregion

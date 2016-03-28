@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <WeaponCardData>
   <TextureAsset>Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurret</TextureAsset>
-  <ObjectTextureAsset></ObjectTextureAsset>
+  <ObjectDataAsset></ObjectDataAsset>
   <Type>Weapon</Type>
   <DisplayName>Laser Beam Turret</DisplayName>
   <Rarity>Common</Rarity>

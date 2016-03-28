@@ -1,5 +1,4 @@
-﻿using CardGameEngine;
-using CardGameEngineData;
+﻿using CardGameEngineData;
 using SpaceCardGameData;
 using System.Diagnostics;
 

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <AbilityCardData>
   <TextureAsset>Sprites\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbility</TextureAsset>
-  <ObjectTextureAsset></ObjectTextureAsset>
+  <ObjectDataAsset></ObjectDataAsset>
   <Type>Ability</Type>
   <DisplayName>Missile Barrage</DisplayName>
   <Rarity>Common</Rarity>

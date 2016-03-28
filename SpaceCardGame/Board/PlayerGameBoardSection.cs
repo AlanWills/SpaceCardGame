@@ -1,6 +1,7 @@
 ﻿using _2DEngine;
 using CardGameEngine;
 using Microsoft.Xna.Framework;
+using SpaceCardGameData;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -18,6 +19,12 @@ namespace SpaceCardGame
         /// Useful easy access for changing their appearance based on what has happened in the game.
         /// </summary>
         public List<GameCard>[] ResourceCards { get; private set; }
+
+        /// <summary>
+        /// A list of references to the ship cards that have been added.
+        /// We will change the active object when we change turn phase.
+        /// </summary>
+        private List<CardObjectPair> Ships { get; set; }
 
         /// <summary>
         /// A container to group our ships together and automatically space them.
@@ -47,12 +54,19 @@ namespace SpaceCardGame
                 ResourceCards[type] = new List<GameCard>();
             }
 
-            PlayerShipCardControl = AddObject(new GameCardControl(typeof(ShipCard), new Vector2(Size.X * 0.8f, Size.Y * 0.5f), GamePlayer.MaxShipNumber, 1, new Vector2(0, - Size.Y * 0.25f)));
+            PlayerShipCardControl = AddObject(new GameCardControl(typeof(ShipCard), new Vector2(Size.X * 0.8f, Size.Y * 0.5f), GamePlayer.MaxShipNumber, 1, new Vector2(0, - Size.Y * 0.25f), "Sprites\\Backgrounds\\Nebula"));
+
+            Ships = new List<CardObjectPair>();
 
             // Set up events
             AfterCardPlaced += UseResourcesToLayCard;
             Player.OnNewTurn += FlipResourceCardsFaceUp;
             Player.OnNewTurn += GivePlayerFullResources;
+
+            Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
+            BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
+            battleScreen.OnCardPlacementStateStarted += ShowCardsForCardObjectPairs;
+            battleScreen.OnBattleStateStarted += ShowObjectsForCardObjectPairs;
         }
 
         #region Virtual Functions
@@ -85,7 +99,7 @@ namespace SpaceCardGame
                 }
                 else if (card is ShipCard)
                 {
-                    AddShipCard(card as ShipCard, load, initialise);
+                    AddShipCard(card as ShipCard);
                 }
                 else if (card is WeaponCard)
                 {
@@ -153,15 +167,21 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// Adds a ship card to our ship control and increments the player's total number of ships placed.
+        /// Adds a ship card object pair to our ship control and increments the player's total number of ships placed.
         /// </summary>
         /// <param name="shipCard"></param>
-        private void AddShipCard(ShipCard shipCard, bool load, bool initialise)
+        private void AddShipCard(ShipCard shipCard)
         {
             Debug.Assert(Player.CurrentShipsPlaced < GamePlayer.MaxShipNumber);
+            Debug.Assert(shipCard.CardData is ShipCardData);
 
-            PlayerShipCardControl.AddObject(shipCard, load, initialise);
+            Ship ship = new Ship(shipCard.CardData as ShipCardData);
+
+            // Will always need to load and initialise this new card object pair
+            CardObjectPair shipCardAndShip = PlayerShipCardControl.AddObject(new CardObjectPair(shipCard, ship), true, true);
             Player.CurrentShipsPlaced++;
+
+            Ships.Add(shipCardAndShip);
         }
 
         /// <summary>
@@ -218,6 +238,30 @@ namespace SpaceCardGame
             for (int type = 0; type < (int)ResourceType.kNumResourceTypes; type++)
             {
                 Player.AvailableResources[type] = ResourceCards[type].Count;
+            }
+        }
+
+        /// <summary>
+        /// An event which sets all the card object pairs to be showing their card
+        /// </summary>
+        /// <param name="turnState"></param>
+        private void ShowCardsForCardObjectPairs(TurnState turnState)
+        {
+            foreach (CardObjectPair cardPair in Ships)
+            {
+                cardPair.SetActiveObject(CardOrObject.kCard);
+            }
+        }
+
+        /// <summary>
+        /// An event which sets all the card object pairs to be showing their object
+        /// </summary>
+        /// <param name="turnState"></param>
+        private void ShowObjectsForCardObjectPairs(TurnState turnState)
+        {
+            foreach (CardObjectPair cardPair in Ships)
+            {
+                cardPair.SetActiveObject(CardOrObject.kObject);
             }
         }
 

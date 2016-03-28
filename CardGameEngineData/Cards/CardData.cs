@@ -7,9 +7,9 @@ namespace CardGameEngineData
     public class CardData : GameObjectData
     {
         /// <summary>
-        /// The object on the card's texture asset - potentially empty if not used in game
+        /// The object on the card's data asset - potentially empty if not used in game
         /// </summary>
-        public string ObjectTextureAsset { get; set; }
+        public string ObjectDataAsset { get; set; }
 
         /// <summary>
         /// The type of this card

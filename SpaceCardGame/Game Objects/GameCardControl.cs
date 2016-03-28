@@ -39,14 +39,14 @@ namespace SpaceCardGame
 
         private float columnWidth;
 
-        public GameCardControl(Type cardType, Vector2 size, int columns, int rows, Vector2 localPosition, string dataAsset = AssetManager.EmptyGameObjectDataAsset) :
-            base(localPosition, dataAsset)
+        public GameCardControl(Type cardType, Vector2 size, int columns, int rows, Vector2 localPosition, string textureAsset) :
+            base(localPosition, AssetManager.EmptyGameObjectDataAsset)
         {
             CardType = cardType;
             Columns = columns;
             Rows = rows;
             Size = size;
-            TextureAsset = AssetManager.DefaultMenuTextureAsset;
+            TextureAsset = textureAsset;
 
             columnWidth = Size.X / GamePlayer.MaxShipNumber;
             LocalXPositions = new float[GamePlayer.MaxShipNumber];
@@ -118,9 +118,6 @@ namespace SpaceCardGame
         /// <returns></returns>
         public override T AddObject<T>(T gameObjectToAdd, bool load = false, bool initialise = false)
         {
-            Debug.Assert(gameObjectToAdd is GameCard);
-            Debug.Assert(gameObjectToAdd.GetType() == CardType);
-
             // Check we have room left!
             Debug.Assert(GameObjects.ActiveObjectsCount < Rows * Columns);
 
