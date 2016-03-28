@@ -20,8 +20,8 @@ namespace SpaceCardGame
 
         #endregion
 
-        public PlayerHandUI(Player player, Vector2 localPosition, string backgroundTextureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
-            base(player.MaxHandSize, new Vector2(ScreenManager.Instance.ScreenDimensions.X * 0.8f, ScreenManager.Instance.ScreenDimensions.Y * 0.15f), localPosition, backgroundTextureAsset)
+        public PlayerHandUI(Player player, Vector2 size, Vector2 localPosition, string backgroundTextureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
+            base(player.MaxHandSize, size, localPosition, backgroundTextureAsset)
         {
             Player = player;
             Player.OnCardAddedToHand += AddPlayerHandCardUI;
@@ -55,7 +55,7 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// This just does a check to make sure we are ONLY adding BaseUICards
+        /// This does a check to make sure we are ONLY adding BaseUICards and sets up some positions for fancy animation!
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="uiObjectToAdd"></param>
@@ -81,7 +81,7 @@ namespace SpaceCardGame
         /// <param name="drawnCard"></param>
         private void AddPlayerHandCardUI(CardData drawnCard)
         { 
-            BaseUICard cardUI = AddObject(new BaseUICard(drawnCard, new Vector2(Size.X * 0.1f, Size.Y), Vector2.Zero), true, true);
+            BaseUICard cardUI = AddObject(new BaseUICard(drawnCard, new Vector2(Size.X * 0.1f, 1.2f * Size.Y), Vector2.Zero), true, true);
 
             cardUI.OnLeftClicked += AddCardToGame;
             cardUI.OnDeath += SyncPlayerHand;

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ShipCardData>
   <TextureAsset>Sprites\Cards\Ships\EagleFrigate\EagleFrigate</TextureAsset>
-  <ObjectTextureAsset></ObjectTextureAsset>
+  <ObjectTextureAsset>Sprites\Cards\Ships\EagleFrigate\EagleFrigateObject</ObjectTextureAsset>
   <Type>Ship</Type>
   <DisplayName>Eagle Frigate</DisplayName>
   <Rarity>Common</Rarity>

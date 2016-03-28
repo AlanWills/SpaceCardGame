@@ -9,7 +9,7 @@ namespace SpaceCardGame
     public delegate void AfterCardPlacedHandler(GameCard card);
 
     /// <summary>
-    /// A class to organise the cards in the game board for one player
+    /// A class to handle the game objects in the game board for one player
     /// </summary>
     public class PlayerGameBoardSection : GameObjectContainer
     {
@@ -34,10 +34,10 @@ namespace SpaceCardGame
         /// </summary>
         public event AfterCardPlacedHandler AfterCardPlaced;
 
-        public PlayerGameBoardSection(Vector2 localPosition, string dataAsset = AssetManager.EmptyGameObjectDataAsset) :
+        public PlayerGameBoardSection(GamePlayer player, Vector2 localPosition, string dataAsset = AssetManager.EmptyGameObjectDataAsset) :
             base(localPosition, dataAsset)
         {
-            Player = BattleScreen.Player;
+            Player = player;
             Size = new Vector2(ScreenManager.Instance.ScreenDimensions.X, ScreenManager.Instance.ScreenDimensions.Y * 0.5f);
 
             // Create an array with a list for each resource type
@@ -58,7 +58,7 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
-        /// Adds our card to the section, but calls a particular function based on it's type to perform extra stuff like adding a reference to it to a list
+        /// Adds our card to the section, but calls a particular function based on it's type to perform extra stuff like adding a reference to a list
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="gameObjectToAdd"></param>
@@ -114,7 +114,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        #region Specific Functions for when adding card types
+        #region Specific Functions when adding card types
 
         /// <summary>
         /// A function which will be called when we add a resource card to this section.
@@ -127,9 +127,6 @@ namespace SpaceCardGame
             float padding = 10;
             int typeIndex = (int)resourceCard.ResourceType;
             int cardCount = ResourceCards[typeIndex].Count;
-
-            // Make our resource card thumbnails smaller as their detail is not going to be hugely important
-            resourceCard.Size *= 0.75f;
 
             if (cardCount == 0)
             {
@@ -162,9 +159,6 @@ namespace SpaceCardGame
         private void AddShipCard(ShipCard shipCard, bool load, bool initialise)
         {
             Debug.Assert(Player.CurrentShipsPlaced < GamePlayer.MaxShipNumber);
-
-            // Can remove this once we fix our card sizes
-            //shipCard.Size *= 0.75f;
 
             PlayerShipCardControl.AddObject(shipCard, load, initialise);
             Player.CurrentShipsPlaced++;

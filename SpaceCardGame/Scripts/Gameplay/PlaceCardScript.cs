@@ -86,9 +86,9 @@ namespace SpaceCardGame
             if (GameMouse.Instance.IsClicked(MouseButton.kLeftButton))
             {
                 Debug.Assert(ParentScreen is BattleScreen);
-                DebugUtils.AssertNotNull((ParentScreen as BattleScreen).CurrentActivePlayer);
+                DebugUtils.AssertNotNull((ParentScreen as BattleScreen).ActivePlayer);
 
-                if (Card.CanLay((ParentScreen as BattleScreen).CurrentActivePlayer))
+                if (Card.CanLay((ParentScreen as BattleScreen).ActivePlayer))
                 {
                     AddCardToGame();
                 }
@@ -116,7 +116,7 @@ namespace SpaceCardGame
             BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
             DebugUtils.AssertNotNull(battleScreen);
 
-            battleScreen.GameBoard.PlayerGameBoardSection.AddObject(Card);
+            battleScreen.Board.CurrentActivePlayerBoardSection.PlayerGameBoardSection.AddObject(Card);
 
             CardThumbnail.Die();
             Die();

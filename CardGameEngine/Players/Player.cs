@@ -18,7 +18,7 @@ namespace CardGameEngine
     /// <summary>
     /// A class used in the battle screen to control the logic of each player's during the battle
     /// </summary>
-    public class Player
+    public abstract class Player
     {
         #region Properties and Fields
 

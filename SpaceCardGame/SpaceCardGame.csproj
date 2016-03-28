@@ -44,6 +44,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Board\PlayerBoardSection.cs" />
     <Compile Include="Cards\AbilityCard.cs" />
     <Compile Include="Cards\CardFactory.cs" />
     <Compile Include="Cards\DefenceCard.cs" />
@@ -52,13 +53,13 @@
     <Compile Include="Cards\ShipCard.cs" />
     <Compile Include="Cards\WeaponCard.cs" />
     <Compile Include="Data\IntermediateCardDeserializer.cs" />
-    <Compile Include="Game Objects\GameBoard.cs" />
+    <Compile Include="Board\Board.cs" />
     <Compile Include="Game Objects\GameCardControl.cs" />
-    <Compile Include="Game Objects\PlayerGameBoardSection.cs" />
+    <Compile Include="Board\PlayerGameBoardSection.cs" />
     <Compile Include="Players\GamePlayer.cs" />
     <Compile Include="Screens\Menus\OpenCardPacksScreen.cs" />
+    <Compile Include="Scripts\Gameplay\NewGameScript.cs" />
     <Compile Include="Scripts\Gameplay\PlaceCardScript.cs" />
-    <Compile Include="UI\BattleScreenHUD.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Screens\Menus\LobbyMenuScreen.cs" />
     <Compile Include="Screens\Menus\MainMenuScreen.cs" />
     <Compile Include="UI\PlayerHandUI.cs" />
+    <Compile Include="Board\PlayerUIBoardSection.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -187,10 +189,22 @@
     <Content Include="Content\Sprites\Cards\Ships\BlazeInterceptor\BlazeInterceptor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Sprites\Cards\Ships\BlazeInterceptor\BlazeInterceptorObject.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\Ships\EagleFrigate\EagleFrigateObject.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Sprites\Cards\Ships\EagleFrigate\EagleFrigate.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Sprites\Cards\Ships\VenatorCruiser\VenatorCruiserObject.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Sprites\Cards\Ships\VenatorCruiser\VenatorCruiser.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\Ships\WaspFighter\WaspFighterObject.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Ships\WaspFighter\WaspFighter.png">
@@ -288,9 +302,13 @@
     <None Include="Content\Sprites\Cards\Resources\FuelResource\FuelResource.xnb" />
     <None Include="Content\Sprites\Cards\Resources\MetalResource\MetalResource.xnb" />
     <None Include="Content\Sprites\Cards\Ships\BlazeInterceptor\BlazeInterceptor.xnb" />
+    <None Include="Content\Sprites\Cards\Ships\BlazeInterceptor\BlazeInterceptorObject.xnb" />
     <None Include="Content\Sprites\Cards\Ships\EagleFrigate\EagleFrigate.xnb" />
+    <None Include="Content\Sprites\Cards\Ships\EagleFrigate\EagleFrigateObject.xnb" />
     <None Include="Content\Sprites\Cards\Ships\VenatorCruiser\VenatorCruiser.xnb" />
+    <None Include="Content\Sprites\Cards\Ships\VenatorCruiser\VenatorCruiserObject.xnb" />
     <None Include="Content\Sprites\Cards\Ships\WaspFighter\WaspFighter.xnb" />
+    <None Include="Content\Sprites\Cards\Ships\WaspFighter\WaspFighterObject.xnb" />
     <None Include="Content\Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurret.xnb" />
     <None Include="Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurret.xnb" />
     <None Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurret.xnb" />
@@ -317,7 +335,9 @@
       <Name>SpaceCardGameData</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Card Objects\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

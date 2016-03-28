@@ -42,9 +42,6 @@ namespace CardGameEngine
 
         #endregion
 
-        public const string CardBackTextureAsset = "Sprites\\Cards\\Back";
-        public static Texture2D CardBackTexture;
-
         // Our card is always going to be added to a specific location, so don't bother inputting a position
         public BaseGameCard(CardData cardData) :
             base(Vector2.Zero, "")
@@ -111,15 +108,15 @@ namespace CardGameEngine
             }
             else
             {
-                DebugUtils.AssertNotNull(CardBackTexture);
+                DebugUtils.AssertNotNull(BaseUICard.CardBackTexture);
                 spriteBatch.Draw(
-                    CardBackTexture,
+                    BaseUICard.CardBackTexture,
                     WorldPosition,
                     null,
                     SourceRectangle,
                     TextureCentre,
                     WorldRotation,
-                    Vector2.Divide(Size, new Vector2(CardBackTexture.Width, CardBackTexture.Height)),
+                    Vector2.Divide(Size, new Vector2(BaseUICard.CardBackTexture.Width, BaseUICard.CardBackTexture.Height)),
                     Colour * Opacity,
                     SpriteEffect,
                     0);
