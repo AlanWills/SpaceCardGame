@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceCardData>
+  <TextureAsset>Sprites\Cards\Resources\MetalResource\MetalResourceCard</TextureAsset>
+  <ObjectDataAsset></ObjectDataAsset>
+  <Type>Resource</Type>
+  <DisplayName>Metal</DisplayName>
+  <Rarity>Common</Rarity>
+  <ResourceType>Metal</ResourceType>
+  <ResourceCosts>
+    <Resource>0</Resource>
+    <Resource>0</Resource>
+    <Resource>0</Resource>
+    <Resource>0</Resource>
+  </ResourceCosts>
+</ResourceCardData>

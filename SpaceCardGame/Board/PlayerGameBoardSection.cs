@@ -142,6 +142,8 @@ namespace SpaceCardGame
             int typeIndex = (int)resourceCard.ResourceType;
             int cardCount = ResourceCards[typeIndex].Count;
 
+            resourceCard.Size *= 0.7f;
+
             if (cardCount == 0)
             {
                 // We are adding the first resource card of this type

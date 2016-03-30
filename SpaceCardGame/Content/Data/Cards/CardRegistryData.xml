@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <CardRegistryData>
   <AbilityCardDataAssets>
-    <Item>Abilities\MissileBarrageAbility\MissileBarrageAbility.xml</Item>
+    <Item>Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml</Item>
   </AbilityCardDataAssets>
   <DefenceCardDataAssets>
-    <Item>Defence\Shields\PhaseEnergyShield\PhaseEnergyShield.xml</Item>
+    <Item>Defence\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xml</Item>
   </DefenceCardDataAssets>
   <ResourceCardDataAssets>
-    <Item>Resources\CrewResource\CrewResource.xml</Item>
-    <Item>Resources\ElectronicsResource\ElectronicsResource.xml</Item>
-    <Item>Resources\FuelResource\FuelResource.xml</Item>
-    <Item>Resources\MetalResource\MetalResource.xml</Item>
+    <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
+    <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
+    <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
+    <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
   </ResourceCardDataAssets>
   <ShipCardDataAssets>
-    <Item>Ships\BlazeInterceptor\BlazeInterceptor.xml</Item>
-    <Item>Ships\EagleFrigate\EagleFrigate.xml</Item>
-    <Item>Ships\VenatorCruiser\VenatorCruiser.xml</Item>
-    <Item>Ships\WaspFighter\WaspFighter.xml</Item>
+    <Item>Ships\BlazeInterceptor\BlazeInterceptorCard.xml</Item>
+    <Item>Ships\EagleFrigate\EagleFrigateCard.xml</Item>
+    <Item>Ships\VenatorCruiser\VenatorCruiserCard.xml</Item>
+    <Item>Ships\WaspFighter\WaspFighterCard.xml</Item>
   </ShipCardDataAssets>
   <WeaponCardDataAssets>
-    <Item>Weapons\Beam\LaserBeamTurret\LaserBeamTurret.xml</Item>
-    <Item>Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurret.xml</Item>
-    <Item>Weapons\Missile\VulcanMissileTurret\VulcanMissileTurret.xml</Item>
+    <Item>Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xml</Item>
+    <Item>Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xml</Item>
+    <Item>Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xml</Item>
   </WeaponCardDataAssets>
 </CardRegistryData>

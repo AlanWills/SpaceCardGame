@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WeaponCardData>
+  <TextureAsset>Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard</TextureAsset>
+  <ObjectDataAsset></ObjectDataAsset>
+  <Type>Weapon</Type>
+  <DisplayName>Gatling Laser Turret</DisplayName>
+  <Rarity>Common</Rarity>
+  <ResourceCosts>
+    <Resource>0</Resource>
+    <Resource>2</Resource>
+    <Resource>0</Resource>
+    <Resource>3</Resource>
+  </ResourceCosts>
+</WeaponCardData>

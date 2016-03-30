@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceCardData>
+  <TextureAsset>Sprites\Cards\Resources\CrewResource\CrewResourceCard</TextureAsset>
+  <ObjectDataAsset></ObjectDataAsset>
+  <Type>Resource</Type>
+  <DisplayName>Crew</DisplayName>
+  <Rarity>Common</Rarity>
+  <ResourceType>Crew</ResourceType>
+  <ResourceCosts>
+    <Resource>0</Resource>
+    <Resource>0</Resource>
+    <Resource>0</Resource>
+    <Resource>0</Resource>
+  </ResourceCosts>
+</ResourceCardData>

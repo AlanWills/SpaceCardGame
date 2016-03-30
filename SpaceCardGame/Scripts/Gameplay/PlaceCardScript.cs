@@ -50,8 +50,6 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(ParentScreen);
             Card = CardFactory.CreateCard(CardData);
 
-            // Set the size first so that when we add the object it will have the correct size.
-            // Later on when we fix up the assets, we can remove this
             Card.Size = CardThumbnail.Size;
 
             ParentScreen.AddGameObject(Card, true, true);
@@ -76,7 +74,7 @@ namespace SpaceCardGame
         /// <summary>
         /// Handles input from the mouse - left clicking will place a new card into our game board.
         /// Right clicking will cancel the action and place it back into our hand.
-        /// </summary>5
+        /// </summary>
         /// <param name="elapsedGameTime"></param>
         /// <param name="mousePosition"></param>
         public override void HandleInput(float elapsedGameTime, Vector2 mousePosition)
@@ -96,7 +94,7 @@ namespace SpaceCardGame
                 else
                 {
                     SendCardBackToHand();
-                    ScriptManager.Instance.AddObject(new FlashingTextScript(error, ScreenManager.Instance.ScreenCentre, Color.White, 3), true, true);
+                    ScriptManager.Instance.AddObject(new FlashingTextScript(error, ScreenManager.Instance.ScreenCentre, Color.White, 2), true, true);
                 }
             }
             else if (GameMouse.Instance.IsClicked(MouseButton.kRightButton))

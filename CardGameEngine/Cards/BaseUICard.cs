@@ -56,9 +56,10 @@ namespace CardGameEngine
         public Vector2 OffsetToHighlightedPosition { get; set; }
 
         /// <summary>
-        /// A reference to our original size we will use to alter the size of this card if hovered over
+        /// A reference to our size we will use to alter the size of this card if hovered over.
+        /// This size really drives the size of the card
         /// </summary>
-        private Vector2 OriginalSize { get; set; }
+        private Vector2 DrawingSize { get; set; }
 
         #endregion
 
@@ -94,7 +95,7 @@ namespace CardGameEngine
             base.Begin();
 
             Debug.Assert(Size != Vector2.Zero);
-            OriginalSize = Size;
+            DrawingSize = Size;
 
             UpdatePositions(LocalPosition);
 
@@ -129,7 +130,7 @@ namespace CardGameEngine
                 // If our card is face up, show the info image and hide our base card
                 if (FlipState == CardFlipState.kFaceUp)
                 {
-                    Size = OriginalSize * 1.5f;
+                    DrawingSize = Size * 1.5f;
                 }
             }
             else
@@ -146,7 +147,7 @@ namespace CardGameEngine
                     LocalPosition = RestingPosition;
                 }
 
-                Size = OriginalSize;
+                DrawingSize = Size;
             }
         }
 
@@ -158,7 +159,14 @@ namespace CardGameEngine
         {
             if (FlipState == CardFlipState.kFaceUp)
             {
+                // Store the size of the card, but set the Size property to the DrawingSize for drawing ONLY
+                Vector2 currentSize = Size;
+                Size = DrawingSize;
+
                 base.Draw(spriteBatch);
+
+                // Set the Size back to it's original value
+                Size = currentSize;
             }
             else
             {

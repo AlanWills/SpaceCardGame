@@ -61,11 +61,6 @@ namespace SpaceCardGame
             Card.LocalPosition = Vector2.Zero;
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            base.Draw(spriteBatch);
-        }
-
         #endregion
 
         #region Utility Functions
