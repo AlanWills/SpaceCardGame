@@ -60,6 +60,7 @@
     <Compile Include="Board\PlayerGameBoardSection.cs" />
     <Compile Include="Players\GamePlayer.cs" />
     <Compile Include="Screens\Menus\OpenCardPacksScreen.cs" />
+    <Compile Include="Scripts\Gameplay\AITurnScript.cs" />
     <Compile Include="Scripts\Gameplay\NewGameScript.cs" />
     <Compile Include="Scripts\Gameplay\PlaceCardScript.cs" />
     <Compile Include="Game1.cs" />

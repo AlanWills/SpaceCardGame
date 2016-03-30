@@ -88,7 +88,7 @@ namespace CardGameEngine
                 DebugUtils.AssertNotNull(Collider);
                 if (Collider.IsMouseOver)
                 {
-                    DrawingSize = Size * 1.5f;
+                    DrawingSize = Size * 2;
                 }
                 else
                 {

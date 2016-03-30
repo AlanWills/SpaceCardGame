@@ -30,7 +30,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the player's hand UI
         /// </summary>
-        private PlayerHandUI PlayerHandUI { get; set; }
+        public PlayerHandUI PlayerHandUI { get; private set; }
 
         #endregion
 

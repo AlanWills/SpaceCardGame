@@ -130,7 +130,7 @@ namespace CardGameEngine
                 // If our card is face up, show the info image and hide our base card
                 if (FlipState == CardFlipState.kFaceUp)
                 {
-                    DrawingSize = Size * 1.5f;
+                    DrawingSize = Size * 2;
                 }
             }
             else

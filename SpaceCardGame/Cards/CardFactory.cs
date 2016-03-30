@@ -15,33 +15,48 @@ namespace SpaceCardGame
         /// </summary>
         /// <param name="cardData"></param>
         /// <returns></returns>
-        public static GameCard CreateCard(CardData cardData)
+        public static GameCard CreateCard(CardData cardData, bool load = true, bool initialise = true)
         {
+            GameCard card = null;
+
             if (cardData is AbilityCardData)
             {
-                return new AbilityCard(cardData as AbilityCardData);
+                card = new AbilityCard(cardData as AbilityCardData);
             }
             else if (cardData is DefenceCardData)
             {
-                return new DefenceCard(cardData as DefenceCardData);
+                card = new DefenceCard(cardData as DefenceCardData);
             }
             else if (cardData is ResourceCardData)
             {
-                return new ResourceCard(cardData as ResourceCardData);
+                card = new ResourceCard(cardData as ResourceCardData);
             }
             else if (cardData is ShipCardData)
             {
-                return new ShipCard(cardData as ShipCardData);
+                card = new ShipCard(cardData as ShipCardData);
             }
             else if (cardData is WeaponCardData)
             {
-                return new WeaponCard(cardData as WeaponCardData);
+                card = new WeaponCard(cardData as WeaponCardData);
             }
             else
             {
                 Debug.Fail("Card factory mismatch");
-                return null;
             }
+
+            // Load if indicated
+            if (load)
+            {
+                card.LoadContent();
+            }
+
+            // Initialise if indicated
+            if (initialise)
+            {
+                card.Initialise();
+            }
+
+            return card;
         }
     }
 }

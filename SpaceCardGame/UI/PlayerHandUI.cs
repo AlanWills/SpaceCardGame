@@ -63,6 +63,25 @@ namespace SpaceCardGame
 
         #endregion
 
+        #region Utility Functions
+
+        /// <summary>
+        /// Tries to find the card thumbnail which represents the inputted card data's display name
+        /// </summary>
+        /// <param name="cardData"></param>
+        /// <returns></returns>
+        public BaseUICard FindCardThumbnail(CardData cardData)
+        {
+            // We use the find function here because it searched the objects to add too.
+            // Sometimes we may draw a card, so the card data is immediately added, but the UIObject takes one frame to be added
+            BaseUICard card = UIObjects.FindObject<BaseUICard>(cardData.DisplayName);
+
+            DebugUtils.AssertNotNull(card);
+            return card;
+        }
+
+        #endregion
+
         #region Callbacks
 
         /// <summary>
@@ -72,7 +91,8 @@ namespace SpaceCardGame
         /// <param name="drawnCard"></param>
         private void AddPlayerHandCardUI(CardData drawnCard)
         { 
-            BaseUICard cardUI = AddObject(new BaseUICard(drawnCard, new Vector2(Size.X * 0.1f, 1.2f * Size.Y), Vector2.Zero), true, true);
+            BaseUICard cardUI = AddObject(new BaseUICard(drawnCard, new Vector2(Size.X / Player.MaxHandSize, Size.Y), Vector2.Zero), true, true);
+            cardUI.Name = drawnCard.DisplayName;
 
             cardUI.OnLeftClicked += AddCardToGame;
             cardUI.OnDeath += SyncPlayerHand;
@@ -93,7 +113,7 @@ namespace SpaceCardGame
         /// <summary>
         /// Removes the card data the dead card thumbnail UI represents from the player's hand.
         /// </summary>
-        public void SyncPlayerHand(BaseUICard cardThumbnail)
+        private void SyncPlayerHand(BaseUICard cardThumbnail)
         {
             Player.CurrentHand.Remove(cardThumbnail.CardData);
         }
@@ -101,7 +121,7 @@ namespace SpaceCardGame
         /// <summary>
         /// Indicates that we need to rebuild this UI
         /// </summary>
-        public void RebuildCallback(BaseUICard cardThumbnail)
+        private void RebuildCallback(BaseUICard cardThumbnail)
         {
             NeedsRebuild = true;
         }

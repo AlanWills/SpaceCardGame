@@ -59,7 +59,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A variable to indicate what state we are in the current turn
         /// </summary>
-        private TurnState TurnState { get; set; }
+        public TurnState TurnState { get; private set; }
 
         #endregion
 
@@ -200,6 +200,8 @@ namespace SpaceCardGame
             {
                 ActivePlayer = Opponent;
                 NonActivePlayer = Player;
+
+                ScriptManager.Instance.AddObject(new AITurnScript(ActivePlayer, Board.CurrentActivePlayerBoardSection), true, true);
             }
             else
             {

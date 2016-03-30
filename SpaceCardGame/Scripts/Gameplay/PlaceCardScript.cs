@@ -52,7 +52,7 @@ namespace SpaceCardGame
 
             Card.Size = CardThumbnail.Size;
 
-            ParentScreen.AddGameObject(Card, true, true);
+            ParentScreen.AddGameObject(Card);
             Card.SetParent(GameMouse.Instance, true);
 
             base.LoadContent();
