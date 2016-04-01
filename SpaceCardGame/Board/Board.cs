@@ -1,6 +1,5 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace SpaceCardGame
@@ -24,12 +23,12 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the opponent's board section
         /// </summary>
-        public PlayerBoardSection OpponentBoardSection { get; private set; }
+        public OpponentBoardSection OpponentBoardSection { get; private set; }
 
         /// <summary>
         /// Returns the appropriate board section based on the active player
         /// </summary>
-        public PlayerBoardSection CurrentActivePlayerBoardSection
+        public PlayerBoardSection ActivePlayerBoardSection
         {
             get
             {
@@ -44,6 +43,24 @@ namespace SpaceCardGame
             }
         }
 
+        /// <summary>
+        /// Returns the appropriate board section based on the non active player
+        /// </summary>
+        public PlayerBoardSection NonActivePlayerBoardSection
+        {
+            get
+            {
+                if (BattleScreen.ActivePlayer == BattleScreen.Player)
+                {
+                    return OpponentBoardSection;
+                }
+                else
+                {
+                    return PlayerBoardSection;
+                }
+            }
+        }
+
         public Board(Vector2 localPosition, string dataAsset = AssetManager.EmptyGameObjectDataAsset) :
             base(localPosition, dataAsset)
         {
@@ -54,8 +71,7 @@ namespace SpaceCardGame
 
             // Add the objects to the screen
             PlayerBoardSection = BattleScreen.AddGameObject(new PlayerBoardSection(BattleScreen.Player, new Vector2(0, Size.Y * 0.25f)), true, true);
-            OpponentBoardSection = BattleScreen.AddGameObject(new PlayerBoardSection(BattleScreen.Opponent, new Vector2(0, Size.Y * 0.25f)), true, true);
-            OpponentBoardSection.LocalRotation = MathHelper.Pi;     // Rotate the opponent's board screen so that it's facing down screen
+            OpponentBoardSection = BattleScreen.AddGameObject(new OpponentBoardSection(BattleScreen.Opponent, new Vector2(0, Size.Y * 0.25f)), true, true);
 
             // But set the parent to this object, so we can rotate both by just rotating this
             PlayerBoardSection.SetParent(this);

@@ -152,6 +152,17 @@ namespace CardGameEngine
         }
 
         /// <summary>
+        /// Updates the collider using the drawing size rather than the base size so that we don't get horrible flickering between the two
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="size"></param>
+        public override void UpdateCollider(ref Vector2 position, ref Vector2 size)
+        {
+            position = WorldPosition;
+            size = DrawingSize;
+        }
+
+        /// <summary>
         /// Either draw our normal card if we are face up, or the back of the card if we are face down
         /// </summary>
         /// <param name="spriteBatch"></param>

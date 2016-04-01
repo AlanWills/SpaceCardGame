@@ -116,7 +116,7 @@ namespace SpaceCardGame
             BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
             DebugUtils.AssertNotNull(battleScreen);
 
-            battleScreen.Board.CurrentActivePlayerBoardSection.PlayerGameBoardSection.AddObject(Card);
+            battleScreen.Board.ActivePlayerBoardSection.PlayerGameBoardSection.AddObject(Card);
 
             CardThumbnail.Die();
             Die();

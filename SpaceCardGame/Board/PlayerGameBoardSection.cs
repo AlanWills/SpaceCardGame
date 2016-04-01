@@ -18,7 +18,7 @@ namespace SpaceCardGame
         /// A list of the player's currently laid resource cards indexed by resource type.
         /// Useful easy access for changing their appearance based on what has happened in the game.
         /// </summary>
-        public List<GameCard>[] ResourceCards { get; private set; }
+        private List<GameCard>[] ResourceCards { get; set; }
 
         /// <summary>
         /// A list of references to the ship cards that have been added.
@@ -29,7 +29,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A container to group our ships together and automatically space them.
         /// </summary>
-        private GameCardControl PlayerShipCardControl { get; set; }
+        public GameCardControl PlayerShipCardControl { get; private set; }
 
         /// <summary>
         /// A reference to the human player
@@ -54,7 +54,7 @@ namespace SpaceCardGame
                 ResourceCards[type] = new List<GameCard>();
             }
 
-            PlayerShipCardControl = AddObject(new GameCardControl(typeof(ShipCard), new Vector2(Size.X * 0.8f, Size.Y * 0.5f), GamePlayer.MaxShipNumber, 1, new Vector2(0, - Size.Y * 0.25f), "Sprites\\Backgrounds\\Nebula"));
+            PlayerShipCardControl = AddObject(new GameCardControl(typeof(ShipCard), new Vector2(Size.X * 0.8f, Size.Y * 0.5f), GamePlayer.MaxShipNumber, 1, new Vector2(0, - Size.Y * 0.25f), "Sprites\\Backgrounds\\TileableNebula"));
 
             Ships = new List<CardObjectPair>();
 

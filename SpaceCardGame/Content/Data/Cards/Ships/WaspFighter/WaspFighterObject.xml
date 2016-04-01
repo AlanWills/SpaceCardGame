@@ -1,4 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ShipData>
   <TextureAsset>Sprites\Cards\Ships\WaspFighter\WaspFighterObject</TextureAsset>
+  <Attack>1</Attack>
+  <Defence>1</Defence>
+  <Speed>1</Speed>
 </ShipData>

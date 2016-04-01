@@ -1,6 +1,5 @@
 ﻿using CardGameEngine;
 using CardGameEngineData;
-using System;
 
 namespace SpaceCardGame
 {
@@ -22,18 +21,7 @@ namespace SpaceCardGame
         /// <returns><c>true</c>We can lay this card.<c>false</c>We cannot lay this card</returns>
         public virtual bool CanLay(GamePlayer player, ref string error)
         {
-            for (int i = 0; i < (int)ResourceType.kNumResourceTypes; i++)
-            {
-                if (player.AvailableResources[i] < CardData.ResourceCosts[i])
-                {
-                    // We do not have enough of the current resource we are analysing to lay this card so return false
-                    error = "Insufficient " + Enum.GetNames(typeof(ResourceType))[i];
-                    return false;
-                }
-            }
-
-            // We have enough of each resource type for this card
-            return true;
+            return player.HaveSufficientResources(CardData, ref error);
         }
     }
 }

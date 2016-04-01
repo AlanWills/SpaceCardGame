@@ -1,4 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ShipData>
   <TextureAsset>Sprites\Cards\Ships\EagleFrigate\EagleFrigateObject</TextureAsset>
+  <Attack>2</Attack>
+  <Defence>1</Defence>
+  <Speed>3</Speed>
 </ShipData>

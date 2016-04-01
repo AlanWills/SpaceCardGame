@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TurretData>
+  <TextureAsset>Sprites\UI\EmptyPanelBackground</TextureAsset>
+  <BulletDataAsset>Content\Data\Cards\Weapons\DefaultBullet.xml</BulletDataAsset>
+</TurretData>

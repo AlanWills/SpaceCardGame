@@ -1,7 +1,6 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace SpaceCardGame
 {
@@ -25,18 +24,17 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the card part of our pair
         /// </summary>
-        private GameCard Card { get; set; }
+        public GameCard Card { get; private set; }
 
         /// <summary>
         /// A reference to the object part of our pair
         /// </summary>
-        private GameObject CardObject { get; set; }
+        public GameObject CardObject { get; private set; }
 
         #endregion
 
-        // This class is a substitute for a game card, so again we do not need to input the position as this will be sorted out by the screen
         public CardObjectPair(GameCard gameCard, GameObject cardObject) :
-            base(Vector2.Zero, AssetManager.EmptyGameObjectDataAsset)
+            base(gameCard.WorldPosition, AssetManager.EmptyGameObjectDataAsset)
         {
             Card = gameCard;
 

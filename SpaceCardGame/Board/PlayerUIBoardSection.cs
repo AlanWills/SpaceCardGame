@@ -25,7 +25,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the player's deck UI
         /// </summary>
-        private PlayerDeckUI PlayerDeckUI { get; set; }
+        public PlayerDeckUI PlayerDeckUI { get; private set; }
 
         /// <summary>
         /// A reference to the player's hand UI
@@ -51,15 +51,21 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
-        /// Do some size fixup - when we resize cards this may not be necessary
+        /// Fixup the position the Deck
         /// </summary>
-        public override void Begin()
+        public override void Initialise()
         {
-            // Do this before we call base.Begin, because we need the new size before we call the begin function in there
-            PlayerDeckUI.Size *= 0.5f;
-            PlayerDeckUI.LocalPosition = (Size - PlayerDeckUI.Size) * 0.5f;
+            CheckShouldInitialise();
 
-            base.Begin();
+            base.Initialise();
+
+            // Do this before we call base.Begin, because we need the new size before we call the begin function in there
+            // In the Begin function for the board section we change this local position, so we must set it here
+            PlayerDeckUI.Size *= 0.5f;
+
+            Vector2 offset = new Vector2(MathHelper.Max(PlayerDeckUI.Size.X, PlayerDeckUI.DeckCountLabel.Size.X) + 10, PlayerDeckUI.Size.Y + 25);
+            PlayerDeckUI.LocalPosition = (Size - offset) * 0.5f;
+            PlayerDeckUI.DeckCountLabel.LocalPosition = new Vector2(0, -(PlayerDeckUI.Size.Y + PlayerDeckUI.DeckCountLabel.Size.Y) * 0.5f - 10);  // Can't do this in DeckUI because of fixup which occurs elsewhere
         }
 
         #endregion

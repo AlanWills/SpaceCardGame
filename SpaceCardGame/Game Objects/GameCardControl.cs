@@ -1,6 +1,7 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace SpaceCardGame
@@ -34,8 +35,15 @@ namespace SpaceCardGame
         /// </summary>
         private int Rows { get; set; }
 
+        /// <summary>
+        /// A cached array of the fixed positions of this card control
+        /// </summary>
         private float[] LocalXPositions { get; set; }
-        //private GameObject[] StoredCards { get; set; }
+        
+        /// <summary>
+        /// A cached array of stored cards
+        /// </summary>
+        private GameObject[] StoredCards { get; set; }
 
         private float columnWidth;
 
@@ -48,14 +56,14 @@ namespace SpaceCardGame
             Size = size;
             TextureAsset = textureAsset;
 
-            columnWidth = Size.X / GamePlayer.MaxShipNumber;
-            LocalXPositions = new float[GamePlayer.MaxShipNumber];
-            //StoredCards = new GameObject[GamePlayer.MaxShipNumber];
+            columnWidth = Size.X / Columns;
+            LocalXPositions = new float[Columns];
+            StoredCards = new GameObject[Columns];
 
-            for (int i = 0; i < GamePlayer.MaxShipNumber; i++)
+            for (int i = 0; i < Columns; i++)
             {
                 LocalXPositions[i] = -Size.X * 0.5f + (i + 0.5f) * columnWidth;
-                //StoredCards[i] = null;
+                StoredCards[i] = null;
             }
         }
 
@@ -81,31 +89,26 @@ namespace SpaceCardGame
 
                     // Might need to change this at some point
                     gameMouse.LocalPosition = new Vector2(WorldPosition.X + localXPos, WorldPosition.Y);
-
-                    /*if (StoredCards[positionIndex] != null)
-                    {
-                        Shift();
-                    }*/
                 }
             }
         }
 
         /// <summary>
-        /// Rebuilds our UI if necessary
+        /// Removes references to dead cards
         /// </summary>
         /// <param name="elapsedGameTime"></param>
         public override void Update(float elapsedGameTime)
         {
             base.Update(elapsedGameTime);
 
-            // May not actually need to do this
-            /*for (int i = 0; i < StoredCards.Length; i++)
+            DebugUtils.AssertNotNull(StoredCards);
+            for (int i = 0; i < StoredCards.Length; i++)
             {
                 if (StoredCards[i] != null && !StoredCards[i].IsAlive)
                 {
                     StoredCards[i] = null;
                 }
-            }*/
+            }
         }
 
         /// <summary>
@@ -123,17 +126,40 @@ namespace SpaceCardGame
 
             // In our handle input we do shifting so that by the time we add a card the space under it should be empty
             // Need to get the mouse position and work out the appropriate section we are in
-            int pairIndex = GetPositionIndex(GameMouse.Instance.InGamePosition.X, Space.kWorldSpace);
+            int pairIndex = GetPositionIndex(gameObjectToAdd.WorldPosition.X, Space.kWorldSpace);
             Debug.Assert(pairIndex >= 0 && pairIndex < LocalXPositions.Length);
-            //DebugUtils.AssertNull(StoredCards[pairIndex]);
-
-            //StoredCards[pairIndex] = gameObjectToAdd;
 
             // Set game object's local position
             gameObjectToAdd.LocalPosition = new Vector2(LocalXPositions[pairIndex], 0);
+            StoredCards[pairIndex] = gameObjectToAdd;
 
             // Can remove this once we fix our sizes!
             return base.AddObject(gameObjectToAdd, load, initialise);
+        }
+
+        #endregion
+
+        #region Utility Functions
+
+        /// <summary>
+        /// Returns an empty position in this card control.
+        /// Should only be used in a context where there is room
+        /// </summary>
+        /// <returns></returns>
+        public Vector2 GetEmptySlot()
+        {
+            Debug.Assert(GameObjects.ActiveObjectsCount < LocalXPositions.Length);
+
+            for (int i = 0; i < StoredCards.Length; i++)
+            {
+                if (StoredCards[i] == null)
+                {
+                    return new Vector2(LocalXPositions[i], 0);
+                }
+            }
+
+            Debug.Fail("No empty slot could be found");
+            return Vector2.Zero;
         }
 
         #endregion
@@ -168,66 +194,6 @@ namespace SpaceCardGame
             Debug.Fail("Position not registered");
             return -1;
         }
-
-        /*private void Shift()
-        {
-            // In here we do the reshuffling of spacing and setting up references to added objects in our map
-            float gameMouseXPos = GameMouse.Instance.InGamePosition.X;
-            for (int i = 0; i < LocalXPositions.Length; i++)
-            {
-                int pairIndex = GetPositionIndex(gameMouseXPos, Space.kWorldSpace);
-                Debug.Assert(pairIndex >= 0 && pairIndex < LocalXPositions.Length);
-
-                // We have found the matching pair
-                if (pairIndex == i)
-                {
-                    if (StoredCards[i] != null)
-                    {
-                        if (i > 0)
-                        {
-                            int lowestIndexOfUnfilledGap = i - 1;
-                            while (lowestIndexOfUnfilledGap >= 0 && StoredCards[lowestIndexOfUnfilledGap] != null)
-                            {
-                                lowestIndexOfUnfilledGap--;
-                            }
-
-                            // We have already established we are placing into a non empty space and if it and all things to the left are filled we are a bit screwed
-                            Debug.Assert(lowestIndexOfUnfilledGap >= 0);
-
-                            for (int index = lowestIndexOfUnfilledGap; index < i; index++)
-                            {
-                                // Shift game object's positions
-                                StoredCards[index + 1].LocalPosition = new Vector2(LocalXPositions[index], 0);
-
-                                // Shift game object down in array
-                                StoredCards[index] = StoredCards[index + 1];
-                            }
-
-                            StoredCards[i] = null;
-                        }
-                        else
-                        {
-                            // Shift stuff up if possible
-                        }
-
-                        if (i < Positions.Length - 1)
-                        {
-                            for (int upperIndex = i + 1; upperIndex < Positions.Length; upperIndex++)
-                            {
-
-                            }
-                        }
-                        else
-                        {
-                            // shift stuff down
-                        }
-
-                        // i == 0 we shift everything up
-                        // i == Positions.Length - 1 we shift everything down
-                    }
-                }
-            }
-        }*/
 
         #endregion
     }

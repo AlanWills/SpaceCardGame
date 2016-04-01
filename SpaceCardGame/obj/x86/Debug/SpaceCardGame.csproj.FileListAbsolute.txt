@@ -126,3 +126,7 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xnb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xnb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Cards\Weapons\DefaultTurret.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Backgrounds\TileableNebula.jpg
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Backgrounds\TileableNebula.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Cards\Weapons\DefaultBullet.xml

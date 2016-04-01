@@ -44,8 +44,11 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Board\OpponentBoardSection.cs" />
     <Compile Include="Board\PlayerBoardSection.cs" />
+    <Compile Include="Card Objects\Bullet.cs" />
     <Compile Include="Card Objects\Ship.cs" />
+    <Compile Include="Card Objects\Turret.cs" />
     <Compile Include="Cards\AbilityCard.cs" />
     <Compile Include="Cards\CardFactory.cs" />
     <Compile Include="Cards\DefenceCard.cs" />
@@ -129,6 +132,12 @@
     <Content Include="Content\Data\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Data\Cards\Weapons\DefaultBullet.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Cards\Weapons\DefaultTurret.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Data\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -178,6 +187,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Effects\LightEffect.fx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Backgrounds\TileableNebula.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.png">
@@ -312,6 +324,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Content\Sprites\Backgrounds\Nebula.xnb" />
+    <None Include="Content\Sprites\Backgrounds\TileableNebula.xnb" />
     <None Include="Content\Sprites\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xnb" />
     <None Include="Content\Sprites\Cards\Defence\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xnb" />
     <None Include="Content\Sprites\Cards\Resources\CrewResource\CrewResourceCard.xnb" />

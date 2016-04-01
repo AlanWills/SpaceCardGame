@@ -21,7 +21,7 @@ namespace CardGameEngine
         /// <summary>
         /// A label which shows how many cards are left in the player's deck - will be shown when our mouse is over the deck.
         /// </summary>
-        private Label DeckCountLabel { get; set; }
+        public Label DeckCountLabel { get; private set; }
 
         /// <summary>
         /// A list of references to the images that have been created when we draw a card
@@ -70,16 +70,6 @@ namespace CardGameEngine
             Player.OnCardDraw += UpdateDeckUI;
 
             base.Initialise();
-        }
-
-        /// <summary>
-        /// Fixup some UI
-        /// </summary>
-        public override void Begin()
-        {
-            base.Begin();
-
-            DeckCountLabel.LocalPosition = new Vector2(0, -(Size.Y + DeckCountLabel.Size.Y) * 0.5f - padding);
         }
 
         /// <summary>

@@ -201,7 +201,7 @@ namespace SpaceCardGame
                 ActivePlayer = Opponent;
                 NonActivePlayer = Player;
 
-                ScriptManager.Instance.AddObject(new AITurnScript(ActivePlayer, Board.CurrentActivePlayerBoardSection), true, true);
+                ScriptManager.Instance.AddObject(new AITurnScript(ActivePlayer, Board.ActivePlayerBoardSection), true, true);
             }
             else
             {

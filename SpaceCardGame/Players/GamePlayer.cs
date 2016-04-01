@@ -1,4 +1,6 @@
 ﻿using CardGameEngine;
+using CardGameEngineData;
+using System;
 
 namespace SpaceCardGame
 {
@@ -63,6 +65,54 @@ namespace SpaceCardGame
             {
                 OnNewTurn(this);
             }
+        }
+
+        #endregion
+
+        #region
+
+        /// <summary>
+        /// A function which works out whether we have enough resources to lay the inputted card data
+        /// </summary>
+        /// <param name="cardData"></param>
+        /// <param name="error"></param>
+        /// <returns></returns>
+        public bool HaveSufficientResources(CardData cardData)
+        {
+            for (int i = 0; i < (int)ResourceType.kNumResourceTypes; i++)
+            {
+                if (AvailableResources[i] < cardData.ResourceCosts[i])
+                {
+                    // We do not have enough of the current resource we are analysing to lay this card so return false
+                    return false;
+                }
+            }
+
+            // We have enough of each resource type for this card
+            return true;
+        }
+
+        /// <summary>
+        /// A function which works out whether we have enough resources to lay the inputted card data.
+        /// Outputs an error message based on what resource was lacking.
+        /// </summary>
+        /// <param name="cardData"></param>
+        /// <param name="error"></param>
+        /// <returns></returns>
+        public bool HaveSufficientResources(CardData cardData, ref string error)
+        {
+            for (int i = 0; i < (int)ResourceType.kNumResourceTypes; i++)
+            {
+                if (AvailableResources[i] < cardData.ResourceCosts[i])
+                {
+                    // We do not have enough of the current resource we are analysing to lay this card so return false
+                    error = "Insufficient " + Enum.GetNames(typeof(ResourceType))[i];
+                    return false;
+                }
+            }
+
+            // We have enough of each resource type for this card
+            return true;
         }
 
         #endregion
