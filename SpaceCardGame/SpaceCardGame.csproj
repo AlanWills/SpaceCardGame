@@ -47,6 +47,8 @@
     <Compile Include="Board\OpponentBoardSection.cs" />
     <Compile Include="Board\PlayerBoardSection.cs" />
     <Compile Include="Card Objects\Bullet.cs" />
+    <Compile Include="Card Objects\Engine.cs" />
+    <Compile Include="Card Objects\Shield.cs" />
     <Compile Include="Card Objects\Ship.cs" />
     <Compile Include="Card Objects\Turret.cs" />
     <Compile Include="Cards\AbilityCard.cs" />
@@ -88,6 +90,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Data\Cards\Defence\Engines\DefaultEngine.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\UI\NewCardIndicator.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Data\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -364,6 +372,7 @@
     <None Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xnb" />
     <None Include="Content\Sprites\Effects\Explosion.xnb" />
     <None Include="Content\Sprites\UI\AttackLine.xnb" />
+    <None Include="Content\Sprites\UI\NewCardIndicator.xnb" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\2DEngine\2DEngineData\2DEngineData.csproj">

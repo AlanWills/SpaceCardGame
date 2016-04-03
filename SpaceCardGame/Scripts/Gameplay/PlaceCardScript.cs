@@ -28,6 +28,11 @@ namespace SpaceCardGame
         /// </summary>
         private GameCard Card { get; set; }
 
+        /// <summary>
+        /// A reference to our batte screen
+        /// </summary>
+        private BattleScreen BattleScreen { get; set; }
+
         #endregion
 
         public PlaceCardScript(BaseUICard cardThumbnail) :
@@ -69,6 +74,8 @@ namespace SpaceCardGame
             // It will then continue to run it's handle input function and make the info image visible.
             // Since this is executed one frame later, this will successfully hide the UI.
             CardThumbnail.Hide();
+
+            BattleScreen = ParentScreen as BattleScreen;
         }
 
         /// <summary>
@@ -83,18 +90,18 @@ namespace SpaceCardGame
 
             if (GameMouse.Instance.IsClicked(MouseButton.kLeftButton))
             {
-                Debug.Assert(ParentScreen is BattleScreen);
-                DebugUtils.AssertNotNull((ParentScreen as BattleScreen).ActivePlayer);
-
-                string error = "";
-                if (Card.CanLay((ParentScreen as BattleScreen).ActivePlayer, ref error))
+                if (CheckValidTarget())
                 {
-                    AddCardToGame();
-                }
-                else
-                {
-                    SendCardBackToHand();
-                    ScriptManager.Instance.AddObject(new FlashingTextScript(error, ScreenManager.Instance.ScreenCentre, Color.White, 2), true, true);
+                    string error = "";
+                    if (Card.CanLay(BattleScreen.ActivePlayer, ref error))
+                    {
+                        AddCardToGame();
+                    }
+                    else
+                    {
+                        SendCardBackToHand();
+                        ScriptManager.Instance.AddObject(new FlashingTextScript(error, ScreenManager.Instance.ScreenCentre, Color.White, 2), true, true);
+                    }
                 }
             }
             else if (GameMouse.Instance.IsClicked(MouseButton.kRightButton))
@@ -113,10 +120,7 @@ namespace SpaceCardGame
         /// </summary>
         private void AddCardToGame()
         {
-            BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
-            DebugUtils.AssertNotNull(battleScreen);
-
-            battleScreen.Board.ActivePlayerBoardSection.PlayerGameBoardSection.AddObject(Card);
+            BattleScreen.Board.ActivePlayerBoardSection.PlayerGameBoardSection.AddObject(Card);
 
             CardThumbnail.Die();
             Die();
@@ -132,6 +136,41 @@ namespace SpaceCardGame
 
             Card.Die();
             Die();
+        }
+
+        /// <summary>
+        /// A function used on a card type basis to deterine whether we have a valid set up to place the card
+        /// </summary>
+        /// <returns></returns>
+        private bool CheckValidTarget()
+        {
+            if (Card is AbilityCard)
+            {
+
+            }
+            else if (Card is DefenceCard)
+            {
+
+            }
+            else if (Card is ResourceCard)
+            {
+                return true;
+            }
+            else if (Card is ShipCard)
+            {
+                DebugUtils.AssertNotNull(BattleScreen.Board.ActivePlayerBoardSection.PlayerGameBoardSection.PlayerShipCardControl.Collider);
+                return BattleScreen.Board.ActivePlayerBoardSection.PlayerGameBoardSection.PlayerShipCardControl.Collider.CheckIntersects(GameMouse.Instance.InGamePosition);
+            }
+            else if (Card is WeaponCard)
+            {
+
+            }
+            else
+            {
+                Debug.Fail("Card mismatch in place card script");
+            }
+
+            return false;
         }
 
         #endregion

@@ -59,6 +59,24 @@ namespace SpaceCardGame
             Card.LocalPosition = Vector2.Zero;
         }
 
+        /// <summary>
+        /// Calls Die explicitly on our card and card object if they have not had Die called.
+        /// </summary>
+        public override void Die()
+        {
+            base.Die();
+
+            if (Card.IsAlive)
+            {
+                Card.Die();
+            }
+
+            if (CardObject.IsAlive)
+            {
+                CardObject.Die();
+            }
+        }
+
         #endregion
 
         #region Utility Functions

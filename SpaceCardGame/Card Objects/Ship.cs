@@ -40,9 +40,21 @@ namespace SpaceCardGame
 
         /// <summary>
         /// A reference to the turret for our ship.
-        /// We will create a default turret and then can override it by adding a turret card to our ship
+        /// We will create a default turret from the ship data and then can override it by adding a turret card to the ship
         /// </summary>
         public Turret Turret { get; private set; }
+
+        /// <summary>
+        /// A reference to the shield for our ship.
+        /// By default this will not be set to anything, but can be set by adding a shield card to the ship
+        /// </summary>
+        public Shield Shield { get; private set; }
+
+        /// <summary>
+        /// A reference to the shield for our ship.
+        /// By default we will create a default engine from the ship data and then can override by adding an engine card to the ship
+        /// </summary>
+        public Engine Engine { get; private set; }
 
         #endregion
 
@@ -76,7 +88,9 @@ namespace SpaceCardGame
 
             Health = ShipData.Defence;
 
+            // TODO Input the ship's hardpoint positions here rather than zero
             Turret = AddObject(new Turret(ShipData.Attack, Vector2.Zero));
+            Engine = AddObject(new Engine(ShipData.Speed, Vector2.Zero));
 
             base.LoadContent();
         }

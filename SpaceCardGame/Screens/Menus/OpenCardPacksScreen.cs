@@ -93,6 +93,7 @@ namespace SpaceCardGame
                 BaseUICard card = AddScreenUIObject(new BaseUICard(cardData[i], new Vector2(300 * (i + 1), 300)), true, true);
                 card.OnLeftClicked += OnCardLeftClicked;
                 card.Flip(CardFlipState.kFaceDown);         // Make sure the card is face down initially, so we have the excitement of turning it over!
+                card.StoredObject = PlayerCardRegistry.Instance.PlayerOwnsCard(cardData[i]);
 
                 CardsFromPack.Add(card);
             }
@@ -112,7 +113,17 @@ namespace SpaceCardGame
         private void OnCardLeftClicked(IClickable clickable)
         {
             Debug.Assert(clickable is BaseUICard);
-            (clickable as BaseUICard).Flip(CardFlipState.kFaceUp);
+            BaseUICard card = (clickable as BaseUICard);
+            card.Flip(CardFlipState.kFaceUp);
+
+            // Add some UI if our card is new
+            DebugUtils.AssertNotNull(card.StoredObject);
+            if (!(bool)card.StoredObject)
+            {
+                Image newCardIndicator = AddScreenUIObject(new Image(new Vector2(card.Size.X, -card.Size.Y) * 0.5f, "Sprites\\UI\\NewCardIndicator"), true, true);
+                newCardIndicator.SetParent(card);
+                newCardIndicator.Colour = Color.Yellow;
+            }
 
             if (CheckAllCardsFlippedFaceUp())
             {

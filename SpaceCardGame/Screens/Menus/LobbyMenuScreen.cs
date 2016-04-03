@@ -47,6 +47,11 @@ namespace SpaceCardGame
             openPacksButton.SetParent(parent);
             openPacksButton.OnLeftClicked += OnOpenPacksButtonLeftClicked;
             parent = openPacksButton;
+
+            if (PlayerCardRegistry.Instance.AvailablePacksToOpen <= 0)
+            {
+                openPacksButton.Disable();
+            }
         }
 
         /// <summary>

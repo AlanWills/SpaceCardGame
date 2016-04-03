@@ -48,6 +48,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Card Objects\BulletData.cs" />
+    <Compile Include="Card Objects\EngineData.cs" />
+    <Compile Include="Card Objects\ShieldData.cs" />
     <Compile Include="Card Objects\ShipData.cs" />
     <Compile Include="Card Objects\TurretData.cs" />
     <Compile Include="Cards\AbilityCardData.cs" />

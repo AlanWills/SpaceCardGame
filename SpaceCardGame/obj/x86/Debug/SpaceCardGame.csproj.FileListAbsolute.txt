@@ -139,3 +139,5 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\GameObjects\Explosion.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Effects\Explosion.png
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Effects\Explosion.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\NewCardIndicator.png
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\NewCardIndicator.xnb

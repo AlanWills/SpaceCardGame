@@ -60,6 +60,8 @@ namespace CardGameEngine
             ScreenManager.Instance.SaveAssets += SaveAssets;
         }
 
+        #region Saving and Loading
+
         /// <summary>
         /// Load our player's card and deck data.
         /// Don't copy from the Central Card registry because we want to create multiples instances of the same card.
@@ -166,6 +168,41 @@ namespace CardGameEngine
             List<CardData> data = CentralCardRegistry.ConvertToDataList(assetsToLoad);
 
             AvailableCards.AddRange(data);
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Utility Functions
+
+        /// <summary>
+        /// A function to determine whether the player already has the inputted card data available or in a deck.
+        /// </summary>
+        /// <param name="cardData"></param>
+        /// <returns></returns>
+        public bool PlayerOwnsCard(CardData cardData)
+        {
+            // Check our available cards
+            if (AvailableCards.Contains(cardData))
+            {
+                return true;
+            }
+
+            // Then check each deck
+            for (int i = 0; i < Decks.Length; i++)
+            {
+                if (Decks[i] != null)
+                {
+                    if (Decks[i].Cards.Exists(x => x == cardData))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            // If we have got here then the player cannot own it
+            return false;
         }
 
         #endregion
