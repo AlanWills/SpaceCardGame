@@ -76,6 +76,7 @@
     <Compile Include="Screens\Menus\GameOptionsScreen.cs" />
     <Compile Include="Screens\Menus\LobbyMenuScreen.cs" />
     <Compile Include="Screens\Menus\MainMenuScreen.cs" />
+    <Compile Include="UI\Explosion.cs" />
     <Compile Include="UI\PlayerHandUI.cs" />
     <Compile Include="Board\PlayerUIBoardSection.cs" />
   </ItemGroup>
@@ -149,6 +150,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Cards\Ships\BlazeInterceptor\BlazeInterceptorObject.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\GameObjects\Explosion.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Player\PlayerCardRegistryData.xml">
@@ -257,6 +261,9 @@
     <Content Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Sprites\Effects\Explosion.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Sprites\UI\AttackLine.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -355,6 +362,7 @@
     <None Include="Content\Sprites\Cards\Weapons\DefaultTurret.xnb" />
     <None Include="Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xnb" />
     <None Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xnb" />
+    <None Include="Content\Sprites\Effects\Explosion.xnb" />
     <None Include="Content\Sprites\UI\AttackLine.xnb" />
   </ItemGroup>
   <ItemGroup>

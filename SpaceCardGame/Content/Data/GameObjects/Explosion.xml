@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AnimationData>
+  <AnimationTextureAsset>Sprites\Effects\Explosion</AnimationTextureAsset>
+  <TextureFramesX>4</TextureFramesX>
+  <TextureFramesY>4</TextureFramesY>
+  <Continual>false</Continual>
+  <IsGlobal>false</IsGlobal>
+  <FixupX>0</FixupX>
+  <FixupY>0</FixupY>
+  <ColliderCentrePositionOffsetX>0</ColliderCentrePositionOffsetX>
+  <ColliderCentrePositionOffsetY>0</ColliderCentrePositionOffsetY>
+  <ColliderWidthProportion>0</ColliderWidthProportion>
+  <ColliderHeightProportion>0</ColliderHeightProportion>
+</AnimationData>

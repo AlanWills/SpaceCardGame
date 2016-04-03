@@ -100,7 +100,7 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// Kills our parent which will kill us
+        /// Kills our parent which will kill us and the card we are attached too
         /// </summary>
         public override void Die()
         {

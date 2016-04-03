@@ -50,7 +50,7 @@ namespace SpaceCardGame
         {
             base.Update(elapsedGameTime);
 
-            Vector2 diff = Target.WorldPosition - LocalPosition;
+            Vector2 diff = Target.WorldPosition - WorldPosition;
             diff.Normalize();
 
             LocalPosition += diff * 700 * elapsedGameTime;
@@ -61,6 +61,9 @@ namespace SpaceCardGame
             {
                 // Kills the bullet if it has collided with the target
                 Die();
+
+                // Adds an explosion
+                ScreenManager.Instance.CurrentScreen.AddInGameUIObject(new Explosion(WorldPosition), true, true);
 
                 // Kill the target if we marked it as dead during our initial damage step
                 Debug.Assert(Target is IDamageable);

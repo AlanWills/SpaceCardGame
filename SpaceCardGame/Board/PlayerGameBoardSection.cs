@@ -177,6 +177,9 @@ namespace SpaceCardGame
             Debug.Assert(Player.CurrentShipsPlaced < GamePlayer.MaxShipNumber);
             Debug.Assert(shipCard.CardData is ShipCardData);
 
+            // Set up an event for syncing the player's total ships when this card dies.
+            shipCard.OnDeath += SyncPlayerShipsPlaced;
+
             Ship ship = new Ship(shipCard.CardData as ShipCardData);
 
             // Will always need to load and initialise this new card object pair
@@ -265,6 +268,17 @@ namespace SpaceCardGame
             {
                 cardPair.SetActiveObject(CardOrObject.kObject);
             }
+        }
+
+        /// <summary>
+        /// An event which is called when a ship card dies.
+        /// Will subtract one from the player's running total of the number of ships they have placed.
+        /// </summary>
+        /// <param name="gameCard"></param>
+        private void SyncPlayerShipsPlaced(BaseGameCard gameCard)
+        {
+            Debug.Assert(Player.CurrentShipsPlaced > 0);
+            Player.CurrentShipsPlaced--;
         }
 
         #endregion

@@ -106,6 +106,7 @@ namespace SpaceCardGame
         {
             DebugUtils.AssertNotNull(BulletData);
             Debug.Assert(target is IDamageable);        // Need to make sure our target is a damageable object
+            Debug.Assert((target as IDamageable).Health > 0);
 
             (target as IDamageable).Damage(BulletData.Damage);
 

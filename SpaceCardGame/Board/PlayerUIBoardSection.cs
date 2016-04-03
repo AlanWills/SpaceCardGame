@@ -44,8 +44,10 @@ namespace SpaceCardGame
 
             Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
             BattleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
-            BattleScreen.OnCardPlacementStateStarted += SetupUIForCardPlacement;
-            BattleScreen.OnBattleStateStarted += SetupUIForBattle;
+
+            // Removed this at the moment because when we quickly transition between states we get flickering - not actually sure we want to hide anything anyway
+            //BattleScreen.OnCardPlacementStateStarted += SetupUIForCardPlacement;
+            //BattleScreen.OnBattleStateStarted += SetupUIForBattle;
         }
 
         #region Virtual Functions

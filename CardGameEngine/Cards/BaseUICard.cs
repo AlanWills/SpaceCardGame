@@ -1,5 +1,4 @@
 ﻿using _2DEngine;
-using _2DEngineData;
 using CardGameEngineData;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

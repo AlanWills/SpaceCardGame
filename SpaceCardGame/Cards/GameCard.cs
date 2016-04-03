@@ -8,6 +8,8 @@ namespace SpaceCardGame
     /// </summary>
     public class GameCard : BaseGameCard
     {
+
+
         public GameCard(CardData cardData) :
             base(cardData)
         {

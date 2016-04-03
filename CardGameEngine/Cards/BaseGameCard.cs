@@ -7,6 +7,8 @@ using System.Diagnostics;
 
 namespace CardGameEngine
 {
+    public delegate void OnGameCardDeathHandler(BaseGameCard gameCard);
+
     /// <summary>
     /// A base class for any game object card
     /// </summary>
@@ -29,6 +31,12 @@ namespace CardGameEngine
         /// Passes the new flip state.
         /// </summary>
         public event OnFlipHandler OnFlip;
+
+        /// <summary>
+        /// An event which is called when this card dies.
+        /// Passes the dead object.
+        /// </summary>
+        public event OnGameCardDeathHandler OnDeath;
 
         /// <summary>
         /// A flag to indicate whether this card has been placed on the board
@@ -139,6 +147,19 @@ namespace CardGameEngine
                     Colour * Opacity,
                     SpriteEffect,
                     0);
+            }
+        }
+
+        /// <summary>
+        /// Calls the OnDeath event if it is hooked up
+        /// </summary>
+        public override void Die()
+        {
+            base.Die();
+
+            if (OnDeath != null)
+            {
+                OnDeath(this);
             }
         }
 

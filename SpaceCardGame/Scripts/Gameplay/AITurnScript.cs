@@ -16,12 +16,12 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the AI player we will be controlling in this script
         /// </summary>
-        private GamePlayer Player { get; set; }
+        private GamePlayer AIPlayer { get; set; }
         
         /// <summary>
         /// A reference to the board section we will be controlling in this script
         /// </summary>
-        private PlayerBoardSection PlayerBoardSection { get; set; }
+        private PlayerBoardSection BoardSection { get; set; }
 
         /// <summary>
         /// A reference to our battle screen
@@ -29,15 +29,17 @@ namespace SpaceCardGame
         private BattleScreen BattleScreen { get; set; }
 
         private float timeBetweenCardLays = 1;
+        private float timeBetweenAttacks = 1;
         private float currentTimeBetweenCardLays = 0;
+        private float currentTimeBetweenAttacks = 0;
 
         #endregion
 
         public AITurnScript(GamePlayer player, PlayerBoardSection playerBoardSection) :
             base()
         {
-            Player = player;
-            PlayerBoardSection = playerBoardSection;
+            AIPlayer = player;
+            BoardSection = playerBoardSection;
         }
 
         #region Virtual Functions
@@ -84,35 +86,33 @@ namespace SpaceCardGame
             currentTimeBetweenCardLays += elapsedGameTime;
 
             // Check to see if we have laid the resource cards we can this turn and we have resources in our hand we can lay
-            if (Player.ResourceCardsPlacedThisTurn < GamePlayer.ResourceCardsCanLay && Player.CurrentHand.Exists(x => x.Type == "Resource"))
+            if (AIPlayer.ResourceCardsPlacedThisTurn < GamePlayer.ResourceCardsCanLay && AIPlayer.CurrentHand.Exists(x => x.Type == "Resource"))
             {
                 // Lay a resource card
-                CardData resourceCardData = Player.CurrentHand.Find(x => x.Type == "Resource");
+                CardData resourceCardData = AIPlayer.CurrentHand.Find(x => x.Type == "Resource");
 
                 if (currentTimeBetweenCardLays >= timeBetweenCardLays)
                 {
                     // TODO Can improve this by analysing the resource costs of the other cards and working out what cards would be best to lay
                     LayCard(resourceCardData);
                 }
-
-                return;
             }
             // Check to see if we have laid the ships we can and we have ships in our hand we can lay
-            else if (Player.CurrentShipsPlaced < GamePlayer.MaxShipNumber && Player.CurrentHand.Exists(x => x.Type == "Ship" && Player.HaveSufficientResources(x)))
+            else if (AIPlayer.CurrentShipsPlaced < GamePlayer.MaxShipNumber && AIPlayer.CurrentHand.Exists(x => x.Type == "Ship" && AIPlayer.HaveSufficientResources(x)))
             {
-                // Lay a ship card
-                CardData shipCardData = Player.CurrentHand.Find(x => x.Type == "Ship" && Player.HaveSufficientResources(x));
-
                 if (currentTimeBetweenCardLays >= timeBetweenCardLays)
                 {
+                    // Lay a ship card
+                    CardData shipCardData = AIPlayer.CurrentHand.Find(x => x.Type == "Ship" && AIPlayer.HaveSufficientResources(x));
+
                     LayCard(shipCardData);
                 }
-
-                return;
             }
-
-            currentTimeBetweenCardLays = 0;
-            BattleScreen.ProgressTurnButton.ForceClick();
+            else
+            {
+                currentTimeBetweenCardLays = 0;
+                BattleScreen.ProgressTurnButton.ForceClick();
+            }
         }
 
         /// <summary>
@@ -120,8 +120,29 @@ namespace SpaceCardGame
         /// </summary>
         private void OnBattleState(float elapsedGameTime)
         {
-            BattleScreen.ProgressTurnButton.ForceClick();
-            Die();
+            currentTimeBetweenAttacks += elapsedGameTime;
+
+            if (AIPlayer.CurrentShipsPlaced > 0 && BattleScreen.Player.CurrentShipsPlaced > 0)
+            {
+                if (currentTimeBetweenAttacks > timeBetweenAttacks)
+                {
+                    foreach (CardObjectPair pair in BoardSection.PlayerGameBoardSection.PlayerShipCardControl)
+                    {
+                        Debug.Assert(pair.CardObject is Ship);
+                        Ship ship = pair.CardObject as Ship;
+
+                        // TODO Can improve this by analysing the best opponent ship to attack
+                        AttackShip(ship);
+                    }
+                }
+            }
+            else
+            {
+                currentTimeBetweenAttacks = 0;
+
+                BattleScreen.ProgressTurnButton.ForceClick();
+                Die();
+            }
         }
 
         #endregion
@@ -137,16 +158,36 @@ namespace SpaceCardGame
             Debug.Assert(currentTimeBetweenCardLays >= timeBetweenCardLays);
             GameCard card = CardFactory.CreateCard(cardData);
 
-            BaseUICard cardThumbnail = PlayerBoardSection.PlayerUIBoardSection.PlayerHandUI.FindCardThumbnail(cardData);
+            BaseUICard cardThumbnail = BoardSection.PlayerUIBoardSection.PlayerHandUI.FindCardThumbnail(cardData);
             cardThumbnail.Die();
 
             // Set the position of the card so that when we add it to the game board section it will be added to a slot
-            card.LocalPosition = PlayerBoardSection.PlayerGameBoardSection.PlayerShipCardControl.WorldPosition + PlayerBoardSection.PlayerGameBoardSection.PlayerShipCardControl.GetEmptySlot();
+            card.LocalPosition = BoardSection.PlayerGameBoardSection.PlayerShipCardControl.WorldPosition + BoardSection.PlayerGameBoardSection.PlayerShipCardControl.GetEmptySlot();
             card.Size = cardThumbnail.Size;
 
-            PlayerBoardSection.PlayerGameBoardSection.AddObject(card);
+            BoardSection.PlayerGameBoardSection.AddObject(card);
 
             currentTimeBetweenCardLays = 0;
+        }
+
+        /// <summary>
+        /// Searches for a ship to attack, attacks it and resets our timer for between attacks
+        /// </summary>
+        /// <param name="attackingShip"></param>
+        private void AttackShip(Ship attackingShip)
+        {
+            foreach (CardObjectPair pair in BattleScreen.Board.NonActivePlayerBoardSection.PlayerGameBoardSection.PlayerShipCardControl)
+            {
+                if ((pair.CardObject as IDamageable).Health > 0)
+                {
+                    float targetAngle = MathUtils.AngleBetweenPoints(attackingShip.WorldPosition, pair.CardObject.WorldPosition);
+                    attackingShip.Turret.LocalRotation = targetAngle - attackingShip.WorldRotation;
+                    attackingShip.Turret.Attack(pair.CardObject);
+                    break;
+                }
+            }
+
+            currentTimeBetweenAttacks = 0;
         }
 
         #endregion
