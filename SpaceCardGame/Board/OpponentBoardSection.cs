@@ -31,6 +31,12 @@ namespace SpaceCardGame
             PlayerUIBoardSection.PlayerHandUI.LocalRotation = MathHelper.Pi;
             PlayerUIBoardSection.PlayerDeckUI.LocalPosition *= new Vector2(1, -1);
             PlayerUIBoardSection.PlayerDeckUI.DeckCountLabel.LocalPosition *= new Vector2(1, -1);
+
+            // We should not be able to interact with the opponent's board section
+            // Instead we will use an AI script to add things
+            // We do this here because the board sections are added to the screen rather than the PlayerBoardSection, because they are of different types and it will not work
+            PlayerUIBoardSection.ShouldHandleInput.Value = false;
+            PlayerGameBoardSection.ShouldHandleInput.Value = false;
         }
 
         #endregion

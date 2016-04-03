@@ -127,8 +127,8 @@ namespace CardGameEngine
                     LocalPosition = HighlightedPosition;
                 }
 
-                // If our card is face up, show the info image and hide our base card
-                if (FlipState == CardFlipState.kFaceUp)
+                // If our card is face up and the mouse has no attached children (like other cards we want to place), increase the size
+                if (GameMouse.Instance.Children.Count == 0 && FlipState == CardFlipState.kFaceUp)
                 {
                     DrawingSize = Size * 2;
                 }

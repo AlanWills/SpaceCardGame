@@ -11,7 +11,7 @@ namespace SpaceCardGame
         kBattle,
     }
 
-    public delegate void TurnStateChangeHandler(TurnState newTurnState);
+    public delegate void TurnStateChangeHandler();
 
     /// <summary>
     /// The screen where our main gameplay will take place between a player and an opponent
@@ -137,7 +137,7 @@ namespace SpaceCardGame
                         TurnState = TurnState.kBattle;
                         if (OnBattleStateStarted != null)
                         {
-                            OnBattleStateStarted(TurnState);
+                            OnBattleStateStarted();
                         }
 
                         break;
@@ -150,7 +150,7 @@ namespace SpaceCardGame
 
                         if (OnCardPlacementStateStarted != null)
                         {
-                            OnCardPlacementStateStarted(TurnState);
+                            OnCardPlacementStateStarted();
                         }
 
                         break;

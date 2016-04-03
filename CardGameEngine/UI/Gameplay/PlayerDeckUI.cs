@@ -73,26 +73,6 @@ namespace CardGameEngine
         }
 
         /// <summary>
-        /// Update some UI visibility based on the position of the mouse over this object
-        /// </summary>
-        /// <param name="elapsedGameTime"></param>
-        /// <param name="mousePosition"></param>
-        public override void HandleInput(float elapsedGameTime, Vector2 mousePosition)
-        {
-            base.HandleInput(elapsedGameTime, mousePosition);
-
-            DebugUtils.AssertNotNull(Collider);
-            if (Collider.IsMouseOver)
-            {
-                DeckCountLabel.Show();
-            }
-            else
-            {
-                DeckCountLabel.Hide();
-            }
-        }
-
-        /// <summary>
         /// For the active objects we do some simple animation to show they are being drawn
         /// </summary>
         /// <param name="elapsedGameTime"></param>
@@ -105,6 +85,18 @@ namespace CardGameEngine
             foreach (UIObject uiObject in CardImagesList)
             {
                 uiObject.LocalPosition -= new Vector2(2f, 0);
+            }
+
+            // Update the visibility of our label count based on whether the mouse is over the collider
+            // Would normally do this in the HandleInput, but our DeckUI can be disabled if it's an opponent
+            DebugUtils.AssertNotNull(Collider);
+            if (Collider.IsMouseOver)
+            {
+                DeckCountLabel.Show();
+            }
+            else
+            {
+                DeckCountLabel.Hide();
             }
         }
 

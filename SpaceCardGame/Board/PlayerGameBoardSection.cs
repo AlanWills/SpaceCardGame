@@ -247,7 +247,7 @@ namespace SpaceCardGame
         /// An event which sets all the card object pairs to be showing their card
         /// </summary>
         /// <param name="turnState"></param>
-        private void ShowCardsForCardObjectPairs(TurnState turnState)
+        private void ShowCardsForCardObjectPairs()
         {
             foreach (CardObjectPair cardPair in Ships)
             {
@@ -259,7 +259,7 @@ namespace SpaceCardGame
         /// An event which sets all the card object pairs to be showing their object
         /// </summary>
         /// <param name="turnState"></param>
-        private void ShowObjectsForCardObjectPairs(TurnState turnState)
+        private void ShowObjectsForCardObjectPairs()
         {
             foreach (CardObjectPair cardPair in Ships)
             {

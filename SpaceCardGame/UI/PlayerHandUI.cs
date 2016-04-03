@@ -90,9 +90,12 @@ namespace SpaceCardGame
         /// </summary>
         /// <param name="drawnCard"></param>
         private void AddPlayerHandCardUI(CardData drawnCard)
-        { 
+        {
             BaseUICard cardUI = AddObject(new BaseUICard(drawnCard, new Vector2(Size.X / Player.MaxHandSize, Size.Y), Vector2.Zero), true, true);
             cardUI.Name = drawnCard.DisplayName;
+
+            CardFlipState cardFlipState = Player == BattleScreen.Player ? CardFlipState.kFaceUp : CardFlipState.kFaceDown;
+            cardUI.Flip(cardFlipState);
 
             cardUI.OnLeftClicked += AddCardToGame;
             cardUI.OnDeath += SyncPlayerHand;

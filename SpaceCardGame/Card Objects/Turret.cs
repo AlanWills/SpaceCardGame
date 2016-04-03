@@ -2,6 +2,7 @@
 using _2DEngineData;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
+using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -28,6 +29,16 @@ namespace SpaceCardGame
         /// </summary>
         private float Damage { get; set; }
 
+        /// <summary>
+        /// The number of shots with this turret we have left
+        /// </summary>
+        public int ShotsLeft { get; private set; }
+
+        /// <summary>
+        /// A flag to indicate whether this is a default turret or a custom one
+        /// </summary>
+        private bool DefaultTurret { get; set; }
+
         // A string which represents the default turret all ships have 
         private const string defaultTurretDataAsset = "Content\\Data\\Cards\\Weapons\\DefaultTurret.xml";
 
@@ -38,6 +49,7 @@ namespace SpaceCardGame
             base(localPosition, dataAsset)
         {
             UsesCollider = false;
+            DefaultTurret = false;
         }
 
         // Constructor used for creating a default turret for each ship
@@ -45,6 +57,7 @@ namespace SpaceCardGame
             this(localPosition, defaultTurretDataAsset)
         {
             Damage = turretAttack;
+            DefaultTurret = true;
         }
 
         #region Properties and Fields
@@ -66,14 +79,16 @@ namespace SpaceCardGame
             CheckShouldLoad();
 
             TurretData = Data as TurretData;
+            ShotsLeft = TurretData.Shots;
 
             BulletData = AssetManager.LoadData<BulletData>(TurretData.BulletDataAsset);
             DebugUtils.AssertNotNull(BulletData);
 
             // If we're created a default turret we need to set the bullet damage to be our ship's damage which is passed in via the constructor
-            if (DataAsset == defaultTurretDataAsset)
+            if (DefaultTurret)
             {
                 BulletData.Damage = Damage;
+                ShotsLeft = (int)Damage;     // We fire as many shots with our default turret as our attack
             }
 
             base.LoadContent();
@@ -84,15 +99,42 @@ namespace SpaceCardGame
         #region Firing Functions
 
         /// <summary>
-        /// Fires a bullet from our turret at the inputted target
+        /// Spawns a bullet from our turret at the inputted target
         /// </summary>
         /// <param name="target"></param>
-        public void Fire(GameObject target)
+        public void Attack(GameObject target)
         {
             DebugUtils.AssertNotNull(BulletData);
+            Debug.Assert(target is IDamageable);        // Need to make sure our target is a damageable object
+
+            (target as IDamageable).Damage(BulletData.Damage);
+
+            if (DefaultTurret)
+            {
+                // Add script to space out bullet firings if we are using a Default turret -  we fire as many bullets as our attack cos why not
+                for (int i = 0; i < BulletData.Damage; i++)
+                {
+                    SpawnBullet(target);
+                }
+            }
+            else
+            {
+                SpawnBullet(target);
+            }
+        }
+
+        /// <summary>
+        /// Spawns a bullet which will travel to the inputted target game object.
+        /// </summary>
+        /// <param name="target"></param>
+        private void SpawnBullet(GameObject target)
+        {
             // Add to current screen so that the bullets are drawn over everything
             Bullet bullet = ScreenManager.Instance.CurrentScreen.AddGameObject(new Bullet(target, WorldPosition, BulletData), true, true);
+            bullet.LocalRotation = WorldRotation;
             bullet.SetParent(null);
+
+            ShotsLeft--;
         }
 
         #endregion

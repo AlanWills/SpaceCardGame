@@ -75,7 +75,7 @@ namespace CardGameEngine
         }
 
         /// <summary>
-        /// If the mouse is over the card we show the info image, otherwise we hide it
+        /// If the mouse is over the card (but with no attached children - i.e. another card we are placing) we show the info image, otherwise we hide it
         /// </summary>
         /// <param name="elapsedGameTime"></param>
         /// <param name="mousePosition"></param>
@@ -86,7 +86,7 @@ namespace CardGameEngine
             if (IsPlaced)
             {
                 DebugUtils.AssertNotNull(Collider);
-                if (Collider.IsMouseOver)
+                if (GameMouse.Instance.Children.Count == 0 && Collider.IsMouseOver)
                 {
                     DrawingSize = Size * 2;
                 }

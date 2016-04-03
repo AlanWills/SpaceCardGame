@@ -75,7 +75,7 @@ namespace SpaceCardGame
         /// <summary>
         /// Changes the UI and objects in our game for the card placement phase.
         /// </summary>
-        private void SetupUIForBattle(TurnState turnState)
+        private void SetupUIForBattle()
         {
             PlayerDeckUI.Hide();
             PlayerHandUI.Hide();
@@ -84,18 +84,10 @@ namespace SpaceCardGame
         /// <summary>
         /// Changes the UI and objects in our game for the battle phase.
         /// </summary>
-        private void SetupUIForCardPlacement(TurnState turnState)
+        private void SetupUIForCardPlacement()
         {
             PlayerDeckUI.Show();
             PlayerHandUI.Show();
-
-            CardFlipState flipState = Player == BattleScreen.ActivePlayer ? CardFlipState.kFaceUp : CardFlipState.kFaceDown;
-
-            // Flip the cards in our hand face up if it is our turn
-            foreach (BaseUICard card in PlayerHandUI)
-            {
-                card.Flip(flipState);
-            }
         }
 
         #endregion

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <BulletData>
-  <TextureAsset>Sprites\UI\BlueSliderDown</TextureAsset>
+  <TextureAsset>Sprites\Cards\Weapons\DefaultBullet</TextureAsset>
   <Damage>0</Damage>
 </BulletData>

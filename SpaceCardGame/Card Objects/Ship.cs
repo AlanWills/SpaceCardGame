@@ -31,10 +31,20 @@ namespace SpaceCardGame
         }
 
         /// <summary>
+        /// A bool to use to indicate that this object is dead, without having to change it's IsAlive property.
+        /// </summary>
+        private bool dead;
+        public bool Dead
+        {
+            get { return dead; }
+            private set { dead = value; }
+        }
+
+        /// <summary>
         /// A reference to the turret for our ship.
         /// We will create a default turret and then can override it by adding a turret card to our ship
         /// </summary>
-        private Turret Turret { get; set; }
+        public Turret Turret { get; private set; }
 
         #endregion
 
@@ -74,7 +84,7 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// Handles attacking
+        /// If the ship is selected we trigger a script to handle the attacking of other ships
         /// </summary>
         /// <param name="elapsedGameTime"></param>
         /// <param name="mousePosition"></param>
@@ -83,21 +93,21 @@ namespace SpaceCardGame
             base.HandleInput(elapsedGameTime, mousePosition);
 
             DebugUtils.AssertNotNull(Collider);
-            if (GameMouse.Instance.IsClicked(MouseButton.kLeftButton))
+            if (Collider.IsClicked && Turret.ShotsLeft > 0)
             {
-                Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
-                BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
-
-                foreach (CardObjectPair pair in battleScreen.Board.NonActivePlayerBoardSection.PlayerGameBoardSection.PlayerShipCardControl)
-                {
-                    // We check intersection with mouse position here, because the object may not have actually had it's HandleInput called yet
-                    // Could do this stuff in the Update loop, but this is really what this function is for so do this CheckIntersects instead for clarity 
-                    if (pair.CardObject != this && pair.CardObject.Collider.CheckIntersects(mousePosition))
-                    {
-                        Turret.Fire(pair.CardObject);
-                    }
-                }
+                ScriptManager.Instance.AddObject(new AttackOpponentShipScript(this), true, true);
             }
+        }
+
+        /// <summary>
+        /// Kills our parent which will kill us
+        /// </summary>
+        public override void Die()
+        {
+            base.Die();
+
+            DebugUtils.AssertNotNull(GetParent());
+            GetParent().Die();
         }
 
         #endregion
@@ -110,18 +120,18 @@ namespace SpaceCardGame
         /// <param name="damage"></param>
         public void Damage(float damage)
         {
-            health -= damage;
+            Health -= damage;
         }
 
         /// <summary>
-        /// Analyses the ship's current health and kills it if it has no health left
+        /// Analyses the ship's current health and indicates it's dead
         /// </summary>
         public void HandleCurrentHealth()
         {
             if (Health <= 0)
             {
                 DebugUtils.AssertNotNull(GetParent());
-                GetParent().Die();          // Kill our parent, which will clean up ourselves and our card
+                Dead = true;
             }
         }
 

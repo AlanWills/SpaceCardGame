@@ -64,6 +64,7 @@
     <Compile Include="Players\GamePlayer.cs" />
     <Compile Include="Screens\Menus\OpenCardPacksScreen.cs" />
     <Compile Include="Scripts\Gameplay\AITurnScript.cs" />
+    <Compile Include="Scripts\Gameplay\AttackOpponentShipScript.cs" />
     <Compile Include="Scripts\Gameplay\NewGameScript.cs" />
     <Compile Include="Scripts\Gameplay\PlaceCardScript.cs" />
     <Compile Include="Game1.cs" />
@@ -238,6 +239,12 @@
     <Content Include="Content\Sprites\Cards\Stations\BastionShipyard\BastionShipyardCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Sprites\Cards\Weapons\DefaultTurret.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\Weapons\DefaultBullet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -248,6 +255,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\UI\AttackLine.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\UI\Menu.png">
@@ -341,8 +351,11 @@
     <None Include="Content\Sprites\Cards\Ships\WaspFighter\WaspFighterObject.xnb" />
     <None Include="Content\Sprites\Cards\Stations\BastionShipyard\BastionShipyardCard.xnb" />
     <None Include="Content\Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xnb" />
+    <None Include="Content\Sprites\Cards\Weapons\DefaultBullet.xnb" />
+    <None Include="Content\Sprites\Cards\Weapons\DefaultTurret.xnb" />
     <None Include="Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xnb" />
     <None Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xnb" />
+    <None Include="Content\Sprites\UI\AttackLine.xnb" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\2DEngine\2DEngineData\2DEngineData.csproj">

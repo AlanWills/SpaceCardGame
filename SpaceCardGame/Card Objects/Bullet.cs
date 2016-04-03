@@ -29,7 +29,6 @@ namespace SpaceCardGame
             BulletData = bulletData;
 
             DebugUtils.AssertNotNull(BulletData);
-            Debug.Assert(target is IDamageable);        // Need to make sure our target is a damageable object
         }
 
         #region Virtual Functions
@@ -54,16 +53,21 @@ namespace SpaceCardGame
             Vector2 diff = Target.WorldPosition - LocalPosition;
             diff.Normalize();
 
-            LocalPosition += diff * 100 * elapsedGameTime;
+            LocalPosition += diff * 700 * elapsedGameTime;
 
             DebugUtils.AssertNotNull(Collider);
             DebugUtils.AssertNotNull(Target.Collider);
             if (Collider.CheckCollisionWith(Target.Collider))
             {
-                // Kills the bullet if it has collided with the target and damages it
+                // Kills the bullet if it has collided with the target
                 Die();
 
-                (Target as IDamageable).Damage(BulletData.Damage);
+                // Kill the target if we marked it as dead during our initial damage step
+                Debug.Assert(Target is IDamageable);
+                if ((Target as IDamageable).Dead)
+                {
+                    Target.Die();
+                }
             }
         }
 
