@@ -37,6 +37,11 @@ namespace SpaceCardGame
         private GamePlayer Player { get; set; }
 
         /// <summary>
+        /// A reference to the battle screen for convenience
+        /// </summary>
+        private BattleScreen BattleScreen { get; set; }
+
+        /// <summary>
         /// An event that will be triggered after we have finished adding a card to the board.
         /// </summary>
         public event AfterCardPlacedHandler AfterCardPlaced;
@@ -64,9 +69,9 @@ namespace SpaceCardGame
             Player.OnNewTurn += GivePlayerFullResources;
 
             Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
-            BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
-            battleScreen.OnCardPlacementStateStarted += ShowCardsForCardObjectPairs;
-            battleScreen.OnBattleStateStarted += ShowObjectsForCardObjectPairs;
+            BattleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
+            BattleScreen.OnCardPlacementStateStarted += SetUpGameObjectsForCardPlacement;
+            BattleScreen.OnBattleStateStarted += SetUpGameObjectsForBattle;
         }
 
         #region Virtual Functions
@@ -247,11 +252,12 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// An event which sets all the card object pairs to be showing their card
+        /// An event called when we begin card placement.
+        /// Sets all the card object pairs to be showing their cards.
         /// </summary>
-        /// <param name="turnState"></param>
-        private void ShowCardsForCardObjectPairs()
+        private void SetUpGameObjectsForCardPlacement()
         {
+            // Show all the cards
             foreach (CardObjectPair cardPair in Ships)
             {
                 cardPair.SetActiveObject(CardOrObject.kCard);
@@ -259,14 +265,27 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// An event which sets all the card object pairs to be showing their object
+        /// An event called when we begin battle.
+        /// Sets all the card object pairs to be showing their card objects.
         /// </summary>
-        /// <param name="turnState"></param>
-        private void ShowObjectsForCardObjectPairs()
+        private void SetUpGameObjectsForBattle()
         {
             foreach (CardObjectPair cardPair in Ships)
             {
                 cardPair.SetActiveObject(CardOrObject.kObject);
+
+                Debug.Assert(cardPair.CardObject is Ship);
+                Ship ship = cardPair.CardObject as Ship;
+
+                if (Player != BattleScreen.ActivePlayer)
+                {
+                    ship.Turret.Colour = Color.White;
+                }
+                else if (ship.Turret.ShotsLeft > 0)
+                {
+                    // If it is our turn, we set the turrets with available shots to be highlighted green
+                    ship.Turret.Colour = Color.Green;
+                }
             }
         }
 

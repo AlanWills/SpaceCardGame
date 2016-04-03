@@ -45,7 +45,7 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
-        /// Set up the reference to our battle screen
+        /// Set up the reference to our battle screen and hides the Progress button 
         /// </summary>
         public override void Begin()
         {
@@ -53,6 +53,8 @@ namespace SpaceCardGame
 
             Debug.Assert(ParentScreen is BattleScreen);
             BattleScreen = ParentScreen as BattleScreen;
+
+            BattleScreen.ProgressTurnButton.Hide();
         }
 
         /// <summary>
@@ -143,6 +145,16 @@ namespace SpaceCardGame
                 BattleScreen.ProgressTurnButton.ForceClick();
                 Die();
             }
+        }
+
+        /// <summary>
+        /// Shows the ProgressTurnButton again
+        /// </summary>
+        public override void Die()
+        {
+            base.Die();
+
+            BattleScreen.ProgressTurnButton.Show();
         }
 
         #endregion

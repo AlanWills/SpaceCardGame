@@ -1,9 +1,7 @@
-﻿using System;
-using _2DEngine;
+﻿using _2DEngine;
 using _2DEngineData;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
-using System.Diagnostics;
 
 namespace SpaceCardGame
 {

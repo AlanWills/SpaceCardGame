@@ -136,6 +136,12 @@ namespace SpaceCardGame
             bullet.SetParent(null);
 
             ShotsLeft--;
+
+            if (ShotsLeft == 0)
+            {
+                // If we are out of shots then we reset the colour to be white
+                Colour = Color.White;
+            }
         }
 
         #endregion
