@@ -7,6 +7,7 @@ using System.Diagnostics;
 
 namespace CardGameEngine
 {
+    public delegate void OnGameCardFlippedHandler(BaseGameCard baseGaneCard, CardFlipState newFlipState, CardFlipState oldFlipState);
     public delegate void OnGameCardDeathHandler(BaseGameCard gameCard);
 
     /// <summary>
@@ -24,13 +25,13 @@ namespace CardGameEngine
         /// <summary>
         /// The current flip state of this card
         /// </summary>
-        private CardFlipState FlipState { get; set; }
+        public CardFlipState FlipState { get; private set; }
 
         /// <summary>
         /// An event which is called when the card flip state is changed.
         /// Passes the new flip state.
         /// </summary>
-        public event OnFlipHandler OnFlip;
+        public event OnGameCardFlippedHandler OnFlip;
 
         /// <summary>
         /// An event which is called when this card dies.
@@ -172,12 +173,13 @@ namespace CardGameEngine
         /// </summary>
         public void Flip(CardFlipState flipState)
         {
+            CardFlipState oldFlipState = FlipState;
             FlipState = flipState;
 
             // Call our on flip event if it's not null
             if (OnFlip != null)
             {
-                OnFlip(FlipState);
+                OnFlip(this, FlipState, oldFlipState);
             }
         }
 

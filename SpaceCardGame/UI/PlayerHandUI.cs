@@ -97,7 +97,7 @@ namespace SpaceCardGame
             CardFlipState cardFlipState = Player == BattleScreen.Player ? CardFlipState.kFaceUp : CardFlipState.kFaceDown;
             cardUI.Flip(cardFlipState);
 
-            cardUI.OnLeftClicked += AddCardToGame;
+            cardUI.OnLeftClicked += RunPlaceCardScript;
             cardUI.OnDeath += SyncPlayerHand;
             cardUI.OnDeath += RebuildCallback;
         }
@@ -106,7 +106,7 @@ namespace SpaceCardGame
         /// A callback which adds a card in our hand to the game
         /// </summary>
         /// <param name="clickable"></param>
-        private void AddCardToGame(IClickable clickable)
+        private void RunPlaceCardScript(IClickable clickable)
         {
             Debug.Assert(clickable is BaseUICard);
 

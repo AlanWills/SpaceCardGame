@@ -124,21 +124,18 @@ namespace SpaceCardGame
         {
             currentTimeBetweenAttacks += elapsedGameTime;
 
-            if (AIPlayer.CurrentShipsPlaced > 0 && BattleScreen.Player.CurrentShipsPlaced > 0)
+            /*if (AIPlayer.CurrentShipsPlaced > 0 && BattleScreen.Player.CurrentShipsPlaced > 0)
             {
                 if (currentTimeBetweenAttacks > timeBetweenAttacks)
                 {
-                    foreach (CardObjectPair pair in BoardSection.PlayerGameBoardSection.PlayerShipCardControl)
+                    foreach (CardShipPair pair in BoardSection.PlayerGameBoardSection.PlayerShipCardControl)
                     {
-                        Debug.Assert(pair.CardObject is Ship);
-                        Ship ship = pair.CardObject as Ship;
-
                         // TODO Can improve this by analysing the best opponent ship to attack
-                        AttackShip(ship);
+                        AttackShip(pair.Ship);
                     }
                 }
             }
-            else
+            else*/
             {
                 currentTimeBetweenAttacks = 0;
 
@@ -188,7 +185,7 @@ namespace SpaceCardGame
         /// <param name="attackingShip"></param>
         private void AttackShip(Ship attackingShip)
         {
-            foreach (CardObjectPair pair in BattleScreen.Board.NonActivePlayerBoardSection.PlayerGameBoardSection.PlayerShipCardControl)
+            foreach (CardShipPair pair in BattleScreen.Board.NonActivePlayerBoardSection.PlayerGameBoardSection.PlayerShipCardControl)
             {
                 if ((pair.CardObject as IDamageable).Health > 0)
                 {

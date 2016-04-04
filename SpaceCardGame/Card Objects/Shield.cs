@@ -15,15 +15,18 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the shield data for this shield
         /// </summary>
-        private ShieldData ShieldData { get; set; }
+        private DefenceCardData ShieldData { get; set; }
 
         #endregion
 
         // A constructor used for creating a custom shield from a card
-        public Shield(string dataAsset) :
-            base(Vector2.Zero, dataAsset)
+        public Shield(DefenceCardData shieldData) :
+            base(Vector2.Zero, "")
         {
             UsesCollider = true;
+
+            DebugUtils.AssertNotNull(shieldData);
+            ShieldData = shieldData;
         }
 
         #region Virtual Functions
@@ -34,7 +37,7 @@ namespace SpaceCardGame
         /// <returns></returns>
         protected override GameObjectData LoadGameObjectData()
         {
-            return AssetManager.LoadData<ShieldData>(DataAsset);
+            return ShieldData;
         }
 
         /// <summary>
@@ -44,7 +47,7 @@ namespace SpaceCardGame
         {
             CheckShouldLoad();
 
-            ShieldData = Data as ShieldData;
+            ShieldData = Data as DefenceCardData;
             DebugUtils.AssertNotNull(ShieldData);
 
             base.LoadContent();

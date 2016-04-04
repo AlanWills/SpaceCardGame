@@ -2,6 +2,7 @@
 using _2DEngineData;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
+using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -107,7 +108,9 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(Collider);
             if (Collider.IsClicked && Turret.ShotsLeft > 0)
             {
-                ScriptManager.Instance.AddObject(new AttackOpponentShipScript(this), true, true);
+                DebugUtils.AssertNotNull(GetParent());
+                Debug.Assert(GetParent() is CardShipPair);
+                ScriptManager.Instance.AddObject(new AttackOpponentShipScript(GetParent() as CardShipPair), true, true);
             }
         }
 

@@ -37,6 +37,7 @@ namespace SpaceCardGame
             base(gameCard.WorldPosition, AssetManager.EmptyGameObjectDataAsset)
         {
             Card = gameCard;
+            Card.SetParent(this, true);
 
             // Add the card object and make sure it's local position is zero - we will altering it's position by changing this class' local position
             CardObject = AddObject(cardObject);

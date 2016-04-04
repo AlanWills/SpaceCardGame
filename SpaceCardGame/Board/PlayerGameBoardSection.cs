@@ -1,5 +1,6 @@
 ﻿using _2DEngine;
 using CardGameEngine;
+using CardGameEngineData;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
 using System.Collections.Generic;
@@ -18,13 +19,13 @@ namespace SpaceCardGame
         /// A list of the player's currently laid resource cards indexed by resource type.
         /// Useful easy access for changing their appearance based on what has happened in the game.
         /// </summary>
-        private List<GameCard>[] ResourceCards { get; set; }
+        private List<ResourceCard>[] ResourceCards { get; set; }
 
         /// <summary>
         /// A list of references to the ship cards that have been added.
         /// We will change the active object when we change turn phase.
         /// </summary>
-        private List<CardObjectPair> Ships { get; set; }
+        private List<CardShipPair> Ships { get; set; }
 
         /// <summary>
         /// A container to group our ships together and automatically space them.
@@ -53,20 +54,19 @@ namespace SpaceCardGame
             Size = new Vector2(ScreenManager.Instance.ScreenDimensions.X, ScreenManager.Instance.ScreenDimensions.Y * 0.5f);
 
             // Create an array with a list for each resource type
-            ResourceCards = new List<GameCard>[(int)ResourceType.kNumResourceTypes];
+            ResourceCards = new List<ResourceCard>[(int)ResourceType.kNumResourceTypes];
             for (int type = 0; type < (int)ResourceType.kNumResourceTypes; type++)
             {
-                ResourceCards[type] = new List<GameCard>();
+                ResourceCards[type] = new List<ResourceCard>();
             }
 
             PlayerShipCardControl = AddObject(new GameCardControl(typeof(ShipCard), new Vector2(Size.X * 0.8f, Size.Y * 0.5f), GamePlayer.MaxShipNumber, 1, new Vector2(0, - Size.Y * 0.25f), "Sprites\\Backgrounds\\TileableNebula"));
 
-            Ships = new List<CardObjectPair>();
+            Ships = new List<CardShipPair>();
 
             // Set up events
             AfterCardPlaced += UseResourcesToLayCard;
             Player.OnNewTurn += FlipResourceCardsFaceUp;
-            Player.OnNewTurn += GivePlayerFullResources;
 
             Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
             BattleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
@@ -96,7 +96,7 @@ namespace SpaceCardGame
                 }
                 else if (card is DefenceCard)
                 {
-
+                    AddDefenceCard(card as DefenceCard);
                 }
                 else if (card is ResourceCard)
                 {
@@ -148,6 +148,7 @@ namespace SpaceCardGame
             int cardCount = ResourceCards[typeIndex].Count;
 
             resourceCard.Size *= 0.7f;
+            resourceCard.OnFlip += OnResourceCardFlip;
 
             if (cardCount == 0)
             {
@@ -188,10 +189,21 @@ namespace SpaceCardGame
             Ship ship = new Ship(shipCard.CardData as ShipCardData);
 
             // Will always need to load and initialise this new card object pair
-            CardObjectPair shipCardAndShip = PlayerShipCardControl.AddObject(new CardObjectPair(shipCard, ship), true, true);
+            CardShipPair shipCardAndShip = PlayerShipCardControl.AddObject(new CardShipPair(shipCard, ship), true, true);
             Player.CurrentShipsPlaced++;
 
             Ships.Add(shipCardAndShip);
+        }
+
+        /// <summary>
+        /// Adds a script to choose a ship to add the defence card to.
+        /// </summary>
+        /// <param name="defenceCard"></param>
+        private void AddDefenceCard(DefenceCard defenceCard)
+        {
+            CardObjectPair cardObjectPair = new CardObjectPair(defenceCard, new Shield(defenceCard.CardData as DefenceCardData));
+
+            ScriptManager.Instance.AddObject(new ChooseFriendlyShipScript(cardObjectPair), true, true);
         }
 
         /// <summary>
@@ -211,9 +223,29 @@ namespace SpaceCardGame
                     // Flip our bottom most available card face down
                     Debug.Assert(numResourceCardsTotal - numAvailableResourceCards >= 0);
                     ResourceCards[typeIndex][numResourceCardsTotal - numAvailableResourceCards].Flip(CardFlipState.kFaceDown);
+                }
+            }
+        }
 
-                    // Remove one from our player's available resources.
-                    Player.AvailableResources[typeIndex]--;
+        #endregion
+
+        #region Utility Functions
+
+        /// <summary>
+        /// Flips the resource cards back face up for the inputted cardData.
+        /// This triggers the refunding to the player of their resources.
+        /// </summary>
+        /// <param name="cardData"></param>
+        public void RefundCardResources(CardData cardData)
+        {
+            for (int resourceIndex = 0; resourceIndex < (int)ResourceType.kNumResourceTypes; resourceIndex++)
+            {
+                // Loop through all the costs of the card we are sending back and flip the resource cards face up
+                for (int cost = 0; cost < cardData.ResourceCosts[resourceIndex]; cost++)
+                {
+                    // Find a face down resource card and flip it face up
+                    Debug.Assert(ResourceCards[resourceIndex].Exists(x => x.FlipState == CardFlipState.kFaceDown));
+                    ResourceCards[resourceIndex].Find(x => x.FlipState == CardFlipState.kFaceDown).Flip(CardFlipState.kFaceUp);
                 }
             }
         }
@@ -234,20 +266,33 @@ namespace SpaceCardGame
                 {
                     resourceCard.Flip(CardFlipState.kFaceUp);
                 }
-
-                Player.AvailableResources[type] = ResourceCards[type].Count;
             }
         }
 
         /// <summary>
-        /// A callback for when this player begins a new turn - resets all of our player's available resources.
+        /// A callback for when a resource card is flipped.
+        /// Adds or subtracts from the player's available resources depending on whether the card's flip state has changed and is face up or face down.
         /// </summary>
         /// <param name="newActivePlayer"></param>
-        private void GivePlayerFullResources(GamePlayer newActivePlayer)
+        private void OnResourceCardFlip(BaseGameCard baseGameCard, CardFlipState newFlipState, CardFlipState oldFlipState)
         {
-            for (int type = 0; type < (int)ResourceType.kNumResourceTypes; type++)
+            // If our flip state has not changed, then do nothing
+            if (newFlipState == oldFlipState)
             {
-                Player.AvailableResources[type] = ResourceCards[type].Count;
+                return;
+            }
+
+            Debug.Assert(baseGameCard is ResourceCard);
+            ResourceCard resourceCard = baseGameCard as ResourceCard;
+
+            if (newFlipState == CardFlipState.kFaceDown)
+            {
+                Debug.Assert(Player.AvailableResources[(int)resourceCard.ResourceType] > 0);
+                Player.AvailableResources[(int)resourceCard.ResourceType]--;
+            }
+            else
+            {
+                Player.AvailableResources[(int)resourceCard.ResourceType]++;
             }
         }
 
@@ -258,7 +303,7 @@ namespace SpaceCardGame
         private void SetUpGameObjectsForCardPlacement()
         {
             // Show all the cards
-            foreach (CardObjectPair cardPair in Ships)
+            foreach (CardShipPair cardPair in Ships)
             {
                 cardPair.SetActiveObject(CardOrObject.kCard);
             }
@@ -270,7 +315,7 @@ namespace SpaceCardGame
         /// </summary>
         private void SetUpGameObjectsForBattle()
         {
-            foreach (CardObjectPair cardPair in Ships)
+            foreach (CardShipPair cardPair in Ships)
             {
                 cardPair.SetActiveObject(CardOrObject.kObject);
 

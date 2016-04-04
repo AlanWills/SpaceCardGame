@@ -19,11 +19,6 @@ namespace SpaceCardGame
         private CardData CardData { get; set; }
 
         /// <summary>
-        /// A reference to our card thumbnail
-        /// </summary>
-        private BaseUICard CardThumbnail { get; set; }
-
-        /// <summary>
         /// A reference to the card we will be placing
         /// </summary>
         private GameCard Card { get; set; }
@@ -33,6 +28,8 @@ namespace SpaceCardGame
         /// </summary>
         private BattleScreen BattleScreen { get; set; }
 
+        private Vector2 cardSize;
+
         #endregion
 
         public PlaceCardScript(BaseUICard cardThumbnail) :
@@ -40,7 +37,9 @@ namespace SpaceCardGame
         {
             DebugUtils.AssertNotNull(cardThumbnail.CardData);
             CardData = cardThumbnail.CardData;
-            CardThumbnail = cardThumbnail;
+
+            cardSize = cardThumbnail.Size;
+            cardThumbnail.Die();
         }
 
         #region Virtual Functions
@@ -55,7 +54,7 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(ParentScreen);
             Card = CardFactory.CreateCard(CardData);
 
-            Card.Size = CardThumbnail.Size;
+            Card.Size = cardSize;
 
             ParentScreen.AddGameObject(Card);
             Card.SetParent(GameMouse.Instance, true);
@@ -69,11 +68,6 @@ namespace SpaceCardGame
         public override void Begin()
         {
             base.Begin();
-
-            // We do this here, because we add this script during the thumbnail's update script.
-            // It will then continue to run it's handle input function and make the info image visible.
-            // Since this is executed one frame later, this will successfully hide the UI.
-            CardThumbnail.Hide();
 
             BattleScreen = ParentScreen as BattleScreen;
         }
@@ -122,7 +116,6 @@ namespace SpaceCardGame
         {
             BattleScreen.Board.ActivePlayerBoardSection.PlayerGameBoardSection.AddObject(Card);
 
-            CardThumbnail.Die();
             Die();
         }
 
@@ -132,7 +125,7 @@ namespace SpaceCardGame
         /// </summary>
         private void SendCardBackToHand()
         {
-            CardThumbnail.Show();
+            BattleScreen.ActivePlayer.AddCardToHand(CardData);
 
             Card.Die();
             Die();
@@ -150,7 +143,7 @@ namespace SpaceCardGame
             }
             else if (Card is DefenceCard)
             {
-
+                return true;
             }
             else if (Card is ResourceCard)
             {

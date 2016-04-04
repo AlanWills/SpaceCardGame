@@ -30,6 +30,23 @@ namespace SpaceCardGame
             return base.CanLay(player, ref error);
         }
 
+        /// <summary>
+        /// The valid target for a ship card is only another ship card, so return whether the input is a CardShipPair with non-zero health.
+        /// </summary>
+        /// <param name="pairToValidate"></param>
+        /// <returns></returns>
+        public override bool IsValidTargetForInput(CardObjectPair pairToValidate)
+        {
+            if (pairToValidate is CardShipPair)
+            {
+                // If we are targeting another ship, it is valid if it not dead
+                return !(pairToValidate as CardShipPair).Ship.Dead;
+            }
+
+            // Otherwise the target is invalid
+            return false;
+        }
+
         #endregion
     }
 }

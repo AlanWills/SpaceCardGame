@@ -10,37 +10,21 @@ namespace SpaceCardGame
     /// Then handles the firing of the ship's turret.
     /// This script can be cancelled by right clicking anywhere, or left clicking on empty space.
     /// </summary>
-    public class AttackOpponentShipScript : Script
+    public class AttackOpponentShipScript : ChooseShipScript
     {
         #region Properties and Fields
 
         /// <summary>
         /// The selected ship which will attack.
         /// </summary>
-        private Ship AttackingShip { get; set; }
-
-        /// <summary>
-        /// A stored reference to our battle screen (which will be our parent).
-        /// Saves us having to cast the ParentScreen every frame
-        /// </summary>
-        private BattleScreen BattleScreen { get; set; }
-
-        /// <summary>
-        /// A reference to the image we use to indicate we're attacking
-        /// </summary>
-        private Image AttackLineImage { get; set; }
-
-        /// <summary>
-        /// A reference to a game object which we are currently targeting
-        /// </summary>
-        private GameObject Target { get; set; }
+        private CardShipPair AttackingShipPair { get; set; }
 
         #endregion
 
-        public AttackOpponentShipScript(Ship attackingShip) :
-            base()
+        public AttackOpponentShipScript(CardShipPair attackingShipPair) :
+            base(attackingShipPair)
         {
-            AttackingShip = attackingShip;
+            AttackingShipPair = attackingShipPair;
         }
 
         #region Virtual Functions
@@ -52,11 +36,8 @@ namespace SpaceCardGame
         {
             base.Begin();
 
-            Debug.Assert(ParentScreen is BattleScreen);
-            BattleScreen = ParentScreen as BattleScreen;
-
-            AttackLineImage = BattleScreen.AddInGameUIObject(new Image(Vector2.Zero, "Sprites\\UI\\AttackLine"), true, true);
-            AttackLineImage.Colour = Color.Red;
+            ContainerToLookThrough = BattleScreen.Board.NonActivePlayerBoardSection.PlayerGameBoardSection.PlayerShipCardControl;
+            SelectingLine.Colour = Color.Red;
         }
 
         /// <summary>
@@ -67,32 +48,14 @@ namespace SpaceCardGame
         public override void HandleInput(float elapsedGameTime, Vector2 mousePosition)
         {
             base.HandleInput(elapsedGameTime, mousePosition);
-
-            // If we right click, or left click on empty space we cancel the script
-            if (GameMouse.Instance.IsClicked(MouseButton.kRightButton))
-            {
-                Die();
-            }
-
-            Target = null;
-            foreach (CardObjectPair pair in BattleScreen.Board.NonActivePlayerBoardSection.PlayerGameBoardSection.PlayerShipCardControl)
-            {
-                // We check intersection with mouse position here, because the object may not have actually had it's HandleInput called yet
-                // Could do this stuff in the Update loop, but this is really what this function is for so do this CheckIntersects instead for clarity 
-                if (pair.CardObject != AttackingShip && pair.CardObject.Collider.CheckIntersects(mousePosition))
-                {
-                    Target = pair.CardObject;
-                    break;
-                }
-            }
-
+            
             // We handle what happens if we have left clicked on our mouse
             if (GameMouse.Instance.IsClicked(MouseButton.kLeftButton))
             {
                 if (Target != null)
                 {
                     // We have left clicked on a ship, so attack it
-                    AttackingShip.Turret.Attack(Target);
+                    AttackingShipPair.Ship.Turret.Attack(Target);
                 }
                 else
                 {
@@ -111,44 +74,14 @@ namespace SpaceCardGame
         {
             base.Update(elapsedGameTime);
 
-            Vector2 attackingShipWorldPos = AttackingShip.WorldPosition;
-            Vector2 mousePosition = GameMouse.Instance.InGamePosition;
-
-            // Rotate the attacking ship's turrets to be pointing at the mouse whilst we are hovering
-            float mouseAngle = MathUtils.AngleBetweenPoints(attackingShipWorldPos, mousePosition);
-            AttackingShip.Turret.LocalRotation = mouseAngle - AttackingShip.WorldRotation;
-
-            if (Target != null)
-            {
-                Vector2 targetWorldPos = Target.WorldPosition;
-                float targetAngle = MathUtils.AngleBetweenPoints(attackingShipWorldPos, targetWorldPos);
-
-                AttackLineImage.LocalRotation = targetAngle;
-                AttackLineImage.LocalPosition = (attackingShipWorldPos + targetWorldPos) * 0.5f;
-                AttackLineImage.Size = new Vector2(AttackLineImage.Size.X, (attackingShipWorldPos - targetWorldPos).Length());
-            }
-            else
-            {
-                AttackLineImage.LocalRotation = mouseAngle;
-                AttackLineImage.LocalPosition = (attackingShipWorldPos + mousePosition) * 0.5f;
-                AttackLineImage.Size = new Vector2(AttackLineImage.Size.X, (attackingShipWorldPos - mousePosition).Length());
-            }
+            // Then use the rotation of the line to set the turret rotation
+            AttackingShipPair.Ship.Turret.LocalRotation = SelectingLine.WorldRotation - AttackingShipPair.WorldRotation;
 
             // If our attacking ship has no shots left then we just kill this script as our ship will not be able to attack any more
-            if (AttackingShip.Turret.ShotsLeft <= 0)
+            if (AttackingShipPair.Ship.Turret.ShotsLeft <= 0)
             {
                 Die();
             }
-        }
-
-        /// <summary>
-        /// Kills our attack line image
-        /// </summary>
-        public override void Die()
-        {
-            base.Die();
-
-            AttackLineImage.Die();
         }
 
         #endregion

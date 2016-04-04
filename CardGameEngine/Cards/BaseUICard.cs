@@ -13,7 +13,7 @@ namespace CardGameEngine
         kFaceDown,
     }
 
-    public delegate void OnFlipHandler(CardFlipState newFlipState);
+    public delegate void OnUICardFlippedHandler(BaseUICard baseUICard, CardFlipState newFlipState);
     public delegate void OnUICardDeathHandler(BaseUICard cardThumbnail);
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace CardGameEngine
         /// An event which is called when the card flip state is changed.
         /// Passes the new flip state.
         /// </summary>
-        public event OnFlipHandler OnFlip;
+        public event OnUICardFlippedHandler OnFlip;
 
         /// <summary>
         /// An event that will be called after this object dies
@@ -223,7 +223,7 @@ namespace CardGameEngine
             // Call our on flip event if it's not null
             if (OnFlip != null)
             {
-                OnFlip(FlipState);
+                OnFlip(this, FlipState);
             }
         }
 

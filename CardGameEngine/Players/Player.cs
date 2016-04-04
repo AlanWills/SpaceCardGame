@@ -95,12 +95,21 @@ namespace CardGameEngine
 
                 if (CurrentHand.Count < MaxHandSize)
                 {
-                    CurrentHand.Add(cardData);
-                    if (OnCardAddedToHand != null)
-                    {
-                        OnCardAddedToHand(cardData);
-                    }
+                    AddCardToHand(cardData);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Adds the card data to the player's hand and triggers the OnCardAddedToHand event
+        /// </summary>
+        /// <param name="cardData"></param>
+        public void AddCardToHand(CardData cardData)
+        {
+            CurrentHand.Add(cardData);
+            if (OnCardAddedToHand != null)
+            {
+                OnCardAddedToHand(cardData);
             }
         }
 

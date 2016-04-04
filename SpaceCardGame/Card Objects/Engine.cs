@@ -8,7 +8,7 @@ namespace SpaceCardGame
     /// <summary>
     /// Represents an Engine on our ship
     /// </summary>
-    public class Engine : GameObject
+    public class Engine : GameObjectContainer
     {
         #region Properties and Fields
 
@@ -21,6 +21,11 @@ namespace SpaceCardGame
         /// A reference to the engine data for this Engine
         /// </summary>
         private EngineData EngineData { get; set; }
+
+        /// <summary>
+        /// A reference to the engine blaze for this Engine
+        /// </summary>
+        private EngineBlaze EngineBlaze { get; set; }
 
         // A string which represents the default engine all ships have 
         private const string defaultEngineDataAsset = "Content\\Data\\Cards\\Defence\\Engines\\DefaultEngine.xml";
@@ -62,11 +67,21 @@ namespace SpaceCardGame
             EngineData = Data as EngineData;
             DebugUtils.AssertNotNull(EngineData);
 
+            EngineBlaze = AddObject(new EngineBlaze(Vector2.Zero));
+
             base.LoadContent();
         }
 
-        #endregion
+        /// <summary>
+        /// Fixes up the Engine Blaze animation
+        /// </summary>
+        public override void Begin()
+        {
+            base.Begin();
 
-        // TODO Engine contrail
+            EngineBlaze.LocalPosition += new Vector2(0, EngineBlaze.Size.Y * 0.5f);
+        }
+
+        #endregion
     }
 }

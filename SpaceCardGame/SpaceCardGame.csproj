@@ -61,12 +61,15 @@
     <Compile Include="Data\IntermediateCardDeserializer.cs" />
     <Compile Include="Board\Board.cs" />
     <Compile Include="Game Objects\CardObjectPair.cs" />
+    <Compile Include="Game Objects\CardShipPair.cs" />
     <Compile Include="Game Objects\GameCardControl.cs" />
     <Compile Include="Board\PlayerGameBoardSection.cs" />
     <Compile Include="Players\GamePlayer.cs" />
     <Compile Include="Screens\Menus\OpenCardPacksScreen.cs" />
     <Compile Include="Scripts\Gameplay\AITurnScript.cs" />
     <Compile Include="Scripts\Gameplay\AttackOpponentShipScript.cs" />
+    <Compile Include="Scripts\Gameplay\ChooseFriendlyShipScript.cs" />
+    <Compile Include="Scripts\Gameplay\ChooseShipScript.cs" />
     <Compile Include="Scripts\Gameplay\NewGameScript.cs" />
     <Compile Include="Scripts\Gameplay\PlaceCardScript.cs" />
     <Compile Include="Game1.cs" />
@@ -78,9 +81,11 @@
     <Compile Include="Screens\Menus\GameOptionsScreen.cs" />
     <Compile Include="Screens\Menus\LobbyMenuScreen.cs" />
     <Compile Include="Screens\Menus\MainMenuScreen.cs" />
+    <Compile Include="UI\EngineBlaze.cs" />
     <Compile Include="UI\Explosion.cs" />
     <Compile Include="UI\PlayerHandUI.cs" />
     <Compile Include="Board\PlayerUIBoardSection.cs" />
+    <Compile Include="UI\TargetingLine.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -93,6 +98,12 @@
     <Content Include="Content\Data\Cards\Defence\Engines\DefaultEngine.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\Data\GameObjects\EngineBlaze.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Effects\EngineTrail2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Music\Gameplay\AngularMomentum.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -403,6 +414,7 @@
     <None Include="Content\Sprites\Cards\Weapons\DefaultTurret.xnb" />
     <None Include="Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xnb" />
     <None Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xnb" />
+    <None Include="Content\Sprites\Effects\EngineTrail2.xnb" />
     <None Include="Content\Sprites\Effects\Explosion.xnb" />
     <None Include="Content\Sprites\UI\AttackLine.xnb" />
     <None Include="Content\Sprites\UI\NewCardIndicator.xnb" />
