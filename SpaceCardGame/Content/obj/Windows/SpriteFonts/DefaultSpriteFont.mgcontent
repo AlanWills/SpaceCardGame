@@ -3,11 +3,11 @@
   <SourceFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/SpriteFonts/DefaultSpriteFont.spritefont</SourceFile>
   <SourceTime>2016-03-06T20:55:20.6108196+00:00</SourceTime>
   <DestFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/bin/Windows/SpriteFonts/DefaultSpriteFont.xnb</DestFile>
-  <DestTime>2016-03-30T20:02:51.919244+01:00</DestTime>
+  <DestTime>2016-04-04T18:30:49.4356295+01:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
-  <ImporterTime>2016-01-09T01:35:18+00:00</ImporterTime>
+  <ImporterTime>2016-03-30T07:36:08+01:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
-  <ProcessorTime>2016-01-09T01:35:18+00:00</ProcessorTime>
+  <ProcessorTime>2016-03-30T07:36:08+01:00</ProcessorTime>
   <Parameters>
     <Key>TextureFormat</Key>
     <Value>Compressed</Value>

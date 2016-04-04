@@ -23,7 +23,7 @@ namespace SpaceCardGame
         private EngineData EngineData { get; set; }
 
         // A string which represents the default engine all ships have 
-        private const string defaultEngineDataAsset = "Content\\Data\\Cards\\Engines\\DefaultEngine.xml";
+        private const string defaultEngineDataAsset = "Content\\Data\\Cards\\Defence\\Engines\\DefaultEngine.xml";
 
         #endregion
 

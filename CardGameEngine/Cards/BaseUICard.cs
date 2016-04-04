@@ -2,6 +2,7 @@
 using CardGameEngineData;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Diagnostics;
 
 namespace CardGameEngine
@@ -158,7 +159,7 @@ namespace CardGameEngine
         public override void UpdateCollider(ref Vector2 position, ref Vector2 size)
         {
             position = WorldPosition;
-            size = DrawingSize;
+            size = new Vector2(DrawingSize.X, DrawingSize.Y + Math.Abs(RestingPosition.Y - LocalPosition.Y));   // Not perfect, but better.  Over estimates the top
         }
 
         /// <summary>

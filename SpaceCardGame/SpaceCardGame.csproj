@@ -92,6 +92,31 @@
   <ItemGroup>
     <Content Include="Content\Data\Cards\Defence\Engines\DefaultEngine.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\Music\Gameplay\AngularMomentum.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Music\Gameplay\BlindingLights.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Music\Gameplay\HorrorOfSelf.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Music\Gameplay\Mechanolith.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Music\Gameplay\RidingTheAuroraBorealis.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Music\Menu\Emotional.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Music\Menu\HerVioletEyes.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Music\Menu\SoftBeat.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\UI\NewCardIndicator.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -348,6 +373,14 @@
     <Content Include="Content\Sprites\UI\TextEntryBox.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Content\Music\Gameplay\AngularMomentum.xnb" />
+    <None Include="Content\Music\Gameplay\BlindingLights.xnb" />
+    <None Include="Content\Music\Gameplay\HorrorOfSelf.xnb" />
+    <None Include="Content\Music\Gameplay\Mechanolith.xnb" />
+    <None Include="Content\Music\Gameplay\RidingTheAuroraBorealis.xnb" />
+    <None Include="Content\Music\Menu\Emotional.xnb" />
+    <None Include="Content\Music\Menu\HerVioletEyes.xnb" />
+    <None Include="Content\Music\Menu\SoftBeat.xnb" />
     <None Include="Content\Sprites\Backgrounds\Nebula.xnb" />
     <None Include="Content\Sprites\Backgrounds\TileableNebula.xnb" />
     <None Include="Content\Sprites\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xnb" />

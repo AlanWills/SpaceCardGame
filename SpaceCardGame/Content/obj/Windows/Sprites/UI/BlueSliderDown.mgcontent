@@ -3,11 +3,11 @@
   <SourceFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/UI/BlueSliderDown.png</SourceFile>
   <SourceTime>2016-03-06T20:54:28.2460901+00:00</SourceTime>
   <DestFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/bin/Windows/Sprites/UI/BlueSliderDown.xnb</DestFile>
-  <DestTime>2016-03-30T20:02:51.9867861+01:00</DestTime>
+  <DestTime>2016-04-04T18:30:49.5491342+01:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2016-01-09T01:35:18+00:00</ImporterTime>
+  <ImporterTime>2016-03-30T07:36:08+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2016-01-09T01:35:18+00:00</ProcessorTime>
+  <ProcessorTime>2016-03-30T07:36:08+01:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

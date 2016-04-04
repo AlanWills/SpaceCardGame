@@ -3,11 +3,11 @@
   <SourceFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/UI/TextEntryBox.png</SourceFile>
   <SourceTime>2016-03-11T19:34:51.2248269+00:00</SourceTime>
   <DestFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/bin/Windows/Sprites/UI/TextEntryBox.xnb</DestFile>
-  <DestTime>2016-03-30T20:02:52.1890169+01:00</DestTime>
+  <DestTime>2016-04-04T18:30:49.9070474+01:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2016-01-09T01:35:18+00:00</ImporterTime>
+  <ImporterTime>2016-03-30T07:36:08+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2016-01-09T01:35:18+00:00</ProcessorTime>
+  <ProcessorTime>2016-03-30T07:36:08+01:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

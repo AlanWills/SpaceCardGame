@@ -3,11 +3,11 @@
   <SourceFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Ships/VenatorCruiser/VenatorCruiserCard.png</SourceFile>
   <SourceTime>2016-03-30T19:27:22.9916675+01:00</SourceTime>
   <DestFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/bin/Windows/Sprites/Cards/Ships/VenatorCruiser/VenatorCruiserCard.xnb</DestFile>
-  <DestTime>2016-03-30T20:02:52.773492+01:00</DestTime>
+  <DestTime>2016-04-04T18:30:50.916085+01:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2016-01-09T01:35:18+00:00</ImporterTime>
+  <ImporterTime>2016-03-30T07:36:08+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2016-01-09T01:35:18+00:00</ProcessorTime>
+  <ProcessorTime>2016-03-30T07:36:08+01:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

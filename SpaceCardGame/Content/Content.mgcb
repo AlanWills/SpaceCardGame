@@ -10,6 +10,7 @@
 
 #-------------------------------- References --------------------------------#
 
+/reference:..\bin\Windows\Debug\SpaceCardGameData.dll
 
 #---------------------------------- Content ---------------------------------#
 
@@ -444,4 +445,52 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/UI/NewCardIndicator.png
+
+#begin Music/Gameplay/BlindingLights.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Gameplay/BlindingLights.mp3
+
+#begin Music/Gameplay/HorrorOfSelf.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Gameplay/HorrorOfSelf.mp3
+
+#begin Music/Gameplay/Mechanolith.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Gameplay/Mechanolith.mp3
+
+#begin Music/Gameplay/RidingTheAuroraBorealis.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Gameplay/RidingTheAuroraBorealis.mp3
+
+#begin Music/Menu/Emotional.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Menu/Emotional.mp3
+
+#begin Music/Menu/HerVioletEyes.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Menu/HerVioletEyes.mp3
+
+#begin Music/Menu/SoftBeat.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Menu/SoftBeat.mp3
+
+#begin Music/Gameplay/AngularMomentum.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Gameplay/AngularMomentum.mp3
 

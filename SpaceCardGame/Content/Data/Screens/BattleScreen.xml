@@ -1,4 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
 <BaseScreenData>
   <BackgroundTextureAsset></BackgroundTextureAsset>
+  <Music>
+    <Item>Gameplay\AngularMomentum</Item>
+    <Item>Gameplay\BlindingLights</Item>
+    <Item>Gameplay\HorrorOfSelf</Item>
+    <Item>Gameplay\Mechanolith</Item>
+    <Item>Gameplay\RidingTheAuroraBorealis</Item>
+  </Music>
 </BaseScreenData>

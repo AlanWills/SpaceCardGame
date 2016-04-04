@@ -1,4 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <BaseScreenData>
   <BackgroundTextureAsset></BackgroundTextureAsset>
+  <Music>
+    <Item>Menu\Emotional</Item>
+    <Item>Menu\HerVioletEyes</Item>
+    <Item>Menu\SoftBeat</Item>
+  </Music>
 </BaseScreenData>
