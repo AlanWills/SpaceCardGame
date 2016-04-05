@@ -55,7 +55,7 @@ namespace SpaceCardGame
                 if (Target != null)
                 {
                     // We have left clicked on a ship, so attack it
-                    AttackingShipPair.Ship.Turret.Attack(Target);
+                    AttackingShipPair.Ship.Turret.Attack(Target.Ship);
                 }
                 else
                 {

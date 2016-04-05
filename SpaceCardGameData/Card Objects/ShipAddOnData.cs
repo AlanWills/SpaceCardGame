@@ -2,7 +2,7 @@
 
 namespace SpaceCardGameData
 {
-    public class ShieldData : ShipAddOnData
+    public class ShipAddOnData : GameObjectData
     {
     }
 }

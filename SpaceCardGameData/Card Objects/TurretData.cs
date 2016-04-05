@@ -2,7 +2,7 @@
 
 namespace SpaceCardGameData
 {
-    public class TurretData : GameObjectData
+    public class TurretData : ShipAddOnData
     {
         /// <summary>
         /// The data asset for our bullets

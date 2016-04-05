@@ -46,10 +46,13 @@
   <ItemGroup>
     <Compile Include="Board\OpponentBoardSection.cs" />
     <Compile Include="Board\PlayerBoardSection.cs" />
+    <Compile Include="Card Objects\Ability.cs" />
     <Compile Include="Card Objects\Bullet.cs" />
     <Compile Include="Card Objects\Engine.cs" />
+    <Compile Include="Card Objects\Resource.cs" />
     <Compile Include="Card Objects\Shield.cs" />
     <Compile Include="Card Objects\Ship.cs" />
+    <Compile Include="Card Objects\ShipAddOn.cs" />
     <Compile Include="Card Objects\Turret.cs" />
     <Compile Include="Cards\AbilityCard.cs" />
     <Compile Include="Cards\CardFactory.cs" />
@@ -60,8 +63,12 @@
     <Compile Include="Cards\WeaponCard.cs" />
     <Compile Include="Data\IntermediateCardDeserializer.cs" />
     <Compile Include="Board\Board.cs" />
-    <Compile Include="Game Objects\CardObjectPair.cs" />
-    <Compile Include="Game Objects\CardShipPair.cs" />
+    <Compile Include="Game Objects\Card Pairs\CardAbilityPair.cs" />
+    <Compile Include="Game Objects\Card Pairs\CardDefencePair.cs" />
+    <Compile Include="Game Objects\Card Pairs\CardObjectPair.cs" />
+    <Compile Include="Game Objects\Card Pairs\CardResourcePair.cs" />
+    <Compile Include="Game Objects\Card Pairs\CardShipPair.cs" />
+    <Compile Include="Game Objects\Card Pairs\CardWeaponPair.cs" />
     <Compile Include="Game Objects\GameCardControl.cs" />
     <Compile Include="Board\PlayerGameBoardSection.cs" />
     <Compile Include="Players\GamePlayer.cs" />

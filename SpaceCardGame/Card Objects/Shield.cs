@@ -1,14 +1,16 @@
-﻿using _2DEngine;
+﻿using System;
+using _2DEngine;
 using _2DEngineData;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
+using System.Diagnostics;
 
 namespace SpaceCardGame
 {
     /// <summary>
     /// Represents a Shield on our ship
     /// </summary>
-    public class Shield : GameObject
+    public class Shield : ShipAddOn
     {
         #region Properties and Fields
 
@@ -61,6 +63,15 @@ namespace SpaceCardGame
         {
             // Add a circle collider for this
             return base.AddCollider();
+        }
+
+        /// <summary>
+        /// Adds a shield to the inputted ship
+        /// </summary>
+        /// <param name="ship"></param>
+        public override void AddToShip(Ship ship)
+        {
+            Debug.Fail("");
         }
 
         #endregion

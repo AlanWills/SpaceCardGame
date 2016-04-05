@@ -1,5 +1,4 @@
-﻿using CardGameEngine;
-using SpaceCardGameData;
+﻿using SpaceCardGameData;
 
 namespace SpaceCardGame
 {

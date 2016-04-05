@@ -201,7 +201,7 @@ namespace SpaceCardGame
         /// <param name="defenceCard"></param>
         private void AddDefenceCard(DefenceCard defenceCard)
         {
-            CardObjectPair cardObjectPair = new CardObjectPair(defenceCard, new Shield(defenceCard.CardData as DefenceCardData));
+            CardDefencePair cardObjectPair = new CardDefencePair(defenceCard, new Shield(defenceCard.CardData as DefenceCardData));
 
             ScriptManager.Instance.AddObject(new ChooseFriendlyShipScript(cardObjectPair), true, true);
         }

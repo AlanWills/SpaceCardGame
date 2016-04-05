@@ -1,7 +1,5 @@
 ﻿using _2DEngine;
-using CardGameEngine;
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace SpaceCardGame
@@ -62,7 +60,8 @@ namespace SpaceCardGame
         }
         
         /// <summary>
-        /// Kills our attack line image
+        /// If we have chosen a target we add the card to the target.
+        /// Otherwise we kill the card and add it back to the player's hand
         /// </summary>
         public override void Die()
         {
@@ -71,7 +70,9 @@ namespace SpaceCardGame
             if (ShipChosen)
             {
                 // We have clicked on the target we were hovering over so we are good to go
-                // Add the card to the ship
+                // Add the card to the ship we have selected
+                DebugUtils.AssertNotNull(Target);
+                CardToChooseTargetFor.AddToCardShipPair(Target);
             }
             else
             {

@@ -3,6 +3,7 @@ using _2DEngineData;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
 using System.Diagnostics;
+using System;
 
 namespace SpaceCardGame
 {
@@ -10,7 +11,7 @@ namespace SpaceCardGame
     /// A class which represents a weapon on our ship.
     /// Handles firing bullets and damaging ships.
     /// </summary>
-    public class Turret : GameObject
+    public class Turret : ShipAddOn
     {
         #region Properties and Fields
 
@@ -92,6 +93,15 @@ namespace SpaceCardGame
             }
 
             base.LoadContent();
+        }
+
+        /// <summary>
+        /// Adds a turret to the inputted ship
+        /// </summary>
+        /// <param name="ship"></param>
+        public override void AddToShip(Ship ship)
+        {
+            Debug.Fail("TODO");
         }
 
         #endregion

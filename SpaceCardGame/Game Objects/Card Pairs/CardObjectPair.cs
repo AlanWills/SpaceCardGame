@@ -17,7 +17,7 @@ namespace SpaceCardGame
     /// Some cards will be replaced by an object during the battle phase.
     /// This class handles which one is present based on the phase of the turn.
     /// </summary>
-    public class CardObjectPair : GameObjectContainer
+    public abstract class CardObjectPair : GameObjectContainer
     {
         #region Properties and Fields
 
@@ -77,6 +77,14 @@ namespace SpaceCardGame
                 CardObject.Die();
             }
         }
+
+        /// <summary>
+        /// A function called when this card is added to a card ship pair.
+        /// This occurs with abilities, weapons etc.
+        /// Allows us to apply custom effects based on the card type.
+        /// </summary>
+        /// <param name="cardShipPair"></param>
+        public abstract void AddToCardShipPair(CardShipPair cardShipPair);
 
         #endregion
 

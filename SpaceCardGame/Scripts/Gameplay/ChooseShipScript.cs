@@ -31,9 +31,9 @@ namespace SpaceCardGame
         protected TargetingLine SelectingLine { get; private set; }
 
         /// <summary>
-        /// A reference to a game object which we are currently targeting
+        /// A reference to a card ship pair which we are currently targeting
         /// </summary>
-        protected GameObject Target { get; private set; }
+        protected CardShipPair Target { get; private set; }
 
         /// <summary>
         /// The game object container we will look through to find a valid target
@@ -84,13 +84,14 @@ namespace SpaceCardGame
             foreach (CardShipPair pair in ContainerToLookThrough)
             {
                 // We check intersection with mouse position here, because the object may not have actually had it's HandleInput called yet
-                // Could do this stuff in the Update loop, but this is really what this function is for so do this CheckIntersects instead for clarity 
-                if (pair != CardToChooseTargetFor && pair.CardObject.Collider.CheckIntersects(mousePosition))
+                // Could do this stuff in the Update loop, but this is really what this function is for so do this CheckIntersects instead for clarity
+                DebugUtils.AssertNotNull(pair.Card.Collider);
+                if (pair != CardToChooseTargetFor && pair.Card.Collider.CheckIntersects(mousePosition))
                 {
                     // Check to see whether this current object is a valid match for the card we want to find a target for
                     if (CardToChooseTargetFor.Card.IsValidTargetForInput(pair))
                     {
-                        Target = pair.CardObject;
+                        Target = pair;
                         break;
                     }
                 }

@@ -1,10 +1,10 @@
 ﻿using _2DEngine;
+using System.Diagnostics;
 
 namespace SpaceCardGame
 {
     /// <summary>
     /// A class which uses the CardObjectPair class but is specifically used with Ships.
-    /// This is so we can have extra functions for adding shields/weapons etc.
     /// </summary>
     public class CardShipPair : CardObjectPair
     {
@@ -32,10 +32,16 @@ namespace SpaceCardGame
             Ship = ship;
         }
 
-        #region Utility Functions
+        #region Virtual Functions
 
-        // Do functions for adding shields, weapons
-        // Will need to set up the objects on the ship, but also store the cards next to the ShipCard for reference
+        /// <summary>
+        /// Cannot add ships to other ships
+        /// </summary>
+        /// <param name="cardShipPair"></param>
+        public override void AddToCardShipPair(CardShipPair cardShipPair)
+        {
+            Debug.Fail("Cannot add ships to other ships");
+        }
 
         #endregion
     }

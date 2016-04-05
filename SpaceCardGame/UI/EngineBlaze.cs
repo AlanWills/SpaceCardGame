@@ -18,7 +18,7 @@ namespace SpaceCardGame
         public EngineBlaze(Vector2 size, Vector2 localPosition) :
             base(size, localPosition, "Content\\Data\\GameObjects\\EngineBlaze.xml")
         {
-
+            UsesCollider = false;
         }
     }
 }
