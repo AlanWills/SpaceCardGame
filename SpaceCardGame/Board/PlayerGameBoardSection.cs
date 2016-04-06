@@ -13,7 +13,7 @@ namespace SpaceCardGame
     /// <summary>
     /// A class to handle the game objects in the game board for one player
     /// </summary>
-    public class PlayerGameBoardSection : GameObjectContainer
+    public class PlayerGameBoardSection : GameObject
     {
         /// <summary>
         /// A list of the player's currently laid resource cards indexed by resource type.
@@ -60,7 +60,7 @@ namespace SpaceCardGame
                 ResourceCards[type] = new List<ResourceCard>();
             }
 
-            PlayerShipCardControl = AddObject(new GameCardControl(typeof(ShipCard), new Vector2(Size.X * 0.8f, Size.Y * 0.5f), GamePlayer.MaxShipNumber, 1, new Vector2(0, - Size.Y * 0.25f), "Sprites\\Backgrounds\\TileableNebula"));
+            PlayerShipCardControl = AddChild(new GameCardControl(typeof(ShipCard), new Vector2(Size.X * 0.8f, Size.Y * 0.5f), GamePlayer.MaxShipNumber, 1, new Vector2(0, - Size.Y * 0.25f), "Sprites\\Backgrounds\\TileableNebula"));
 
             Ships = new List<CardShipPair>();
 
@@ -84,7 +84,7 @@ namespace SpaceCardGame
         /// <param name="load"></param>
         /// <param name="initialise"></param>
         /// <returns></returns>
-        public override T AddObject<T>(T gameObjectToAdd, bool load = false, bool initialise = false)
+        public override T AddChild<T>(T gameObjectToAdd, bool load = false, bool initialise = false)
         {
             // If we are adding a card, deal with special cases here
             GameCard card = gameObjectToAdd as GameCard;
@@ -125,7 +125,7 @@ namespace SpaceCardGame
             else
             {
                 // Otherwise just add the object as normal
-                base.AddObject(gameObjectToAdd, load, initialise);
+                base.AddChild(gameObjectToAdd, load, initialise);
             }
 
             return gameObjectToAdd;
@@ -171,7 +171,7 @@ namespace SpaceCardGame
             Player.AvailableResources[typeIndex]++;
             Player.ResourceCardsPlacedThisTurn++;
 
-            base.AddObject(resourceCard, load, initialise);
+            base.AddChild(resourceCard, load, initialise);
         }
 
         /// <summary>
@@ -189,7 +189,7 @@ namespace SpaceCardGame
             Ship ship = new Ship(shipCard.CardData as ShipCardData);
 
             // Will always need to load and initialise this new card object pair
-            CardShipPair shipCardAndShip = PlayerShipCardControl.AddObject(new CardShipPair(shipCard, ship), true, true);
+            CardShipPair shipCardAndShip = PlayerShipCardControl.AddChild(new CardShipPair(shipCard, ship), true, true);
             Player.CurrentShipsPlaced++;
 
             Ships.Add(shipCardAndShip);
@@ -203,7 +203,7 @@ namespace SpaceCardGame
         {
             CardDefencePair cardObjectPair = new CardDefencePair(defenceCard, new Shield(defenceCard.CardData as DefenceCardData));
 
-            ScriptManager.Instance.AddObject(new ChooseFriendlyShipScript(cardObjectPair), true, true);
+            ScriptManager.Instance.AddChild(new ChooseFriendlyShipScript(cardObjectPair), true, true);
         }
 
         /// <summary>

@@ -56,8 +56,7 @@ namespace SpaceCardGame
 
             Card.Size = cardSize;
 
-            ParentScreen.AddGameObject(Card);
-            Card.SetParent(GameMouse.Instance, true);
+            GameMouse.Instance.AddChild(Card);
 
             base.LoadContent();
         }
@@ -94,7 +93,7 @@ namespace SpaceCardGame
                     else
                     {
                         SendCardBackToHand();
-                        ScriptManager.Instance.AddObject(new FlashingTextScript(error, ScreenManager.Instance.ScreenCentre, Color.White, 2), true, true);
+                        ScriptManager.Instance.AddChild(new FlashingTextScript(error, ScreenManager.Instance.ScreenCentre, Color.White, 2), true, true);
                     }
                 }
             }
@@ -114,7 +113,7 @@ namespace SpaceCardGame
         /// </summary>
         private void AddCardToGame()
         {
-            BattleScreen.Board.ActivePlayerBoardSection.PlayerGameBoardSection.AddObject(Card);
+            Card.Reparent(BattleScreen.Board.ActivePlayerBoardSection.PlayerGameBoardSection);
 
             Die();
         }

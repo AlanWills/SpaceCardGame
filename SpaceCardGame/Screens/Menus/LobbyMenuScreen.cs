@@ -38,13 +38,11 @@ namespace SpaceCardGame
                 playGameButton.Disable();
             }
 
-            Button deckManagerButton = AddScreenUIObject(new Button("Decks", new Vector2(0, padding)));
-            deckManagerButton.SetParent(parent);
+            Button deckManagerButton = parent.AddChild(new Button("Decks", new Vector2(0, padding)));
             deckManagerButton.OnLeftClicked += OnDeckManagerButtonClicked;
             parent = deckManagerButton;
 
-            Button openPacksButton = AddScreenUIObject(new Button("Open Packs", new Vector2(0, padding)));
-            openPacksButton.SetParent(parent);
+            Button openPacksButton = parent.AddChild(new Button("Open Packs", new Vector2(0, padding)));
             openPacksButton.OnLeftClicked += OnOpenPacksButtonLeftClicked;
             parent = openPacksButton;
 

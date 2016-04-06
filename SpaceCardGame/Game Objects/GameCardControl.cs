@@ -1,6 +1,7 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -12,7 +13,7 @@ namespace SpaceCardGame
     /// Specific to one type of card - others will not be able to be laid.
     /// Also allows us to restrict the maximum number of elements we can add.
     /// </summary>
-    public class GameCardControl : GameObjectContainer
+    public class GameCardControl : GameObject, IEnumerable<BaseObject>
     {
         private enum Space
         {
@@ -43,7 +44,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A cached array of stored cards
         /// </summary>
-        private GameObject[] StoredCards { get; set; }
+        private BaseObject[] StoredCards { get; set; }
 
         private float columnWidth;
 
@@ -81,7 +82,8 @@ namespace SpaceCardGame
             GameMouse gameMouse = GameMouse.Instance;
             if (Collider.CheckIntersects(gameMouse.InGamePosition))
             {
-                if (gameMouse.Children.Exists(x => x is GameCard && x.GetType() == CardType))
+                BaseObject baseobject = gameMouse.FindChild<BaseObject>(x => x is GameCard && x.GetType() == CardType);
+                if (baseobject != null)
                 {
                     float gameMouseLocalYPos = gameMouse.InGamePosition.Y - WorldPosition.Y;
                     int positionIndex = GetPositionIndex(GameMouse.Instance.WorldPosition.X, Space.kWorldSpace);
@@ -119,10 +121,10 @@ namespace SpaceCardGame
         /// <param name="load"></param>
         /// <param name="initialise"></param>
         /// <returns></returns>
-        public override T AddObject<T>(T gameObjectToAdd, bool load = false, bool initialise = false)
+        public override T AddChild<T>(T gameObjectToAdd, bool load = false, bool initialise = false)
         {
             // Check we have room left!
-            Debug.Assert(GameObjects.ActiveObjectsCount < Rows * Columns);
+            Debug.Assert(ChildrenCount < Rows * Columns);
 
             // In our handle input we do shifting so that by the time we add a card the space under it should be empty
             // Need to get the mouse position and work out the appropriate section we are in
@@ -134,7 +136,7 @@ namespace SpaceCardGame
             StoredCards[pairIndex] = gameObjectToAdd;
 
             // Can remove this once we fix our sizes!
-            return base.AddObject(gameObjectToAdd, load, initialise);
+            return base.AddChild(gameObjectToAdd, load, initialise);
         }
 
         #endregion
@@ -148,7 +150,7 @@ namespace SpaceCardGame
         /// <returns></returns>
         public Vector2 GetEmptySlot()
         {
-            Debug.Assert(GameObjects.ActiveObjectsCount < LocalXPositions.Length);
+            Debug.Assert(ChildrenCount < LocalXPositions.Length);
 
             for (int i = 0; i < StoredCards.Length; i++)
             {
@@ -160,6 +162,24 @@ namespace SpaceCardGame
 
             Debug.Fail("No empty slot could be found");
             return Vector2.Zero;
+        }
+
+        /// <summary>
+        /// Implement Enumerator
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerator<BaseObject> GetEnumerator()
+        {
+            return Children.GetEnumerator();
+        }
+
+        /// <summary>
+        /// Implement Enumerator
+        /// </summary>
+        /// <returns></returns>
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return Children.GetEnumerator();
         }
 
         #endregion

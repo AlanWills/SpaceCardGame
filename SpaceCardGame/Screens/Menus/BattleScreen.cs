@@ -77,7 +77,7 @@ namespace SpaceCardGame
         /// </summary>
         protected override void AddInitialLights()
         {
-            Lights.AddObject(new AmbientLight(Color.White));
+            Lights.AddChild(new AmbientLight(Color.White));
         }
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace SpaceCardGame
             // Set the current active player to be the opponent, so that when we call NewPlayerTurn at the end of the script, we begin the game for the player
             ActivePlayer = Opponent;
             TurnState = TurnState.kBattle;
-            ScriptManager.Instance.AddObject(new NewGameScript(), true, true);
+            ScriptManager.Instance.AddChild(new NewGameScript(), true, true);
         }
 
         #endregion
@@ -201,7 +201,7 @@ namespace SpaceCardGame
                 ActivePlayer = Opponent;
                 NonActivePlayer = Player;
 
-                ScriptManager.Instance.AddObject(new AITurnScript(ActivePlayer, Board.ActivePlayerBoardSection), true, true);
+                ScriptManager.Instance.AddChild(new AITurnScript(ActivePlayer, Board.ActivePlayerBoardSection), true, true);
             }
             else
             {

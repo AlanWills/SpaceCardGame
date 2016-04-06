@@ -31,11 +31,10 @@ namespace CardGameEngine
 
         #endregion
 
-        public ChooseDeckBox(string title, Vector2 localPosition, string textureAsset = AssetManager.DefaultTextBoxTextureAsset, float lifeTime = float.MaxValue) :
-            base(title, localPosition, textureAsset, lifeTime)
+        public ChooseDeckBox(string title, Vector2 localPosition, string textureAsset = AssetManager.DefaultTextBoxTextureAsset) :
+            base(new GridControl(1, new Vector2(300, 350), Vector2.Zero), title, localPosition, textureAsset)
         {
-            DeckGridControl = new GridControl(1, new Vector2(300, 350), Vector2.Zero);
-            UIObject = DeckGridControl;
+            DeckGridControl = UIObject as GridControl;
         }
 
         #region Virtual Functions
@@ -61,7 +60,7 @@ namespace CardGameEngine
         {
             foreach (Deck deck in Array.FindAll(PlayerCardRegistry.Instance.Decks, x => x.IsCreated))
             {
-                ClickableImage deckUI = DeckGridControl.AddObject(new ClickableImage(DeckGridControl.ElementSize, Vector2.Zero, BaseUICard.CardBackTextureAsset), true, true);
+                ClickableImage deckUI = DeckGridControl.AddChild(new ClickableImage(DeckGridControl.ElementSize, Vector2.Zero, BaseUICard.CardBackTextureAsset), true, true);
                 deckUI.StoredObject = deck;
 
                 // A lot of these will be unused but it will avoid bugs down the road if we just do this in case they are used

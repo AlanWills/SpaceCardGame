@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace SpaceCardGame
 {
-    public class Ship : GameObjectContainer, IDamageable
+    public class Ship : GameObject, IDamageable
     {
         #region Properties and Fields
 
@@ -14,6 +14,11 @@ namespace SpaceCardGame
         /// A reference to the data for the ship this object represents
         /// </summary>
         private ShipData ShipData { get; set; }
+
+        /// <summary>
+        /// A local reference to the parent CardShipPair (for convenience)
+        /// </summary>
+        private CardShipPair CardShipPair { get; set; }
 
         /// <summary>
         /// A float to represent the health of this ship
@@ -90,8 +95,8 @@ namespace SpaceCardGame
             Health = ShipData.Defence;
 
             // TODO Input the ship's hardpoint positions here rather than zero
-            Turret = AddObject(new Turret(ShipData.Attack, Vector2.Zero));
-            Engine = AddObject(new Engine(ShipData.Speed, Vector2.Zero));
+            Turret = AddChild(new Turret(ShipData.Attack, Vector2.Zero));
+            Engine = AddChild(new Engine(ShipData.Speed, Vector2.Zero));
 
             base.LoadContent();
         }
@@ -108,9 +113,9 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(Collider);
             if (Collider.IsClicked && Turret.ShotsLeft > 0)
             {
-                DebugUtils.AssertNotNull(GetParent());
-                Debug.Assert(GetParent() is CardShipPair);
-                ScriptManager.Instance.AddObject(new AttackOpponentShipScript(GetParent() as CardShipPair), true, true);
+                DebugUtils.AssertNotNull(Parent);
+                Debug.Assert(Parent is CardShipPair);
+                ScriptManager.Instance.AddChild(new AttackOpponentShipScript(Parent as CardShipPair), true, true);
             }
         }
 
@@ -121,8 +126,8 @@ namespace SpaceCardGame
         {
             base.Die();
 
-            DebugUtils.AssertNotNull(GetParent());
-            GetParent().Die();
+            DebugUtils.AssertNotNull(Parent);
+            Parent.Die();
         }
 
         #endregion
@@ -145,7 +150,7 @@ namespace SpaceCardGame
         {
             if (Health <= 0)
             {
-                DebugUtils.AssertNotNull(GetParent());
+                DebugUtils.AssertNotNull(Parent);
                 Dead = true;
             }
         }

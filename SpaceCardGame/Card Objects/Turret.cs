@@ -3,7 +3,6 @@ using _2DEngineData;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
 using System.Diagnostics;
-using System;
 
 namespace SpaceCardGame
 {
@@ -143,7 +142,7 @@ namespace SpaceCardGame
             // Add to current screen so that the bullets are drawn over everything
             Bullet bullet = ScreenManager.Instance.CurrentScreen.AddGameObject(new Bullet(target, WorldPosition, BulletData), true, true);
             bullet.LocalRotation = WorldRotation;
-            bullet.SetParent(null);
+            bullet.Reparent(null);
 
             ShotsLeft--;
 

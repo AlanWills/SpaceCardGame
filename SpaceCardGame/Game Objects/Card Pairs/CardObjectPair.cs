@@ -17,7 +17,7 @@ namespace SpaceCardGame
     /// Some cards will be replaced by an object during the battle phase.
     /// This class handles which one is present based on the phase of the turn.
     /// </summary>
-    public abstract class CardObjectPair : GameObjectContainer
+    public abstract class CardObjectPair : GameObject
     {
         #region Properties and Fields
 
@@ -37,28 +37,15 @@ namespace SpaceCardGame
             base(gameCard.WorldPosition, AssetManager.EmptyGameObjectDataAsset)
         {
             Card = gameCard;
-            Card.SetParent(this, true);
+            Card.Reparent(this);
+            Card.LocalPosition = Vector2.Zero;
 
             // Add the card object and make sure it's local position is zero - we will altering it's position by changing this class' local position
-            CardObject = AddObject(cardObject);
+            CardObject = AddChild(cardObject);
             CardObject.LocalPosition = Vector2.Zero;
         }
 
         #region Virtual Functions
-
-        /// <summary>
-        /// Add the card - it will have already been loaded and initialised by this point
-        /// </summary>
-        public override void Initialise()
-        {
-            CheckShouldInitialise();
-
-            base.Initialise();
-
-            // Add the card and make sure it's local position is zero - we will be altering it's position by changing this class' local position
-            AddObject(Card, false, false);
-            Card.LocalPosition = Vector2.Zero;
-        }
 
         /// <summary>
         /// Calls Die explicitly on our card and card object if they have not had Die called.

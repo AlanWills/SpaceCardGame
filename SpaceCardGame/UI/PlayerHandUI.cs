@@ -39,7 +39,7 @@ namespace SpaceCardGame
         {
             base.RebuildList();
 
-            foreach (BaseUICard thumbnail in UIObjects)
+            foreach (BaseUICard thumbnail in Children)
             {
                 thumbnail.UpdatePositions(thumbnail.LocalPosition);
             }
@@ -53,12 +53,12 @@ namespace SpaceCardGame
         /// <param name="load"></param>
         /// <param name="initialise"></param>
         /// <returns></returns>
-        public override T AddObject<T>(T uiObjectToAdd, bool load = false, bool initialise = false)
+        public override T AddChild<T>(T uiObjectToAdd, bool load = false, bool initialise = false)
         {
             Debug.Assert(uiObjectToAdd is BaseUICard);
             (uiObjectToAdd as BaseUICard).OffsetToHighlightedPosition = new Vector2(0, -100);
 
-            return base.AddObject(uiObjectToAdd, load, initialise);
+            return base.AddChild(uiObjectToAdd, load, initialise);
         }
 
         #endregion
@@ -74,7 +74,7 @@ namespace SpaceCardGame
         {
             // We use the find function here because it searched the objects to add too.
             // Sometimes we may draw a card, so the card data is immediately added, but the UIObject takes one frame to be added
-            BaseUICard card = UIObjects.FindObject<BaseUICard>(cardData.DisplayName);
+            BaseUICard card = Children.FindChild<BaseUICard>(x => x.Name == cardData.DisplayName);
 
             DebugUtils.AssertNotNull(card);
             return card;
@@ -91,7 +91,7 @@ namespace SpaceCardGame
         /// <param name="drawnCard"></param>
         private void AddPlayerHandCardUI(CardData drawnCard)
         {
-            BaseUICard cardUI = AddObject(new BaseUICard(drawnCard, new Vector2(Size.X / Player.MaxHandSize, Size.Y), Vector2.Zero), true, true);
+            BaseUICard cardUI = AddChild(new BaseUICard(drawnCard, new Vector2(Size.X / Player.MaxHandSize, Size.Y), Vector2.Zero), true, true);
             cardUI.Name = drawnCard.DisplayName;
 
             CardFlipState cardFlipState = Player == BattleScreen.Player ? CardFlipState.kFaceUp : CardFlipState.kFaceDown;
@@ -110,7 +110,7 @@ namespace SpaceCardGame
         {
             Debug.Assert(clickable is BaseUICard);
 
-            ScriptManager.Instance.AddObject(new PlaceCardScript(clickable as BaseUICard), true, true);
+            ScriptManager.Instance.AddChild(new PlaceCardScript(clickable as BaseUICard), true, true);
         }
 
         /// <summary>

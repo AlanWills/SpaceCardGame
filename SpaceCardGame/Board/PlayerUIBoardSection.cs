@@ -8,7 +8,7 @@ namespace SpaceCardGame
     /// <summary>
     /// A class to handle the UI objects in the game board for a player
     /// </summary>
-    public class PlayerUIBoardSection : UIObjectContainer
+    public class PlayerUIBoardSection : UIObject
     {
         #region Properties and Fields
 
@@ -39,8 +39,8 @@ namespace SpaceCardGame
         {
             Player = player;
 
-            PlayerDeckUI = AddObject(new PlayerDeckUI(Player, Vector2.Zero));
-            PlayerHandUI = AddObject(new PlayerHandUI(Player, new Vector2(Size.X * 0.8f, Size.Y * 0.25f), new Vector2(0, Size.Y * 0.4f)));
+            PlayerDeckUI = AddChild(new PlayerDeckUI(Player, Vector2.Zero));
+            PlayerHandUI = AddChild(new PlayerHandUI(Player, new Vector2(Size.X * 0.8f, Size.Y * 0.25f), new Vector2(0, Size.Y * 0.4f)));
 
             Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
             BattleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;

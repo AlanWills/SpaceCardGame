@@ -69,13 +69,9 @@ namespace SpaceCardGame
             Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
             BattleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
 
-            // Add the objects to the screen
-            PlayerBoardSection = BattleScreen.AddGameObject(new PlayerBoardSection(BattleScreen.Player, new Vector2(0, Size.Y * 0.25f)), true, true);
-            OpponentBoardSection = BattleScreen.AddGameObject(new OpponentBoardSection(BattleScreen.Opponent, new Vector2(0, Size.Y * 0.25f)), true, true);
-
-            // But set the parent to this object, so we can rotate both by just rotating this
-            PlayerBoardSection.SetParent(this);
-            OpponentBoardSection.SetParent(this);
+            // Add the objects to this
+            PlayerBoardSection = AddChild(new PlayerBoardSection(BattleScreen.Player, new Vector2(0, Size.Y * 0.25f)));
+            OpponentBoardSection = AddChild(new OpponentBoardSection(BattleScreen.Opponent, new Vector2(0, Size.Y * 0.25f)));
         }
     }
 }

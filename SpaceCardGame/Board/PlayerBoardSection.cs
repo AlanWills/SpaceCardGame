@@ -32,12 +32,8 @@ namespace SpaceCardGame
             BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
 
             // Add the objects to the screen
-            PlayerGameBoardSection = battleScreen.AddGameObject(new PlayerGameBoardSection(player, Vector2.Zero), true, true);
-            PlayerUIBoardSection = battleScreen.AddScreenUIObject(new PlayerUIBoardSection(player, Vector2.Zero), true, true);
-
-            // But set the parent to this object, so we can rotate both by just rotating this
-            PlayerGameBoardSection.SetParent(this);
-            PlayerUIBoardSection.SetParent(this);
+            PlayerGameBoardSection = AddChild(new PlayerGameBoardSection(player, Vector2.Zero));
+            PlayerUIBoardSection = AddChild(new PlayerUIBoardSection(player, Vector2.Zero));
         }
     }
 }

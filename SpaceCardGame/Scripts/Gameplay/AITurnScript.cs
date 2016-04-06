@@ -174,7 +174,7 @@ namespace SpaceCardGame
             card.LocalPosition = BoardSection.PlayerGameBoardSection.PlayerShipCardControl.WorldPosition + BoardSection.PlayerGameBoardSection.PlayerShipCardControl.GetEmptySlot();
             card.Size = cardThumbnail.Size;
 
-            BoardSection.PlayerGameBoardSection.AddObject(card);
+            BoardSection.PlayerGameBoardSection.AddChild(card);
 
             currentTimeBetweenCardLays = 0;
         }

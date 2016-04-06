@@ -1,5 +1,6 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
+using System.Collections;
 using System.Diagnostics;
 
 namespace SpaceCardGame
@@ -38,7 +39,7 @@ namespace SpaceCardGame
         /// <summary>
         /// The game object container we will look through to find a valid target
         /// </summary>
-        protected GameObjectContainer ContainerToLookThrough { private get; set; }
+        protected IEnumerable ContainerToLookThrough { private get; set; }
 
         #endregion
 

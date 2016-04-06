@@ -19,7 +19,7 @@ namespace SpaceCardGame
         {
             base.Begin();
 
-            List<DeckSlotUI> deckSlotUIs = ScreenUIObjects.GetObjectsOfType<DeckSlotUI>();
+            List<DeckSlotUI> deckSlotUIs = ScreenUIObjects.GetChildrenOfType<DeckSlotUI>();
             Debug.Assert(deckSlotUIs.Count > 0);
 
             foreach (DeckSlotUI deckSlotUI in deckSlotUIs)
@@ -45,9 +45,9 @@ namespace SpaceCardGame
             Debug.Assert(image is Button);
             Button editButton = (image as Button);
 
-            DebugUtils.AssertNotNull(editButton.GetParent());
-            Debug.Assert(editButton.GetParent() is DeckSlotUI);
-            DeckSlotUI deckSlotUI = editButton.GetParent() as DeckSlotUI;
+            DebugUtils.AssertNotNull(editButton.Parent);
+            Debug.Assert(editButton.Parent is DeckSlotUI);
+            DeckSlotUI deckSlotUI = editButton.Parent as DeckSlotUI;
 
             DebugUtils.AssertNotNull(deckSlotUI.StoredObject);
             Debug.Assert(deckSlotUI.StoredObject is Deck);

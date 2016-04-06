@@ -1,7 +1,6 @@
 ﻿using _2DEngine;
 using CardGameEngineData;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
 using System;
 
 namespace CardGameEngine
@@ -10,7 +9,7 @@ namespace CardGameEngine
     /// A class for editting a certain card type between our registry and our current deck.
     /// Contains two list controls, one for the cards in our registry, the other for the cards in our deck.
     /// </summary>
-    public class DeckCardTypeControl : UIObjectContainer
+    public class DeckCardTypeControl : UIObject
     {
         #region Properties and Fields
 
@@ -72,7 +71,7 @@ namespace CardGameEngine
             DeckCardListControl.OnRightClicked += RemoveFromDeck;
 
             // Do this here because we need to add the IncludePredicate before we initialise the control.
-            AddObject(DeckCardListControl, true, true);
+            AddChild(DeckCardListControl, true, true);
 
             // Add a save button here which will serialise the deck to XML
             // Don't parent to list control because otherwise it will move when we scroll
@@ -88,7 +87,7 @@ namespace CardGameEngine
             RegistryCardListControl.OnLeftClicked += AddToDeck;
 
             // Do this here because we need to add the IncludePredicate before we initialise the control.
-            AddObject(RegistryCardListControl, true, true);
+            AddChild(RegistryCardListControl, true, true);
         }
 
         #endregion

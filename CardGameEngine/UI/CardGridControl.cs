@@ -136,7 +136,7 @@ namespace CardGameEngine
             previousCard.StoredObject = cardData;
             previousCard.OnRightClicked += CardImage_OnRightClicked;*/
 
-            ClickableImage image = AddObject(new ClickableImage(ElementSize, Vector2.Zero, cardData.TextureAsset), true, true);
+            ClickableImage image = AddChild(new ClickableImage(ElementSize, Vector2.Zero, cardData.TextureAsset), true, true);
             image.StoredObject = cardData;
 
             // These are probably not going to be used, but set them up anyway

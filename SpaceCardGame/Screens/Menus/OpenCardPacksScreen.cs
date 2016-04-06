@@ -43,7 +43,7 @@ namespace SpaceCardGame
             PacksGridControl = AddScreenUIObject(new GridControl(8, new Vector2(ScreenDimensions.X, gridHeight), new Vector2(ScreenCentre.X, ScreenDimensions.Y - gridHeight * 0.5f)));
             for (int i = 0; i < PlayerCardRegistry.Instance.AvailablePacksToOpen; i++)
             {
-                ClickableImage cardPack = PacksGridControl.AddObject(new ClickableImage(new Vector2(gridHeight * 0.8f), Vector2.Zero, BaseUICard.CardBackTextureAsset));
+                ClickableImage cardPack = PacksGridControl.AddChild(new ClickableImage(new Vector2(gridHeight * 0.8f), Vector2.Zero, BaseUICard.CardBackTextureAsset));
                 cardPack.OnLeftClicked += OnPackLeftClicked;
             }
         }
@@ -90,7 +90,9 @@ namespace SpaceCardGame
             // Add cards to our screen to show these new cards
             for (int i = 0; i < cardData.Count; i++)
             {
-                BaseUICard card = AddScreenUIObject(new BaseUICard(cardData[i], new Vector2(300 * (i + 1), 300)), true, true);
+                // Position the cards incrementally along the screen and halfway between the top of the grid control and the top of the screen
+                Vector2 cardPosition = new Vector2(300 * (i + 1), (PacksGridControl.WorldPosition.Y - PacksGridControl.Size.Y * 0.5f) * 0.5f);
+                BaseUICard card = AddScreenUIObject(new BaseUICard(cardData[i], cardPosition), true, true);
                 card.OnLeftClicked += OnCardLeftClicked;
                 card.Flip(CardFlipState.kFaceDown);         // Make sure the card is face down initially, so we have the excitement of turning it over!
                 card.StoredObject = PlayerCardRegistry.Instance.PlayerOwnsCard(cardData[i]);
@@ -120,8 +122,7 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(card.StoredObject);
             if (!(bool)card.StoredObject)
             {
-                Image newCardIndicator = AddScreenUIObject(new Image(new Vector2(card.Size.X, -card.Size.Y) * 0.5f, "Sprites\\UI\\NewCardIndicator"), true, true);
-                newCardIndicator.SetParent(card);
+                Image newCardIndicator = card.AddChild(new Image(new Vector2(card.Size.X, -card.Size.Y) * 0.5f, "Sprites\\UI\\NewCardIndicator"), true, true);
                 newCardIndicator.Colour = Color.Yellow;
             }
 

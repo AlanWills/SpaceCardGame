@@ -70,23 +70,9 @@ namespace SpaceCardGame
             EngineData = Data as EngineData;
             DebugUtils.AssertNotNull(EngineData);
 
-            EngineBlaze = new EngineBlaze(Vector2.Zero);
-            EngineBlaze.SetParent(this);
-            EngineBlaze.LoadContent();
+            EngineBlaze = AddChild(new EngineBlaze(Vector2.Zero));
 
             base.LoadContent();
-        }
-
-        /// <summary>
-        /// Initialises the Engine and the Engine Blaze
-        /// </summary>
-        public override void Initialise()
-        {
-            CheckShouldInitialise();
-
-            EngineBlaze.Initialise();
-
-            base.Initialise();
         }
 
         /// <summary>
@@ -96,42 +82,7 @@ namespace SpaceCardGame
         {
             base.Begin();
 
-            EngineBlaze.Begin();
             EngineBlaze.LocalPosition += new Vector2(0, EngineBlaze.Size.Y * 0.5f);
-        }
-
-        /// <summary>
-        /// Handles input for this engine and the engine blaze
-        /// </summary>
-        /// <param name="elapsedGameTime"></param>
-        /// <param name="mousePosition"></param>
-        public override void HandleInput(float elapsedGameTime, Vector2 mousePosition)
-        {
-            base.HandleInput(elapsedGameTime, mousePosition);
-
-            EngineBlaze.HandleInput(elapsedGameTime, mousePosition);
-        }
-
-        /// <summary>
-        /// Updates the engine and the engine blaze
-        /// </summary>
-        /// <param name="elapsedGameTime"></param>
-        public override void Update(float elapsedGameTime)
-        {
-            base.Update(elapsedGameTime);
-
-            EngineBlaze.Update(elapsedGameTime);
-        }
-
-        /// <summary>
-        /// Draws the engine and the engine blaze
-        /// </summary>
-        /// <param name="spriteBatch"></param>
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            base.Draw(spriteBatch);
-
-            EngineBlaze.Draw(spriteBatch);
         }
 
         /// <summary>

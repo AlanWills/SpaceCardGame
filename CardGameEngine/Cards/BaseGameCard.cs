@@ -95,7 +95,7 @@ namespace CardGameEngine
             if (IsPlaced)
             {
                 DebugUtils.AssertNotNull(Collider);
-                if (GameMouse.Instance.Children.Count == 0 && Collider.IsMouseOver)
+                if (GameMouse.Instance.ChildrenCount == 0 && Collider.IsMouseOver)
                 {
                     DrawingSize = Size * 2;
                 }

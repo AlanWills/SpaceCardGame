@@ -9,7 +9,7 @@ namespace CardGameEngine
     /// This class is really just UI sugar.
     /// Will be placed in our game screen to give information about the number of cards left etc.
     /// </summary>
-    public class PlayerDeckUI : UIObjectContainer
+    public class PlayerDeckUI : UIObject
     {
         #region Properties and Fields
 
@@ -52,7 +52,7 @@ namespace CardGameEngine
         {
             CheckShouldLoad();
 
-            DeckCountLabel = AddObject(new Label(cardsLeftString + Player.CardsLeftInDeck.ToString(), Vector2.Zero));
+            DeckCountLabel = AddChild(new Label(cardsLeftString + Player.CardsLeftInDeck.ToString(), Vector2.Zero));
             DeckCountLabel.Hide();
 
             base.LoadContent();
@@ -109,7 +109,10 @@ namespace CardGameEngine
         private void SpawnCardUIWhenCardDrawn(CardData cardData)
         {
             // Image will be automatically parented under this
-            CardImagesList.Add(AddObject(new Image(Size, Vector2.Zero, BaseUICard.CardBackTextureAsset, cardLifeTime), true, true));
+            Image cardImage = AddChild(new Image(Size, Vector2.Zero, BaseUICard.CardBackTextureAsset), true, true);
+            cardImage.LifeTime = cardLifeTime;
+
+            CardImagesList.Add(cardImage);
         }
 
         /// <summary>

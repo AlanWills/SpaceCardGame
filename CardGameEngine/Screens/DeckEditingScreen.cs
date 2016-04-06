@@ -37,7 +37,7 @@ namespace CardGameEngine
             // Add a DeckCardTypeControl for each resource type
             foreach (string cardType in CentralCardRegistry.CardTypes)
             {
-                tabControl.AddObject(new DeckCardTypeControl(Deck, cardType, new Vector2(ScreenDimensions.X, ScreenDimensions.Y - tabControlHeight), new Vector2(0, ScreenCentre.Y)));
+                tabControl.AddChild(new DeckCardTypeControl(Deck, cardType, new Vector2(ScreenDimensions.X, ScreenDimensions.Y - tabControlHeight), new Vector2(0, ScreenCentre.Y)));
             }
         }
 
