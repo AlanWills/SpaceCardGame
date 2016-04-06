@@ -46,6 +46,11 @@
   <ItemGroup>
     <Compile Include="Board\OpponentBoardSection.cs" />
     <Compile Include="Board\PlayerBoardSection.cs" />
+    <Compile Include="Card Data\AbilityCardData.cs" />
+    <Compile Include="Card Data\DefenceCardData.cs" />
+    <Compile Include="Card Data\ResourceCardData.cs" />
+    <Compile Include="Card Data\ShipCardData.cs" />
+    <Compile Include="Card Data\WeaponCardData.cs" />
     <Compile Include="Card Objects\Ability.cs" />
     <Compile Include="Card Objects\Bullet.cs" />
     <Compile Include="Card Objects\Engine.cs" />
@@ -77,7 +82,7 @@
     <Compile Include="Scripts\Gameplay\AttackOpponentShipScript.cs" />
     <Compile Include="Scripts\Gameplay\ChooseFriendlyShipScript.cs" />
     <Compile Include="Scripts\Gameplay\ChooseShipScript.cs" />
-    <Compile Include="Scripts\Gameplay\NewGameScript.cs" />
+    <Compile Include="UI\NewGameScript.cs" />
     <Compile Include="Scripts\Gameplay\PlaceCardScript.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />

@@ -128,9 +128,14 @@ namespace CardGameEngine
                 }
 
                 // If our card is face up and the mouse has no attached children (like other cards we want to place), increase the size
-                if (GameMouse.Instance.ChildrenCount == 0 && FlipState == CardFlipState.kFaceUp)
+                if (Parent != GameMouse.Instance && FlipState == CardFlipState.kFaceUp)
                 {
                     DrawingSize = Size * 2;
+                }
+                else
+                {
+                    // If we are parented under the mouse we want to reduce the size back to normal
+                    DrawingSize = Size;
                 }
             }
             else

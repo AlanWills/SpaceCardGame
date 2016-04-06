@@ -22,14 +22,10 @@ namespace SpaceCardGame
 
         #endregion
 
-        public CardWeaponPair(WeaponCard weaponCard, Turret turret) :
-            base(weaponCard, turret)
+        public CardWeaponPair(WeaponCardData weaponCardData) :
+            base(weaponCardData)
         {
-            DebugUtils.AssertNotNull(weaponCard);
-            DebugUtils.AssertNotNull(turret);
 
-            WeaponCard = weaponCard;
-            Turret = turret;
         }
 
         #region Virtual Functions

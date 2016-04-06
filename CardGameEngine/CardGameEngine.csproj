@@ -47,6 +47,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Card Data\CardData.cs" />
     <Compile Include="CardGameplayScreen.cs" />
     <Compile Include="Cards\BaseGameCard.cs" />
     <Compile Include="Cards\BaseUICard.cs" />

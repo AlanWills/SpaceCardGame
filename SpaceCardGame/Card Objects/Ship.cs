@@ -124,6 +124,7 @@ namespace SpaceCardGame
         /// </summary>
         public override void Die()
         {
+            // Make sure we call Die so that when our parent calls Die on us again, we will already be dead and not have this function called again
             base.Die();
 
             DebugUtils.AssertNotNull(Parent);

@@ -1,4 +1,5 @@
 ﻿using _2DEngine;
+using SpaceCardGameData;
 using System.Diagnostics;
 
 namespace SpaceCardGame
@@ -22,14 +23,14 @@ namespace SpaceCardGame
 
         #endregion
 
-        public CardShipPair(ShipCard shipCard, Ship ship) :
-            base(shipCard, ship)
+        public CardShipPair(ShipCardData shipCardData) :
+            base(shipCardData)
         {
-            DebugUtils.AssertNotNull(shipCard);
-            DebugUtils.AssertNotNull(ship);
+            ShipCard = AddChild(new ShipCard(shipCardData));
+            Ship = AddChild(new Ship(shipCardData));
 
-            ShipCard = shipCard;
-            Ship = ship;
+            Card = ShipCard;
+            CardObject = Ship;
         }
 
         #region Virtual Functions

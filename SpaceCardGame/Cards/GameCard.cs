@@ -23,7 +23,7 @@ namespace SpaceCardGame
         /// <returns><c>true</c>We can lay this card.<c>false</c>We cannot lay this card</returns>
         public virtual bool CanLay(GamePlayer player, ref string error)
         {
-            return player.HaveSufficientResources(CardData, ref error);
+            return player.HasSufficientResources(CardData, ref error);
         }
 
         /// <summary>

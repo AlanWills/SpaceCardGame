@@ -142,7 +142,6 @@ namespace SpaceCardGame
             // Add to current screen so that the bullets are drawn over everything
             Bullet bullet = ScreenManager.Instance.CurrentScreen.AddGameObject(new Bullet(target, WorldPosition, BulletData), true, true);
             bullet.LocalRotation = WorldRotation;
-            bullet.Reparent(null);
 
             ShotsLeft--;
 

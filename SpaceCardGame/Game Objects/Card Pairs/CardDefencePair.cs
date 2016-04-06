@@ -1,5 +1,4 @@
-﻿using System;
-using _2DEngine;
+﻿using SpaceCardGameData;
 
 namespace SpaceCardGame
 {
@@ -22,14 +21,11 @@ namespace SpaceCardGame
 
         #endregion
 
-        public CardDefencePair(DefenceCard defenceCard, ShipAddOn shipAddOn) :
-            base(defenceCard, shipAddOn)
+        public CardDefencePair(DefenceCardData defenceCardData) :
+            base(defenceCardData)
         {
-            DebugUtils.AssertNotNull(defenceCard);
-            DebugUtils.AssertNotNull(shipAddOn);
-
-            DefenceCard = defenceCard;
-            DefenceObject = shipAddOn;
+            DefenceCard = new DefenceCard(defenceCardData);
+            DefenceObject = new Shield(defenceCardData);
         }
 
         #region Virtual Functions

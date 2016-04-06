@@ -1,5 +1,4 @@
-﻿using CardGameEngineData;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace CardGameEngine
 {

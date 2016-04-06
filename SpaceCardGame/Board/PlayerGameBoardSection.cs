@@ -1,6 +1,5 @@
 ﻿using _2DEngine;
 using CardGameEngine;
-using CardGameEngineData;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
 using System.Collections.Generic;
@@ -19,7 +18,7 @@ namespace SpaceCardGame
         /// A list of the player's currently laid resource cards indexed by resource type.
         /// Useful easy access for changing their appearance based on what has happened in the game.
         /// </summary>
-        private List<ResourceCard>[] ResourceCards { get; set; }
+        private List<CardResourcePair>[] ResourceCards { get; set; }
 
         /// <summary>
         /// A list of references to the ship cards that have been added.
@@ -54,13 +53,13 @@ namespace SpaceCardGame
             Size = new Vector2(ScreenManager.Instance.ScreenDimensions.X, ScreenManager.Instance.ScreenDimensions.Y * 0.5f);
 
             // Create an array with a list for each resource type
-            ResourceCards = new List<ResourceCard>[(int)ResourceType.kNumResourceTypes];
+            ResourceCards = new List<CardResourcePair>[(int)ResourceType.kNumResourceTypes];
             for (int type = 0; type < (int)ResourceType.kNumResourceTypes; type++)
             {
-                ResourceCards[type] = new List<ResourceCard>();
+                ResourceCards[type] = new List<CardResourcePair>();
             }
 
-            PlayerShipCardControl = AddChild(new GameCardControl(typeof(ShipCard), new Vector2(Size.X * 0.8f, Size.Y * 0.5f), GamePlayer.MaxShipNumber, 1, new Vector2(0, - Size.Y * 0.25f), "Sprites\\Backgrounds\\TileableNebula"));
+            PlayerShipCardControl = AddChild(new GameCardControl(typeof(ShipCardData), new Vector2(Size.X * 0.8f, Size.Y * 0.5f), GamePlayer.MaxShipNumber, 1, new Vector2(0, - Size.Y * 0.25f), "Sprites\\Backgrounds\\TileableNebula"));
 
             Ships = new List<CardShipPair>();
 
@@ -74,7 +73,7 @@ namespace SpaceCardGame
             BattleScreen.OnBattleStateStarted += SetUpGameObjectsForBattle;
         }
 
-        #region Virtual Functions
+        #region Specific Functions for adding card types
 
         /// <summary>
         /// Adds our card to the section, but calls a particular function based on it's type to perform extra stuff like adding a reference to a list
@@ -84,126 +83,122 @@ namespace SpaceCardGame
         /// <param name="load"></param>
         /// <param name="initialise"></param>
         /// <returns></returns>
-        public override T AddChild<T>(T gameObjectToAdd, bool load = false, bool initialise = false)
+        public void AddCard(CardData cardData)
         {
-            // If we are adding a card, deal with special cases here
-            GameCard card = gameObjectToAdd as GameCard;
-            if (card != null)
+            CardObjectPair pair = null;
+            if (cardData is AbilityCardData)
             {
-                if (card is AbilityCard)
-                {
 
-                }
-                else if (card is DefenceCard)
-                {
-                    AddDefenceCard(card as DefenceCard);
-                }
-                else if (card is ResourceCard)
-                {
-                    AddResourceCard(card as ResourceCard, load, initialise);
-                }
-                else if (card is ShipCard)
-                {
-                    AddShipCard(card as ShipCard);
-                }
-                else if (card is WeaponCard)
-                {
+            }
+            else if (cardData is DefenceCardData)
+            {
+                pair = AddDefenceCard(cardData as DefenceCardData);
+            }
+            else if (cardData is ResourceCardData)
+            {
+                pair = AddResourceCard(cardData as ResourceCardData);
+            }
+            else if (cardData is ShipCardData)
+            {
+                pair = AddShipCard(cardData as ShipCardData);
+            }
+            else if (cardData is WeaponCardData)
+            {
 
-                }
-                else
-                {
-                    Debug.Fail("Adding an unregistered card to game board");
-                }
-
-                card.IsPlaced = true;
-
-                if (AfterCardPlaced != null)
-                {
-                    AfterCardPlaced(card);
-                }
             }
             else
             {
-                // Otherwise just add the object as normal
-                base.AddChild(gameObjectToAdd, load, initialise);
+                Debug.Fail("Adding an unregistered card to game board");
             }
 
-            return gameObjectToAdd;
+            pair.Card.IsPlaced = true;
+
+            if (AfterCardPlaced != null)
+            {
+                AfterCardPlaced(pair.Card);
+            }
         }
 
-        #endregion
-
-        #region Specific Functions when adding card types
-
         /// <summary>
-        /// A function which will be called when we add a resource card to this section.
-        /// Adds the resource card to this game board section and edits the available resource cards.
+        /// A function which will be called when we add resource card data to this section.
+        /// Adds a resource card object pair to this game board section and edits the available resource cards.
         /// </summary>
-        private void AddResourceCard(ResourceCard resourceCard, bool load, bool initialise)
+        private CardResourcePair AddResourceCard(ResourceCardData resourceCardData)
         {
             Debug.Assert(Player.ResourceCardsPlacedThisTurn < GamePlayer.ResourceCardsCanLay);
 
             float padding = 10;
-            int typeIndex = (int)resourceCard.ResourceType;
+
+            // Will always need to load and initialise this new card object pair
+            CardResourcePair resource = base.AddChild(new CardResourcePair(resourceCardData), true, true);
+
+            int typeIndex = (int)resource.ResourceCard.ResourceType;
             int cardCount = ResourceCards[typeIndex].Count;
 
-            resourceCard.Size *= 0.7f;
-            resourceCard.OnFlip += OnResourceCardFlip;
+            resource.ResourceCard.Size *= 0.35f;
+            resource.ResourceCard.OnFlip += OnResourceCardFlip;
 
             if (cardCount == 0)
             {
                 // We are adding the first resource card of this type
-                resourceCard.LocalPosition = new Vector2((-Size.X + resourceCard.Size.X) * 0.5f + padding, Size.Y * 0.5f - resourceCard.Size.Y * 0.5f - padding - typeIndex * (resourceCard.Size.Y + padding));
+                resource.LocalPosition = new Vector2((-Size.X + resource.ResourceCard.Size.X) * 0.5f + padding, Size.Y * 0.5f - resource.ResourceCard.Size.Y * 0.5f - padding - typeIndex * (resource.ResourceCard.Size.Y + padding));
             }
             else
             {
                 // We are adding another resource card, so overlay it on top and slightly to the side of the previous one
-                resourceCard.LocalPosition = ResourceCards[typeIndex][cardCount - 1].LocalPosition + new Vector2(resourceCard.Size.X * 0.15f, 0);
+                resource.LocalPosition = ResourceCards[typeIndex][cardCount - 1].LocalPosition + new Vector2(resource.ResourceCard.Size.X * 0.15f, 0);
             }
 
             // We do this update because of the order in which events occur.  We have changed local position and reparented, but since we were parented to the mouse our collider has yet to be updated.
             // Therefore the card will show it's info image for one frame, before the update collider function is called automatically.
             // By updating the collider automatically here, we avoid this problem.
-            resourceCard.Collider.Update();
+            resource.ResourceCard.Collider.Update();
 
-            ResourceCards[typeIndex].Add(resourceCard);
+            ResourceCards[typeIndex].Add(resource);
 
             Player.AvailableResources[typeIndex]++;
             Player.ResourceCardsPlacedThisTurn++;
 
-            base.AddChild(resourceCard, load, initialise);
+            return resource;
         }
 
         /// <summary>
         /// Adds a ship card object pair to our ship control and increments the player's total number of ships placed.
         /// </summary>
         /// <param name="shipCard"></param>
-        private void AddShipCard(ShipCard shipCard)
+        private CardShipPair AddShipCard(ShipCardData shipCardData)
         {
             Debug.Assert(Player.CurrentShipsPlaced < GamePlayer.MaxShipNumber);
-            Debug.Assert(shipCard.CardData is ShipCardData);
-
-            // Set up an event for syncing the player's total ships when this card dies.
-            shipCard.OnDeath += SyncPlayerShipsPlaced;
-
-            Ship ship = new Ship(shipCard.CardData as ShipCardData);
 
             // Will always need to load and initialise this new card object pair
-            CardShipPair shipCardAndShip = PlayerShipCardControl.AddChild(new CardShipPair(shipCard, ship), true, true);
+            CardShipPair cardShipPair = new CardShipPair(shipCardData);
+            cardShipPair.LocalPosition = GameMouse.Instance.InGamePosition;         // Do this before we add it to the control because we use the position to place it in the correct spot
+            PlayerShipCardControl.AddChild(cardShipPair, true, true);
+
+            cardShipPair.Card.Size *= 0.75f;
+            cardShipPair.SetActiveObject(CardOrObject.kCard);
+
+            // Set up an event for syncing the player's total ships when this card dies.
+            cardShipPair.ShipCard.OnDeath += SyncPlayerShipsPlaced;
+
             Player.CurrentShipsPlaced++;
 
-            Ships.Add(shipCardAndShip);
+            Ships.Add(cardShipPair);
+
+            return cardShipPair;
         }
 
         /// <summary>
         /// Adds a script to choose a ship to add the defence card to.
         /// </summary>
         /// <param name="defenceCard"></param>
-        private void AddDefenceCard(DefenceCard defenceCard)
+        private CardDefencePair AddDefenceCard(DefenceCardData defenceCardData)
         {
-            CardDefencePair cardObjectPair = new CardDefencePair(defenceCard, new Shield(defenceCard.CardData as DefenceCardData));
+            CardDefencePair cardObjectPair = new CardDefencePair(defenceCardData);
 
             ScriptManager.Instance.AddChild(new ChooseFriendlyShipScript(cardObjectPair), true, true);
+
+            return cardObjectPair;
         }
 
         /// <summary>
@@ -222,7 +217,7 @@ namespace SpaceCardGame
                 {
                     // Flip our bottom most available card face down
                     Debug.Assert(numResourceCardsTotal - numAvailableResourceCards >= 0);
-                    ResourceCards[typeIndex][numResourceCardsTotal - numAvailableResourceCards].Flip(CardFlipState.kFaceDown);
+                    ResourceCards[typeIndex][numResourceCardsTotal - numAvailableResourceCards].Card.Flip(CardFlipState.kFaceDown);
                 }
             }
         }
@@ -244,8 +239,8 @@ namespace SpaceCardGame
                 for (int cost = 0; cost < cardData.ResourceCosts[resourceIndex]; cost++)
                 {
                     // Find a face down resource card and flip it face up
-                    Debug.Assert(ResourceCards[resourceIndex].Exists(x => x.FlipState == CardFlipState.kFaceDown));
-                    ResourceCards[resourceIndex].Find(x => x.FlipState == CardFlipState.kFaceDown).Flip(CardFlipState.kFaceUp);
+                    Debug.Assert(ResourceCards[resourceIndex].Exists(x => x.Card.FlipState == CardFlipState.kFaceDown));
+                    ResourceCards[resourceIndex].Find(x => x.Card.FlipState == CardFlipState.kFaceDown).Card.Flip(CardFlipState.kFaceUp);
                 }
             }
         }
@@ -262,9 +257,9 @@ namespace SpaceCardGame
         {
             for (int type = 0; type < (int)ResourceType.kNumResourceTypes; type++)
             {
-                foreach (ResourceCard resourceCard in ResourceCards[type])
+                foreach (CardResourcePair resourceCardPair in ResourceCards[type])
                 {
-                    resourceCard.Flip(CardFlipState.kFaceUp);
+                    resourceCardPair.Card.Flip(CardFlipState.kFaceUp);
                 }
             }
         }

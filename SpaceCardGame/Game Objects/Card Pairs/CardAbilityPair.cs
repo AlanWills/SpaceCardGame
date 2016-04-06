@@ -23,14 +23,10 @@ namespace SpaceCardGame
 
         #endregion
 
-        public CardAbilityPair(AbilityCard abilityCard, Ability ability) :
-            base(abilityCard, ability)
+        public CardAbilityPair(AbilityCardData abilityCardData) :
+            base(abilityCardData)
         {
-            DebugUtils.AssertNotNull(abilityCard);
-            DebugUtils.AssertNotNull(ability);
 
-            AbilityCard = abilityCard;
-            Ability = ability;
         }
 
         #region Virtual Functions

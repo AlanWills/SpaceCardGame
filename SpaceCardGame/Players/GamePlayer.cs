@@ -69,7 +69,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        #region
+        #region Utility Functions
 
         /// <summary>
         /// A function which works out whether we have enough resources to lay the inputted card data
@@ -99,7 +99,7 @@ namespace SpaceCardGame
         /// <param name="cardData"></param>
         /// <param name="error"></param>
         /// <returns></returns>
-        public bool HaveSufficientResources(CardData cardData, ref string error)
+        public bool HasSufficientResources(CardData cardData, ref string error)
         {
             for (int i = 0; i < (int)ResourceType.kNumResourceTypes; i++)
             {

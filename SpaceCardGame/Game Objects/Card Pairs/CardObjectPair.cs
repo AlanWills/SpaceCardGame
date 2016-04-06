@@ -1,4 +1,5 @@
 ﻿using _2DEngine;
+using CardGameEngine;
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
 
@@ -24,45 +25,32 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the card part of our pair
         /// </summary>
-        public GameCard Card { get; private set; }
+        public GameCard Card { get; protected set; }
 
         /// <summary>
         /// A reference to the object part of our pair
         /// </summary>
-        public GameObject CardObject { get; private set; }
+        public GameObject CardObject { get; protected set; }
 
         #endregion
 
-        public CardObjectPair(GameCard gameCard, GameObject cardObject) :
-            base(gameCard.WorldPosition, AssetManager.EmptyGameObjectDataAsset)
+        public CardObjectPair(CardData cardData) :
+            base(Vector2.Zero, AssetManager.EmptyGameObjectDataAsset)
         {
-            Card = gameCard;
-            Card.Reparent(this);
-            Card.LocalPosition = Vector2.Zero;
-
-            // Add the card object and make sure it's local position is zero - we will altering it's position by changing this class' local position
-            CardObject = AddChild(cardObject);
-            CardObject.LocalPosition = Vector2.Zero;
+            UsesCollider = false;
         }
 
         #region Virtual Functions
 
         /// <summary>
-        /// Calls Die explicitly on our card and card object if they have not had Die called.
+        /// Just checks we have set up references correctly
         /// </summary>
-        public override void Die()
+        public override void Begin()
         {
-            base.Die();
+            base.Begin();
 
-            if (Card.IsAlive)
-            {
-                Card.Die();
-            }
-
-            if (CardObject.IsAlive)
-            {
-                CardObject.Die();
-            }
+            DebugUtils.AssertNotNull(Card);
+            DebugUtils.AssertNotNull(CardObject);
         }
 
         /// <summary>

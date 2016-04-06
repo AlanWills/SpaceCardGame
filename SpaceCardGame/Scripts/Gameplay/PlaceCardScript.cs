@@ -2,6 +2,7 @@
 using CardGameEngine;
 using CardGameEngineData;
 using Microsoft.Xna.Framework;
+using SpaceCardGameData;
 using System.Diagnostics;
 
 namespace SpaceCardGame
@@ -19,16 +20,14 @@ namespace SpaceCardGame
         private CardData CardData { get; set; }
 
         /// <summary>
-        /// A reference to the card we will be placing
+        /// A reference to the UI we will use to represent our card as we place it
         /// </summary>
-        private GameCard Card { get; set; }
+        private BaseUICard CardThumbnail { get; set; }
 
         /// <summary>
         /// A reference to our batte screen
         /// </summary>
         private BattleScreen BattleScreen { get; set; }
-
-        private Vector2 cardSize;
 
         #endregion
 
@@ -38,29 +37,12 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(cardThumbnail.CardData);
             CardData = cardThumbnail.CardData;
 
-            cardSize = cardThumbnail.Size;
-            cardThumbnail.Die();
+            CardThumbnail = cardThumbnail;
+            CardThumbnail.Reparent(GameMouse.Instance);
         }
 
         #region Virtual Functions
-
-        /// <summary>
-        /// Sets up our card and sets it's parent to be the mouse
-        /// </summary>
-        public override void LoadContent()
-        {
-            CheckShouldLoad();
-
-            DebugUtils.AssertNotNull(ParentScreen);
-            Card = CardFactory.CreateCard(CardData);
-
-            Card.Size = cardSize;
-
-            GameMouse.Instance.AddChild(Card);
-
-            base.LoadContent();
-        }
-
+        
         /// <summary>
         /// Hides the card thumbnail.
         /// </summary>
@@ -69,6 +51,7 @@ namespace SpaceCardGame
             base.Begin();
 
             BattleScreen = ParentScreen as BattleScreen;
+            CardThumbnail.LocalPosition = Vector2.Zero;
         }
 
         /// <summary>
@@ -86,7 +69,7 @@ namespace SpaceCardGame
                 if (CheckValidTarget())
                 {
                     string error = "";
-                    if (Card.CanLay(BattleScreen.ActivePlayer, ref error))
+                    if (CardData.CanLay(BattleScreen.ActivePlayer, ref error))
                     {
                         AddCardToGame();
                     }
@@ -108,13 +91,14 @@ namespace SpaceCardGame
         #region Utility Functions
 
         /// <summary>
-        /// Adds the inputted card to the game screen and removes any UI we have that we no longer need.
+        /// Adds the inputted card data to the game screen and removes any UI we have that we no longer need of.
         /// Also kills the script.
         /// </summary>
         private void AddCardToGame()
         {
-            Card.Reparent(BattleScreen.Board.ActivePlayerBoardSection.PlayerGameBoardSection);
+            BattleScreen.Board.ActivePlayerBoardSection.PlayerGameBoardSection.AddCard(CardData);
 
+            CardThumbnail.Die();
             Die();
         }
 
@@ -126,7 +110,7 @@ namespace SpaceCardGame
         {
             BattleScreen.ActivePlayer.AddCardToHand(CardData);
 
-            Card.Die();
+            CardThumbnail.Die();
             Die();
         }
 
@@ -136,24 +120,24 @@ namespace SpaceCardGame
         /// <returns></returns>
         private bool CheckValidTarget()
         {
-            if (Card is AbilityCard)
+            if (CardData is AbilityCardData)
             {
 
             }
-            else if (Card is DefenceCard)
+            else if (CardData is DefenceCardData)
             {
                 return true;
             }
-            else if (Card is ResourceCard)
+            else if (CardData is ResourceCardData)
             {
                 return true;
             }
-            else if (Card is ShipCard)
+            else if (CardData is ShipCardData)
             {
                 DebugUtils.AssertNotNull(BattleScreen.Board.ActivePlayerBoardSection.PlayerGameBoardSection.PlayerShipCardControl.Collider);
                 return BattleScreen.Board.ActivePlayerBoardSection.PlayerGameBoardSection.PlayerShipCardControl.Collider.CheckIntersects(GameMouse.Instance.InGamePosition);
             }
-            else if (Card is WeaponCard)
+            else if (CardData is WeaponCardData)
             {
 
             }

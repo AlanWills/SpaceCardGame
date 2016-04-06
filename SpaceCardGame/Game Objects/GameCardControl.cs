@@ -1,4 +1,5 @@
 ﻿using _2DEngine;
+using CardGameEngine;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections;
@@ -19,6 +20,11 @@ namespace SpaceCardGame
         {
             kWorldSpace,
             kLocalSpace
+        }
+
+        private enum PositionIndex
+        {
+            kInvalid = -1
         }
 
         /// <summary>
@@ -82,7 +88,7 @@ namespace SpaceCardGame
             GameMouse gameMouse = GameMouse.Instance;
             if (Collider.CheckIntersects(gameMouse.InGamePosition))
             {
-                BaseObject baseobject = gameMouse.FindChild<BaseObject>(x => x is GameCard && x.GetType() == CardType);
+                BaseObject baseobject = gameMouse.FindChild<BaseObject>(x => x is BaseUICard && (x as BaseUICard).CardData.GetType() == CardType);
                 if (baseobject != null)
                 {
                     float gameMouseLocalYPos = gameMouse.InGamePosition.Y - WorldPosition.Y;
@@ -129,6 +135,12 @@ namespace SpaceCardGame
             // In our handle input we do shifting so that by the time we add a card the space under it should be empty
             // Need to get the mouse position and work out the appropriate section we are in
             int pairIndex = GetPositionIndex(gameObjectToAdd.WorldPosition.X, Space.kWorldSpace);
+            if (pairIndex == (int)PositionIndex.kInvalid)
+            {
+                // Our current position is not valid, so just find an empty one
+                pairIndex = GetEmptySlotIndex();
+            }
+
             Debug.Assert(pairIndex >= 0 && pairIndex < LocalXPositions.Length);
 
             // Set game object's local position
@@ -144,11 +156,11 @@ namespace SpaceCardGame
         #region Utility Functions
 
         /// <summary>
-        /// Returns an empty position in this card control.
+        /// Returns an empty position index in this card control.
         /// Should only be used in a context where there is room
         /// </summary>
         /// <returns></returns>
-        public Vector2 GetEmptySlot()
+        private int GetEmptySlotIndex()
         {
             Debug.Assert(ChildrenCount < LocalXPositions.Length);
 
@@ -156,12 +168,12 @@ namespace SpaceCardGame
             {
                 if (StoredCards[i] == null)
                 {
-                    return new Vector2(LocalXPositions[i], 0);
+                    return i;
                 }
             }
 
             Debug.Fail("No empty slot could be found");
-            return Vector2.Zero;
+            return -1;
         }
 
         /// <summary>
@@ -211,8 +223,7 @@ namespace SpaceCardGame
                 }
             }
 
-            Debug.Fail("Position not registered");
-            return -1;
+            return (int)PositionIndex.kInvalid;
         }
 
         #endregion
