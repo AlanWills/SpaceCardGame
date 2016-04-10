@@ -1,5 +1,6 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
+using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -14,6 +15,11 @@ namespace SpaceCardGame
         /// A reference to the stored card as a WeaponCard (saves casting elsewhere)
         /// </summary>
         public WeaponCard WeaponCard { get; private set; }
+
+        /// <summary>
+        /// A reference to our parent CardShipPair - for convenience
+        /// </summary>
+        private CardShipPair CardShipPair { get; set; }
 
         /// <summary>
         /// A reference to the stored game object as a Turret (saves casting elsewhere)
@@ -51,12 +57,12 @@ namespace SpaceCardGame
             // Set up the reference to this shield on the inputted ship
             cardShipPair.Ship.Turret = Turret;
 
-            // Set our Shield's position so that it will be centred at the centre of the ship
-            Turret.LocalPosition = cardShipPair.WorldPosition - WorldPosition;
+            // Set up the reference to the CardShipPair
+            CardShipPair = cardShipPair;
         }
 
         /// <summary>
-        /// Reloads our turret when we start our card placement turn again
+        /// Reloads our turret when we start our card placement turn again and changes our position to be to the side of the ship card
         /// </summary>
         public override void MakeReadyForCardPlacement()
         {
@@ -64,6 +70,18 @@ namespace SpaceCardGame
 
             DebugUtils.AssertNotNull(Turret);
             Turret.Reload();
+
+            LocalPosition = new Vector2((CardShipPair.Card.Size.X + WeaponCard.Size.X) * 0.5f, (3 * WeaponCard.Size.Y - CardShipPair.Card.Size.Y) * 0.5f);
+        }
+
+        /// <summary>
+        /// Move this pair so that it is directly over the ship - this is because the turret is going to rotate and this card pair must be in the same place as the turret
+        /// </summary>
+        public override void MakeReadyForBattle()
+        {
+            base.MakeReadyForBattle();
+
+            LocalPosition = Vector2.Zero;
         }
 
         #endregion

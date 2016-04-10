@@ -183,3 +183,12 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretObject.xnb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretObject.xnb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretBullet.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretBullet.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretBullet.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretBullet.png
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretBullet.png
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretBullet.png
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretBullet.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretBullet.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretBullet.xnb

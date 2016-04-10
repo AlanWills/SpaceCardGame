@@ -554,3 +554,39 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretObject.png
 
+#begin Sprites/Cards/Weapons/Beam/LaserBeamTurret/LaserBeamTurretBullet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/Weapons/Beam/LaserBeamTurret/LaserBeamTurretBullet.png
+
+#begin Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretBullet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretBullet.png
+
+#begin Sprites/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretBullet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretBullet.png
+

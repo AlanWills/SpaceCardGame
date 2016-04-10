@@ -33,8 +33,8 @@ namespace SpaceCardGame
         private float currentTimeBetweenAttacks = 0;
 
         // Used in debug only
-        private static bool aiLayCards = false;
-        private static bool aiFight = false;
+        private static bool aiLayCards = true;
+        private static bool aiFight = true;
 
         #endregion
 
