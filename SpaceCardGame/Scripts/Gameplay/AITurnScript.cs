@@ -1,7 +1,5 @@
 ﻿using _2DEngine;
 using CardGameEngine;
-using CardGameEngineData;
-using Microsoft.Xna.Framework;
 using System;
 using System.Diagnostics;
 
@@ -35,8 +33,8 @@ namespace SpaceCardGame
         private float currentTimeBetweenAttacks = 0;
 
         // Used in debug only
-        private static bool aiLayCards = true;
-        private static bool aiFight = true;
+        private static bool aiLayCards = false;
+        private static bool aiFight = false;
 
         #endregion
 

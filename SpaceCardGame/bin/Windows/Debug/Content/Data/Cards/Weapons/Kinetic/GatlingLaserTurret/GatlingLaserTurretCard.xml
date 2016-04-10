@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <WeaponCardData>
   <TextureAsset>Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard</TextureAsset>
-  <ObjectDataAsset></ObjectDataAsset>
+  <ObjectDataAsset>Content\Data\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretObject.xml</ObjectDataAsset>
   <Type>Weapon</Type>
   <DisplayName>Gatling Laser Turret</DisplayName>
   <Rarity>Common</Rarity>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <WeaponCardData>
   <TextureAsset>Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard</TextureAsset>
-  <ObjectDataAsset></ObjectDataAsset>
+  <ObjectDataAsset>Content\Data\Cards\Weapons\\Missile\VulcanMissileTurret\VulcanMissileTurretObject.xml</ObjectDataAsset>
   <Type>Weapon</Type>
   <DisplayName>Vulcan Missile Turret</DisplayName>
   <Rarity>Common</Rarity>

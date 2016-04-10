@@ -114,10 +114,29 @@
     <Content Include="Content\Data\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldObject.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Data\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretObject.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Data\Cards\Weapons\DefaultTurretCard.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Data\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretObject.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretObject.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Data\GameObjects\EngineBlaze.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.png" />
+    <Content Include="Content\Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretObject.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretObject.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretObject.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Effects\EngineTrail2.png">
@@ -320,9 +339,6 @@
     <Content Include="Content\Sprites\Backgrounds\Nebula.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -431,10 +447,13 @@
     <None Include="Content\Sprites\Cards\Ships\WaspFighter\WaspFighterObject.xnb" />
     <None Include="Content\Sprites\Cards\Stations\BastionShipyard\BastionShipyardCard.xnb" />
     <None Include="Content\Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xnb" />
+    <None Include="Content\Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretObject.xnb" />
     <None Include="Content\Sprites\Cards\Weapons\DefaultBullet.xnb" />
     <None Include="Content\Sprites\Cards\Weapons\DefaultTurret.xnb" />
     <None Include="Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xnb" />
+    <None Include="Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretObject.xnb" />
     <None Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xnb" />
+    <None Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretObject.xnb" />
     <None Include="Content\Sprites\Effects\EngineTrail2.xnb" />
     <None Include="Content\Sprites\Effects\Explosion.xnb" />
     <None Include="Content\Sprites\GameObjects\Shields\PhaseEnergyShield.xnb" />
