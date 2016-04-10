@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TurretData>
+  <TextureAsset>Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretObject</TextureAsset>
+  <BulletDataAsset>Content\Data\Cards\Weapons\DefaultBullet.xml</BulletDataAsset>
+  <ShotsPerTurn>1</ShotsPerTurn>
+</TurretData>
