@@ -3,7 +3,7 @@
   <AbilityCardDataAssets>
     <Item>Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml</Item>
   </AbilityCardDataAssets>
-  <DefenceCardDataAssets />
+  <ShieldCardDataAssets />
   <ResourceCardDataAssets>
     <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
     <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
@@ -29,7 +29,7 @@
       <Name>TEST</Name>
       <CardDataAssets>
         <Item>Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml</Item>
-        <Item>Defence\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xml</Item>
+        <Item>Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xml</Item>
         <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
         <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
         <Item>Resources\FuelResource\FuelResourceCard.xml</Item>

@@ -22,9 +22,9 @@ namespace SpaceCardGame
             {
                 card = new AbilityCard(cardData as AbilityCardData);
             }
-            else if (cardData is DefenceCardData)
+            else if (cardData is ShieldCardData)
             {
-                card = new DefenceCard(cardData as DefenceCardData);
+                card = new ShieldCard(cardData as ShieldCardData);
             }
             else if (cardData is ResourceCardData)
             {

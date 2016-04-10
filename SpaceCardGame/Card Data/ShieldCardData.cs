@@ -4,9 +4,9 @@ using System.Diagnostics;
 namespace SpaceCardGame
 {
     /// <summary>
-    /// The data class for a defence card
+    /// The data class for a shield card
     /// </summary>
-    public class DefenceCardData : CardData
+    public class ShieldCardData : CardData
     {
         #region Virtual Functions
 
@@ -19,7 +19,10 @@ namespace SpaceCardGame
         public override bool CanLay(Player player, ref string error)
         {
             Debug.Assert(player is GamePlayer);
-            return (player as GamePlayer).HasSufficientResources(this, ref error);
+            GamePlayer gamePlayer = player as GamePlayer;
+            bool hasEnoughResources = gamePlayer.HasSufficientResources(this, ref error);
+
+            return hasEnoughResources && gamePlayer.CurrentShipsPlaced > 0;
         }
 
         #endregion

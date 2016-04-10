@@ -147,7 +147,6 @@ namespace SpaceCardGame
             gameObjectToAdd.LocalPosition = new Vector2(LocalXPositions[pairIndex], 0);
             StoredCards[pairIndex] = gameObjectToAdd;
 
-            // Can remove this once we fix our sizes!
             return base.AddChild(gameObjectToAdd, load, initialise);
         }
 

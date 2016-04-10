@@ -15,10 +15,10 @@ namespace CardGameEngineData
 
         /// <summary>
         /// The central list of all the available defence cards in the game.
-        /// Do not need to add 'Content\Data\Cards\' on the front, e.g. an item in the XML may be <Item>Defence\Shields\PhaseEnergyShield\PhaseEnergyShield.xml</Item>
+        /// Do not need to add 'Content\Data\Cards\' on the front, e.g. an item in the XML may be <Item>Shields\PhaseEnergyShield\PhaseEnergyShield.xml</Item>
         /// </summary>
         [XmlArrayItem(ElementName = "Item")]
-        public List<string> DefenceCardDataAssets { get; set; }
+        public List<string> ShieldCardDataAssets { get; set; }
 
         /// <summary>
         /// The central list of all the available resource cards in the game.

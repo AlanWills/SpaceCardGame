@@ -1,10 +1,8 @@
-﻿using SpaceCardGameData;
-
-namespace SpaceCardGame
+﻿namespace SpaceCardGame
 {
-    public class DefenceCard : GameCard
+    public class ShieldCard : GameCard
     {
-        public DefenceCard(DefenceCardData defenceCardData) :
+        public ShieldCard(ShieldCardData defenceCardData) :
             base(defenceCardData)
         {
 
@@ -17,7 +15,7 @@ namespace SpaceCardGame
         /// </summary>
         /// <param name="pairToValidate"></param>
         /// <returns></returns>
-        public override bool IsValidTargetForInput(CardObjectPair pairToValidate)
+        public override bool CanUseOn(CardObjectPair pairToValidate)
         {
             if (pairToValidate is CardShipPair)
             {

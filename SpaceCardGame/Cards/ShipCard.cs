@@ -37,7 +37,7 @@ namespace SpaceCardGame
         /// </summary>
         /// <param name="pairToValidate"></param>
         /// <returns></returns>
-        public override bool IsValidTargetForInput(CardObjectPair pairToValidate)
+        public override bool CanUseOn(CardObjectPair pairToValidate)
         {
             if (pairToValidate is CardShipPair)
             {

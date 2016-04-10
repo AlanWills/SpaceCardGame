@@ -47,6 +47,7 @@ namespace SpaceCardGame
             base()
         {
             CardToChooseTargetFor = cardObjectPair;
+            cardObjectPair.Card.EnlargeOnHover = false;
         }
 
         #region Virtual Functions
@@ -90,7 +91,7 @@ namespace SpaceCardGame
                 if (pair != CardToChooseTargetFor && pair.Card.Collider.CheckIntersects(mousePosition))
                 {
                     // Check to see whether this current object is a valid match for the card we want to find a target for
-                    if (CardToChooseTargetFor.Card.IsValidTargetForInput(pair))
+                    if (CardToChooseTargetFor.Card.CanUseOn(pair))
                     {
                         Target = pair;
                         break;
@@ -127,6 +128,7 @@ namespace SpaceCardGame
             base.Die();
 
             SelectingLine.Die();
+            CardToChooseTargetFor.Card.EnlargeOnHover = true;
         }
 
         #endregion

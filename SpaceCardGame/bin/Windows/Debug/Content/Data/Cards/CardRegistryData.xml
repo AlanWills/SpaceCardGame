@@ -3,9 +3,9 @@
   <AbilityCardDataAssets>
     <Item>Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml</Item>
   </AbilityCardDataAssets>
-  <DefenceCardDataAssets>
-    <Item>Defence\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xml</Item>
-  </DefenceCardDataAssets>
+  <ShieldCardDataAssets>
+    <Item>Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xml</Item>
+  </ShieldCardDataAssets>
   <ResourceCardDataAssets>
     <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
     <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>

@@ -83,24 +83,27 @@ namespace SpaceCardGame
         /// <param name="load"></param>
         /// <param name="initialise"></param>
         /// <returns></returns>
-        public void AddCard(CardData cardData)
+        public void AddCard(CardData cardData, Vector2 size)
         {
+            // The size parameter comes from the card thumbnail
+            // We pass it in to keep the sizes of things consistent
+            // Could possibly remove this later, but for now it does the trick
             CardObjectPair pair = null;
             if (cardData is AbilityCardData)
             {
 
             }
-            else if (cardData is DefenceCardData)
+            else if (cardData is ShieldCardData)
             {
-                pair = AddDefenceCard(cardData as DefenceCardData);
+                pair = AddDefenceCard(cardData as ShieldCardData, size);
             }
             else if (cardData is ResourceCardData)
             {
-                pair = AddResourceCard(cardData as ResourceCardData);
+                pair = AddResourceCard(cardData as ResourceCardData, size);
             }
             else if (cardData is ShipCardData)
             {
-                pair = AddShipCard(cardData as ShipCardData);
+                pair = AddShipCard(cardData as ShipCardData, size);
             }
             else if (cardData is WeaponCardData)
             {
@@ -110,6 +113,10 @@ namespace SpaceCardGame
             {
                 Debug.Fail("Adding an unregistered card to game board");
             }
+
+            DebugUtils.AssertNotNull(pair);
+            DebugUtils.AssertNotNull(pair.Card);
+            DebugUtils.AssertNotNull(pair.CardObject);
 
             pair.Card.IsPlaced = true;
 
@@ -123,7 +130,7 @@ namespace SpaceCardGame
         /// A function which will be called when we add resource card data to this section.
         /// Adds a resource card object pair to this game board section and edits the available resource cards.
         /// </summary>
-        private CardResourcePair AddResourceCard(ResourceCardData resourceCardData)
+        private CardResourcePair AddResourceCard(ResourceCardData resourceCardData, Vector2 size)
         {
             Debug.Assert(Player.ResourceCardsPlacedThisTurn < GamePlayer.ResourceCardsCanLay);
 
@@ -135,7 +142,8 @@ namespace SpaceCardGame
             int typeIndex = (int)resource.ResourceCard.ResourceType;
             int cardCount = ResourceCards[typeIndex].Count;
 
-            resource.ResourceCard.Size *= 0.35f;
+            resource.ResourceCard.Size = size * 0.7f;
+            resource.Card.EnlargeOnHover = false;       // Do not want to enlarge the resource cards
             resource.ResourceCard.OnFlip += OnResourceCardFlip;
 
             if (cardCount == 0)
@@ -166,7 +174,7 @@ namespace SpaceCardGame
         /// Adds a ship card object pair to our ship control and increments the player's total number of ships placed.
         /// </summary>
         /// <param name="shipCard"></param>
-        private CardShipPair AddShipCard(ShipCardData shipCardData)
+        private CardShipPair AddShipCard(ShipCardData shipCardData, Vector2 size)
         {
             Debug.Assert(Player.CurrentShipsPlaced < GamePlayer.MaxShipNumber);
 
@@ -175,8 +183,7 @@ namespace SpaceCardGame
             cardShipPair.LocalPosition = GameMouse.Instance.InGamePosition;         // Do this before we add it to the control because we use the position to place it in the correct spot
             PlayerShipCardControl.AddChild(cardShipPair, true, true);
 
-            cardShipPair.Card.Size *= 0.75f;
-            cardShipPair.SetActiveObject(CardOrObject.kCard);
+            cardShipPair.Card.Size = size;
 
             // Set up an event for syncing the player's total ships when this card dies.
             cardShipPair.ShipCard.OnDeath += SyncPlayerShipsPlaced;
@@ -192,13 +199,15 @@ namespace SpaceCardGame
         /// Adds a script to choose a ship to add the defence card to.
         /// </summary>
         /// <param name="defenceCard"></param>
-        private CardDefencePair AddDefenceCard(DefenceCardData defenceCardData)
+        private CardShieldPair AddDefenceCard(ShieldCardData defenceCardData, Vector2 size)
         {
-            CardDefencePair cardObjectPair = new CardDefencePair(defenceCardData);
+            CardShieldPair cardShieldPair = AddChild(new CardShieldPair(defenceCardData), true, true);
+            cardShieldPair.LocalPosition = GameMouse.Instance.InGamePosition - WorldPosition;     // Put the cardShieldPair where we placed the thumbnail on the board
+            cardShieldPair.Card.Size = size;
 
-            ScriptManager.Instance.AddChild(new ChooseFriendlyShipScript(cardObjectPair), true, true);
+            ScriptManager.Instance.AddChild(new ChooseFriendlyShipScript(cardShieldPair), true, true);
 
-            return cardObjectPair;
+            return cardShieldPair;
         }
 
         /// <summary>
@@ -269,7 +278,7 @@ namespace SpaceCardGame
         /// Adds or subtracts from the player's available resources depending on whether the card's flip state has changed and is face up or face down.
         /// </summary>
         /// <param name="newActivePlayer"></param>
-        private void OnResourceCardFlip(BaseGameCard baseGameCard, CardFlipState newFlipState, CardFlipState oldFlipState)
+        private void OnResourceCardFlip(BaseCard baseCard, CardFlipState newFlipState, CardFlipState oldFlipState)
         {
             // If our flip state has not changed, then do nothing
             if (newFlipState == oldFlipState)
@@ -277,8 +286,8 @@ namespace SpaceCardGame
                 return;
             }
 
-            Debug.Assert(baseGameCard is ResourceCard);
-            ResourceCard resourceCard = baseGameCard as ResourceCard;
+            Debug.Assert(baseCard is ResourceCard);
+            ResourceCard resourceCard = baseCard as ResourceCard;
 
             if (newFlipState == CardFlipState.kFaceDown)
             {
@@ -300,7 +309,7 @@ namespace SpaceCardGame
             // Show all the cards
             foreach (CardShipPair cardPair in Ships)
             {
-                cardPair.SetActiveObject(CardOrObject.kCard);
+                cardPair.MakeReadyForCardPlacement();
             }
         }
 
@@ -312,7 +321,7 @@ namespace SpaceCardGame
         {
             foreach (CardShipPair cardPair in Ships)
             {
-                cardPair.SetActiveObject(CardOrObject.kObject);
+                cardPair.MakeReadyForBattle();
 
                 Debug.Assert(cardPair.CardObject is Ship);
                 Ship ship = cardPair.CardObject as Ship;
@@ -334,8 +343,9 @@ namespace SpaceCardGame
         /// Will subtract one from the player's running total of the number of ships they have placed.
         /// </summary>
         /// <param name="gameCard"></param>
-        private void SyncPlayerShipsPlaced(BaseGameCard gameCard)
+        private void SyncPlayerShipsPlaced(BaseCard gameCard)
         {
+            Debug.Assert(gameCard is BaseGameCard);
             Debug.Assert(Player.CurrentShipsPlaced > 0);
             Player.CurrentShipsPlaced--;
         }

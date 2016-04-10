@@ -116,7 +116,7 @@ namespace SpaceCardGame
         /// <summary>
         /// Removes the card data the dead card thumbnail UI represents from the player's hand.
         /// </summary>
-        private void SyncPlayerHand(BaseUICard cardThumbnail)
+        private void SyncPlayerHand(BaseCard cardThumbnail)
         {
             Player.CurrentHand.Remove(cardThumbnail.CardData);
         }
@@ -124,7 +124,7 @@ namespace SpaceCardGame
         /// <summary>
         /// Indicates that we need to rebuild this UI
         /// </summary>
-        private void RebuildCallback(BaseUICard cardThumbnail)
+        private void RebuildCallback(BaseCard cardThumbnail)
         {
             NeedsRebuild = true;
         }

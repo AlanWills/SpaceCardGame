@@ -326,18 +326,6 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Cards/Abilities/MissileBarrageAbility/MissileBarrageAbilityCard.png
 
-#begin Sprites/Cards/Defence/Shields/PhaseEnergyShield/PhaseEnergyShieldCard.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Cards/Defence/Shields/PhaseEnergyShield/PhaseEnergyShieldCard.png
-
 #begin Sprites/Cards/Weapons/Beam/LaserBeamTurret/LaserBeamTurretCard.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -505,4 +493,28 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/Effects/EngineTrail2.png
+
+#begin Sprites/Cards/Shields/PhaseEnergyShield/PhaseEnergyShieldCard.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/Shields/PhaseEnergyShield/PhaseEnergyShieldCard.png
+
+#begin Sprites/GameObjects/Shields/PhaseEnergyShield.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/GameObjects/Shields/PhaseEnergyShield.png
 

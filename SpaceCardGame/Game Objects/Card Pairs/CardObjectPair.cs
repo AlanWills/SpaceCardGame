@@ -43,14 +43,17 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
-        /// Just checks we have set up references correctly
+        /// Just checks we have set up references correctly and sets the active object to the card
         /// </summary>
         public override void Begin()
         {
             base.Begin();
 
+            // We should have set these references by now
             DebugUtils.AssertNotNull(Card);
             DebugUtils.AssertNotNull(CardObject);
+
+            SetActiveObject(CardOrObject.kCard);
         }
 
         /// <summary>
@@ -61,6 +64,26 @@ namespace SpaceCardGame
         /// <param name="cardShipPair"></param>
         public abstract void AddToCardShipPair(CardShipPair cardShipPair);
 
+        /// <summary>
+        /// A function we will call when the game turn state changes to placing cards.
+        /// This makes the card the active object.
+        /// Can override for custom cards to change what they do when we change turn state.
+        /// </summary>
+        public virtual void MakeReadyForCardPlacement()
+        {
+            SetActiveObject(CardOrObject.kCard);
+        }
+
+        /// <summary>
+        /// A function we will call when the game turn state changes to the battle phase.
+        /// This makes the object the active object.
+        /// Can override for custom cards to change what they do when we change turn state.
+        /// </summary>
+        public virtual void MakeReadyForBattle()
+        {
+            SetActiveObject(CardOrObject.kObject);
+        }
+
         #endregion
 
         #region Utility Functions
@@ -70,7 +93,7 @@ namespace SpaceCardGame
         /// Only one can be active at any one time.
         /// </summary>
         /// <param name="cardOrObject"></param>
-        public void SetActiveObject(CardOrObject cardOrObject)
+        private void SetActiveObject(CardOrObject cardOrObject)
         {
             switch (cardOrObject)
             {

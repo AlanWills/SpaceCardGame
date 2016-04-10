@@ -1,6 +1,4 @@
-﻿using _2DEngine;
-using SpaceCardGameData;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -42,6 +40,32 @@ namespace SpaceCardGame
         public override void AddToCardShipPair(CardShipPair cardShipPair)
         {
             Debug.Fail("Cannot add ships to other ships");
+        }
+
+        /// <summary>
+        /// Calls this function iteratively on all CardObjectPairs parented under this ship card.
+        /// </summary>
+        public override void MakeReadyForCardPlacement()
+        {
+            base.MakeReadyForCardPlacement();
+
+            foreach (CardObjectPair pair in Children.GetChildrenOfType<CardObjectPair>())
+            {
+                pair.MakeReadyForCardPlacement();
+            }
+        }
+
+        /// <summary>
+        /// Calls this function iteratively on all CardObjectPairs parented under this ship card.
+        /// </summary>
+        public override void MakeReadyForBattle()
+        {
+            base.MakeReadyForBattle();
+
+            foreach (CardObjectPair pair in Children.GetChildrenOfType<CardObjectPair>())
+            {
+                pair.MakeReadyForBattle();
+            }
         }
 
         #endregion

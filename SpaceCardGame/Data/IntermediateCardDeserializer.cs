@@ -2,7 +2,6 @@
 using CardGameEngine;
 using CardGameEngineData;
 using Microsoft.Xna.Framework.Content;
-using SpaceCardGameData;
 using System.Diagnostics;
 
 namespace SpaceCardGame
@@ -16,7 +15,7 @@ namespace SpaceCardGame
             CardRegistryData cardRegistryData = CentralCardRegistry.CardRegistryData;
 
             CentralCardRegistry.LoadCardType<AbilityCardData>(content, cardRegistryData.AbilityCardDataAssets, "Ability");
-            CentralCardRegistry.LoadCardType<DefenceCardData>(content, cardRegistryData.DefenceCardDataAssets, "Defence");
+            CentralCardRegistry.LoadCardType<ShieldCardData>(content, cardRegistryData.ShieldCardDataAssets, "Shield");
             CentralCardRegistry.LoadCardType<ResourceCardData>(content, cardRegistryData.ResourceCardDataAssets, "Resource");
             CentralCardRegistry.LoadCardType<ShipCardData>(content, cardRegistryData.ShipCardDataAssets, "Ship");
             CentralCardRegistry.LoadCardType<WeaponCardData>(content, cardRegistryData.WeaponCardDataAssets, "Weapon");

@@ -89,7 +89,7 @@ namespace SpaceCardGame
             currentTimeBetweenCardLays += elapsedGameTime;
 
             // Check to see if we have laid the resource cards we can this turn and we have resources in our hand we can lay
-            if (AIPlayer.CurrentHand.Exists(GetCardLayPredicate<ResourceCardData>()))
+            /*if (AIPlayer.CurrentHand.Exists(GetCardLayPredicate<ResourceCardData>()))
             {
                 // Lay a resource card
                 CardData resourceCardData = AIPlayer.CurrentHand.Find(GetCardLayPredicate<ResourceCardData>());
@@ -111,7 +111,7 @@ namespace SpaceCardGame
                     LayCard(shipCardData);
                 }
             }
-            else
+            else*/
             {
                 currentTimeBetweenCardLays = 0;
                 BattleScreen.ProgressTurnButton.ForceClick();
@@ -182,7 +182,7 @@ namespace SpaceCardGame
             cardThumbnail.Die();
 
             // Set the position of the card so that when we add it to the game board section it will be added to a slot
-            BoardSection.PlayerGameBoardSection.AddCard(cardData);
+            BoardSection.PlayerGameBoardSection.AddCard(cardData, cardThumbnail.Size);
 
             currentTimeBetweenCardLays = 0;
         }

@@ -39,6 +39,7 @@ namespace SpaceCardGame
 
             CardThumbnail = cardThumbnail;
             CardThumbnail.Reparent(GameMouse.Instance);
+            CardThumbnail.EnlargeOnHover = false;
         }
 
         #region Virtual Functions
@@ -96,7 +97,7 @@ namespace SpaceCardGame
         /// </summary>
         private void AddCardToGame()
         {
-            BattleScreen.Board.ActivePlayerBoardSection.PlayerGameBoardSection.AddCard(CardData);
+            BattleScreen.Board.ActivePlayerBoardSection.PlayerGameBoardSection.AddCard(CardData, CardThumbnail.Size);
 
             CardThumbnail.Die();
             Die();
@@ -124,7 +125,7 @@ namespace SpaceCardGame
             {
 
             }
-            else if (CardData is DefenceCardData)
+            else if (CardData is ShieldCardData)
             {
                 return true;
             }

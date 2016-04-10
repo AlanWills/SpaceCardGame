@@ -1,5 +1,4 @@
 ﻿using CardGameEngine;
-using CardGameEngineData;
 
 namespace SpaceCardGame
 {
@@ -32,7 +31,7 @@ namespace SpaceCardGame
         /// </summary>
         /// <param name="pair"></param>
         /// <returns></returns>
-        public virtual bool IsValidTargetForInput(CardObjectPair pairToValidate)
+        public virtual bool CanUseOn(CardObjectPair pairToValidate)
         {
             return true;
         }

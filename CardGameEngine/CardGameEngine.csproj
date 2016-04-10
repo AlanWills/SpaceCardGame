@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Card Data\CardData.cs" />
     <Compile Include="CardGameplayScreen.cs" />
+    <Compile Include="Cards\BaseCard.cs" />
     <Compile Include="Cards\BaseGameCard.cs" />
     <Compile Include="Cards\BaseUICard.cs" />
     <Compile Include="Data\CentralCardRegistry.cs" />

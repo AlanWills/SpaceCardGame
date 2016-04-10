@@ -1,70 +1,30 @@
 ﻿using _2DEngine;
-using CardGameEngineData;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Diagnostics;
 
 namespace CardGameEngine
 {
-    public enum CardFlipState
-    {
-        kFaceUp,
-        kFaceDown,
-    }
-
-    public delegate void OnUICardFlippedHandler(BaseUICard baseUICard, CardFlipState newFlipState);
-    public delegate void OnUICardDeathHandler(BaseUICard cardThumbnail);
-
     /// <summary>
-    /// A base class for any UI card object
+    /// An extensions of the base card for UI purposes - has fancy animations etc.
     /// </summary>
-    public class BaseUICard : ClickableImage
+    public class BaseUICard : BaseCard
     {
         #region Properties and Fields
-
-        /// <summary>
-        /// The card data for this card
-        /// </summary>
-        public CardData CardData { get; private set; }
-
-        /// <summary>
-        /// The current flip state of this card
-        /// </summary>
-        public CardFlipState FlipState { get; private set; }
-
-        /// <summary>
-        /// An event which is called when the card flip state is changed.
-        /// Passes the new flip state.
-        /// </summary>
-        public event OnUICardFlippedHandler OnFlip;
-
-        /// <summary>
-        /// An event that will be called after this object dies
-        /// </summary>
-        public OnUICardDeathHandler OnDeath;
-
+        
         /// <summary>
         /// Used for some effects - our card if the mouse is over will move up the screen slightly
         /// </summary>
         private Vector2 RestingPosition { get; set; }
         private Vector2 HighlightedPosition { get; set; }
-
+        
         /// <summary>
         /// A vector property that is a local offset from the position of this card to it's highlighted position
         /// </summary>
         public Vector2 OffsetToHighlightedPosition { get; set; }
 
-        /// <summary>
-        /// A reference to our size we will use to alter the size of this card if hovered over.
-        /// This size really drives the size of the card
-        /// </summary>
-        private Vector2 DrawingSize { get; set; }
-
         #endregion
-
-        public const string CardBackTextureAsset = "Sprites\\Cards\\Back";
-        public static Texture2D CardBackTexture;
 
         public BaseUICard(CardData cardData, Vector2 localPosition) :
             this(cardData, Vector2.Zero, localPosition)
@@ -73,29 +33,22 @@ namespace CardGameEngine
         }
 
         public BaseUICard(CardData cardData, Vector2 size, Vector2 localPosition) :
-            base(size, localPosition, "")
+            base(cardData, size, localPosition)
         {
             DebugUtils.AssertNotNull(cardData);
 
-            CardData = cardData;
-            TextureAsset = cardData.TextureAsset;
-            FlipState = CardFlipState.kFaceUp;
             OffsetToHighlightedPosition = new Vector2(0, -35);
         }
 
         #region Virtual Functions
 
         /// <summary>
-        /// Add our CardInfoImage to the parent screen.
         /// Set up some constants for our animation effects here.
         /// By now the local position should be set.
         /// </summary>
         public override void Begin()
         {
             base.Begin();
-
-            Debug.Assert(Size != Vector2.Zero);
-            DrawingSize = Size;
 
             UpdatePositions(LocalPosition);
 
@@ -126,17 +79,6 @@ namespace CardGameEngine
                     // We are close enough to be at the end position
                     LocalPosition = HighlightedPosition;
                 }
-
-                // If our card is face up and the mouse has no attached children (like other cards we want to place), increase the size
-                if (Parent != GameMouse.Instance && FlipState == CardFlipState.kFaceUp)
-                {
-                    DrawingSize = Size * 2;
-                }
-                else
-                {
-                    // If we are parented under the mouse we want to reduce the size back to normal
-                    DrawingSize = Size;
-                }
             }
             else
             {
@@ -151,8 +93,6 @@ namespace CardGameEngine
                     // We are close enough to be at the initial position
                     LocalPosition = RestingPosition;
                 }
-
-                DrawingSize = Size;
             }
         }
 
@@ -167,70 +107,9 @@ namespace CardGameEngine
             size = new Vector2(DrawingSize.X, DrawingSize.Y + Math.Abs(RestingPosition.Y - LocalPosition.Y));   // Not perfect, but better.  Over estimates the top
         }
 
-        /// <summary>
-        /// Either draw our normal card if we are face up, or the back of the card if we are face down
-        /// </summary>
-        /// <param name="spriteBatch"></param>
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            if (FlipState == CardFlipState.kFaceUp)
-            {
-                // Store the size of the card, but set the Size property to the DrawingSize for drawing ONLY
-                Vector2 currentSize = Size;
-                Size = DrawingSize;
-
-                base.Draw(spriteBatch);
-
-                // Set the Size back to it's original value
-                Size = currentSize;
-            }
-            else
-            {
-                DebugUtils.AssertNotNull(CardBackTexture);
-                spriteBatch.Draw(
-                    CardBackTexture,
-                    WorldPosition,
-                    null,
-                    SourceRectangle,
-                    TextureCentre,
-                    WorldRotation,
-                    Vector2.Divide(Size, new Vector2(CardBackTexture.Width, CardBackTexture.Height)),
-                    Colour * Opacity,
-                    SpriteEffect,
-                    0);
-            }
-        }
-
-        /// <summary>
-        /// Calls the OnDeath event if it is hooked up
-        /// </summary>
-        public override void Die()
-        {
-            base.Die();
-
-            if (OnDeath != null)
-            {
-                OnDeath(this);
-            }
-        }
-
         #endregion
 
         #region Utility Functions
-
-        /// <summary>
-        /// Flips our card state so that we are now facing up
-        /// </summary>
-        public void Flip(CardFlipState flipState)
-        {
-            FlipState = flipState;
-
-            // Call our on flip event if it's not null
-            if (OnFlip != null)
-            {
-                OnFlip(this, FlipState);
-            }
-        }
 
         /// <summary>
         /// Recalculates the extra positions we use for our lerping effect

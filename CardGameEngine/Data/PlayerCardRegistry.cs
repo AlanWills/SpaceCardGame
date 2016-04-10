@@ -82,7 +82,7 @@ namespace CardGameEngine
             DebugUtils.AssertNotNull(playerData);
 
             LoadCardType(playerData.AbilityCardDataAssets);
-            LoadCardType(playerData.DefenceCardDataAssets);
+            LoadCardType(playerData.ShieldCardDataAssets);
             LoadCardType(playerData.ResourceCardDataAssets);
             LoadCardType(playerData.ShipCardDataAssets);
             LoadCardType(playerData.WeaponCardDataAssets);
@@ -130,7 +130,7 @@ namespace CardGameEngine
             // This is fragile at the moment - need to have a way of mapping card type to Asset list
             PlayerCardRegistryData playerData = new PlayerCardRegistryData();
             playerData.AbilityCardDataAssets = dataMap["Ability"];
-            playerData.DefenceCardDataAssets = dataMap["Defence"];
+            playerData.ShieldCardDataAssets = dataMap["Shield"];
             playerData.ResourceCardDataAssets = dataMap["Resource"];
             playerData.ShipCardDataAssets = dataMap["Ship"];
             playerData.WeaponCardDataAssets = dataMap["Weapon"];

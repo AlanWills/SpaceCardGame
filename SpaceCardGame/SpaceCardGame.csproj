@@ -47,7 +47,7 @@
     <Compile Include="Board\OpponentBoardSection.cs" />
     <Compile Include="Board\PlayerBoardSection.cs" />
     <Compile Include="Card Data\AbilityCardData.cs" />
-    <Compile Include="Card Data\DefenceCardData.cs" />
+    <Compile Include="Card Data\ShieldCardData.cs" />
     <Compile Include="Card Data\ResourceCardData.cs" />
     <Compile Include="Card Data\ShipCardData.cs" />
     <Compile Include="Card Data\WeaponCardData.cs" />
@@ -61,7 +61,7 @@
     <Compile Include="Card Objects\Turret.cs" />
     <Compile Include="Cards\AbilityCard.cs" />
     <Compile Include="Cards\CardFactory.cs" />
-    <Compile Include="Cards\DefenceCard.cs" />
+    <Compile Include="Cards\ShieldCard.cs" />
     <Compile Include="Cards\GameCard.cs" />
     <Compile Include="Cards\ResourceCard.cs" />
     <Compile Include="Cards\ShipCard.cs" />
@@ -69,7 +69,7 @@
     <Compile Include="Data\IntermediateCardDeserializer.cs" />
     <Compile Include="Board\Board.cs" />
     <Compile Include="Game Objects\Card Pairs\CardAbilityPair.cs" />
-    <Compile Include="Game Objects\Card Pairs\CardDefencePair.cs" />
+    <Compile Include="Game Objects\Card Pairs\CardShieldPair.cs" />
     <Compile Include="Game Objects\Card Pairs\CardObjectPair.cs" />
     <Compile Include="Game Objects\Card Pairs\CardResourcePair.cs" />
     <Compile Include="Game Objects\Card Pairs\CardShipPair.cs" />
@@ -107,9 +107,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Data\Cards\Defence\Engines\DefaultEngine.xml">
+    <Content Include="Content\Data\Cards\Engines\DefaultEngine.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\Data\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldObject.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\GameObjects\EngineBlaze.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -141,6 +144,9 @@
     <Content Include="Content\Music\Menu\SoftBeat.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Sprites\GameObjects\Shields\PhaseEnergyShield.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Sprites\UI\NewCardIndicator.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -151,7 +157,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Content\Data\Cards\Defence\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xml">
+    <Content Include="Content\Data\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Cards\Resources\CrewResource\CrewResourceCard.xml">
@@ -259,7 +265,7 @@
     <Content Include="Content\Sprites\Cards\Back.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Defence\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.png">
+    <Content Include="Content\Sprites\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Resources\CrewResource\CrewResourceCard.png">
@@ -407,11 +413,11 @@
     <None Include="Content\Sprites\Backgrounds\Nebula.xnb" />
     <None Include="Content\Sprites\Backgrounds\TileableNebula.xnb" />
     <None Include="Content\Sprites\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xnb" />
-    <None Include="Content\Sprites\Cards\Defence\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xnb" />
     <None Include="Content\Sprites\Cards\Resources\CrewResource\CrewResourceCard.xnb" />
     <None Include="Content\Sprites\Cards\Resources\ElectronicsResource\ElectronicsResourceCard.xnb" />
     <None Include="Content\Sprites\Cards\Resources\FuelResource\FuelResourceCard.xnb" />
     <None Include="Content\Sprites\Cards\Resources\MetalResource\MetalResourceCard.xnb" />
+    <None Include="Content\Sprites\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xnb" />
     <None Include="Content\Sprites\Cards\Ships\BlazeInterceptor\BlazeInterceptorCard.xnb" />
     <None Include="Content\Sprites\Cards\Ships\BlazeInterceptor\BlazeInterceptorObject.xnb" />
     <None Include="Content\Sprites\Cards\Ships\EagleFrigate\EagleFrigateCard.xnb" />
@@ -428,6 +434,7 @@
     <None Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xnb" />
     <None Include="Content\Sprites\Effects\EngineTrail2.xnb" />
     <None Include="Content\Sprites\Effects\Explosion.xnb" />
+    <None Include="Content\Sprites\GameObjects\Shields\PhaseEnergyShield.xnb" />
     <None Include="Content\Sprites\UI\AttackLine.xnb" />
     <None Include="Content\Sprites\UI\NewCardIndicator.xnb" />
   </ItemGroup>

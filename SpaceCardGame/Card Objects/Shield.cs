@@ -4,6 +4,7 @@ using _2DEngineData;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
 using System.Diagnostics;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace SpaceCardGame
 {
@@ -17,18 +18,15 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the shield data for this shield
         /// </summary>
-        private DefenceCardData ShieldData { get; set; }
+        private ShieldData ShieldData { get; set; }
 
         #endregion
 
         // A constructor used for creating a custom shield from a card
-        public Shield(DefenceCardData shieldData) :
-            base(Vector2.Zero, "")
+        public Shield(ShieldCardData shieldData) :
+            base(Vector2.Zero, shieldData.ObjectDataAsset)
         {
-            UsesCollider = true;
-
-            DebugUtils.AssertNotNull(shieldData);
-            ShieldData = shieldData;
+            
         }
 
         #region Virtual Functions
@@ -39,7 +37,7 @@ namespace SpaceCardGame
         /// <returns></returns>
         protected override GameObjectData LoadGameObjectData()
         {
-            return ShieldData;
+            return AssetManager.LoadData<ShieldData>(DataAsset);
         }
 
         /// <summary>
@@ -49,7 +47,7 @@ namespace SpaceCardGame
         {
             CheckShouldLoad();
 
-            ShieldData = Data as DefenceCardData;
+            ShieldData = Data as ShieldData;
             DebugUtils.AssertNotNull(ShieldData);
 
             base.LoadContent();
