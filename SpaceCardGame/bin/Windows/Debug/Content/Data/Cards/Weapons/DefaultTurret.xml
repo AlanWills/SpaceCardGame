@@ -2,4 +2,5 @@
 <TurretData>
   <TextureAsset>Sprites\Cards\Weapons\DefaultTurret</TextureAsset>
   <BulletDataAsset>Content\Data\Cards\Weapons\DefaultBullet.xml</BulletDataAsset>
+  <ShotsPerTurn>0</ShotsPerTurn>
 </TurretData>

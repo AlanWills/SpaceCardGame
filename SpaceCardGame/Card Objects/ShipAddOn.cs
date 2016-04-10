@@ -16,12 +16,6 @@ namespace SpaceCardGame
 
         #region Virtual Functions
 
-        /// <summary>
-        /// Adds this component to the inputted ship
-        /// </summary>
-        /// <param name="ship"></param>
-        public abstract void AddToShip(Ship ship);
-
         #endregion
     }
 }

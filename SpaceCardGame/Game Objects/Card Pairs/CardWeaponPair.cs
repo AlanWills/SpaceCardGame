@@ -1,5 +1,5 @@
 ﻿using _2DEngine;
-using System.Diagnostics;
+using Microsoft.Xna.Framework;
 
 namespace SpaceCardGame
 {
@@ -25,7 +25,11 @@ namespace SpaceCardGame
         public CardWeaponPair(WeaponCardData weaponCardData) :
             base(weaponCardData)
         {
+            WeaponCard = AddChild(new WeaponCard(weaponCardData));
+            Turret = AddChild(new Turret(weaponCardData.ObjectDataAsset));
 
+            Card = WeaponCard;
+            CardObject = Turret;
         }
 
         #region Virtual Functions
@@ -36,7 +40,30 @@ namespace SpaceCardGame
         /// <param name="cardShipPair"></param>
         public override void AddToCardShipPair(CardShipPair cardShipPair)
         {
-            Debug.Fail("TODO");
+            // Reparent under the ship card
+            Reparent(cardShipPair);
+
+            // Change the size and position of the card so it appears to the top right of the ship card
+            WeaponCard.Size = cardShipPair.Card.Size / 3;
+            WeaponCard.EnlargeOnHover = false;
+            LocalPosition = new Vector2((cardShipPair.Card.Size.X + WeaponCard.Size.X) * 0.5f, (2 * WeaponCard.Size.Y - cardShipPair.Card.Size.Y) * 0.5f);
+
+            // Set up the reference to this shield on the inputted ship
+            cardShipPair.Ship.Turret = Turret;
+
+            // Set our Shield's position so that it will be centred at the centre of the ship
+            Turret.LocalPosition = cardShipPair.WorldPosition - WorldPosition;
+        }
+
+        /// <summary>
+        /// Reloads our turret when we start our card placement turn again
+        /// </summary>
+        public override void MakeReadyForCardPlacement()
+        {
+            base.MakeReadyForCardPlacement();
+
+            DebugUtils.AssertNotNull(Turret);
+            Turret.Reload();
         }
 
         #endregion

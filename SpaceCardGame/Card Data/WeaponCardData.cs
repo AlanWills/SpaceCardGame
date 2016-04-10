@@ -8,6 +8,13 @@ namespace SpaceCardGame
     /// </summary>
     public class WeaponCardData : CardData
     {
+        #region Properties and Fields
+
+        // The path to a default weapon we will use to create a weapon for each ship initially
+        public const string defaultWeaponCardDataAsset = "Content\\Data\\Cards\\Weapons\\DefaultTurretCard.xml";
+
+        #endregion
+
         #region Virtual Functions
 
         /// <summary>
@@ -19,7 +26,10 @@ namespace SpaceCardGame
         public override bool CanLay(Player player, ref string error)
         {
             Debug.Assert(player is GamePlayer);
-            return (player as GamePlayer).HasSufficientResources(this, ref error);
+            GamePlayer gamePlayer = player as GamePlayer;
+            bool hasEnoughResources = gamePlayer.HasSufficientResources(this, ref error);
+
+            return hasEnoughResources && gamePlayer.CurrentShipsPlaced > 0;
         }
 
         #endregion

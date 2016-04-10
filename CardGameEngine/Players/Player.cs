@@ -71,7 +71,10 @@ namespace CardGameEngine
         public virtual void NewTurn()
         {
             // Draw a card - in the draw method we will add it to our hand if we can
-            DrawCard();
+            if (CardsLeftInDeck > 0)
+            {
+                DrawCard();
+            }
         }
 
         #endregion

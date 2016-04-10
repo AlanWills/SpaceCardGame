@@ -1,8 +1,6 @@
 ﻿using _2DEngine;
 using CardGameEngine;
-using CardGameEngineData;
 using Microsoft.Xna.Framework;
-using SpaceCardGameData;
 using System.Diagnostics;
 
 namespace SpaceCardGame
@@ -123,7 +121,7 @@ namespace SpaceCardGame
         {
             if (CardData is AbilityCardData)
             {
-
+                Debug.Fail("TO DO");
             }
             else if (CardData is ShieldCardData)
             {
@@ -140,7 +138,7 @@ namespace SpaceCardGame
             }
             else if (CardData is WeaponCardData)
             {
-
+                return true;
             }
             else
             {

@@ -25,11 +25,6 @@ namespace SpaceCardGame
         private BulletData BulletData { get; set; }
 
         /// <summary>
-        /// The amount of damage our turret does per bullet
-        /// </summary>
-        private float Damage { get; set; }
-
-        /// <summary>
         /// The number of shots with this turret we have left
         /// </summary>
         public int ShotsLeft { get; private set; }
@@ -44,20 +39,14 @@ namespace SpaceCardGame
 
         #endregion
 
-        // Constructor used for creating a custom turret from a card
-        public Turret(Vector2 localPosition, string dataAsset) :
-            base(localPosition, dataAsset)
+        /// <summary>
+        /// Constructor used for creating a turret from a card
+        /// </summary>
+        /// <param name="weaponCardData"></param>
+        public Turret(string turretDataAsset) :
+            base(Vector2.Zero, turretDataAsset)
         {
-            UsesCollider = false;
-            DefaultTurret = false;
-        }
-
-        // Constructor used for creating a default turret for each ship
-        public Turret(float turretAttack, Vector2 localPosition) :
-            this(localPosition, defaultTurretDataAsset)
-        {
-            Damage = turretAttack;
-            DefaultTurret = true;
+            DefaultTurret = turretDataAsset == defaultTurretDataAsset;
         }
 
         #region Properties and Fields
@@ -79,28 +68,27 @@ namespace SpaceCardGame
             CheckShouldLoad();
 
             TurretData = Data as TurretData;
-            ShotsLeft = TurretData.Shots;
 
             BulletData = AssetManager.LoadData<BulletData>(TurretData.BulletDataAsset);
             DebugUtils.AssertNotNull(BulletData);
 
-            // If we're created a default turret we need to set the bullet damage to be our ship's damage which is passed in via the constructor
+            // If we're created a default turret we need to set the bullet damage to be our ship's damage which we get via the hierarchy
             if (DefaultTurret)
             {
-                BulletData.Damage = Damage;
-                ShotsLeft = (int)Damage;     // We fire as many shots with our default turret as our attack
+                DebugUtils.AssertNotNull(Parent);
+                DebugUtils.AssertNotNull(Parent.Parent);
+                Debug.Assert(Parent.Parent is CardShipPair);
+                CardShipPair shipPair = Parent.Parent as CardShipPair;
+                
+                DebugUtils.AssertNotNull(shipPair.Ship);
+
+                BulletData.Damage = shipPair.Ship.ShipData.Attack;
+                TurretData.ShotsPerTurn = (int)BulletData.Damage;      // We fire as many shots with our default turret as our attack
             }
 
-            base.LoadContent();
-        }
+            ShotsLeft = TurretData.ShotsPerTurn;
 
-        /// <summary>
-        /// Adds a turret to the inputted ship
-        /// </summary>
-        /// <param name="ship"></param>
-        public override void AddToShip(Ship ship)
-        {
-            Debug.Fail("TODO");
+            base.LoadContent();
         }
 
         #endregion
@@ -108,17 +96,32 @@ namespace SpaceCardGame
         #region Firing Functions
 
         /// <summary>
-        /// Spawns a bullet from our turret at the inputted target
+        /// Spawns a bullet from our turret at the inputted ship, but switches target if the ship has appropriate defences.
         /// </summary>
         /// <param name="target"></param>
-        public void Attack(GameObject target)
+        public void Attack(Ship targetShip)
         {
             DebugUtils.AssertNotNull(BulletData);
-            Debug.Assert(target is IDamageable);        // Need to make sure our target is a damageable object
-            Debug.Assert((target as IDamageable).Health > 0);
+            Debug.Assert(targetShip is IDamageable);        // Need to make sure our target is a damageable object
+            Debug.Assert(!(targetShip as IDamageable).Dead);
+            
+            // Initially select our ship as the target
+            GameObject target = targetShip;
 
+            // However, if we have a shield that is still alive, target that
+            if (targetShip.Shield != null)
+            {
+                Debug.Assert(targetShip.Shield is IDamageable);
+                if (!(targetShip.Shield as IDamageable).Dead)
+                {
+                    target = targetShip.Shield;
+                }
+            }
+
+            // Damage our target
             (target as IDamageable).Damage(BulletData.Damage);
 
+            // Spawn bullet(s) at our target
             if (DefaultTurret)
             {
                 // Add script to space out bullet firings if we are using a Default turret -  we fire as many bullets as our attack cos why not
@@ -150,6 +153,18 @@ namespace SpaceCardGame
                 // If we are out of shots then we reset the colour to be white
                 Colour = Color.White;
             }
+        }
+
+        #endregion
+
+        #region Utility Functions
+
+        /// <summary>
+        /// Reloads our turret's shots to the max value
+        /// </summary>
+        public void Reload()
+        {
+            ShotsLeft = TurretData.ShotsPerTurn;
         }
 
         #endregion

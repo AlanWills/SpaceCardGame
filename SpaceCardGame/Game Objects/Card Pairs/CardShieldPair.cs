@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using _2DEngine;
+using Microsoft.Xna.Framework;
 
 namespace SpaceCardGame
 {
@@ -25,7 +26,7 @@ namespace SpaceCardGame
             base(defenceCardData)
         {
             ShieldCard = AddChild(new ShieldCard(defenceCardData));
-            Shield = AddChild(new Shield(defenceCardData));
+            Shield = AddChild(new Shield(defenceCardData.ObjectDataAsset));
 
             Card = ShieldCard;
             CardObject = Shield;
@@ -34,7 +35,7 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
-        /// Adds a defence object to a ship
+        /// Adds a shield to a ship
         /// </summary>
         /// <param name="cardShipPair"></param>
         public override void AddToCardShipPair(CardShipPair cardShipPair)
@@ -47,8 +48,22 @@ namespace SpaceCardGame
             ShieldCard.EnlargeOnHover = false;
             LocalPosition = new Vector2((cardShipPair.Card.Size.X + ShieldCard.Size.X) * 0.5f, (ShieldCard.Size.Y - cardShipPair.Card.Size.Y) * 0.5f);
 
+            // Set up the reference to this shield on the inputted ship
+            cardShipPair.Ship.Shield = Shield;
+
             // Set our Shield's position so that it will be centred at the centre of the ship
             Shield.LocalPosition = cardShipPair.WorldPosition - WorldPosition;
+        }
+
+        /// <summary>
+        /// Recharges our ShieldStrength by the amount in our ShieldData
+        /// </summary>
+        public override void MakeReadyForCardPlacement()
+        {
+            base.MakeReadyForCardPlacement();
+
+            DebugUtils.AssertNotNull(Shield);
+            Shield.Recharge();
         }
 
         #endregion

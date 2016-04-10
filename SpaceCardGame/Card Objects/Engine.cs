@@ -85,15 +85,6 @@ namespace SpaceCardGame
             EngineBlaze.LocalPosition += new Vector2(0, EngineBlaze.Size.Y * 0.5f);
         }
 
-        /// <summary>
-        /// Adds this engine to the inputted ship
-        /// </summary>
-        /// <param name="ship"></param>
-        public override void AddToShip(Ship ship)
-        {
-            Debug.Fail("TODO");
-        }
-
         #endregion
     }
 }

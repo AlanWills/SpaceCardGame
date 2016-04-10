@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using _2DEngine;
+using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -25,10 +26,12 @@ namespace SpaceCardGame
             base(shipCardData)
         {
             ShipCard = AddChild(new ShipCard(shipCardData));
-            Ship = AddChild(new Ship(shipCardData));
+            Ship = AddChild(new Ship(shipCardData.ObjectDataAsset));
 
             Card = ShipCard;
             CardObject = Ship;
+
+            AddDefaultWeapon();
         }
 
         #region Virtual Functions
@@ -66,6 +69,21 @@ namespace SpaceCardGame
             {
                 pair.MakeReadyForBattle();
             }
+        }
+
+        #endregion
+
+        #region Utility Functions
+
+        /// <summary>
+        /// A utility function for setting up the default weapon on this ship
+        /// </summary>
+        private void AddDefaultWeapon()
+        {
+            WeaponCardData defaultWeaponCardData = AssetManager.LoadData<WeaponCardData>(WeaponCardData.defaultWeaponCardDataAsset);
+            CardWeaponPair defaultWeapon = AddChild(new CardWeaponPair(defaultWeaponCardData));
+
+            defaultWeapon.AddToCardShipPair(this);
         }
 
         #endregion

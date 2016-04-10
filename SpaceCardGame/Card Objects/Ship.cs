@@ -13,7 +13,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the data for the ship this object represents
         /// </summary>
-        private ShipData ShipData { get; set; }
+        public ShipData ShipData { get; private set; }
 
         /// <summary>
         /// A local reference to the parent CardShipPair (for convenience)
@@ -48,13 +48,13 @@ namespace SpaceCardGame
         /// A reference to the turret for our ship.
         /// We will create a default turret from the ship data and then can override it by adding a turret card to the ship
         /// </summary>
-        public Turret Turret { get; private set; }
+        public Turret Turret { get; set; }
 
         /// <summary>
         /// A reference to the shield for our ship.
         /// By default this will not be set to anything, but can be set by adding a shield card to the ship
         /// </summary>
-        public Shield Shield { get; private set; }
+        public Shield Shield { get; set; }
 
         /// <summary>
         /// A reference to the shield for our ship.
@@ -65,8 +65,8 @@ namespace SpaceCardGame
         #endregion
 
         // The ship is tied to the card, so it's position will be amended when the card is added to the screen
-        public Ship(ShipCardData cardData) :
-            base(Vector2.Zero, cardData.ObjectDataAsset)
+        public Ship(string shipDataAsset) :
+            base(Vector2.Zero, shipDataAsset)
         {
             
         }
@@ -94,15 +94,24 @@ namespace SpaceCardGame
 
             Health = ShipData.Defence;
 
-            // TODO Input the ship's hardpoint positions here rather than zero
-            Turret = AddChild(new Turret(ShipData.Attack, Vector2.Zero));
             Engine = AddChild(new Engine(ShipData.Speed, Vector2.Zero));
 
             base.LoadContent();
         }
 
         /// <summary>
-        /// If the ship is selected we trigger a script to handle the attacking of other ships
+        /// Sets up the reference to our CardShipPair
+        /// </summary>
+        public override void Begin()
+        {
+            base.Begin();
+
+            DebugUtils.AssertNotNull(Parent);
+            CardShipPair = Parent as CardShipPair;
+        }
+
+        /// <summary>
+        /// If the ship is selected and ready, we trigger a script to handle the attacking of other ships
         /// </summary>
         /// <param name="elapsedGameTime"></param>
         /// <param name="mousePosition"></param>
@@ -111,7 +120,7 @@ namespace SpaceCardGame
             base.HandleInput(elapsedGameTime, mousePosition);
 
             DebugUtils.AssertNotNull(Collider);
-            if (Collider.IsClicked && Turret.ShotsLeft > 0)
+            if (Collider.IsClicked && Turret.ShotsLeft > 0 && CardShipPair.IsReady)
             {
                 DebugUtils.AssertNotNull(Parent);
                 Debug.Assert(Parent is CardShipPair);

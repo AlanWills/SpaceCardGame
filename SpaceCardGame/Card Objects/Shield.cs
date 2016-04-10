@@ -1,17 +1,15 @@
-﻿using System;
-using _2DEngine;
+﻿using _2DEngine;
 using _2DEngineData;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
 using System.Diagnostics;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace SpaceCardGame
 {
     /// <summary>
     /// Represents a Shield on our ship
     /// </summary>
-    public class Shield : ShipAddOn
+    public class Shield : ShipAddOn, IDamageable
     {
         #region Properties and Fields
 
@@ -20,11 +18,35 @@ namespace SpaceCardGame
         /// </summary>
         private ShieldData ShieldData { get; set; }
 
+        /// <summary>
+        /// A float to represent the health of this ship
+        /// </summary>
+        private float health;
+        public float Health
+        {
+            get { return health; }
+            private set
+            {
+                health = value;
+                HandleCurrentHealth();
+            }
+        }
+
+        /// <summary>
+        /// A bool to use to indicate that this object is dead, without having to change it's IsAlive property.
+        /// </summary>
+        private bool dead = false;
+        public bool Dead
+        {
+            get { return dead; }
+            set { dead = value; }
+        }
+
         #endregion
 
         // A constructor used for creating a custom shield from a card
-        public Shield(ShieldCardData shieldData) :
-            base(Vector2.Zero, shieldData.ObjectDataAsset)
+        public Shield(string shieldDataAsset) :
+            base(Vector2.Zero, shieldDataAsset)
         {
             
         }
@@ -50,6 +72,8 @@ namespace SpaceCardGame
             ShieldData = Data as ShieldData;
             DebugUtils.AssertNotNull(ShieldData);
 
+            Health = ShieldData.MaxShieldStrength;
+
             base.LoadContent();
         }
 
@@ -64,12 +88,54 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// Adds a shield to the inputted ship
+        /// Kills our parent which will kill us and the card we are attached too
         /// </summary>
-        /// <param name="ship"></param>
-        public override void AddToShip(Ship ship)
+        public override void Die()
         {
-            Debug.Fail("");
+            // Make sure we call Die so that when our parent calls Die on us again, we will already be dead and not have this function called again
+            base.Die();
+
+            DebugUtils.AssertNotNull(Parent);
+            Parent.Die();
+        }
+
+        #endregion
+
+        #region IDamageable Interface Implementation
+
+        /// <summary>
+        /// Damages the shield
+        /// </summary>
+        /// <param name="damage"></param>
+        public void Damage(float damage)
+        {
+            Health -= damage;
+        }
+
+        /// <summary>
+        /// If the health of the shield goes to 0 then we kill it and it's parent
+        /// </summary>
+        public void HandleCurrentHealth()
+        {
+            if (Health <= 0)
+            {
+                DebugUtils.AssertNotNull(Parent);
+                Dead = true;
+            }
+        }
+
+        #endregion
+
+        #region Utility Functions
+
+        /// <summary>
+        /// Recharges our Shield by the amount in our ShieldData.
+        /// Clamped to the max health value.
+        /// </summary>
+        public void Recharge()
+        {
+            Health += ShieldData.ShieldRechargePerTurn;
+            Health = MathHelper.Clamp(Health, 0, ShieldData.MaxShieldStrength);
         }
 
         #endregion

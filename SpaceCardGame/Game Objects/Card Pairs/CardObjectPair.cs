@@ -32,6 +32,12 @@ namespace SpaceCardGame
         /// </summary>
         public GameObject CardObject { get; protected set; }
 
+        /// <summary>
+        /// Some cards need to wait one turn before they can be interacted with (i.e. ships need to wait a turn before they can attack).
+        /// This bool indicates whether this condition has been satisfied.
+        /// </summary>
+        public bool IsReady { get; private set; }
+
         #endregion
 
         public CardObjectPair(CardData cardData) :
@@ -72,6 +78,9 @@ namespace SpaceCardGame
         public virtual void MakeReadyForCardPlacement()
         {
             SetActiveObject(CardOrObject.kCard);
+
+            // Cards will be placed after this function is called, meaning that when this function is called on this instance, it will have been a turn since it was laid.
+            IsReady = true;
         }
 
         /// <summary>

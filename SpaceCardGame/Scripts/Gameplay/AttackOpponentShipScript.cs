@@ -1,6 +1,5 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
-using System.Diagnostics;
 
 namespace SpaceCardGame
 {

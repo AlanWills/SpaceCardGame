@@ -1,6 +1,4 @@
-﻿using _2DEngineData;
-
-namespace SpaceCardGameData
+﻿namespace SpaceCardGameData
 {
     public class TurretData : ShipAddOnData
     {
@@ -12,6 +10,6 @@ namespace SpaceCardGameData
         /// <summary>
         /// The number of shots our turret can fire each turn
         /// </summary>
-        public int Shots { get; set; }
+        public int ShotsPerTurn { get; set; }
     }
 }

@@ -107,7 +107,7 @@ namespace SpaceCardGame
             }
             else if (cardData is WeaponCardData)
             {
-
+                pair = AddWeaponCard(cardData as WeaponCardData, size);
             }
             else
             {
@@ -199,15 +199,32 @@ namespace SpaceCardGame
         /// Adds a script to choose a ship to add the defence card to.
         /// </summary>
         /// <param name="defenceCard"></param>
-        private CardShieldPair AddDefenceCard(ShieldCardData defenceCardData, Vector2 size)
+        private CardShieldPair AddDefenceCard(ShieldCardData shieldCardData, Vector2 size)
         {
-            CardShieldPair cardShieldPair = AddChild(new CardShieldPair(defenceCardData), true, true);
+            CardShieldPair cardShieldPair = AddChild(new CardShieldPair(shieldCardData), true, true);
             cardShieldPair.LocalPosition = GameMouse.Instance.InGamePosition - WorldPosition;     // Put the cardShieldPair where we placed the thumbnail on the board
             cardShieldPair.Card.Size = size;
 
             ScriptManager.Instance.AddChild(new ChooseFriendlyShipScript(cardShieldPair), true, true);
 
             return cardShieldPair;
+        }
+
+        /// <summary>
+        /// Adds a script to choose a ship to add the weapon card to
+        /// </summary>
+        /// <param name="weaponCardData"></param>
+        /// <param name="size"></param>
+        /// <returns></returns>
+        private CardWeaponPair AddWeaponCard(WeaponCardData weaponCardData, Vector2 size)
+        {
+            CardWeaponPair cardWeaponPair = AddChild(new CardWeaponPair(weaponCardData), true, true);
+            cardWeaponPair.LocalPosition = GameMouse.Instance.InGamePosition - WorldPosition;     // Put the cardWeaponPair where we placed the thumbnail on the board
+            cardWeaponPair.Card.Size = size;
+
+            ScriptManager.Instance.AddChild(new ChooseFriendlyShipScript(cardWeaponPair), true, true);
+
+            return cardWeaponPair;
         }
 
         /// <summary>
@@ -323,17 +340,16 @@ namespace SpaceCardGame
             {
                 cardPair.MakeReadyForBattle();
 
-                Debug.Assert(cardPair.CardObject is Ship);
-                Ship ship = cardPair.CardObject as Ship;
-
-                if (Player != BattleScreen.ActivePlayer)
+                if (Player != BattleScreen.ActivePlayer ||
+                    !cardPair.IsReady ||
+                    cardPair.Ship.Turret.ShotsLeft == 0)
                 {
-                    ship.Turret.Colour = Color.White;
+                    cardPair.Ship.Turret.Colour = Color.White;
                 }
-                else if (ship.Turret.ShotsLeft > 0)
+                else if (cardPair.Ship.Turret.ShotsLeft > 0)
                 {
                     // If it is our turn, we set the turrets with available shots to be highlighted green
-                    ship.Turret.Colour = Color.Green;
+                    cardPair.Ship.Turret.Colour = Color.Green;
                 }
             }
         }

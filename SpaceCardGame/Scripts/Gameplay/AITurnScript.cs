@@ -34,6 +34,10 @@ namespace SpaceCardGame
         private float currentTimeBetweenCardLays = 0;
         private float currentTimeBetweenAttacks = 0;
 
+        // Used in debug only
+        private static bool aiLayCards = true;
+        private static bool aiFight = true;
+
         #endregion
 
         public AITurnScript(GamePlayer player, PlayerBoardSection playerBoardSection) :
@@ -88,30 +92,38 @@ namespace SpaceCardGame
         {
             currentTimeBetweenCardLays += elapsedGameTime;
 
-            // Check to see if we have laid the resource cards we can this turn and we have resources in our hand we can lay
-            /*if (AIPlayer.CurrentHand.Exists(GetCardLayPredicate<ResourceCardData>()))
+            if (aiLayCards)
             {
-                // Lay a resource card
-                CardData resourceCardData = AIPlayer.CurrentHand.Find(GetCardLayPredicate<ResourceCardData>());
-
-                if (currentTimeBetweenCardLays >= timeBetweenCardLays)
+                // Check to see if we have laid the resource cards we can this turn and we have resources in our hand we can lay
+                if (AIPlayer.CurrentHand.Exists(GetCardLayPredicate<ResourceCardData>()))
                 {
-                    // TODO Can improve this by analysing the resource costs of the other cards and working out what cards would be best to lay
-                    LayCard(resourceCardData);
+                    // Lay a resource card
+                    CardData resourceCardData = AIPlayer.CurrentHand.Find(GetCardLayPredicate<ResourceCardData>());
+
+                    if (currentTimeBetweenCardLays >= timeBetweenCardLays)
+                    {
+                        // TODO Can improve this by analysing the resource costs of the other cards and working out what cards would be best to lay
+                        LayCard(resourceCardData);
+                    }
+                }
+                // Check to see if we have laid the ships we can and we have ships in our hand we can lay
+                else if (AIPlayer.CurrentShipsPlaced < GamePlayer.MaxShipNumber && AIPlayer.CurrentHand.Exists(GetCardLayPredicate<ShipCardData>()))
+                {
+                    if (currentTimeBetweenCardLays >= timeBetweenCardLays)
+                    {
+                        // Lay a ship card
+                        CardData shipCardData = AIPlayer.CurrentHand.Find(GetCardLayPredicate<ShipCardData>());
+
+                        LayCard(shipCardData);
+                    }
+                }
+                else
+                {
+                    currentTimeBetweenCardLays = 0;
+                    BattleScreen.ProgressTurnButton.ForceClick();
                 }
             }
-            // Check to see if we have laid the ships we can and we have ships in our hand we can lay
-            else if (AIPlayer.CurrentShipsPlaced < GamePlayer.MaxShipNumber && AIPlayer.CurrentHand.Exists(GetCardLayPredicate<ShipCardData>()))
-            {
-                if (currentTimeBetweenCardLays >= timeBetweenCardLays)
-                {
-                    // Lay a ship card
-                    CardData shipCardData = AIPlayer.CurrentHand.Find(GetCardLayPredicate<ShipCardData>());
-
-                    LayCard(shipCardData);
-                }
-            }
-            else*/
+            else
             {
                 currentTimeBetweenCardLays = 0;
                 BattleScreen.ProgressTurnButton.ForceClick();
@@ -125,18 +137,28 @@ namespace SpaceCardGame
         {
             currentTimeBetweenAttacks += elapsedGameTime;
 
-            /*if (AIPlayer.CurrentShipsPlaced > 0 && BattleScreen.Player.CurrentShipsPlaced > 0)
+            if (aiFight)
             {
-                if (currentTimeBetweenAttacks > timeBetweenAttacks)
+                if (ContinueBattlePhase())
                 {
-                    foreach (CardShipPair pair in BoardSection.PlayerGameBoardSection.PlayerShipCardControl)
+                    if (currentTimeBetweenAttacks > timeBetweenAttacks)
                     {
-                        // TODO Can improve this by analysing the best opponent ship to attack
-                        AttackShip(pair.Ship);
+                        foreach (CardShipPair pair in BoardSection.PlayerGameBoardSection.PlayerShipCardControl)
+                        {
+                            // TODO Can improve this by analysing the best opponent ship to attack
+                            AttackShip(pair.Ship);
+                        }
                     }
                 }
+                else
+                {
+                    currentTimeBetweenAttacks = 0;
+
+                    BattleScreen.ProgressTurnButton.ForceClick();
+                    Die();
+                }
             }
-            else*/
+            else
             {
                 currentTimeBetweenAttacks = 0;
 
@@ -160,17 +182,6 @@ namespace SpaceCardGame
         #region Utility Functions
 
         /// <summary>
-        /// Returns a predicate for finding all the cards of the inputted type that can also be laid
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        private Predicate<CardData> GetCardLayPredicate<T>() where T : CardData
-        {
-            string error = "";
-            return new Predicate<CardData>(x => (x is T) && (x as T).CanLay(AIPlayer, ref error));
-        }
-
-        /// <summary>
         /// Creates and adds a card using the inputted card data and resets the timer so we have spacing between adding cards.
         /// </summary>
         /// <param name="cardData"></param>
@@ -188,6 +199,38 @@ namespace SpaceCardGame
         }
 
         /// <summary>
+        /// A function which analyses lots of small sub conditions for whether the AI can still make a move.
+        /// These include:
+        /// It has ships
+        /// The opponent has ships
+        /// It's ships are ready
+        /// It's ships have shots left
+        /// </summary>
+        /// <returns></returns>
+        private bool ContinueBattlePhase()
+        {
+            // The AI has no ships, or the player has no ships, so return false
+            if (AIPlayer.CurrentShipsPlaced == 0 || BattleScreen.Player.CurrentShipsPlaced == 0)
+            {
+                return false;
+            }
+            
+            // If we cannot find a ship which is ready, then return false
+            if (BoardSection.PlayerGameBoardSection.PlayerShipCardControl.FindChild<BaseObject>(GetReadyShipPredicate()) == null)
+            {
+                return false;
+            }
+
+            // If we cannot find a ship which has a turret with shots left, then return false
+            if (BoardSection.PlayerGameBoardSection.PlayerShipCardControl.FindChild<BaseObject>(GetReadyShipAndTurretWithShotsPredicate()) == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
         /// Searches for a ship to attack, attacks it and resets our timer for between attacks
         /// </summary>
         /// <param name="attackingShip"></param>
@@ -199,12 +242,47 @@ namespace SpaceCardGame
                 {
                     float targetAngle = MathUtils.AngleBetweenPoints(attackingShip.WorldPosition, pair.CardObject.WorldPosition);
                     attackingShip.Turret.LocalRotation = targetAngle - attackingShip.WorldRotation;
-                    attackingShip.Turret.Attack(pair.CardObject);
+
+                    // Attack the selected ship
+                    attackingShip.Turret.Attack(pair.Ship);
                     break;
                 }
             }
 
             currentTimeBetweenAttacks = 0;
+        }
+
+        #endregion
+
+        #region Logical Predicates
+
+        /// <summary>
+        /// Returns a predicate for finding all the cards of the inputted type that can also be laid
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        private Predicate<CardData> GetCardLayPredicate<T>() where T : CardData
+        {
+            string error = "";
+            return new Predicate<CardData>(x => (x is T) && (x as T).CanLay(AIPlayer, ref error));
+        }
+
+        /// <summary>
+        /// A predicate to find a ship which is ready
+        /// </summary>
+        /// <returns></returns>
+        private Predicate<BaseObject> GetReadyShipPredicate()
+        {
+            return new Predicate<BaseObject>(x => (x is CardShipPair) && (x as CardShipPair).IsReady);
+        }
+
+        /// <summary>
+        /// A predicate to find a ship which is ready and has turrets with shots left
+        /// </summary>
+        /// <returns></returns>
+        private Predicate<BaseObject> GetReadyShipAndTurretWithShotsPredicate()
+        {
+            return new Predicate<BaseObject>(x => (x is CardShipPair) && (x as CardShipPair).IsReady && (x as CardShipPair).Ship.Turret.ShotsLeft > 0);
         }
 
         #endregion
