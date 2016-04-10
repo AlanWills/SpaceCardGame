@@ -25,11 +25,11 @@ namespace SpaceCardGame
         public CardShipPair(ShipCardData shipCardData) :
             base(shipCardData)
         {
-            ShipCard = AddChild(new ShipCard(shipCardData));
             Ship = AddChild(new Ship(shipCardData.ObjectDataAsset));
-
-            Card = ShipCard;
             CardObject = Ship;
+
+            Debug.Assert(Card is ShipCard);
+            ShipCard = Card as ShipCard;
 
             AddDefaultWeapon();
         }

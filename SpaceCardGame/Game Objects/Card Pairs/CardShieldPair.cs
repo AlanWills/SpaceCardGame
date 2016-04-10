@@ -1,5 +1,6 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
+using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -25,11 +26,11 @@ namespace SpaceCardGame
         public CardShieldPair(ShieldCardData defenceCardData) :
             base(defenceCardData)
         {
-            ShieldCard = AddChild(new ShieldCard(defenceCardData));
             Shield = AddChild(new Shield(defenceCardData.ObjectDataAsset));
-
-            Card = ShieldCard;
             CardObject = Shield;
+
+            Debug.Assert(Card is ShieldCard);
+            ShieldCard = Card as ShieldCard;
         }
 
         #region Virtual Functions

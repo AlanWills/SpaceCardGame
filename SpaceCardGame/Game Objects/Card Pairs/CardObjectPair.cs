@@ -43,6 +43,7 @@ namespace SpaceCardGame
         public CardObjectPair(CardData cardData) :
             base(Vector2.Zero, AssetManager.EmptyGameObjectDataAsset)
         {
+            Card = AddChild(CardFactory.CreateCard(cardData));
             UsesCollider = false;
         }
 

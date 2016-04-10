@@ -31,11 +31,11 @@ namespace SpaceCardGame
         public CardWeaponPair(WeaponCardData weaponCardData) :
             base(weaponCardData)
         {
-            WeaponCard = AddChild(new WeaponCard(weaponCardData));
             Turret = AddChild(new Turret(weaponCardData.ObjectDataAsset));
-
-            Card = WeaponCard;
             CardObject = Turret;
+
+            Debug.Assert(Card is WeaponCard);
+            WeaponCard = Card as WeaponCard;
         }
 
         #region Virtual Functions

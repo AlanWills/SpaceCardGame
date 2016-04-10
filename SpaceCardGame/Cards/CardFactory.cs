@@ -4,58 +4,92 @@ using System.Diagnostics;
 namespace SpaceCardGame
 {
     /// <summary>
-    /// Yeah this is gonna suck
+    /// A class which creates the cards from CardData
     /// </summary>
     public static class CardFactory
     {
         /// <summary>
-        /// Creates a card based on the inputted card data - really not very nice.
-        /// Card position will be set up when we add it to our game board, so don't need to worry about doing that.
+        /// Create a card from the inputted card data
         /// </summary>
         /// <param name="cardData"></param>
         /// <returns></returns>
-        public static GameCard CreateCard(CardData cardData, bool load = true, bool initialise = true)
+        public static GameCard CreateCard(CardData cardData)
         {
-            GameCard card = null;
+            switch (cardData.Type)
+            {
+                case "Ability":
+                    return CreateAbilityCard(cardData);
 
-            if (cardData is AbilityCardData)
-            {
-                card = new AbilityCard(cardData as AbilityCardData);
-            }
-            else if (cardData is ShieldCardData)
-            {
-                card = new ShieldCard(cardData as ShieldCardData);
-            }
-            else if (cardData is ResourceCardData)
-            {
-                card = new ResourceCard(cardData as ResourceCardData);
-            }
-            else if (cardData is ShipCardData)
-            {
-                card = new ShipCard(cardData as ShipCardData);
-            }
-            else if (cardData is WeaponCardData)
-            {
-                card = new WeaponCard(cardData as WeaponCardData);
-            }
-            else
-            {
-                Debug.Fail("Card factory mismatch");
-            }
+                case "Resource":
+                    return CreateResourceCard(cardData);
 
-            // Load if indicated
-            if (load)
-            {
-                card.LoadContent();
-            }
+                case "Shield":
+                    return CreateShieldCard(cardData);
 
-            // Initialise if indicated
-            if (initialise)
-            {
-                card.Initialise();
-            }
+                case "Ship":
+                    return CreateShipCard(cardData);
 
-            return card;
+                case "Weapon":
+                    return CreateWeaponCard(cardData);
+
+                default:
+                    Debug.Fail("Unregistered CardData in card factory create");
+                    return null;
+            }
         }
+
+        #region Create Functions for Individual Card Types
+
+        /// <summary>
+        /// A function for specifically creating ability cards
+        /// </summary>
+        /// <param name="cardData"></param>
+        /// <returns></returns>
+        private static GameCard CreateAbilityCard(CardData cardData)
+        {
+            return new AbilityCard(cardData as AbilityCardData);
+        }
+
+        /// <summary>
+        /// A function for specifically creating resource cards
+        /// </summary>
+        /// <param name="cardData"></param>
+        /// <returns></returns>
+        private static GameCard CreateResourceCard(CardData cardData)
+        {
+            return new ResourceCard(cardData as ResourceCardData);
+        }
+
+        /// <summary>
+        /// A function for specifically creating shield cards
+        /// </summary>
+        /// <param name="cardData"></param>
+        /// <returns></returns>
+        private static GameCard CreateShieldCard(CardData cardData)
+        {
+            return new ShieldCard(cardData as ShieldCardData);
+        }
+
+        /// <summary>
+        /// A function for specifically creating ship cards
+        /// </summary>
+        /// <param name="cardData"></param>
+        /// <returns></returns>
+        private static GameCard CreateShipCard(CardData cardData)
+        {
+            return new ShipCard(cardData as ShipCardData);
+        }
+
+        /// <summary>
+        /// A function for specifically creating weapon cards
+        /// </summary>
+        /// <param name="cardData"></param>
+        /// <returns></returns>
+        private static GameCard CreateWeaponCard(CardData cardData)
+        {
+            return new WeaponCard(cardData as WeaponCardData);
+        }
+
+        #endregion
     }
 }

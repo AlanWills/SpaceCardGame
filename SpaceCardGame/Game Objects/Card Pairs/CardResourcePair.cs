@@ -1,6 +1,5 @@
 ﻿using _2DEngine;
 using System.Diagnostics;
-using SpaceCardGameData;
 using Microsoft.Xna.Framework;
 
 namespace SpaceCardGame
@@ -27,11 +26,11 @@ namespace SpaceCardGame
         public CardResourcePair(ResourceCardData resourceCardData) :
             base(resourceCardData)
         {
-            ResourceCard = AddChild(new ResourceCard(resourceCardData));
             Resource = AddChild(new Resource(Vector2.Zero, AssetManager.EmptyGameObjectDataAsset));
-
-            Card = ResourceCard;
             CardObject = Resource;
+
+            Debug.Assert(Card is ResourceCard);
+            ResourceCard = Card as ResourceCard;
         }
 
         #region Virtual Functions
