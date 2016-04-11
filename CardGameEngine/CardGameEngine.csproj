@@ -64,7 +64,7 @@
     <Compile Include="UI\ChooseDeckBox.cs" />
     <Compile Include="UI\DeckCardTypeControl.cs" />
     <Compile Include="UI\DeckSlotUI.cs" />
-    <Compile Include="UI\Gameplay\PlayerDeckUI.cs" />
+    <Compile Include="UI\Gameplay\DeckUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

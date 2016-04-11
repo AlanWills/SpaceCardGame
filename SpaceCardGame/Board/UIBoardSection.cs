@@ -8,7 +8,7 @@ namespace SpaceCardGame
     /// <summary>
     /// A class to handle the UI objects in the game board for a player
     /// </summary>
-    public class PlayerUIBoardSection : UIObject
+    public class UIBoardSection : UIObject
     {
         #region Properties and Fields
 
@@ -23,24 +23,24 @@ namespace SpaceCardGame
         private GamePlayer Player { get; set; }
 
         /// <summary>
-        /// A reference to the player's deck UI
+        /// A reference to this player's deck UI
         /// </summary>
-        public PlayerDeckUI PlayerDeckUI { get; private set; }
+        public DeckUI DeckUI { get; private set; }
 
         /// <summary>
-        /// A reference to the player's hand UI
+        /// A reference to this player's hand UI
         /// </summary>
-        public PlayerHandUI PlayerHandUI { get; private set; }
+        public HandUI HandUI { get; private set; }
 
         #endregion
 
-        public PlayerUIBoardSection(GamePlayer player, Vector2 localPosition, string textureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
+        public UIBoardSection(GamePlayer player, Vector2 localPosition, string textureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
             base(new Vector2(ScreenManager.Instance.ScreenDimensions.X, ScreenManager.Instance.ScreenDimensions.Y * 0.5f), localPosition, textureAsset)
         {
             Player = player;
 
-            PlayerDeckUI = AddChild(new PlayerDeckUI(Player, Vector2.Zero));
-            PlayerHandUI = AddChild(new PlayerHandUI(Player, new Vector2(Size.X * 0.8f, Size.Y * 0.25f), new Vector2(0, Size.Y * 0.4f)));
+            DeckUI = AddChild(new DeckUI(Player, Vector2.Zero));
+            HandUI = AddChild(new HandUI(Player, new Vector2(Size.X * 0.8f, Size.Y * 0.25f), new Vector2(0, Size.Y * 0.4f)));
 
             Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
             BattleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
@@ -63,11 +63,11 @@ namespace SpaceCardGame
 
             // Do this before we call base.Begin, because we need the new size before we call the begin function in there
             // In the Begin function for the board section we change this local position, so we must set it here
-            PlayerDeckUI.Size *= 0.5f;
+            DeckUI.Size *= 0.5f;
 
-            Vector2 offset = new Vector2(MathHelper.Max(PlayerDeckUI.Size.X, PlayerDeckUI.DeckCountLabel.Size.X) + 10, PlayerDeckUI.Size.Y + 25);
-            PlayerDeckUI.LocalPosition = (Size - offset) * 0.5f;
-            PlayerDeckUI.DeckCountLabel.LocalPosition = new Vector2(0, -(PlayerDeckUI.Size.Y + PlayerDeckUI.DeckCountLabel.Size.Y) * 0.5f - 10);  // Can't do this in DeckUI because of fixup which occurs elsewhere
+            Vector2 offset = new Vector2(MathHelper.Max(DeckUI.Size.X, DeckUI.DeckCountLabel.Size.X) + 10, DeckUI.Size.Y + 25);
+            DeckUI.LocalPosition = (Size - offset) * 0.5f;
+            DeckUI.DeckCountLabel.LocalPosition = new Vector2(0, -(DeckUI.Size.Y + DeckUI.DeckCountLabel.Size.Y) * 0.5f - 10);  // Can't do this in DeckUI because of fixup which occurs elsewhere
         }
 
         #endregion
@@ -79,8 +79,8 @@ namespace SpaceCardGame
         /// </summary>
         private void SetupUIForBattle()
         {
-            PlayerDeckUI.Hide();
-            PlayerHandUI.Hide();
+            DeckUI.Hide();
+            HandUI.Hide();
         }
 
         /// <summary>
@@ -88,8 +88,8 @@ namespace SpaceCardGame
         /// </summary>
         private void SetupUIForCardPlacement()
         {
-            PlayerDeckUI.Show();
-            PlayerHandUI.Show();
+            DeckUI.Show();
+            HandUI.Show();
         }
 
         #endregion

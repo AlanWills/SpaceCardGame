@@ -84,6 +84,17 @@ namespace SpaceCardGame
             LocalPosition = Vector2.Zero;
         }
 
+        /// <summary>
+        /// Reloads our turret ready for our opponent's battle phase.
+        /// </summary>
+        public override void OnTurnEnd()
+        {
+            base.OnTurnEnd();
+
+            DebugUtils.AssertNotNull(Turret);
+            Turret.Reload();
+        }
+
         #endregion
     }
 }

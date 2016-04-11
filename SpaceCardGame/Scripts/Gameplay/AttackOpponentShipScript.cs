@@ -35,7 +35,7 @@ namespace SpaceCardGame
         {
             base.Begin();
 
-            ContainerToLookThrough = BattleScreen.Board.NonActivePlayerBoardSection.PlayerGameBoardSection.PlayerShipCardControl;
+            ContainerToLookThrough = BattleScreen.Board.NonActivePlayerBoardSection.GameBoardSection.ShipCardControl;
             SelectingLine.Colour = Color.Red;
         }
 
@@ -73,11 +73,11 @@ namespace SpaceCardGame
         {
             base.Update(elapsedGameTime);
 
-            // Then use the rotation of the line to set the turret rotation
+            // Then use the rotation of the line to set the turret rotation - this is more efficient that calling RotateToTarget and will give a better result
             AttackingShipPair.Ship.Turret.LocalRotation = SelectingLine.WorldRotation - AttackingShipPair.WorldRotation;
 
             // If our attacking ship has no shots left then we just kill this script as our ship will not be able to attack any more
-            if (AttackingShipPair.Ship.Turret.ShotsLeft <= 0)
+            if (!AttackingShipPair.Ship.Turret.CanFire)
             {
                 Die();
             }

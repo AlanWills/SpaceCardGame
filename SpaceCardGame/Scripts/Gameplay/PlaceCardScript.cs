@@ -95,7 +95,7 @@ namespace SpaceCardGame
         /// </summary>
         private void AddCardToGame()
         {
-            BattleScreen.Board.ActivePlayerBoardSection.PlayerGameBoardSection.AddCard(CardData, CardThumbnail.Size);
+            BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection.AddCard(CardData, CardThumbnail.Size);
 
             CardThumbnail.Die();
             Die();
@@ -133,8 +133,8 @@ namespace SpaceCardGame
             }
             else if (CardData is ShipCardData)
             {
-                DebugUtils.AssertNotNull(BattleScreen.Board.ActivePlayerBoardSection.PlayerGameBoardSection.PlayerShipCardControl.Collider);
-                return BattleScreen.Board.ActivePlayerBoardSection.PlayerGameBoardSection.PlayerShipCardControl.Collider.CheckIntersects(GameMouse.Instance.InGamePosition);
+                DebugUtils.AssertNotNull(BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection.ShipCardControl.Collider);
+                return BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection.ShipCardControl.Collider.CheckIntersects(GameMouse.Instance.InGamePosition);
             }
             else if (CardData is WeaponCardData)
             {

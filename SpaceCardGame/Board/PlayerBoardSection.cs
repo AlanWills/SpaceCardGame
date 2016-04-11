@@ -14,12 +14,12 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to this player's section of the game board that deals with GameObjects
         /// </summary>
-        public PlayerGameBoardSection PlayerGameBoardSection { get; private set; }
+        public GameBoardSection GameBoardSection { get; private set; }
 
         /// <summary>
         /// A reference to this player's section of the game board that deals with UIObjects
         /// </summary>
-        public PlayerUIBoardSection PlayerUIBoardSection { get; private set; }
+        public UIBoardSection UIBoardSection { get; private set; }
 
         #endregion
 
@@ -32,8 +32,8 @@ namespace SpaceCardGame
             BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
 
             // Add the objects to the screen
-            PlayerGameBoardSection = AddChild(new PlayerGameBoardSection(player, Vector2.Zero));
-            PlayerUIBoardSection = AddChild(new PlayerUIBoardSection(player, Vector2.Zero));
+            GameBoardSection = AddChild(new GameBoardSection(player, Vector2.Zero));
+            UIBoardSection = AddChild(new UIBoardSection(player, Vector2.Zero));
         }
     }
 }

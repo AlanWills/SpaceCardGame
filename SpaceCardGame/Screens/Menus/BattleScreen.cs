@@ -57,6 +57,11 @@ namespace SpaceCardGame
         public event TurnStateChangeHandler OnBattleStateStarted;
 
         /// <summary>
+        /// An event that is triggered as we change state to kPlaceCards, but called before OnCardPlacementStateStarted;
+        /// </summary>
+        public event TurnStateChangeHandler OnTurnEnd;
+
+        /// <summary>
         /// A variable to indicate what state we are in the current turn
         /// </summary>
         public TurnState TurnState { get; private set; }
@@ -132,8 +137,10 @@ namespace SpaceCardGame
             // Change the state of the turn and call any appropriate functions
             switch (TurnState)
             {
+                // We are currently in the placing cards state
                 case TurnState.kPlaceCards:
                     {
+                        // Change to the battle state
                         TurnState = TurnState.kBattle;
                         if (OnBattleStateStarted != null)
                         {
@@ -143,9 +150,17 @@ namespace SpaceCardGame
                         break;
                     }
 
+                // We are currently in the battle state
                 case TurnState.kBattle:
                     {
+                        // Change to the place cards state and change the turns
                         TurnState = TurnState.kPlaceCards;
+
+                        if (OnTurnEnd != null)
+                        {
+                            OnTurnEnd();
+                        }
+
                         NewPlayerTurn();
 
                         if (OnCardPlacementStateStarted != null)
@@ -208,7 +223,11 @@ namespace SpaceCardGame
                 ActivePlayer = Player;
                 NonActivePlayer = Opponent;
             }
-            
+
+            // Update the appropriate board sections so that we cannot interact unless we are the current active player
+            Board.NonActivePlayerBoardSection.ShouldHandleInput.Value = false;
+            Board.ActivePlayerBoardSection.ShouldHandleInput.Value = true;
+
             ActivePlayer.NewTurn();
         }
 

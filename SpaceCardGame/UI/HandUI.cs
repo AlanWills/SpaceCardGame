@@ -9,7 +9,7 @@ namespace SpaceCardGame
     /// <summary>
     /// Specifically handles the UI for the player's hand
     /// </summary>
-    public class PlayerHandUI : GridControl
+    public class HandUI : GridControl
     {
         #region Properties and Fields
 
@@ -20,7 +20,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public PlayerHandUI(Player player, Vector2 size, Vector2 localPosition, string backgroundTextureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
+        public HandUI(Player player, Vector2 size, Vector2 localPosition, string backgroundTextureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
             base(player.MaxHandSize, size, localPosition, backgroundTextureAsset)
         {
             Player = player;

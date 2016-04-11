@@ -1,5 +1,4 @@
 ﻿using _2DEngine;
-using CardGameEngineData;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 
@@ -9,7 +8,7 @@ namespace CardGameEngine
     /// This class is really just UI sugar.
     /// Will be placed in our game screen to give information about the number of cards left etc.
     /// </summary>
-    public class PlayerDeckUI : UIObject
+    public class DeckUI : UIObject
     {
         #region Properties and Fields
 
@@ -35,7 +34,7 @@ namespace CardGameEngine
 
         #endregion
 
-        public PlayerDeckUI(Player player, Vector2 localPosition, string textureAsset = BaseUICard.CardBackTextureAsset) :
+        public DeckUI(Player player, Vector2 localPosition, string textureAsset = BaseUICard.CardBackTextureAsset) :
             base(localPosition, textureAsset)
         {
             Player = player;

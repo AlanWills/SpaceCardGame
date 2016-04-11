@@ -1,7 +1,6 @@
 ﻿using _2DEngine;
 using CardGameEngine;
 using Microsoft.Xna.Framework;
-using SpaceCardGameData;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -12,7 +11,7 @@ namespace SpaceCardGame
     /// <summary>
     /// A class to handle the game objects in the game board for one player
     /// </summary>
-    public class PlayerGameBoardSection : GameObject
+    public class GameBoardSection : GameObject
     {
         /// <summary>
         /// A list of the player's currently laid resource cards indexed by resource type.
@@ -29,7 +28,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A container to group our ships together and automatically space them.
         /// </summary>
-        public GameCardControl PlayerShipCardControl { get; private set; }
+        public GameCardControl ShipCardControl { get; private set; }
 
         /// <summary>
         /// A reference to the human player
@@ -46,7 +45,7 @@ namespace SpaceCardGame
         /// </summary>
         public event AfterCardPlacedHandler AfterCardPlaced;
 
-        public PlayerGameBoardSection(GamePlayer player, Vector2 localPosition, string dataAsset = AssetManager.EmptyGameObjectDataAsset) :
+        public GameBoardSection(GamePlayer player, Vector2 localPosition, string dataAsset = AssetManager.EmptyGameObjectDataAsset) :
             base(localPosition, dataAsset)
         {
             Player = player;
@@ -59,7 +58,7 @@ namespace SpaceCardGame
                 ResourceCards[type] = new List<CardResourcePair>();
             }
 
-            PlayerShipCardControl = AddChild(new GameCardControl(typeof(ShipCardData), new Vector2(Size.X * 0.8f, Size.Y * 0.5f), GamePlayer.MaxShipNumber, 1, new Vector2(0, - Size.Y * 0.25f), "Sprites\\Backgrounds\\TileableNebula"));
+            ShipCardControl = AddChild(new GameCardControl(typeof(ShipCardData), new Vector2(Size.X * 0.8f, Size.Y * 0.5f), GamePlayer.MaxShipNumber, 1, new Vector2(0, - Size.Y * 0.25f), "Sprites\\Backgrounds\\TileableNebula"));
 
             Ships = new List<CardShipPair>();
 
@@ -71,6 +70,7 @@ namespace SpaceCardGame
             BattleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
             BattleScreen.OnCardPlacementStateStarted += SetUpGameObjectsForCardPlacement;
             BattleScreen.OnBattleStateStarted += SetUpGameObjectsForBattle;
+            BattleScreen.OnTurnEnd += GameObjectsOnTurnEnd;
         }
 
         #region Specific Functions for adding card types
@@ -181,7 +181,7 @@ namespace SpaceCardGame
             // Will always need to load and initialise this new card object pair
             CardShipPair cardShipPair = new CardShipPair(shipCardData);
             cardShipPair.LocalPosition = GameMouse.Instance.InGamePosition;         // Do this before we add it to the control because we use the position to place it in the correct spot
-            PlayerShipCardControl.AddChild(cardShipPair, true, true);
+            ShipCardControl.AddChild(cardShipPair, true, true);
 
             cardShipPair.Card.Size = size;
 
@@ -342,15 +342,27 @@ namespace SpaceCardGame
 
                 if (Player != BattleScreen.ActivePlayer ||
                     !cardPair.IsReady ||
-                    cardPair.Ship.Turret.ShotsLeft == 0)
+                    !cardPair.Ship.Turret.CanFire)
                 {
                     cardPair.Ship.Turret.Colour = Color.White;
                 }
-                else if (cardPair.Ship.Turret.ShotsLeft > 0)
+                else
                 {
                     // If it is our turn, we set the turrets with available shots to be highlighted green
                     cardPair.Ship.Turret.Colour = Color.Green;
                 }
+            }
+        }
+
+        /// <summary>
+        /// An event called before our turn ends and the opponent's begins.
+        /// Makes all the cards we placed this turn ready and reloads turrets.
+        /// </summary>
+        private void GameObjectsOnTurnEnd()
+        {
+            foreach (CardShipPair cardPair in Ships)
+            {
+                cardPair.OnTurnEnd();
             }
         }
 

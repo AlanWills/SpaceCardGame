@@ -35,7 +35,7 @@ namespace SpaceCardGame
         {
             base.Begin();
 
-            ContainerToLookThrough = BattleScreen.Board.ActivePlayerBoardSection.PlayerGameBoardSection.PlayerShipCardControl;
+            ContainerToLookThrough = BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection.ShipCardControl;
             SelectingLine.Colour = Color.Green;
         }
 
@@ -81,7 +81,7 @@ namespace SpaceCardGame
                 // The script has ended, but we have not chosen a ship
                 // Therefore we must send the card back to our hand and refund the resources
                 BattleScreen.ActivePlayer.AddCardToHand(CardToChooseTargetFor.Card.CardData);
-                BattleScreen.Board.ActivePlayerBoardSection.PlayerGameBoardSection.RefundCardResources(CardToChooseTargetFor.Card.CardData);
+                BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection.RefundCardResources(CardToChooseTargetFor.Card.CardData);
 
                 CardToChooseTargetFor.Die();
             }

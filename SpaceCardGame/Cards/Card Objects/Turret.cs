@@ -27,12 +27,49 @@ namespace SpaceCardGame
         /// <summary>
         /// The number of shots with this turret we have left
         /// </summary>
-        public int ShotsLeft { get; private set; }
+        private int ShotsLeft { get; set; }
+
+        /// <summary>
+        /// A read only property which returns the conditions necessary for this turret to be able to fire
+        /// </summary>
+        public bool CanFire
+        {
+            get
+            {
+                // Make sure we have shots left and our ship is ready
+                DebugUtils.AssertNotNull(CardShipPair);
+                return ShotsLeft > 0 && CardShipPair.IsReady;
+            }
+        }
 
         /// <summary>
         /// A flag to indicate whether this is a default turret or a custom one
         /// </summary>
         private bool DefaultTurret { get; set; }
+
+        /// <summary>
+        /// A reference to the card ship pair that this turret is equipped to - for convenience purposes.
+        /// </summary>
+        private CardShipPair cardShipPair;
+        private CardShipPair CardShipPair
+        {
+            get
+            {
+                // We perform this rather odd setup, because our weapon card is initially added to a card container rather than a ship whilst we look for ships to lay it on.
+                // Initialise this the first time it is called - it won't be called until it is parented under a ship
+                if (cardShipPair == null)
+                {
+                    // Get the ship this turret is parented under - it should be not null by this point
+                    Debug.Assert(Parent is CardWeaponPair);
+                    Debug.Assert(Parent.Parent is CardShipPair);
+                    cardShipPair = Parent.Parent as CardShipPair;
+                }
+
+                DebugUtils.AssertNotNull(cardShipPair);
+                return cardShipPair;
+            }
+            set { cardShipPair = value; }
+        }
 
         // A string which represents the default turret all ships have 
         private const string defaultTurretDataAsset = "Content\\Data\\Cards\\Weapons\\DefaultTurret.xml";
@@ -91,6 +128,21 @@ namespace SpaceCardGame
             base.LoadContent();
         }
 
+        /// <summary>
+        /// We wish to enforce that only bullets are added as children.
+        /// </summary>
+        /// <typeparam name="K"></typeparam>
+        /// <param name="childToAdd"></param>
+        /// <param name="load"></param>
+        /// <param name="initialise"></param>
+        /// <returns></returns>
+        public override K AddChild<K>(K childToAdd, bool load = false, bool initialise = false)
+        {
+            Debug.Assert(childToAdd is Bullet);
+
+            return base.AddChild(childToAdd, load, initialise);
+        }
+
         #endregion
 
         #region Firing Functions
@@ -101,6 +153,8 @@ namespace SpaceCardGame
         /// <param name="target"></param>
         public void Attack(Ship targetShip)
         {
+            // Shouldn't be firing unless we have shots left
+            Debug.Assert(CanFire);
             DebugUtils.AssertNotNull(BulletData);
             Debug.Assert(targetShip is IDamageable);        // Need to make sure our target is a damageable object
             Debug.Assert(!(targetShip as IDamageable).Dead);
@@ -134,6 +188,12 @@ namespace SpaceCardGame
             {
                 SpawnBullet(target);
             }
+
+            // Need to stop this firing all shots
+            if (targetShip.Turret.CanFire)
+            {
+                targetShip.Turret.Attack(CardShipPair.Ship);
+            }
         }
 
         /// <summary>
@@ -142,6 +202,8 @@ namespace SpaceCardGame
         /// <param name="target"></param>
         private void SpawnBullet(GameObject target)
         {
+            RotateToTarget(target.WorldPosition);
+
             // Add to current screen so that the bullets are drawn over everything
             Bullet bullet = ScreenManager.Instance.CurrentScreen.AddGameObject(new Bullet(target, WorldPosition, BulletData), true, true);
             bullet.LocalRotation = WorldRotation;
@@ -158,6 +220,18 @@ namespace SpaceCardGame
         #endregion
 
         #region Utility Functions
+
+        /// <summary>
+        /// Sets the rotation of the turret to be so that it is pointing at the inputted world space position.
+        /// </summary>
+        /// <param name="worldSpaceTarget"></param>
+        public void RotateToTarget(Vector2 worldSpaceTarget)
+        {
+            float desiredAngle = MathUtils.AngleBetweenPoints(WorldPosition, worldSpaceTarget);
+
+            DebugUtils.AssertNotNull(Parent);
+            LocalRotation = desiredAngle - Parent.WorldRotation;
+        }
 
         /// <summary>
         /// Reloads our turret's shots to the max value

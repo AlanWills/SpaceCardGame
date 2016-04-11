@@ -94,6 +94,15 @@ namespace SpaceCardGame
             SetActiveObject(CardOrObject.kObject);
         }
 
+        /// <summary>
+        /// A function we will call when our turn ends, but before the next player's turn begins.
+        /// Updates the IsReady flag to be true.
+        /// </summary>
+        public virtual void OnTurnEnd()
+        {
+            IsReady = true;
+        }
+
         #endregion
 
         #region Utility Functions

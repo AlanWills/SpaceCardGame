@@ -120,7 +120,7 @@ namespace SpaceCardGame
             base.HandleInput(elapsedGameTime, mousePosition);
 
             DebugUtils.AssertNotNull(Collider);
-            if (Collider.IsClicked && Turret.ShotsLeft > 0 && CardShipPair.IsReady)
+            if (Collider.IsClicked && Turret.CanFire && CardShipPair.IsReady)
             {
                 DebugUtils.AssertNotNull(Parent);
                 Debug.Assert(Parent is CardShipPair);
