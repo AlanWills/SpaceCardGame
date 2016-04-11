@@ -214,13 +214,13 @@ namespace SpaceCardGame
             }
             
             // If we cannot find a ship which is ready, then return false
-            if (BoardSection.PlayerGameBoardSection.PlayerShipCardControl.FindChild<BaseObject>(GetReadyShipPredicate()) == null)
+            if (BoardSection.PlayerGameBoardSection.PlayerShipCardControl.Exists(GetReadyShipPredicate()))
             {
                 return false;
             }
 
             // If we cannot find a ship which has a turret with shots left, then return false
-            if (BoardSection.PlayerGameBoardSection.PlayerShipCardControl.FindChild<BaseObject>(GetReadyShipAndTurretWithShotsPredicate()) == null)
+            if (BoardSection.PlayerGameBoardSection.PlayerShipCardControl.Exists(GetReadyShipAndTurretWithShotsPredicate()))
             {
                 return false;
             }
