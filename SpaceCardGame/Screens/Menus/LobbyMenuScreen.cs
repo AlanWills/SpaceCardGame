@@ -29,7 +29,7 @@ namespace SpaceCardGame
             UIObject parent = null;
 
             Button playGameButton = AddScreenUIObject(new Button("Play", new Vector2(ScreenDimensions.X * 0.5f, ScreenDimensions.Y * 0.40f)));
-            playGameButton.OnLeftClicked += OnPlayGameButtonLeftClicked;
+            playGameButton.ClickableModule.OnLeftClicked += OnPlayGameButtonLeftClicked;
             parent = playGameButton;
 
             // Disable the play button if we have no decks to choose from
@@ -39,11 +39,11 @@ namespace SpaceCardGame
             }
 
             Button deckManagerButton = parent.AddChild(new Button("Decks", new Vector2(0, padding)));
-            deckManagerButton.OnLeftClicked += OnDeckManagerButtonClicked;
+            deckManagerButton.ClickableModule.OnLeftClicked += OnDeckManagerButtonClicked;
             parent = deckManagerButton;
 
             Button openPacksButton = parent.AddChild(new Button("Open Packs", new Vector2(0, padding)));
-            openPacksButton.OnLeftClicked += OnOpenPacksButtonLeftClicked;
+            openPacksButton.ClickableModule.OnLeftClicked += OnOpenPacksButtonLeftClicked;
             parent = openPacksButton;
 
             if (PlayerCardRegistry.Instance.AvailablePacksToOpen <= 0)
@@ -67,8 +67,8 @@ namespace SpaceCardGame
         /// <summary>
         /// The callback to execute when we press the 'Play' button
         /// </summary>
-        /// <param name="clickable"></param>
-        private void OnPlayGameButtonLeftClicked(IClickable clickable)
+        /// <param name="baseObject"></param>
+        private void OnPlayGameButtonLeftClicked(BaseObject baseObject)
         {
             // Have to do this separately so we get the callbacks added to our objects during load
             ChooseDeckBox chooseDeckBox = AddScreenUIObject(new ChooseDeckBox("Choose Deck", ScreenCentre), true, true);
@@ -79,7 +79,7 @@ namespace SpaceCardGame
         /// The callback to execute when we press the 'Decks' button
         /// </summary>
         /// <param name="image"></param>
-        private void OnDeckManagerButtonClicked(IClickable clickable)
+        private void OnDeckManagerButtonClicked(BaseObject baseObject)
         {
             Transition(new GameDeckManagerScreen());
         }
@@ -88,7 +88,7 @@ namespace SpaceCardGame
         /// The callback to execute when we press the 'Open Packs' button
         /// </summary>
         /// <param name=""></param>
-        private void OnOpenPacksButtonLeftClicked(IClickable clickable)
+        private void OnOpenPacksButtonLeftClicked(BaseObject baseObject)
         {
             Transition(new OpenCardPacksScreen());
         }
@@ -97,10 +97,10 @@ namespace SpaceCardGame
         /// The callback to execute when we choose our deck
         /// </summary>
         /// <param name="image"></param>
-        private void ChooseDeckBoxClicked(IClickable clickable)
+        private void ChooseDeckBoxClicked(BaseObject baseObject)
         {
-            Debug.Assert(clickable is ClickableImage);
-            ClickableImage clickableImage = clickable as ClickableImage;
+            Debug.Assert(baseObject is UIObject);
+            UIObject clickableImage = baseObject as UIObject;
 
             DebugUtils.AssertNotNull(clickableImage.StoredObject);
             Debug.Assert(clickableImage.StoredObject is Deck);

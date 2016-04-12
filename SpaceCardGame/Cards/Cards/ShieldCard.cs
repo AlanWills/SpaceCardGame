@@ -22,8 +22,8 @@
         {
             if (pairToValidate is CardShipPair)
             {
-                // If we are targeting a ship, it is valid if it not dead
-                return !(pairToValidate as CardShipPair).Ship.Dead;
+                // If we are targeting a ship, it is valid if it is not dead
+                return !(pairToValidate as CardShipPair).Ship.DamageModule.Dead;
             }
 
             // Otherwise the target is invalid

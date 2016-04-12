@@ -156,24 +156,28 @@ namespace SpaceCardGame
             // Shouldn't be firing unless we have shots left
             Debug.Assert(CanFire);
             DebugUtils.AssertNotNull(BulletData);
-            Debug.Assert(targetShip is IDamageable);        // Need to make sure our target is a damageable object
-            Debug.Assert(!(targetShip as IDamageable).Dead);
-            
+
+            DamageableObjectModule shipDamagebaleModule = targetShip.FindModule<DamageableObjectModule>();       // Need to make sure our target has a damageable module
+            DebugUtils.AssertNotNull(shipDamagebaleModule);
+            Debug.Assert(!shipDamagebaleModule.Dead);
+
             // Initially select our ship as the target
-            GameObject target = targetShip;
+            DamageableObjectModule targetModule = shipDamagebaleModule;
 
             // However, if we have a shield that is still alive, target that
             if (targetShip.Shield != null)
             {
-                Debug.Assert(targetShip.Shield is IDamageable);
-                if (!(targetShip.Shield as IDamageable).Dead)
+                DamageableObjectModule shieldDamageableModule = targetShip.Shield.FindModule<DamageableObjectModule>();
+                DebugUtils.AssertNotNull(shieldDamageableModule);
+
+                if (!shieldDamageableModule.Dead)
                 {
-                    target = targetShip.Shield;
+                    targetModule = shieldDamageableModule;
                 }
             }
 
             // Damage our target
-            (target as IDamageable).Damage(BulletData.Damage);
+            targetModule.Damage(BulletData.Damage);
 
             // Spawn bullet(s) at our target
             if (DefaultTurret)
@@ -181,12 +185,14 @@ namespace SpaceCardGame
                 // Add script to space out bullet firings if we are using a Default turret -  we fire as many bullets as our attack cos why not
                 for (int i = 0; i < BulletData.Damage; i++)
                 {
-                    SpawnBullet(target);
+                    Debug.Assert(targetModule.AttachedBaseObject is BaseObject);
+                    SpawnBullet(targetModule.AttachedBaseObject as GameObject);
                 }
             }
             else
             {
-                SpawnBullet(target);
+                Debug.Assert(targetModule.AttachedBaseObject is BaseObject);
+                SpawnBullet(targetModule.AttachedBaseObject as GameObject);
             }
 
             // Need to stop this firing all shots

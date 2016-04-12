@@ -66,16 +66,16 @@ namespace CardGameEngine
             float padding = 5;
 
             DeckNameButton = AddChild(new Button(Deck.Name, new Vector2(0, -(Size.Y * 0.5f + padding))), true, true);
-            DeckNameButton.OnLeftClicked += DeckNameButton_OnLeftClicked;
+            DeckNameButton.ClickableModule.OnLeftClicked += DeckNameButton_OnLeftClicked;
 
             CreateButton = AddChild(new Button("Create", new Vector2(0, Size.Y * 0.5f + padding)), true, true);
-            CreateButton.OnLeftClicked += CreateButton_OnLeftClicked;
+            CreateButton.ClickableModule.OnLeftClicked += CreateButton_OnLeftClicked;
 
             // The edit button is parented to this so we can access this DeckSlotUI from an event callback
             EditButton = AddChild(new Button("Edit", new Vector2(0, CreateButton.LocalPosition.Y + CreateButton.Size.Y + padding)), true, true);
 
             DeleteButton = EditButton.AddChild(new Button("Delete", new Vector2(0, EditButton.Size.Y + padding)), true, true);
-            DeleteButton.OnLeftClicked += DeleteButton_OnLeftClicked;
+            DeleteButton.ClickableModule.OnLeftClicked += DeleteButton_OnLeftClicked;
 
             UpdateUIStatus();
         }
@@ -87,23 +87,23 @@ namespace CardGameEngine
         /// <summary>
         /// Brings up a dialog box for editing the deck's name
         /// </summary>
-        /// <param name="clickable">The button which fires this event</param>
-        private void DeckNameButton_OnLeftClicked(IClickable clickable)
+        /// <param name="baseObject">The button which fires this event</param>
+        private void DeckNameButton_OnLeftClicked(BaseObject baseObject)
         {
             TextEntryBox deckName = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new TextEntryBox(Deck.Name, "Deck Name", ScreenManager.Instance.ScreenCentre), true, true);
             TextEntryScript deckNameEntryScript = ScriptManager.Instance.AddChild(new TextEntryScript(deckName), true, true);
-            deckName.ConfirmButton.OnLeftClicked += EnterDeckName;
+            deckName.ConfirmButton.ClickableModule.OnLeftClicked += EnterDeckName;
         }
 
         /// <summary>
         /// Creates a deck and updates UI
         /// </summary>
         /// <param name="image"></param>
-        private void CreateButton_OnLeftClicked(IClickable image)
+        private void CreateButton_OnLeftClicked(BaseObject baseObject)
         {
             TextEntryBox deckName = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new TextEntryBox(Deck.Name, "Deck Name", ScreenManager.Instance.ScreenCentre), true, true);
             TextEntryScript deckNameEntryScript = ScriptManager.Instance.AddChild(new TextEntryScript(deckName), true, true);
-            deckName.ConfirmButton.OnLeftClicked += EnterDeckName;
+            deckName.ConfirmButton.ClickableModule.OnLeftClicked += EnterDeckName;
 
             Deck.Create();
 
@@ -113,8 +113,8 @@ namespace CardGameEngine
         /// <summary>
         /// Deletes a deck
         /// </summary>
-        /// <param name="image"></param>
-        private void DeleteButton_OnLeftClicked(IClickable image)
+        /// <param name="baseObject"></param>
+        private void DeleteButton_OnLeftClicked(BaseObject baseObject)
         {
             UpdateUIStatus();
         }
@@ -122,11 +122,11 @@ namespace CardGameEngine
         /// <summary>
         /// Enters the name for the deck.
         /// </summary>
-        /// <param name="image"></param>
-        private void EnterDeckName(IClickable clickable)
+        /// <param name="baseObject"></param>
+        private void EnterDeckName(BaseObject baseObject)
         {
-            Debug.Assert(clickable is Button);
-            Button button = clickable as Button;
+            Debug.Assert(baseObject is Button);
+            Button button = baseObject as Button;
 
             Debug.Assert(button.Parent is TextEntryBox);
 

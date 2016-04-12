@@ -24,7 +24,7 @@ namespace SpaceCardGame
 
             foreach (DeckSlotUI deckSlotUI in deckSlotUIs)
             {
-                deckSlotUI.EditButton.OnLeftClicked += EditButton_OnLeftClicked;
+                deckSlotUI.EditButton.ClickableModule.OnLeftClicked += EditButton_OnLeftClicked;
             }
         }
 
@@ -39,11 +39,11 @@ namespace SpaceCardGame
         /// <summary>
         /// Transitions to a new deck editing screen
         /// </summary>
-        /// <param name="image"></param>
-        private void EditButton_OnLeftClicked(IClickable image)
+        /// <param name="baseObject"></param>
+        private void EditButton_OnLeftClicked(BaseObject baseObject)
         {
-            Debug.Assert(image is Button);
-            Button editButton = (image as Button);
+            Debug.Assert(baseObject is Button);
+            Button editButton = (baseObject as Button);
 
             DebugUtils.AssertNotNull(editButton.Parent);
             Debug.Assert(editButton.Parent is DeckSlotUI);

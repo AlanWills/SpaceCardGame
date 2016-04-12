@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace SpaceCardGame
 {
-    public class Ship : GameObject, IDamageable
+    public class Ship : GameObject
     {
         #region Properties and Fields
 
@@ -19,30 +19,11 @@ namespace SpaceCardGame
         /// A local reference to the parent CardShipPair (for convenience)
         /// </summary>
         private CardShipPair CardShipPair { get; set; }
-
+        
         /// <summary>
-        /// A float to represent the health of this ship
+        /// A reference to our damageable object module - useful for reference to it's health etc.
         /// </summary>
-        private float health;
-        public float Health
-        {
-            get { return health; }
-            private set
-            {
-                health = value;
-                HandleCurrentHealth();
-            }
-        }
-
-        /// <summary>
-        /// A bool to use to indicate that this object is dead, without having to change it's IsAlive property.
-        /// </summary>
-        private bool dead;
-        public bool Dead
-        {
-            get { return dead; }
-            private set { dead = value; }
-        }
+        public DamageableObjectModule DamageModule { get; private set; }
 
         /// <summary>
         /// A reference to the turret for our ship.
@@ -92,7 +73,7 @@ namespace SpaceCardGame
             ShipData = Data as ShipData;
             DebugUtils.AssertNotNull(ShipData);
 
-            Health = ShipData.Defence;
+            DamageModule = AddModule(new DamageableObjectModule(ShipData.Defence));
 
             Engine = AddChild(new Engine(ShipData.Speed, Vector2.Zero));
 
@@ -138,31 +119,6 @@ namespace SpaceCardGame
 
             DebugUtils.AssertNotNull(Parent);
             Parent.Die();
-        }
-
-        #endregion
-
-        #region IDamagable Interface Functions
-
-        /// <summary>
-        /// Damages the ship by reducing it's health by the inputted amount
-        /// </summary>
-        /// <param name="damage"></param>
-        public void Damage(float damage)
-        {
-            Health -= damage;
-        }
-
-        /// <summary>
-        /// Analyses the ship's current health and indicates it's dead
-        /// </summary>
-        public void HandleCurrentHealth()
-        {
-            if (Health <= 0)
-            {
-                DebugUtils.AssertNotNull(Parent);
-                Dead = true;
-            }
         }
 
         #endregion

@@ -182,7 +182,7 @@ namespace SpaceCardGame
                 Die();
             }
 
-            BattleScreen.ProgressTurnButton.ForceClick();
+            BattleScreen.ProgressTurnButton.ClickableModule.ForceClick();
         }
 
         /// <summary>
@@ -243,7 +243,8 @@ namespace SpaceCardGame
         {
             foreach (CardShipPair pair in BattleScreen.Board.NonActivePlayerBoardSection.GameBoardSection.ShipCardControl)
             {
-                if ((pair.CardObject as IDamageable).Health > 0)
+                DebugUtils.AssertNotNull(pair.Ship.DamageModule);
+                if (pair.Ship.DamageModule.Health > 0)
                 {
                     float targetAngle = MathUtils.AngleBetweenPoints(attackingShip.WorldPosition, pair.CardObject.WorldPosition);
                     attackingShip.Turret.LocalRotation = targetAngle - attackingShip.WorldRotation;

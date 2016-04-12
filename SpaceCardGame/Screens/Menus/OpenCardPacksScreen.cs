@@ -44,7 +44,7 @@ namespace SpaceCardGame
             for (int i = 0; i < PlayerCardRegistry.Instance.AvailablePacksToOpen; i++)
             {
                 ClickableImage cardPack = PacksGridControl.AddChild(new ClickableImage(new Vector2(gridHeight * 0.8f), Vector2.Zero, BaseUICard.CardBackTextureAsset));
-                cardPack.OnLeftClicked += OnPackLeftClicked;
+                cardPack.ClickableModule.OnLeftClicked += OnPackLeftClicked;
             }
         }
 
@@ -64,8 +64,8 @@ namespace SpaceCardGame
         /// A click callback when we click on a pack.
         /// Opens the pack and populates our screen with cards
         /// </summary>
-        /// <param name="clickable"></param>
-        private void OnPackLeftClicked(IClickable clickable)
+        /// <param name="baseObject"></param>
+        private void OnPackLeftClicked(BaseObject baseObject)
         {
             // Remove any previous cards from packs we have opened
             foreach (BaseUICard card in CardsFromPack)
@@ -77,8 +77,7 @@ namespace SpaceCardGame
             CardsFromPack.Clear();
 
             // Remove the image in the grid control
-            Debug.Assert(clickable is ClickableImage);
-            (clickable as ClickableImage).Die();
+            baseObject.Die();
 
             // Remove an available pack from our player
             PlayerCardRegistry.Instance.AvailablePacksToOpen--;
@@ -93,7 +92,7 @@ namespace SpaceCardGame
                 // Position the cards incrementally along the screen and halfway between the top of the grid control and the top of the screen
                 Vector2 cardPosition = new Vector2(300 * (i + 1), (PacksGridControl.WorldPosition.Y - PacksGridControl.Size.Y * 0.5f) * 0.5f);
                 BaseUICard card = AddScreenUIObject(new BaseUICard(cardData[i], cardPosition), true, true);
-                card.OnLeftClicked += OnCardLeftClicked;
+                card.ClickableModule.OnLeftClicked += OnCardLeftClicked;
                 card.Flip(CardFlipState.kFaceDown);         // Make sure the card is face down initially, so we have the excitement of turning it over!
                 card.StoredObject = PlayerCardRegistry.Instance.PlayerOwnsCard(cardData[i]);
 
@@ -111,11 +110,11 @@ namespace SpaceCardGame
         /// A click callback when we click on a pack.
         /// Opens the pack and populates our screen with cards.
         /// </summary>
-        /// <param name="clickable"></param>
-        private void OnCardLeftClicked(IClickable clickable)
+        /// <param name="baseObject"></param>
+        private void OnCardLeftClicked(BaseObject baseObject)
         {
-            Debug.Assert(clickable is BaseUICard);
-            BaseUICard card = (clickable as BaseUICard);
+            Debug.Assert(baseObject is BaseUICard);
+            BaseUICard card = (baseObject as BaseUICard);
             card.Flip(CardFlipState.kFaceUp);
 
             // Add some UI if our card is new

@@ -23,7 +23,6 @@ namespace CardGameEngine
         {
             DebugUtils.AssertNotNull(cardData);
             IsPlaced = false;
-            OnLeftClicked += EmptyClickCallback;
         }
 
         #region Virtual Functions
@@ -41,19 +40,6 @@ namespace CardGameEngine
             {
                 DrawingSize = Size;
             }
-        }
-
-        #endregion
-
-        #region Click Callbacks
-
-        /// <summary>
-        /// Just to keep the debugger happy
-        /// </summary>
-        /// <param name="clickable"></param>
-        private void EmptyClickCallback(IClickable clickable)
-        {
-            
         }
 
         #endregion

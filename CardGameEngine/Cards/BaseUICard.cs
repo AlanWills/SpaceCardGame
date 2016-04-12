@@ -1,8 +1,6 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
 using System;
-using System.Diagnostics;
 
 namespace CardGameEngine
 {
@@ -13,6 +11,11 @@ namespace CardGameEngine
     {
         #region Properties and Fields
         
+        /// <summary>
+        /// A reference to the clickable module attached to this UI card.
+        /// </summary>
+        public ClickableObjectModule ClickableModule { get; private set; }
+
         /// <summary>
         /// Used for some effects - our card if the mouse is over will move up the screen slightly
         /// </summary>
@@ -38,6 +41,7 @@ namespace CardGameEngine
             DebugUtils.AssertNotNull(cardData);
 
             OffsetToHighlightedPosition = new Vector2(0, -35);
+            ClickableModule = AddModule(new ClickableObjectModule());       // Add our clickable module
         }
 
         #region Virtual Functions

@@ -17,7 +17,7 @@ namespace CardGameEngine
     /// <summary>
     /// The base class for all cards in our game
     /// </summary>
-    public class BaseCard : ClickableImage
+    public class BaseCard : Image
     {
         #region Properties and Fields
 
@@ -74,6 +74,7 @@ namespace CardGameEngine
             TextureAsset = cardData.TextureAsset;
             FlipState = CardFlipState.kFaceUp;
             EnlargeOnHover = true;
+            UsesCollider = true;        // Explicitly state this because Image does not use a collider
         }
 
         #region Virtual Functions

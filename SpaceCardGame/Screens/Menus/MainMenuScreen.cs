@@ -26,11 +26,11 @@ namespace SpaceCardGame
             BaseObject parent = null;
 
             Button newGameButton = AddScreenUIObject(new Button("New Game", new Vector2(ScreenDimensions.X * 0.5f, ScreenDimensions.Y * 0.35f)));
-            newGameButton.OnLeftClicked += OnNewGameButtonLeftClicked;
+            newGameButton.ClickableModule.OnLeftClicked += OnNewGameButtonLeftClicked;
             parent = newGameButton;
 
             Button continueGameButton = parent.AddChild(new Button("Continue", new Vector2(0, padding)));
-            continueGameButton.OnLeftClicked += OnContinueButtonLeftClicked;
+            continueGameButton.ClickableModule.OnLeftClicked += OnContinueButtonLeftClicked;
             parent = continueGameButton;
 
             // Disable the continue button if we have no saved data file
@@ -40,11 +40,11 @@ namespace SpaceCardGame
             }
 
             Button optionsButton = parent.AddChild(new Button("Options", new Vector2(0, padding)));
-            optionsButton.OnLeftClicked += OnOptionsButtonClicked;
+            optionsButton.ClickableModule.OnLeftClicked += OnOptionsButtonClicked;
             parent = optionsButton;
 
             Button exitGameButton = parent.AddChild(new Button("Exit", new Vector2(0, padding)));
-            exitGameButton.OnLeftClicked += OnExitGameButtonClicked;
+            exitGameButton.ClickableModule.OnLeftClicked += OnExitGameButtonClicked;
             parent = exitGameButton;
         }
 
@@ -55,8 +55,8 @@ namespace SpaceCardGame
         /// <summary>
         /// The callback to execute when we press the 'Play' button
         /// </summary>
-        /// <param name="image">The image that was clicked</param>
-        private void OnNewGameButtonLeftClicked(IClickable image)
+        /// <param name="baseObject">The baseObject that was clicked</param>
+        private void OnNewGameButtonLeftClicked(BaseObject baseObject)
         {
             // Need to load assets before we transition to the next screen
             PlayerCardRegistry.Instance.LoadAssets(PlayerCardRegistry.startingCardRegistryDataAsset);
@@ -66,8 +66,8 @@ namespace SpaceCardGame
         /// <summary>
         /// The callback to execute when we press the 'Continue' button
         /// </summary>
-        /// <param name="image"></param>
-        private void OnContinueButtonLeftClicked(IClickable image)
+        /// <param name="baseObject"></param>
+        private void OnContinueButtonLeftClicked(BaseObject baseObject)
         {
             // Need to load assets before we transition to the next screen
             PlayerCardRegistry.Instance.LoadAssets(PlayerCardRegistry.playerCardRegistryDataAsset);
@@ -77,8 +77,8 @@ namespace SpaceCardGame
         /// <summary>
         /// The callback to execute when we press the 'Options' button
         /// </summary>
-        /// <param name="image">The image that was clicked</param>
-        private void OnOptionsButtonClicked(IClickable image)
+        /// <param name="baseObject">The image that was clicked</param>
+        private void OnOptionsButtonClicked(BaseObject baseObject)
         {
             Transition(new GameOptionsScreen());
         }
@@ -86,8 +86,8 @@ namespace SpaceCardGame
         /// <summary>
         /// The callback to execute when we press the 'Exit' button
         /// </summary>
-        /// <param name="image">Unused</param>
-        private void OnExitGameButtonClicked(IClickable image)
+        /// <param name="baseObject">Unused</param>
+        private void OnExitGameButtonClicked(BaseObject baseObject)
         {
             ScreenManager.Instance.EndGame();
         }

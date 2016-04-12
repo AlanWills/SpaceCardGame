@@ -93,7 +93,7 @@ namespace SpaceCardGame
             base.AddInitialUI();
 
             ProgressTurnButton = AddScreenUIObject(new Button(GetTurnStateButtonText(), Vector2.Zero));
-            ProgressTurnButton.OnLeftClicked += OnProgressTurnButtonLeftClicked;
+            ProgressTurnButton.ClickableModule.OnLeftClicked += OnProgressTurnButtonLeftClicked;
         }
 
         /// <summary>
@@ -131,8 +131,8 @@ namespace SpaceCardGame
         /// <summary>
         /// A callback to progress the current state of the game.
         /// </summary>
-        /// <param name="clickable"></param>
-        private void OnProgressTurnButtonLeftClicked(IClickable clickable)
+        /// <param name="baseObject"></param>
+        private void OnProgressTurnButtonLeftClicked(BaseObject baseObject)
         {
             // Change the state of the turn and call any appropriate functions
             switch (TurnState)

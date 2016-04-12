@@ -98,10 +98,10 @@ namespace CardGameEngine
         /// The function to call when one of our cards is right clicked in the deck list control.
         /// Removes it from the deck and adds it to our player registry list control.
         /// </summary>
-        /// <param name="image">The image we clicked on</param>
-        private void RemoveFromDeck(IClickable clickable)
+        /// <param name="baseObject">The image we clicked on</param>
+        private void RemoveFromDeck(BaseObject baseObject)
         {
-            UIObject image = clickable as UIObject;
+            UIObject image = baseObject as UIObject;
             DebugUtils.AssertNotNull(image);
 
             image.Die();
@@ -120,10 +120,10 @@ namespace CardGameEngine
         /// The function to call when one of our cards is left clicked in the registry card list control.
         /// Removes it from the the player registry list control and adds it to the deck.
         /// </summary>
-        /// <param name="clickable"></param>
-        private void AddToDeck(IClickable clickable)
+        /// <param name="baseObject"></param>
+        private void AddToDeck(BaseObject baseObject)
         {
-            UIObject image = clickable as UIObject;
+            UIObject image = baseObject as UIObject;
             DebugUtils.AssertNotNull(image);
 
             image.Die();

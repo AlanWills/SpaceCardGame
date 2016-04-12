@@ -2,7 +2,6 @@
 using _2DEngineData;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
-using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -62,12 +61,18 @@ namespace SpaceCardGame
                 // Kills the bullet if it has collided with the target
                 Die();
 
+                if (Target is Shield)
+                {
+                    (Target as Shield).FlashingModule.Reset();
+                }
+
                 // Adds an explosion
                 ScreenManager.Instance.CurrentScreen.AddInGameUIObject(new Explosion(WorldPosition), true, true);
 
                 // Kill the target if we marked it as dead during our initial damage step
-                Debug.Assert(Target is IDamageable);
-                if ((Target as IDamageable).Dead)
+                DamageableObjectModule damageModule = Target.FindModule<DamageableObjectModule>();
+                DebugUtils.AssertNotNull(damageModule);
+                if (damageModule.Dead)
                 {
                     Target.Die();
                 }

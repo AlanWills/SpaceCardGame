@@ -14,7 +14,7 @@ namespace CardGameEngine
         #region Properties and Fields
 
         /// <summary>
-        /// A reference to the main UI in this dialog box - 
+        /// A reference to the main UI in this dialog box 
         /// </summary>
         private GridControl DeckGridControl { get; set; }
 
@@ -40,7 +40,8 @@ namespace CardGameEngine
         #region Virtual Functions
 
         /// <summary>
-        /// Fix up the size of this box and the positions of the UI in it
+        /// Adds our clickable object module.
+        /// Fix up the size of this box and the positions of the UI in it.
         /// </summary>
         public override void Initialise()
         {
@@ -64,12 +65,12 @@ namespace CardGameEngine
                 deckUI.StoredObject = deck;
 
                 // A lot of these will be unused but it will avoid bugs down the road if we just do this in case they are used
-                deckUI.OnLeftClicked += OnLeftClicked;
-                deckUI.OnMiddleClicked += OnMiddleClicked;
-                deckUI.OnRightClicked += OnRightClicked;
-                deckUI.LeftClickAccelerator = LeftClickAccelerator;
-                deckUI.MiddleClickAccelerator = MiddleClickAccelerator;
-                deckUI.RightClickAccelerator = RightClickAccelerator;
+                deckUI.ClickableModule.OnLeftClicked += OnLeftClicked;
+                deckUI.ClickableModule.OnMiddleClicked += OnMiddleClicked;
+                deckUI.ClickableModule.OnRightClicked += OnRightClicked;
+                deckUI.ClickableModule.LeftClickAccelerator = LeftClickAccelerator;
+                deckUI.ClickableModule.MiddleClickAccelerator = MiddleClickAccelerator;
+                deckUI.ClickableModule.RightClickAccelerator = RightClickAccelerator;
             }
 
             base.Begin();

@@ -2,14 +2,13 @@
 using _2DEngineData;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
-using System.Diagnostics;
 
 namespace SpaceCardGame
 {
     /// <summary>
     /// Represents a Shield on our ship
     /// </summary>
-    public class Shield : ShipAddOn, IDamageable
+    public class Shield : ShipAddOn
     {
         #region Properties and Fields
 
@@ -19,28 +18,14 @@ namespace SpaceCardGame
         private ShieldData ShieldData { get; set; }
 
         /// <summary>
-        /// A float to represent the health of this ship
+        /// A reference to our damage module - used elsewhere to know our health etc.
         /// </summary>
-        private float health;
-        public float Health
-        {
-            get { return health; }
-            private set
-            {
-                health = value;
-                HandleCurrentHealth();
-            }
-        }
+        public DamageableObjectModule DamageModule { get; private set; }
 
         /// <summary>
-        /// A bool to use to indicate that this object is dead, without having to change it's IsAlive property.
+        /// A reference to our flashing module - used as a cool battle effect
         /// </summary>
-        private bool dead = false;
-        public bool Dead
-        {
-            get { return dead; }
-            set { dead = value; }
-        }
+        public FlashingObjectModule FlashingModule { get; private set; }
 
         #endregion
 
@@ -72,7 +57,8 @@ namespace SpaceCardGame
             ShieldData = Data as ShieldData;
             DebugUtils.AssertNotNull(ShieldData);
 
-            Health = ShieldData.MaxShieldStrength;
+            DamageModule = AddModule(new DamageableObjectModule(ShieldData.MaxShieldStrength));
+            FlashingModule = AddModule(new FlashingObjectModule(0.15f, 1, 1));
 
             base.LoadContent();
         }
@@ -101,31 +87,6 @@ namespace SpaceCardGame
 
         #endregion
 
-        #region IDamageable Interface Implementation
-
-        /// <summary>
-        /// Damages the shield
-        /// </summary>
-        /// <param name="damage"></param>
-        public void Damage(float damage)
-        {
-            Health -= damage;
-        }
-
-        /// <summary>
-        /// If the health of the shield goes to 0 then we kill it and it's parent
-        /// </summary>
-        public void HandleCurrentHealth()
-        {
-            if (Health <= 0)
-            {
-                DebugUtils.AssertNotNull(Parent);
-                Dead = true;
-            }
-        }
-
-        #endregion
-
         #region Utility Functions
 
         /// <summary>
@@ -134,8 +95,11 @@ namespace SpaceCardGame
         /// </summary>
         public void Recharge()
         {
-            Health += ShieldData.ShieldRechargePerTurn;
-            Health = MathHelper.Clamp(Health, 0, ShieldData.MaxShieldStrength);
+            // Works out how much shield strength we can recharge so that our shield does not exceed it's maximum
+            float amountToHeal = MathHelper.Clamp(DamageModule.Health + ShieldData.ShieldRechargePerTurn, 0, ShieldData.MaxShieldStrength);
+
+            // Heal the shield by damaging a negative amount
+            DamageModule.Damage(-ShieldData.ShieldRechargePerTurn);
         }
 
         #endregion

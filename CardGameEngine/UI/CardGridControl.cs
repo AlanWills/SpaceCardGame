@@ -1,5 +1,4 @@
 ﻿using _2DEngine;
-using CardGameEngineData;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -140,27 +139,27 @@ namespace CardGameEngine
             image.StoredObject = cardData;
 
             // These are probably not going to be used, but set them up anyway
-            image.LeftClickAccelerator = LeftClickAccelerator;
-            image.MiddleClickAccelerator = MiddleClickAccelerator;
-            image.RightClickAccelerator = RightClickAccelerator;
+            image.ClickableModule.LeftClickAccelerator = LeftClickAccelerator;
+            image.ClickableModule.MiddleClickAccelerator = MiddleClickAccelerator;
+            image.ClickableModule.RightClickAccelerator = RightClickAccelerator;
 
             // Add the click callbacks if they exist
             if (OnLeftClicked != null)
             {
-                image.OnLeftClicked += OnLeftClicked;
-                image.OnLeftClicked += Rebuild_Callback;
+                image.ClickableModule.OnLeftClicked += OnLeftClicked;
+                image.ClickableModule.OnLeftClicked += Rebuild_Callback;
             }
 
             if (OnMiddleClicked != null)
             {
-                image.OnMiddleClicked += OnMiddleClicked;
-                image.OnMiddleClicked += Rebuild_Callback;
+                image.ClickableModule.OnMiddleClicked += OnMiddleClicked;
+                image.ClickableModule.OnMiddleClicked += Rebuild_Callback;
             }
 
             if (OnRightClicked != null)
             {
-                image.OnRightClicked += OnRightClicked;
-                image.OnRightClicked += Rebuild_Callback;
+                image.ClickableModule.OnRightClicked += OnRightClicked;
+                image.ClickableModule.OnRightClicked += Rebuild_Callback;
             }
 
             // If we have already been marked as needing rebuild, we should do it already, otherwise only do it if indicated
@@ -175,7 +174,7 @@ namespace CardGameEngine
         /// A callback we will always add if we add a click image
         /// </summary>
         /// <param name="clickable"></param>
-        private void Rebuild_Callback(IClickable clickable)
+        private void Rebuild_Callback(BaseObject baseObject)
         {
             NeedsRebuild = true;
         }
