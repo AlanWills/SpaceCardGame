@@ -109,8 +109,17 @@ namespace SpaceCardGame
         private void RunPlaceCardScript(IClickable clickable)
         {
             Debug.Assert(clickable is BaseUICard);
+            BaseUICard card = clickable as BaseUICard;
 
-            ScriptManager.Instance.AddChild(new PlaceCardScript(clickable as BaseUICard), true, true);
+            string error = "";
+            if (card.CardData.CanLay(Player, ref error))
+            {
+                ScriptManager.Instance.AddChild(new PlaceCardScript(card), true, true);
+            }
+            else
+            {
+                ScriptManager.Instance.AddChild(new FlashingTextScript(error, ScreenManager.Instance.ScreenCentre, Color.White, 2), true, true);
+            }
         }
 
         /// <summary>

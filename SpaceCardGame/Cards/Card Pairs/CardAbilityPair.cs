@@ -1,6 +1,4 @@
-﻿using System;
-using _2DEngine;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -26,15 +24,25 @@ namespace SpaceCardGame
         public CardAbilityPair(AbilityCardData abilityCardData) :
             base(abilityCardData)
         {
+            Ability = AddChild(new Ability(abilityCardData.ObjectDataAsset));
+            CardObject = Ability;
 
+            Debug.Assert(Card is AbilityCard);
+            AbilityCard = Card as AbilityCard;
         }
 
         #region Virtual Functions
 
+        /// <summary>
+        /// Adds an ability to our ship
+        /// </summary>
+        /// <param name="cardShipPair"></param>
         public override void AddToCardShipPair(CardShipPair cardShipPair)
         {
-            Debug.Fail("TODO");
+            Debug.Fail("Empty");
         }
+
+        // Other virtual functions we do not currently need to implement
 
         #endregion
     }

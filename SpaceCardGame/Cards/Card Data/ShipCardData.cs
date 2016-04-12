@@ -1,5 +1,4 @@
-﻿using System;
-using CardGameEngine;
+﻿using CardGameEngine;
 using System.Diagnostics;
 
 namespace SpaceCardGame

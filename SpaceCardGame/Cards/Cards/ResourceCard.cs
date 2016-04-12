@@ -1,5 +1,4 @@
-﻿using SpaceCardGameData;
-using System;
+﻿using System;
 using System.Diagnostics;
 
 namespace SpaceCardGame
@@ -16,6 +15,9 @@ namespace SpaceCardGame
         kNumResourceTypes
     }
 
+    /// <summary>
+    /// A class used to represent a resource in our game.
+    /// </summary>
     public class ResourceCard : GameCard
     {
         /// <summary>

@@ -91,15 +91,15 @@ namespace SpaceCardGame
             CardObjectPair pair = null;
             if (cardData is AbilityCardData)
             {
-
-            }
-            else if (cardData is ShieldCardData)
-            {
-                pair = AddDefenceCard(cardData as ShieldCardData, size);
+                pair = AddAbilityCard(cardData as AbilityCardData, size);
             }
             else if (cardData is ResourceCardData)
             {
                 pair = AddResourceCard(cardData as ResourceCardData, size);
+            }
+            else if (cardData is ShieldCardData)
+            {
+                pair = AddShieldCard(cardData as ShieldCardData, size);
             }
             else if (cardData is ShipCardData)
             {
@@ -124,6 +124,23 @@ namespace SpaceCardGame
             {
                 AfterCardPlaced(pair.Card);
             }
+        }
+
+        /// <summary>
+        /// A function which will be called when we want to add an ability card to the game.
+        /// </summary>
+        /// <param name="abilityCardData"></param>
+        /// <param name="size"></param>
+        /// <returns></returns>
+        private CardAbilityPair AddAbilityCard(AbilityCardData abilityCardData, Vector2 size)
+        {
+            CardAbilityPair cardAbilityPair = AddChild(new CardAbilityPair(abilityCardData), true, true);
+            cardAbilityPair.LocalPosition = GameMouse.Instance.InGamePosition - WorldPosition;     // Put the cardAbilityPair where we placed the thumbnail on the board
+            cardAbilityPair.Card.Size = size;
+
+            // Run the place card script
+
+            return cardAbilityPair;
         }
 
         /// <summary>
@@ -196,10 +213,10 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// Adds a script to choose a ship to add the defence card to.
+        /// Adds a script to choose a ship to add the shield card to.
         /// </summary>
         /// <param name="defenceCard"></param>
-        private CardShieldPair AddDefenceCard(ShieldCardData shieldCardData, Vector2 size)
+        private CardShieldPair AddShieldCard(ShieldCardData shieldCardData, Vector2 size)
         {
             CardShieldPair cardShieldPair = AddChild(new CardShieldPair(shieldCardData), true, true);
             cardShieldPair.LocalPosition = GameMouse.Instance.InGamePosition - WorldPosition;     // Put the cardShieldPair where we placed the thumbnail on the board

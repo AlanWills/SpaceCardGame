@@ -1,5 +1,8 @@
 ﻿namespace SpaceCardGame
 {
+    /// <summary>
+    /// A class used to represent a shield in our game.
+    /// </summary>
     public class ShieldCard : GameCard
     {
         public ShieldCard(ShieldCardData defenceCardData) :

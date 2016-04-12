@@ -65,18 +65,11 @@ namespace SpaceCardGame
 
             if (GameMouse.Instance.IsClicked(MouseButton.kLeftButton))
             {
+                // Make sure we are selecting a valid target if we need one
                 if (CheckValidTarget())
                 {
-                    string error = "";
-                    if (CardData.CanLay(BattleScreen.ActivePlayer, ref error))
-                    {
-                        AddCardToGame();
-                    }
-                    else
-                    {
-                        SendCardBackToHand();
-                        ScriptManager.Instance.AddChild(new FlashingTextScript(error, ScreenManager.Instance.ScreenCentre, Color.White, 2), true, true);
-                    }
+                    // Add the card to the game if we have selected a valid target for the card
+                    AddCardToGame();
                 }
             }
             else if (GameMouse.Instance.IsClicked(MouseButton.kRightButton))

@@ -1,9 +1,8 @@
-﻿using System;
-using SpaceCardGameData;
-using System.Diagnostics;
-
-namespace SpaceCardGame
+﻿namespace SpaceCardGame
 {
+    /// <summary>
+    /// A class used to represent a shield in our game.
+    /// </summary>
     public class ShipCard : GameCard
     {
         public ShipCard(ShipCardData shipCardData) :

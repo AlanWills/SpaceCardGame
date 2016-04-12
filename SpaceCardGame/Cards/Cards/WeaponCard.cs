@@ -1,5 +1,8 @@
 ﻿namespace SpaceCardGame
 {
+    /// <summary>
+    /// A class used to represent a weapon in our game.
+    /// </summary>
     public class WeaponCard : GameCard
     {
         public WeaponCard(WeaponCardData weaponCardData) :
