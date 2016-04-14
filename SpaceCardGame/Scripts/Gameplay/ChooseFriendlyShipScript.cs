@@ -36,7 +36,7 @@ namespace SpaceCardGame
             base.Begin();
 
             ContainerToLookThrough = BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection.ShipCardControl;
-            SelectingLine.Colour = Color.Green;
+            SelectingLine.Colour.Value = Color.Green;
         }
 
         /// <summary>

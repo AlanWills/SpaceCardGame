@@ -79,7 +79,7 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(ShipData);
 
             DamageModule = AddModule(new DamageableObjectModule(ShipData.Defence));
-            HighlightModule = AddModule(new HighlightOnHoverModule(Color.White, Color.LightGray, BlendMode.kBinary));
+            HighlightModule = AddModule(new HighlightOnHoverModule(Color.White, Color.LightGreen, BlendMode.kBinary));
 
             Engine = AddChild(new Engine(ShipData.Speed, Vector2.Zero));
 

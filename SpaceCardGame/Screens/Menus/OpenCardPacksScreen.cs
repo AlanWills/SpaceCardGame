@@ -122,7 +122,7 @@ namespace SpaceCardGame
             if (!(bool)card.StoredObject)
             {
                 Image newCardIndicator = card.AddChild(new Image(new Vector2(card.Size.X, -card.Size.Y) * 0.5f, "Sprites\\UI\\NewCardIndicator"), true, true);
-                newCardIndicator.Colour = Color.Yellow;
+                newCardIndicator.Colour.Value = Color.Yellow;
             }
 
             if (CheckAllCardsFlippedFaceUp())

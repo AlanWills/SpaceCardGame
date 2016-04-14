@@ -356,18 +356,6 @@ namespace SpaceCardGame
             foreach (CardShipPair cardPair in Ships)
             {
                 cardPair.MakeReadyForBattle();
-
-                if (Player != BattleScreen.ActivePlayer ||
-                    !cardPair.IsReady ||
-                    !cardPair.Ship.Turret.CanFire)
-                {
-                    cardPair.Ship.Turret.Colour = Color.White;
-                }
-                else
-                {
-                    // If it is our turn, we set the turrets with available shots to be highlighted green
-                    cardPair.Ship.Turret.Colour = Color.Green;
-                }
             }
         }
 

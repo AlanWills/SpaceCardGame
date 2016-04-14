@@ -112,18 +112,15 @@ namespace SpaceCardGame
             // If we're created a default turret we need to set the bullet damage to be our ship's damage which we get via the hierarchy
             if (DefaultTurret)
             {
-                DebugUtils.AssertNotNull(Parent);
-                DebugUtils.AssertNotNull(Parent.Parent);
-                Debug.Assert(Parent.Parent is CardShipPair);
-                CardShipPair shipPair = Parent.Parent as CardShipPair;
-                
-                DebugUtils.AssertNotNull(shipPair.Ship);
-
-                BulletData.Damage = shipPair.Ship.ShipData.Attack;
+                BulletData.Damage = CardShipPair.Ship.ShipData.Attack;
                 TurretData.ShotsPerTurn = (int)BulletData.Damage;      // We fire as many shots with our default turret as our attack
             }
 
             ShotsLeft = TurretData.ShotsPerTurn;
+
+            // Connect the turret's colour to the ship - this is for highlighting purposes
+            Colour.Connect(CardShipPair.Ship.Colour);
+            Colour.ComputeFunction += ColourComputeFunction;        // Our special compute function for our turret colour
 
             base.LoadContent();
         }
@@ -219,7 +216,7 @@ namespace SpaceCardGame
             if (ShotsLeft == 0)
             {
                 // If we are out of shots then we reset the colour to be white
-                Colour = Color.White;
+                Colour.Value = Color.White;
             }
         }
 
@@ -245,6 +242,27 @@ namespace SpaceCardGame
         public void Reload()
         {
             ShotsLeft = TurretData.ShotsPerTurn;
+        }
+
+        #endregion
+
+        #region Property Compute Functions
+
+        /// <summary>
+        /// Our compute function we will use to work out the colour of the turret.
+        /// Return white if we have no shots left or our parent ship is not ready
+        /// </summary>
+        /// <param name="parentProperty"></param>
+        private Color ColourComputeFunction(Color parentColour)
+        {
+            if (CanFire)
+            {
+                return Color.LightGreen;
+            }
+            else
+            {
+                return parentColour;
+            }
         }
 
         #endregion
