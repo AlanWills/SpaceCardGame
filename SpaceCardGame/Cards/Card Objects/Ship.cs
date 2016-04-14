@@ -26,6 +26,11 @@ namespace SpaceCardGame
         public DamageableObjectModule DamageModule { get; private set; }
 
         /// <summary>
+        /// A reference to our highlight module - used as fancy animation
+        /// </summary>
+        private HighlightOnHoverModule HighlightModule { get; set; }
+
+        /// <summary>
         /// A reference to the turret for our ship.
         /// We will create a default turret from the ship data and then can override it by adding a turret card to the ship
         /// </summary>
@@ -74,6 +79,7 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(ShipData);
 
             DamageModule = AddModule(new DamageableObjectModule(ShipData.Defence));
+            HighlightModule = AddModule(new HighlightOnHoverModule(Color.White, Color.LightGray, BlendMode.kBinary));
 
             Engine = AddChild(new Engine(ShipData.Speed, Vector2.Zero));
 

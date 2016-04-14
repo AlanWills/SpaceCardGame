@@ -14,7 +14,7 @@ namespace SpaceCardGame
     /// Specific to one type of card - others will not be able to be laid.
     /// Also allows us to restrict the maximum number of elements we can add.
     /// </summary>
-    public class GameCardControl : GameObject, IEnumerable<BaseObject>
+    public class GameCardControl : GameObject
     {
         private enum Space
         {
@@ -173,24 +173,6 @@ namespace SpaceCardGame
 
             Debug.Fail("No empty slot could be found");
             return -1;
-        }
-
-        /// <summary>
-        /// Implement Enumerator
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerator<BaseObject> GetEnumerator()
-        {
-            return Children.GetEnumerator();
-        }
-
-        /// <summary>
-        /// Implement Enumerator
-        /// </summary>
-        /// <returns></returns>
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return Children.GetEnumerator();
         }
 
         #endregion

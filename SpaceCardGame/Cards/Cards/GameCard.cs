@@ -1,4 +1,6 @@
-﻿using CardGameEngine;
+﻿using _2DEngine;
+using CardGameEngine;
+using Microsoft.Xna.Framework;
 
 namespace SpaceCardGame
 {
@@ -7,10 +9,19 @@ namespace SpaceCardGame
     /// </summary>
     public abstract class GameCard : BaseGameCard
     {
+        #region Properties and Fields
+
+        /// <summary>
+        /// A highlight module we will use to highlight the card
+        /// </summary>
+        protected HighlightOnHoverModule HighlightModule { get; private set; }
+
+        #endregion
+
         public GameCard(CardData cardData) :
             base(cardData)
         {
-
+            HighlightModule = AddModule(new HighlightOnHoverModule(Color.White, Color.LightGreen, BlendMode.kBinary));
         }
 
         #region Virtual Functions
