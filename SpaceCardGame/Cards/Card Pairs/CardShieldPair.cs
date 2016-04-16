@@ -46,7 +46,6 @@ namespace SpaceCardGame
 
             // Change the size and position of the card so it appears to the top right of the ship card
             ShieldCard.Size = cardShipPair.Card.Size / 3;
-            ShieldCard.EnlargeOnHover = false;
             LocalPosition = new Vector2((cardShipPair.Card.Size.X + ShieldCard.Size.X) * 0.5f, (ShieldCard.Size.Y - cardShipPair.Card.Size.Y) * 0.5f);
 
             // Set up the reference to this shield on the inputted ship

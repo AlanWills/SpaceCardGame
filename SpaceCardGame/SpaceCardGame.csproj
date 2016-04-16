@@ -76,6 +76,7 @@
     <Compile Include="Cards\Card Pairs\CardWeaponPair.cs" />
     <Compile Include="Game Objects\GameCardControl.cs" />
     <Compile Include="Board\GameBoardSection.cs" />
+    <Compile Include="Modules\HoverCardInfoModule.cs" />
     <Compile Include="Players\GamePlayer.cs" />
     <Compile Include="Screens\Menus\OpenCardPacksScreen.cs" />
     <Compile Include="Scripts\Gameplay\AITurnScript.cs" />

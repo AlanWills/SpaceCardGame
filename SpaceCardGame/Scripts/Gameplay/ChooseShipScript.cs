@@ -47,7 +47,6 @@ namespace SpaceCardGame
             base()
         {
             CardToChooseTargetFor = cardObjectPair;
-            cardObjectPair.Card.EnlargeOnHover = false;
         }
 
         #region Virtual Functions
@@ -128,7 +127,6 @@ namespace SpaceCardGame
             base.Die();
 
             SelectingLine.Die();
-            CardToChooseTargetFor.Card.EnlargeOnHover = true;
         }
 
         #endregion

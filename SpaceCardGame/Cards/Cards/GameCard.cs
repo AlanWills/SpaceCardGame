@@ -10,7 +10,7 @@ namespace SpaceCardGame
         public GameCard(CardData cardData) :
             base(cardData)
         {
-            
+            AddModule(new HoverCardInfoModule(this));
         }
 
         #region Virtual Functions

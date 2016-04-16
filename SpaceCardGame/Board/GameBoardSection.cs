@@ -146,7 +146,6 @@ namespace SpaceCardGame
             int cardCount = ResourceCards[typeIndex].Count;
 
             resource.ResourceCard.Size = size * 0.7f;
-            resource.Card.EnlargeOnHover = false;       // Do not want to enlarge the resource cards
             resource.ResourceCard.OnFlip += OnResourceCardFlip;
 
             if (cardCount == 0)

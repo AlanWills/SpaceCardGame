@@ -24,24 +24,5 @@ namespace CardGameEngine
             DebugUtils.AssertNotNull(cardData);
             IsPlaced = false;
         }
-
-        #region Virtual Functions
-
-        /// <summary>
-        /// If the card is not placed, undo the hover enlarge animation
-        /// </summary>
-        /// <param name="elapsedGameTime"></param>
-        /// <param name="mousePosition"></param>
-        public override void HandleInput(float elapsedGameTime, Vector2 mousePosition)
-        {
-            base.HandleInput(elapsedGameTime, mousePosition);
-
-            if (!IsPlaced)
-            {
-                DrawingSize = Size;
-            }
-        }
-
-        #endregion
     }
 }

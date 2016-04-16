@@ -1,6 +1,8 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Diagnostics;
 
 namespace CardGameEngine
 {
@@ -15,6 +17,18 @@ namespace CardGameEngine
         /// A reference to the clickable module attached to this UI card.
         /// </summary>
         public ClickableObjectModule ClickableModule { get; private set; }
+
+        /// <summary>
+        /// A flag to indicate whether we wish the card to increase in size whilst our mouse is over it.
+        /// True by default
+        /// </summary>
+        public bool EnlargeOnHover { get; set; }
+
+        /// <summary>
+        /// A reference to our size we will use to alter the size of this card if hovered over.
+        /// This size really drives the size of the card
+        /// </summary>
+        private Vector2 DrawingSize { get; set; }
 
         /// <summary>
         /// Used for some effects - our card if the mouse is over will move up the screen slightly
@@ -40,6 +54,7 @@ namespace CardGameEngine
         {
             DebugUtils.AssertNotNull(cardData);
 
+            EnlargeOnHover = true;
             OffsetToHighlightedPosition = new Vector2(0, -35);
             ClickableModule = AddModule(new ClickableObjectModule());       // Add our clickable module
         }
@@ -53,6 +68,9 @@ namespace CardGameEngine
         public override void Begin()
         {
             base.Begin();
+
+            Debug.Assert(Size != Vector2.Zero);
+            DrawingSize = Size;
 
             UpdatePositions(LocalPosition);
 
@@ -83,6 +101,17 @@ namespace CardGameEngine
                     // We are close enough to be at the end position
                     LocalPosition = HighlightedPosition;
                 }
+
+                if (EnlargeOnHover && FlipState == CardFlipState.kFaceUp)
+                {
+                    // If our card is face up and the mouse has no attached children (like other cards we want to place), increase the size
+                    DrawingSize = Size * 2;
+                }
+                else
+                {
+                    // If the mouse is not over the card, it's size should go back to normal
+                    DrawingSize = Size;
+                }
             }
             else
             {
@@ -97,6 +126,9 @@ namespace CardGameEngine
                     // We are close enough to be at the initial position
                     LocalPosition = RestingPosition;
                 }
+
+                // If the mouse is not over the card, it's size should go back to normal
+                DrawingSize = Size;
             }
         }
 
@@ -109,6 +141,22 @@ namespace CardGameEngine
         {
             position = WorldPosition;
             size = new Vector2(DrawingSize.X, DrawingSize.Y + Math.Abs(RestingPosition.Y - LocalPosition.Y));   // Not perfect, but better.  Over estimates the top
+        }
+
+        /// <summary>
+        /// Either draw our normal card if we are face up, or the back of the card if we are face down
+        /// </summary>
+        /// <param name="spriteBatch"></param>
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            // Store the size of the card, but set the Size property to the DrawingSize for drawing ONLY
+            Vector2 currentSize = Size;
+            Size = DrawingSize;
+
+            base.Draw(spriteBatch);
+
+            // Set the Size back to it's original value
+            Size = currentSize;
         }
 
         #endregion

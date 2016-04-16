@@ -67,8 +67,6 @@ namespace SpaceCardGame
         {
             base.Die();
 
-            CardToChooseTargetFor.Card.EnlargeOnHover = true;
-
             if (ShipChosen)
             {
                 // We have clicked on the target we were hovering over so we are good to go
