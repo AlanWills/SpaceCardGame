@@ -94,8 +94,8 @@
     <Compile Include="Screens\Menus\GameOptionsScreen.cs" />
     <Compile Include="Screens\Menus\LobbyMenuScreen.cs" />
     <Compile Include="Screens\Menus\MainMenuScreen.cs" />
-    <Compile Include="UI\EngineBlaze.cs" />
-    <Compile Include="UI\Explosion.cs" />
+    <Compile Include="Game Objects\Animations\EngineBlaze.cs" />
+    <Compile Include="Game Objects\Animations\Explosion.cs" />
     <Compile Include="UI\HandUI.cs" />
     <Compile Include="Board\UIBoardSection.cs" />
     <Compile Include="UI\ProgressTurnButton.cs" />
@@ -137,7 +137,13 @@
     <Content Include="Content\Data\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretObject.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Data\GameObjects\EngineBlaze.xml">
+    <Content Include="Content\Data\GameObjects\Animations\EngineBlaze.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\GameObjects\Animations\Smoke.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Effects\Smoke45Frames.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretBullet.png">
@@ -256,7 +262,7 @@
     <Content Include="Content\Data\Cards\Ships\BlazeInterceptor\BlazeInterceptorObject.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Data\GameObjects\Explosion.xml">
+    <Content Include="Content\Data\GameObjects\Animations\Explosion.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Player\PlayerCardRegistryData.xml">
@@ -479,6 +485,7 @@
     <None Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretObject.xnb" />
     <None Include="Content\Sprites\Effects\EngineTrail2.xnb" />
     <None Include="Content\Sprites\Effects\Explosion.xnb" />
+    <None Include="Content\Sprites\Effects\Smoke45Frames.xnb" />
     <None Include="Content\Sprites\GameObjects\Shields\PhaseEnergyShield.xnb" />
     <None Include="Content\Sprites\UI\AttackLine.xnb" />
     <None Include="Content\Sprites\UI\NewCardIndicator.xnb" />
