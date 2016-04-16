@@ -51,7 +51,7 @@ namespace CardGameEngine
         /// <summary>
         /// A highlight module we will use to highlight the card
         /// </summary>
-        protected HighlightOnHoverModule HighlightModule { get; private set; }
+        public HighlightOnHoverModule HighlightModule { get; private set; }
 
         /// <summary>
         /// A reference to our size we will use to alter the size of this card if hovered over.
@@ -81,7 +81,7 @@ namespace CardGameEngine
             EnlargeOnHover = true;
             UsesCollider = true;        // Explicitly state this because Image does not use a collider
 
-            HighlightModule = AddModule(new HighlightOnHoverModule(Color.White, Color.LightBlue, BlendMode.kBinary));
+            HighlightModule = AddModule(new HighlightOnHoverModule(Color.White, Color.Aqua, BlendMode.kBinary));
         }
 
         #region Virtual Functions

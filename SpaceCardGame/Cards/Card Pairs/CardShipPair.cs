@@ -1,4 +1,5 @@
 ﻿using _2DEngine;
+using Microsoft.Xna.Framework;
 using System.Diagnostics;
 
 namespace SpaceCardGame
@@ -30,6 +31,16 @@ namespace SpaceCardGame
 
             Debug.Assert(Card is ShipCard);
             ShipCard = Card as ShipCard;
+
+            // Connect our highlighting for our card to it's readyness status - therefore we'll only get highlighting when ready
+            DebugUtils.AssertNotNull(ShipCard.HighlightModule);
+            DebugUtils.AssertNotNull(Ship.HighlightModule);
+            ShipCard.HighlightModule.ShouldUpdate.Connect(IsReady);
+            Ship.HighlightModule.ShouldUpdate.Connect(IsReady);
+
+            // Initially when not ready our card and ship will be red tinted
+            ShipCard.Colour.Value = new Color(1, 0.5f, 0.5f);
+            Ship.Colour.Value = new Color(1, 0.5f, 0.5f);
 
             AddDefaultWeapon();
         }

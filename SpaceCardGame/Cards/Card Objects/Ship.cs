@@ -28,7 +28,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to our highlight module - used as fancy animation
         /// </summary>
-        private HighlightOnHoverModule HighlightModule { get; set; }
+        public HighlightOnHoverModule HighlightModule { get; private set; }
 
         /// <summary>
         /// A reference to the turret for our ship.
@@ -54,7 +54,8 @@ namespace SpaceCardGame
         public Ship(string shipDataAsset) :
             base(Vector2.Zero, shipDataAsset)
         {
-            
+            HighlightModule = AddModule(new HighlightOnHoverModule(Color.White, Color.LightGreen, BlendMode.kBinary));
+            HighlightModule.ShouldUpdate.Value = false;
         }
 
         #region Virtual Functions
@@ -79,7 +80,6 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(ShipData);
 
             DamageModule = AddModule(new DamageableObjectModule(ShipData.Defence));
-            HighlightModule = AddModule(new HighlightOnHoverModule(Color.White, Color.LightGreen, BlendMode.kBinary));
 
             Engine = AddChild(new Engine(ShipData.Speed, Vector2.Zero));
 

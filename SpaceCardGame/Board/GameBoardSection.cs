@@ -20,12 +20,6 @@ namespace SpaceCardGame
         private List<CardResourcePair>[] ResourceCards { get; set; }
 
         /// <summary>
-        /// A list of references to the ship cards that have been added.
-        /// We will change the active object when we change turn phase.
-        /// </summary>
-        private List<CardShipPair> Ships { get; set; }
-
-        /// <summary>
         /// A container to group our ships together and automatically space them.
         /// </summary>
         public GameCardControl ShipCardControl { get; private set; }
@@ -60,17 +54,9 @@ namespace SpaceCardGame
 
             ShipCardControl = AddChild(new GameCardControl(typeof(ShipCardData), new Vector2(Size.X * 0.8f, Size.Y * 0.5f), GamePlayer.MaxShipNumber, 1, new Vector2(0, - Size.Y * 0.25f), "Sprites\\Backgrounds\\TileableNebula"));
 
-            Ships = new List<CardShipPair>();
-
             // Set up events
             AfterCardPlaced += UseResourcesToLayCard;
             Player.OnNewTurn += FlipResourceCardsFaceUp;
-
-            Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
-            BattleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
-            BattleScreen.OnCardPlacementStateStarted += SetUpGameObjectsForCardPlacement;
-            BattleScreen.OnBattleStateStarted += SetUpGameObjectsForBattle;
-            BattleScreen.OnTurnEnd += GameObjectsOnTurnEnd;
         }
 
         #region Specific Functions for adding card types
@@ -207,8 +193,6 @@ namespace SpaceCardGame
 
             Player.CurrentShipsPlaced++;
 
-            Ships.Add(cardShipPair);
-
             return cardShipPair;
         }
 
@@ -331,43 +315,6 @@ namespace SpaceCardGame
             else
             {
                 Player.AvailableResources[(int)resourceCard.ResourceType]++;
-            }
-        }
-
-        /// <summary>
-        /// An event called when we begin card placement.
-        /// Sets all the card object pairs to be showing their cards.
-        /// </summary>
-        private void SetUpGameObjectsForCardPlacement()
-        {
-            // Show all the cards
-            foreach (CardShipPair cardPair in Ships)
-            {
-                cardPair.MakeReadyForCardPlacement();
-            }
-        }
-
-        /// <summary>
-        /// An event called when we begin battle.
-        /// Sets all the card object pairs to be showing their card objects.
-        /// </summary>
-        private void SetUpGameObjectsForBattle()
-        {
-            foreach (CardShipPair cardPair in Ships)
-            {
-                cardPair.MakeReadyForBattle();
-            }
-        }
-
-        /// <summary>
-        /// An event called before our turn ends and the opponent's begins.
-        /// Makes all the cards we placed this turn ready and reloads turrets.
-        /// </summary>
-        private void GameObjectsOnTurnEnd()
-        {
-            foreach (CardShipPair cardPair in Ships)
-            {
-                cardPair.OnTurnEnd();
             }
         }
 

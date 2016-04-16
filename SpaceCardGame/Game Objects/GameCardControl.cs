@@ -2,8 +2,6 @@
 using CardGameEngine;
 using Microsoft.Xna.Framework;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace SpaceCardGame
@@ -77,6 +75,22 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
+        /// Set up some event call backs from the main screen
+        /// </summary>
+        public override void Initialise()
+        {
+            CheckShouldInitialise();
+
+            Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
+            BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
+            battleScreen.OnCardPlacementStateStarted += SetUpGameObjectsForCardPlacement;
+            battleScreen.OnBattleStateStarted += SetUpGameObjectsForBattle;
+            battleScreen.OnTurnEnd += GameObjectsOnTurnEnd;
+
+            base.Initialise();
+        }
+
+        /// <summary>
         /// Shifts cards if we are looking to lay one of the type represented by this control.
         /// </summary>
         /// <param name="elapsedGameTime"></param>
@@ -148,6 +162,46 @@ namespace SpaceCardGame
             StoredCards[pairIndex] = gameObjectToAdd;
 
             return base.AddChild(gameObjectToAdd, load, initialise);
+        }
+
+        #endregion
+
+        #region Event Callbacks
+
+        /// <summary>
+        /// An event called when we begin card placement.
+        /// Sets all the card object pairs to be showing their cards.
+        /// </summary>
+        private void SetUpGameObjectsForCardPlacement()
+        {
+            foreach (CardObjectPair cardPair in GetChildrenOfType<CardObjectPair>())
+            {
+                cardPair.MakeReadyForCardPlacement();
+            }
+        }
+
+        /// <summary>
+        /// An event called when we begin battle.
+        /// Sets all the card object pairs to be showing their card objects.
+        /// </summary>
+        private void SetUpGameObjectsForBattle()
+        {
+            foreach (CardObjectPair cardPair in GetChildrenOfType<CardObjectPair>())
+            {
+                cardPair.MakeReadyForBattle();
+            }
+        }
+
+        /// <summary>
+        /// An event called before our turn ends and the opponent's begins.
+        /// Makes all the cards we placed this turn ready.
+        /// </summary>
+        private void GameObjectsOnTurnEnd()
+        {
+            foreach (CardObjectPair cardPair in GetChildrenOfType<CardObjectPair>())
+            {
+                cardPair.OnTurnEnd();
+            }
         }
 
         #endregion

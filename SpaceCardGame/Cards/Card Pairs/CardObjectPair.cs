@@ -34,9 +34,9 @@ namespace SpaceCardGame
 
         /// <summary>
         /// Some cards need to wait one turn before they can be interacted with (i.e. ships need to wait a turn before they can attack).
-        /// This bool indicates whether this condition has been satisfied.
+        /// This bool property indicates whether this condition has been satisfied.
         /// </summary>
-        public bool IsReady { get; private set; }
+        public Property<bool> IsReady { get; private set; }
 
         #endregion
 
@@ -45,6 +45,8 @@ namespace SpaceCardGame
         {
             Card = AddChild(CardFactory.CreateCard(cardData));
             UsesCollider = false;
+
+            IsReady = new Property<bool>(false);
         }
 
         #region Virtual Functions
@@ -81,7 +83,7 @@ namespace SpaceCardGame
             SetActiveObject(CardOrObject.kCard);
 
             // Cards will be placed after this function is called, meaning that when this function is called on this instance, it will have been a turn since it was laid.
-            IsReady = true;
+            IsReady.Value = true;
         }
 
         /// <summary>
@@ -100,7 +102,7 @@ namespace SpaceCardGame
         /// </summary>
         public virtual void OnTurnEnd()
         {
-            IsReady = true;
+            IsReady.Value = true;
         }
 
         #endregion

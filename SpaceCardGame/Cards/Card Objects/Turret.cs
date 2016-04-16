@@ -118,11 +118,19 @@ namespace SpaceCardGame
 
             ShotsLeft = TurretData.ShotsPerTurn;
 
+            base.LoadContent();
+        }
+
+        /// <summary>
+        /// Connect up the colour here, because by this point we know that the reference to our card ship pair will have been set up
+        /// </summary>
+        public override void Begin()
+        {
+            base.Begin();
+
             // Connect the turret's colour to the ship - this is for highlighting purposes
             Colour.Connect(CardShipPair.Ship.Colour);
             Colour.ComputeFunction += ColourComputeFunction;        // Our special compute function for our turret colour
-
-            base.LoadContent();
         }
 
         /// <summary>
@@ -212,12 +220,6 @@ namespace SpaceCardGame
             bullet.LocalRotation = WorldRotation;
 
             ShotsLeft--;
-
-            if (ShotsLeft == 0)
-            {
-                // If we are out of shots then we reset the colour to be white
-                Colour.Value = Color.White;
-            }
         }
 
         #endregion
