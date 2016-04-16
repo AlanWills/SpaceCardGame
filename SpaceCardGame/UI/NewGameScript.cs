@@ -7,7 +7,7 @@ namespace SpaceCardGame
     /// This script just draws out the player's beign given their initial hands a bit so we can see some cool animations.
     /// WHen completed, it begins a new turn.
     /// </summary>
-    public class NewGameScript : Script
+    public class NewGameScript : Command
     {
         #region Properties and Fields
 

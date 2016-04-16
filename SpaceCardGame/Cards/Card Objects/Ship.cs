@@ -111,7 +111,7 @@ namespace SpaceCardGame
             {
                 DebugUtils.AssertNotNull(Parent);
                 Debug.Assert(Parent is CardShipPair);
-                ScriptManager.Instance.AddChild(new AttackOpponentShipScript(Parent as CardShipPair), true, true);
+                CommandManager.Instance.AddChild(new AttackOpponentShipCommand(Parent as CardShipPair), true, true);
             }
         }
 

@@ -205,7 +205,7 @@ namespace SpaceCardGame
             cardShieldPair.LocalPosition = GameMouse.Instance.InGamePosition - WorldPosition;     // Put the cardShieldPair where we placed the thumbnail on the board
             cardShieldPair.Card.Size = size;
 
-            ScriptManager.Instance.AddChild(new ChooseFriendlyShipScript(cardShieldPair), true, true);
+            CommandManager.Instance.AddChild(new ChooseFriendlyShipCommand(cardShieldPair), true, true);
 
             return cardShieldPair;
         }
@@ -222,7 +222,7 @@ namespace SpaceCardGame
             cardWeaponPair.LocalPosition = GameMouse.Instance.InGamePosition - WorldPosition;     // Put the cardWeaponPair where we placed the thumbnail on the board
             cardWeaponPair.Card.Size = size;
 
-            ScriptManager.Instance.AddChild(new ChooseFriendlyShipScript(cardWeaponPair), true, true);
+            CommandManager.Instance.AddChild(new ChooseFriendlyShipCommand(cardWeaponPair), true, true);
 
             return cardWeaponPair;
         }

@@ -6,19 +6,19 @@ using System.Diagnostics;
 namespace SpaceCardGame
 {
     /// <summary>
-    /// A script which runs decision algorithms for an AI player
+    /// A command which runs decision algorithms for an AI player
     /// </summary>
-    public class AITurnScript : Script
+    public class AITurnCommand : Command
     {
         #region Properties and Fields
 
         /// <summary>
-        /// A reference to the AI player we will be controlling in this script
+        /// A reference to the AI player we will be controlling in this command
         /// </summary>
         private GamePlayer AIPlayer { get; set; }
-        
+
         /// <summary>
-        /// A reference to the board section we will be controlling in this script
+        /// A reference to the board section we will be controlling in this command
         /// </summary>
         private PlayerBoardSection BoardSection { get; set; }
 
@@ -34,7 +34,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public AITurnScript(GamePlayer player, PlayerBoardSection playerBoardSection) :
+        public AITurnCommand(GamePlayer player, PlayerBoardSection playerBoardSection) :
             base()
         {
             AIPlayer = player;

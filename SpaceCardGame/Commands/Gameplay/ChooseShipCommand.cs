@@ -11,7 +11,7 @@ namespace SpaceCardGame
     /// Marked as abstract because we need to specifically implement this for either friendly or enemy ships,
     /// by setting the ShipPairsToLookThrough.
     /// </summary>
-    public abstract class ChooseShipScript : Script
+    public abstract class ChooseShipCommand : Command
     {
         #region Properties and Fields
 
@@ -43,7 +43,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public ChooseShipScript(CardObjectPair cardObjectPair) :
+        public ChooseShipCommand(CardObjectPair cardObjectPair) :
             base()
         {
             CardToChooseTargetFor = cardObjectPair;

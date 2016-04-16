@@ -79,12 +79,12 @@
     <Compile Include="Modules\HoverCardInfoModule.cs" />
     <Compile Include="Players\GamePlayer.cs" />
     <Compile Include="Screens\Menus\OpenCardPacksScreen.cs" />
-    <Compile Include="Scripts\Gameplay\AITurnScript.cs" />
-    <Compile Include="Scripts\Gameplay\AttackOpponentShipScript.cs" />
-    <Compile Include="Scripts\Gameplay\ChooseFriendlyShipScript.cs" />
-    <Compile Include="Scripts\Gameplay\ChooseShipScript.cs" />
+    <Compile Include="Commands\Gameplay\AITurnCommand.cs" />
+    <Compile Include="Commands\Gameplay\AttackOpponentShipCommand.cs" />
+    <Compile Include="Commands\Gameplay\ChooseFriendlyShipCommand.cs" />
+    <Compile Include="Commands\Gameplay\ChooseShipCommand.cs" />
     <Compile Include="UI\NewGameScript.cs" />
-    <Compile Include="Scripts\Gameplay\PlaceCardScript.cs" />
+    <Compile Include="Commands\Gameplay\PlaceCardCommand.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

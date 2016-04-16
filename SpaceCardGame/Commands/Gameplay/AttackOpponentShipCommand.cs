@@ -4,12 +4,12 @@ using Microsoft.Xna.Framework;
 namespace SpaceCardGame
 {
     /// <summary>
-    /// A script that is triggerd when we click on one of the ships during the battle phase.
+    /// A command that is triggerd when we click on one of the ships during the battle phase.
     /// Adds appropriate UI and constantly checks for selection of opponent ships.
     /// Then handles the firing of the ship's turret.
-    /// This script can be cancelled by right clicking anywhere, or left clicking on empty space.
+    /// This command can be cancelled by right clicking anywhere, or left clicking on empty space.
     /// </summary>
-    public class AttackOpponentShipScript : ChooseShipScript
+    public class AttackOpponentShipCommand : ChooseShipCommand
     {
         #region Properties and Fields
 
@@ -20,7 +20,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public AttackOpponentShipScript(CardShipPair attackingShipPair) :
+        public AttackOpponentShipCommand(CardShipPair attackingShipPair) :
             base(attackingShipPair)
         {
             AttackingShipPair = attackingShipPair;

@@ -26,6 +26,7 @@ namespace SpaceCardGame
         public HoverCardInfoModule(GameCard card) :
             base()
         {
+            DebugUtils.AssertNotNull(card);
             AttachedCard = card;
         }
 
@@ -44,7 +45,7 @@ namespace SpaceCardGame
         {
             CheckShouldLoad();
 
-            InfoImage = new Image(ScreenManager.Instance.ScreenCentre, AttachedCard.CardData.TextureAsset);
+            InfoImage = new Image(AttachedCard.Size * 2, ScreenManager.Instance.ScreenCentre, AttachedCard.CardData.TextureAsset);
             InfoImage.LoadContent();
 
             base.LoadContent();

@@ -6,9 +6,9 @@ using System.Diagnostics;
 namespace SpaceCardGame
 {
     /// <summary>
-    /// A script which handles placing a card onto the game board.
+    /// A command which handles placing a card onto the game board.
     /// </summary>
-    public class PlaceCardScript : Script
+    public class PlaceCardCommand : Command
     {
         #region Properties and Fields
 
@@ -29,7 +29,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public PlaceCardScript(BaseUICard cardThumbnail) :
+        public PlaceCardCommand(BaseUICard cardThumbnail) :
             base()
         {
             DebugUtils.AssertNotNull(cardThumbnail.CardData);
@@ -84,7 +84,7 @@ namespace SpaceCardGame
 
         /// <summary>
         /// Adds the inputted card data to the game screen and removes any UI we have that we no longer need of.
-        /// Also kills the script.
+        /// Also kills the command.
         /// </summary>
         private void AddCardToGame()
         {
@@ -96,7 +96,7 @@ namespace SpaceCardGame
 
         /// <summary>
         /// Cancels the placement and sends the card back to the player's hand.
-        /// Deals with any UI and kills the script.
+        /// Deals with any UI and kills the command.
         /// </summary>
         private void SendCardBackToHand()
         {
@@ -107,7 +107,7 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// A function used on a card type basis to deterine whether we have a valid set up to place the card
+        /// A function used on a card type basis to deterine whether we have a valid set up to place the command
         /// </summary>
         /// <returns></returns>
         private bool CheckValidTarget()

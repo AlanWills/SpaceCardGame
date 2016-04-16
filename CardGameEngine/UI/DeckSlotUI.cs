@@ -91,7 +91,7 @@ namespace CardGameEngine
         private void DeckNameButton_OnLeftClicked(BaseObject baseObject)
         {
             TextEntryBox deckName = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new TextEntryBox(Deck.Name, "Deck Name", ScreenManager.Instance.ScreenCentre), true, true);
-            TextEntryScript deckNameEntryScript = ScriptManager.Instance.AddChild(new TextEntryScript(deckName), true, true);
+            TextEntryCommand deckNameEntryScript = CommandManager.Instance.AddChild(new TextEntryCommand(deckName), true, true);
             deckName.ConfirmButton.ClickableModule.OnLeftClicked += EnterDeckName;
         }
 
@@ -102,7 +102,7 @@ namespace CardGameEngine
         private void CreateButton_OnLeftClicked(BaseObject baseObject)
         {
             TextEntryBox deckName = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new TextEntryBox(Deck.Name, "Deck Name", ScreenManager.Instance.ScreenCentre), true, true);
-            TextEntryScript deckNameEntryScript = ScriptManager.Instance.AddChild(new TextEntryScript(deckName), true, true);
+            TextEntryCommand deckNameEntryScript = CommandManager.Instance.AddChild(new TextEntryCommand(deckName), true, true);
             deckName.ConfirmButton.ClickableModule.OnLeftClicked += EnterDeckName;
 
             Deck.Create();

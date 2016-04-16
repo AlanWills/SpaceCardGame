@@ -121,7 +121,7 @@ namespace SpaceCardGame
             // Set the current active player to be the opponent, so that when we call NewPlayerTurn at the end of the script, we begin the game for the player
             ActivePlayer = Opponent;
             TurnState = TurnState.kBattle;
-            ScriptManager.Instance.AddChild(new NewGameScript(), true, true);
+            CommandManager.Instance.AddChild(new NewGameScript(), true, true);
         }
 
         #endregion
@@ -216,7 +216,7 @@ namespace SpaceCardGame
                 ActivePlayer = Opponent;
                 NonActivePlayer = Player;
 
-                ScriptManager.Instance.AddChild(new AITurnScript(ActivePlayer, Board.ActivePlayerBoardSection), true, true);
+                CommandManager.Instance.AddChild(new AITurnCommand(ActivePlayer, Board.ActivePlayerBoardSection), true, true);
             }
             else
             {

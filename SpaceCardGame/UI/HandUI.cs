@@ -114,11 +114,11 @@ namespace SpaceCardGame
             string error = "";
             if (card.CardData.CanLay(Player, ref error))
             {
-                ScriptManager.Instance.AddChild(new PlaceCardScript(card), true, true);
+                CommandManager.Instance.AddChild(new PlaceCardCommand(card), true, true);
             }
             else
             {
-                ScriptManager.Instance.AddChild(new FlashingTextScript(error, ScreenManager.Instance.ScreenCentre, Color.White, 2), true, true);
+                CommandManager.Instance.AddChild(new FlashingTextCommand(error, ScreenManager.Instance.ScreenCentre, Color.White, 2), true, true);
             }
         }
 

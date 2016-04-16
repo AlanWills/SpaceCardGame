@@ -1,26 +1,25 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
-using System.Diagnostics;
 
 namespace SpaceCardGame
 {
     /// <summary>
-    /// A script which takes in a card and waits for player input to choose a valid target for that card from the friendly ships.
+    /// A command which takes in a card and waits for player input to choose a valid target for that card from the friendly ships.
     /// Adds UI to indicate valid/invalid targets and current proposed target.
     /// Really a wrapper around the card's own IsValidTarget function.
     /// </summary>
-    public class ChooseFriendlyShipScript : ChooseShipScript
+    public class ChooseFriendlyShipCommand : ChooseShipCommand
     {
         #region Properties and Fields
 
         /// <summary>
-        /// A flag to indicate whether we have selected a ship when this script dies
+        /// A flag to indicate whether we have selected a ship when this command dies
         /// </summary>
         private bool ShipChosen { get; set; }
 
         #endregion
 
-        public ChooseFriendlyShipScript(CardObjectPair cardObjectPair) :
+        public ChooseFriendlyShipCommand(CardObjectPair cardObjectPair) :
             base(cardObjectPair)
         {
             
@@ -76,7 +75,7 @@ namespace SpaceCardGame
             }
             else
             {
-                // The script has ended, but we have not chosen a ship
+                // The command has ended, but we have not chosen a ship
                 // Therefore we must send the card back to our hand and refund the resources
                 BattleScreen.ActivePlayer.AddCardToHand(CardToChooseTargetFor.Card.CardData);
                 BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection.RefundCardResources(CardToChooseTargetFor.Card.CardData);
