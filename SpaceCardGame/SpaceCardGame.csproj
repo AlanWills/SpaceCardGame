@@ -83,12 +83,12 @@
     <Compile Include="Commands\Gameplay\AttackOpponentShipCommand.cs" />
     <Compile Include="Commands\Gameplay\ChooseFriendlyShipCommand.cs" />
     <Compile Include="Commands\Gameplay\ChooseShipCommand.cs" />
-    <Compile Include="UI\NewGameScript.cs" />
+    <Compile Include="Commands\Gameplay\NewGameCommand.cs" />
     <Compile Include="Commands\Gameplay\PlaceCardCommand.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Screens\Menus\BattleScreen.cs" />
+    <Compile Include="Screens\Gameplay\BattleScreen.cs" />
     <Compile Include="Screens\Menus\GameDeckEditingScreen.cs" />
     <Compile Include="Screens\Menus\GameDeckManagerScreen.cs" />
     <Compile Include="Screens\Menus\GameOptionsScreen.cs" />
@@ -98,6 +98,7 @@
     <Compile Include="UI\Explosion.cs" />
     <Compile Include="UI\HandUI.cs" />
     <Compile Include="Board\UIBoardSection.cs" />
+    <Compile Include="UI\ProgressTurnButton.cs" />
     <Compile Include="UI\TargetingLine.cs" />
   </ItemGroup>
   <ItemGroup>

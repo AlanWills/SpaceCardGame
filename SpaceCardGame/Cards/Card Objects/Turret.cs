@@ -9,6 +9,7 @@ namespace SpaceCardGame
     /// <summary>
     /// A class which represents a weapon on our ship.
     /// Handles firing bullets and damaging ships.
+    /// It's children can ONLY be bullets
     /// </summary>
     public class Turret : ShipAddOn
     {

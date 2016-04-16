@@ -48,7 +48,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A button which will progress to the next turn state
         /// </summary>
-        public Button ProgressTurnButton { get; private set; }
+        public ProgressTurnButton ProgressTurnButton { get; private set; }
 
         /// <summary>
         /// Events for when the state of the turn changes, called right at the end of state change after player has been updated etc.
@@ -92,8 +92,9 @@ namespace SpaceCardGame
         {
             base.AddInitialUI();
 
-            ProgressTurnButton = AddScreenUIObject(new Button(GetTurnStateButtonText(), Vector2.Zero));
+            ProgressTurnButton = AddScreenUIObject(new ProgressTurnButton(Vector2.Zero));
             ProgressTurnButton.ClickableModule.OnLeftClicked += OnProgressTurnButtonLeftClicked;
+            ProgressTurnButton.Hide();
         }
 
         /// <summary>
@@ -121,7 +122,7 @@ namespace SpaceCardGame
             // Set the current active player to be the opponent, so that when we call NewPlayerTurn at the end of the script, we begin the game for the player
             ActivePlayer = Opponent;
             TurnState = TurnState.kBattle;
-            CommandManager.Instance.AddChild(new NewGameScript(), true, true);
+            CommandManager.Instance.AddChild(new NewGameCommand(), true, true);
         }
 
         #endregion
@@ -177,34 +178,11 @@ namespace SpaceCardGame
                         break;
                     }
             }
-
-            // Update the button text
-            ProgressTurnButton.Label.Text = GetTurnStateButtonText();
         }
 
         #endregion
 
         #region Utility Functions
-
-        /// <summary>
-        /// Gets the appropriate text for the turn state button based on the current turn state
-        /// </summary>
-        /// <returns></returns>
-        private string GetTurnStateButtonText()
-        {
-            switch (TurnState)
-            {
-                case TurnState.kPlaceCards:
-                    return "Start Battle";
-
-                case TurnState.kBattle:
-                    return "End Turn";
-
-                default:
-                    Debug.Fail("");
-                    return "";
-            }
-        }
 
         /// <summary>
         /// Updates the current active player and triggers all the events for a new turn.

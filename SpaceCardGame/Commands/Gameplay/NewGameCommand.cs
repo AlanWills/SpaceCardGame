@@ -4,10 +4,10 @@ using System.Diagnostics;
 namespace SpaceCardGame
 {
     /// <summary>
-    /// This script just draws out the player's beign given their initial hands a bit so we can see some cool animations.
+    /// This command just draws out the player's beign given their initial hands a bit so we can see some cool animations.
     /// WHen completed, it begins a new turn.
     /// </summary>
-    public class NewGameScript : Command
+    public class NewGameCommand : Command
     {
         #region Properties and Fields
 
@@ -21,7 +21,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public NewGameScript() :
+        public NewGameCommand() :
             base()
         {
             Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
@@ -72,6 +72,7 @@ namespace SpaceCardGame
 
             BattleScreen.ShouldHandleInput.Value = true;
             BattleScreen.ProgressTurnButton.ClickableModule.ForceClick();
+            BattleScreen.ProgressTurnButton.Show();
         }
 
         #endregion

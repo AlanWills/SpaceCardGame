@@ -29,8 +29,10 @@ namespace SpaceCardGame
 
         private float timeBetweenCardLays = 1;
         private float timeBetweenAttacks = 1;
+        private float timeUntilTurnEnd = 2.5f;
         private float currentTimeBetweenCardLays = 0;
         private float currentTimeBetweenAttacks = 0;
+        private float currentTimeUntilTurnEnd = 0;
 
         #endregion
 
@@ -53,7 +55,7 @@ namespace SpaceCardGame
             Debug.Assert(ParentScreen is BattleScreen);
             BattleScreen = ParentScreen as BattleScreen;
 
-            BattleScreen.ProgressTurnButton.Hide();
+            BattleScreen.ProgressTurnButton.Disable();
         }
 
         /// <summary>
@@ -149,8 +151,12 @@ namespace SpaceCardGame
             }
             else
             {
-                // Change state
-                ChangeState();
+                currentTimeUntilTurnEnd += elapsedGameTime;
+                if (currentTimeUntilTurnEnd > timeUntilTurnEnd)
+                {
+                    // Change state after a certain amount of time has passed
+                    ChangeState();
+                }
             }
         }
 
@@ -175,11 +181,13 @@ namespace SpaceCardGame
         {
             currentTimeBetweenCardLays = 0;
             currentTimeBetweenAttacks = 0;
+            currentTimeUntilTurnEnd = 0;
 
             // If we are currently in a battle state and about to change to the next player's turn then we should kill this script
             if (BattleScreen.TurnState == TurnState.kBattle)
             {
                 Die();
+                BattleScreen.ProgressTurnButton.Enable();
             }
 
             BattleScreen.ProgressTurnButton.ClickableModule.ForceClick();
