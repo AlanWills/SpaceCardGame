@@ -1,5 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<BulletData>
-  <TextureAsset>Sprites\Cards\Weapons\DefaultBullet</TextureAsset>
-  <Damage>0</Damage>
-</BulletData>
+﻿<XnaContent>
+  <Asset Type="SpaceCardGameData.BulletData">
+    <TextureAsset>Sprites\Cards\Weapons\DefaultBullet</TextureAsset>
+    <Damage>0</Damage>
+  </Asset>
+</XnaContent>

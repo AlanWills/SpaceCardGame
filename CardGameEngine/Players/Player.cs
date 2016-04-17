@@ -73,7 +73,10 @@ namespace CardGameEngine
             // Draw a card - in the draw method we will add it to our hand if we can
             if (CardsLeftInDeck > 0)
             {
-                DrawCard();
+                for (int i = 0; i < 2; i++)
+                {
+                    DrawCard();
+                }
             }
         }
 

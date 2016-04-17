@@ -1,5 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<BulletData>
-  <TextureAsset>Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretBullet</TextureAsset>
-  <Damage>1</Damage>
-</BulletData>
+﻿<XnaContent>
+  <Asset Type="SpaceCardGameData.BulletData">
+    <TextureAsset>Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretBullet</TextureAsset>
+    <Damage>1</Damage>
+  </Asset>
+</XnaContent>

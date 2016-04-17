@@ -30,3 +30,11 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\CardGameEngine
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\CardGameEngine\obj\x86\Debug\CardGameEngine.csprojResolveAssemblyReference.cache
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\CardGameEngine\obj\x86\Debug\CardGameEngine.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\CardGameEngine\obj\x86\Debug\CardGameEngine.pdb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\CardGameEngine\bin\Windows\Debug\Microsoft.Xna.Framework.Content.Pipeline.dll
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\CardGameEngine\bin\Windows\Debug\Microsoft.Xna.Framework.dll
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\CardGameEngine\bin\Windows\Debug\Microsoft.Xna.Framework.Graphics.dll
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\CardGameEngine\bin\Windows\Debug\Microsoft.Xna.Framework.Video.dll
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\CardGameEngine\bin\Windows\Debug\Microsoft.Xna.Framework.Content.Pipeline.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\CardGameEngine\bin\Windows\Debug\Microsoft.Xna.Framework.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\CardGameEngine\bin\Windows\Debug\Microsoft.Xna.Framework.Graphics.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\CardGameEngine\bin\Windows\Debug\Microsoft.Xna.Framework.Video.xml

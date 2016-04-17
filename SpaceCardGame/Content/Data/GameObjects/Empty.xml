@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<GameObjectData>
-  <TextureAsset>Sprites\UI\EmptyPanelBackground</TextureAsset>
-</GameObjectData>
+﻿<XnaContent>
+  <Asset Type="_2DEngineData.GameObjectData">
+    <TextureAsset>Sprites\UI\EmptyPanelBackground</TextureAsset>
+  </Asset>
+</XnaContent>

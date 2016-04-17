@@ -1,13 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ShipData>
-  <TextureAsset>Sprites\Cards\Ships\VenatorCruiser\VenatorCruiserObject</TextureAsset>
-  <Attack>4</Attack>
-  <Defence>3</Defence>
-  <Speed>3</Speed>
-  <DamageHardpoints>
-    <Hardpoint>
-      <X>10</X>
-      <Y>10</Y>
-    </Hardpoint>
-  </DamageHardpoints>
-</ShipData>
+﻿<XnaContent>
+  <Asset Type="SpaceCardGameData.ShipData">
+    <TextureAsset>Sprites\Cards\Ships\VenatorCruiser\VenatorCruiserObject</TextureAsset>
+    <Attack>4</Attack>
+    <Defence>3</Defence>
+    <Speed>3</Speed>
+    <DamageHardpoints>
+      <Hardpoint>
+        <X>10</X>
+        <Y>10</Y>
+      </Hardpoint>
+    </DamageHardpoints>
+  </Asset>
+</XnaContent>

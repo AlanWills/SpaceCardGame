@@ -1,15 +1,16 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ResourceCardData>
-  <TextureAsset>Sprites\Cards\Resources\ElectronicsResource\ElectronicsResourceCard</TextureAsset>
-  <ObjectDataAsset></ObjectDataAsset>
-  <Type>Resource</Type>
-  <DisplayName>Electronics</DisplayName>
-  <Rarity>Common</Rarity>
-  <ResourceType>Electronics</ResourceType>
+﻿<XnaContent>
+  <Asset Type="SpaceCardGame.ResourceCardData">
+    <TextureAsset>Sprites\Cards\Resources\ElectronicsResource\ElectronicsResourceCard</TextureAsset>
+    <ObjectDataAsset></ObjectDataAsset>
+    <Type>Resource</Type>
+    <DisplayName>Electronics</DisplayName>
+    <Rarity>Common</Rarity>
+    <ResourceType>Electronics</ResourceType>
     <ResourceCosts>
-    <Resource>0</Resource>
-    <Resource>0</Resource>
-    <Resource>0</Resource>
-    <Resource>0</Resource>
-  </ResourceCosts>
-</ResourceCardData>
+      <Item>0</Item>
+      <Item>0</Item>
+      <Item>0</Item>
+      <Item>0</Item>
+    </ResourceCosts>
+  </Asset>
+</XnaContent>

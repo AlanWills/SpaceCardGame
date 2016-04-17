@@ -1,5 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<BaseScreenData>
-  <BackgroundTextureAsset></BackgroundTextureAsset>
-  <Music></Music>
-</BaseScreenData>
+﻿<XnaContent>
+  <Asset Type="_2DEngineData.BaseScreenData">
+    <BackgroundTextureAsset></BackgroundTextureAsset>
+    <Music></Music>
+  </Asset>
+</XnaContent>

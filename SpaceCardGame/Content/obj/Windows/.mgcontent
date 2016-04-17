@@ -32,7 +32,6 @@
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Ships/VenatorCruiser/VenatorCruiserCard.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Abilities/MissileBarrageAbility/MissileBarrageAbilityCard.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Weapons/Beam/LaserBeamTurret/LaserBeamTurretCard.png</File>
-    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretCard.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretCard.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Backgrounds/TileableNebula.jpg</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Weapons/DefaultBullet.png</File>
@@ -48,12 +47,9 @@
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Music/Menu/SoftBeat.mp3</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Music/Gameplay/AngularMomentum.mp3</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Shields/PhaseEnergyShield/PhaseEnergyShieldCard.png</File>
-    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/GameObjects/Shields/PhaseEnergyShield.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Weapons/Beam/LaserBeamTurret/LaserBeamTurretObject.png</File>
-    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretObject.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretObject.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Weapons/Beam/LaserBeamTurret/LaserBeamTurretBullet.png</File>
-    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretBullet.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretBullet.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Effects/Animation/EngineTrail2.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Effects/Animation/Explosion.png</File>
@@ -64,5 +60,8 @@
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Effects/Damage/DamageCracks1.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Effects/Damage/DamageHoles0.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Effects/Damage/DamageHoles1.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretBullet.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretCard.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretObject.png</File>
   </SourceFiles>
 </SourceFileCollection>

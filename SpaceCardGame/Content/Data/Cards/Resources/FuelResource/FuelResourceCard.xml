@@ -1,15 +1,16 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ResourceCardData>
-  <TextureAsset>Sprites\Cards\Resources\FuelResource\FuelResourceCard</TextureAsset>
-  <ObjectDataAsset></ObjectDataAsset>
-  <Type>Resource</Type>
-  <DisplayName>Fuel</DisplayName>
-  <Rarity>Common</Rarity>
-  <ResourceType>Fuel</ResourceType>
-  <ResourceCosts>
-    <Resource>0</Resource>
-    <Resource>0</Resource>
-    <Resource>0</Resource>
-    <Resource>0</Resource>
-  </ResourceCosts>
-</ResourceCardData>
+﻿<XnaContent>
+  <Asset Type="SpaceCardGame.ResourceCardData">
+    <TextureAsset>Sprites\Cards\Resources\FuelResource\FuelResourceCard</TextureAsset>
+    <ObjectDataAsset></ObjectDataAsset>
+    <Type>Resource</Type>
+    <DisplayName>Fuel</DisplayName>
+    <Rarity>Common</Rarity>
+    <ResourceType>Fuel</ResourceType>
+    <ResourceCosts>
+      <Item>0</Item>
+      <Item>0</Item>
+      <Item>0</Item>
+      <Item>0</Item>
+    </ResourceCosts>
+  </Asset>
+</XnaContent>

@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<EngineData>
-  <TextureAsset>Sprites\UI\EmptyPanelBackground</TextureAsset>
-</EngineData>
+﻿<XnaContent>
+  <Asset Type="SpaceCardGameData.EngineData">
+    <TextureAsset>Sprites\UI\EmptyPanelBackground</TextureAsset>
+  </Asset>
+</XnaContent>

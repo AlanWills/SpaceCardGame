@@ -1,6 +1,5 @@
 ﻿using _2DEngineData;
 using System.Collections.Generic;
-using System.Xml.Serialization;
 
 namespace CardGameEngine
 {
@@ -35,7 +34,6 @@ namespace CardGameEngine
         /// <summary>
         /// A list of the resources required to lay this card
         /// </summary>
-        [XmlArrayItem(ElementName = "Resource")]
         public List<int> ResourceCosts { get; set; }
 
         #endregion

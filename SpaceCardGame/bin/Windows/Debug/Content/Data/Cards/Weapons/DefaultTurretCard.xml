@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<WeaponCardData>
-  <TextureAsset>Sprites\UI\EmptyPanelBackground</TextureAsset>
-  <ObjectDataAsset>Content\Data\Cards\Weapons\DefaultTurret.xml</ObjectDataAsset>
-  <Type>Weapon</Type>
-  <DisplayName></DisplayName>
-  <Rarity>Common</Rarity>
-  <ResourceCosts>
-    <Resource>0</Resource>
-    <Resource>0</Resource>
-    <Resource>0</Resource>
-    <Resource>0</Resource>
-  </ResourceCosts>
-</WeaponCardData>
+﻿<XnaContent>
+  <Asset Type="SpaceCardGame.WeaponCardData">
+    <TextureAsset>Sprites\UI\EmptyPanelBackground</TextureAsset>
+    <ObjectDataAsset>Content\Data\Cards\Weapons\DefaultTurret.xml</ObjectDataAsset>
+    <Type>Weapon</Type>
+    <DisplayName></DisplayName>
+    <Rarity>Common</Rarity>
+    <ResourceCosts>
+      <Item>0</Item>
+      <Item>0</Item>
+      <Item>0</Item>
+      <Item>0</Item>
+    </ResourceCosts>
+  </Asset>
+</XnaContent>

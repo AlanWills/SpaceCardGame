@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<AbilityCardData>
-  <TextureAsset>Sprites\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbilityCard</TextureAsset>
-  <ObjectDataAsset></ObjectDataAsset>
-  <Type>Ability</Type>
-  <DisplayName>Missile Barrage</DisplayName>
-  <Rarity>Common</Rarity>
-  <ResourceCosts>
-    <Resource>0</Resource>
-    <Resource>0</Resource>
-    <Resource>0</Resource>
-    <Resource>0</Resource>
-  </ResourceCosts>
-</AbilityCardData>
+﻿<XnaContent>
+  <Asset Type="SpaceCardGame.AbilityCardData">
+    <TextureAsset>Sprites\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbilityCard</TextureAsset>
+    <ObjectDataAsset></ObjectDataAsset>
+    <Type>Ability</Type>
+    <DisplayName>Missile Barrage</DisplayName>
+    <Rarity>Common</Rarity>
+    <ResourceCosts>
+      <Item>0</Item>
+      <Item>0</Item>
+      <Item>0</Item>
+      <Item>0</Item>
+    </ResourceCosts>
+  </Asset>
+</XnaContent>

@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ShipCardData>
-  <TextureAsset>Sprites\Cards\Ships\EagleFrigate\EagleFrigateCard</TextureAsset>
-  <ObjectDataAsset>Content\Data\Cards\Ships\EagleFrigate\EagleFrigateObject.xml</ObjectDataAsset>
-  <Type>Ship</Type>
-  <DisplayName>Eagle Frigate</DisplayName>
-  <Rarity>Common</Rarity>
-  <ResourceCosts>
-    <Resource>2</Resource>
-    <Resource>2</Resource>
-    <Resource>1</Resource>
-    <Resource>3</Resource>
-  </ResourceCosts>
-</ShipCardData>
+﻿<XnaContent>
+  <Asset Type="SpaceCardGame.ShipCardData">
+    <TextureAsset>Sprites\Cards\Ships\EagleFrigate\EagleFrigateCard</TextureAsset>
+    <ObjectDataAsset>Content\Data\Cards\Ships\EagleFrigate\EagleFrigateObject.xml</ObjectDataAsset>
+    <Type>Ship</Type>
+    <DisplayName>Eagle Frigate</DisplayName>
+    <Rarity>Common</Rarity>
+    <ResourceCosts>
+      <Item>2</Item>
+      <Item>2</Item>
+      <Item>1</Item>
+      <Item>3</Item>
+    </ResourceCosts>
+  </Asset>
+</XnaContent>

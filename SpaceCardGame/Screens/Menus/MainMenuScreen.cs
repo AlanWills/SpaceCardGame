@@ -1,7 +1,11 @@
 ﻿using _2DEngine;
 using CardGameEngine;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Intermediate;
+using SpaceCardGameData;
+using System.Collections.Generic;
 using System.IO;
+using System.Xml;
 
 namespace SpaceCardGame
 {

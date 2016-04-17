@@ -338,18 +338,6 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Cards/Weapons/Beam/LaserBeamTurret/LaserBeamTurretCard.png
 
-#begin Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretCard.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretCard.png
-
 #begin Sprites/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretCard.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -482,18 +470,6 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Cards/Shields/PhaseEnergyShield/PhaseEnergyShieldCard.png
 
-#begin Sprites/GameObjects/Shields/PhaseEnergyShield.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/GameObjects/Shields/PhaseEnergyShield.png
-
 #begin Sprites/Cards/Weapons/Beam/LaserBeamTurret/LaserBeamTurretObject.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -505,18 +481,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/Cards/Weapons/Beam/LaserBeamTurret/LaserBeamTurretObject.png
-
-#begin Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretObject.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretObject.png
 
 #begin Sprites/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretObject.png
 /importer:TextureImporter
@@ -541,18 +505,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/Cards/Weapons/Beam/LaserBeamTurret/LaserBeamTurretBullet.png
-
-#begin Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretBullet.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretBullet.png
 
 #begin Sprites/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretBullet.png
 /importer:TextureImporter
@@ -673,4 +625,40 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/Effects/Damage/DamageHoles1.png
+
+#begin Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretBullet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretBullet.png
+
+#begin Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretCard.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretCard.png
+
+#begin Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretObject.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretObject.png
 

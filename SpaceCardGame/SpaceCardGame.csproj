@@ -103,6 +103,7 @@
     <Compile Include="UI\TargetingLine.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="MonoGame.Framework">
       <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
     </Reference>
@@ -144,6 +145,12 @@
     <Content Include="Content\Data\GameObjects\Animations\Smoke.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Sprites\Cards\Ships\EagleFrigate\EagleFrigateObject.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurretBullet.png" />
+    <Content Include="Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurretCard.png" />
+    <Content Include="Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurretObject.png" />
     <Content Include="Content\Sprites\Effects\Damage\DamageBurns0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -170,12 +177,6 @@
     </Content>
     <Content Include="Content\Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.png" />
     <Content Include="Content\Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretObject.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretObject.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretBullet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretBullet.png">
@@ -209,9 +210,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Music\Menu\SoftBeat.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Sprites\GameObjects\Shields\PhaseEnergyShield.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\UI\NewCardIndicator.png">
@@ -356,9 +354,6 @@
     <Content Include="Content\Sprites\Cards\Ships\EagleFrigate\EagleFrigateCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Ships\EagleFrigate\EagleFrigateObject.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\Sprites\Cards\Ships\VenatorCruiser\VenatorCruiserCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -376,9 +371,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Weapons\DefaultBullet.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Backgrounds\Nebula.jpg">
@@ -427,93 +419,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <Content Include="Content\Effects\LightEffect.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Sprites\UI\BarBackground.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Sprites\UI\BlueSliderDown.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Sprites\UI\ColourButtonTrial1.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Sprites\UI\Cursor.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Sprites\UI\EmptyPanelBackground.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Sprites\UI\Logo.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Sprites\UI\SliderBar.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\SpriteFonts\DefaultSpriteFont.spritefont">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\SpriteFonts\DefaultSpriteFont.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Sprites\Cards\Back.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Sprites\UI\Menu.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Sprites\UI\TextEntryBox.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <None Include="Content\Music\Gameplay\AngularMomentum.xnb" />
-    <None Include="Content\Music\Gameplay\BlindingLights.xnb" />
-    <None Include="Content\Music\Gameplay\HorrorOfSelf.xnb" />
-    <None Include="Content\Music\Gameplay\Mechanolith.xnb" />
-    <None Include="Content\Music\Gameplay\RidingTheAuroraBorealis.xnb" />
-    <None Include="Content\Music\Menu\Emotional.xnb" />
-    <None Include="Content\Music\Menu\HerVioletEyes.xnb" />
-    <None Include="Content\Music\Menu\SoftBeat.xnb" />
-    <None Include="Content\Sprites\Backgrounds\Nebula.xnb" />
-    <None Include="Content\Sprites\Backgrounds\TileableNebula.xnb" />
-    <None Include="Content\Sprites\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xnb" />
-    <None Include="Content\Sprites\Cards\Resources\CrewResource\CrewResourceCard.xnb" />
-    <None Include="Content\Sprites\Cards\Resources\ElectronicsResource\ElectronicsResourceCard.xnb" />
-    <None Include="Content\Sprites\Cards\Resources\FuelResource\FuelResourceCard.xnb" />
-    <None Include="Content\Sprites\Cards\Resources\MetalResource\MetalResourceCard.xnb" />
-    <None Include="Content\Sprites\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xnb" />
-    <None Include="Content\Sprites\Cards\Ships\BlazeInterceptor\BlazeInterceptorCard.xnb" />
-    <None Include="Content\Sprites\Cards\Ships\BlazeInterceptor\BlazeInterceptorObject.xnb" />
-    <None Include="Content\Sprites\Cards\Ships\EagleFrigate\EagleFrigateCard.xnb" />
-    <None Include="Content\Sprites\Cards\Ships\EagleFrigate\EagleFrigateObject.xnb" />
-    <None Include="Content\Sprites\Cards\Ships\VenatorCruiser\VenatorCruiserCard.xnb" />
-    <None Include="Content\Sprites\Cards\Ships\VenatorCruiser\VenatorCruiserObject.xnb" />
-    <None Include="Content\Sprites\Cards\Ships\WaspFighter\WaspFighterCard.xnb" />
-    <None Include="Content\Sprites\Cards\Ships\WaspFighter\WaspFighterObject.xnb" />
-    <None Include="Content\Sprites\Cards\Stations\BastionShipyard\BastionShipyardCard.xnb" />
-    <None Include="Content\Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretBullet.xnb" />
-    <None Include="Content\Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xnb" />
-    <None Include="Content\Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretObject.xnb" />
-    <None Include="Content\Sprites\Cards\Weapons\DefaultBullet.xnb" />
-    <None Include="Content\Sprites\Cards\Weapons\DefaultTurret.xnb" />
-    <None Include="Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretBullet.xnb" />
-    <None Include="Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xnb" />
-    <None Include="Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretObject.xnb" />
-    <None Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretBullet.xnb" />
-    <None Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xnb" />
-    <None Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretObject.xnb" />
-    <None Include="Content\Sprites\Effects\Animation\EngineTrail2.xnb" />
-    <None Include="Content\Sprites\Effects\Animation\Explosion.xnb" />
-    <None Include="Content\Sprites\Effects\Animation\Smoke45Frames.xnb" />
-    <None Include="Content\Sprites\Effects\Damage\DamageBurns0.xnb" />
-    <None Include="Content\Sprites\Effects\Damage\DamageBurns1.xnb" />
-    <None Include="Content\Sprites\Effects\Damage\DamageCracks0.xnb" />
-    <None Include="Content\Sprites\Effects\Damage\DamageCracks1.xnb" />
-    <None Include="Content\Sprites\Effects\Damage\DamageHoles0.xnb" />
-    <None Include="Content\Sprites\Effects\Damage\DamageHoles1.xnb" />
-    <None Include="Content\Sprites\GameObjects\Shields\PhaseEnergyShield.xnb" />
-    <None Include="Content\Sprites\UI\AttackLine.xnb" />
-    <None Include="Content\Sprites\UI\NewCardIndicator.xnb" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\2DEngine\2DEngineData\2DEngineData.csproj">

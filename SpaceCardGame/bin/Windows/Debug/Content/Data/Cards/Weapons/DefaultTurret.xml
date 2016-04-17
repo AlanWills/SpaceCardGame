@@ -1,6 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<TurretData>
-  <TextureAsset>Sprites\Cards\Weapons\DefaultTurret</TextureAsset>
-  <BulletDataAsset>Content\Data\Cards\Weapons\DefaultBullet.xml</BulletDataAsset>
-  <ShotsPerTurn>0</ShotsPerTurn>
-</TurretData>
+﻿<XnaContent>
+  <Asset Type="SpaceCardGameData.TurretData">
+    <TextureAsset>Sprites\Cards\Weapons\DefaultTurret</TextureAsset>
+    <BulletDataAsset>Content\Data\Cards\Weapons\DefaultBullet.xml</BulletDataAsset>
+    <ShotsPerTurn>0</ShotsPerTurn>
+  </Asset>
+</XnaContent>

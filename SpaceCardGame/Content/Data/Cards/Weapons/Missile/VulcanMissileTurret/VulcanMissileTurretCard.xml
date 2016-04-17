@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<WeaponCardData>
-  <TextureAsset>Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard</TextureAsset>
-  <ObjectDataAsset>Content\Data\Cards\Weapons\\Missile\VulcanMissileTurret\VulcanMissileTurretObject.xml</ObjectDataAsset>
-  <Type>Weapon</Type>
-  <DisplayName>Vulcan Missile Turret</DisplayName>
-  <Rarity>Common</Rarity>
-  <ResourceCosts>
-    <Resource>0</Resource>
-    <Resource>1</Resource>
-    <Resource>0</Resource>
-    <Resource>1</Resource>
-  </ResourceCosts>
-</WeaponCardData>
+﻿<XnaContent>
+  <Asset Type="SpaceCardGame.WeaponCardData">
+    <TextureAsset>Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard</TextureAsset>
+    <ObjectDataAsset>Content\Data\Cards\Weapons\\Missile\VulcanMissileTurret\VulcanMissileTurretObject.xml</ObjectDataAsset>
+    <Type>Weapon</Type>
+    <DisplayName>Vulcan Missile Turret</DisplayName>
+    <Rarity>Common</Rarity>
+    <ResourceCosts>
+      <Item>0</Item>
+      <Item>1</Item>
+      <Item>0</Item>
+      <Item>1</Item>
+    </ResourceCosts>
+  </Asset>
+</XnaContent>

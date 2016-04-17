@@ -1,6 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ShieldData>
-  <TextureAsset>Sprites\GameObjects\Shields\PhaseEnergyShield</TextureAsset>
-  <MaxShieldStrength>2</MaxShieldStrength>
-  <ShieldRechargePerTurn>1</ShieldRechargePerTurn>
-</ShieldData>
+﻿<XnaContent>
+  <Asset Type="SpaceCardGameData.ShieldData">
+    <TextureAsset>Sprites\GameObjects\Shields\PhaseEnergyShield</TextureAsset>
+    <MaxShieldStrength>2</MaxShieldStrength>
+    <ShieldRechargePerTurn>1</ShieldRechargePerTurn>
+  </Asset>
+</XnaContent>
