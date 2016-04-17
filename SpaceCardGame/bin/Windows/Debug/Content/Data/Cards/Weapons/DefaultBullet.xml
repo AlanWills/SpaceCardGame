@@ -1,6 +1,6 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.BulletData">
-    <TextureAsset>Sprites\Cards\Weapons\DefaultBullet</TextureAsset>
+    <TextureAsset>Cards\Weapons\DefaultBullet</TextureAsset>
     <Damage>0</Damage>
   </Asset>
 </XnaContent>

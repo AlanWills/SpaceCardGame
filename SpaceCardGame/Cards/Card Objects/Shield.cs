@@ -44,7 +44,7 @@ namespace SpaceCardGame
         /// <returns></returns>
         protected override GameObjectData LoadGameObjectData()
         {
-            return AssetManager.LoadData<ShieldData>(DataAsset);
+            return AssetManager.GetData<ShieldData>(DataAsset);
         }
 
         /// <summary>

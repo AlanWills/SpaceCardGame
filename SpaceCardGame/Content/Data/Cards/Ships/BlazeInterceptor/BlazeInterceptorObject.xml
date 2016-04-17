@@ -1,6 +1,6 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.ShipData">
-    <TextureAsset>Sprites\Cards\Ships\BlazeInterceptor\BlazeInterceptorObject</TextureAsset>
+    <TextureAsset>Cards\Ships\BlazeInterceptor\BlazeInterceptorObject</TextureAsset>
     <Attack>1</Attack>
     <Defence>1</Defence>
     <Speed>1</Speed>

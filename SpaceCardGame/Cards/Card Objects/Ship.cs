@@ -69,7 +69,7 @@ namespace SpaceCardGame
         /// <returns></returns>
         protected override GameObjectData LoadGameObjectData()
         {
-            return AssetManager.LoadData<ShipData>(DataAsset);
+            return AssetManager.GetData<ShipData>(DataAsset);
         }
 
         /// <summary>
@@ -110,6 +110,8 @@ namespace SpaceCardGame
 
             DebugUtils.AssertNotNull(Parent);
             CardShipPair = Parent as CardShipPair;
+
+            Engine.LocalPosition += new Vector2(0, Size.Y * 0.5f);
         }
 
         /// <summary>
@@ -128,6 +130,17 @@ namespace SpaceCardGame
                 Debug.Assert(Parent is CardShipPair);
                 CommandManager.Instance.AddChild(new AttackOpponentShipCommand(Parent as CardShipPair), true, true);
             }
+        }
+
+        /// <summary>
+        /// Make sure that we still hide any damage that should not be visible yet
+        /// </summary>
+        /// <param name="showChildren"></param>
+        public override void Show(bool showChildren = true)
+        {
+            base.Show(showChildren);
+
+            ShowDamage(DamageModule);
         }
 
         /// <summary>
@@ -151,7 +164,7 @@ namespace SpaceCardGame
         /// </summary>
         private void ShowDamage(DamageableObjectModule damageModule)
         {
-            if (DamageModule.Health == 0)
+            if (DamageModule.Health <= 0)
             {
                 // Don't add damage if we have no health - in the end we will implement the damage happening when our bullet hits so it won't matter that we skip this
                 return;

@@ -23,7 +23,12 @@
       <Item>Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xml</Item>
       <Item>Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xml</Item>
     </WeaponCardDataAssets>
-    <Decks/>
-    <AvailablePacksToOpen/>
+    <Decks>
+      <Item>
+        <Name></Name>
+        <CardDataAssets></CardDataAssets>
+      </Item>
+    </Decks>
+    <AvailablePacksToOpen>3</AvailablePacksToOpen>
   </Asset>
 </XnaContent>

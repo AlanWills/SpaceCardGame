@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent>
+  <Asset Type="CardGameEngineData.PlayerCardRegistryData">
+    <AbilityCardDataAssets Null="true" />
+    <ShieldCardDataAssets Null="true" />
+    <ResourceCardDataAssets Null="true" />
+    <ShipCardDataAssets Null="true" />
+    <WeaponCardDataAssets Null="true" />
+    <Decks Null="true" />
+    <AvailablePacksToOpen>0</AvailablePacksToOpen>
+  </Asset>
+</XnaContent>

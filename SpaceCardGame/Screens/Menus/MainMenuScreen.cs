@@ -1,17 +1,13 @@
 ﻿using _2DEngine;
 using CardGameEngine;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Intermediate;
-using SpaceCardGameData;
-using System.Collections.Generic;
 using System.IO;
-using System.Xml;
 
 namespace SpaceCardGame
 {
     public class MainMenuScreen : MenuScreen
     {
-        public MainMenuScreen(string screenDataAsset = "Content\\Data\\Screens\\MainMenuScreen.xml") :
+        public MainMenuScreen(string screenDataAsset = "Screens\\MainMenuScreen.xml") :
             base(screenDataAsset)
         {
 
@@ -38,7 +34,7 @@ namespace SpaceCardGame
             parent = continueGameButton;
 
             // Disable the continue button if we have no saved data file
-            if (!File.Exists(ScreenManager.Instance.Content.RootDirectory + PlayerCardRegistry.playerCardRegistryDataAsset))
+            if (!File.Exists(ScreenManager.Instance.Content.RootDirectory + "\\Data\\" + PlayerCardRegistry.playerCardRegistryDataAsset))
             {
                 continueGameButton.Disable();
             }

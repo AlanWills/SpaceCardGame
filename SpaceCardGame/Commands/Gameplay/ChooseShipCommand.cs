@@ -87,7 +87,7 @@ namespace SpaceCardGame
                 // We check intersection with mouse position here, because the object may not have actually had it's HandleInput called yet
                 // Could do this stuff in the Update loop, but this is really what this function is for so do this CheckIntersects instead for clarity
                 DebugUtils.AssertNotNull(pair.Card.Collider);
-                if (pair != CardToChooseTargetFor && pair.Card.Collider.CheckIntersects(mousePosition))
+                if (pair != CardToChooseTargetFor && (pair.Card.Collider.CheckIntersects(mousePosition) || pair.CardObject.Collider.CheckIntersects(mousePosition)))
                 {
                     // Check to see whether this current object is a valid match for the card we want to find a target for
                     if (CardToChooseTargetFor.Card.CanUseOn(pair))

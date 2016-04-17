@@ -1,16 +1,11 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGame.ResourceCardData">
-    <TextureAsset>Sprites\Cards\Resources\CrewResource\CrewResourceCard</TextureAsset>
+    <TextureAsset>Cards\Resources\CrewResource\CrewResourceCard</TextureAsset>
     <ObjectDataAsset></ObjectDataAsset>
     <Type>Resource</Type>
     <DisplayName>Crew</DisplayName>
     <Rarity>Common</Rarity>
+    <ResourceCosts>0 0 0 0</ResourceCosts>
     <ResourceType>Crew</ResourceType>
-    <ResourceCosts>
-      <Item>0</Item>
-      <Item>0</Item>
-      <Item>0</Item>
-      <Item>0</Item>
-    </ResourceCosts>
   </Asset>
 </XnaContent>

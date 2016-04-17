@@ -53,6 +53,11 @@ namespace SpaceCardGame
 
             // Set our Shield's position so that it will be centred at the centre of the ship
             Shield.LocalPosition = cardShipPair.WorldPosition - WorldPosition;
+
+            // Change our Shield size to wrap around the ship
+            float maxDimension = MathHelper.Max(cardShipPair.Ship.Size.X, cardShipPair.Ship.Size.Y);
+            float maxPadding = MathHelper.Max(30, 0.25f * maxDimension);        // Either add an absolute or relative amount depending on which is bigger (first for small ships, second for large ships)
+            Shield.Size = new Vector2(maxPadding + maxDimension);               // Add a little extra padding for safety
         }
 
         /// <summary>

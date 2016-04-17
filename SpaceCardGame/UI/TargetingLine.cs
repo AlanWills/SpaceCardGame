@@ -35,7 +35,7 @@ namespace SpaceCardGame
         #endregion
 
         public TargetingLine(Vector2 fixedPosition) :
-            base(Vector2.Zero, "Sprites\\UI\\AttackLine")
+            base(Vector2.Zero, "UI\\AttackLine")
         {
             FixedPosition = fixedPosition;
         }

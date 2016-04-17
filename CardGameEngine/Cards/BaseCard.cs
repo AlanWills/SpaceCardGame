@@ -46,7 +46,7 @@ namespace CardGameEngine
         /// </summary>
         public HighlightOnHoverModule HighlightModule { get; private set; }
 
-        public const string CardBackTextureAsset = "Sprites\\Cards\\Back";
+        public const string CardBackTextureAsset = "Cards\\Back";
         public static Texture2D CardBackTexture;
 
         #endregion

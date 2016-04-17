@@ -1,15 +1,10 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGame.ShipCardData">
-    <TextureAsset>Sprites\Cards\Ships\EagleFrigate\EagleFrigateCard</TextureAsset>
-    <ObjectDataAsset>Content\Data\Cards\Ships\EagleFrigate\EagleFrigateObject.xml</ObjectDataAsset>
+    <TextureAsset>Cards\Ships\EagleFrigate\EagleFrigateCard</TextureAsset>
+    <ObjectDataAsset>Cards\Ships\EagleFrigate\EagleFrigateObject.xml</ObjectDataAsset>
     <Type>Ship</Type>
     <DisplayName>Eagle Frigate</DisplayName>
     <Rarity>Common</Rarity>
-    <ResourceCosts>
-      <Item>2</Item>
-      <Item>2</Item>
-      <Item>1</Item>
-      <Item>3</Item>
-    </ResourceCosts>
+    <ResourceCosts>2 2 1 3</ResourceCosts>
   </Asset>
 </XnaContent>

@@ -25,7 +25,7 @@
       <Item>Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xml</Item>
     </WeaponCardDataAssets>
     <Decks>
-      <DeckData>
+      <Item>
         <Name>TEST</Name>
         <CardDataAssets>
           <Item>Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml</Item>
@@ -62,7 +62,7 @@
           <Item>Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xml</Item>
           <Item>Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xml</Item>
         </CardDataAssets>
-      </DeckData>
+      </Item>
     </Decks>
     <AvailablePacksToOpen>3</AvailablePacksToOpen>
   </Asset>

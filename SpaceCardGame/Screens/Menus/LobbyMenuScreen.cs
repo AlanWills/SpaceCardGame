@@ -10,7 +10,7 @@ namespace SpaceCardGame
     /// </summary>
     public class LobbyMenuScreen : MenuScreen
     {
-        public LobbyMenuScreen(string screenDataAsset = "Content\\Data\\Screens\\LobbyMenuScreen.xml") :
+        public LobbyMenuScreen(string screenDataAsset = "Screens\\LobbyMenuScreen.xml") :
             base(screenDataAsset)
         {
 
@@ -105,7 +105,7 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(clickableImage.StoredObject);
             Debug.Assert(clickableImage.StoredObject is Deck);
 
-            Transition(new BattleScreen(clickableImage.StoredObject as Deck, "Content\\Data\\Screens\\BattleScreen.xml"));
+            Transition(new BattleScreen(clickableImage.StoredObject as Deck, "Screens\\BattleScreen.xml"));
         }
 
         #endregion

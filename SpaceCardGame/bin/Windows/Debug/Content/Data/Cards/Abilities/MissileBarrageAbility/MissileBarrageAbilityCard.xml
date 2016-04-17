@@ -1,15 +1,10 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGame.AbilityCardData">
-    <TextureAsset>Sprites\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbilityCard</TextureAsset>
+    <TextureAsset>Cards\Abilities\MissileBarrageAbility\MissileBarrageAbilityCard</TextureAsset>
     <ObjectDataAsset></ObjectDataAsset>
     <Type>Ability</Type>
     <DisplayName>Missile Barrage</DisplayName>
     <Rarity>Common</Rarity>
-    <ResourceCosts>
-      <Item>0</Item>
-      <Item>0</Item>
-      <Item>0</Item>
-      <Item>0</Item>
-    </ResourceCosts>
+    <ResourceCosts>1 1 1 1</ResourceCosts>
   </Asset>
 </XnaContent>

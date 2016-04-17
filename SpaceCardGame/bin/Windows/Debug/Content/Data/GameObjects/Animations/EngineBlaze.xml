@@ -1,6 +1,6 @@
 ﻿<XnaContent>
   <Asset Type="_2DEngineData.AnimationData">
-    <TextureAsset>Sprites\Effects\Animation\EngineTrail2</TextureAsset>
+    <TextureAsset>Effects\Animation\EngineTrail2</TextureAsset>
     <TextureFramesX>8</TextureFramesX>
     <TextureFramesY>1</TextureFramesY>
     <Continual>true</Continual>

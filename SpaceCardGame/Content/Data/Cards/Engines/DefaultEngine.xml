@@ -1,5 +1,5 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.EngineData">
-    <TextureAsset>Sprites\UI\EmptyPanelBackground</TextureAsset>
+    <TextureAsset>UI\EmptyPanelBackground</TextureAsset>
   </Asset>
 </XnaContent>

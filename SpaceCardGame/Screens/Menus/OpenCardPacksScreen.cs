@@ -24,7 +24,7 @@ namespace SpaceCardGame
         /// </summary>
         private List<BaseUICard> CardsFromPack { get; set; }
 
-        public OpenCardPacksScreen(string screenDataAsset = "Content\\Data\\Screens\\OpenCardPacksScreen.xml") :
+        public OpenCardPacksScreen(string screenDataAsset = "Screens\\OpenCardPacksScreen.xml") :
             base(screenDataAsset)
         {
             CardsFromPack = new List<BaseUICard>();
@@ -121,7 +121,7 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(card.StoredObject);
             if (!(bool)card.StoredObject)
             {
-                Image newCardIndicator = card.AddChild(new Image(new Vector2(card.Size.X, -card.Size.Y) * 0.5f, "Sprites\\UI\\NewCardIndicator"), true, true);
+                Image newCardIndicator = card.AddChild(new Image(new Vector2(card.Size.X, -card.Size.Y) * 0.5f, "UI\\NewCardIndicator"), true, true);
                 newCardIndicator.Colour.Value = Color.Yellow;
             }
 

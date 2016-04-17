@@ -662,3 +662,15 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretObject.png
 
+#begin Sprites/Cards/Shields/PhaseEnergyShield/PhaseEnergyShield.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/Shields/PhaseEnergyShield/PhaseEnergyShield.png
+

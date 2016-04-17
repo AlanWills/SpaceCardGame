@@ -1,6 +1,6 @@
 ﻿<XnaContent>
   <Asset Type="_2DEngineData.AnimationData">
-    <TextureAsset>Sprites\Effects\Animation\Smoke45Frames</TextureAsset>
+    <TextureAsset>Effects\Animation\Smoke45Frames</TextureAsset>
     <TextureFramesX>7</TextureFramesX>
     <TextureFramesY>7</TextureFramesY>
     <Continual>false</Continual>

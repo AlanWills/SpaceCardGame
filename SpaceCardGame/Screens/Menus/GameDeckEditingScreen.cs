@@ -7,7 +7,7 @@ namespace SpaceCardGame
     /// </summary>
     public class GameDeckEditingScreen : DeckEditingScreen
     {
-        public GameDeckEditingScreen(Deck deck, string dataAsset = "Content\\Data\\Screens\\DeckEditingScreen.xml") :
+        public GameDeckEditingScreen(Deck deck, string dataAsset = "Screens\\DeckEditingScreen.xml") :
             base(deck, dataAsset)
         {
 

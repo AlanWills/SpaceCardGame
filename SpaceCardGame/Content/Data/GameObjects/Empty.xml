@@ -1,5 +1,5 @@
 ﻿<XnaContent>
   <Asset Type="_2DEngineData.GameObjectData">
-    <TextureAsset>Sprites\UI\EmptyPanelBackground</TextureAsset>
+    <TextureAsset>UI\EmptyPanelBackground</TextureAsset>
   </Asset>
 </XnaContent>

@@ -221,6 +221,8 @@ namespace SpaceCardGame
         /// <returns></returns>
         private bool ContinueBattlePhase()
         {
+            return false;
+
             // The AI has no ships, or the player has no ships, so return false
             if (AIPlayer.CurrentShipsPlaced == 0 || BattleScreen.Player.CurrentShipsPlaced == 0)
             {
@@ -258,7 +260,7 @@ namespace SpaceCardGame
                     attackingShip.Turret.LocalRotation = targetAngle - attackingShip.WorldRotation;
 
                     // Attack the selected ship
-                    attackingShip.Turret.Attack(pair.Ship);
+                    attackingShip.Turret.Attack(pair.Ship, false);
                     break;
                 }
             }

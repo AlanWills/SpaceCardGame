@@ -1,15 +1,10 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGame.ShieldCardData">
-    <TextureAsset>Sprites\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldCard</TextureAsset>
-    <ObjectDataAsset>Content\Data\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldObject.xml</ObjectDataAsset>
+    <TextureAsset>Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldCard</TextureAsset>
+    <ObjectDataAsset>Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldObject.xml</ObjectDataAsset>
     <Type>Shield</Type>
     <DisplayName>Phase Energy Shield</DisplayName>
     <Rarity>Common</Rarity>
-    <ResourceCosts>
-      <Item>1</Item>
-      <Item>0</Item>
-      <Item>1</Item>
-      <Item>1</Item>
-    </ResourceCosts>
+    <ResourceCosts>1 0 1 1</ResourceCosts>
   </Asset>
 </XnaContent>

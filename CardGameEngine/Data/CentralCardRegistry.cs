@@ -30,8 +30,8 @@ namespace CardGameEngine
         /// </summary>
         public static bool IsLoaded { get; private set; }
 
-        private const string cardRegistryDataPath = "\\Data\\Cards\\CardRegistryData.xml";
-        public const string CardFolderPath = "Content\\Data\\Cards\\";
+        private const string cardRegistryDataPath = "Cards\\CardRegistryData.xml";
+        public const string CardFolderPath = "Cards\\";
 
         public const int PackSize = 5;
 
@@ -42,45 +42,27 @@ namespace CardGameEngine
         /// </summary>
         public static void LoadAssets(ContentManager content)
         {
-            CardRegistryData = AssetManager.LoadData<CardRegistryData>(content.RootDirectory + cardRegistryDataPath);
+            CardRegistryData = AssetManager.GetData<CardRegistryData>(cardRegistryDataPath);
             DebugUtils.AssertNotNull(CardRegistryData);
 
             CardTypes = new List<string>();
             CardData = new Dictionary<string, CardData>();
+
+            // Adds all of the loaded card data to our registry
+            List<KeyValuePair<string, CardData>> allCardData = AssetManager.GetAllDataPairsOfType<CardData>();
+            foreach (KeyValuePair<string, CardData> dataPair in allCardData)
+            {
+                // Remove "Cards\\" from the front of the data key - if they are stored here we know they are Cards!
+                string key = dataPair.Key.Remove(0, 6);
+                CardData.Add(key, dataPair.Value);
+            }
 
             // Load our universal card back texture
             BaseUICard.CardBackTexture = AssetManager.GetSprite(BaseUICard.CardBackTextureAsset);
 
             IsLoaded = true;
         }
-
-        /// <summary>
-        /// Load our resource cards
-        /// </summary>
-        /// <param name="content"></param>
-        public static void LoadCardType<T>(ContentManager content, List<string> assetsToLoad, string typeName) where T : CardData
-        {
-            // Check we actually have cards to load
-            Debug.Assert(assetsToLoad.Count > 0);
-
-            // Load the resource cards
-            foreach (string cardDataAsset in assetsToLoad)
-            {
-                // Add resource data when we implement it
-                CardData data = AssetManager.LoadData<T>(CardFolderPath + cardDataAsset);
-                DebugUtils.AssertNotNull(data);
-
-                // Check the type of the data matches the type we expect
-                Debug.Assert(data.Type == typeName);
-
-                CardData.Add(cardDataAsset, data);
-            }
-
-            // Check we have not added this type already and then add it to our registered types
-            Debug.Assert(!CardTypes.Exists(x => x == typeName));
-            CardTypes.Add(typeName);
-        }
-
+        
         #endregion
 
         #region Utility Functions

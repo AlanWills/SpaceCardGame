@@ -73,7 +73,7 @@ namespace SpaceCardGame
         }
 
         // A string which represents the default turret all ships have 
-        private const string defaultTurretDataAsset = "Content\\Data\\Cards\\Weapons\\DefaultTurret.xml";
+        private const string defaultTurretDataAsset = "Cards\\Weapons\\DefaultTurret.xml";
 
         #endregion
 
@@ -95,7 +95,7 @@ namespace SpaceCardGame
         /// <returns></returns>
         protected override GameObjectData LoadGameObjectData()
         {
-            return AssetManager.LoadData<TurretData>(DataAsset);
+            return AssetManager.GetData<TurretData>(DataAsset);
         }
 
         /// <summary>
@@ -107,14 +107,18 @@ namespace SpaceCardGame
 
             TurretData = Data as TurretData;
 
-            BulletData = AssetManager.LoadData<BulletData>(TurretData.BulletDataAsset);
+            BulletData = AssetManager.GetData<BulletData>(TurretData.BulletDataAsset);
             DebugUtils.AssertNotNull(BulletData);
 
             // If we're created a default turret we need to set the bullet damage to be our ship's damage which we get via the hierarchy
             if (DefaultTurret)
             {
-                BulletData.Damage = CardShipPair.Ship.ShipData.Attack;
-                TurretData.ShotsPerTurn = (int)BulletData.Damage;      // We fire as many shots with our default turret as our attack
+                // Create a copy of the data here so we are not modifying static data
+                BulletData defaultBulletDataCopy = new BulletData();
+                defaultBulletDataCopy.Damage = CardShipPair.Ship.ShipData.Attack;
+                defaultBulletDataCopy.TextureAsset = BulletData.TextureAsset;
+
+                BulletData = defaultBulletDataCopy;
             }
 
             ShotsLeft = TurretData.ShotsPerTurn;
@@ -129,8 +133,6 @@ namespace SpaceCardGame
         {
             base.Begin();
 
-            // Connect the turret's colour to the ship - this is for highlighting purposes
-            Colour.Connect(CardShipPair.Ship.Colour);
             Colour.ComputeFunction += ColourComputeFunction;        // Our special compute function for our turret colour
         }
 
@@ -157,7 +159,7 @@ namespace SpaceCardGame
         /// Spawns a bullet from our turret at the inputted ship, but switches target if the ship has appropriate defences.
         /// </summary>
         /// <param name="target"></param>
-        public void Attack(Ship targetShip)
+        public void Attack(Ship targetShip, bool isCounterAttacking)
         {
             // Shouldn't be firing unless we have shots left
             Debug.Assert(CanFire);
@@ -202,9 +204,9 @@ namespace SpaceCardGame
             }
 
             // Need to stop this firing all shots
-            if (targetShip.Turret.CanFire)
+            if (!isCounterAttacking && targetShip.Turret.CanFire)
             {
-                targetShip.Turret.Attack(CardShipPair.Ship);
+                targetShip.Turret.Attack(CardShipPair.Ship, true);
             }
         }
 

@@ -1,15 +1,10 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGame.ShipCardData">
-    <TextureAsset>Sprites\Cards\Ships\VenatorCruiser\VenatorCruiserCard</TextureAsset>
-    <ObjectDataAsset>Content\Data\Cards\Ships\VenatorCruiser\VenatorCruiserObject.xml</ObjectDataAsset>
+    <TextureAsset>Cards\Ships\VenatorCruiser\VenatorCruiserCard</TextureAsset>
+    <ObjectDataAsset>Cards\Ships\VenatorCruiser\VenatorCruiserObject.xml</ObjectDataAsset>
     <Type>Ship</Type>
     <DisplayName>Venator Cruiser</DisplayName>
-    <Rarity>Common</Rarity>
-      <ResourceCosts>
-      <Item>3</Item>
-      <Item>4</Item>
-      <Item>0</Item>
-      <Item>4</Item>
-    </ResourceCosts>
+    <Rarity>Rare</Rarity>
+    <ResourceCosts>3 4 0 4</ResourceCosts>
   </Asset>
 </XnaContent>

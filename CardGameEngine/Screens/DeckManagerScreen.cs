@@ -12,7 +12,7 @@ namespace CardGameEngine
 
         #endregion
 
-        public DeckManagerScreen(string screenDataAsset = "Content\\Data\\Screens\\DeckManagerScreen.xml") :
+        public DeckManagerScreen(string screenDataAsset = "Screens\\DeckManagerScreen.xml") :
             base(screenDataAsset)
         {
             

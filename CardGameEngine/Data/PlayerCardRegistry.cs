@@ -49,8 +49,8 @@ namespace CardGameEngine
         /// </summary>
         public int AvailablePacksToOpen { get; set; }
 
-        public const string playerCardRegistryDataAsset = "\\Data\\Player\\PlayerCardRegistryData.xml";
-        public const string startingCardRegistryDataAsset = "\\Data\\Player\\StartingPlayerCardRegistryData.xml";
+        public const string playerCardRegistryDataAsset = "Player\\PlayerCardRegistryData.xml";
+        public const string startingCardRegistryDataAsset = "Player\\StartingPlayerCardRegistryData.xml";
         public const int maxDeckNumber = 8;
 
         #endregion
@@ -78,7 +78,7 @@ namespace CardGameEngine
                 Decks[i] = new Deck();
             }
 
-            PlayerCardRegistryData playerData = AssetManager.LoadData<PlayerCardRegistryData>("Content" + path);
+            PlayerCardRegistryData playerData = AssetManager.GetData<PlayerCardRegistryData>(path);
             DebugUtils.AssertNotNull(playerData);
 
             LoadCardType(playerData.AbilityCardDataAssets);

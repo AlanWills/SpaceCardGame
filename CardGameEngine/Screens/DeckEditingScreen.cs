@@ -14,7 +14,7 @@ namespace CardGameEngine
 
         #endregion
 
-        public DeckEditingScreen(Deck deck, string dataAsset = "Content\\Data\\Screens\\DeckEditingScreen.xml") :
+        public DeckEditingScreen(Deck deck, string dataAsset = "Screens\\DeckEditingScreen.xml") :
             base(dataAsset)
         {
             Deck = deck;

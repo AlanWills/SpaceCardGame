@@ -19,7 +19,7 @@ namespace SpaceCardGame
         #endregion
 
         public EngineBlaze(Vector2 localPosition) :
-            base(localPosition, "Content\\Data\\GameObjects\\Animations\\EngineBlaze.xml")
+            base(localPosition, "GameObjects\\Animations\\EngineBlaze.xml")
         {
             UsesCollider = false;
         }
@@ -51,7 +51,7 @@ namespace SpaceCardGame
 
             SmokeParticleEmitter = AddChild(new ParticleEmitter(
                 particleSize, particleSize, Vector2.Zero, new Vector2(0, 15f), new Vector2(0, 4f),
-                Color.White, Color.White, 0.5f, 0.25f, 0.25f, new Vector2(0, Size.Y * 0.5f), "Content\\Data\\GameObjects\\Animations\\Smoke.xml"), true, true);
+                Color.White, Color.White, 0.5f, 0.25f, 0.25f, new Vector2(0, Size.Y * 0.5f), "GameObjects\\Animations\\Smoke.xml"), true, true);
         }
 
         #endregion

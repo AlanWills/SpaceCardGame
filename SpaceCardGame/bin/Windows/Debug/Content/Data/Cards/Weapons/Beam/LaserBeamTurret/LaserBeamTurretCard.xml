@@ -1,15 +1,10 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGame.WeaponCardData">
-    <TextureAsset>Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard</TextureAsset>
-    <ObjectDataAsset>Content\Data\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretObject.xml</ObjectDataAsset>
+    <TextureAsset>Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard</TextureAsset>
+    <ObjectDataAsset>Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretObject.xml</ObjectDataAsset>
     <Type>Weapon</Type>
     <DisplayName>Laser Beam Turret</DisplayName>
     <Rarity>Common</Rarity>
-    <ResourceCosts>
-      <Item>0</Item>
-      <Item>2</Item>
-      <Item>0</Item>
-      <Item>1</Item>
-    </ResourceCosts>
+    <ResourceCosts>0 2 0 1</ResourceCosts>
   </Asset>
 </XnaContent>

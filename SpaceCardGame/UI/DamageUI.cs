@@ -16,12 +16,12 @@ namespace SpaceCardGame
         /// </summary>
         private static List<string> DamageAssets = new List<string>()
         {
-            "Sprites\\Effects\\Damage\\DamageBurns0",
-            "Sprites\\Effects\\Damage\\DamageBurns1",
-            "Sprites\\Effects\\Damage\\DamageCracks0",
-            "Sprites\\Effects\\Damage\\DamageCracks1",
-            "Sprites\\Effects\\Damage\\DamageHoles0",
-            "Sprites\\Effects\\Damage\\DamageHoles1",
+            "Effects\\Damage\\DamageBurns0",
+            "Effects\\Damage\\DamageBurns1",
+            "Effects\\Damage\\DamageCracks0",
+            "Effects\\Damage\\DamageCracks1",
+            "Effects\\Damage\\DamageHoles0",
+            "Effects\\Damage\\DamageHoles1",
         };
 
         #endregion

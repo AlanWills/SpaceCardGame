@@ -1,5 +1,4 @@
 ﻿using CardGameEngine;
-using CardGameEngineData;
 using System;
 
 namespace SpaceCardGame
@@ -31,7 +30,7 @@ namespace SpaceCardGame
         /// </summary>
         public event NewTurnHandler OnNewTurn;
 
-        public const int ResourceCardsCanLay = 2;
+        public const int ResourceCardsCanLay = 10;
         public const int MaxShipNumber = 8;
 
         #endregion

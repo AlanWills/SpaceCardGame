@@ -66,7 +66,6 @@
     <Compile Include="Cards\Cards\ResourceCard.cs" />
     <Compile Include="Cards\Cards\ShipCard.cs" />
     <Compile Include="Cards\Cards\WeaponCard.cs" />
-    <Compile Include="Deserializer\IntermediateCardDeserializer.cs" />
     <Compile Include="Board\Board.cs" />
     <Compile Include="Cards\Card Pairs\CardAbilityPair.cs" />
     <Compile Include="Cards\Card Pairs\CardShieldPair.cs" />
@@ -143,6 +142,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\GameObjects\Animations\Smoke.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\Shields\PhaseEnergyShield\PhaseEnergyShield.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Ships\EagleFrigate\EagleFrigateObject.png">

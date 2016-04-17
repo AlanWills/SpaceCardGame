@@ -1,6 +1,6 @@
 ﻿<XnaContent>
   <Asset Type="_2DEngineData.AnimationData">
-    <TextureAsset>Sprites\Effects\Animation\Explosion</TextureAsset>
+    <TextureAsset>Effects\Animation\Explosion</TextureAsset>
     <TextureFramesX>4</TextureFramesX>
     <TextureFramesY>4</TextureFramesY>
     <Continual>false</Continual>
