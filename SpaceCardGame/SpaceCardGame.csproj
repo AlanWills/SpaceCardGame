@@ -66,7 +66,7 @@
     <Compile Include="Cards\Cards\ResourceCard.cs" />
     <Compile Include="Cards\Cards\ShipCard.cs" />
     <Compile Include="Cards\Cards\WeaponCard.cs" />
-    <Compile Include="Data\IntermediateCardDeserializer.cs" />
+    <Compile Include="Deserializer\IntermediateCardDeserializer.cs" />
     <Compile Include="Board\Board.cs" />
     <Compile Include="Cards\Card Pairs\CardAbilityPair.cs" />
     <Compile Include="Cards\Card Pairs\CardShieldPair.cs" />
@@ -96,6 +96,7 @@
     <Compile Include="Screens\Menus\MainMenuScreen.cs" />
     <Compile Include="Game Objects\Animations\EngineBlaze.cs" />
     <Compile Include="Game Objects\Animations\Explosion.cs" />
+    <Compile Include="UI\DamageUI.cs" />
     <Compile Include="UI\HandUI.cs" />
     <Compile Include="Board\UIBoardSection.cs" />
     <Compile Include="UI\ProgressTurnButton.cs" />
@@ -143,7 +144,25 @@
     <Content Include="Content\Data\GameObjects\Animations\Smoke.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Effects\Smoke45Frames.png">
+    <Content Include="Content\Sprites\Effects\Damage\DamageBurns0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Effects\Damage\DamageBurns1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Effects\Damage\DamageCracks0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Effects\Damage\DamageCracks1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Effects\Damage\DamageHoles0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Effects\Damage\DamageHoles1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Effects\Animation\Smoke45Frames.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretBullet.png">
@@ -165,7 +184,7 @@
     <Content Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretObject.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Effects\EngineTrail2.png">
+    <Content Include="Content\Sprites\Effects\Animation\EngineTrail2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Music\Gameplay\AngularMomentum.mp3">
@@ -368,7 +387,7 @@
     <Content Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Effects\Explosion.png">
+    <Content Include="Content\Sprites\Effects\Animation\Explosion.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\UI\AttackLine.png">
@@ -483,9 +502,15 @@
     <None Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretBullet.xnb" />
     <None Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xnb" />
     <None Include="Content\Sprites\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretObject.xnb" />
-    <None Include="Content\Sprites\Effects\EngineTrail2.xnb" />
-    <None Include="Content\Sprites\Effects\Explosion.xnb" />
-    <None Include="Content\Sprites\Effects\Smoke45Frames.xnb" />
+    <None Include="Content\Sprites\Effects\Animation\EngineTrail2.xnb" />
+    <None Include="Content\Sprites\Effects\Animation\Explosion.xnb" />
+    <None Include="Content\Sprites\Effects\Animation\Smoke45Frames.xnb" />
+    <None Include="Content\Sprites\Effects\Damage\DamageBurns0.xnb" />
+    <None Include="Content\Sprites\Effects\Damage\DamageBurns1.xnb" />
+    <None Include="Content\Sprites\Effects\Damage\DamageCracks0.xnb" />
+    <None Include="Content\Sprites\Effects\Damage\DamageCracks1.xnb" />
+    <None Include="Content\Sprites\Effects\Damage\DamageHoles0.xnb" />
+    <None Include="Content\Sprites\Effects\Damage\DamageHoles1.xnb" />
     <None Include="Content\Sprites\GameObjects\Shields\PhaseEnergyShield.xnb" />
     <None Include="Content\Sprites\UI\AttackLine.xnb" />
     <None Include="Content\Sprites\UI\NewCardIndicator.xnb" />

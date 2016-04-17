@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <AnimationData>
-  <TextureAsset>Sprites\Effects\Explosion</TextureAsset>
+  <TextureAsset>Sprites\Effects\Animation\Explosion</TextureAsset>
   <TextureFramesX>4</TextureFramesX>
   <TextureFramesY>4</TextureFramesY>
   <Continual>false</Continual>

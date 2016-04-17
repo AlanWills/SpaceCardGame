@@ -2,6 +2,7 @@
 using _2DEngineData;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace SpaceCardGame
@@ -48,6 +49,8 @@ namespace SpaceCardGame
         /// </summary>
         public Engine Engine { get; private set; }
 
+        public List<DamageUI> DamageUI { get; private set; }
+
         #endregion
 
         // The ship is tied to the card, so it's position will be amended when the card is added to the screen
@@ -80,8 +83,19 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(ShipData);
 
             DamageModule = AddModule(new DamageableObjectModule(ShipData.Defence));
+            DamageModule.OnDamage += ShowDamage;
 
             Engine = AddChild(new Engine(ShipData.Speed, Vector2.Zero));
+
+            Debug.Assert(ShipData.Defence > 0);
+            DamageUI = new List<DamageUI>(ShipData.Defence - 1);
+
+            for (int i = 0; i < ShipData.Defence - 1; i++)
+            {
+                DamageUI damageUI = AddChild(new DamageUI(Vector2.Zero));
+                damageUI.Hide();            // Initially hide all the damage UI
+                DamageUI.Add(damageUI);
+            }
 
             base.LoadContent();
         }
@@ -125,6 +139,36 @@ namespace SpaceCardGame
 
             DebugUtils.AssertNotNull(Parent);
             Parent.Die();
+        }
+
+        #endregion
+
+        #region Event Callbacks
+
+        /// <summary>
+        /// Shows damage on the ship corresponding to how much we have taken
+        /// </summary>
+        private void ShowDamage(DamageableObjectModule damageModule)
+        {
+            if (DamageModule.Health == 0)
+            {
+                // Don't add damage if we have no health - in the end we will implement the damage happening when our bullet hits so it won't matter that we skip this
+                return;
+            }
+
+            // Hide any damage we no longer need to show
+            for (int i = 0; i < (int)DamageModule.Health - 1; i++)
+            {
+                Debug.Assert(i < DamageUI.Count);
+                DamageUI[i].Hide();
+            }
+
+            // Turn on damage equal to the damage we have taken
+            for (int i = (int)DamageModule.Health - 1; i < ShipData.Defence - 1; ++i)
+            {
+                Debug.Assert(i < DamageUI.Count);
+                DamageUI[i].Show();
+            }
         }
 
         #endregion

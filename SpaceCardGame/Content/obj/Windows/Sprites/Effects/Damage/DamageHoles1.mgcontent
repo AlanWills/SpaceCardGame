@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Effects/Smoke45Frames.png</SourceFile>
-  <SourceTime>2016-04-16T23:30:01.5932037+01:00</SourceTime>
-  <DestFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/bin/Windows/Sprites/Effects/Smoke45Frames.xnb</DestFile>
-  <DestTime>2016-04-16T23:31:02.6438283+01:00</DestTime>
+  <SourceFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Effects/Damage/DamageHoles1.png</SourceFile>
+  <SourceTime>2016-04-17T01:06:56.9104432+01:00</SourceTime>
+  <DestFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/bin/Windows/Sprites/Effects/Damage/DamageHoles1.xnb</DestFile>
+  <DestTime>2016-04-17T01:14:58.9715072+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T07:36:08+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
