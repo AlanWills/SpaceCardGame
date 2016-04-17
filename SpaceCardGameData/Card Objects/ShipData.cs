@@ -1,4 +1,7 @@
 ﻿using _2DEngineData;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace SpaceCardGameData
 {
@@ -18,5 +21,12 @@ namespace SpaceCardGameData
         /// The speed value of this ship
         /// </summary>
         public int Speed { get; set; }
+
+        /// <summary>
+        /// A list of the damage hardpoints for this ship.
+        /// It's size will be Defence - 1
+        /// </summary>
+        [XmlArrayAttribute(ElementName = "Hardpoint")]
+        public List<Vector2> DamageHardpoints { get; set; }
     }
 }

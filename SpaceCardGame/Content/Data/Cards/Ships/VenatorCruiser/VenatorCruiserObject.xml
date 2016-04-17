@@ -4,4 +4,10 @@
   <Attack>4</Attack>
   <Defence>3</Defence>
   <Speed>3</Speed>
+  <DamageHardpoints>
+    <Hardpoint>
+      <X>10</X>
+      <Y>10</Y>
+    </Hardpoint>
+  </DamageHardpoints>
 </ShipData>

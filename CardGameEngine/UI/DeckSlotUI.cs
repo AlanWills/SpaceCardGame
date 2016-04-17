@@ -56,6 +56,9 @@ namespace CardGameEngine
 
         #region Virtual Functions
 
+        /// <summary>
+        /// Adds all the buttons we use to interact with our deck
+        /// </summary>
         public override void Initialise()
         {
             CheckShouldInitialise();
@@ -116,6 +119,8 @@ namespace CardGameEngine
         /// <param name="baseObject"></param>
         private void DeleteButton_OnLeftClicked(BaseObject baseObject)
         {
+            // Add a dialog box here and then properly delete it
+
             UpdateUIStatus();
         }
 

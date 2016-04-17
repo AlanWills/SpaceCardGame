@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <AnimationData>
-  <TextureAsset>Sprites\Effects\EngineTrail2</TextureAsset>
+  <TextureAsset>Sprites\Effects\Animation\EngineTrail2</TextureAsset>
   <TextureFramesX>8</TextureFramesX>
   <TextureFramesY>1</TextureFramesY>
   <Continual>true</Continual>

@@ -88,11 +88,12 @@ namespace SpaceCardGame
             Engine = AddChild(new Engine(ShipData.Speed, Vector2.Zero));
 
             Debug.Assert(ShipData.Defence > 0);
-            DamageUI = new List<DamageUI>(ShipData.Defence - 1);
+            Debug.Assert(ShipData.DamageHardpoints.Count == ShipData.Defence - 1);
+            DamageUI = new List<DamageUI>(ShipData.Defence - 1);            
 
             for (int i = 0; i < ShipData.Defence - 1; i++)
             {
-                DamageUI damageUI = AddChild(new DamageUI(Vector2.Zero));
+                DamageUI damageUI = AddChild(new DamageUI(ShipData.DamageHardpoints[i]));
                 damageUI.Hide();            // Initially hide all the damage UI
                 DamageUI.Add(damageUI);
             }

@@ -1,10 +1,9 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
-using System;
 
 namespace CardGameEngine
 {
-   public abstract class DeckEditingScreen : MenuScreen
+    public abstract class DeckEditingScreen : MenuScreen
     {
         #region Properties and Fields
 
