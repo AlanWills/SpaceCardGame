@@ -77,6 +77,7 @@
     <Compile Include="Board\GameBoardSection.cs" />
     <Compile Include="Modules\HoverCardInfoModule.cs" />
     <Compile Include="Players\GamePlayer.cs" />
+    <Compile Include="Screens\Menus\HardpointScreen.cs" />
     <Compile Include="Screens\Menus\OpenCardPacksScreen.cs" />
     <Compile Include="Commands\Gameplay\AITurnCommand.cs" />
     <Compile Include="Commands\Gameplay\AttackOpponentShipCommand.cs" />
@@ -142,6 +143,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\GameObjects\Animations\Smoke.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Screens\HardpointScreen.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\CardOutline.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Shields\PhaseEnergyShield\PhaseEnergyShield.png">

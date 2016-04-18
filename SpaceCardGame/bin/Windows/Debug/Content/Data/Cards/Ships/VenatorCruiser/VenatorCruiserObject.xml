@@ -4,6 +4,50 @@
     <Attack>4</Attack>
     <Defence>3</Defence>
     <Speed>3</Speed>
+    <TurretHardpoints>
+      <Item>
+        <X>0</X>
+        <Y>-49</Y>
+      </Item>
+      <Item>
+        <X>0</X>
+        <Y>144</Y>
+      </Item>
+      <Item>
+        <X>-80</X>
+        <Y>165</Y>
+      </Item>
+      <Item>
+        <X>80</X>
+        <Y>165</Y>
+      </Item>
+    </TurretHardpoints>
+    <EngineHardpoints>
+      <Item>
+        <X>-116</X>
+        <Y>227</Y>
+      </Item>
+      <Item>
+        <X>-77</X>
+        <Y>240</Y>
+      </Item>
+      <Item>
+        <X>-15</X>
+        <Y>268</Y>
+      </Item>
+      <Item>
+        <X>116</X>
+        <Y>227</Y>
+      </Item>
+      <Item>
+        <X>77</X>
+        <Y>240</Y>
+      </Item>
+      <Item>
+        <X>15</X>
+        <Y>268</Y>
+      </Item>
+    </EngineHardpoints>
     <DamageHardpoints>
       <Item>
         <X>10</X>

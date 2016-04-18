@@ -44,11 +44,8 @@ namespace SpaceCardGame
         public Shield Shield { get; set; }
 
         /// <summary>
-        /// A reference to the shield for our ship.
-        /// By default we will create a default engine from the ship data and then can override by adding an engine card to the ship
+        /// A list of the ui we use to signify damage
         /// </summary>
-        public Engine Engine { get; private set; }
-
         public List<DamageUI> DamageUI { get; private set; }
 
         #endregion
@@ -85,7 +82,12 @@ namespace SpaceCardGame
             DamageModule = AddModule(new DamageableObjectModule(ShipData.Defence));
             DamageModule.OnDamage += ShowDamage;
 
-            Engine = AddChild(new Engine(ShipData.Speed, Vector2.Zero));
+            // Add engine UI from our data
+            Debug.Assert(ShipData.EngineHardpoints.Count > 0);
+            foreach (Vector2 engineHardpoint in ShipData.EngineHardpoints)
+            {
+                AddChild(new Engine(ShipData.Speed, engineHardpoint));
+            }
 
             Debug.Assert(ShipData.Defence > 0);
             Debug.Assert(ShipData.DamageHardpoints.Count == ShipData.Defence - 1);
@@ -110,8 +112,6 @@ namespace SpaceCardGame
 
             DebugUtils.AssertNotNull(Parent);
             CardShipPair = Parent as CardShipPair;
-
-            Engine.LocalPosition += new Vector2(0, Size.Y * 0.5f);
         }
 
         /// <summary>

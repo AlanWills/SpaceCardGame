@@ -43,6 +43,13 @@ namespace SpaceCardGame
             optionsButton.ClickableModule.OnLeftClicked += OnOptionsButtonClicked;
             parent = optionsButton;
 
+#if DEBUG
+            // If in debug add the hardpoint screen option
+            Button hardpointButton = parent.AddChild(new Button("Hardpoint Calculator", new Vector2(0, padding)));
+            hardpointButton.ClickableModule.OnLeftClicked += OnHardpointButtonClicked;
+            parent = hardpointButton;
+#endif
+
             Button exitGameButton = parent.AddChild(new Button("Exit", new Vector2(0, padding)));
             exitGameButton.ClickableModule.OnLeftClicked += OnExitGameButtonClicked;
             parent = exitGameButton;
@@ -82,6 +89,19 @@ namespace SpaceCardGame
         {
             Transition(new GameOptionsScreen());
         }
+
+#if DEBUG
+
+        /// <summary>
+        /// The callback to execute where we transition to the hardpoint screen
+        /// </summary>
+        /// <param name="baseObject"></param>
+        private void OnHardpointButtonClicked(BaseObject baseObject)
+        {
+            Transition(new HardpointScreen());
+        }
+
+#endif
 
         /// <summary>
         /// The callback to execute when we press the 'Exit' button

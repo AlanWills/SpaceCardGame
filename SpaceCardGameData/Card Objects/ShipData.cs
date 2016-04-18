@@ -22,6 +22,18 @@ namespace SpaceCardGameData
         public int Speed { get; set; }
 
         /// <summary>
+        /// A list of the turret hardpoints for this ship.
+        /// It's size will be Attack
+        /// </summary>
+        public List<Vector2> TurretHardpoints { get; set; }
+
+        /// <summary>
+        /// A list of the engine hardpoints for this ship.
+        /// It's size will be arbritrary
+        /// </summary>
+        public List<Vector2> EngineHardpoints { get; set; }
+
+        /// <summary>
         /// A list of the damage hardpoints for this ship.
         /// It's size will be Defence - 1
         /// </summary>

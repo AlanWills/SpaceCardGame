@@ -28,7 +28,7 @@ namespace CardGameEngine
         /// A reference to our size we will use to alter the size of this card if hovered over.
         /// This size really drives the size of the card
         /// </summary>
-        private Vector2 DrawingSize { get; set; }
+        public Vector2 DrawingSize { get; private set; }
 
         /// <summary>
         /// Used for some effects - our card if the mouse is over will move up the screen slightly
