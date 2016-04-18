@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace CardGameEngine
 {
-    public delegate void CustomOutlineColourHandler(Image cardOutlineImage);
+    public delegate void CustomOutlineColourHandler(BaseCard card, OutlineOnHoverModule outlineModule, Image cardOutlineImage);
 
     /// <summary>
     /// Shows an outline around the card when the mouse is over
@@ -16,7 +16,7 @@ namespace CardGameEngine
         /// <summary>
         /// A reference to our card outline image
         /// </summary>
-        private Image CardOutlineImage { get; set; }
+        public Image CardOutlineImage { get; private set; }
 
         /// <summary>
         /// A reference to the attached base object as a BaseGameCard
@@ -43,8 +43,8 @@ namespace CardGameEngine
 
         private static string cardOutlineImageTextureAsset = "Cards\\CardOutline";
 
-        private static Color validColour = Color.LightGreen;
-        private static Color invalidColour = new Color(1, 0.75f, 0.75f, 1);
+        public static Color validColour = Color.Green;
+        public static Color invalidColour = Color.Red;
 
         #endregion
 
@@ -79,6 +79,7 @@ namespace CardGameEngine
             DebugUtils.AssertNotNull(AttachedBaseObject);
             DebugUtils.AssertNotNull(AttachedBaseObject.Collider);
 
+            CardOutlineImage.Size = GameCard.Size;
             CardOutlineImage.ShouldDraw.Value = AttachedBaseObject.Collider.IsMouseOver;
             CardOutlineImage.Colour.Value = validColour;
 
@@ -90,7 +91,7 @@ namespace CardGameEngine
             // Call our custom event if it is set up
             if (CustomOutlineColour != null)
             {
-                CustomOutlineColour(CardOutlineImage);
+                CustomOutlineColour(GameCard, this, CardOutlineImage);
             }
         }
 

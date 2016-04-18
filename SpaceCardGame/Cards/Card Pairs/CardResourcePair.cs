@@ -31,6 +31,9 @@ namespace SpaceCardGame
 
             Debug.Assert(Card is ResourceCard);
             ResourceCard = Card as ResourceCard;
+
+            // Make ready as soon as we lay it
+            MakeReadyForCardPlacement();
         }
 
         #region Virtual Functions

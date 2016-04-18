@@ -1,4 +1,5 @@
 ﻿using _2DEngine;
+using CardGameEngine;
 using Microsoft.Xna.Framework;
 using System.Collections;
 using System.Diagnostics;
@@ -92,8 +93,13 @@ namespace SpaceCardGame
                     // Check to see whether this current object is a valid match for the card we want to find a target for
                     if (CardToChooseTargetFor.Card.CanUseOn(pair))
                     {
+                        pair.Card.OutlineModule.CardOutlineImage.Colour.Value = OutlineOnHoverModule.validColour;
                         Target = pair;
                         break;
+                    }
+                    else
+                    {
+                        pair.Card.OutlineModule.CardOutlineImage.Colour.Value = OutlineOnHoverModule.invalidColour;
                     }
                 }
             }

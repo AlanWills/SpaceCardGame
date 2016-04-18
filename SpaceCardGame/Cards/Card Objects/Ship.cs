@@ -27,11 +27,6 @@ namespace SpaceCardGame
         public DamageableObjectModule DamageModule { get; private set; }
 
         /// <summary>
-        /// A reference to our highlight module - used as fancy animation
-        /// </summary>
-        public HighlightOnHoverModule HighlightModule { get; private set; }
-
-        /// <summary>
         /// A reference to the turret for our ship.
         /// We will create a default turret from the ship data and then can override it by adding a turret card to the ship
         /// </summary>
@@ -54,8 +49,7 @@ namespace SpaceCardGame
         public Ship(string shipDataAsset) :
             base(Vector2.Zero, shipDataAsset)
         {
-            HighlightModule = AddModule(new HighlightOnHoverModule(Color.White, Color.LightGreen, BlendMode.kBinary));
-            HighlightModule.ShouldUpdate.Value = false;
+
         }
 
         #region Virtual Functions
@@ -130,6 +124,9 @@ namespace SpaceCardGame
                 Debug.Assert(Parent is CardShipPair);
                 CommandManager.Instance.AddChild(new AttackOpponentShipCommand(Parent as CardShipPair), true, true);
             }
+
+            // Updates the colour of the ship if our mouse is over it
+            Colour.Value = Collider.IsMouseOver ? CardShipPair.Card.OutlineModule.CardOutlineImage.Colour : Color.White;
         }
 
         /// <summary>

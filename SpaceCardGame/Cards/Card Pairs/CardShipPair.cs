@@ -32,14 +32,6 @@ namespace SpaceCardGame
             Debug.Assert(Card is ShipCard);
             ShipCard = Card as ShipCard;
 
-            // Connect our highlighting for our ship to it's readyness status - therefore we'll only get highlighting when ready
-            DebugUtils.AssertNotNull(Ship.HighlightModule);
-            Ship.HighlightModule.ShouldUpdate.Connect(IsReady);
-
-            // Initially when not ready our card and ship will be red tinted
-            ShipCard.Colour.Value = new Color(1, 0.5f, 0.5f);
-            Ship.Colour.Value = new Color(1, 0.5f, 0.5f);
-
             AddDefaultWeapon();
         }
 

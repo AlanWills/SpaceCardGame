@@ -127,13 +127,14 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// Connect up the colour here, because by this point we know that the reference to our card ship pair will have been set up
+        /// Update the colour based on whether we can fire
         /// </summary>
-        public override void Begin()
+        /// <param name="elapsedGameTime"></param>
+        public override void Update(float elapsedGameTime)
         {
-            base.Begin();
+            base.Update(elapsedGameTime);
 
-            Colour.ComputeFunction += ColourComputeFunction;        // Our special compute function for our turret colour
+            Colour.Value = CanFire ? Color.Green : Color.Red;
         }
 
         /// <summary>
@@ -247,27 +248,6 @@ namespace SpaceCardGame
         public void Reload()
         {
             ShotsLeft = TurretData.ShotsPerTurn;
-        }
-
-        #endregion
-
-        #region Property Compute Functions
-
-        /// <summary>
-        /// Our compute function we will use to work out the colour of the turret.
-        /// Return white if we have no shots left or our parent ship is not ready
-        /// </summary>
-        /// <param name="parentProperty"></param>
-        private Color ColourComputeFunction(Color parentColour)
-        {
-            if (CanFire)
-            {
-                return Color.LightGreen;
-            }
-            else
-            {
-                return parentColour;
-            }
         }
 
         #endregion
