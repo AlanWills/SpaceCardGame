@@ -55,6 +55,11 @@ namespace CardGameEngine
                 // Remove "Cards\\" from the front of the data key - if they are stored here we know they are Cards!
                 string key = dataPair.Key.Remove(0, 6);
                 CardData.Add(key, dataPair.Value);
+
+                if (!CardTypes.Exists(x => x == dataPair.Value.Type))
+                {
+                    CardTypes.Add(dataPair.Value.Type);
+                }
             }
 
             // Load our universal card back texture

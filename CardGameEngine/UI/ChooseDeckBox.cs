@@ -32,7 +32,7 @@ namespace CardGameEngine
         #endregion
 
         public ChooseDeckBox(string title, Vector2 localPosition, string textureAsset = AssetManager.DefaultTextBoxTextureAsset) :
-            base(new GridControl(1, new Vector2(300, 350), Vector2.Zero), title, localPosition, textureAsset)
+            base(new GridControl(1, 1, new Vector2(300, 350), Vector2.Zero), title, localPosition, textureAsset)
         {
             DeckGridControl = UIObject as GridControl;
         }

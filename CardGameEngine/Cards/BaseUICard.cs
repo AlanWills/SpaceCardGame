@@ -28,7 +28,7 @@ namespace CardGameEngine
         /// A reference to our size we will use to alter the size of this card if hovered over.
         /// This size really drives the size of the card
         /// </summary>
-        public Vector2 DrawingSize { get; private set; }
+        private Vector2 DrawingSize { get; set; }
 
         /// <summary>
         /// Used for some effects - our card if the mouse is over will move up the screen slightly
@@ -40,6 +40,11 @@ namespace CardGameEngine
         /// A vector property that is a local offset from the position of this card to it's highlighted position
         /// </summary>
         public Vector2 OffsetToHighlightedPosition { get; set; }
+
+        /// <summary>
+        /// An image which shows an outline round our card - we can update it with colours to show validity etc.
+        /// </summary>
+        public CardOutline CardOutline { get; private set; }
 
         #endregion
 
@@ -57,6 +62,7 @@ namespace CardGameEngine
             EnlargeOnHover = true;
             OffsetToHighlightedPosition = new Vector2(0, -35);
             ClickableModule = AddModule(new ClickableObjectModule());       // Add our clickable module
+            CardOutline = AddChild(new CardOutline(size));
         }
 
         #region Virtual Functions
@@ -130,6 +136,8 @@ namespace CardGameEngine
                 // If the mouse is not over the card, it's size should go back to normal
                 DrawingSize = Size;
             }
+
+            CardOutline.Size = DrawingSize;
         }
 
         /// <summary>

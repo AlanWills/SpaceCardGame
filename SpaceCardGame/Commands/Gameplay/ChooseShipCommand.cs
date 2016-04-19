@@ -93,35 +93,15 @@ namespace SpaceCardGame
                     // Check to see whether this current object is a valid match for the card we want to find a target for
                     if (CardToChooseTargetFor.Card.CanUseOn(pair))
                     {
-                        pair.Card.OutlineModule.CardOutlineImage.Colour.Value = OutlineOnHoverModule.validColour;
+                        pair.Card.Colour.Value = Color.Green;
                         Target = pair;
                         break;
                     }
                     else
                     {
-                        pair.Card.OutlineModule.CardOutlineImage.Colour.Value = OutlineOnHoverModule.invalidColour;
+                        pair.Card.Colour.Value = Color.Red;
                     }
                 }
-            }
-        }
-
-        /// <summary>
-        /// Rotates the turrets on the attacking ship to point at the mouse position.
-        /// Nothing huge but a nice piece of UI.
-        /// </summary>
-        /// <param name="elapsedGameTime"></param>
-        public override void Update(float elapsedGameTime)
-        {
-            base.Update(elapsedGameTime);
-
-            // Set the target position of the attacking line
-            if (Target != null)
-            {
-                SelectingLine.TargetPosition = Target.WorldPosition;
-            }
-            else
-            {
-                SelectingLine.TargetPosition = GameMouse.Instance.InGamePosition;
             }
         }
 

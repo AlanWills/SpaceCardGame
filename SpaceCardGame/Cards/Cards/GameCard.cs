@@ -1,4 +1,6 @@
-﻿using CardGameEngine;
+﻿using _2DEngine;
+using CardGameEngine;
+using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -7,6 +9,29 @@ namespace SpaceCardGame
     /// </summary>
     public abstract class GameCard : BaseGameCard
     {
+        #region Properties and Fields
+
+        /// <summary>
+        /// A reference to our parent as a CardObjectPair
+        /// </summary>
+        private CardObjectPair cardPair;
+        private CardObjectPair CardPair
+        {
+            get
+            {
+                if (cardPair == null)
+                {
+                    DebugUtils.AssertNotNull(Parent);
+                    Debug.Assert(Parent is CardObjectPair);
+                    cardPair = Parent as CardObjectPair;
+                }
+
+                return cardPair;
+            }
+        }
+
+        #endregion
+
         public GameCard(CardData cardData) :
             base(cardData)
         {

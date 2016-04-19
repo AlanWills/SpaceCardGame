@@ -1,0 +1,10 @@
+﻿<XnaContent>
+  <Asset Type="SpaceCardGame.WeaponCardData">
+    <TextureAsset>Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard</TextureAsset>
+    <ObjectDataAsset>Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretObject.xml</ObjectDataAsset>
+    <Type>Weapon</Type>
+    <DisplayName>Gatling Laser Turret</DisplayName>
+    <Rarity>Common</Rarity>
+    <ResourceCosts>0 2 0 3</ResourceCosts>
+  </Asset>
+</XnaContent>

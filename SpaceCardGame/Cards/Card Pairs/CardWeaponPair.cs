@@ -58,9 +58,6 @@ namespace SpaceCardGame
 
             // Set up the reference to the CardShipPair
             CardShipPair = cardShipPair;
-
-            // Connect the turret's colour to the ship - this is for highlighting purposes
-            Turret.Colour.Connect(CardShipPair.Ship.Colour);
         }
 
         /// <summary>

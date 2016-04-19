@@ -126,7 +126,7 @@ namespace SpaceCardGame
             }
 
             // Updates the colour of the ship if our mouse is over it
-            Colour.Value = Collider.IsMouseOver ? CardShipPair.Card.OutlineModule.CardOutlineImage.Colour : Color.White;
+            Colour.Value = Collider.IsMouseOver ? Color.Green : Color.White;
         }
 
         /// <summary>

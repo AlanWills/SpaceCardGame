@@ -41,11 +41,6 @@ namespace CardGameEngine
         /// </summary>
         public OnCardDeathHandler OnDeath;
 
-        /// <summary>
-        /// A highlight module we will use to draw an outline around the card
-        /// </summary>
-        public OutlineOnHoverModule OutlineModule { get; private set; }
-
         public const string CardBackTextureAsset = "Cards\\Back";
         public static Texture2D CardBackTexture;
 
@@ -66,8 +61,6 @@ namespace CardGameEngine
             TextureAsset = cardData.TextureAsset;
             FlipState = CardFlipState.kFaceUp;
             UsesCollider = true;                    // Explicitly state this because Image does not use a collider
-
-            OutlineModule = AddModule(new OutlineOnHoverModule());
         }
 
         #region Virtual Functions

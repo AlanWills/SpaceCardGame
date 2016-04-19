@@ -1,6 +1,5 @@
 ﻿using _2DEngine;
 using CardGameEngine;
-using CardGameEngineData;
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
 
@@ -21,7 +20,7 @@ namespace SpaceCardGame
         #endregion
 
         public HandUI(Player player, Vector2 size, Vector2 localPosition, string backgroundTextureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
-            base(player.MaxHandSize, size, localPosition, backgroundTextureAsset)
+            base(1, player.MaxHandSize, size, localPosition, backgroundTextureAsset)
         {
             Player = player;
             Player.OnCardAddedToHand += AddPlayerHandCardUI;
@@ -61,6 +60,21 @@ namespace SpaceCardGame
             return base.AddChild(uiObjectToAdd, load, initialise);
         }
 
+        /// <summary>
+        /// Loops through the cards in our hand and updates them based on whether we can lay them
+        /// </summary>
+        /// <param name="elapsedGameTime"></param>
+        public override void Update(float elapsedGameTime)
+        {
+            base.Update(elapsedGameTime);
+
+            string error = "";
+            foreach (BaseUICard card in Children)
+            {
+                card.CardOutline.Valid = card.CardData.CanLay(Player, ref error);
+            }
+        }
+
         #endregion
 
         #region Utility Functions
@@ -97,27 +111,9 @@ namespace SpaceCardGame
             CardFlipState cardFlipState = Player == BattleScreen.Player ? CardFlipState.kFaceUp : CardFlipState.kFaceDown;
             cardUI.Flip(cardFlipState);
 
-            cardUI.OutlineModule.CustomOutlineColour += CustomCanLayOutline;
             cardUI.ClickableModule.OnLeftClicked += RunPlaceCardScript;
             cardUI.OnDeath += SyncPlayerHand;
             cardUI.OnDeath += RebuildCallback;
-        }
-
-        /// <summary>
-        /// A custom function we add to the cards in our hand which changes the outline based on whether we can lay it our not
-        /// </summary>
-        /// <param name="cardOutlineImage"></param>
-        private void CustomCanLayOutline(BaseCard card, OutlineOnHoverModule outlineModule, Image cardOutlineImage)
-        {
-            string error = "";
-            if (card.CardData.CanLay(Player, ref error))
-            {
-                cardOutlineImage.Colour.Value = OutlineOnHoverModule.validColour;
-            }
-            else
-            {
-                cardOutlineImage.Colour.Value = OutlineOnHoverModule.invalidColour;
-            }
         }
 
         /// <summary>

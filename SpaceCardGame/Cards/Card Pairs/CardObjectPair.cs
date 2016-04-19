@@ -45,8 +45,6 @@ namespace SpaceCardGame
         {
             Card = AddChild(CardFactory.CreateCard(cardData));
 
-            DebugUtils.AssertNotNull(Card.OutlineModule);
-            Card.OutlineModule.CustomOutlineColour += CustomOutlineIfReady;
             UsesCollider = false;
 
             IsReady = new Property<bool>(false);
@@ -140,24 +138,6 @@ namespace SpaceCardGame
                         Debug.Fail("");
                         break;
                     }
-            }
-        }
-
-        /// <summary>
-        /// Updates the outline so that it is green if ready or red if not
-        /// </summary>
-        /// <param name="card"></param>
-        /// <param name="outlineModule"></param>
-        /// <param name="outlineImage"></param>
-        private void CustomOutlineIfReady(BaseCard card, OutlineOnHoverModule outlineModule, Image outlineImage)
-        {
-            if (IsReady)
-            {
-                outlineImage.Colour.Value = OutlineOnHoverModule.validColour;
-            }
-            else
-            {
-                outlineImage.Colour.Value = OutlineOnHoverModule.invalidColour;
             }
         }
 

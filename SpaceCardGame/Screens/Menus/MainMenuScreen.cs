@@ -22,16 +22,19 @@ namespace SpaceCardGame
         {
             base.AddInitialUI();
 
-            float padding = ScreenDimensions.Y * 0.1f;
-            BaseObject parent = null;
+            // When not in debug, we should only have 1 rows of four buttons, but when in debug we will need 2 rows
+            int rows = 1;
+#if DEBUG
+            rows++;
+#endif
 
-            Button newGameButton = AddScreenUIObject(new Button("New Game", new Vector2(ScreenDimensions.X * 0.5f, ScreenDimensions.Y * 0.35f)));
+            GridControl buttonControl = AddScreenUIObject(new GridControl(rows, 4, ScreenCentre));
+
+            Button newGameButton = buttonControl.AddChild(new Button("New Game", Vector2.Zero));
             newGameButton.ClickableModule.OnLeftClicked += OnNewGameButtonLeftClicked;
-            parent = newGameButton;
 
-            Button continueGameButton = parent.AddChild(new Button("Continue", new Vector2(0, padding)));
+            Button continueGameButton = buttonControl.AddChild(new Button("Continue", Vector2.Zero));
             continueGameButton.ClickableModule.OnLeftClicked += OnContinueButtonLeftClicked;
-            parent = continueGameButton;
 
             // Disable the continue button if we have no saved data file
             if (!File.Exists(ScreenManager.Instance.Content.RootDirectory + "\\Data\\" + PlayerCardRegistry.playerCardRegistryDataAsset))
@@ -39,20 +42,17 @@ namespace SpaceCardGame
                 continueGameButton.Disable();
             }
 
-            Button optionsButton = parent.AddChild(new Button("Options", new Vector2(0, padding)));
+            Button optionsButton = buttonControl.AddChild(new Button("Options", Vector2.Zero));
             optionsButton.ClickableModule.OnLeftClicked += OnOptionsButtonClicked;
-            parent = optionsButton;
 
 #if DEBUG
             // If in debug add the hardpoint screen option
-            Button hardpointButton = parent.AddChild(new Button("Hardpoint Calculator", new Vector2(0, padding)));
+            Button hardpointButton = buttonControl.AddChild(new Button("Hardpoint Calculator", Vector2.Zero));
             hardpointButton.ClickableModule.OnLeftClicked += OnHardpointButtonClicked;
-            parent = hardpointButton;
 #endif
 
-            Button exitGameButton = parent.AddChild(new Button("Exit", new Vector2(0, padding)));
+            Button exitGameButton = buttonControl.AddChild(new Button("Exit", Vector2.Zero));
             exitGameButton.ClickableModule.OnLeftClicked += OnExitGameButtonClicked;
-            parent = exitGameButton;
         }
 
         #endregion

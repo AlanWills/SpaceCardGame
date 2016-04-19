@@ -1,0 +1,11 @@
+﻿<XnaContent>
+  <Asset Type="SpaceCardGame.ResourceCardData">
+    <TextureAsset>Cards\Resources\FuelResource\FuelResourceCard</TextureAsset>
+    <ObjectDataAsset></ObjectDataAsset>
+    <Type>Resource</Type>
+    <DisplayName>Fuel</DisplayName>
+    <Rarity>Common</Rarity>
+    <ResourceCosts>0 0 0 0</ResourceCosts>
+    <ResourceType>Fuel</ResourceType>
+  </Asset>
+</XnaContent>

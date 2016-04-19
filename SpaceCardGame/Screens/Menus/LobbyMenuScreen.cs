@@ -25,12 +25,11 @@ namespace SpaceCardGame
         {
             base.AddInitialUI();
 
-            float padding = ScreenDimensions.Y * 0.1f;
-            UIObject parent = null;
+            GridControl buttonGridControl = AddScreenUIObject(new GridControl(1, 3, ScreenCentre));
+            buttonGridControl.BorderPadding = new Vector2(100, 50);
 
-            Button playGameButton = AddScreenUIObject(new Button("Play", new Vector2(ScreenDimensions.X * 0.5f, ScreenDimensions.Y * 0.40f)));
+            Button playGameButton = buttonGridControl.AddChild(new Button("Play", Vector2.Zero));
             playGameButton.ClickableModule.OnLeftClicked += OnPlayGameButtonLeftClicked;
-            parent = playGameButton;
 
             // Disable the play button if we have no decks to choose from
             if (PlayerCardRegistry.Instance.AvailableDecks == 0)
@@ -38,13 +37,11 @@ namespace SpaceCardGame
                 playGameButton.Disable();
             }
 
-            Button deckManagerButton = parent.AddChild(new Button("Decks", new Vector2(0, padding)));
+            Button deckManagerButton = buttonGridControl.AddChild(new Button("Decks", Vector2.Zero));
             deckManagerButton.ClickableModule.OnLeftClicked += OnDeckManagerButtonClicked;
-            parent = deckManagerButton;
 
-            Button openPacksButton = parent.AddChild(new Button("Open Packs", new Vector2(0, padding)));
+            Button openPacksButton = buttonGridControl.AddChild(new Button("Open Packs", Vector2.Zero));
             openPacksButton.ClickableModule.OnLeftClicked += OnOpenPacksButtonLeftClicked;
-            parent = openPacksButton;
 
             if (PlayerCardRegistry.Instance.AvailablePacksToOpen <= 0)
             {

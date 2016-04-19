@@ -10,6 +10,11 @@ namespace CardGameEngine
     {
         #region Properties and Fields
 
+        /// <summary>
+        /// The grid control which holds our DeckSlotUI
+        /// </summary>
+        protected GridControl DeckSlotUIGridControl { get; private set; }
+
         #endregion
 
         public DeckManagerScreen(string screenDataAsset = "Screens\\DeckManagerScreen.xml") :
@@ -20,24 +25,22 @@ namespace CardGameEngine
 
         #region Virtual Functions
 
+        /// <summary>
+        /// Adds our DeckSlotUI to a grid control in our screen
+        /// </summary>
         protected override void AddInitialUI()
         {
             base.AddInitialUI();
 
-            // We fake the UI by pretending there are six columns but with the centre of the first and last at 0 and ScreenWidth
-            int columns = 4;
-            Vector2 padding = ScreenDimensions * 0.05f;
             Vector2 slotSize = new Vector2(200, 300);
+
+            DeckSlotUIGridControl = AddScreenUIObject(new GridControl(2, 4, ScreenDimensions, ScreenCentre));
+            DeckSlotUIGridControl.BorderPadding = new Vector2(ScreenDimensions.X * 0.1f, ScreenDimensions.Y * 0.05f);
 
             for (int i = 0; i < PlayerCardRegistry.maxDeckNumber; ++i)
             {
-                int row = i / columns;
-                int column = (i % columns) + 1;
-
-                Vector2 position = new Vector2(column * ScreenDimensions.X / (columns + 2), ScreenDimensions.Y * (0.2f + row * 0.5f));
-
                 DebugUtils.AssertNotNull(PlayerCardRegistry.Instance.Decks[i]);
-                DeckSlotUI deckSlotUI = AddScreenUIObject(new DeckSlotUI(PlayerCardRegistry.Instance.Decks[i], slotSize, position));
+                DeckSlotUI deckSlotUI = DeckSlotUIGridControl.AddChild(new DeckSlotUI(PlayerCardRegistry.Instance.Decks[i], slotSize, Vector2.Zero));
                 deckSlotUI.StoredObject = PlayerCardRegistry.Instance.Decks[i];
             }
         }

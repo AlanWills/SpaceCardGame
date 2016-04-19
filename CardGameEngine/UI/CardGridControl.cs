@@ -44,14 +44,14 @@ namespace CardGameEngine
 
         #region Constructors
 
-        public CardGridControl(List<CardData> cardList, int columns, Vector2 localPosition, string textureAsset = AssetManager.DefaultMenuTextureAsset) :
-            this(cardList, columns, Vector2.Zero, localPosition, textureAsset)
+        public CardGridControl(List<CardData> cardList, int rows, int columns, Vector2 localPosition, string textureAsset = AssetManager.DefaultMenuTextureAsset) :
+            this(cardList, rows, columns, Vector2.Zero, localPosition, textureAsset)
         {
 
         }
 
-        public CardGridControl(List<CardData> cardList, int columns, Vector2 size, Vector2 localPosition, string textureAsset = AssetManager.DefaultMenuTextureAsset) :
-            base(columns, size, localPosition, textureAsset)
+        public CardGridControl(List<CardData> cardList, int rows, int columns, Vector2 size, Vector2 localPosition, string textureAsset = AssetManager.DefaultMenuTextureAsset) :
+            base(rows, columns, size, localPosition, textureAsset)
         {
             CardList = cardList;
             

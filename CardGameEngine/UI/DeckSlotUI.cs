@@ -68,16 +68,18 @@ namespace CardGameEngine
             // Use this to change the initial state of our UI
             float padding = 5;
 
-            DeckNameButton = AddChild(new Button(Deck.Name, new Vector2(0, -(Size.Y * 0.5f + padding))), true, true);
+            Vector2 buttonSize = new Vector2(Size.X, Size.Y * 0.1f);
+
+            DeckNameButton = AddChild(new Button(Deck.Name, buttonSize, new Vector2(0, -((Size.Y - buttonSize.Y) * 0.5f - padding))), true, true);
             DeckNameButton.ClickableModule.OnLeftClicked += DeckNameButton_OnLeftClicked;
 
-            CreateButton = AddChild(new Button("Create", new Vector2(0, Size.Y * 0.5f + padding)), true, true);
+            CreateButton = AddChild(new Button("Create", buttonSize, new Vector2(0, Size.Y * 0.5f - padding - buttonSize.Y)), true, true);
             CreateButton.ClickableModule.OnLeftClicked += CreateButton_OnLeftClicked;
 
             // The edit button is parented to this so we can access this DeckSlotUI from an event callback
-            EditButton = AddChild(new Button("Edit", new Vector2(0, CreateButton.LocalPosition.Y + CreateButton.Size.Y + padding)), true, true);
+            EditButton = AddChild(new Button("Edit", buttonSize, new Vector2(0, CreateButton.LocalPosition.Y + buttonSize.Y + padding)), true, true);
 
-            DeleteButton = EditButton.AddChild(new Button("Delete", new Vector2(0, EditButton.Size.Y + padding)), true, true);
+            DeleteButton = EditButton.AddChild(new Button("Delete", buttonSize, new Vector2(0, EditButton.Size.Y + padding)), true, true);
             DeleteButton.ClickableModule.OnLeftClicked += DeleteButton_OnLeftClicked;
 
             UpdateUIStatus();

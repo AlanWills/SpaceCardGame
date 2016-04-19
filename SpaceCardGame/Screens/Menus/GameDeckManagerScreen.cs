@@ -19,10 +19,9 @@ namespace SpaceCardGame
         {
             base.Begin();
 
-            List<DeckSlotUI> deckSlotUIs = ScreenUIObjects.GetChildrenOfType<DeckSlotUI>();
-            Debug.Assert(deckSlotUIs.Count > 0);
+            Debug.Assert(DeckSlotUIGridControl.ChildrenCount > 0);
 
-            foreach (DeckSlotUI deckSlotUI in deckSlotUIs)
+            foreach (DeckSlotUI deckSlotUI in DeckSlotUIGridControl)
             {
                 deckSlotUI.EditButton.ClickableModule.OnLeftClicked += EditButton_OnLeftClicked;
             }
