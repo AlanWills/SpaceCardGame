@@ -37,18 +37,5 @@ namespace CardGameEngine
         public List<int> ResourceCosts { get; set; }
 
         #endregion
-
-        #region Virtual Functions
-
-        /// <summary>
-        /// A pure abstract function that we will override with specific implementations for each card type.
-        /// A function which can be used to determine whether the player can lay a card - could be used for resources, limiting a specific number of cards per turn etc.
-        /// </summary>
-        /// <param name="player">The player attempting to lay the card</param>
-        /// <param name="error">An error string which is returned for displaying error UI</param>
-        /// <returns></returns>
-        public abstract bool CanLay(Player player, ref string error);
-
-        #endregion
     }
 }

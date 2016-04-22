@@ -1,6 +1,7 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
+using System;
 
 namespace SpaceCardGame
 {
@@ -39,6 +40,16 @@ namespace SpaceCardGame
         }
 
         #region Virtual Functions
+
+        /// <summary>
+        /// Add a script to choose a ship to add this weapon to
+        /// </summary>
+        /// <param name="gameBoard"></param>
+        /// <param name="player"></param>
+        public override void WhenAddedToGameBoard(GameBoardSection gameBoard, GamePlayer player)
+        {
+            CommandManager.Instance.AddChild(new ChooseFriendlyShipCommand(this), true, true);
+        }
 
         /// <summary>
         /// Adds a weapon to our ship

@@ -92,7 +92,7 @@ namespace SpaceCardGame
             if (AIPlayer.CurrentHand.Exists(GetCardLayPredicate<ResourceCardData>()))
             {
                 // Lay a resource card
-                CardData resourceCardData = AIPlayer.CurrentHand.Find(GetCardLayPredicate<ResourceCardData>());
+                GameCardData resourceCardData = AIPlayer.CurrentHand.Find(GetCardLayPredicate<ResourceCardData>()) as GameCardData;
 
                 if (currentTimeBetweenCardLays >= timeBetweenCardLays)
                 {
@@ -106,7 +106,7 @@ namespace SpaceCardGame
                 if (currentTimeBetweenCardLays >= timeBetweenCardLays)
                 {
                     // Lay a ship card
-                    CardData shipCardData = AIPlayer.CurrentHand.Find(GetCardLayPredicate<ShipCardData>());
+                    GameCardData shipCardData = AIPlayer.CurrentHand.Find(GetCardLayPredicate<ShipCardData>()) as GameCardData;
 
                     LayCard(shipCardData);
                 }
@@ -197,7 +197,7 @@ namespace SpaceCardGame
         /// Creates and adds a card using the inputted card data and resets the timer so we have spacing between adding cards.
         /// </summary>
         /// <param name="cardData"></param>
-        private void LayCard(CardData cardData)
+        private void LayCard(GameCardData cardData)
         {
             Debug.Assert(currentTimeBetweenCardLays >= timeBetweenCardLays);
 
@@ -277,7 +277,7 @@ namespace SpaceCardGame
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        private Predicate<CardData> GetCardLayPredicate<T>() where T : CardData
+        private Predicate<CardData> GetCardLayPredicate<T>() where T : GameCardData
         {
             string error = "";
             return new Predicate<CardData>(x => (x is T) && (x as T).CanLay(AIPlayer, ref error));

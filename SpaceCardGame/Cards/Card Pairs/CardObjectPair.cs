@@ -67,6 +67,13 @@ namespace SpaceCardGame
         }
 
         /// <summary>
+        /// An abstract function used to perform custom setup when adding to the game board
+        /// </summary>
+        /// <param name="gameBoard"></param>
+        /// <param name="player"></param>
+        public abstract void WhenAddedToGameBoard(GameBoardSection gameBoard, GamePlayer player);
+
+        /// <summary>
         /// A function called when this card is added to a card ship pair.
         /// This occurs with abilities, weapons etc.
         /// Allows us to apply custom effects based on the card type.

@@ -1,12 +1,13 @@
 ﻿using CardGameEngine;
 using System.Diagnostics;
+using System;
 
 namespace SpaceCardGame
 {
     /// <summary>
     /// The data class for an ability card
     /// </summary>
-    public class AbilityCardData : CardData
+    public class AbilityCardData : GameCardData
     {
         #region Virtual Functions
 
@@ -19,7 +20,16 @@ namespace SpaceCardGame
         public override bool CanLay(Player player, ref string error)
         {
             Debug.Assert(player is GamePlayer);
-            return (player as GamePlayer).HasSufficientResources(this, ref error);
+            return (player as GamePlayer).HaveSufficientResources(this, ref error);
+        }
+
+        /// <summary>
+        /// Create a new card ability card pair
+        /// </summary>
+        /// <returns></returns>
+        public override CardObjectPair CreateCardObjectPair()
+        {
+            return new CardAbilityPair(this);
         }
 
         #endregion

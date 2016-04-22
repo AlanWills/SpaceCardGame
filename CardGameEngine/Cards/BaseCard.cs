@@ -110,7 +110,7 @@ namespace CardGameEngine
         #region Utility Functions
 
         /// <summary>
-        /// Flips our card state so that we are now facing up
+        /// Flips our card state so that we are now facing according to the inputted flip state
         /// </summary>
         public void Flip(CardFlipState flipState)
         {

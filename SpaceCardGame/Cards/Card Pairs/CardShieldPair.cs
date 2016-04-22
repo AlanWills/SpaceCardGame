@@ -36,6 +36,16 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
+        /// When we add a shield we need to run a script to choose a ship to add it to before we add it properly to the board
+        /// </summary>
+        /// <param name="gameBoard"></param>
+        /// <param name="player"></param>
+        public override void WhenAddedToGameBoard(GameBoardSection gameBoard, GamePlayer player)
+        {
+            CommandManager.Instance.AddChild(new ChooseFriendlyShipCommand(this), true, true);
+        }
+
+        /// <summary>
         /// Adds a shield to a ship
         /// </summary>
         /// <param name="cardShipPair"></param>

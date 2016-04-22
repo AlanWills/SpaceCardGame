@@ -46,7 +46,9 @@
   <ItemGroup>
     <Compile Include="Board\OpponentBoardSection.cs" />
     <Compile Include="Board\PlayerBoardSection.cs" />
-    <Compile Include="Cards\Card Data\AbilityCardData.cs" />
+    <Compile Include="Cards\Card Data\AbilityCardData\AbilityCardData.cs" />
+    <Compile Include="Cards\Card Data\AbilityCardData\MissileBarrageAbilityCardData.cs" />
+    <Compile Include="Cards\Card Data\GameCardData.cs" />
     <Compile Include="Cards\Card Data\ShieldCardData.cs" />
     <Compile Include="Cards\Card Data\ResourceCardData.cs" />
     <Compile Include="Cards\Card Data\ShipCardData.cs" />
@@ -61,6 +63,7 @@
     <Compile Include="Cards\Card Objects\Turret.cs" />
     <Compile Include="Cards\Cards\AbilityCard.cs" />
     <Compile Include="Cards\CardFactory.cs" />
+    <Compile Include="Cards\Cards\MissileBarrageAbilityCard.cs" />
     <Compile Include="Cards\Cards\ShieldCard.cs" />
     <Compile Include="Cards\Cards\GameCard.cs" />
     <Compile Include="Cards\Cards\ResourceCard.cs" />
@@ -234,6 +237,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\UI\Menu.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\UI\NarrowButton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\UI\NarrowButtonHighlighted.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\UI\NewCardIndicator.png">

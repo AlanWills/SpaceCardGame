@@ -17,7 +17,7 @@ namespace SpaceCardGame
         private Vector2 FixedPosition { get; set; }
 
         /// <summary>
-        /// The position of the variavle end of the line.
+        /// The position of the variable end of the line.
         /// When set, recalculates the angle, size and position of this targeting line.
         /// </summary>
         private Vector2 targetPosition;

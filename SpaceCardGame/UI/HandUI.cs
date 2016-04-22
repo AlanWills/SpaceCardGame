@@ -27,6 +27,7 @@ namespace SpaceCardGame
 
             // Don't want any cut off on this UI
             UseScissorRectangle = false;
+            BorderPadding = Vector2.Zero;       // No border padding for the HandUI
         }
 
         #region Virtual Functions
@@ -71,7 +72,8 @@ namespace SpaceCardGame
             string error = "";
             foreach (BaseUICard card in Children)
             {
-                card.CardOutline.Valid = card.CardData.CanLay(Player, ref error);
+                Debug.Assert(card.CardData is GameCardData);
+                card.CardOutline.Valid = (card.CardData as GameCardData).CanLay(Player, ref error);
             }
         }
 
@@ -124,9 +126,10 @@ namespace SpaceCardGame
         {
             Debug.Assert(baseObject is BaseUICard);
             BaseUICard card = baseObject as BaseUICard;
+            Debug.Assert(card.CardData is GameCardData);
 
             string error = "";
-            if (card.CardData.CanLay(Player, ref error))
+            if ((card.CardData as GameCardData).CanLay(Player, ref error))
             {
                 CommandManager.Instance.AddChild(new PlaceCardCommand(card), true, true);
             }

@@ -1,6 +1,8 @@
 ﻿using _2DEngine;
 using System.Diagnostics;
 using Microsoft.Xna.Framework;
+using CardGameEngine;
+using System;
 
 namespace SpaceCardGame
 {
@@ -37,6 +39,43 @@ namespace SpaceCardGame
         }
 
         #region Virtual Functions
+
+        /// <summary>
+        /// Alters the Player's resource count and changes the position of the resource card to fit with the current placed ones.
+        /// </summary>
+        /// <param name="gameBoard"></param>
+        /// <param name="player"></param>
+        public override void WhenAddedToGameBoard(GameBoardSection gameBoard, GamePlayer player)
+        {
+            Debug.Assert(player.ResourceCardsPlacedThisTurn < GamePlayer.ResourceCardsCanLay);
+
+            float padding = 10;
+
+            int typeIndex = (int)ResourceCard.ResourceType;
+            int cardCount = player.Resources[typeIndex].Count;
+
+            ResourceCard.Size *= 0.7f;
+
+            if (cardCount == 0)
+            {
+                // We are adding the first resource card of this type
+                LocalPosition = new Vector2((-gameBoard.Size.X + ResourceCard.Size.X) * 0.5f + padding, gameBoard.Size.Y * 0.5f - ResourceCard.Size.Y * 0.5f - padding - typeIndex * (ResourceCard.Size.Y + padding));
+            }
+            else
+            {
+                // We are adding another resource card, so overlay it on top and slightly to the side of the previous one
+                LocalPosition = player.Resources[typeIndex][cardCount - 1].Parent.LocalPosition + new Vector2(ResourceCard.Size.X * 0.15f, 0);
+            }
+
+            // We do this update because of the order in which events occur.  We have changed local position and reparented, but since we were parented to the mouse our collider has yet to be updated.
+            // Therefore the card will show it's info image for one frame, before the update collider function is called automatically.
+            // By updating the collider automatically here, we avoid this problem.
+            ResourceCard.Collider.Update();
+
+            player.Resources[typeIndex].Add(ResourceCard);
+            player.ResourceCardsPlacedThisTurn++;
+
+        }
 
         /// <summary>
         /// Cannot add a resource to a ship

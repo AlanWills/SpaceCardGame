@@ -6,7 +6,7 @@ namespace SpaceCardGame
     /// <summary>
     /// The data class for a shield card
     /// </summary>
-    public class ShieldCardData : CardData
+    public class ShieldCardData : GameCardData
     {
         #region Virtual Functions
 
@@ -20,9 +20,18 @@ namespace SpaceCardGame
         {
             Debug.Assert(player is GamePlayer);
             GamePlayer gamePlayer = player as GamePlayer;
-            bool hasEnoughResources = gamePlayer.HasSufficientResources(this, ref error);
+            bool hasEnoughResources = gamePlayer.HaveSufficientResources(this, ref error);
 
             return hasEnoughResources && gamePlayer.CurrentShipsPlaced > 0;
+        }
+
+        /// <summary>
+        /// Creates a CardShieldPair
+        /// </summary>
+        /// <returns></returns>
+        public override CardObjectPair CreateCardObjectPair()
+        {
+            return new CardShieldPair(this);
         }
 
         #endregion

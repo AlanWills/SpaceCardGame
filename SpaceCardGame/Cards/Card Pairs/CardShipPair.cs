@@ -1,6 +1,7 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
+using System;
 
 namespace SpaceCardGame
 {
@@ -36,6 +37,22 @@ namespace SpaceCardGame
         }
 
         #region Virtual Functions
+
+        /// <summary>
+        /// When we add a ship to the game board.
+        /// Want to update the player's ships placed and set up event callbacks for when this ship dies
+        /// </summary>
+        /// <param name="gameBoard"></param>
+        /// <param name="player"></param>
+        public override void WhenAddedToGameBoard(GameBoardSection gameBoard, GamePlayer player)
+        {
+            Debug.Assert(player.CurrentShipsPlaced < GamePlayer.MaxShipNumber);
+
+            LocalPosition = GameMouse.Instance.InGamePosition;         // Do this before we add it to the control because we use the position to place it in the correct spot
+            Reparent(gameBoard.ShipCardControl);        // Reparent this under the card ship control rather than the game board which it was initially added to
+
+            player.CurrentShipsPlaced++;
+        }
 
         /// <summary>
         /// Cannot add ships to other ships

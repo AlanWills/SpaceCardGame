@@ -6,17 +6,12 @@ using Microsoft.Xna.Framework.Input;
 namespace CardGameEngine
 {
     /// <summary>
-    /// A wrapper class around the UIObjectBox which has a grid control for our decks as the main UI element.
+    /// A class which has a grid control for our decks as the main UI element.
     /// Each element in the grid control will represent one of our player's decks which they will choose when beginning a match.
     /// </summary>
-    public class ChooseDeckBox : UIObjectBox, IClickable
+    public class ChooseDeckGridControl : GridControl, IClickable
     {
         #region Properties and Fields
-
-        /// <summary>
-        /// A reference to the main UI in this dialog box 
-        /// </summary>
-        private GridControl DeckGridControl { get; set; }
 
         /// <summary>
         /// IClickable properties
@@ -31,28 +26,19 @@ namespace CardGameEngine
 
         #endregion
 
-        public ChooseDeckBox(string title, Vector2 localPosition, string textureAsset = AssetManager.DefaultTextBoxTextureAsset) :
-            base(new GridControl(1, 1, new Vector2(300, 350), Vector2.Zero), title, localPosition, textureAsset)
+        public ChooseDeckGridControl(int rows, int columns, Vector2 localPosition, string textureAsset = AssetManager.DefaultMenuTextureAsset) :
+            this(rows, columns, Vector2.Zero, localPosition, textureAsset)
         {
-            DeckGridControl = UIObject as GridControl;
+            
+        }
+
+        public ChooseDeckGridControl(int rows, int columns, Vector2 size, Vector2 localPosition, string textureAsset = AssetManager.DefaultMenuTextureAsset)
+            : base(rows, columns, size, localPosition, textureAsset)
+        {
+            
         }
 
         #region Virtual Functions
-
-        /// <summary>
-        /// Adds our clickable object module.
-        /// Fix up the size of this box and the positions of the UI in it.
-        /// </summary>
-        public override void Initialise()
-        {
-            CheckShouldInitialise();
-
-            base.Initialise();
-
-            Size = new Vector2(Math.Max(DeckGridControl.Size.X, Title.Size.X) + 2 * xPadding, 3 * yPadding + DeckGridControl.Size.Y + Title.Size.Y);
-            Title.LocalPosition = new Vector2(0, (-Size.Y + Title.Size.Y) * 0.5f + yPadding);
-            DeckGridControl.LocalPosition = Title.LocalPosition + new Vector2(0, (Title.Size.Y + DeckGridControl.Size.Y) * 0.5f + yPadding);
-        }
 
         /// <summary>
         /// Add our final deck images - do this here so that all the sizes are calculated
@@ -61,7 +47,7 @@ namespace CardGameEngine
         {
             foreach (Deck deck in Array.FindAll(PlayerCardRegistry.Instance.Decks, x => x.IsCreated))
             {
-                ClickableImage deckUI = DeckGridControl.AddChild(new ClickableImage(DeckGridControl.ElementSize, Vector2.Zero, BaseUICard.CardBackTextureAsset), true, true);
+                ClickableImage deckUI = AddChild(new ClickableImage(ElementSize * 0.75f, Vector2.Zero, BaseUICard.CardBackTextureAsset), true, true);
                 deckUI.StoredObject = deck;
 
                 // A lot of these will be unused but it will avoid bugs down the road if we just do this in case they are used

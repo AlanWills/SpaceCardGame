@@ -1,5 +1,7 @@
 ﻿using CardGameEngine;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -10,10 +12,10 @@ namespace SpaceCardGame
         #region Properties and Fields
 
         /// <summary>
-        /// An int lookup over the number of resources we have left to use this turn.
-        /// Driven by the UI on our PlayerGameBoardSection.
+        /// An array of resource card lists.
+        /// Allows us to influence the UI by manipulating the resources.
         /// </summary>
-        public int[] AvailableResources { get; private set; }
+        public List<ResourceCard>[] Resources { get; private set; }
 
         /// <summary>
         /// A cap to limit the number of resource cards we can lay
@@ -41,11 +43,14 @@ namespace SpaceCardGame
             ResourceCardsPlacedThisTurn = 0;
             CurrentShipsPlaced = 0;
 
-            AvailableResources = new int[(int)ResourceType.kNumResourceTypes];
-            for (ResourceType resourceType = ResourceType.Crew; resourceType < ResourceType.kNumResourceTypes; resourceType++)
+            // Set up our resources array
+            Resources = new List<ResourceCard>[(int)ResourceType.kNumResourceTypes]
             {
-                AvailableResources[(int)resourceType] = 0;
-            }
+                new List<ResourceCard>(),
+                new List<ResourceCard>(),
+                new List<ResourceCard>(),
+                new List<ResourceCard>()
+            };
         }
 
         #region Virtual Functions
@@ -60,6 +65,15 @@ namespace SpaceCardGame
 
             ResourceCardsPlacedThisTurn = 0;
 
+            // Refresh all our resources so they are all available for use now
+            for (ResourceType resourceIndex = ResourceType.Crew; resourceIndex != ResourceType.kNumResourceTypes; resourceIndex++)
+            {
+                foreach (ResourceCard card in Resources[(int)resourceIndex])
+                {
+                    card.Used = false;
+                }
+            }
+
             if (OnNewTurn != null)
             {
                 OnNewTurn(this);
@@ -71,38 +85,17 @@ namespace SpaceCardGame
         #region Utility Functions
 
         /// <summary>
-        /// A function which works out whether we have enough resources to lay the inputted card data
-        /// </summary>
-        /// <param name="cardData"></param>
-        /// <param name="error"></param>
-        /// <returns></returns>
-        public bool HaveSufficientResources(CardData cardData)
-        {
-            for (int i = 0; i < (int)ResourceType.kNumResourceTypes; i++)
-            {
-                if (AvailableResources[i] < cardData.ResourceCosts[i])
-                {
-                    // We do not have enough of the current resource we are analysing to lay this card so return false
-                    return false;
-                }
-            }
-
-            // We have enough of each resource type for this card
-            return true;
-        }
-
-        /// <summary>
         /// A function which works out whether we have enough resources to lay the inputted card data.
         /// Outputs an error message based on what resource was lacking.
         /// </summary>
         /// <param name="cardData"></param>
         /// <param name="error"></param>
         /// <returns></returns>
-        public bool HasSufficientResources(CardData cardData, ref string error)
+        public bool HaveSufficientResources(CardData cardData, ref string error)
         {
             for (int i = 0; i < (int)ResourceType.kNumResourceTypes; i++)
             {
-                if (AvailableResources[i] < cardData.ResourceCosts[i])
+                if (Resources[i].FindAll(x => !x.Used).Count < cardData.ResourceCosts[i])
                 {
                     // We do not have enough of the current resource we are analysing to lay this card so return false
                     error = "Insufficient " + Enum.GetNames(typeof(ResourceType))[i];
@@ -112,6 +105,37 @@ namespace SpaceCardGame
 
             // We have enough of each resource type for this card
             return true;
+        }
+
+        /// <summary>
+        /// Alters the current resources by the amount specified in the card data.
+        /// Either charges them or refunds them based on the input bool
+        /// </summary>
+        /// <param name="cardData"></param>
+        /// <param name="charge"></param>
+        public void AlterResources(CardData cardData, bool charge)
+        {
+            if (charge)
+            {
+                // Charge the resource from the player
+                for (int typeIndex = 0; typeIndex < (int)ResourceType.kNumResourceTypes; typeIndex++)
+                {
+                    int numAvailableResources = Resources[typeIndex].Count;
+                    Debug.Assert(numAvailableResources >= cardData.ResourceCosts[typeIndex]);
+
+                    for (int cost = 0; cost < cardData.ResourceCosts[typeIndex]; cost++)
+                    {
+                        for (int i = 0; i < cardData.ResourceCosts[typeIndex]; ++i)
+                        {
+                            Resources[typeIndex][i].Used = true;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Debug.Fail("TODO: Refunding");
+            }
         }
 
         #endregion

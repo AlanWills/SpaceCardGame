@@ -38,22 +38,6 @@
           <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
           <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
           <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
-          <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
-          <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
-          <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
-          <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
-          <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
-          <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
-          <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
-          <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
-          <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
-          <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
-          <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
-          <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
-          <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
-          <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
-          <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
-          <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
           <Item>Ships\BlazeInterceptor\BlazeInterceptorCard.xml</Item>
           <Item>Ships\EagleFrigate\EagleFrigateCard.xml</Item>
           <Item>Ships\VenatorCruiser\VenatorCruiserCard.xml</Item>

@@ -68,8 +68,10 @@ namespace SpaceCardGame
         private void OnPlayGameButtonLeftClicked(BaseObject baseObject)
         {
             // Have to do this separately so we get the callbacks added to our objects during load
-            ChooseDeckBox chooseDeckBox = AddScreenUIObject(new ChooseDeckBox("Choose Deck", ScreenCentre), true, true);
+            ChooseDeckGridControl chooseDeckBox = AddScreenUIObject(new ChooseDeckGridControl(1, 4, ScreenCentre), true, true);
             chooseDeckBox.OnLeftClicked += ChooseDeckBoxClicked;
+
+            AddScreenUIObject(new Label("Choose Deck", new Vector2(ScreenCentre.X, ScreenCentre.Y * 0.25f)), true, true);
         }
 
         /// <summary>

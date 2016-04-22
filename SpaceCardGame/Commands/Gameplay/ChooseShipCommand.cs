@@ -1,11 +1,17 @@
 ﻿using _2DEngine;
-using CardGameEngine;
 using Microsoft.Xna.Framework;
 using System.Collections;
 using System.Diagnostics;
 
 namespace SpaceCardGame
 {
+    /// <summary>
+    /// A delegate for a custom function we will use to work out whether hovered targets are valid
+    /// </summary>
+    /// <param name="cardToChooseTargetFor"></param>
+    /// <param name="currentTarget"></param>
+    public delegate bool ValidTargetFunctionHandler(CardObjectPair cardToChooseTargetFor, CardShipPair currentTarget);
+
     /// <summary>
     /// A script which uses a targeting line and loops through a collection of CardShipPair
     /// to find a valid target for an inputted card.
@@ -41,6 +47,11 @@ namespace SpaceCardGame
         /// The game object container we will look through to find a valid target
         /// </summary>
         protected IEnumerable ContainerToLookThrough { private get; set; }
+
+        /// <summary>
+        /// An event used to provide custom functionality on whether something is a valid target
+        /// </summary>
+        protected event ValidTargetFunctionHandler ValidTargetFunction;
 
         #endregion
 
@@ -91,9 +102,10 @@ namespace SpaceCardGame
                 if (pair != CardToChooseTargetFor && (pair.Card.Collider.CheckIntersects(mousePosition) || pair.CardObject.Collider.CheckIntersects(mousePosition)))
                 {
                     // Check to see whether this current object is a valid match for the card we want to find a target for
-                    if (CardToChooseTargetFor.Card.CanUseOn(pair))
+                    DebugUtils.AssertNotNull(ValidTargetFunction);
+                    if (ValidTargetFunction(CardToChooseTargetFor, pair))
                     {
-                        pair.Card.Colour.Value = Color.Green;
+                        pair.Card.Colour.Value = Color.LightGreen;
                         Target = pair;
                         break;
                     }
@@ -102,7 +114,22 @@ namespace SpaceCardGame
                         pair.Card.Colour.Value = Color.Red;
                     }
                 }
+                else
+                {
+                    pair.Card.Colour.Value = Color.White;
+                }
             }
+        }
+
+        /// <summary>
+        /// Positions the targeting line so that it stretches between our CardToChooseTargetFor and the game mouse
+        /// </summary>
+        /// <param name="elapsedGameTime"></param>
+        public override void Update(float elapsedGameTime)
+        {
+            base.Update(elapsedGameTime);
+
+            SelectingLine.TargetPosition = GameMouse.Instance.InGamePosition;
         }
 
         /// <summary>
@@ -112,7 +139,28 @@ namespace SpaceCardGame
         {
             base.Die();
 
+            if (Target != null)
+            {
+                // Reset the target's card colour to white
+                Target.Card.Colour.Value = Color.White;
+            }
+
             SelectingLine.Die();
+        }
+
+        #endregion
+
+        #region Validity Callbacks
+
+        /// <summary>
+        /// Always returns true no matter the target
+        /// </summary>
+        /// <param name="cardToChooseTargetFor"></param>
+        /// <param name="currentTarget"></param>
+        /// <returns></returns>
+        protected bool AlwaysValid(CardObjectPair cardToChooseTargetFor, CardShipPair currentTarget)
+        {
+            return true;
         }
 
         #endregion

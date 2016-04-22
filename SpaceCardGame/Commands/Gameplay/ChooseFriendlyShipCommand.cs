@@ -22,7 +22,7 @@ namespace SpaceCardGame
         public ChooseFriendlyShipCommand(CardObjectPair cardObjectPair) :
             base(cardObjectPair)
         {
-            
+            ValidTargetFunction += ValidIfCanUseOn;
         }
 
         #region Virtual Functions
@@ -78,10 +78,27 @@ namespace SpaceCardGame
                 // The command has ended, but we have not chosen a ship
                 // Therefore we must send the card back to our hand and refund the resources
                 BattleScreen.ActivePlayer.AddCardToHand(CardToChooseTargetFor.Card.CardData);
-                BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection.RefundCardResources(CardToChooseTargetFor.Card.CardData);
+
+                //bool refund = false;
+                //BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection.UseResourcesToLayCard(CardToChooseTargetFor.Card.CardData, refund);
 
                 CardToChooseTargetFor.Die();
             }
+        }
+
+        #endregion
+
+        #region Validity Callbacks
+
+        /// <summary>
+        /// A function which returns whether the card we are looking to use can be used on the current target
+        /// </summary>
+        /// <param name="cardToChooseTargetFor"></param>
+        /// <param name="currentTarget"></param>
+        /// <returns></returns>
+        private bool ValidIfCanUseOn(CardObjectPair cardToChooseTargetFor, CardShipPair currentTarget)
+        {
+            return cardToChooseTargetFor.Card.CanUseOn(currentTarget);
         }
 
         #endregion

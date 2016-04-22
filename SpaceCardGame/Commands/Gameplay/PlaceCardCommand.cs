@@ -15,7 +15,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the card data
         /// </summary>
-        private CardData CardData { get; set; }
+        private GameCardData CardData { get; set; }
 
         /// <summary>
         /// A reference to the UI we will use to represent our card as we place it
@@ -33,7 +33,8 @@ namespace SpaceCardGame
             base()
         {
             DebugUtils.AssertNotNull(cardThumbnail.CardData);
-            CardData = cardThumbnail.CardData;
+            Debug.Assert(cardThumbnail.CardData is GameCardData);
+            CardData = cardThumbnail.CardData as GameCardData;
 
             CardThumbnail = cardThumbnail;
             CardThumbnail.Reparent(GameMouse.Instance);
@@ -75,6 +76,10 @@ namespace SpaceCardGame
             else if (GameMouse.Instance.IsClicked(MouseButton.kRightButton))
             {
                 SendCardBackToHand();
+
+                // Refund the resources
+                bool refund = false;
+                BattleScreen.ActivePlayer.AlterResources(CardData, refund);
             }
         }
 
@@ -107,14 +112,15 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// A function used on a card type basis to deterine whether we have a valid set up to place the command
+        /// A function used on a card type basis to deterine whether we have a valid state set up to place the card
         /// </summary>
         /// <returns></returns>
         private bool CheckValidTarget()
         {
             if (CardData is AbilityCardData)
             {
-                Debug.Fail("TO DO");
+                // Possibly need to change this on a per card basis
+                return true;
             }
             else if (CardData is ShieldCardData)
             {

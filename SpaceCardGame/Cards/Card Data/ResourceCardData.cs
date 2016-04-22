@@ -1,12 +1,13 @@
 ﻿using CardGameEngine;
 using System.Diagnostics;
+using System;
 
 namespace SpaceCardGame
 {
     /// <summary>
     /// The data class for a resource card
     /// </summary>
-    public class ResourceCardData : CardData
+    public class ResourceCardData : GameCardData
     {
         #region Properties and Fields
 
@@ -38,6 +39,15 @@ namespace SpaceCardGame
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// Create new card resource pair
+        /// </summary>
+        /// <returns></returns>
+        public override CardObjectPair CreateCardObjectPair()
+        {
+            return new CardResourcePair(this);
         }
 
         #endregion

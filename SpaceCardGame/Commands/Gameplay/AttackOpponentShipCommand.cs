@@ -24,6 +24,7 @@ namespace SpaceCardGame
             base(attackingShipPair)
         {
             AttackingShipPair = attackingShipPair;
+            ValidTargetFunction += AlwaysValid;         // All the opponent ships will be valid for now
         }
 
         #region Virtual Functions

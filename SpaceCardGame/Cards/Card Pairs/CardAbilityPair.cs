@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using _2DEngine;
 
 namespace SpaceCardGame
 {
@@ -34,6 +35,16 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
+        /// Adds an ability card to the game board section
+        /// </summary>
+        /// <param name="gameBoard"></param>
+        /// <param name="player"></param>
+        public override void WhenAddedToGameBoard(GameBoardSection gameBoard, GamePlayer player)
+        {
+            
+        }
+
+        /// <summary>
         /// Adds an ability to our ship
         /// </summary>
         /// <param name="cardShipPair"></param>
@@ -41,8 +52,6 @@ namespace SpaceCardGame
         {
             Debug.Fail("Empty");
         }
-
-        // Other virtual functions we do not currently need to implement
 
         #endregion
     }

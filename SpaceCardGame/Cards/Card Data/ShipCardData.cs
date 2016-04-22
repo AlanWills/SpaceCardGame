@@ -6,7 +6,7 @@ namespace SpaceCardGame
     /// <summary>
     /// The data class for a ship card 
     /// </summary>
-    public class ShipCardData : CardData
+    public class ShipCardData : GameCardData
     {
         #region Virtual Functions
 
@@ -19,7 +19,16 @@ namespace SpaceCardGame
         public override bool CanLay(Player player, ref string error)
         {
             Debug.Assert(player is GamePlayer);
-            return (player as GamePlayer).HasSufficientResources(this, ref error);
+            return (player as GamePlayer).HaveSufficientResources(this, ref error);
+        }
+
+        /// <summary>
+        /// Creates a CardShipPair
+        /// </summary>
+        /// <returns></returns>
+        public override CardObjectPair CreateCardObjectPair()
+        {
+            return new CardShipPair(this);
         }
 
         #endregion

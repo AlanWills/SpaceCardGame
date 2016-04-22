@@ -6,7 +6,7 @@ namespace SpaceCardGame
     /// <summary>
     /// The data class for a weapon card
     /// </summary>
-    public class WeaponCardData : CardData
+    public class WeaponCardData : GameCardData
     {
         #region Properties and Fields
 
@@ -27,9 +27,18 @@ namespace SpaceCardGame
         {
             Debug.Assert(player is GamePlayer);
             GamePlayer gamePlayer = player as GamePlayer;
-            bool hasEnoughResources = gamePlayer.HasSufficientResources(this, ref error);
+            bool hasEnoughResources = gamePlayer.HaveSufficientResources(this, ref error);
 
             return hasEnoughResources && gamePlayer.CurrentShipsPlaced > 0;
+        }
+
+        /// <summary>
+        /// Create a CardWeaponPair
+        /// </summary>
+        /// <returns></returns>
+        public override CardObjectPair CreateCardObjectPair()
+        {
+            return new CardWeaponPair(this);
         }
 
         #endregion
