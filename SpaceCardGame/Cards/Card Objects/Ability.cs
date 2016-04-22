@@ -32,7 +32,7 @@ namespace SpaceCardGame
         /// Loads our ability data
         /// </summary>
         /// <returns></returns>
-        protected override GameObjectData LoadGameObjectData()
+        /*protected override GameObjectData LoadGameObjectData()
         {
             return AssetManager.GetData<AbilityData>(DataAsset);
         }
@@ -47,7 +47,7 @@ namespace SpaceCardGame
             AbilityData = Data as AbilityData;
 
             base.LoadContent();
-        }
+        }*/
 
         #endregion
     }

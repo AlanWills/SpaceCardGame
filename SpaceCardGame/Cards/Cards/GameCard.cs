@@ -75,6 +75,17 @@ namespace SpaceCardGame
             player.AlterResources(CardData, charge);
         }
 
+        /// <summary>
+        /// When we call Die on this card, calls Die on the parent too, to trigger killing the card object too
+        /// </summary>
+        public override void Die()
+        {
+            base.Die();
+
+            Debug.Assert(Parent is CardObjectPair);
+            Parent.Die();
+        }
+
         #endregion
     }
 }

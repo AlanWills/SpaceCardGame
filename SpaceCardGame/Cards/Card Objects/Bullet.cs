@@ -19,6 +19,8 @@ namespace SpaceCardGame
         /// </summary>
         private BulletData BulletData { get; set; }
 
+        public const string defaultBulletDataAsset = "Cards\\Weapons\\DefaultBullet.xml";
+
         #endregion
 
         public Bullet(GameObject target, Vector2 worldPosition, BulletData bulletData) :
@@ -26,6 +28,9 @@ namespace SpaceCardGame
         {
             Target = target;
             BulletData = bulletData;
+
+            float angle = MathUtils.AngleBetweenPoints(worldPosition, target.WorldPosition);
+            LocalRotation = angle;
 
             DebugUtils.AssertNotNull(BulletData);
         }

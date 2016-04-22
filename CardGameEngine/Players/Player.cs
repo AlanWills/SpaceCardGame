@@ -71,10 +71,11 @@ namespace CardGameEngine
         public virtual void NewTurn()
         {
             // Draw a card - in the draw method we will add it to our hand if we can
-            if (CardsLeftInDeck > 0)
+            for (int i = 0; i < 3; i++)
             {
-                for (int i = 0; i < 3; i++)
+                if (CardsLeftInDeck > 0)
                 {
+
                     DrawCard();
                 }
             }

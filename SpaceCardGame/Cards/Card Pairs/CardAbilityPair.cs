@@ -25,7 +25,7 @@ namespace SpaceCardGame
         public CardAbilityPair(AbilityCardData abilityCardData) :
             base(abilityCardData)
         {
-            Ability = AddChild(new Ability(abilityCardData.ObjectDataAsset));
+            Ability = AddChild(new Ability(AssetManager.EmptyGameObjectDataAsset));
             CardObject = Ability;
 
             Debug.Assert(Card is AbilityCard);
