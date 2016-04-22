@@ -23,15 +23,6 @@ namespace SpaceCardGame
             return (player as GamePlayer).HaveSufficientResources(this, ref error);
         }
 
-        /// <summary>
-        /// Create a new card ability card pair
-        /// </summary>
-        /// <returns></returns>
-        public override CardObjectPair CreateCardObjectPair()
-        {
-            return new CardAbilityPair(this);
-        }
-
         #endregion
     }
 }

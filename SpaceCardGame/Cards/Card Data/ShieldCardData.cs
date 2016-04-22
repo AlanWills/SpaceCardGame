@@ -25,15 +25,6 @@ namespace SpaceCardGame
             return hasEnoughResources && gamePlayer.CurrentShipsPlaced > 0;
         }
 
-        /// <summary>
-        /// Creates a CardShieldPair
-        /// </summary>
-        /// <returns></returns>
-        public override CardObjectPair CreateCardObjectPair()
-        {
-            return new CardShieldPair(this);
-        }
-
         #endregion
     }
 }

@@ -41,15 +41,6 @@ namespace SpaceCardGame
             return true;
         }
 
-        /// <summary>
-        /// Create new card resource pair
-        /// </summary>
-        /// <returns></returns>
-        public override CardObjectPair CreateCardObjectPair()
-        {
-            return new CardResourcePair(this);
-        }
-
         #endregion
     }
 }

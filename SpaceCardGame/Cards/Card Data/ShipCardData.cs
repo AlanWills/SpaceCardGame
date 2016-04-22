@@ -22,15 +22,6 @@ namespace SpaceCardGame
             return (player as GamePlayer).HaveSufficientResources(this, ref error);
         }
 
-        /// <summary>
-        /// Creates a CardShipPair
-        /// </summary>
-        /// <returns></returns>
-        public override CardObjectPair CreateCardObjectPair()
-        {
-            return new CardShipPair(this);
-        }
-
         #endregion
     }
 }

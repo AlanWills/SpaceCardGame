@@ -40,10 +40,10 @@ namespace SpaceCardGame
 
         #endregion
 
-        public CardObjectPair(CardData cardData) :
+        public CardObjectPair(GameCardData cardData) :
             base(Vector2.Zero, AssetManager.EmptyGameObjectDataAsset)
         {
-            Card = AddChild(CardFactory.CreateCard(cardData));
+            Card = AddChild(cardData.CreateCard());
 
             UsesCollider = false;
 

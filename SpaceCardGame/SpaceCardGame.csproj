@@ -62,7 +62,6 @@
     <Compile Include="Cards\Card Objects\ShipAddOn.cs" />
     <Compile Include="Cards\Card Objects\Turret.cs" />
     <Compile Include="Cards\Cards\AbilityCard.cs" />
-    <Compile Include="Cards\CardFactory.cs" />
     <Compile Include="Cards\Cards\MissileBarrageAbilityCard.cs" />
     <Compile Include="Cards\Cards\ShieldCard.cs" />
     <Compile Include="Cards\Cards\GameCard.cs" />

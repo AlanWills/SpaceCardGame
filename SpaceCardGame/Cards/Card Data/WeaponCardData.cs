@@ -32,15 +32,6 @@ namespace SpaceCardGame
             return hasEnoughResources && gamePlayer.CurrentShipsPlaced > 0;
         }
 
-        /// <summary>
-        /// Create a CardWeaponPair
-        /// </summary>
-        /// <returns></returns>
-        public override CardObjectPair CreateCardObjectPair()
-        {
-            return new CardWeaponPair(this);
-        }
-
         #endregion
     }
 }
