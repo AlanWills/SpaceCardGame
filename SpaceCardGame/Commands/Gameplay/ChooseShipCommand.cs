@@ -105,18 +105,18 @@ namespace SpaceCardGame
                     DebugUtils.AssertNotNull(ValidTargetFunction);
                     if (ValidTargetFunction(CardToChooseTargetFor, pair))
                     {
-                        pair.Card.Colour.Value = Color.LightGreen;
+                        pair.Colour.Value = Color.LightGreen;
                         Target = pair;
                         break;
                     }
                     else
                     {
-                        pair.Card.Colour.Value = Color.Red;
+                        pair.Colour.Value = Color.Red;
                     }
                 }
                 else
                 {
-                    pair.Card.Colour.Value = Color.White;
+                    pair.Colour.Value = Color.White;
                 }
             }
         }
@@ -142,7 +142,7 @@ namespace SpaceCardGame
             if (Target != null)
             {
                 // Reset the target's card colour to white
-                Target.Card.Colour.Value = Color.White;
+                Target.Colour.Value = Color.White;
             }
 
             SelectingLine.Die();

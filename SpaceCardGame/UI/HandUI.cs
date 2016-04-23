@@ -113,7 +113,7 @@ namespace SpaceCardGame
             CardFlipState cardFlipState = Player == BattleScreen.Player ? CardFlipState.kFaceUp : CardFlipState.kFaceDown;
             cardUI.Flip(cardFlipState);
 
-            cardUI.ClickableModule.OnLeftClicked += RunPlaceCardScript;
+            cardUI.ClickableModule.OnLeftClicked += RunPlaceCardCommand;
             cardUI.OnDeath += SyncPlayerHand;
             cardUI.OnDeath += RebuildCallback;
         }
@@ -122,20 +122,27 @@ namespace SpaceCardGame
         /// A callback which adds a card in our hand to the game
         /// </summary>
         /// <param name="clickable"></param>
-        private void RunPlaceCardScript(BaseObject baseObject)
+        private void RunPlaceCardCommand(BaseObject baseObject)
         {
             Debug.Assert(baseObject is BaseUICard);
             BaseUICard card = baseObject as BaseUICard;
             Debug.Assert(card.CardData is GameCardData);
 
-            string error = "";
-            if ((card.CardData as GameCardData).CanLay(Player, ref error))
+            Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
+            BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
+
+            // Only lay our cards during the card placement phase
+            if (battleScreen.TurnState == TurnState.kPlaceCards)
             {
-                CommandManager.Instance.AddChild(new PlaceCardCommand(card), true, true);
-            }
-            else
-            {
-                CommandManager.Instance.AddChild(new FlashingTextCommand(error, ScreenManager.Instance.ScreenCentre, Color.White, 2), true, true);
+                string error = "";
+                if ((card.CardData as GameCardData).CanLay(Player, ref error))
+                {
+                    CommandManager.Instance.AddChild(new PlaceCardCommand(card), true, true);
+                }
+                else
+                {
+                    CommandManager.Instance.AddChild(new FlashingTextCommand(error, ScreenManager.Instance.ScreenCentre, Color.White, 2), true, true);
+                }
             }
         }
 

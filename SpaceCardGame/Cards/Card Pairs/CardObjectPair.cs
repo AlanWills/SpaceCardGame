@@ -1,5 +1,4 @@
 ﻿using _2DEngine;
-using CardGameEngine;
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
 
@@ -62,6 +61,9 @@ namespace SpaceCardGame
             // We should have set these references by now
             DebugUtils.AssertNotNull(Card);
             DebugUtils.AssertNotNull(CardObject);
+
+            Card.Colour.Connect(Colour);
+            CardObject.Colour.Connect(Colour);
 
             SetActiveObject(CardOrObject.kCard);
         }

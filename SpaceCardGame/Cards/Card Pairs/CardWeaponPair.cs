@@ -78,6 +78,8 @@ namespace SpaceCardGame
         {
             base.MakeReadyForCardPlacement();
 
+            Colour.Value = Color.White;
+
             DebugUtils.AssertNotNull(Turret);
             Turret.Reload();
 
