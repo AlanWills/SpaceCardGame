@@ -45,6 +45,11 @@ namespace CardGameEngine
         }
 
         /// <summary>
+        /// A flag to indicate whether we have loaded our data from disc - only need to do this once per session.
+        /// </summary>
+        private bool Loaded { get; set; }
+
+        /// <summary>
         /// A flag to indicate the number of packs our player can open
         /// </summary>
         public int AvailablePacksToOpen { get; set; }
@@ -63,13 +68,16 @@ namespace CardGameEngine
         #region Saving and Loading
 
         /// <summary>
-        /// Load our player's card and deck data.
+        /// Load our player's card and deck data if we have not done so already.
         /// Don't copy from the Central Card registry because we want to create multiples instances of the same card.
         /// If we used the Central Card Registry, they would all be the same?
         /// </summary>
         /// <param name="content"></param>
         public void LoadAssets(string path)
         {
+            // If we have already loaded there is no need to load again - just raises the possibility of overwriting data
+            if (Loaded) { return; }
+
             AvailableCards = new List<CardData>();
             Decks = new Deck[maxDeckNumber];
 
@@ -103,6 +111,8 @@ namespace CardGameEngine
             }
 
             AvailablePacksToOpen = playerData.AvailablePacksToOpen;
+
+            Loaded = true;
         }
 
         /// <summary>

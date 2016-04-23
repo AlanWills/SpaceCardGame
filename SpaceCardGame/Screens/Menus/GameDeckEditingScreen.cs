@@ -21,6 +21,7 @@ namespace SpaceCardGame
         /// <returns></returns>
         protected override void GoToPreviousScreen()
         {
+            PlayerCardRegistry.Instance.SaveAssets();
             Transition(new GameDeckManagerScreen());
         }
 

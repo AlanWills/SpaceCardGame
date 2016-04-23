@@ -50,7 +50,7 @@ namespace SpaceCardGame
             BattleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
 
             ShipCardData stationData = Player.GetStationData();
-            AddCard(stationData, new Vector2(300, 100), false, false);
+            AddCard(stationData, Vector2.Zero, false, false);
         }
 
         #endregion

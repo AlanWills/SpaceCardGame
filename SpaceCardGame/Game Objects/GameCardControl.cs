@@ -182,7 +182,7 @@ namespace SpaceCardGame
             base.AddChild(stationCard, true, true);
 
             stationCard.LocalPosition = StationPosition;
-            stationCard.Card.Size *= 0.7f;
+            stationCard.Card.Size *= 0.5f;
         }
 
         #endregion

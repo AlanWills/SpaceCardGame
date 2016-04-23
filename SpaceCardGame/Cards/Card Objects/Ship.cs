@@ -39,6 +39,12 @@ namespace SpaceCardGame
         public Shield Shield { get; set; }
 
         /// <summary>
+        /// A reference to the engine for our ship.
+        /// Used mainly for fancy animation.
+        /// </summary>
+        public Engine Engine { get; set; }
+
+        /// <summary>
         /// A list of the ui we use to signify damage
         /// </summary>
         public List<DamageUI> DamageUI { get; private set; }
@@ -80,7 +86,7 @@ namespace SpaceCardGame
             Debug.Assert(ShipData.EngineHardpoints.Count > 0);
             foreach (Vector2 engineHardpoint in ShipData.EngineHardpoints)
             {
-                AddChild(new Engine(ShipData.Speed, engineHardpoint));
+                Engine = AddChild(new Engine(ShipData.Speed, engineHardpoint));
             }
 
             Debug.Assert(ShipData.Defence > 0);

@@ -49,10 +49,12 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// Transition back to our lobby screen if we press esc
+        /// Transition back to our lobby screen if we press esc.
+        /// Also, saves our current assets to disc - i.e. we retain our newly added cards.
         /// </summary>
         protected override void GoToPreviousScreen()
         {
+            PlayerCardRegistry.Instance.SaveAssets();
             Transition(new LobbyMenuScreen());
         }
 

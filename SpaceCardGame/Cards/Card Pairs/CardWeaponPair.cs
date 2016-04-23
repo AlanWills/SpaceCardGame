@@ -64,7 +64,7 @@ namespace SpaceCardGame
             WeaponCard.Size = cardShipPair.Card.Size / 3;
             LocalPosition = new Vector2((cardShipPair.Card.Size.X + WeaponCard.Size.X) * 0.5f, (3 * WeaponCard.Size.Y - cardShipPair.Card.Size.Y) * 0.5f);
 
-            // Set up the reference to this shield on the inputted ship
+            // Set up the reference to this turret on the inputted ship
             cardShipPair.Ship.Turret = Turret;
 
             // Set up the reference to the CardShipPair

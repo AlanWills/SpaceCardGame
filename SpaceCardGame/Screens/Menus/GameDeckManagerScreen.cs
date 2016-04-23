@@ -32,6 +32,7 @@ namespace SpaceCardGame
         /// </summary>
         protected override void GoToPreviousScreen()
         {
+            PlayerCardRegistry.Instance.SaveAssets();
             Transition(new LobbyMenuScreen());
         }
 

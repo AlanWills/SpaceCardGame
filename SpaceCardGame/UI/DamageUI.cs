@@ -29,7 +29,7 @@ namespace SpaceCardGame
         public DamageUI(Vector2 localPosition, string textureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
             base(localPosition, DamageAssets[MathUtils.GenerateInt(0, DamageAssets.Count - 1)])
         {
-
+            AddChild(new AnimatedGameObject(Vector2.Zero, "GameObjects\\Animations\\RedFire.xml"));
         }
     }
 }

@@ -1,7 +1,4 @@
-﻿using _2DEngine;
-using System.Diagnostics;
-
-namespace SpaceCardGame
+﻿namespace SpaceCardGame
 {
     /// <summary>
     /// A specific implentation of a ship for our singular station object that both players will have.
@@ -28,6 +25,17 @@ namespace SpaceCardGame
             // Need to extract from game board section so that we can be added to the ShipCardControl
             gameBoard.ExtractChild(this);
             gameBoard.ShipCardControl.AddStation(this);         // Call the specific function we have for stations - this is for positioning purposes mainly
+        }
+
+        /// <summary>
+        /// Make sure we hide our turret and engine for the station - we do not want them to appear for now
+        /// </summary>
+        public override void MakeReadyForBattle()
+        {
+            base.MakeReadyForBattle();
+
+            Ship.Turret.Hide();
+            Ship.Engine.Hide();
         }
 
         #endregion

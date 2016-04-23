@@ -85,7 +85,7 @@ namespace SpaceCardGame
         #region Utility Functions
 
         /// <summary>
-        /// A function which obtains the data for the station in the player's deck.
+        /// A function which obtains the data for the station in the player's deck and removes it from the deck so that we cannot draw it.
         /// Used at the start of the game to get the station data so we can add it to our board straightaway.
         /// </summary>
         /// <returns></returns>
@@ -94,7 +94,10 @@ namespace SpaceCardGame
             // This assert should NEVER trigger.  If it does, it means that the player has no station chosen.
             // This quite simply CANNOT happen otherwise we have no basis for a game!
             Debug.Assert(ChosenDeck.Exists(x => x is ShipCardData && (x as ShipCardData).Type == "Station"));
-            return ChosenDeck.Find(x => x is ShipCardData && (x as ShipCardData).Type == "Station") as ShipCardData;
+            ShipCardData stationData = ChosenDeck.Find(x => x is ShipCardData && (x as ShipCardData).Type == "Station") as ShipCardData;
+            ChosenDeck.Remove(stationData);
+
+            return stationData;
         }
 
         /// <summary>
@@ -128,26 +131,20 @@ namespace SpaceCardGame
         /// <param name="charge"></param>
         public void AlterResources(CardData cardData, bool charge)
         {
-            if (charge)
+            for (int typeIndex = 0; typeIndex < (int)ResourceType.kNumResourceTypes; typeIndex++)
             {
-                // Charge the resource from the player
-                for (int typeIndex = 0; typeIndex < (int)ResourceType.kNumResourceTypes; typeIndex++)
-                {
-                    int numAvailableResources = Resources[typeIndex].Count;
-                    Debug.Assert(numAvailableResources >= cardData.ResourceCosts[typeIndex]);
+                int numAvailableResources = Resources[typeIndex].Count;
+                Debug.Assert(numAvailableResources >= cardData.ResourceCosts[typeIndex]);
 
-                    for (int cost = 0; cost < cardData.ResourceCosts[typeIndex]; cost++)
+                for (int cost = 0; cost < cardData.ResourceCosts[typeIndex]; cost++)
+                {
+                    for (int i = 0; i < cardData.ResourceCosts[typeIndex]; ++i)
                     {
-                        for (int i = 0; i < cardData.ResourceCosts[typeIndex]; ++i)
-                        {
-                            Resources[typeIndex][i].Used = true;
-                        }
+                        // If the 'charge' bool is set to false, we are refunding so the resource should not be used
+                        // If the 'charge' bool is set to true, we are charging the player the resources, so they should be used
+                        Resources[typeIndex][i].Used = charge;
                     }
                 }
-            }
-            else
-            {
-                Debug.Fail("TODO: Refunding");
             }
         }
 

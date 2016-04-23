@@ -1,7 +1,6 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
-using System;
 
 namespace SpaceCardGame
 {
@@ -39,6 +38,18 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
+        /// Fixup the size of the ship so that we don't create one larger than our card.
+        /// Do this in begin, because we usually do extra size fixup before we start updating so we want to capture those changes.
+        /// Also, do it before so that the colliders for our card and card object get the latest size too.
+        /// </summary>
+        public override void Begin()
+        {
+            //CardObject.Size = Vector2.Min(Card.Size, CardObject.Size);
+
+            base.Begin();
+        }
+
+        /// <summary>
         /// When we add a ship to the game board.
         /// Want to update the player's ships placed and set up event callbacks for when this ship dies
         /// </summary>
@@ -49,7 +60,7 @@ namespace SpaceCardGame
             Debug.Assert(player.CurrentShipsPlaced < GamePlayer.MaxShipNumber);
 
             LocalPosition = GameMouse.Instance.InGamePosition;         // Do this before we add it to the control because we use the position to place it in the correct spot
-            Reparent(gameBoard.ShipCardControl);        // Reparent this under the card ship control rather than the game board which it was initially added to
+            Reparent(gameBoard.ShipCardControl);                       // Reparent this under the card ship control rather than the game board which it was initially added to
 
             player.CurrentShipsPlaced++;
         }

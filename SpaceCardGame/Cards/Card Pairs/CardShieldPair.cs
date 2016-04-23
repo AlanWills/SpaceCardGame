@@ -66,7 +66,7 @@ namespace SpaceCardGame
 
             // Change our Shield size to wrap around the ship
             float maxDimension = MathHelper.Max(cardShipPair.Ship.Size.X, cardShipPair.Ship.Size.Y);
-            float maxPadding = MathHelper.Max(30, 0.25f * maxDimension);        // Either add an absolute or relative amount depending on which is bigger (first for small ships, second for large ships)
+            float maxPadding = MathHelper.Max(30, 0.85f * maxDimension);        // Either add an absolute or relative amount depending on which is bigger (first for small ships, second for large ships)
             Shield.Size = new Vector2(maxPadding + maxDimension);               // Add a little extra padding for safety
         }
 
