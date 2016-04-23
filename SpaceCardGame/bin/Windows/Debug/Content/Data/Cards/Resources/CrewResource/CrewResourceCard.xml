@@ -6,6 +6,7 @@
     <DisplayName>Crew</DisplayName>
     <Rarity>Common</Rarity>
     <ResourceCosts>0 0 0 0</ResourceCosts>
+    <CardTypeName>ResourceCard</CardTypeName>
     <ResourceType>Crew</ResourceType>
   </Asset>
 </XnaContent>

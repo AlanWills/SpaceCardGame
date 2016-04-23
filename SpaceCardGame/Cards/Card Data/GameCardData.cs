@@ -10,6 +10,15 @@ namespace SpaceCardGame
     /// </summary>
     public abstract class GameCardData : CardData
     {
+        #region Properties and Fields
+
+        /// <summary>
+        /// The string used reflectively to instantiate the correct card class in CreateCard
+        /// </summary>
+        public string CardTypeName { get; set; }
+
+        #endregion
+
         #region Virtual Functions
 
         /// <summary>
@@ -43,13 +52,8 @@ namespace SpaceCardGame
             string squashedDisplayName = DisplayName.Replace(" ", "");
 
             // Use the squashed display name to create the card itself - assumes a lot about naming, but ok for now
-            Type cardType = typeof(GameCardData).Assembly.GetType("SpaceCardGame." + squashedDisplayName + "Card");
-            if (cardType == null)
-            {
-                // Try using the original type instead
-                cardType = typeof(GameCardData).Assembly.GetType("SpaceCardGame." + Type + "Card");
-                DebugUtils.AssertNotNull(cardType);
-            }
+            Type cardType = typeof(GameCardData).Assembly.GetType("SpaceCardGame." + CardTypeName);
+            DebugUtils.AssertNotNull(cardType);
 
             return (GameCard)Activator.CreateInstance(cardType, this);
         }

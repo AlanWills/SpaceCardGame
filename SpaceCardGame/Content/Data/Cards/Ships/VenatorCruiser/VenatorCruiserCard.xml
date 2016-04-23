@@ -6,5 +6,6 @@
     <DisplayName>Venator Cruiser</DisplayName>
     <Rarity>Rare</Rarity>
     <ResourceCosts>3 4 0 4</ResourceCosts>
+    <CardTypeName>ShipCard</CardTypeName>
   </Asset>
 </XnaContent>

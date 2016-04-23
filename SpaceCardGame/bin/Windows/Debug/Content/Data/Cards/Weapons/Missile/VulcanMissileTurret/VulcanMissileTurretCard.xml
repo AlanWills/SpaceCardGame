@@ -6,5 +6,6 @@
     <DisplayName>Vulcan Missile Turret</DisplayName>
     <Rarity>Common</Rarity>
     <ResourceCosts>0 1 0 1</ResourceCosts>
+    <CardTypeName>WeaponCard</CardTypeName>
   </Asset>
 </XnaContent>

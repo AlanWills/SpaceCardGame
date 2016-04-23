@@ -6,5 +6,6 @@
     <DisplayName>Laser Beam Turret</DisplayName>
     <Rarity>Common</Rarity>
     <ResourceCosts>0 2 0 1</ResourceCosts>
+    <CardTypeName>WeaponCard</CardTypeName>
   </Asset>
 </XnaContent>
