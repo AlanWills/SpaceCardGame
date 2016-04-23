@@ -11,7 +11,7 @@ namespace CardGameEngine
         #region Properties and Fields
 
         /// <summary>
-        /// A flag to indicate whether the card is valid or not - will dicatete the colour we are.
+        /// A flag to indicate whether the card is valid or not - will dictate the colour we are.
         /// </summary>
         public bool Valid
         {

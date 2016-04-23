@@ -13,6 +13,7 @@
       <Item>Ships\WaspFighter\WaspFighterCard.xml</Item>
       <Item>Ships\VenatorCruiser\VenatorCruiserCard.xml</Item>
       <Item>Ships\VenatorCruiser\VenatorCruiserCard.xml</Item>
+      <Item>Stations\BastionShipyard\BastionShipyardCard.xml</Item>
     </ShipCardDataAssets>
     <WeaponCardDataAssets>
       <Item>Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xml</Item>

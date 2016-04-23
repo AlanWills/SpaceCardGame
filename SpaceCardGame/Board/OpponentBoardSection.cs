@@ -11,7 +11,7 @@ namespace SpaceCardGame
         public OpponentBoardSection(GamePlayer player, Vector2 localPosition, string dataAsset = AssetManager.EmptyGameObjectDataAsset) :
             base(player, localPosition, dataAsset)
         {
-
+            //StationPosition = new Vector2(0, -Size.Y * 0.375f);
         }
 
         #region Virtual Functions
@@ -21,6 +21,9 @@ namespace SpaceCardGame
         /// </summary>
         public override void Begin()
         {
+            // This is used in base.Begin() so must be fixed up before we call that function
+            GameBoardSection.ShipCardControl.StationPosition *= new Vector2(1, -1);
+
             base.Begin();
 
             LocalRotation = MathHelper.Pi;

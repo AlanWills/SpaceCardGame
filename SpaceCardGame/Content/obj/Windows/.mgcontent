@@ -66,5 +66,9 @@
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/CardOutline.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/UI/NarrowButton.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/UI/NarrowButtonHighlighted.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Objects/HugeAsteroid.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Objects/LargeAsteroid.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Objects/SmallAsteroid.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Objects/TinyAsteroid.png</File>
   </SourceFiles>
 </SourceFileCollection>

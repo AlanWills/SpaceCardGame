@@ -61,6 +61,7 @@
     <Compile Include="Cards\Card Objects\Ship.cs" />
     <Compile Include="Cards\Card Objects\ShipAddOn.cs" />
     <Compile Include="Cards\Card Objects\Turret.cs" />
+    <Compile Include="Cards\Card Pairs\CardStationPair.cs" />
     <Compile Include="Cards\Cards\AbilityCard.cs" />
     <Compile Include="Cards\Cards\MissileBarrageAbilityCard.cs" />
     <Compile Include="Cards\Cards\ShieldCard.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Screens\Menus\MainMenuScreen.cs" />
     <Compile Include="Game Objects\Animations\EngineBlaze.cs" />
     <Compile Include="Game Objects\Animations\Explosion.cs" />
+    <Compile Include="UI\Asteroid.cs" />
     <Compile Include="UI\DamageUI.cs" />
     <Compile Include="UI\HandUI.cs" />
     <Compile Include="Board\UIBoardSection.cs" />
@@ -118,6 +120,15 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Content\Data\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldObject.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Cards\Stations\BastionShipyard\BastionShipyardCard.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Cards\Stations\BastionShipyard\BastionShipyardObject.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\Stations\BastionShipyard\BastionShipyardObject.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretBullet.xml">
@@ -145,6 +156,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\GameObjects\Animations\Smoke.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\GameObjects\Board.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Screens\HardpointScreen.xml">
@@ -227,6 +241,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Music\Menu\SoftBeat.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Objects\TinyAsteroid.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Objects\SmallAsteroid.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Objects\LargeAsteroid.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Objects\HugeAsteroid.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\UI\ButtonHighlighted.png">

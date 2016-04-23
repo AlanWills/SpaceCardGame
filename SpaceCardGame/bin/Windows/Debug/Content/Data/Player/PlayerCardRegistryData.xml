@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent>
   <Asset Type="CardGameEngineData.PlayerCardRegistryData">
     <AbilityCardDataAssets>
@@ -45,6 +46,7 @@
           <Item>Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xml</Item>
           <Item>Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xml</Item>
           <Item>Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xml</Item>
+          <Item>Stations\BastionShipyard\BastionShipyardCard.xml</Item>
         </CardDataAssets>
       </Item>
     </Decks>

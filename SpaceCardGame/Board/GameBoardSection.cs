@@ -1,7 +1,5 @@
 ﻿using _2DEngine;
-using CardGameEngine;
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace SpaceCardGame
@@ -36,7 +34,7 @@ namespace SpaceCardGame
             Player = player;
             Size = new Vector2(ScreenManager.Instance.ScreenDimensions.X, ScreenManager.Instance.ScreenDimensions.Y * 0.5f);
 
-            ShipCardControl = AddChild(new GameCardControl(typeof(ShipCardData), new Vector2(Size.X * 0.8f, Size.Y * 0.5f), GamePlayer.MaxShipNumber, 1, new Vector2(0, - Size.Y * 0.25f), "Backgrounds\\TileableNebula"));
+            ShipCardControl = AddChild(new GameCardControl(typeof(ShipCardData), new Vector2(Size.X * 0.8f, Size.Y * 0.5f), GamePlayer.MaxShipNumber, 1, new Vector2(0, - Size.Y * 0.25f)));
         }
 
         #region Virtual Functions
@@ -50,6 +48,9 @@ namespace SpaceCardGame
 
             Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
             BattleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
+
+            ShipCardData stationData = Player.GetStationData();
+            AddCard(stationData, new Vector2(300, 100), false, false);
         }
 
         #endregion
@@ -57,19 +58,19 @@ namespace SpaceCardGame
         #region Specific Function for adding cards
 
         /// <summary>
-        /// Adds our card to the section, but calls a particular function based on it's type to perform extra stuff like adding a reference to a list
+        /// Adds our card to the section, but calls functions on the CardObjectPair and Card to perform extra type functionality
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="gameObjectToAdd"></param>
         /// <param name="load"></param>
         /// <param name="initialise"></param>
         /// <returns></returns>
-        public void AddCard(GameCardData cardData, Vector2 size)
+        public void AddCard(GameCardData cardData, Vector2 size, bool load = true, bool initialise = true)
         {
             // The size parameter comes from the card thumbnail
             // We pass it in to keep the sizes of things consistent
             // Could possibly remove this later, but for now it does the trick
-            CardObjectPair pair = AddChild(cardData.CreateCardObjectPair(), true, true);
+            CardObjectPair pair = AddChild(cardData.CreateCardObjectPair(), load, initialise);
             pair.LocalPosition = GameMouse.Instance.InGamePosition - WorldPosition;
             pair.Card.Size = size;
 

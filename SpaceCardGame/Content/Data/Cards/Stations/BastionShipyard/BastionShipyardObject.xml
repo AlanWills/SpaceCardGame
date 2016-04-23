@@ -1,0 +1,21 @@
+﻿<XnaContent>
+  <Asset Type="SpaceCardGameData.ShipData">
+    <TextureAsset>Cards\Stations\BastionShipyard\BastionShipyardObject</TextureAsset>
+    <Attack>0</Attack>
+    <Defence>1</Defence>
+    <Speed>0</Speed>
+    <TurretHardpoints>
+      <Item>
+        <X>0</X>
+        <Y>-8</Y>
+      </Item>
+    </TurretHardpoints>
+    <EngineHardpoints>
+      <Item>
+        <X>0</X>
+        <Y>22</Y>
+      </Item>
+    </EngineHardpoints>
+    <DamageHardpoints/>
+  </Asset>
+</XnaContent>

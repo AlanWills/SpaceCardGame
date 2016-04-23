@@ -85,6 +85,19 @@ namespace SpaceCardGame
         #region Utility Functions
 
         /// <summary>
+        /// A function which obtains the data for the station in the player's deck.
+        /// Used at the start of the game to get the station data so we can add it to our board straightaway.
+        /// </summary>
+        /// <returns></returns>
+        public ShipCardData GetStationData()
+        {
+            // This assert should NEVER trigger.  If it does, it means that the player has no station chosen.
+            // This quite simply CANNOT happen otherwise we have no basis for a game!
+            Debug.Assert(ChosenDeck.Exists(x => x is ShipCardData && (x as ShipCardData).Type == "Station"));
+            return ChosenDeck.Find(x => x is ShipCardData && (x as ShipCardData).Type == "Station") as ShipCardData;
+        }
+
+        /// <summary>
         /// A function which works out whether we have enough resources to lay the inputted card data.
         /// Outputs an error message based on what resource was lacking.
         /// </summary>

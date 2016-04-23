@@ -50,17 +50,22 @@ namespace SpaceCardGame
         /// </summary>
         private BaseObject[] StoredCards { get; set; }
 
+        /// <summary>
+        /// The preset position for our station
+        /// </summary>
+        public Vector2 StationPosition { get; set; }
+
         private float columnWidth;
 
-        public GameCardControl(Type cardType, Vector2 size, int columns, int rows, Vector2 localPosition, string textureAsset) :
+        public GameCardControl(Type cardType, Vector2 size, int columns, int rows, Vector2 localPosition) :
             base(localPosition, AssetManager.EmptyGameObjectDataAsset)
         {
             CardType = cardType;
             Columns = columns;
             Rows = rows;
             Size = size;
-            TextureAsset = textureAsset;
 
+            StationPosition = new Vector2(0, Size.Y * 0.75f);
             columnWidth = Size.X / Columns;
             LocalXPositions = new float[Columns];
             StoredCards = new GameObject[Columns];
@@ -83,6 +88,7 @@ namespace SpaceCardGame
 
             Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
             BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
+
             battleScreen.OnCardPlacementStateStarted += SetUpGameObjectsForCardPlacement;
             battleScreen.OnBattleStateStarted += SetUpGameObjectsForBattle;
             battleScreen.OnTurnEnd += GameObjectsOnTurnEnd;
@@ -162,6 +168,21 @@ namespace SpaceCardGame
             StoredCards[pairIndex] = gameObjectToAdd;
 
             return base.AddChild(gameObjectToAdd, load, initialise);
+        }
+
+        /// <summary>
+        /// A function called right at the start of the game to add our player's station to this control.
+        /// We load and initialise the station too
+        /// We have a separate function, because the station is a special card and we do no want it to go through the same pipeline as the normal CardShipPairs (i.e. AddChild)
+        /// </summary>
+        /// <param name="stationCard"></param>
+        public void AddStation(CardObjectPair stationCard)
+        {
+            Debug.Assert(stationCard is CardStationPair);
+            base.AddChild(stationCard, true, true);
+
+            stationCard.LocalPosition = StationPosition;
+            stationCard.Card.Size *= 0.7f;
         }
 
         #endregion

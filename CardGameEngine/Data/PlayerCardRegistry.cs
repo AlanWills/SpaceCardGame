@@ -153,7 +153,7 @@ namespace CardGameEngine
             playerData.AvailablePacksToOpen = AvailablePacksToOpen;
 
             // Save our player card registry data
-            AssetManager.SaveData(playerData, "Content" + playerCardRegistryDataAsset);
+            AssetManager.SaveData(playerData, playerCardRegistryDataAsset);
         }
 
         #region Utility Functions for saving and loading

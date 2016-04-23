@@ -6,6 +6,6 @@
     <DisplayName>Phase Energy Shield</DisplayName>
     <Rarity>Common</Rarity>
     <ResourceCosts>1 0 1 1</ResourceCosts>
-    <CardTypeName>DefenceCard</CardTypeName>
+    <CardTypeName>ShieldCard</CardTypeName>
   </Asset>
 </XnaContent>

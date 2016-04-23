@@ -25,7 +25,7 @@ namespace CardGameEngine
         /// An instance of the deck that we have chosen for this battle.
         /// Should not be exposed beyond this class as we can alter our deck otherwise.
         /// </summary>
-        private DeckInstance ChosenDeck { get; set; }
+        protected DeckInstance ChosenDeck { get; private set; }
 
         /// <summary>
         /// A list of the current cards that the player has in their hand
