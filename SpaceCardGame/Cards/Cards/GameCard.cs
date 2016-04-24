@@ -41,6 +41,23 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
+        /// Override this function to perform custom behaviour when first layed.
+        /// Called as soon as we add the object to the scene and right after WhenAddedToGameBoard.
+        /// If a target has to be chosen etc. then run a script in here to perform that.
+        /// </summary>
+        public virtual void OnLay() { }
+
+        /// <summary>
+        /// Override this function to perform custom behaviour when our turn begins.
+        /// </summary>
+        public virtual void OnTurnBegin() { }
+
+        /// <summary>
+        /// Override this function to perform custom behaviour when this card dies.
+        /// </summary>
+        public virtual void OnDie() { }
+
+        /// <summary>
         /// Some cards require us to choose a target before laying them, or for an ability.
         /// This is a virtual function which can be used to work out whether the inputted proposed target is a valid one for this card.
         /// </summary>
@@ -52,23 +69,12 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// A function which will be called when we place this card into the game.
-        /// Sets the IsPlaced parameter to true and charges the resources to the player
-        /// </summary>
-        public virtual void OnLay(Board board, GamePlayer player)
-        {
-            IsPlaced = true;
-
-            // Charge the resources from the player
-            bool charge = true;
-            player.AlterResources(CardData, charge);
-        }
-
-        /// <summary>
         /// When we call Die on this card, calls Die on the parent too, to trigger killing the card object too
         /// </summary>
         public override void Die()
         {
+            OnDie();
+
             base.Die();
 
             Debug.Assert(Parent is CardObjectPair);

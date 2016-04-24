@@ -10,7 +10,7 @@ namespace SpaceCardGame
     /// </summary>
     /// <param name="cardToChooseTargetFor"></param>
     /// <param name="currentTarget"></param>
-    public delegate bool ValidTargetFunctionHandler(CardObjectPair cardToChooseTargetFor, CardShipPair currentTarget);
+    public delegate bool ValidTargetFunctionHandler(GameCard cardToChooseTargetFor, CardShipPair currentTarget);
 
     /// <summary>
     /// A script which uses a targeting line and loops through a collection of CardShipPair
@@ -29,9 +29,9 @@ namespace SpaceCardGame
         protected BattleScreen BattleScreen { get; private set; }
 
         /// <summary>
-        /// A reference to the card object pair we need to choose a target for.
+        /// A reference to the card we need to choose a target for.
         /// </summary>
-        protected CardObjectPair CardToChooseTargetFor { get; private set; }
+        protected GameCard CardToChooseTargetFor { get; private set; }
 
         /// <summary>
         /// A reference to the line we use to indicate we're selecting
@@ -55,10 +55,10 @@ namespace SpaceCardGame
 
         #endregion
 
-        public ChooseShipCommand(CardObjectPair cardObjectPair) :
+        public ChooseShipCommand(GameCard card) :
             base()
         {
-            CardToChooseTargetFor = cardObjectPair;
+            CardToChooseTargetFor = card;
         }
 
         #region Virtual Functions
@@ -99,7 +99,7 @@ namespace SpaceCardGame
                 // We check intersection with mouse position here, because the object may not have actually had it's HandleInput called yet
                 // Could do this stuff in the Update loop, but this is really what this function is for so do this CheckIntersects instead for clarity
                 DebugUtils.AssertNotNull(pair.Card.Collider);
-                if (pair != CardToChooseTargetFor && (pair.Card.Collider.CheckIntersects(mousePosition) || pair.CardObject.Collider.CheckIntersects(mousePosition)))
+                if (pair != CardToChooseTargetFor.Parent && (pair.Card.Collider.CheckIntersects(mousePosition) || pair.CardObject.Collider.CheckIntersects(mousePosition)))
                 {
                     // Check to see whether this current object is a valid match for the card we want to find a target for
                     DebugUtils.AssertNotNull(ValidTargetFunction);
@@ -158,7 +158,7 @@ namespace SpaceCardGame
         /// <param name="cardToChooseTargetFor"></param>
         /// <param name="currentTarget"></param>
         /// <returns></returns>
-        protected bool AlwaysValid(CardObjectPair cardToChooseTargetFor, CardShipPair currentTarget)
+        protected bool AlwaysValid(GameCard cardToChooseTargetFor, CardShipPair currentTarget)
         {
             return true;
         }

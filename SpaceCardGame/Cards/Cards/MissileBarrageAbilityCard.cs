@@ -1,5 +1,6 @@
 ﻿using _2DEngine;
 using SpaceCardGameData;
+using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -18,13 +19,23 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
+        /// When we lay this card, use the ability immediately
+        /// </summary>
+        public override void OnLay()
+        {
+            // No target
+            UseAbility(null);
+        }
+
+        /// <summary>
         /// When we lay this card, we do damage all the opponent's ships with defence + speed <= 5
         /// </summary>
-        public override void OnLay(Board board, GamePlayer player)
+        public override void UseAbility(CardObjectPair target)
         {
-            base.OnLay(board, player);
+            Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
+            BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
 
-            foreach (CardShipPair pair in board.NonActivePlayerBoardSection.GameBoardSection.ShipCardControl)
+            foreach (CardShipPair pair in battleScreen.Board.NonActivePlayerBoardSection.GameBoardSection.ShipCardControl)
             {
                 // Add up the ship's speed and defence and if it is less than or equal to 5, we do one damage to it
                 if (pair.Ship.ShipData.Defence + pair.Ship.ShipData.Speed <= 5)
@@ -34,7 +45,7 @@ namespace SpaceCardGame
                 }
             }
 
-            // Kill our parent which will kill us and the object we are with too
+            // Kill our parent which will kill us and the object we are paired to too
             Parent.Die();
         }
 

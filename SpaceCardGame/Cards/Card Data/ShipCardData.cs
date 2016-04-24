@@ -19,7 +19,11 @@ namespace SpaceCardGame
         public override bool CanLay(Player player, ref string error)
         {
             Debug.Assert(player is GamePlayer);
-            return (player as GamePlayer).HaveSufficientResources(this, ref error);
+            GamePlayer gamePlayer = player as GamePlayer;
+
+            bool shipSlotsLeft = gamePlayer.CurrentShipsPlaced < GamePlayer.MaxShipNumber;
+
+            return shipSlotsLeft && gamePlayer.HaveSufficientResources(this, ref error);
         }
 
         #endregion

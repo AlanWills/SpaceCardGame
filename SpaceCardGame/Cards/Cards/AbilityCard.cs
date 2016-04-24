@@ -24,6 +24,12 @@
             return base.CanUseOn(pairToValidate);
         }
 
+        /// <summary>
+        /// Override this to perform the actual implementation for the ability
+        /// </summary>
+        /// <param name="target"></param>
+        public virtual void UseAbility(CardObjectPair target) { }
+
         #endregion
     }
 }

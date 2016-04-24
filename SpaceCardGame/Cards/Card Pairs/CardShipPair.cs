@@ -22,6 +22,11 @@ namespace SpaceCardGame
         public Ship Ship { get; private set; }
 
         /// <summary>
+        /// A reference to the player who owns this ship - we will be using this to keep track of the number of ships the player has
+        /// </summary>
+        protected GamePlayer Player { get; set; }
+
+        /// <summary>
         /// If we have to scale the ship down so that it fits on our board, we need to scale other things down too (such as hardpoints)
         /// </summary>
         public float RelativeScale { get; private set; }
@@ -62,7 +67,8 @@ namespace SpaceCardGame
         /// <param name="player"></param>
         public override void WhenAddedToGameBoard(GameBoardSection gameBoard, GamePlayer player)
         {
-            Debug.Assert(player.CurrentShipsPlaced < GamePlayer.MaxShipNumber);
+            Player = player;
+            Debug.Assert(Player.CurrentShipsPlaced < GamePlayer.MaxShipNumber);
 
             LocalPosition = GameMouse.Instance.InGamePosition;         // Do this before we add it to the control because we use the position to place it in the correct spot
             Reparent(gameBoard.ShipCardControl);                       // Reparent this under the card ship control rather than the game board which it was initially added to
@@ -103,6 +109,16 @@ namespace SpaceCardGame
             {
                 pair.MakeReadyForBattle();
             }
+        }
+
+        /// <summary>
+        /// When this ship dies we want to reduce the number of player ships by one
+        /// </summary>
+        public override void Die()
+        {
+            base.Die();
+
+            Player.CurrentShipsPlaced--;
         }
 
         #endregion

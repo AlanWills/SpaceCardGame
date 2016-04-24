@@ -22,6 +22,8 @@
         /// <param name="player"></param>
         public override void WhenAddedToGameBoard(GameBoardSection gameBoard, GamePlayer player)
         {
+            Player = player;
+
             // Need to extract from game board section so that we can be added to the ShipCardControl
             gameBoard.ExtractChild(this);
             gameBoard.ShipCardControl.AddStation(this);         // Call the specific function we have for stations - this is for positioning purposes mainly

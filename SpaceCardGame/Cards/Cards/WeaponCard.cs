@@ -1,4 +1,6 @@
-﻿namespace SpaceCardGame
+﻿using _2DEngine;
+
+namespace SpaceCardGame
 {
     /// <summary>
     /// A class used to represent a weapon in our game.
@@ -28,6 +30,14 @@
 
             // Otherwise the target is invalid
             return false;
+        }
+
+        /// <summary>
+        /// When we lay a WeaponCard we need to run a script to find a ship to add it to.
+        /// </summary>
+        public override void OnLay()
+        {
+            CommandManager.Instance.AddChild(new ChooseFriendlyShipCommand(this), true, true);
         }
 
         #endregion

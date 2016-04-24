@@ -19,7 +19,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public ChooseFriendlyShipCommand(CardObjectPair cardObjectPair) :
+        public ChooseFriendlyShipCommand(GameCard cardObjectPair) :
             base(cardObjectPair)
         {
             ValidTargetFunction += ValidIfCanUseOn;
@@ -71,13 +71,13 @@ namespace SpaceCardGame
                 // We have clicked on the target we were hovering over so we are good to go
                 // Add the card to the ship we have selected
                 DebugUtils.AssertNotNull(Target);
-                CardToChooseTargetFor.AddToCardShipPair(Target);
+                (CardToChooseTargetFor.Parent as CardObjectPair).AddToCardShipPair(Target);
             }
             else
             {
                 // The command has ended, but we have not chosen a ship
                 // Therefore we must send the card back to our hand and refund the resources
-                BattleScreen.ActivePlayer.AddCardToHand(CardToChooseTargetFor.Card.CardData);
+                BattleScreen.ActivePlayer.AddCardToHand(CardToChooseTargetFor.CardData);
 
                 //bool refund = false;
                 //BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection.UseResourcesToLayCard(CardToChooseTargetFor.Card.CardData, refund);
@@ -96,9 +96,9 @@ namespace SpaceCardGame
         /// <param name="cardToChooseTargetFor"></param>
         /// <param name="currentTarget"></param>
         /// <returns></returns>
-        private bool ValidIfCanUseOn(CardObjectPair cardToChooseTargetFor, CardShipPair currentTarget)
+        private bool ValidIfCanUseOn(GameCard cardToChooseTargetFor, CardShipPair currentTarget)
         {
-            return cardToChooseTargetFor.Card.CanUseOn(currentTarget);
+            return cardToChooseTargetFor.CanUseOn(currentTarget);
         }
 
         #endregion

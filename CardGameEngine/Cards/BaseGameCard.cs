@@ -8,21 +8,11 @@ namespace CardGameEngine
     /// </summary>
     public abstract class BaseGameCard : BaseCard
     {
-        #region Properties and Fields
-
-        /// <summary>
-        /// A flag to indicate whether this card has been placed on the board
-        /// </summary>
-        public bool IsPlaced { get; set; }
-
-        #endregion
-
         // Our card is always going to be added to a specific location, so don't bother inputting a position
         public BaseGameCard(CardData cardData) :
             base(cardData, Vector2.Zero)
         {
             DebugUtils.AssertNotNull(cardData);
-            IsPlaced = false;
         }
     }
 }

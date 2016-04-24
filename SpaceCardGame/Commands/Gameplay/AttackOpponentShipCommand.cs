@@ -14,16 +14,16 @@ namespace SpaceCardGame
         #region Properties and Fields
 
         /// <summary>
-        /// The selected ship which will attack.
+        /// A reference to the ship card pair that is attacking
         /// </summary>
-        private CardShipPair AttackingShipPair { get; set; }
+        private CardShipPair AttackingShipCardPair { get; set; }
 
         #endregion
 
         public AttackOpponentShipCommand(CardShipPair attackingShipPair) :
-            base(attackingShipPair)
+            base(attackingShipPair.ShipCard)
         {
-            AttackingShipPair = attackingShipPair;
+            AttackingShipCardPair = attackingShipPair;
             ValidTargetFunction += AlwaysValid;         // All the opponent ships will be valid for now
         }
 
@@ -55,7 +55,7 @@ namespace SpaceCardGame
                 if (Target != null)
                 {
                     // We have left clicked on a ship, so attack it
-                    AttackingShipPair.Ship.Turret.Attack(Target.Ship, false);
+                    AttackingShipCardPair.Ship.Turret.Attack(Target.Ship, false);
                 }
                 else
                 {
@@ -75,11 +75,11 @@ namespace SpaceCardGame
             base.Update(elapsedGameTime);
 
             // Then use the rotation of the line to set the turret rotation - this is more efficient that calling RotateToTarget and will give a better result
-            AttackingShipPair.Ship.Turret.LocalRotation = SelectingLine.WorldRotation - AttackingShipPair.WorldRotation;
+            AttackingShipCardPair.Ship.Turret.LocalRotation = SelectingLine.WorldRotation - AttackingShipCardPair.WorldRotation;
 
             // If our attacking ship is dead we kill this script
             // If our attacking ship has no shots left then we kill this script as our ship will not be able to attack any more
-            if (!AttackingShipPair.IsAlive || !AttackingShipPair.Ship.Turret.CanFire)
+            if (!AttackingShipCardPair.IsAlive || !AttackingShipCardPair.Ship.Turret.CanFire)
             {
                 Die();
             }

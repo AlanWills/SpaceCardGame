@@ -69,7 +69,8 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// An abstract function used to perform custom setup when adding to the game board
+        /// An abstract function used to perform custom fixup when adding to the game board.
+        /// Does not trigger any card behaviours, but is more used for shuffling objects around the scene and fixing up sizes.
         /// </summary>
         /// <param name="gameBoard"></param>
         /// <param name="player"></param>
@@ -94,6 +95,8 @@ namespace SpaceCardGame
 
             // Cards will be placed after this function is called, meaning that when this function is called on this instance, it will have been a turn since it was laid.
             IsReady.Value = true;
+
+            Card.OnTurnBegin();
         }
 
         /// <summary>

@@ -48,7 +48,7 @@ namespace SpaceCardGame
         /// <param name="player"></param>
         public override void WhenAddedToGameBoard(GameBoardSection gameBoard, GamePlayer player)
         {
-            CommandManager.Instance.AddChild(new ChooseFriendlyShipCommand(this), true, true);
+            
         }
 
         /// <summary>

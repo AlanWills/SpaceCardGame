@@ -58,7 +58,8 @@ namespace SpaceCardGame
         #region Specific Function for adding cards
 
         /// <summary>
-        /// Adds our card to the section, but calls functions on the CardObjectPair and Card to perform extra type functionality
+        /// Adds our card to the section, but calls functions on the CardObjectPair to perform extra setup.
+        /// Also charges the resources to the player.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="gameObjectToAdd"></param>
@@ -74,13 +75,12 @@ namespace SpaceCardGame
             pair.LocalPosition = GameMouse.Instance.InGamePosition - WorldPosition;
             pair.Card.Size = size;
 
+            // Deduct the resources
+            bool charge = true;
+            Player.AlterResources(cardData, charge);
+
             pair.WhenAddedToGameBoard(this, Player);
-
-            DebugUtils.AssertNotNull(pair);
-            DebugUtils.AssertNotNull(pair.Card);
-            DebugUtils.AssertNotNull(pair.CardObject);
-
-            pair.Card.OnLay(BattleScreen.Board, Player);
+            pair.Card.OnLay();
         }
 
         #endregion
