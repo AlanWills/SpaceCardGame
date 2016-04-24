@@ -29,13 +29,39 @@ namespace SpaceCardGame
         /// A reference to the turret for our ship.
         /// We will create a default turret from the ship data and then can override it by adding a turret card to the ship
         /// </summary>
-        public Turret Turret { get; set; }
+        private Turret turret;
+        public Turret Turret
+        {
+            get { return turret; }
+            set
+            {
+                if (turret != null)
+                {
+                    turret.Die();
+                }
+
+                turret = value;
+            }
+        }
 
         /// <summary>
         /// A reference to the shield for our ship.
         /// By default this will not be set to anything, but can be set by adding a shield card to the ship
         /// </summary>
-        public Shield Shield { get; set; }
+        private Shield shield;
+        public Shield Shield
+        {
+            get { return shield; }
+            set
+            {
+                if (shield != null)
+                {
+                    shield.Die();
+                }
+
+                shield = value;
+            }
+        }
 
         /// <summary>
         /// A fixed size aray of references to the engines on our ship.
@@ -133,7 +159,9 @@ namespace SpaceCardGame
             }
 
             // Updates the colour of the ship if our mouse is over it
-            Parent.Colour.Value = Collider.IsMouseOver ? Color.Green : Color.White;
+            // Green if we can attack - red if we cannot
+            Color hoverColour = (Turret.CanFire && CardShipPair.IsReady) ? Color.Green : Color.Red;
+            Parent.Colour.Value = Collider.IsMouseOver ? hoverColour : Color.White;
         }
 
         /// <summary>

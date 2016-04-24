@@ -39,7 +39,8 @@ namespace SpaceCardGame
             {
                 // Make sure we have shots left and our ship is ready
                 DebugUtils.AssertNotNull(CardShipPair);
-                return ShotsLeft > 0 && CardShipPair.IsReady;
+                DebugUtils.AssertNotNull(BulletData);
+                return BulletData.Damage > 0 && ShotsLeft > 0 && CardShipPair.IsReady;
             }
         }
 
