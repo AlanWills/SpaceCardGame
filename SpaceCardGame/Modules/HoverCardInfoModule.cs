@@ -96,7 +96,7 @@ namespace SpaceCardGame
             }
             else if (AttachedCard is ShieldCard)
             {
-                return new ShieldInfoImage(size, position, AttachedCard.TextureAsset);
+                return new ShieldInfoImage(AttachedCard.Parent as CardShieldPair, size, position);
             }
             else if (AttachedCard is ShipCard)
             {
