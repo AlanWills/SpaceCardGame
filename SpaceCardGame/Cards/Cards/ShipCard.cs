@@ -68,7 +68,7 @@ namespace SpaceCardGame
 
             Debug.Assert(CardPair is CardShipPair);
             CardShipPair shipCardPair = CardPair as CardShipPair;
-            shipCardPair.Ship.DamageModule.CalculateDamage += CalculateDamage;
+            shipCardPair.Ship.DamageModule.CalculateDamage += CalculateDamageDoneToThis;
 
             base.Initialise();
         }
@@ -91,14 +91,32 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// A straight pass through function for calculating damage.
+        /// A function for calculating the damage being done to this ship.
+        /// By default is just a straight pass through
         /// Override this to perform custom damage calculation for ships.
         /// </summary>
         /// <param name="objectDoingTheDamage"></param>
         /// <param name="inputDamage"></param>
-        protected virtual float CalculateDamage(BaseObject objectDoingTheDamage, float inputDamage)
+        protected virtual float CalculateDamageDoneToThis(BaseObject objectDoingTheAttacking, float inputDamage)
         {
             return inputDamage;
+        }
+
+        /// <summary>
+        /// A function which calculates this ship's attack.
+        /// By default returns the attack in the ship data, but if we have another turret attached, returns that turret's damage
+        /// </summary>
+        /// <returns></returns>
+        public virtual float CalculateAttack(BaseObject targetBaseObject)
+        {
+            if (CardShipPair.Ship.Turret.DefaultTurret)
+            {
+                return CardShipPair.Ship.ShipData.Attack;
+            }
+            else
+            {
+                return CardShipPair.Ship.Turret.BulletData.BulletDamage;
+            }
         }
 
         #endregion

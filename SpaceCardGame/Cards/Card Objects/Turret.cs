@@ -23,7 +23,7 @@ namespace SpaceCardGame
         /// <summary>
         /// Our bullet data - only need one copy for the bullets we spawn
         /// </summary>
-        private BulletData BulletData { get; set; }
+        public BulletData BulletData { get; private set; }
 
         /// <summary>
         /// The number of shots with this turret we have left
@@ -40,14 +40,9 @@ namespace SpaceCardGame
                 // Make sure we have shots left and our ship is ready
                 DebugUtils.AssertNotNull(CardShipPair);
                 DebugUtils.AssertNotNull(BulletData);
-                return BulletData.Damage > 0 && ShotsLeft > 0 && CardShipPair.IsReady;
+                return CardShipPair.ShipCard.CalculateAttack(null) > 0 && ShotsLeft > 0 && CardShipPair.IsReady;
             }
         }
-
-        /// <summary>
-        /// A flag to indicate whether this is a default turret or a custom one
-        /// </summary>
-        private bool DefaultTurret { get; set; }
 
         /// <summary>
         /// A reference to the card ship pair that this turret is equipped to - for convenience purposes.
@@ -73,6 +68,11 @@ namespace SpaceCardGame
             set { cardShipPair = value; }
         }
 
+        /// <summary>
+        /// Determines whether this is the default turret created for a ship.
+        /// </summary>
+        public bool DefaultTurret { get; private set; }
+
         // A string which represents the default turret all ships have 
         private const string defaultTurretDataAsset = "Cards\\Weapons\\DefaultTurret.xml";
 
@@ -85,7 +85,7 @@ namespace SpaceCardGame
         public Turret(string turretDataAsset) :
             base(Vector2.Zero, turretDataAsset)
         {
-            DefaultTurret = turretDataAsset == defaultTurretDataAsset;
+            DefaultTurret = turretDataAsset == defaultTurretDataAsset; 
         }
 
         #region Properties and Fields
@@ -110,17 +110,6 @@ namespace SpaceCardGame
 
             BulletData = AssetManager.GetData<BulletData>(TurretData.BulletDataAsset);
             DebugUtils.AssertNotNull(BulletData);
-
-            // If we're created a default turret we need to set the bullet damage to be our ship's damage which we get via the hierarchy
-            if (DefaultTurret)
-            {
-                // Create a copy of the data here so we are not modifying static data
-                BulletData defaultBulletDataCopy = new BulletData();
-                defaultBulletDataCopy.Damage = CardShipPair.Ship.ShipData.Attack;
-                defaultBulletDataCopy.TextureAsset = BulletData.TextureAsset;
-
-                BulletData = defaultBulletDataCopy;
-            }
 
             ShotsLeft = TurretData.ShotsPerTurn;
 
@@ -187,23 +176,11 @@ namespace SpaceCardGame
             }
 
             // Damage our target
-            targetModule.Damage(BulletData.Damage, CardShipPair);
+            targetModule.Damage(CardShipPair.ShipCard.CalculateAttack(targetShip.Parent), CardShipPair);
 
             // Spawn bullet(s) at our target
-            if (DefaultTurret)
-            {
-                // Add script to space out bullet firings if we are using a Default turret -  we fire as many bullets as our attack cos why not
-                for (int i = 0; i < BulletData.Damage; i++)
-                {
-                    Debug.Assert(targetModule.AttachedBaseObject is BaseObject);
-                    SpawnBullet(targetModule.AttachedBaseObject as GameObject);
-                }
-            }
-            else
-            {
-                Debug.Assert(targetModule.AttachedBaseObject is BaseObject);
-                SpawnBullet(targetModule.AttachedBaseObject as GameObject);
-            }
+            Debug.Assert(targetModule.AttachedBaseObject is BaseObject);
+            SpawnBullet(targetModule.AttachedBaseObject as GameObject);
 
             // Need to stop this firing all shots
             if (!isCounterAttacking && targetShip.Turret.CanFire)
