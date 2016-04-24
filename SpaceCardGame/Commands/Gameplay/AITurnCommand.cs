@@ -1,5 +1,6 @@
 ﻿using _2DEngine;
 using CardGameEngine;
+using Microsoft.Xna.Framework;
 using System;
 using System.Diagnostics;
 
@@ -205,7 +206,7 @@ namespace SpaceCardGame
             cardThumbnail.Die();
 
             // Set the position of the card so that when we add it to the game board section it will be added to a slot
-            BoardSection.GameBoardSection.AddCard(cardData, cardThumbnail.Size);
+            BoardSection.GameBoardSection.AddCard(cardData, cardThumbnail.Size, new Vector2(float.MaxValue));
 
             currentTimeBetweenCardLays = 0;
         }

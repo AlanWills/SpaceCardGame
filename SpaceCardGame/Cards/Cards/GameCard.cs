@@ -15,7 +15,7 @@ namespace SpaceCardGame
         /// A reference to our parent as a CardObjectPair
         /// </summary>
         private CardObjectPair cardPair;
-        private CardObjectPair CardPair
+        protected CardObjectPair CardPair
         {
             get
             {

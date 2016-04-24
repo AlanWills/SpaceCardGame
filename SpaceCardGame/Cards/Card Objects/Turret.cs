@@ -187,7 +187,7 @@ namespace SpaceCardGame
             }
 
             // Damage our target
-            targetModule.Damage(BulletData.Damage);
+            targetModule.Damage(BulletData.Damage, CardShipPair);
 
             // Spawn bullet(s) at our target
             if (DefaultTurret)

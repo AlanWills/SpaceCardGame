@@ -26,9 +26,9 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// This control is going to be used for one type of card
+        /// The card data type we will be restricting cards to have before they can be added to this.
         /// </summary>
-        private Type CardType { get; set; }
+        private Type FilterType { get; set; }
 
         /// <summary>
         /// The number of columns we spread our cards over
@@ -50,22 +50,16 @@ namespace SpaceCardGame
         /// </summary>
         private BaseObject[] StoredCards { get; set; }
 
-        /// <summary>
-        /// The preset position for our station
-        /// </summary>
-        public Vector2 StationPosition { get; set; }
-
         private float columnWidth;
 
-        public GameCardControl(Type cardType, Vector2 size, int columns, int rows, Vector2 localPosition) :
+        public GameCardControl(Type filterType, int columns, int rows, Vector2 size, Vector2 localPosition) :
             base(localPosition, AssetManager.EmptyGameObjectDataAsset)
         {
-            CardType = cardType;
+            FilterType = filterType;
             Columns = columns;
             Rows = rows;
             Size = size;
 
-            StationPosition = new Vector2(0, Size.Y * 0.75f);
             columnWidth = Size.X / Columns;
             LocalXPositions = new float[Columns];
             StoredCards = new GameObject[Columns];
@@ -106,12 +100,12 @@ namespace SpaceCardGame
             base.HandleInput(elapsedGameTime, mousePosition);
 
             GameMouse gameMouse = GameMouse.Instance;
-            if (Collider.CheckIntersects(gameMouse.InGamePosition))
+            if (Collider.CheckIntersects(gameMouse.InGameWorldPosition))
             {
-                BaseObject baseobject = gameMouse.FindChild<BaseObject>(x => x is BaseUICard && (x as BaseUICard).CardData.GetType() == CardType);
+                BaseObject baseobject = gameMouse.FindChild<BaseObject>(x => x is BaseUICard && (x as BaseUICard).CardData.GetType() == FilterType);
                 if (baseobject != null)
                 {
-                    float gameMouseLocalYPos = gameMouse.InGamePosition.Y - WorldPosition.Y;
+                    float gameMouseLocalYPos = gameMouse.InGameWorldPosition.Y - WorldPosition.Y;
                     int positionIndex = GetPositionIndex(GameMouse.Instance.WorldPosition.X, Space.kWorldSpace);
                     float localXPos = LocalXPositions[positionIndex];
 
@@ -154,7 +148,7 @@ namespace SpaceCardGame
 
             // In our handle input we do shifting so that by the time we add a card the space under it should be empty
             // Need to get the mouse position and work out the appropriate section we are in
-            int pairIndex = GetPositionIndex(gameObjectToAdd.WorldPosition.X, Space.kWorldSpace);
+            int pairIndex = GetPositionIndex(gameObjectToAdd.WorldPosition.X, Space.kLocalSpace);
             if (pairIndex == (int)PositionIndex.kInvalid)
             {
                 // Our current position is not valid, so just find an empty one
@@ -168,21 +162,6 @@ namespace SpaceCardGame
             StoredCards[pairIndex] = gameObjectToAdd;
 
             return base.AddChild(gameObjectToAdd, load, initialise);
-        }
-
-        /// <summary>
-        /// A function called right at the start of the game to add our player's station to this control.
-        /// We load and initialise the station too
-        /// We have a separate function, because the station is a special card and we do no want it to go through the same pipeline as the normal CardShipPairs (i.e. AddChild)
-        /// </summary>
-        /// <param name="stationCard"></param>
-        public void AddStation(CardObjectPair stationCard)
-        {
-            Debug.Assert(stationCard is CardStationPair);
-            base.AddChild(stationCard, true, true);
-
-            stationCard.LocalPosition = StationPosition;
-            stationCard.Card.Size *= 0.5f;
         }
 
         #endregion

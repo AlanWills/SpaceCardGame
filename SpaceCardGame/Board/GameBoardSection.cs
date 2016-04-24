@@ -14,7 +14,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A container to group our ships together and automatically space them.
         /// </summary>
-        public GameCardControl ShipCardControl { get; private set; }
+        public ShipCardControl ShipCardControl { get; private set; }
 
         /// <summary>
         /// A reference to the human player
@@ -34,7 +34,7 @@ namespace SpaceCardGame
             Player = player;
             Size = new Vector2(ScreenManager.Instance.ScreenDimensions.X, ScreenManager.Instance.ScreenDimensions.Y * 0.5f);
 
-            ShipCardControl = AddChild(new GameCardControl(typeof(ShipCardData), new Vector2(Size.X * 0.8f, Size.Y * 0.5f), GamePlayer.MaxShipNumber, 1, new Vector2(0, - Size.Y * 0.25f)));
+            ShipCardControl = AddChild(new ShipCardControl(new Vector2(Size.X * 0.8f, Size.Y * 0.5f), new Vector2(0, - Size.Y * 0.25f)));
         }
 
         #region Virtual Functions
@@ -50,7 +50,7 @@ namespace SpaceCardGame
             BattleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
 
             ShipCardData stationData = Player.GetStationData();
-            AddCard(stationData, Vector2.Zero, false, false);
+            AddCard(stationData, Vector2.Zero, Vector2.Zero, false, false);
         }
 
         #endregion
@@ -66,13 +66,13 @@ namespace SpaceCardGame
         /// <param name="load"></param>
         /// <param name="initialise"></param>
         /// <returns></returns>
-        public void AddCard(GameCardData cardData, Vector2 size, bool load = true, bool initialise = true)
+        public void AddCard(GameCardData cardData, Vector2 size, Vector2 desiredWorldPosition, bool load = true, bool initialise = true)
         {
             // The size parameter comes from the card thumbnail
             // We pass it in to keep the sizes of things consistent
             // Could possibly remove this later, but for now it does the trick
             CardObjectPair pair = AddChild(cardData.CreateCardObjectPair(), load, initialise);
-            pair.LocalPosition = GameMouse.Instance.InGamePosition - WorldPosition;
+            pair.LocalPosition = desiredWorldPosition - WorldPosition;
             pair.Card.Size = size;
 
             // Deduct the resources

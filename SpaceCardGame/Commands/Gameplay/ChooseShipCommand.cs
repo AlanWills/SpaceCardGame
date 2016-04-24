@@ -129,7 +129,7 @@ namespace SpaceCardGame
         {
             base.Update(elapsedGameTime);
 
-            SelectingLine.TargetPosition = GameMouse.Instance.InGamePosition;
+            SelectingLine.TargetPosition = GameMouse.Instance.InGameWorldPosition;
         }
 
         /// <summary>

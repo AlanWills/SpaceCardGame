@@ -160,7 +160,7 @@ namespace SpaceCardGame
 
             // Updates the colour of the ship if our mouse is over it
             // Green if we can attack - red if we cannot
-            Color hoverColour = (Turret.CanFire && CardShipPair.IsReady) ? Color.Green : Color.Red;
+            Color hoverColour = (Turret.CanFire && CardShipPair.IsReady) ? Color.LightGreen : Color.Red;
             Parent.Colour.Value = Collider.IsMouseOver ? hoverColour : Color.White;
         }
 

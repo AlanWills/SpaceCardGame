@@ -70,7 +70,6 @@ namespace SpaceCardGame
             Player = player;
             Debug.Assert(Player.CurrentShipsPlaced < GamePlayer.MaxShipNumber);
 
-            LocalPosition = GameMouse.Instance.InGamePosition;         // Do this before we add it to the control because we use the position to place it in the correct spot
             Reparent(gameBoard.ShipCardControl);                       // Reparent this under the card ship control rather than the game board which it was initially added to
 
             player.CurrentShipsPlaced++;

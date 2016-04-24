@@ -99,7 +99,7 @@ namespace SpaceCardGame
             float amountToHeal = MathHelper.Clamp(DamageModule.Health + ShieldData.ShieldRechargePerTurn, 0, ShieldData.MaxShieldStrength);
 
             // Heal the shield by damaging a negative amount
-            DamageModule.Damage(-ShieldData.ShieldRechargePerTurn);
+            DamageModule.Damage(-ShieldData.ShieldRechargePerTurn, null);
         }
 
         #endregion

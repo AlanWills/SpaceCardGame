@@ -47,7 +47,6 @@
     <Compile Include="Board\OpponentBoardSection.cs" />
     <Compile Include="Board\PlayerBoardSection.cs" />
     <Compile Include="Cards\Card Data\AbilityCardData\AbilityCardData.cs" />
-    <Compile Include="Cards\Card Data\AbilityCardData\MissileBarrageAbilityCardData.cs" />
     <Compile Include="Cards\Card Data\GameCardData.cs" />
     <Compile Include="Cards\Card Data\ShieldCardData.cs" />
     <Compile Include="Cards\Card Data\ResourceCardData.cs" />
@@ -68,6 +67,7 @@
     <Compile Include="Cards\Cards\GameCard.cs" />
     <Compile Include="Cards\Cards\ResourceCard.cs" />
     <Compile Include="Cards\Cards\ShipCard.cs" />
+    <Compile Include="Cards\Cards\Ships\EagleFrigateShipCard.cs" />
     <Compile Include="Cards\Cards\WeaponCard.cs" />
     <Compile Include="Board\Board.cs" />
     <Compile Include="Cards\Card Pairs\CardAbilityPair.cs" />
@@ -79,6 +79,7 @@
     <Compile Include="Game Objects\Animations\Fire.cs" />
     <Compile Include="Game Objects\GameCardControl.cs" />
     <Compile Include="Board\GameBoardSection.cs" />
+    <Compile Include="Game Objects\ShipCardControl.cs" />
     <Compile Include="Modules\HoverCardInfoModule.cs" />
     <Compile Include="Players\GamePlayer.cs" />
     <Compile Include="Screens\Menus\HardpointScreen.cs" />
@@ -507,7 +508,9 @@
       <Name>SpaceCardGameData</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Cards\Cards\Abilities\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
