@@ -34,6 +34,9 @@ namespace SpaceCardGame
 
             // Make ready as soon as we lay it
             MakeReadyForCardPlacement();
+
+            // No hover info for resources - there is no need
+            AddHoverInfoModule = false;
         }
 
         #region Virtual Functions

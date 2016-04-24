@@ -37,6 +37,9 @@ namespace SpaceCardGame
 
             Debug.Assert(Card is WeaponCard);
             WeaponCard = Card as WeaponCard;
+
+            // Only add a hover info module if this is not the default turret we add for all ships
+            AddHoverInfoModule = !Turret.DefaultTurret;
         }
 
         #region Virtual Functions

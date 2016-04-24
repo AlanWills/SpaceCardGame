@@ -37,6 +37,12 @@ namespace SpaceCardGame
         /// </summary>
         public Property<bool> IsReady { get; private set; }
 
+        /// <summary>
+        /// A flag to indicate whether we should create a hover info module.
+        /// Some cards may not make use of it (i.e. resource card or default turret).
+        /// </summary>
+        protected bool AddHoverInfoModule { get; set; }
+
         #endregion
 
         public CardObjectPair(GameCardData cardData) :
@@ -45,11 +51,27 @@ namespace SpaceCardGame
             Card = AddChild(cardData.CreateCard());
 
             UsesCollider = false;
+            AddHoverInfoModule = true;
 
             IsReady = new Property<bool>(false);
         }
 
         #region Virtual Functions
+
+        /// <summary>
+        /// Add our HoverCardInfo module to the card object pair so that it appears in both the card place stage and the battle stage.
+        /// </summary>
+        public override void LoadContent()
+        {
+            CheckShouldLoad();
+
+            if (AddHoverInfoModule)
+            {
+                AddModule(new HoverCardInfoModule(this));
+            }
+
+            base.LoadContent();
+        }
 
         /// <summary>
         /// Just checks we have set up references correctly and sets the active object to the card

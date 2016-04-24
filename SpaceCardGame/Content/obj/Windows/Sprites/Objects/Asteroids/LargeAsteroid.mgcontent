@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Objects/LargeAsteroid.png</SourceFile>
+  <SourceFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Objects/Asteroids/LargeAsteroid.png</SourceFile>
   <SourceTime>2016-04-23T18:53:28.5917117+01:00</SourceTime>
-  <DestFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/bin/Windows/Sprites/Objects/LargeAsteroid.xnb</DestFile>
-  <DestTime>2016-04-23T18:54:39.9986752+01:00</DestTime>
+  <DestFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/bin/Windows/Sprites/Objects/Asteroids/LargeAsteroid.xnb</DestFile>
+  <DestTime>2016-04-24T23:22:09.0060916+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T07:36:08+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -69,18 +69,6 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// Adds our card's hover info image.
-        /// </summary>
-        public override void LoadContent()
-        {
-            CheckShouldLoad();
-
-            AddModule(new HoverCardInfoModule(this));
-
-            base.LoadContent();
-        }
-
-        /// <summary>
         /// When we call Die on this card, calls Die on the parent too, to trigger killing the card object too
         /// </summary>
         public override void Die()

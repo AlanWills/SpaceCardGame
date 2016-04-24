@@ -113,8 +113,7 @@ namespace SpaceCardGame
                 {
                     float xPos = MathUtils.GenerateFloat(-Size.X * 0.5f, Size.X * 0.4f);
                     float yPos = MathUtils.GenerateFloat(-Size.Y * 0.5f, Size.Y * 0.5f);
-                    float speed = MathUtils.GenerateFloat(1, 20);
-                    Asteroids[asteroidTypeIndex * asteroidDensity + i] = AddChild(new Asteroid(speed, 0, new Vector2(xPos, yPos), asteroidTextureAsset));
+                    Asteroids[asteroidTypeIndex * asteroidDensity + i] = AddChild(new Asteroid(new Vector2(xPos, yPos), asteroidTextureAsset));
                 }
 
                 asteroidTypeIndex++;

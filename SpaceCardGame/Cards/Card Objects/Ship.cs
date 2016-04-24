@@ -172,7 +172,7 @@ namespace SpaceCardGame
         {
             base.Show(showChildren);
 
-            ShowDamage(DamageModule);
+            ShowDamage(DamageModule, 0);
         }
 
         /// <summary>
@@ -226,8 +226,14 @@ namespace SpaceCardGame
         /// <summary>
         /// Shows damage on the ship corresponding to how much we have taken
         /// </summary>
-        private void ShowDamage(DamageableObjectModule damageModule)
+        private void ShowDamage(DamageableObjectModule damageModule, float damageDealt)
         {
+            // Add debris for each point of damage we did
+            for (int i = 0; i < damageDealt; ++i)
+            {
+                ScreenManager.Instance.CurrentScreen.AddGameObject(new Debris(WorldPosition), true, true);
+            }
+
             if (DamageModule.Health <= 0)
             {
                 // Don't add damage if we have no health - in the end we will implement the damage happening when our bullet hits so it won't matter that we skip this

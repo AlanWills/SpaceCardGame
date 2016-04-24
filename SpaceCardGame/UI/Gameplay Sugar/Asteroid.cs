@@ -18,10 +18,16 @@ namespace SpaceCardGame
 
         #endregion
 
-        public Asteroid(float xLinearVelocity, float angularVelocity, Vector2 localPosition, string textureAsset) :
+        public Asteroid(Vector2 localPosition, string textureAsset) :
+            this(MathUtils.GenerateFloat(1, 20), localPosition, textureAsset)
+        {
+            
+        }
+
+        public Asteroid(float xLinearVelocity, Vector2 localPosition, string textureAsset) :
             base(localPosition, textureAsset)
         {
-            RigidBody = AddModule(new RigidBodyModule(new Vector2(xLinearVelocity, 0), angularVelocity));
+            RigidBody = AddModule(new RigidBodyModule(new Vector2(xLinearVelocity, 0)));
         }
     }
 }

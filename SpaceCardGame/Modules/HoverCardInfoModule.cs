@@ -20,15 +20,14 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the attached card we are showing info
         /// </summary>
-        private BaseCard AttachedCard { get; set; }
+        private CardObjectPair AttachedCardObjectPair { get; set; }
 
         #endregion
 
-        public HoverCardInfoModule(GameCard card) :
+        public HoverCardInfoModule(CardObjectPair cardObjectPair) :
             base()
         {
-            DebugUtils.AssertNotNull(card);
-            AttachedCard = card;
+            AttachedCardObjectPair = cardObjectPair;
         }
 
         #region Virtual Functions
@@ -56,20 +55,26 @@ namespace SpaceCardGame
         {
             base.HandleInput(elapsedGameTime, mousePosition);
 
-            DebugUtils.AssertNotNull(AttachedBaseObject.Collider);
+            DebugUtils.AssertNotNull(AttachedCardObjectPair.Card.Collider);
+            DebugUtils.AssertNotNull(AttachedCardObjectPair.CardObject.Collider);
             DebugUtils.AssertNotNull(ScreenManager.Instance.CurrentScreen);
+            Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
 
-            if (AttachedBaseObject.Collider.IsEntered)
+            BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
+            // Depending on the turn state, show this UI based on the card or the object's collider
+            Collider colliderToCheck = battleScreen.TurnState == TurnState.kPlaceCards ? AttachedCardObjectPair.Card.Collider : AttachedCardObjectPair.CardObject.Collider;
+
+            if (colliderToCheck.IsEntered)
             {
                 // If we have just entered the object, we add the info image to the screen
-                ScreenManager.Instance.CurrentScreen.AddScreenUIObject(InfoImage);
+                battleScreen.AddScreenUIObject(InfoImage);
             }
             
-            if (AttachedBaseObject.Collider.IsExited)
+            if (colliderToCheck.IsExited)
             {
                 // If we have just exited the object, we extract the info image from the screen, but do not kill it
                 // This means we can cache it rather than constantly recreating it
-                ScreenManager.Instance.CurrentScreen.ExtractScreenUIObject(InfoImage);
+                battleScreen.ExtractScreenUIObject(InfoImage);
             }
         }
 
@@ -83,28 +88,31 @@ namespace SpaceCardGame
         /// <returns></returns>
         private Image CreateInfoImageForAttachedCard()
         {
-            Vector2 size = AttachedBaseObject.Size * 1.5f;
+            GameCard card = AttachedCardObjectPair.Card;
+
+            Debug.Assert(card.Size != Vector2.Zero);
+            Vector2 size = card.Size * 1.5f;
             Vector2 position = ScreenManager.Instance.ScreenCentre;
 
-            if (AttachedCard is AbilityCard)
+            if (AttachedCardObjectPair is CardAbilityPair)
             {
-                return new Image(size, position, AttachedCard.TextureAsset);
+                return new Image(size, position, card.TextureAsset);
             }
-            else if (AttachedCard is ResourceCard)
+            else if (AttachedCardObjectPair is CardResourcePair)
             {
-                return new Image(size, position, AttachedCard.TextureAsset);
+                return new Image(size, position, card.TextureAsset);
             }
-            else if (AttachedCard is ShieldCard)
+            else if (AttachedCardObjectPair is CardShieldPair)
             {
-                return new ShieldInfoImage(AttachedCard.Parent as CardShieldPair, size, position);
+                return new ShieldInfoImage(AttachedCardObjectPair as CardShieldPair, size, position);
             }
-            else if (AttachedCard is ShipCard)
+            else if (AttachedCardObjectPair is CardShipPair)
             {
-                return new ShipInfoImage(AttachedCard.Parent as CardShipPair, size, position);
+                return new ShipInfoImage(AttachedCardObjectPair as CardShipPair, size, position);
             }
-            else if (AttachedCard is WeaponCard)
+            else if (AttachedCardObjectPair is CardWeaponPair)
             {
-                return new WeaponInfoImage(AttachedCard.Parent as CardWeaponPair, size, position);
+                return new WeaponInfoImage(AttachedCardObjectPair as CardWeaponPair, size, position);
             }
             else
             {
