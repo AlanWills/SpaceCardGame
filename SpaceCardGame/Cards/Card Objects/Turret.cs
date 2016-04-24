@@ -18,7 +18,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the turret data
         /// </summary>
-        private TurretData TurretData { get; set; }
+        public TurretData TurretData { get; private set; }
 
         /// <summary>
         /// Our bullet data - only need one copy for the bullets we spawn
@@ -28,7 +28,7 @@ namespace SpaceCardGame
         /// <summary>
         /// The number of shots with this turret we have left
         /// </summary>
-        private int ShotsLeft { get; set; }
+        public int ShotsLeft { get; private set; }
 
         /// <summary>
         /// A read only property which returns the conditions necessary for this turret to be able to fire

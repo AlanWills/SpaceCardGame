@@ -20,7 +20,7 @@ namespace SpaceCardGame
         #endregion
 
         public ProgressTurnButton(Vector2 localPosition, string textureAsset = AssetManager.DefaultButtonTextureAsset) :
-            base("", localPosition, textureAsset)
+            base("Start Battle", localPosition, textureAsset)
         {
             
         }
@@ -36,9 +36,6 @@ namespace SpaceCardGame
             base.Begin();
 
             ClickableModule.OnLeftClicked += OnLeftClickUpdateText;
-
-            // Set up the initial text
-            Label.Text = GetTurnStateButtonText();
         }
 
         /// <summary>

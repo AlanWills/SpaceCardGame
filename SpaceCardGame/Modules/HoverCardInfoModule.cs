@@ -1,6 +1,7 @@
 ﻿using _2DEngine;
 using CardGameEngine;
 using Microsoft.Xna.Framework;
+using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -12,7 +13,7 @@ namespace SpaceCardGame
         #region Properties and Fields
 
         /// <summary>
-        /// A reference to our our image - will cache this and then insert/extract it from the current screen as appropriate
+        /// A reference to our our info image - will cache this and then insert/extract it from the current screen as appropriate
         /// </summary>
         private Image InfoImage { get; set; }
 
@@ -30,34 +31,17 @@ namespace SpaceCardGame
             AttachedCard = card;
         }
 
-        public HoverCardInfoModule(CardObjectPair cardPair) :
-            this(cardPair.Card)
-        {
-
-        }
-
         #region Virtual Functions
 
         /// <summary>
-        /// Creates and loads the info image 
-        /// </summary>
-        public override void LoadContent()
-        {
-            CheckShouldLoad();
-
-            InfoImage = new Image(AttachedCard.Size * 2, ScreenManager.Instance.ScreenCentre, AttachedCard.CardData.TextureAsset);
-            InfoImage.LoadContent();
-
-            base.LoadContent();
-        }
-
-        /// <summary>
-        /// Initialises the info image
+        /// Creates, loads and initialises the info image
         /// </summary>
         public override void Initialise()
         {
             CheckShouldInitialise();
 
+            InfoImage = CreateInfoImageForAttachedCard();
+            InfoImage.LoadContent();
             InfoImage.Initialise();
 
             base.Initialise();
@@ -86,6 +70,46 @@ namespace SpaceCardGame
                 // If we have just exited the object, we extract the info image from the screen, but do not kill it
                 // This means we can cache it rather than constantly recreating it
                 ScreenManager.Instance.CurrentScreen.ExtractScreenUIObject(InfoImage);
+            }
+        }
+
+        #endregion
+
+        #region Utility Functions
+
+        /// <summary>
+        /// Creates a different info image based on the type of the attached card.
+        /// </summary>
+        /// <returns></returns>
+        private Image CreateInfoImageForAttachedCard()
+        {
+            Vector2 size = AttachedBaseObject.Size * 1.5f;
+            Vector2 position = ScreenManager.Instance.ScreenCentre;
+
+            if (AttachedCard is AbilityCard)
+            {
+                return new Image(size, position, AttachedCard.TextureAsset);
+            }
+            else if (AttachedCard is ResourceCard)
+            {
+                return new Image(size, position, AttachedCard.TextureAsset);
+            }
+            else if (AttachedCard is ShieldCard)
+            {
+                return new ShieldInfoImage(size, position, AttachedCard.TextureAsset);
+            }
+            else if (AttachedCard is ShipCard)
+            {
+                return new ShipInfoImage(AttachedCard.Parent as CardShipPair, size, position);
+            }
+            else if (AttachedCard is WeaponCard)
+            {
+                return new WeaponInfoImage(AttachedCard.Parent as CardWeaponPair, size, position);
+            }
+            else
+            {
+                Debug.Fail("Unmatched card type in CreateInfoImage");
+                return null;
             }
         }
 

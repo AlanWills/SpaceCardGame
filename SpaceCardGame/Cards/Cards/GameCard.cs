@@ -35,7 +35,7 @@ namespace SpaceCardGame
         public GameCard(CardData cardData) :
             base(cardData)
         {
-            AddModule(new HoverCardInfoModule(this));
+            
         }
 
         #region Virtual Functions
@@ -66,6 +66,18 @@ namespace SpaceCardGame
         public virtual bool CanUseOn(CardObjectPair pairToValidate)
         {
             return true;
+        }
+
+        /// <summary>
+        /// Adds our card's hover info image.
+        /// </summary>
+        public override void LoadContent()
+        {
+            CheckShouldLoad();
+
+            AddModule(new HoverCardInfoModule(this));
+
+            base.LoadContent();
         }
 
         /// <summary>

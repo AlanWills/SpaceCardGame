@@ -105,7 +105,10 @@
     <Compile Include="UI\DamageUI.cs" />
     <Compile Include="UI\HandUI.cs" />
     <Compile Include="Board\UIBoardSection.cs" />
+    <Compile Include="UI\Info Images\ShieldInfoImage.cs" />
+    <Compile Include="UI\Info Images\WeaponInfoImage.cs" />
     <Compile Include="UI\ProgressTurnButton.cs" />
+    <Compile Include="UI\Info Images\ShipInfoImage.cs" />
     <Compile Include="UI\TargetingLine.cs" />
   </ItemGroup>
   <ItemGroup>

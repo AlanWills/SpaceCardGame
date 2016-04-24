@@ -15,7 +15,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the shield data for this shield
         /// </summary>
-        private ShieldData ShieldData { get; set; }
+        public ShieldData ShieldData { get; private set; }
 
         /// <summary>
         /// A reference to our damage module - used elsewhere to know our health etc.
