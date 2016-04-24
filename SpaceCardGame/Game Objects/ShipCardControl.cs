@@ -34,9 +34,10 @@ namespace SpaceCardGame
         {
             Debug.Assert(stationCard is CardStationPair);
 
-            // Set the parent to be this
-            stationCard.Reparent(this);
-
+            // Do a shallow reparent - we do not want to go through AddChild because it will do unnecessary things to this station
+            // Instead we have to manually do a bit of hacking
+            bool dontWantToBeAddedViaAddChild = false;
+            stationCard.Reparent(this, dontWantToBeAddedViaAddChild);       // This does set up our new parent however
             Children.AddChild(stationCard, true, true);
 
             stationCard.LocalPosition = StationPosition;

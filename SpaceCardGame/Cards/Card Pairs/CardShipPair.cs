@@ -111,6 +111,19 @@ namespace SpaceCardGame
         }
 
         /// <summary>
+        /// Calls this function iteratively on all CardObjectPairs parented under this ship card.
+        /// </summary>
+        public override void OnTurnEnd()
+        {
+            base.OnTurnEnd();
+
+            foreach (CardObjectPair pair in Children.GetChildrenOfType<CardObjectPair>())
+            {
+                pair.OnTurnEnd();
+            }
+        }
+
+        /// <summary>
         /// When this ship dies we want to reduce the number of player ships by one
         /// </summary>
         public override void Die()

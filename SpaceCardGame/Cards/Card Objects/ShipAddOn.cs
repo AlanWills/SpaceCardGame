@@ -16,6 +16,18 @@ namespace SpaceCardGame
 
         #region Virtual Functions
 
+        /// <summary>
+        /// Kills our parent which will kill us and the card we are attached too
+        /// </summary>
+        public override void Die()
+        {
+            // Make sure we call Die so that when our parent calls Die on us again, we will already be dead and not have this function called again
+            base.Die();
+
+            DebugUtils.AssertNotNull(Parent);
+            Parent.Die();
+        }
+
         #endregion
     }
 }

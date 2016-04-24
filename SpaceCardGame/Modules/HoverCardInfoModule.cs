@@ -113,6 +113,16 @@ namespace SpaceCardGame
             }
         }
 
+        /// <summary>
+        /// Really make sure that we kill the info image if this is killed - it could still be inserted in the screen somewhere.
+        /// </summary>
+        public override void Die()
+        {
+            base.Die();
+
+            InfoImage.Die();
+        }
+
         #endregion
     }
 }

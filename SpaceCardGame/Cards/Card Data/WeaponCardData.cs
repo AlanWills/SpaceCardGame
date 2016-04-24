@@ -29,7 +29,7 @@ namespace SpaceCardGame
             GamePlayer gamePlayer = player as GamePlayer;
             bool hasEnoughResources = gamePlayer.HaveSufficientResources(this, ref error);
 
-            return hasEnoughResources && gamePlayer.CurrentShipsPlaced > 0;
+            return hasEnoughResources;
         }
 
         #endregion
