@@ -17,19 +17,19 @@ namespace SpaceCardGame
         private CardShipPair CardShipPair { get; set; }
 
         /// <summary>
-        /// The label for the ship's current attack.
+        /// The image and label pair for the ship's current attack.
         /// </summary>
-        private Label CurrentAttackLabel { get; set; }
+        private ImageAndLabel CurrentAttack { get; set; }
 
         /// <summary>
-        /// The label for the ship's current defence.
+        /// The image and label for the ship's current defence.
         /// </summary>
-        private Label CurrentDefenceLabel { get; set; }
+        private ImageAndLabel CurrentDefence { get; set; }
 
         /// <summary>
-        /// The label for the ship's current speed.
+        /// The image and label for the ship's current speed.
         /// </summary>
-        private Label CurrentSpeedLabel { get; set; }
+        private ImageAndLabel CurrentSpeed { get; set; }
 
         #endregion
 
@@ -46,23 +46,37 @@ namespace SpaceCardGame
         /// </summary>
         public override void LoadContent()
         {
-            Vector2 textSize = new Vector2(30, 60);
+            Vector2 textSize = new Vector2(20, 40);
 
             CheckShouldLoad();
 
-            CurrentAttackLabel = AddChild(new Label("", new Vector2(-Size.X * 0.5f, Size.Y * 0.5f)));
-            CurrentAttackLabel.Colour.Value = Color.Red;
-            CurrentAttackLabel.Size = textSize;
+            CurrentAttack = AddChild(new ImageAndLabel("", new Vector2(-Size.X * 0.5f, Size.Y * 0.5f), "UI\\CardStatThumnails\\DamageThumbnail"));
+            CurrentAttack.Colour.Value = Color.Red;
+            CurrentAttack.Label.Size = textSize;
 
-            CurrentDefenceLabel = AddChild(new Label("", new Vector2(0, Size.Y * 0.5f)));
-            CurrentDefenceLabel.Colour.Value = Color.LightGreen;
-            CurrentDefenceLabel.Size = textSize;
+            CurrentDefence = AddChild(new ImageAndLabel("", new Vector2(0, Size.Y * 0.5f), "UI\\CardStatThumnails\\DamageThumbnail"));
+            CurrentDefence.Colour.Value = Color.LightGreen;
+            CurrentDefence.Label.Size = textSize;
 
-            CurrentSpeedLabel = AddChild(new Label("", Size * 0.5f));
-            CurrentSpeedLabel.Colour.Value = Color.Yellow;
-            CurrentSpeedLabel.Size = textSize;
+            CurrentSpeed = AddChild(new ImageAndLabel("", Size * 0.5f, "UI\\CardStatThumnails\\DamageThumbnail"));
+            CurrentSpeed.Colour.Value = Color.Yellow;
+            CurrentSpeed.Label.Size = textSize;
 
             base.LoadContent();
+        }
+
+        /// <summary>
+        /// Do some UI fixup
+        /// </summary>
+        public override void Initialise()
+        {
+            CheckShouldInitialise();
+
+            base.Initialise();
+
+            CurrentAttack.LocalPosition -= new Vector2(-CurrentAttack.Anchor.X * 0.5f, CurrentAttack.Size.Y * 0.5f);
+            CurrentDefence.LocalPosition -= new Vector2(0, CurrentDefence.Size.Y * 0.5f);
+            CurrentSpeed.LocalPosition -= new Vector2(CurrentSpeed.Anchor.X, CurrentSpeed.Size.Y * 0.5f);
         }
 
         /// <summary>
@@ -85,9 +99,9 @@ namespace SpaceCardGame
         /// </summary>
         private void UpdateLabels()
         {
-            CurrentAttackLabel.Text = CardShipPair.ShipCard.CalculateAttack(null).ToString();
-            CurrentDefenceLabel.Text = CardShipPair.Ship.DamageModule.Health.ToString();
-            CurrentSpeedLabel.Text = CardShipPair.Ship.ShipData.Speed.ToString();
+            CurrentAttack.Label.Text = CardShipPair.ShipCard.CalculateAttack(null).ToString();
+            CurrentDefence.Label.Text = CardShipPair.Ship.DamageModule.Health.ToString();
+            CurrentSpeed.Label.Text = CardShipPair.Ship.ShipData.Speed.ToString();
         }
 
         #endregion

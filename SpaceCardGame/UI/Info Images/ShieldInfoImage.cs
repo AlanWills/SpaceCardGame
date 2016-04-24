@@ -17,14 +17,14 @@ namespace SpaceCardGame
         private CardShieldPair CardShieldPair { get; set; }
 
         /// <summary>
-        /// The label for the weapon's current damage.
+        /// The image label for the weapon's current damage.
         /// </summary>
-        private Label CurrentShieldStrengthLabel { get; set; }
+        private ImageAndLabel CurrentShieldStrength { get; set; }
 
         /// <summary>
-        /// The label for the weapon's shots left.
+        /// The image label for the weapon's shots left.
         /// </summary>
-        private Label CurrentRechargeRateLabel { get; set; }
+        private ImageAndLabel CurrentRechargeRate { get; set; }
 
         #endregion
 
@@ -41,19 +41,32 @@ namespace SpaceCardGame
         /// </summary>
         public override void LoadContent()
         {
-            Vector2 textSize = new Vector2(30, 60);
+            Vector2 textSize = new Vector2(20, 40);
 
             CheckShouldLoad();
 
-            CurrentShieldStrengthLabel = AddChild(new Label("", new Vector2(-Size.X * 0.5f, Size.Y * 0.5f)));
-            CurrentShieldStrengthLabel.Colour.Value = Color.LightGreen;
-            CurrentShieldStrengthLabel.Size = textSize;
+            CurrentShieldStrength = AddChild(new ImageAndLabel("", new Vector2(-Size.X * 0.5f, Size.Y * 0.5f), "UI\\CardStatThumnails\\DamageThumbnail"));
+            CurrentShieldStrength.Colour.Value = Color.LightGreen;
+            CurrentShieldStrength.Label.Size = textSize;
 
-            CurrentRechargeRateLabel = AddChild(new Label("", Size * 0.5f));
-            CurrentRechargeRateLabel.Colour.Value = Color.Red;
-            CurrentRechargeRateLabel.Size = textSize;
+            CurrentRechargeRate = AddChild(new ImageAndLabel("", Size * 0.5f, "UI\\CardStatThumnails\\DamageThumbnail"));
+            CurrentRechargeRate.Colour.Value = Color.Red;
+            CurrentRechargeRate.Label.Size = textSize;
 
             base.LoadContent();
+        }
+
+        /// <summary>
+        /// Do some UI fixup
+        /// </summary>
+        public override void Initialise()
+        {
+            CheckShouldInitialise();
+
+            base.Initialise();
+
+            CurrentShieldStrength.LocalPosition -= new Vector2(-CurrentShieldStrength.Anchor.X * 0.5f, CurrentShieldStrength.Size.Y * 0.5f);
+            CurrentRechargeRate.LocalPosition -= new Vector2(CurrentRechargeRate.Anchor.X, CurrentRechargeRate.Size.Y * 0.5f);
         }
 
         /// <summary>
@@ -76,8 +89,8 @@ namespace SpaceCardGame
         /// </summary>
         private void UpdateLabels()
         {
-            CurrentShieldStrengthLabel.Text = CardShieldPair.Shield.DamageModule.Health.ToString();
-            CurrentRechargeRateLabel.Text = CardShieldPair.Shield.ShieldData.ShieldRechargePerTurn.ToString();
+            CurrentShieldStrength.Label.Text = CardShieldPair.Shield.DamageModule.Health.ToString();
+            CurrentRechargeRate.Label.Text = CardShieldPair.Shield.ShieldData.ShieldRechargePerTurn.ToString();
         }
 
         #endregion

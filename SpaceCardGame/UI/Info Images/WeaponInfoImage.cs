@@ -17,14 +17,14 @@ namespace SpaceCardGame
         private CardWeaponPair CardWeaponPair { get; set; }
 
         /// <summary>
-        /// The label for the weapon's current damage.
+        /// The image label for the weapon's current damage.
         /// </summary>
-        private Label CurrentDamageLabel { get; set; }
+        private ImageAndLabel CurrentDamage { get; set; }
 
         /// <summary>
-        /// The label for the weapon's shots left.
+        /// The image label for the weapon's shots left.
         /// </summary>
-        private Label CurrentShotsLeftLabel { get; set; }
+        private ImageAndLabel CurrentShotsLeft { get; set; }
 
         #endregion
 
@@ -41,19 +41,32 @@ namespace SpaceCardGame
         /// </summary>
         public override void LoadContent()
         {
-            Vector2 textSize = new Vector2(30, 60);
+            Vector2 textSize = new Vector2(20, 40);
 
             CheckShouldLoad();
 
-            CurrentDamageLabel = AddChild(new Label("", new Vector2(-Size.X * 0.5f, Size.Y * 0.5f)));
-            CurrentDamageLabel.Colour.Value = Color.Red;
-            CurrentDamageLabel.Size = textSize;
+            CurrentDamage = AddChild(new ImageAndLabel("", new Vector2(-Size.X * 0.5f, Size.Y * 0.5f), "UI\\CardStatThumnails\\DamageThumbnail"));
+            CurrentDamage.Colour.Value = Color.Red;
+            CurrentDamage.Label.Size = textSize;
 
-            CurrentShotsLeftLabel = AddChild(new Label("", Size * 0.5f));
-            CurrentShotsLeftLabel.Colour.Value = Color.LightGray;
-            CurrentShotsLeftLabel.Size = textSize;
+            CurrentShotsLeft = AddChild(new ImageAndLabel("", Size * 0.5f, "UI\\CardStatThumnails\\DamageThumbnail"));
+            CurrentShotsLeft.Colour.Value = Color.LightGray;
+            CurrentShotsLeft.Label.Size = textSize;
 
             base.LoadContent();
+        }
+
+        /// <summary>
+        /// Do some UI fixup
+        /// </summary>
+        public override void Initialise()
+        {
+            CheckShouldInitialise();
+
+            base.Initialise();
+
+            CurrentDamage.LocalPosition -= new Vector2(-CurrentDamage.Anchor.X * 0.5f, CurrentDamage.Size.Y * 0.5f);
+            CurrentShotsLeft.LocalPosition -= new Vector2(CurrentShotsLeft.Anchor.X, CurrentShotsLeft.Size.Y * 0.5f);
         }
 
         /// <summary>
@@ -76,8 +89,8 @@ namespace SpaceCardGame
         /// </summary>
         private void UpdateLabels()
         {
-            CurrentDamageLabel.Text = CardWeaponPair.Turret.BulletData.BulletDamage.ToString();
-            CurrentShotsLeftLabel.Text = CardWeaponPair.Turret.ShotsLeft.ToString();
+            CurrentDamage.Label.Text = CardWeaponPair.Turret.BulletData.BulletDamage.ToString();
+            CurrentShotsLeft.Label.Text = CardWeaponPair.Turret.ShotsLeft.ToString();
         }
 
         #endregion
