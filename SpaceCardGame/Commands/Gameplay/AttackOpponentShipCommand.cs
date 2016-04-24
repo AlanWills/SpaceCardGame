@@ -77,8 +77,9 @@ namespace SpaceCardGame
             // Then use the rotation of the line to set the turret rotation - this is more efficient that calling RotateToTarget and will give a better result
             AttackingShipPair.Ship.Turret.LocalRotation = SelectingLine.WorldRotation - AttackingShipPair.WorldRotation;
 
-            // If our attacking ship has no shots left then we just kill this script as our ship will not be able to attack any more
-            if (!AttackingShipPair.Ship.Turret.CanFire)
+            // If our attacking ship is dead we kill this script
+            // If our attacking ship has no shots left then we kill this script as our ship will not be able to attack any more
+            if (!AttackingShipPair.IsAlive || !AttackingShipPair.Ship.Turret.CanFire)
             {
                 Die();
             }

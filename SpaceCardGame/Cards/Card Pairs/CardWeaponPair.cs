@@ -64,6 +64,14 @@ namespace SpaceCardGame
             WeaponCard.Size = cardShipPair.Card.Size / 3;
             LocalPosition = new Vector2((cardShipPair.Card.Size.X + WeaponCard.Size.X) * 0.5f, (3 * WeaponCard.Size.Y - cardShipPair.Card.Size.Y) * 0.5f);
 
+            // If our turret is more than 3 times the size of our ship, we want to scale it down
+            Vector2 potentialScaling = Vector2.Divide(cardShipPair.Card.Size, Turret.Size * 3);
+            if (potentialScaling.X < 1 || potentialScaling.Y < 1)
+            {
+                // We need to scale the turret down
+                Turret.Size *= (Math.Min(potentialScaling.X, potentialScaling.Y) / 3.0f);
+            }
+
             // Set up the reference to this turret on the inputted ship
             cardShipPair.Ship.Turret = Turret;
 

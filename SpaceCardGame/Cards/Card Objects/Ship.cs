@@ -2,7 +2,6 @@
 using _2DEngineData;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace SpaceCardGame
@@ -39,15 +38,15 @@ namespace SpaceCardGame
         public Shield Shield { get; set; }
 
         /// <summary>
-        /// A reference to the engine for our ship.
+        /// A fixed size aray of references to the engines on our ship.
         /// Used mainly for fancy animation.
         /// </summary>
-        public Engine Engine { get; set; }
+        public Engine[] Engines { get; set; }
 
         /// <summary>
-        /// A list of the ui we use to signify damage
+        /// A fixed size array of the ui we use to signify damage
         /// </summary>
-        public List<DamageUI> DamageUI { get; private set; }
+        public DamageUI[] DamageUI { get; private set; }
 
         #endregion
 
@@ -83,21 +82,23 @@ namespace SpaceCardGame
             DamageModule.OnDamage += ShowDamage;
 
             // Add engine UI from our data
+            Engines = new Engine[ShipData.EngineHardpoints.Count];
             Debug.Assert(ShipData.EngineHardpoints.Count > 0);
-            foreach (Vector2 engineHardpoint in ShipData.EngineHardpoints)
+
+            for (int i = 0; i < ShipData.EngineHardpoints.Count; ++i)
             {
-                Engine = AddChild(new Engine(ShipData.Speed, engineHardpoint));
+                Engines[i] = AddChild(new Engine(ShipData.Speed, ShipData.EngineHardpoints[i]));
             }
 
             Debug.Assert(ShipData.Defence > 0);
             Debug.Assert(ShipData.DamageHardpoints.Count == ShipData.Defence - 1);
-            DamageUI = new List<DamageUI>(ShipData.Defence - 1);            
+            DamageUI = new DamageUI[ShipData.Defence - 1];
 
             for (int i = 0; i < ShipData.Defence - 1; i++)
             {
                 DamageUI damageUI = AddChild(new DamageUI(ShipData.DamageHardpoints[i]));
                 damageUI.Hide();            // Initially hide all the damage UI
-                DamageUI.Add(damageUI);
+                DamageUI[i] = damageUI;
             }
 
             base.LoadContent();
@@ -160,6 +161,38 @@ namespace SpaceCardGame
 
         #endregion
 
+        #region Utility Functions
+
+        /// <summary>
+        /// A wrapper around the various changes we have make to the ship and objects on it when we change the size of the ship.
+        /// Takes the current size and the inputted size to create a scale which is then applied to the local position of all the children on our ship.
+        /// </summary>
+        /// <param name="desiredSize"></param>
+        public void ApplyScaling(Vector2 desiredSize)
+        {
+            Vector2 scale = Vector2.Divide(desiredSize, Size);
+
+            Size *= scale;
+
+            foreach (BaseObject child in Children)
+            {
+                child.LocalPosition *= scale;
+            }
+
+            /*for (int i = 0; i < Engines.Length; ++i)
+            {
+                Engines[i].EngineBlaze.Size *= scale;
+            }*/
+
+            for (int i = 0; i < DamageUI.Length; ++i)
+            {
+                DamageUI[i].Size *= scale;
+                DamageUI[i].Fire.Size *= scale;
+            }
+        }
+
+        #endregion
+
         #region Event Callbacks
 
         /// <summary>
@@ -176,14 +209,14 @@ namespace SpaceCardGame
             // Hide any damage we no longer need to show
             for (int i = 0; i < (int)DamageModule.Health - 1; i++)
             {
-                Debug.Assert(i < DamageUI.Count);
+                Debug.Assert(i < DamageUI.Length);
                 DamageUI[i].Hide();
             }
 
             // Turn on damage equal to the damage we have taken
             for (int i = (int)DamageModule.Health - 1; i < ShipData.Defence - 1; ++i)
             {
-                Debug.Assert(i < DamageUI.Count);
+                Debug.Assert(i < DamageUI.Length);
                 DamageUI[i].Show();
             }
         }

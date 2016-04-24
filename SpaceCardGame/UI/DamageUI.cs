@@ -24,12 +24,17 @@ namespace SpaceCardGame
             "Effects\\Damage\\DamageHoles1",
         };
 
+        /// <summary>
+        /// A reference to our fire animation.
+        /// </summary>
+        public Fire Fire { get; private set; }
+
         #endregion
 
         public DamageUI(Vector2 localPosition, string textureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
             base(localPosition, DamageAssets[MathUtils.GenerateInt(0, DamageAssets.Count - 1)])
         {
-            AddChild(new AnimatedGameObject(Vector2.Zero, "GameObjects\\Animations\\RedFire.xml"));
+            Fire = AddChild(new Fire(Vector2.Zero));
         }
     }
 }

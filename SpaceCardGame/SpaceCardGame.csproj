@@ -76,6 +76,7 @@
     <Compile Include="Cards\Card Pairs\CardResourcePair.cs" />
     <Compile Include="Cards\Card Pairs\CardShipPair.cs" />
     <Compile Include="Cards\Card Pairs\CardWeaponPair.cs" />
+    <Compile Include="Game Objects\Animations\Fire.cs" />
     <Compile Include="Game Objects\GameCardControl.cs" />
     <Compile Include="Board\GameBoardSection.cs" />
     <Compile Include="Modules\HoverCardInfoModule.cs" />

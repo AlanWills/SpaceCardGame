@@ -1,10 +1,7 @@
-﻿using System;
-using _2DEngine;
+﻿using _2DEngine;
 using _2DEngineData;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
-using System.Diagnostics;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace SpaceCardGame
 {
@@ -28,7 +25,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the engine blaze for this Engine
         /// </summary>
-        private EngineBlaze EngineBlaze { get; set; }
+        //public EngineBlaze EngineBlaze { get; private set; }
 
         // A string which represents the default engine all ships have 
         private const string defaultEngineDataAsset = "Cards\\Engines\\DefaultEngine.xml";
@@ -70,7 +67,7 @@ namespace SpaceCardGame
             EngineData = Data as EngineData;
             DebugUtils.AssertNotNull(EngineData);
 
-            EngineBlaze = AddChild(new EngineBlaze(Vector2.Zero));
+            //EngineBlaze = AddChild(new EngineBlaze(Vector2.Zero));
 
             base.LoadContent();
         }
@@ -82,7 +79,7 @@ namespace SpaceCardGame
         {
             base.Begin();
 
-            EngineBlaze.LocalPosition += new Vector2(0, EngineBlaze.Size.Y * 0.5f);
+            //EngineBlaze.LocalPosition += new Vector2(0, EngineBlaze.Size.Y * 0.5f);
         }
 
         #endregion

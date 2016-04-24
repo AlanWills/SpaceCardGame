@@ -5,7 +5,7 @@ namespace SpaceCardGame
 {
     /// <summary>
     /// A class which represents an engine blaze in our game.
-    /// Nothing more than an animated image, but as it will be useful it makes to have a separate class for it.
+    /// Set up as a particle emitter which emits smoke.
     /// </summary>
     public class EngineBlaze : AnimatedGameObject
     {

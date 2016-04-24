@@ -21,6 +21,11 @@ namespace SpaceCardGame
         /// </summary>
         public Ship Ship { get; private set; }
 
+        /// <summary>
+        /// If we have to scale the ship down so that it fits on our board, we need to scale other things down too (such as hardpoints)
+        /// </summary>
+        public float RelativeScale { get; private set; }
+
         #endregion
 
         public CardShipPair(ShipCardData shipCardData) :
@@ -44,7 +49,7 @@ namespace SpaceCardGame
         /// </summary>
         public override void Begin()
         {
-            //CardObject.Size = Vector2.Min(Card.Size, CardObject.Size);
+            Ship.ApplyScaling(Vector2.Min(Card.Size, CardObject.Size));
 
             base.Begin();
         }

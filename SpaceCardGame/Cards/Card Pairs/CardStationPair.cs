@@ -35,7 +35,11 @@
             base.MakeReadyForBattle();
 
             Ship.Turret.Hide();
-            Ship.Engine.Hide();
+            
+            for (int i = 0; i < Ship.Engines.Length; ++i)
+            {
+                Ship.Engines[i].Hide();
+            }
         }
 
         #endregion
