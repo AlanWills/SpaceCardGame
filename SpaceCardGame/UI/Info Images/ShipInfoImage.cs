@@ -54,11 +54,11 @@ namespace SpaceCardGame
             CurrentAttack.Colour.Value = Color.Red;
             CurrentAttack.Label.Size = textSize;
 
-            CurrentDefence = AddChild(new ImageAndLabel("", new Vector2(0, Size.Y * 0.5f), "UI\\CardStatThumnails\\DamageThumbnail"));
+            CurrentDefence = AddChild(new ImageAndLabel("", new Vector2(0, Size.Y * 0.5f), "UI\\CardStatThumnails\\DefenceThumbnail"));
             CurrentDefence.Colour.Value = Color.LightGreen;
             CurrentDefence.Label.Size = textSize;
 
-            CurrentSpeed = AddChild(new ImageAndLabel("", Size * 0.5f, "UI\\CardStatThumnails\\DamageThumbnail"));
+            CurrentSpeed = AddChild(new ImageAndLabel("", Size * 0.5f, "UI\\CardStatThumnails\\SpeedThumbnail"));
             CurrentSpeed.Colour.Value = Color.Yellow;
             CurrentSpeed.Label.Size = textSize;
 
@@ -75,8 +75,8 @@ namespace SpaceCardGame
             base.Initialise();
 
             CurrentAttack.LocalPosition -= new Vector2(-CurrentAttack.Anchor.X * 0.5f, CurrentAttack.Size.Y * 0.5f);
-            CurrentDefence.LocalPosition -= new Vector2(0, CurrentDefence.Size.Y * 0.5f);
-            CurrentSpeed.LocalPosition -= new Vector2(CurrentSpeed.Anchor.X, CurrentSpeed.Size.Y * 0.5f);
+            CurrentDefence.LocalPosition -= new Vector2(CurrentDefence.Anchor.X - CurrentDefence.Size.X * 0.5f, CurrentDefence.Size.Y * 0.5f);
+            CurrentSpeed.LocalPosition -= new Vector2(CurrentSpeed.Anchor.X + CurrentSpeed.Size.X * 0.5f, CurrentSpeed.Size.Y * 0.5f);
         }
 
         /// <summary>

@@ -45,11 +45,11 @@ namespace SpaceCardGame
 
             CheckShouldLoad();
 
-            CurrentShieldStrength = AddChild(new ImageAndLabel("", new Vector2(-Size.X * 0.5f, Size.Y * 0.5f), "UI\\CardStatThumnails\\DamageThumbnail"));
+            CurrentShieldStrength = AddChild(new ImageAndLabel("", new Vector2(-Size.X * 0.5f, Size.Y * 0.5f), "UI\\CardStatThumnails\\DefenceThumbnail"));
             CurrentShieldStrength.Colour.Value = Color.LightGreen;
             CurrentShieldStrength.Label.Size = textSize;
 
-            CurrentRechargeRate = AddChild(new ImageAndLabel("", Size * 0.5f, "UI\\CardStatThumnails\\DamageThumbnail"));
+            CurrentRechargeRate = AddChild(new ImageAndLabel("", Size * 0.5f, "UI\\CardStatThumnails\\ShieldRechargeThumbnail"));
             CurrentRechargeRate.Colour.Value = Color.Red;
             CurrentRechargeRate.Label.Size = textSize;
 
@@ -66,7 +66,7 @@ namespace SpaceCardGame
             base.Initialise();
 
             CurrentShieldStrength.LocalPosition -= new Vector2(-CurrentShieldStrength.Anchor.X * 0.5f, CurrentShieldStrength.Size.Y * 0.5f);
-            CurrentRechargeRate.LocalPosition -= new Vector2(CurrentRechargeRate.Anchor.X, CurrentRechargeRate.Size.Y * 0.5f);
+            CurrentRechargeRate.LocalPosition -= new Vector2(CurrentRechargeRate.Anchor.X + CurrentRechargeRate.Size.X * 0.5f, CurrentRechargeRate.Size.Y * 0.5f);
         }
 
         /// <summary>

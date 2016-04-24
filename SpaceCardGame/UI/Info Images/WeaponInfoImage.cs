@@ -49,7 +49,7 @@ namespace SpaceCardGame
             CurrentDamage.Colour.Value = Color.Red;
             CurrentDamage.Label.Size = textSize;
 
-            CurrentShotsLeft = AddChild(new ImageAndLabel("", Size * 0.5f, "UI\\CardStatThumnails\\DamageThumbnail"));
+            CurrentShotsLeft = AddChild(new ImageAndLabel("", Size * 0.5f, "UI\\CardStatThumnails\\ShotsLeftThumbnail"));
             CurrentShotsLeft.Colour.Value = Color.LightGray;
             CurrentShotsLeft.Label.Size = textSize;
 
@@ -66,7 +66,7 @@ namespace SpaceCardGame
             base.Initialise();
 
             CurrentDamage.LocalPosition -= new Vector2(-CurrentDamage.Anchor.X * 0.5f, CurrentDamage.Size.Y * 0.5f);
-            CurrentShotsLeft.LocalPosition -= new Vector2(CurrentShotsLeft.Anchor.X, CurrentShotsLeft.Size.Y * 0.5f);
+            CurrentShotsLeft.LocalPosition -= new Vector2(CurrentShotsLeft.Anchor.X + CurrentShotsLeft.Size.X * 0.5f, CurrentShotsLeft.Size.Y * 0.5f);
         }
 
         /// <summary>

@@ -297,6 +297,16 @@
     <Content Include="Content\Sprites\Objects\Debris\debris_sml3.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Sprites\UI\CardStatThumnails\ShotsLeftThumbnail.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\UI\CardStatThumnails\SpeedThumbnail.png" />
+    <Content Include="Content\Sprites\UI\CardStatThumnails\DefenceThumbnail.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\UI\CardStatThumnails\ShieldRechargeThumbnail.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Sprites\UI\CardStatThumnails\DamageThumbnail.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
