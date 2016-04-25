@@ -66,7 +66,7 @@
     <Compile Include="Cards\Cards\ShieldCard.cs" />
     <Compile Include="Cards\Cards\GameCard.cs" />
     <Compile Include="Cards\Cards\ResourceCard.cs" />
-    <Compile Include="Cards\Cards\ShipCard.cs" />
+    <Compile Include="Cards\Cards\Ships\ShipCard.cs" />
     <Compile Include="Cards\Cards\Ships\EagleFrigateShipCard.cs" />
     <Compile Include="Cards\Cards\WeaponCard.cs" />
     <Compile Include="Board\Board.cs" />
@@ -81,6 +81,7 @@
     <Compile Include="Board\GameBoardSection.cs" />
     <Compile Include="Game Objects\ShipCardControl.cs" />
     <Compile Include="Modules\HoverCardInfoModule.cs" />
+    <Compile Include="Modules\ShipHoverCardInfoModule.cs" />
     <Compile Include="Players\GamePlayer.cs" />
     <Compile Include="Screens\Menus\HardpointScreen.cs" />
     <Compile Include="Screens\Menus\OpenCardPacksScreen.cs" />

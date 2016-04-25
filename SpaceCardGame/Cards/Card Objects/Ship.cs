@@ -17,8 +17,20 @@ namespace SpaceCardGame
 
         /// <summary>
         /// A local reference to the parent CardShipPair (for convenience)
-        /// </summary>
-        private CardShipPair CardShipPair { get; set; }
+        private CardShipPair cardShipPair;
+        private CardShipPair CardShipPair
+        {
+            get
+            {
+                if (cardShipPair == null)
+                {
+                    DebugUtils.AssertNotNull(Parent);
+                    cardShipPair = Parent as CardShipPair;
+                }
+
+                return cardShipPair;
+            }
+        }
         
         /// <summary>
         /// A reference to our damageable object module - useful for reference to it's health etc.
@@ -105,7 +117,6 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(ShipData);
 
             DamageModule = AddModule(new DamageableObjectModule(ShipData.Defence));
-            DamageModule.OnDamage += ShowDamage;
 
             // Add engine UI from our data
             Engines = new Engine[ShipData.EngineHardpoints.Count];
@@ -128,17 +139,6 @@ namespace SpaceCardGame
             }
 
             base.LoadContent();
-        }
-
-        /// <summary>
-        /// Sets up the reference to our CardShipPair
-        /// </summary>
-        public override void Begin()
-        {
-            base.Begin();
-
-            DebugUtils.AssertNotNull(Parent);
-            CardShipPair = Parent as CardShipPair;
         }
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace SpaceCardGame
         {
             base.Show(showChildren);
 
-            ShowDamage(DamageModule, 0);
+            ShowDamage();
         }
 
         /// <summary>
@@ -185,6 +185,32 @@ namespace SpaceCardGame
 
             DebugUtils.AssertNotNull(Parent);
             Parent.Die();
+        }
+
+        /// <summary>
+        /// When this object collides with another, we check to see if we have collided with a bullet.
+        /// If we have, we add various pieces of damage UI and an explosion.
+        /// If we are dead we call Die() to clean ourselves up from the scene.
+        /// </summary>
+        /// <param name="collidedObject"></param>
+        public override void OnCollisionWith(GameObject collidedObject)
+        {
+            if (collidedObject is Bullet)
+            {
+                // Adds an explosion
+                ScreenManager.Instance.CurrentScreen.AddInGameUIObject(new Explosion(WorldPosition), true, true);
+
+                // Adds debris
+                ScreenManager.Instance.CurrentScreen.AddGameObject(new Debris(WorldPosition), true, true);
+
+                // Show our ship damage
+                ShowDamage();
+
+                if (DamageModule.Dead)
+                {
+                    Die();
+                }
+            }   
         }
 
         #endregion
@@ -226,14 +252,8 @@ namespace SpaceCardGame
         /// <summary>
         /// Shows damage on the ship corresponding to how much we have taken
         /// </summary>
-        private void ShowDamage(DamageableObjectModule damageModule, float damageDealt)
+        private void ShowDamage()
         {
-            // Add debris for each point of damage we did
-            for (int i = 0; i < damageDealt; ++i)
-            {
-                ScreenManager.Instance.CurrentScreen.AddGameObject(new Debris(WorldPosition), true, true);
-            }
-
             if (DamageModule.Health <= 0)
             {
                 // Don't add damage if we have no health - in the end we will implement the damage happening when our bullet hits so it won't matter that we skip this

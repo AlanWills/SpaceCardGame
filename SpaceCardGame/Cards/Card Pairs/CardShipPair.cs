@@ -26,11 +26,6 @@ namespace SpaceCardGame
         /// </summary>
         protected GamePlayer Player { get; set; }
 
-        /// <summary>
-        /// If we have to scale the ship down so that it fits on our board, we need to scale other things down too (such as hardpoints)
-        /// </summary>
-        public float RelativeScale { get; private set; }
-
         #endregion
 
         public CardShipPair(ShipCardData shipCardData) :
@@ -46,6 +41,21 @@ namespace SpaceCardGame
         }
 
         #region Virtual Functions
+
+        /// <summary>
+        /// Add our ShipHoverCardInfo module to the card ship pair.
+        /// </summary>
+        public override void LoadContent()
+        {
+            CheckShouldLoad();
+
+            if (AddHoverInfoModule)
+            {
+                HoverInfoModule = AddModule(new ShipHoverCardInfoModule(this));
+            }
+
+            base.LoadContent();
+        }
 
         /// <summary>
         /// Fixup the size of the ship so that we don't create one larger than our card.

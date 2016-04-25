@@ -59,7 +59,7 @@ namespace SpaceCardGame
             CurrentDefence.Label.Size = textSize;
 
             CurrentSpeed = AddChild(new ImageAndLabel("", Size * 0.5f, "UI\\CardStatThumnails\\SpeedThumbnail"));
-            CurrentSpeed.Colour.Value = Color.Yellow;
+            CurrentSpeed.Colour.Value = Color.White;
             CurrentSpeed.Label.Size = textSize;
 
             base.LoadContent();

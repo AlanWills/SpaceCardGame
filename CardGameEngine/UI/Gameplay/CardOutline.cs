@@ -37,7 +37,7 @@ namespace CardGameEngine
         {
             base.Update(elapsedGameTime);
 
-            Colour.Value = Valid ? Color.Green : Color.Red;
+            Colour.Value = Valid ? Color.Green : Color.Gray;
         }
         // Possibly make the opacity's lerp in and out
 

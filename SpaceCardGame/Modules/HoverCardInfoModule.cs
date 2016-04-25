@@ -1,5 +1,4 @@
 ﻿using _2DEngine;
-using CardGameEngine;
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
 
@@ -15,7 +14,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to our our info image - will cache this and then insert/extract it from the current screen as appropriate
         /// </summary>
-        private Image InfoImage { get; set; }
+        protected Image InfoImage { get; private set; }
 
         /// <summary>
         /// A reference to the attached card we are showing info

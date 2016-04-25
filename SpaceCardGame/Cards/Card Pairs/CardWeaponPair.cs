@@ -105,6 +105,7 @@ namespace SpaceCardGame
             base.MakeReadyForBattle();
 
             LocalPosition = Vector2.Zero;
+            Turret.LocalRotation = 0;
         }
 
         /// <summary>

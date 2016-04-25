@@ -85,6 +85,24 @@ namespace SpaceCardGame
             Parent.Die();
         }
 
+        /// <summary>
+        /// If we collide with a bullet we reset our shield flashing - gives a flare.
+        /// If we are dead we call Die.
+        /// </summary>
+        /// <param name="collidedObject"></param>
+        public override void OnCollisionWith(GameObject collidedObject)
+        {
+            if(collidedObject is Bullet)
+            {
+                FlashingModule.Reset();
+
+                if (DamageModule.Dead)
+                {
+                    Die();
+                }
+            }
+        }
+
         #endregion
 
         #region Utility Functions
