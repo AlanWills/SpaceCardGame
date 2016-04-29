@@ -2,7 +2,7 @@
   <Asset Type="SpaceCardGameData.ShipData">
     <TextureAsset>Cards\Stations\BastionShipyard\BastionShipyardObject</TextureAsset>
     <Attack>0</Attack>
-    <Defence>1</Defence>
+    <Defence>20</Defence>
     <Speed>0</Speed>
     <TurretHardpoints>
       <Item>
@@ -16,6 +16,83 @@
         <Y>22</Y>
       </Item>
     </EngineHardpoints>
-    <DamageHardpoints/>
+    <DamageHardpoints>
+      <Item>
+        <X>-112</X>
+        <Y>-221</Y>
+      </Item>
+      <Item>
+        <X>-86</X>
+        <Y>-190</Y>
+      </Item>
+      <Item>
+        <X>34</X>
+        <Y>-180</Y>
+      </Item>
+      <Item>
+        <X>108</X>
+        <Y>-134</Y>
+      </Item>
+      <Item>
+        <X>-147</X>
+        <Y>-71</Y>
+      </Item>
+      <Item>
+        <X>-147</X>
+        <Y>-71</Y>
+      </Item>
+      <Item>
+        <X>-71</X>
+        <Y>-77</Y>
+      </Item>
+      <Item>
+        <X>43</X>
+        <Y>-105</Y>
+      </Item>
+      <Item>
+        <X>145</X>
+        <Y>-34</Y>
+      </Item>
+      <Item>
+        <X>3</X>
+        <Y>-15</Y>
+      </Item>
+      <Item>
+        <X>-54</X>
+        <Y>31</Y>
+      </Item>
+      <Item>
+        <X>36</X>
+        <Y>18</Y>
+      </Item>
+      <Item>
+        <X>147</X>
+        <Y>130</Y>
+      </Item>
+      <Item>
+        <X>-135</X>
+        <Y>140</Y>
+      </Item>
+      <Item>
+        <X>-60</X>
+        <Y>185</Y>
+      </Item>
+      <Item>
+        <X>2</X>
+        <Y>195</Y>
+      </Item>
+      <Item>
+        <X>53</X>
+        <Y>126</Y>
+      </Item>
+      <Item>
+        <X>96</X>
+        <Y>190</Y>
+      </Item>
+      <Item>
+        <X>0</X>
+        <Y>122</Y>
+      </Item>
+    </DamageHardpoints>
   </Asset>
 </XnaContent>

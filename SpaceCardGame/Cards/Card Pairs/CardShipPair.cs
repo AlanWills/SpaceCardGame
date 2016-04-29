@@ -64,7 +64,8 @@ namespace SpaceCardGame
         /// </summary>
         public override void Begin()
         {
-            Ship.Resize(Vector2.Min(Card.Size, CardObject.Size));
+            Vector2 scale = Vector2.Min(Vector2.One, Vector2.Divide(Card.Size, CardObject.Size));
+            Ship.Scale(scale);
 
             base.Begin();
         }

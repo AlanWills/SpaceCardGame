@@ -50,12 +50,12 @@
     </EngineHardpoints>
     <DamageHardpoints>
       <Item>
-        <X>10</X>
-        <Y>10</Y>
+        <X>-13</X>
+        <Y>-109</Y>
       </Item>
       <Item>
-        <X>-10</X>
-        <Y>-10</Y>
+        <X>42</X>
+        <Y>130</Y>
       </Item>
     </DamageHardpoints>
   </Asset>

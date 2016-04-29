@@ -20,7 +20,8 @@ namespace SpaceCardGame
         /// </summary>
         private Label Label { get; set; }
 
-        const string shipTexture = "Cards\\Ships\\WaspFighter\\WaspFighterObject";
+        const string type = "Stations";
+        const string shipTexture = "BastionShipyard";
 
         #endregion
 
@@ -39,8 +40,8 @@ namespace SpaceCardGame
         {
             base.AddInitialUI();
 
-            ShipImage = AddScreenUIObject(new Image(ScreenCentre, shipTexture));
-            Label = AddScreenUIObject(new Label("", new Vector2(100, ScreenCentre.Y)));
+            ShipImage = AddScreenUIObject(new Image(ScreenCentre, "Cards\\" + type + "\\" + shipTexture + "\\" + shipTexture + "Object"));
+            Label = AddScreenUIObject(new Label((GameMouse.Instance.WorldPosition - ScreenCentre).ToPoint().ToString(), new Vector2(100, ScreenCentre.Y)));
         }
 
         /// <summary>
@@ -52,6 +53,7 @@ namespace SpaceCardGame
             base.Update(elapsedGameTime);
 
             Label.Text = (GameMouse.Instance.WorldPosition - ScreenCentre).ToPoint().ToString();
+            //Label.Colour.Value = Color.Black;
         }
 
         #endregion

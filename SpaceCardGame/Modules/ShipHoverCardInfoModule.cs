@@ -27,7 +27,7 @@ namespace SpaceCardGame
         /// </summary>
         private Vector2 PreviewPosition { get; set; }
 
-        private Vector2 currentSize;
+        private Vector2 scale, inverseScale;
         private bool scaled;
 
         #endregion
@@ -49,6 +49,8 @@ namespace SpaceCardGame
 
             CardControlPosition = CardShipPair.LocalPosition;
             PreviewPosition = ScreenManager.Instance.ScreenCentre - CardShipPair.Parent.WorldPosition;
+            scale = Vector2.Divide(CardShipPair.Ship.TextureCentre * 2, CardShipPair.Ship.Size);
+            inverseScale = Vector2.Divide(Vector2.One, scale);
         }
 
         /// <summary>
@@ -68,8 +70,7 @@ namespace SpaceCardGame
             {
                 if (IsInputValidToPreviewShip(battleScreen, CardShipPair.Ship.Collider))
                 {
-                    currentSize = CardShipPair.Ship.Size;
-                    CardShipPair.Ship.Resize(CardShipPair.Ship.TextureCentre * 2);
+                    CardShipPair.Ship.Scale(scale);
                     CardShipPair.LocalPosition = PreviewPosition;
                     InfoImage.Hide();
 
@@ -80,7 +81,7 @@ namespace SpaceCardGame
             {
                 if (!GameKeyboard.IsKeyDown(Keys.LeftControl))
                 {
-                    CardShipPair.Ship.Resize(currentSize);
+                    CardShipPair.Ship.Scale(inverseScale);
                     CardShipPair.LocalPosition = CardControlPosition;
                     InfoImage.Show();
 

@@ -80,6 +80,7 @@
     <Compile Include="Game Objects\GameCardControl.cs" />
     <Compile Include="Board\GameBoardSection.cs" />
     <Compile Include="Game Objects\ShipCardControl.cs" />
+    <Compile Include="Interfaces\ICardObjectElement.cs" />
     <Compile Include="Modules\HoverCardInfoModule.cs" />
     <Compile Include="Modules\ShipHoverCardInfoModule.cs" />
     <Compile Include="Players\GamePlayer.cs" />

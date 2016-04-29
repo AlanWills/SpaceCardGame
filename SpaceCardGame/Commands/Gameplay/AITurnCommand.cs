@@ -222,13 +222,7 @@ namespace SpaceCardGame
         /// <returns></returns>
         private bool ContinueBattlePhase()
         {
-            return false;
-
-            // The AI has no ships, or the player has no ships, so return false
-            if (AIPlayer.CurrentShipsPlaced == 0 || BattleScreen.Player.CurrentShipsPlaced == 0)
-            {
-                return false;
-            }
+            //return false;
             
             // If we cannot find a ship which is ready, then return false
             if (!BoardSection.GameBoardSection.ShipCardControl.Exists(GetReadyShipPredicate()))
