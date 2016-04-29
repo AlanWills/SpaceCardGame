@@ -11,7 +11,7 @@ namespace SpaceCardGame
     /// Handles firing bullets and damaging ships.
     /// It's children can ONLY be bullets
     /// </summary>
-    public class Turret : ShipAddOn
+    public class Turret : CardObject
     {
         #region Properties and Fields
 
@@ -71,7 +71,7 @@ namespace SpaceCardGame
         /// <summary>
         /// Determines whether this is the default turret created for a ship.
         /// </summary>
-        public bool DefaultTurret { get; private set; }
+        public bool IsDefaultTurret { get; private set; }
 
         // A string which represents the default turret all ships have 
         private const string defaultTurretDataAsset = "Cards\\Weapons\\DefaultTurret.xml";
@@ -85,7 +85,7 @@ namespace SpaceCardGame
         public Turret(string turretDataAsset) :
             base(Vector2.Zero, turretDataAsset)
         {
-            DefaultTurret = turretDataAsset == defaultTurretDataAsset; 
+            IsDefaultTurret = turretDataAsset == defaultTurretDataAsset;
         }
 
         #region Properties and Fields
@@ -125,6 +125,36 @@ namespace SpaceCardGame
             base.Update(elapsedGameTime);
 
             Parent.Colour.Value = CanFire ? Color.Green : Color.Red;
+        }
+
+        /// <summary>
+        /// Reloads our turret when we start our card placement turn again and changes our position to be to the side of the ship card
+        /// </summary>
+        public override void OnTurnBegin()
+        {
+            base.OnTurnBegin();
+
+            Reload();
+        }
+
+        /// <summary>
+        /// Move this turret so that it is directly over the ship
+        /// </summary>
+        public override void MakeReadyForBattle()
+        {
+            base.MakeReadyForBattle();
+
+            LocalRotation = 0;
+        }
+
+        /// <summary>
+        /// Reloads our turret ready for our opponent's battle phase.
+        /// </summary>
+        public override void OnTurnEnd()
+        {
+            base.OnTurnEnd();
+
+            Reload();
         }
 
         /// <summary>

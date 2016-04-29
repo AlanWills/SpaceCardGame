@@ -33,8 +33,8 @@ namespace SpaceCardGame
             ResourceCard = Card as ResourceCard;
 
             // Make ready as soon as we lay it
-            MakeReadyForCardPlacement();
-
+            IsReady.Value = true;
+            
             // No hover info for resources - there is no need
             AddHoverInfoModule = false;
         }

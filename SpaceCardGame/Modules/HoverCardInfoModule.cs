@@ -1,5 +1,6 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System.Diagnostics;
 
 namespace SpaceCardGame
@@ -20,6 +21,8 @@ namespace SpaceCardGame
         /// A reference to the attached card we are showing info
         /// </summary>
         private CardObjectPair AttachedCardObjectPair { get; set; }
+
+        private bool cardAdded;
 
         #endregion
 
@@ -56,25 +59,40 @@ namespace SpaceCardGame
 
             DebugUtils.AssertNotNull(AttachedCardObjectPair.Card.Collider);
             DebugUtils.AssertNotNull(AttachedCardObjectPair.CardObject.Collider);
-            DebugUtils.AssertNotNull(ScreenManager.Instance.CurrentScreen);
-            Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
 
             BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
             // Depending on the turn state, show this UI based on the card or the object's collider
             Collider colliderToCheck = battleScreen.TurnState == TurnState.kPlaceCards ? AttachedCardObjectPair.Card.Collider : AttachedCardObjectPair.CardObject.Collider;
 
-            if (colliderToCheck.IsEntered)
+            if (!cardAdded)
             {
-                // If we have just entered the object, we add the info image to the screen
-                battleScreen.AddScreenUIObject(InfoImage);
+                if (IsInputValidToShowCard(battleScreen, colliderToCheck))
+                {
+                    // If we have just entered the object, we add the info image to the screen
+                    battleScreen.AddScreenUIObject(InfoImage);
+                    cardAdded = true;
+                }
             }
-            
-            if (colliderToCheck.IsExited)
+            else
             {
-                // If we have just exited the object, we extract the info image from the screen, but do not kill it
-                // This means we can cache it rather than constantly recreating it
-                battleScreen.ExtractScreenUIObject(InfoImage);
+                if (!IsInputValidToShowCard(battleScreen, colliderToCheck))
+                {
+                    // If we have just exited the object, we extract the info image from the screen, but do not kill it
+                    // This means we can cache it rather than constantly recreating it
+                    battleScreen.ExtractScreenUIObject(InfoImage);
+                    cardAdded = false;
+                }
             }
+        }
+
+        /// <summary>
+        /// Really make sure that we kill the info image if this is killed - it could still be inserted in the screen somewhere.
+        /// </summary>
+        public override void Die()
+        {
+            base.Die();
+
+            InfoImage.Die();
         }
 
         #endregion
@@ -121,13 +139,23 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// Really make sure that we kill the info image if this is killed - it could still be inserted in the screen somewhere.
+        /// A function for determining whether the input in our game is sufficient to add the card info image to the screen.
+        /// In card placement this returns true when our mouse is over the object.
+        /// In battle phase this returns true when the mouse is over the object and LeftShift is held.
         /// </summary>
-        public override void Die()
+        /// <param name="battleScreen"></param>
+        /// <param name="colliderToCheck"></param>
+        /// <returns></returns>
+        private bool IsInputValidToShowCard(BattleScreen battleScreen, Collider colliderToCheck)
         {
-            base.Die();
-
-            InfoImage.Die();
+            if (battleScreen.TurnState == TurnState.kPlaceCards)
+            {
+                return colliderToCheck.IsMouseOver;
+            }
+            else
+            {
+                return colliderToCheck.IsMouseOver && GameKeyboard.IsKeyDown(Keys.LeftShift);
+            }
         }
 
         #endregion

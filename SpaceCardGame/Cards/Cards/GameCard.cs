@@ -7,7 +7,7 @@ namespace SpaceCardGame
     /// <summary>
     /// A class used in our game for doing additional checks involving the resources in the GamePlayer class
     /// </summary>
-    public abstract class GameCard : BaseGameCard
+    public abstract class GameCard : BaseGameCard, ICardObjectElement
     {
         #region Properties and Fields
 
@@ -50,7 +50,23 @@ namespace SpaceCardGame
         /// <summary>
         /// Override this function to perform custom behaviour when our turn begins.
         /// </summary>
-        public virtual void OnTurnBegin() { }
+        public virtual void OnTurnBegin()
+        {
+            Show();
+        }
+
+        /// <summary>
+        /// Override this function to perform custom behaviour when we begin the battle phase.
+        /// </summary>
+        public virtual void MakeReadyForBattle()
+        {
+            Hide();
+        }
+
+        /// <summary>
+        /// Override this function to perform custom behaviour when our turn ends.
+        /// </summary>
+        public virtual void OnTurnEnd() { }
 
         /// <summary>
         /// Override this function to perform custom behaviour when this card dies.

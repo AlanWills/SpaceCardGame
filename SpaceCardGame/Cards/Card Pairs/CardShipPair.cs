@@ -64,7 +64,7 @@ namespace SpaceCardGame
         /// </summary>
         public override void Begin()
         {
-            Ship.ApplyScaling(Vector2.Min(Card.Size, CardObject.Size));
+            Ship.Resize(Vector2.Min(Card.Size, CardObject.Size));
 
             base.Begin();
         }
@@ -93,46 +93,7 @@ namespace SpaceCardGame
         {
             Debug.Fail("Cannot add ships to other ships");
         }
-
-        /// <summary>
-        /// Calls this function iteratively on all CardObjectPairs parented under this ship card.
-        /// </summary>
-        public override void MakeReadyForCardPlacement()
-        {
-            base.MakeReadyForCardPlacement();
-
-            foreach (CardObjectPair pair in Children.GetChildrenOfType<CardObjectPair>())
-            {
-                pair.MakeReadyForCardPlacement();
-            }
-        }
-
-        /// <summary>
-        /// Calls this function iteratively on all CardObjectPairs parented under this ship card.
-        /// </summary>
-        public override void MakeReadyForBattle()
-        {
-            base.MakeReadyForBattle();
-
-            foreach (CardObjectPair pair in Children.GetChildrenOfType<CardObjectPair>())
-            {
-                pair.MakeReadyForBattle();
-            }
-        }
-
-        /// <summary>
-        /// Calls this function iteratively on all CardObjectPairs parented under this ship card.
-        /// </summary>
-        public override void OnTurnEnd()
-        {
-            base.OnTurnEnd();
-
-            foreach (CardObjectPair pair in Children.GetChildrenOfType<CardObjectPair>())
-            {
-                pair.OnTurnEnd();
-            }
-        }
-
+        
         /// <summary>
         /// When this ship dies we want to reduce the number of player ships by one
         /// </summary>

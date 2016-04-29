@@ -46,7 +46,7 @@
   <ItemGroup>
     <Compile Include="Board\OpponentBoardSection.cs" />
     <Compile Include="Board\PlayerBoardSection.cs" />
-    <Compile Include="Cards\Card Data\AbilityCardData\AbilityCardData.cs" />
+    <Compile Include="Cards\Card Data\AbilityCardData.cs" />
     <Compile Include="Cards\Card Data\GameCardData.cs" />
     <Compile Include="Cards\Card Data\ShieldCardData.cs" />
     <Compile Include="Cards\Card Data\ResourceCardData.cs" />
@@ -54,11 +54,11 @@
     <Compile Include="Cards\Card Data\WeaponCardData.cs" />
     <Compile Include="Cards\Card Objects\Ability.cs" />
     <Compile Include="Cards\Card Objects\Bullet.cs" />
+    <Compile Include="Cards\Card Objects\CardObject.cs" />
     <Compile Include="Cards\Card Objects\Engine.cs" />
     <Compile Include="Cards\Card Objects\Resource.cs" />
     <Compile Include="Cards\Card Objects\Shield.cs" />
     <Compile Include="Cards\Card Objects\Ship.cs" />
-    <Compile Include="Cards\Card Objects\ShipAddOn.cs" />
     <Compile Include="Cards\Card Objects\Turret.cs" />
     <Compile Include="Cards\Card Pairs\CardStationPair.cs" />
     <Compile Include="Cards\Cards\Abilities\AbilityCard.cs" />

@@ -17,7 +17,7 @@ namespace SpaceCardGame
     /// Some cards will be replaced by an object during the battle phase.
     /// This class handles which one is present based on the phase of the turn.
     /// </summary>
-    public abstract class CardObjectPair : GameObject
+    public abstract class CardObjectPair : GameObject, ICardObjectElement
     {
         #region Properties and Fields
 
@@ -35,7 +35,7 @@ namespace SpaceCardGame
         /// Some cards need to wait one turn before they can be interacted with (i.e. ships need to wait a turn before they can attack).
         /// This bool property indicates whether this condition has been satisfied.
         /// </summary>
-        public Property<bool> IsReady { get; private set; }
+        public Property<bool> IsReady { get; protected set; }
 
         /// <summary>
         /// A flag to indicate whether we should create a hover info module.
@@ -92,8 +92,6 @@ namespace SpaceCardGame
 
             Card.Colour.Connect(Colour);
             CardObject.Colour.Connect(Colour);
-
-            SetActiveObject(CardOrObject.kCard);
         }
 
         /// <summary>
@@ -117,14 +115,15 @@ namespace SpaceCardGame
         /// This makes the card the active object.
         /// Can override for custom cards to change what they do when we change turn state.
         /// </summary>
-        public virtual void MakeReadyForCardPlacement()
+        public virtual void OnTurnBegin()
         {
-            SetActiveObject(CardOrObject.kCard);
-
-            // Cards will be placed after this function is called, meaning that when this function is called on this instance, it will have been a turn since it was laid.
-            IsReady.Value = true;
-
-            Card.OnTurnBegin();
+            foreach (BaseObject child in Children)
+            {
+                if (child is ICardObjectElement)
+                {
+                    (child as ICardObjectElement).OnTurnBegin();
+                }
+            }
         }
 
         /// <summary>
@@ -134,7 +133,13 @@ namespace SpaceCardGame
         /// </summary>
         public virtual void MakeReadyForBattle()
         {
-            SetActiveObject(CardOrObject.kObject);
+            foreach (BaseObject child in Children)
+            {
+                if (child is ICardObjectElement)
+                {
+                    (child as ICardObjectElement).MakeReadyForBattle();
+                }
+            }
         }
 
         /// <summary>
@@ -144,40 +149,13 @@ namespace SpaceCardGame
         public virtual void OnTurnEnd()
         {
             IsReady.Value = true;
-        }
 
-        #endregion
-
-        #region Utility Functions
-
-        /// <summary>
-        /// A function used to switch the active object that this pair represents.
-        /// Only one can be active at any one time.
-        /// </summary>
-        /// <param name="cardOrObject"></param>
-        private void SetActiveObject(CardOrObject cardOrObject)
-        {
-            switch (cardOrObject)
+            foreach (BaseObject child in Children)
             {
-                case CardOrObject.kCard:
-                    {
-                        Card.Show();
-                        CardObject.Hide();
-                        break;
-                    }
-
-                case CardOrObject.kObject:
-                    {
-                        Card.Hide();
-                        CardObject.Show();
-                        break;
-                    }
-
-                default:
-                    {
-                        Debug.Fail("");
-                        break;
-                    }
+                if (child is ICardObjectElement)
+                {
+                    (child as ICardObjectElement).OnTurnEnd();
+                }
             }
         }
 

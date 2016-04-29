@@ -176,7 +176,7 @@ namespace SpaceCardGame
         {
             foreach (CardObjectPair cardPair in GetChildrenOfType<CardObjectPair>())
             {
-                cardPair.MakeReadyForCardPlacement();
+                cardPair.OnTurnBegin();
             }
         }
 

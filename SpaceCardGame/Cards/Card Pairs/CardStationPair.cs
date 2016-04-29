@@ -29,14 +29,19 @@
         }
 
         /// <summary>
-        /// Make sure we hide our turret and engine for the station - we do not want them to appear for now
+        /// Make sure we hide our engine for the station - we do not want them to appear for now
         /// </summary>
         public override void MakeReadyForBattle()
         {
             base.MakeReadyForBattle();
 
-            Ship.Turret.Hide();
-            
+            // Hide our default turret
+            if (Ship.Turret.IsDefaultTurret)
+            {
+                Ship.Turret.Hide();
+            }
+
+            // Always hide our engines
             for (int i = 0; i < Ship.Engines.Length; ++i)
             {
                 Ship.Engines[i].Hide();

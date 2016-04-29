@@ -39,7 +39,7 @@ namespace SpaceCardGame
             WeaponCard = Card as WeaponCard;
 
             // Only add a hover info module if this is not the default turret we add for all ships
-            AddHoverInfoModule = !Turret.DefaultTurret;
+            AddHoverInfoModule = !Turret.IsDefaultTurret;
         }
 
         #region Virtual Functions
@@ -85,14 +85,11 @@ namespace SpaceCardGame
         /// <summary>
         /// Reloads our turret when we start our card placement turn again and changes our position to be to the side of the ship card
         /// </summary>
-        public override void MakeReadyForCardPlacement()
+        public override void OnTurnBegin()
         {
-            base.MakeReadyForCardPlacement();
+            base.OnTurnBegin();
 
             Colour.Value = Color.White;
-
-            DebugUtils.AssertNotNull(Turret);
-            Turret.Reload();
 
             LocalPosition = new Vector2((CardShipPair.Card.Size.X + WeaponCard.Size.X) * 0.5f, (3 * WeaponCard.Size.Y - CardShipPair.Card.Size.Y) * 0.5f);
         }
@@ -105,20 +102,8 @@ namespace SpaceCardGame
             base.MakeReadyForBattle();
 
             LocalPosition = Vector2.Zero;
-            Turret.LocalRotation = 0;
         }
-
-        /// <summary>
-        /// Reloads our turret ready for our opponent's battle phase.
-        /// </summary>
-        public override void OnTurnEnd()
-        {
-            base.OnTurnEnd();
-
-            DebugUtils.AssertNotNull(Turret);
-            Turret.Reload();
-        }
-
+        
         #endregion
     }
 }

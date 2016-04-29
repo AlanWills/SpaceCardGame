@@ -52,8 +52,8 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// If we mouse over with the left shift down we show the ship as a preview.
-        /// If we release the left shift it goes back to normal.
+        /// If we mouse over with the left control down we show the ship as a preview.
+        /// If we release the left control it goes back to normal.
         /// </summary>
         /// <param name="elapsedGameTime"></param>
         /// <param name="mousePosition"></param>
@@ -61,24 +61,54 @@ namespace SpaceCardGame
         {
             base.HandleInput(elapsedGameTime, mousePosition);
 
+            BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
+
             DebugUtils.AssertNotNull(CardShipPair.Ship.Collider);
-            if (!scaled && CardShipPair.Ship.Collider.IsMouseOver && GameKeyboard.IsKeyDown(Keys.LeftShift))
+            if (!scaled)
             {
-                currentSize = CardShipPair.Ship.Size;
-                CardShipPair.Ship.ApplyScaling(CardShipPair.Ship.TextureCentre * 2);
-                CardShipPair.LocalPosition = PreviewPosition;
-                InfoImage.Hide();
+                if (IsInputValidToPreviewShip(battleScreen, CardShipPair.Ship.Collider))
+                {
+                    currentSize = CardShipPair.Ship.Size;
+                    CardShipPair.Ship.Resize(CardShipPair.Ship.TextureCentre * 2);
+                    CardShipPair.LocalPosition = PreviewPosition;
+                    InfoImage.Hide();
 
-                scaled = true;
+                    scaled = true;
+                }
             }
-            else if (scaled && !GameKeyboard.IsKeyDown(Keys.LeftShift))
+            else
             {
-                CardShipPair.Ship.ApplyScaling(currentSize);
-                CardShipPair.LocalPosition = CardControlPosition;
-                InfoImage.Show();
+                if (!GameKeyboard.IsKeyDown(Keys.LeftControl))
+                {
+                    CardShipPair.Ship.Resize(currentSize);
+                    CardShipPair.LocalPosition = CardControlPosition;
+                    InfoImage.Show();
 
-                scaled = false;
+                    scaled = false;
+                }
             }
+        }
+
+        #endregion
+
+        #region Utility Functions
+
+        /// <summary>
+        /// A function which returns whether our input is sufficient for us to show the ship preview.
+        /// Returns true if we are in the battle screen, the mouse is over our ship and LeftCtrl is held down.
+        /// Otherwise returns false.
+        /// </summary>
+        /// <param name="battlScreen"></param>
+        /// <param name="colliderToCheck"></param>
+        /// <returns></returns>
+        private bool IsInputValidToPreviewShip(BattleScreen battleScreen, Collider colliderToCheck)
+        {
+            if (battleScreen.TurnState == TurnState.kBattle)
+            {
+                return colliderToCheck.IsMouseOver && GameKeyboard.IsKeyDown(Keys.LeftControl);
+            }
+
+            return false;
         }
 
         #endregion

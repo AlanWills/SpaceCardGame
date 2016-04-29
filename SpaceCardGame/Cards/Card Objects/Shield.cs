@@ -8,7 +8,7 @@ namespace SpaceCardGame
     /// <summary>
     /// Represents a Shield on our ship
     /// </summary>
-    public class Shield : ShipAddOn
+    public class Shield : CardObject
     {
         #region Properties and Fields
 
@@ -71,6 +71,16 @@ namespace SpaceCardGame
         {
             // Add a circle collider for this
             return base.AddCollider();
+        }
+
+        /// <summary>
+        /// Recharges our ShieldStrength by the amount in our ShieldData
+        /// </summary>
+        public override void OnTurnBegin()
+        {
+            base.OnTurnBegin();
+
+            Recharge();
         }
 
         /// <summary>

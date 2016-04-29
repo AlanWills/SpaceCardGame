@@ -109,7 +109,7 @@ namespace SpaceCardGame
         /// <returns></returns>
         public virtual float CalculateAttack(BaseObject targetBaseObject)
         {
-            if (CardShipPair.Ship.Turret.DefaultTurret)
+            if (CardShipPair.Ship.Turret.IsDefaultTurret)
             {
                 return CardShipPair.Ship.ShipData.Attack;
             }

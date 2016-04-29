@@ -70,17 +70,6 @@ namespace SpaceCardGame
             Shield.Size = new Vector2(maxPadding + maxDimension);               // Add a little extra padding for safety
         }
 
-        /// <summary>
-        /// Recharges our ShieldStrength by the amount in our ShieldData
-        /// </summary>
-        public override void MakeReadyForCardPlacement()
-        {
-            base.MakeReadyForCardPlacement();
-
-            DebugUtils.AssertNotNull(Shield);
-            Shield.Recharge();
-        }
-
         #endregion
     }
 }

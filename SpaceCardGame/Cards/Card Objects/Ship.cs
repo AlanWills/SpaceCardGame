@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace SpaceCardGame
 {
-    public class Ship : GameObject
+    public class Ship : CardObject
     {
         #region Properties and Fields
 
@@ -165,12 +165,12 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// Make sure that we still hide any damage that should not be visible yet
+        /// Show the damage for this ship
         /// </summary>
         /// <param name="showChildren"></param>
-        public override void Show(bool showChildren = true)
+        public override void MakeReadyForBattle()
         {
-            base.Show(showChildren);
+            base.MakeReadyForBattle();
 
             ShowDamage();
         }
@@ -211,38 +211,6 @@ namespace SpaceCardGame
                     Die();
                 }
             }   
-        }
-
-        #endregion
-
-        #region Utility Functions
-
-        /// <summary>
-        /// A wrapper around the various changes we have make to the ship and objects on it when we change the size of the ship.
-        /// Takes the current size and the inputted size to create a scale which is then applied to the local position of all the children on our ship.
-        /// </summary>
-        /// <param name="desiredSize"></param>
-        public void ApplyScaling(Vector2 desiredSize)
-        {
-            Vector2 scale = Vector2.Divide(desiredSize, Size);
-
-            Size *= scale;
-
-            foreach (BaseObject child in Children)
-            {
-                child.LocalPosition *= scale;
-            }
-
-            /*for (int i = 0; i < Engines.Length; ++i)
-            {
-                Engines[i].EngineBlaze.Size *= scale;
-            }*/
-
-            for (int i = 0; i < DamageUI.Length; ++i)
-            {
-                DamageUI[i].Size *= scale;
-                DamageUI[i].Fire.Size *= scale;
-            }
         }
 
         #endregion

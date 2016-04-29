@@ -35,7 +35,7 @@ namespace SpaceCardGame
 
             base.Initialise();
 
-            SetUpParticleEmitter();
+            //SetUpParticleEmitter();
         }
 
         #endregion
