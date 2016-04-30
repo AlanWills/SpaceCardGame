@@ -34,7 +34,6 @@
       <Item>
         <Name>TEST</Name>
         <CardDataAssets>
-          <Item>Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml</Item>
           <Item>Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xml</Item>
           <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
           <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
@@ -75,6 +74,7 @@
           <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
           <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
           <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
+          <Item>Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml</Item>
         </CardDataAssets>
       </Item>
     </Decks>

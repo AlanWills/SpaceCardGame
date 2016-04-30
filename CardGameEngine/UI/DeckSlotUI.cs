@@ -52,6 +52,7 @@ namespace CardGameEngine
             base(size, localPosition, textureAsset)
         {
             Deck = deck;
+            UsesCollider = false;
         }
 
         #region Virtual Functions
