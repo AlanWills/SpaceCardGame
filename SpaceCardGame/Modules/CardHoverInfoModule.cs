@@ -110,32 +110,8 @@ namespace SpaceCardGame
             Debug.Assert(card.Size != Vector2.Zero);
             Vector2 size = card.Size * 1.5f;
             Vector2 position = ScreenManager.Instance.ScreenCentre;
-
-            if (AttachedCardObjectPair is CardAbilityPair)
-            {
-                return new Image(size, position, card.TextureAsset);
-            }
-            else if (AttachedCardObjectPair is CardResourcePair)
-            {
-                return new Image(size, position, card.TextureAsset);
-            }
-            else if (AttachedCardObjectPair is CardShieldPair)
-            {
-                return new ShieldInfoImage(AttachedCardObjectPair as CardShieldPair, size, position);
-            }
-            else if (AttachedCardObjectPair is CardShipPair)
-            {
-                return new ShipInfoImage(AttachedCardObjectPair as CardShipPair, size, position);
-            }
-            else if (AttachedCardObjectPair is CardWeaponPair)
-            {
-                return new WeaponInfoImage(AttachedCardObjectPair as CardWeaponPair, size, position);
-            }
-            else
-            {
-                Debug.Fail("Unmatched card type in CreateInfoImage");
-                return null;
-            }
+            
+            return new Image(size, position, card.TextureAsset);
         }
 
         /// <summary>
