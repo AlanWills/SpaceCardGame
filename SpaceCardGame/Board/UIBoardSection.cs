@@ -38,6 +38,7 @@ namespace SpaceCardGame
             base(new Vector2(ScreenManager.Instance.ScreenDimensions.X, ScreenManager.Instance.ScreenDimensions.Y * 0.5f), localPosition, textureAsset)
         {
             Player = player;
+            UsesCollider = false;
 
             DeckUI = AddChild(new DeckUI(Player, Vector2.Zero));
             HandUI = AddChild(new HandUI(Player, new Vector2(Size.X * 0.8f, Size.Y * 0.25f), new Vector2(0, Size.Y * 0.4f)));

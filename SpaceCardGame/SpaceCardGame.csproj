@@ -84,6 +84,7 @@
     <Compile Include="Modules\CardHoverInfoModule.cs" />
     <Compile Include="Modules\ShipCardHoverInfoModule.cs" />
     <Compile Include="Players\GamePlayer.cs" />
+    <Compile Include="Screens\Menus\ChooseDeckMenuScreen.cs" />
     <Compile Include="Screens\Menus\HardpointScreen.cs" />
     <Compile Include="Screens\Menus\OpenCardPacksScreen.cs" />
     <Compile Include="Commands\Gameplay\AITurnCommand.cs" />
@@ -137,6 +138,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\GameObjects\Animations\RedFire.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Screens\ChooseDeckMenuScreen.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\CardBack.png">

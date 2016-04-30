@@ -11,7 +11,7 @@ namespace SpaceCardGame
         public OpponentBoardSection(GamePlayer player, Vector2 localPosition, string dataAsset = AssetManager.EmptyGameObjectDataAsset) :
             base(player, localPosition, dataAsset)
         {
-            //StationPosition = new Vector2(0, -Size.Y * 0.375f);
+            UsesCollider = false;
         }
 
         #region Virtual Functions

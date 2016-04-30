@@ -66,12 +66,8 @@ namespace SpaceCardGame
 
             if (GameMouse.Instance.IsClicked(MouseButton.kLeftButton))
             {
-                // Make sure we are selecting a valid target if we need one
-                if (CheckValidTarget())
-                {
-                    // Add the card to the game if we have selected a valid target for the card
-                    AddCardToGame();
-                }
+                // Add the card to the game if we have selected a valid target for the card
+                AddCardToGame();
             }
             else if (GameMouse.Instance.IsClicked(MouseButton.kRightButton))
             {
@@ -109,42 +105,6 @@ namespace SpaceCardGame
 
             CardThumbnail.Die();
             Die();
-        }
-
-        /// <summary>
-        /// A function used on a card type basis to deterine whether we have a valid state set up to place the card
-        /// </summary>
-        /// <returns></returns>
-        private bool CheckValidTarget()
-        {
-            if (CardData is AbilityCardData)
-            {
-                // Possibly need to change this on a per card basis
-                return true;
-            }
-            else if (CardData is ShieldCardData)
-            {
-                return true;
-            }
-            else if (CardData is ResourceCardData)
-            {
-                return true;
-            }
-            else if (CardData is ShipCardData)
-            {
-                DebugUtils.AssertNotNull(BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection.ShipCardControl.Collider);
-                return BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection.ShipCardControl.Collider.CheckIntersects(GameMouse.Instance.InGameWorldPosition);
-            }
-            else if (CardData is WeaponCardData)
-            {
-                return true;
-            }
-            else
-            {
-                Debug.Fail("Card mismatch in place card script");
-            }
-
-            return false;
         }
 
         #endregion

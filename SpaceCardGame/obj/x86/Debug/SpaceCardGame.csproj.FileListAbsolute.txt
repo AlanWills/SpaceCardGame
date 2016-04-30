@@ -267,3 +267,4 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Cards\Ships\WaspFighter\WaspFighterCard.png
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Cards\CardBack.png
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Cards\CardBack.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Screens\ChooseDeckMenuScreen.xml

@@ -32,6 +32,7 @@ namespace SpaceCardGame
             base(localPosition, dataAsset)
         {
             Player = player;
+            UsesCollider = false;
             Size = new Vector2(ScreenManager.Instance.ScreenDimensions.X, ScreenManager.Instance.ScreenDimensions.Y * 0.5f);
 
             ShipCardControl = AddChild(new ShipCardControl(new Vector2(Size.X * 0.8f, Size.Y * 0.5f), new Vector2(0, - Size.Y * 0.25f)));

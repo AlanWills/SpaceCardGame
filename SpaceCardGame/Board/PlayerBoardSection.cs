@@ -27,6 +27,7 @@ namespace SpaceCardGame
             base(localPosition, dataAsset)
         {
             Size = new Vector2(ScreenManager.Instance.ScreenDimensions.X, ScreenManager.Instance.ScreenDimensions.Y * 0.5f);
+            UsesCollider = false;
 
             Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
             BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;

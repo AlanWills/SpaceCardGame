@@ -59,6 +59,7 @@ namespace SpaceCardGame
             Columns = columns;
             Rows = rows;
             Size = size;
+            UsesCollider = false;
 
             columnWidth = Size.X / Columns;
             LocalXPositions = new float[Columns];
@@ -88,31 +89,6 @@ namespace SpaceCardGame
             battleScreen.OnTurnEnd += GameObjectsOnTurnEnd;
 
             base.Initialise();
-        }
-
-        /// <summary>
-        /// Shifts cards if we are looking to lay one of the type represented by this control.
-        /// </summary>
-        /// <param name="elapsedGameTime"></param>
-        /// <param name="mousePosition"></param>
-        public override void HandleInput(float elapsedGameTime, Vector2 mousePosition)
-        {
-            base.HandleInput(elapsedGameTime, mousePosition);
-
-            GameMouse gameMouse = GameMouse.Instance;
-            if (Collider.CheckIntersects(gameMouse.InGameWorldPosition))
-            {
-                BaseObject baseobject = gameMouse.FindChild<BaseObject>(x => x is BaseUICard && (x as BaseUICard).CardData.GetType() == FilterType);
-                if (baseobject != null)
-                {
-                    float gameMouseLocalYPos = gameMouse.InGameWorldPosition.Y - WorldPosition.Y;
-                    int positionIndex = GetPositionIndex(GameMouse.Instance.WorldPosition.X, Space.kWorldSpace);
-                    float localXPos = LocalXPositions[positionIndex];
-
-                    // Might need to change this at some point
-                    gameMouse.LocalPosition = new Vector2(WorldPosition.X + localXPos, WorldPosition.Y);
-                }
-            }
         }
 
         /// <summary>

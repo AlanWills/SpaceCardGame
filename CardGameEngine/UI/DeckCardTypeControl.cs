@@ -54,6 +54,8 @@ namespace CardGameEngine
             Name = cardType + "s";
 
             ratio = deckColumns / (float)(deckColumns + registryColumns);
+
+            UsesCollider = false;
         }
 
         #region Virtual Functions

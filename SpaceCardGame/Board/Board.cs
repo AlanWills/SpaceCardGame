@@ -75,6 +75,7 @@ namespace SpaceCardGame
             base(localPosition, dataAsset)
         {
             Size = ScreenManager.Instance.ScreenDimensions;
+            UsesCollider = false;
 
             Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
             BattleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;

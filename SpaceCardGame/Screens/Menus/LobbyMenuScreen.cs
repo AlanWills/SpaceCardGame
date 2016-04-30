@@ -67,11 +67,7 @@ namespace SpaceCardGame
         /// <param name="baseObject"></param>
         private void OnPlayGameButtonLeftClicked(BaseObject baseObject)
         {
-            // Have to do this separately so we get the callbacks added to our objects during load
-            ChooseDeckGridControl chooseDeckBox = AddScreenUIObject(new ChooseDeckGridControl(1, 4, ScreenCentre), true, true);
-            chooseDeckBox.OnLeftClicked += ChooseDeckBoxClicked;
-
-            AddScreenUIObject(new Label("Choose Deck", new Vector2(ScreenCentre.X, ScreenCentre.Y * 0.25f)), true, true);
+            Transition(new ChooseDeckMenuScreen());
         }
 
         /// <summary>
@@ -90,21 +86,6 @@ namespace SpaceCardGame
         private void OnOpenPacksButtonLeftClicked(BaseObject baseObject)
         {
             Transition(new OpenCardPacksScreen());
-        }
-
-        /// <summary>
-        /// The callback to execute when we choose our deck
-        /// </summary>
-        /// <param name="image"></param>
-        private void ChooseDeckBoxClicked(BaseObject baseObject)
-        {
-            Debug.Assert(baseObject is UIObject);
-            UIObject clickableImage = baseObject as UIObject;
-
-            DebugUtils.AssertNotNull(clickableImage.StoredObject);
-            Debug.Assert(clickableImage.StoredObject is Deck);
-
-            Transition(new BattleScreen(clickableImage.StoredObject as Deck, "Screens\\BattleScreen.xml"));
         }
 
         #endregion
