@@ -98,18 +98,6 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/UI/SliderBar.png
 
-#begin Sprites/Cards/Back.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Cards/Back.png
-
 #begin Sprites/UI/Menu.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -937,4 +925,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/UI/CardStatThumnails/SpeedThumbnail.png
+
+#begin Sprites/Cards/CardBack.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/CardBack.png
 

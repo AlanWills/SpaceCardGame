@@ -44,23 +44,7 @@ namespace SpaceCardGame
                 thumbnail.UpdatePositions(thumbnail.LocalPosition);
             }
         }
-
-        /// <summary>
-        /// This does a check to make sure we are ONLY adding BaseUICards and sets up some positions for fancy animation!
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="uiObjectToAdd"></param>
-        /// <param name="load"></param>
-        /// <param name="initialise"></param>
-        /// <returns></returns>
-        public override T AddChild<T>(T uiObjectToAdd, bool load = false, bool initialise = false)
-        {
-            Debug.Assert(uiObjectToAdd is BaseUICard);
-            (uiObjectToAdd as BaseUICard).OffsetToHighlightedPosition = new Vector2(0, -100);
-
-            return base.AddChild(uiObjectToAdd, load, initialise);
-        }
-
+        
         /// <summary>
         /// Loops through the cards in our hand and updates them based on whether we can lay them
         /// </summary>

@@ -60,7 +60,7 @@ namespace CardGameEngine
             DebugUtils.AssertNotNull(cardData);
 
             EnlargeOnHover = true;
-            OffsetToHighlightedPosition = new Vector2(0, -35);
+            OffsetToHighlightedPosition = new Vector2(0, -140);
             ClickableModule = AddModule(new ClickableObjectModule());       // Add our clickable module
             CardOutline = AddChild(new CardOutline(size));
         }

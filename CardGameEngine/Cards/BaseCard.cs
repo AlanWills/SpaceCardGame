@@ -41,7 +41,7 @@ namespace CardGameEngine
         /// </summary>
         public OnCardDeathHandler OnDeath;
 
-        public const string CardBackTextureAsset = "Cards\\Back";
+        public const string CardBackTextureAsset = "Cards\\CardBack";
         public static Texture2D CardBackTexture;
 
         #endregion

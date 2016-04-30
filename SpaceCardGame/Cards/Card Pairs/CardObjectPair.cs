@@ -46,7 +46,7 @@ namespace SpaceCardGame
         /// <summary>
         /// The hover info module for this CardObjectPair.
         /// </summary>
-        protected HoverCardInfoModule HoverInfoModule { get; set; }
+        protected CardHoverInfoModule HoverInfoModule { get; set; }
 
         #endregion
 
@@ -73,7 +73,7 @@ namespace SpaceCardGame
             // Check to see whether our HoverInfoModule has been created already - some derived classes create their own custom info image.
             if (AddHoverInfoModule && HoverInfoModule == null)
             {
-                HoverInfoModule = AddModule(new HoverCardInfoModule(this));
+                HoverInfoModule = AddModule(new CardHoverInfoModule(this));
             }
 
             base.LoadContent();

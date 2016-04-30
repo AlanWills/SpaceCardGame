@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Shields/PhaseEnergyShield/PhaseEnergyShieldCard.png</SourceFile>
-  <SourceTime>2016-04-10T13:57:40.0218489+01:00</SourceTime>
+  <SourceTime>2016-04-30T21:36:48.7493046+01:00</SourceTime>
   <DestFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/bin/Windows/Sprites/Cards/Shields/PhaseEnergyShield/PhaseEnergyShieldCard.xnb</DestFile>
-  <DestTime>2016-04-10T13:57:51.0685701+01:00</DestTime>
+  <DestTime>2016-04-30T21:37:00.3285257+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T07:36:08+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -8,7 +8,7 @@ namespace SpaceCardGame
     /// <summary>
     /// A module which creates an enlarged version of a game card in the centre of the screenwhen the mouse is hovered over it.
     /// </summary>
-    public class HoverCardInfoModule : BaseObjectModule
+    public class CardHoverInfoModule : BaseObjectModule
     {
         #region Properties and Fields
 
@@ -26,7 +26,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public HoverCardInfoModule(CardObjectPair cardObjectPair) :
+        public CardHoverInfoModule(CardObjectPair cardObjectPair) :
             base()
         {
             AttachedCardObjectPair = cardObjectPair;

@@ -81,8 +81,8 @@
     <Compile Include="Board\GameBoardSection.cs" />
     <Compile Include="Game Objects\ShipCardControl.cs" />
     <Compile Include="Interfaces\ICardObjectElement.cs" />
-    <Compile Include="Modules\HoverCardInfoModule.cs" />
-    <Compile Include="Modules\ShipHoverCardInfoModule.cs" />
+    <Compile Include="Modules\CardHoverInfoModule.cs" />
+    <Compile Include="Modules\ShipCardHoverInfoModule.cs" />
     <Compile Include="Players\GamePlayer.cs" />
     <Compile Include="Screens\Menus\HardpointScreen.cs" />
     <Compile Include="Screens\Menus\OpenCardPacksScreen.cs" />
@@ -139,6 +139,15 @@
     <Content Include="Content\Data\GameObjects\Animations\RedFire.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Sprites\Cards\CardBack.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\CardOutline.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Sprites\Cards\Stations\BastionShipyard\BastionShipyardObject.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -173,9 +182,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Screens\HardpointScreen.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Sprites\Cards\CardOutline.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Shields\PhaseEnergyShield\PhaseEnergyShield.png">
@@ -442,12 +448,6 @@
     <Content Include="Content\Sprites\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Back.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Sprites\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\Sprites\Cards\Resources\CrewResource\CrewResourceCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -475,7 +475,9 @@
     <Content Include="Content\Sprites\Cards\Ships\VenatorCruiser\VenatorCruiserObject.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Ships\WaspFighter\WaspFighterCard.png" />
+    <Content Include="Content\Sprites\Cards\Ships\WaspFighter\WaspFighterCard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Sprites\Cards\Ships\WaspFighter\WaspFighterObject.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

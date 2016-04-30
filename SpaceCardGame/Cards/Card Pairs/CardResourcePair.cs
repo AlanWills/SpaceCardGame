@@ -60,7 +60,7 @@ namespace SpaceCardGame
             if (cardCount == 0)
             {
                 // We are adding the first resource card of this type
-                LocalPosition = new Vector2((-gameBoard.Size.X + ResourceCard.Size.X) * 0.5f + padding, gameBoard.Size.Y * 0.5f - ResourceCard.Size.Y * 0.5f - padding - typeIndex * (ResourceCard.Size.Y + padding));
+                LocalPosition = new Vector2((-gameBoard.Size.X + ResourceCard.Size.X) * 0.5f + padding, -gameBoard.Size.Y * 0.5f + ResourceCard.Size.Y * 0.5f + padding + typeIndex * (ResourceCard.Size.Y + padding));
             }
             else
             {

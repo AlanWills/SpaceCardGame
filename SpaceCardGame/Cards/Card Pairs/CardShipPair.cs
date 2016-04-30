@@ -51,7 +51,7 @@ namespace SpaceCardGame
 
             if (AddHoverInfoModule)
             {
-                HoverInfoModule = AddModule(new ShipHoverCardInfoModule(this));
+                HoverInfoModule = AddModule(new ShipCardHoverInfoModule(this));
             }
 
             base.LoadContent();
@@ -64,8 +64,8 @@ namespace SpaceCardGame
         /// </summary>
         public override void Begin()
         {
-            Vector2 scale = Vector2.Min(Vector2.One, Vector2.Divide(Card.Size, CardObject.Size));
-            Ship.Scale(scale);
+            float yScale = MathHelper.Min(Card.Size.Y / CardObject.Size.Y, 1);
+            Ship.Scale(new Vector2(yScale));
 
             base.Begin();
         }

@@ -8,7 +8,7 @@ namespace SpaceCardGame
     /// An extension of the hover card info module designed for use with ships.
     /// As well as displaying the standard card info, if shift is held whilst the mouse is over, the full scale ship will be shown.
     /// </summary>
-    public class ShipHoverCardInfoModule : HoverCardInfoModule
+    public class ShipCardHoverInfoModule : CardHoverInfoModule
     {
         #region Properties and Fields
 
@@ -32,7 +32,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public ShipHoverCardInfoModule(CardShipPair cardShipPair) :
+        public ShipCardHoverInfoModule(CardShipPair cardShipPair) :
             base(cardShipPair)
         {
             CardShipPair = cardShipPair;
@@ -70,7 +70,7 @@ namespace SpaceCardGame
             {
                 if (IsInputValidToPreviewShip(battleScreen, CardShipPair.Ship.Collider))
                 {
-                    CardShipPair.Ship.Scale(scale);
+                    CardShipPair.Scale(scale);
                     CardShipPair.LocalPosition = PreviewPosition;
                     InfoImage.Hide();
 
@@ -81,7 +81,7 @@ namespace SpaceCardGame
             {
                 if (!GameKeyboard.IsKeyDown(Keys.LeftControl))
                 {
-                    CardShipPair.Ship.Scale(inverseScale);
+                    CardShipPair.Scale(inverseScale);
                     CardShipPair.LocalPosition = CardControlPosition;
                     InfoImage.Show();
 
