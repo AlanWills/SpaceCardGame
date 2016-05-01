@@ -1,6 +1,6 @@
 ﻿<XnaContent>
-  <Asset Type="SpaceCardGameData.BulletData">
+  <Asset Type="SpaceCardGameData.ProjectileData">
     <TextureAsset>Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretBullet</TextureAsset>
-    <BulletDamage>1</BulletDamage>
+    <Damage>1</Damage>
   </Asset>
 </XnaContent>

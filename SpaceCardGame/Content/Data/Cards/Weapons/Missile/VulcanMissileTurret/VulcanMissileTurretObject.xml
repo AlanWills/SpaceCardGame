@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.TurretData">
     <TextureAsset>Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretObject</TextureAsset>
-    <BulletDataAsset>Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretBullet.xml</BulletDataAsset>
+    <ProjectileDataAsset>Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretBullet.xml</ProjectileDataAsset>
     <ShotsPerTurn>1</ShotsPerTurn>
   </Asset>
 </XnaContent>

@@ -38,6 +38,7 @@ namespace SpaceCardGame
             base(Vector2.Zero, "UI\\AttackLine")
         {
             FixedPosition = fixedPosition;
+            Opacity = 0.5f;
         }
 
         #region Utility Functions

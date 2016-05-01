@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.TurretData">
     <TextureAsset>Cards\Weapons\DefaultTurret</TextureAsset>
-    <BulletDataAsset>Cards\Weapons\DefaultBullet.xml</BulletDataAsset>
+    <ProjectileDataAsset>Cards\Weapons\DefaultBullet.xml</ProjectileDataAsset>
     <ShotsPerTurn>1</ShotsPerTurn>
   </Asset>
 </XnaContent>

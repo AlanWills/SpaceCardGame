@@ -195,7 +195,7 @@ namespace SpaceCardGame
         /// <param name="collidedObject"></param>
         public override void OnCollisionWith(GameObject collidedObject)
         {
-            if (collidedObject is Bullet)
+            if (collidedObject is Projectile)
             {
                 // Adds an explosion
                 ScreenManager.Instance.CurrentScreen.AddInGameUIObject(new Explosion(WorldPosition), true, true);

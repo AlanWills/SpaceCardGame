@@ -89,7 +89,7 @@ namespace SpaceCardGame
         /// </summary>
         private void UpdateLabels()
         {
-            CurrentDamage.Label.Text = CardWeaponPair.Turret.BulletData.BulletDamage.ToString();
+            CurrentDamage.Label.Text = CardWeaponPair.Turret.BulletData.Damage.ToString();
             CurrentShotsLeft.Label.Text = CardWeaponPair.Turret.ShotsLeft.ToString();
         }
 

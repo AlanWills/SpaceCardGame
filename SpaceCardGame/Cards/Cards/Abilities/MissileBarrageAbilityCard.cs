@@ -59,7 +59,7 @@ namespace SpaceCardGame
         /// <param name="targetShip"></param>
         private void SpawnBulletAtTarget(Ship targetShip)
         {
-            BulletData bulletData = AssetManager.GetData<BulletData>(Bullet.defaultBulletDataAsset);
+            ProjectileData bulletData = AssetManager.GetData<ProjectileData>(Bullet.defaultBulletDataAsset);
             DebugUtils.AssertNotNull(bulletData);
 
             ScreenManager.Instance.CurrentScreen.AddInGameUIObject(new Bullet(targetShip, WorldPosition, bulletData), true, true);

@@ -23,7 +23,7 @@ namespace SpaceCardGame
         /// <summary>
         /// Our bullet data - only need one copy for the bullets we spawn
         /// </summary>
-        public BulletData BulletData { get; private set; }
+        public ProjectileData BulletData { get; private set; }
 
         /// <summary>
         /// The number of shots with this turret we have left
@@ -108,7 +108,7 @@ namespace SpaceCardGame
 
             TurretData = Data as TurretData;
 
-            BulletData = AssetManager.GetData<BulletData>(TurretData.BulletDataAsset);
+            BulletData = AssetManager.GetData<ProjectileData>(TurretData.ProjectileDataAsset);
             DebugUtils.AssertNotNull(BulletData);
 
             ShotsLeft = TurretData.ShotsPerTurn;

@@ -1,50 +1,24 @@
 ﻿using _2DEngine;
-using _2DEngineData;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
 
 namespace SpaceCardGame
 {
-    public class Bullet : GameObject
+    public class Bullet : Projectile
     {
         #region Properties and Fields
-
-        /// <summary>
-        /// A reference to the target we are firing the bullet at
-        /// </summary>
-        private GameObject Target { get; set; }
-
-        /// <summary>
-        /// A reference to our bullet data
-        /// </summary>
-        private BulletData BulletData { get; set; }
 
         public const string defaultBulletDataAsset = "Cards\\Weapons\\DefaultBullet.xml";
 
         #endregion
 
-        public Bullet(GameObject target, Vector2 worldPosition, BulletData bulletData) :
-            base(worldPosition, "")
+        public Bullet(GameObject target, Vector2 worldPosition, ProjectileData projectileData) :
+            base(target, worldPosition, projectileData)
         {
-            Target = target;
-            BulletData = bulletData;
-
-            float angle = MathUtils.AngleBetweenPoints(worldPosition, target.WorldPosition);
-            LocalRotation = angle;
-
-            DebugUtils.AssertNotNull(BulletData);
+            
         }
 
         #region Virtual Functions
-
-        /// <summary>
-        /// Return our loaded bullet data
-        /// </summary>
-        /// <returns></returns>
-        protected override GameObjectData LoadGameObjectData()
-        {
-            return BulletData;
-        }
 
         /// <summary>
         /// Updates our bullet's position and kill's it if it has collided with our target
@@ -63,7 +37,7 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(Target.Collider);
             if (Collider.CheckCollisionWith(Target.Collider))
             {
-                // Kills the bullet if it has collided with the target
+                // Kills the projectile if it has collided with the target
                 Die();
 
                 Target.OnCollisionWith(this);

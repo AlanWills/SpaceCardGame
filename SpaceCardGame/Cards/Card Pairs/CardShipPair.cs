@@ -36,8 +36,6 @@ namespace SpaceCardGame
 
             Debug.Assert(Card is ShipCard);
             ShipCard = Card as ShipCard;
-
-            AddDefaultWeapon();
         }
 
         #region Virtual Functions
@@ -66,6 +64,8 @@ namespace SpaceCardGame
         {
             float yScale = MathHelper.Min(Card.Size.Y / CardObject.Size.Y, 1);
             Ship.Scale(new Vector2(yScale));
+
+            AddDefaultWeapon();
 
             base.Begin();
         }
@@ -115,7 +115,7 @@ namespace SpaceCardGame
         private void AddDefaultWeapon()
         {
             WeaponCardData defaultWeaponCardData = AssetManager.GetData<WeaponCardData>(WeaponCardData.defaultWeaponCardDataAsset);
-            CardWeaponPair defaultWeapon = AddChild(new CardWeaponPair(defaultWeaponCardData));
+            CardWeaponPair defaultWeapon = AddChild(new CardWeaponPair(defaultWeaponCardData), true, true);
 
             defaultWeapon.AddToCardShipPair(this);
         }

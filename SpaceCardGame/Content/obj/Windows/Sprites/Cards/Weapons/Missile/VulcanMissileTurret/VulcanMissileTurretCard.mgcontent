@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretCard.png</SourceFile>
-  <SourceTime>2016-04-30T12:02:32.2207332+01:00</SourceTime>
+  <SourceTime>2016-05-01T10:48:04.9447555+01:00</SourceTime>
   <DestFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/bin/Windows/Sprites/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretCard.xnb</DestFile>
-  <DestTime>2016-04-30T12:02:38.7830497+01:00</DestTime>
+  <DestTime>2016-05-01T10:48:31.6840048+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T07:36:08+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

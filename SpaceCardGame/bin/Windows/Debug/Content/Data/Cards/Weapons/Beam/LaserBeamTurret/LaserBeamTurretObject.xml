@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.TurretData">
     <TextureAsset>Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretObject</TextureAsset>
-    <BulletDataAsset>Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretBullet.xml</BulletDataAsset>
+    <ProjectileDataAsset>Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretBullet.xml</ProjectileDataAsset>
     <ShotsPerTurn>1</ShotsPerTurn>
   </Asset>
 </XnaContent>

@@ -115,7 +115,7 @@ namespace SpaceCardGame
             }
             else
             {
-                return CardShipPair.Ship.Turret.BulletData.BulletDamage;
+                return CardShipPair.Ship.Turret.BulletData.Damage;
             }
         }
 

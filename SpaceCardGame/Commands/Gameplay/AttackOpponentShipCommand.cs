@@ -24,7 +24,7 @@ namespace SpaceCardGame
             base(attackingShipPair.ShipCard)
         {
             AttackingShipCardPair = attackingShipPair;
-            ValidTargetFunction += AlwaysValid;         // All the opponent ships will be valid for now
+            ValidTargetFunction += IsShipDamageModuleAlive;         // All the alive opponent ships will be valid
         }
 
         #region Virtual Functions
@@ -83,6 +83,22 @@ namespace SpaceCardGame
             {
                 Die();
             }
+        }
+
+        #endregion
+
+
+        #region Validity Callbacks
+
+        /// <summary>
+        /// Returns true if the ship's damage module is alive and false if it is Dead
+        /// </summary>
+        /// <param name="cardToChooseTargetFor"></param>
+        /// <param name="currentTarget"></param>
+        /// <returns></returns>
+        protected bool IsShipDamageModuleAlive(GameCard cardToChooseTargetFor, CardShipPair currentTarget)
+        {
+            return !currentTarget.Ship.DamageModule.Dead;
         }
 
         #endregion

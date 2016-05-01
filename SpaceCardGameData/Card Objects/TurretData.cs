@@ -3,9 +3,9 @@
     public class TurretData : ShipAddOnData
     {
         /// <summary>
-        /// The data asset for our bullets
+        /// The data asset for our projectiles
         /// </summary>
-        public string BulletDataAsset { get; set; }
+        public string ProjectileDataAsset { get; set; }
 
         /// <summary>
         /// The number of shots our turret can fire each turn

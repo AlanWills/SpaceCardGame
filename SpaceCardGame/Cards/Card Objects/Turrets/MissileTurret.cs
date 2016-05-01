@@ -20,7 +20,7 @@ namespace SpaceCardGame
         /// </summary>
         protected override void CreateBullet(GameObject target)
         {
-
+            ScreenManager.Instance.CurrentScreen.AddInGameUIObject(new Missile(target, WorldPosition, BulletData), true, true);
         }
 
         #endregion
