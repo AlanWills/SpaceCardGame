@@ -222,7 +222,7 @@ namespace SpaceCardGame
         /// <returns></returns>
         private bool ContinueBattlePhase()
         {
-            //return false;
+            return false;
             
             // If we cannot find a ship which is ready, then return false
             if (!BoardSection.GameBoardSection.ShipCardControl.Exists(GetReadyShipPredicate()))

@@ -6,6 +6,6 @@
     <DisplayName>Gatling Laser Turret</DisplayName>
     <Rarity>Common</Rarity>
     <ResourceCosts>0 2 0 3</ResourceCosts>
-    <CardTypeName>WeaponCard</CardTypeName>
+    <CardTypeName>GatlingLaserTurretCard</CardTypeName>
   </Asset>
 </XnaContent>

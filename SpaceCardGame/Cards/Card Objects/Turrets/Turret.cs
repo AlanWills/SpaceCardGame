@@ -11,7 +11,7 @@ namespace SpaceCardGame
     /// Handles firing bullets and damaging ships.
     /// It's children can ONLY be bullets
     /// </summary>
-    public class Turret : CardObject
+    public abstract class Turret : CardObject
     {
         #region Properties and Fields
 
@@ -88,7 +88,7 @@ namespace SpaceCardGame
             IsDefaultTurret = turretDataAsset == defaultTurretDataAsset;
         }
 
-        #region Properties and Fields
+        #region Virtual Functions
 
         /// <summary>
         /// Loads our turret data
@@ -210,7 +210,7 @@ namespace SpaceCardGame
 
             // Spawn bullet(s) at our target
             Debug.Assert(targetModule.AttachedBaseObject is BaseObject);
-            SpawnBullet(targetModule.AttachedBaseObject as GameObject);
+            FireBullet(targetModule.AttachedBaseObject as GameObject);
 
             // Need to stop this firing all shots
             if (!isCounterAttacking && targetShip.Turret.CanFire)
@@ -220,18 +220,23 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// Spawns a bullet which will travel to the inputted target game object.
+        /// Rotates to point towards the target and reduces the number of shots.
+        /// Inherited classes will implement the creation of bullets.
         /// </summary>
         /// <param name="target"></param>
-        private void SpawnBullet(GameObject target)
+        private void FireBullet(GameObject target)
         {
             RotateToTarget(target.WorldPosition);
 
-            // Add to current screen so that the bullets are drawn over everything
-            Bullet bullet = ScreenManager.Instance.CurrentScreen.AddGameObject(new Bullet(target, WorldPosition, BulletData), true, true);
+            CreateBullet(target);
 
             ShotsLeft--;
         }
+
+        /// <summary>
+        /// An abstract function our derived classes will implement to create bullets when we fire.
+        /// </summary>
+        protected abstract void CreateBullet(GameObject target);
 
         #endregion
 

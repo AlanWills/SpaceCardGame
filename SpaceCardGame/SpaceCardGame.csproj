@@ -59,7 +59,10 @@
     <Compile Include="Cards\Card Objects\Resource.cs" />
     <Compile Include="Cards\Card Objects\Shield.cs" />
     <Compile Include="Cards\Card Objects\Ship.cs" />
-    <Compile Include="Cards\Card Objects\Turret.cs" />
+    <Compile Include="Cards\Card Objects\Turrets\BeamTurret.cs" />
+    <Compile Include="Cards\Card Objects\Turrets\KineticTurret.cs" />
+    <Compile Include="Cards\Card Objects\Turrets\MissileTurret.cs" />
+    <Compile Include="Cards\Card Objects\Turrets\Turret.cs" />
     <Compile Include="Cards\Card Pairs\CardStationPair.cs" />
     <Compile Include="Cards\Cards\Abilities\AbilityCard.cs" />
     <Compile Include="Cards\Cards\Abilities\MissileBarrageAbilityCard.cs" />
@@ -68,7 +71,11 @@
     <Compile Include="Cards\Cards\ResourceCard.cs" />
     <Compile Include="Cards\Cards\Ships\ShipCard.cs" />
     <Compile Include="Cards\Cards\Ships\EagleFrigateShipCard.cs" />
-    <Compile Include="Cards\Cards\WeaponCard.cs" />
+    <Compile Include="Cards\Cards\Weapons\Beam\LaserBeamTurretCard.cs" />
+    <Compile Include="Cards\Cards\Weapons\DefaultTurretCard.cs" />
+    <Compile Include="Cards\Cards\Weapons\Kinetic\GatlingLaserTurretCard.cs" />
+    <Compile Include="Cards\Cards\Weapons\Missile\VulcanMissileTurretCard.cs" />
+    <Compile Include="Cards\Cards\Weapons\WeaponCard.cs" />
     <Compile Include="Board\Board.cs" />
     <Compile Include="Cards\Card Pairs\CardAbilityPair.cs" />
     <Compile Include="Cards\Card Pairs\CardShieldPair.cs" />

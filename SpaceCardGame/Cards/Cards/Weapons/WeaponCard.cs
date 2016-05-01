@@ -5,15 +5,21 @@ namespace SpaceCardGame
     /// <summary>
     /// A class used to represent a weapon in our game.
     /// </summary>
-    public class WeaponCard : GameCard
+    public abstract class WeaponCard : GameCard
     {
         public WeaponCard(WeaponCardData weaponCardData) :
             base(weaponCardData)
         {
-
+            
         }
 
         #region Virtual Functions
+
+        /// <summary>
+        /// An abstract function each weapon card will need to implement for specifying the type of turret we create
+        /// </summary>
+        /// <returns></returns>
+        public abstract Turret CreateTurret(string weaponObjectDataAsset);
 
         /// <summary>
         /// Defence cards can only be targetted on ships, so we just check that we have a CardShipPair which is not dead
