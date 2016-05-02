@@ -79,8 +79,8 @@ namespace SpaceCardGame
                 // Therefore we must send the card back to our hand and refund the resources
                 BattleScreen.ActivePlayer.AddCardToHand(CardToChooseTargetFor.CardData);
 
-                //bool refund = false;
-                //BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection.UseResourcesToLayCard(CardToChooseTargetFor.Card.CardData, refund);
+                bool refunding = false;
+                BattleScreen.ActivePlayer.AlterResources(CardToChooseTargetFor.CardData, refunding);
 
                 CardToChooseTargetFor.Die();
             }

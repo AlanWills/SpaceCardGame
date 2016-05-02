@@ -136,14 +136,11 @@ namespace SpaceCardGame
                 int numAvailableResources = Resources[typeIndex].Count;
                 Debug.Assert(numAvailableResources >= cardData.ResourceCosts[typeIndex]);
 
-                for (int cost = 0; cost < cardData.ResourceCosts[typeIndex]; cost++)
+                for (int i = 0; i < cardData.ResourceCosts[typeIndex]; ++i)
                 {
-                    for (int i = 0; i < cardData.ResourceCosts[typeIndex]; ++i)
-                    {
-                        // If the 'charge' bool is set to false, we are refunding so the resource should not be used
-                        // If the 'charge' bool is set to true, we are charging the player the resources, so they should be used
-                        Resources[typeIndex][i].Used = charge;
-                    }
+                    // If the 'charge' bool is set to false, we are refunding so the resource should not be used
+                    // If the 'charge' bool is set to true, we are charging the player the resources, so they should be used
+                    Resources[typeIndex][i].Used = charge;
                 }
             }
         }
