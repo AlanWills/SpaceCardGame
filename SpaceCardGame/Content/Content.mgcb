@@ -938,3 +938,21 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Cards/CardBack.png
 
+#begin SFX/UI/ButtonHover.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/UI/ButtonHover.wav
+
+#begin SFX/UI/ButtonPressedSound.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/UI/ButtonPressedSound.wav
+
+#begin SFX/UI/ProgressTurnButtonPressedSound.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/UI/ProgressTurnButtonPressedSound.wav
+

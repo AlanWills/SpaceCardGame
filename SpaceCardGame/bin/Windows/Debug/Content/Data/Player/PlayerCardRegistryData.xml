@@ -7,7 +7,15 @@
     <ShieldCardDataAssets>
       <Item>Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xml</Item>
     </ShieldCardDataAssets>
-    <ResourceCardDataAssets />
+    <ResourceCardDataAssets>
+      <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
+      <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
+      <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
+      <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
+      <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
+      <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
+      <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
+    </ResourceCardDataAssets>
     <ShipCardDataAssets>
       <Item>Ships\WaspFighter\WaspFighterCard.xml</Item>
       <Item>Ships\VenatorCruiser\VenatorCruiserCard.xml</Item>
@@ -34,6 +42,8 @@
       <Item>
         <Name>TEST</Name>
         <CardDataAssets>
+          <Item>Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml</Item>
+          <Item>Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml</Item>
           <Item>Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xml</Item>
           <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
           <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
@@ -67,14 +77,6 @@
           <Item>Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xml</Item>
           <Item>Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xml</Item>
           <Item>Stations\BastionShipyard\BastionShipyardCard.xml</Item>
-          <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
-          <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
-          <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
-          <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
-          <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
-          <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
-          <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
-          <Item>Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml</Item>
         </CardDataAssets>
       </Item>
     </Decks>

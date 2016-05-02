@@ -22,7 +22,7 @@ namespace SpaceCardGame
         public ProgressTurnButton(Vector2 localPosition, string textureAsset = AssetManager.DefaultButtonTextureAsset) :
             base("Start Battle", localPosition, textureAsset)
         {
-            
+            OnPressedSFXAsset = "UI\\ProgressTurnButtonPressedSound";
         }
 
         #region Virtual Functions

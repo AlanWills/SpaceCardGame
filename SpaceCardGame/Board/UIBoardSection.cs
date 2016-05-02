@@ -68,7 +68,6 @@ namespace SpaceCardGame
 
             Vector2 offset = new Vector2(MathHelper.Max(DeckUI.Size.X, DeckUI.DeckCountLabel.Size.X) + 10, DeckUI.Size.Y + 25);
             DeckUI.LocalPosition = (Size - offset) * 0.5f;
-            DeckUI.DeckCountLabel.LocalPosition = new Vector2(0, -(DeckUI.Size.Y + DeckUI.DeckCountLabel.Size.Y) * 0.5f - 10);  // Can't do this in DeckUI because of fixup which occurs elsewhere
         }
 
         #endregion

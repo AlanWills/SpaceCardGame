@@ -39,11 +39,11 @@ namespace SpaceCardGame
             Vector2 shipCardControlPosition = new Vector2(0, -Size.Y * 0.25f);
             Vector2 shipCardControlSize = new Vector2(Size.X * 0.8f, Size.Y * 0.5f);
 
-            GridControl cardOutlineGridControl = AddChild(new GridControl(1, GamePlayer.MaxShipNumber, shipCardControlSize, shipCardControlPosition));
-            for (int i = 0; i < GamePlayer.MaxShipNumber; ++i)
-            {
-                cardOutlineGridControl.AddChild(new CardOutline(Vector2.Zero));
-            }
+            //GridControl cardOutlineGridControl = AddChild(new GridControl(1, GamePlayer.MaxShipNumber, shipCardControlSize, shipCardControlPosition));
+            //for (int i = 0; i < GamePlayer.MaxShipNumber; ++i)
+            //{
+            //    cardOutlineGridControl.AddChild(new CardOutline(Vector2.Zero));
+            //}
 
             ShipCardControl = AddChild(new ShipCardControl(shipCardControlSize, shipCardControlPosition));
         }

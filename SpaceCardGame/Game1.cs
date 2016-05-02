@@ -23,11 +23,6 @@ namespace SpaceCardGame
 
             // If you have a crash for whatever reason in whilst you are debugging and you are in fullscreen, it is a pain in the ass
             // Do not enable fullscreen whilst debugging unless you are CERTAIN you have a stable program
-#if !DEBUG
-            // Uncomment this to enable fullscreen
-            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-            graphics.IsFullScreen = true;
-#endif
         }
 
         /// <summary>

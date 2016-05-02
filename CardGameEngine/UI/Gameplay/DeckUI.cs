@@ -52,6 +52,7 @@ namespace CardGameEngine
             CheckShouldLoad();
 
             DeckCountLabel = AddChild(new Label(cardsLeftString + Player.CardsLeftInDeck.ToString(), Vector2.Zero));
+            DeckCountLabel.Colour.Value = Color.White;
             DeckCountLabel.Hide();
 
             base.LoadContent();
@@ -101,6 +102,8 @@ namespace CardGameEngine
 
         #endregion
 
+        #region Callbacks
+
         /// <summary>
         /// A callback when we draw a card to spawn some UI from our deck, showing a card has been drawn.
         /// </summary>
@@ -133,5 +136,7 @@ namespace CardGameEngine
                 Show();
             }
         }
+
+        #endregion
     }
 }
