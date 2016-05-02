@@ -1,6 +1,5 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
-using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -20,6 +19,11 @@ namespace SpaceCardGame
     public abstract class CardObjectPair : GameObject, ICardObjectElement
     {
         #region Properties and Fields
+
+        /// <summary>
+        /// The player who owns this card object pair
+        /// </summary>
+        public GamePlayer Player { get; private set; }
 
         /// <summary>
         /// A reference to the card part of our pair
@@ -59,6 +63,10 @@ namespace SpaceCardGame
             AddHoverInfoModule = true;
 
             IsReady = new Property<bool>(false);
+
+            // We get the player who owns this card by using the active player - this card is created on the owning player's turn
+            BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
+            Player = battleScreen.ActivePlayer;
         }
 
         #region Virtual Functions
@@ -100,7 +108,7 @@ namespace SpaceCardGame
         /// </summary>
         /// <param name="gameBoard"></param>
         /// <param name="player"></param>
-        public abstract void WhenAddedToGameBoard(GameBoardSection gameBoard, GamePlayer player);
+        public abstract void WhenAddedToGameBoard(GameBoardSection gameBoard);
 
         /// <summary>
         /// A function called when this card is added to a card ship pair.

@@ -39,7 +39,6 @@ namespace CardGameEngine
 
             Colour.Value = Valid ? Color.Green : Color.Gray;
         }
-        // Possibly make the opacity's lerp in and out
 
         #endregion
     }

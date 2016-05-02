@@ -1,4 +1,5 @@
 ﻿using _2DEngine;
+using CardGameEngine;
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
 
@@ -35,7 +36,16 @@ namespace SpaceCardGame
             UsesCollider = false;
             Size = new Vector2(ScreenManager.Instance.ScreenDimensions.X, ScreenManager.Instance.ScreenDimensions.Y * 0.5f);
 
-            ShipCardControl = AddChild(new ShipCardControl(new Vector2(Size.X * 0.8f, Size.Y * 0.5f), new Vector2(0, - Size.Y * 0.25f)));
+            Vector2 shipCardControlPosition = new Vector2(0, -Size.Y * 0.25f);
+            Vector2 shipCardControlSize = new Vector2(Size.X * 0.8f, Size.Y * 0.5f);
+
+            GridControl cardOutlineGridControl = AddChild(new GridControl(1, GamePlayer.MaxShipNumber, shipCardControlSize, shipCardControlPosition));
+            for (int i = 0; i < GamePlayer.MaxShipNumber; ++i)
+            {
+                cardOutlineGridControl.AddChild(new CardOutline(Vector2.Zero));
+            }
+
+            ShipCardControl = AddChild(new ShipCardControl(shipCardControlSize, shipCardControlPosition));
         }
 
         #region Virtual Functions
@@ -80,7 +90,7 @@ namespace SpaceCardGame
             bool charge = true;
             Player.AlterResources(cardData, charge);
 
-            pair.WhenAddedToGameBoard(this, Player);
+            pair.WhenAddedToGameBoard(this);
             pair.Card.OnLay();
         }
 

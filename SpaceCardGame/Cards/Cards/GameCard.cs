@@ -14,19 +14,19 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to our parent as a CardObjectPair
         /// </summary>
-        private CardObjectPair cardPair;
-        protected CardObjectPair CardPair
+        private CardObjectPair cardObjectPair;
+        protected CardObjectPair CardObjectPair
         {
             get
             {
-                if (cardPair == null)
+                if (cardObjectPair == null)
                 {
                     DebugUtils.AssertNotNull(Parent);
                     Debug.Assert(Parent is CardObjectPair);
-                    cardPair = Parent as CardObjectPair;
+                    cardObjectPair = Parent as CardObjectPair;
                 }
 
-                return cardPair;
+                return cardObjectPair;
             }
         }
 

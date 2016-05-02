@@ -66,8 +66,8 @@ namespace SpaceCardGame
         {
             CheckShouldInitialise();
 
-            Debug.Assert(CardPair is CardShipPair);
-            CardShipPair shipCardPair = CardPair as CardShipPair;
+            Debug.Assert(CardObjectPair is CardShipPair);
+            CardShipPair shipCardPair = CardObjectPair as CardShipPair;
             shipCardPair.Ship.DamageModule.CalculateDamage += CalculateDamageDoneToThis;
 
             base.Initialise();

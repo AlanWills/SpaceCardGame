@@ -5,7 +5,7 @@ using System.Diagnostics;
 namespace SpaceCardGame
 {
     /// <summary>
-    /// A simple class designed just to group the PlayerGameBoardSection and PlayerUIBoardSection in one class
+    /// A simple class designed just to group the GameBoardSection and UIBoardSection in one class
     /// </summary>
     public class PlayerBoardSection : GameObject
     {

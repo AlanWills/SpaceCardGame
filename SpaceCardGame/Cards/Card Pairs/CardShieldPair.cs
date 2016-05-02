@@ -40,7 +40,7 @@ namespace SpaceCardGame
         /// </summary>
         /// <param name="gameBoard"></param>
         /// <param name="player"></param>
-        public override void WhenAddedToGameBoard(GameBoardSection gameBoard, GamePlayer player)
+        public override void WhenAddedToGameBoard(GameBoardSection gameBoard)
         {
             
         }

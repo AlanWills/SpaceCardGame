@@ -20,10 +20,8 @@
         /// </summary>
         /// <param name="gameBoard"></param>
         /// <param name="player"></param>
-        public override void WhenAddedToGameBoard(GameBoardSection gameBoard, GamePlayer player)
+        public override void WhenAddedToGameBoard(GameBoardSection gameBoard)
         {
-            Player = player;
-
             // This function will handle parenting
             gameBoard.ShipCardControl.AddStation(this);         // Call the specific function we have for stations - this is for positioning purposes mainly
         }

@@ -21,11 +21,6 @@ namespace SpaceCardGame
         /// </summary>
         public Ship Ship { get; private set; }
 
-        /// <summary>
-        /// A reference to the player who owns this ship - we will be using this to keep track of the number of ships the player has
-        /// </summary>
-        protected GamePlayer Player { get; set; }
-
         #endregion
 
         public CardShipPair(ShipCardData shipCardData) :
@@ -76,14 +71,13 @@ namespace SpaceCardGame
         /// </summary>
         /// <param name="gameBoard"></param>
         /// <param name="player"></param>
-        public override void WhenAddedToGameBoard(GameBoardSection gameBoard, GamePlayer player)
+        public override void WhenAddedToGameBoard(GameBoardSection gameBoard)
         {
-            Player = player;
             Debug.Assert(Player.CurrentShipsPlaced < GamePlayer.MaxShipNumber);
 
             Reparent(gameBoard.ShipCardControl);                       // Reparent this under the card ship control rather than the game board which it was initially added to
 
-            player.CurrentShipsPlaced++;
+            Player.CurrentShipsPlaced++;
         }
 
         /// <summary>
