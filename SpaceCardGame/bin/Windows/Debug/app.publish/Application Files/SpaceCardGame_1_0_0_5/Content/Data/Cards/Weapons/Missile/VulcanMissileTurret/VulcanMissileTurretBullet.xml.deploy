@@ -1,0 +1,6 @@
+﻿<XnaContent>
+  <Asset Type="SpaceCardGameData.ProjectileData">
+    <TextureAsset>Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretBullet</TextureAsset>
+    <Damage>1</Damage>
+  </Asset>
+</XnaContent>

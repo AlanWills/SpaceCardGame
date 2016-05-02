@@ -1,0 +1,11 @@
+﻿<XnaContent>
+  <Asset Type="SpaceCardGame.WeaponCardData">
+    <TextureAsset>UI\EmptyPanelBackground</TextureAsset>
+    <ObjectDataAsset>Cards\Weapons\DefaultTurret.xml</ObjectDataAsset>
+    <Type>Weapon</Type>
+    <DisplayName></DisplayName>
+    <Rarity>Common</Rarity>
+    <ResourceCosts>0 0 0 0</ResourceCosts>
+    <CardTypeName>DefaultTurretCard</CardTypeName>
+  </Asset>
+</XnaContent>

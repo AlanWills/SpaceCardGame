@@ -1,7 +1,0 @@
-﻿<XnaContent>
-  <Asset Type="_2DEngineData.OptionsData">
-    <IsFullScreen>false</IsFullScreen>
-    <MusicVolume>0</MusicVolume>
-    <SFXVolume>0</SFXVolume>
-  </Asset>
-</XnaContent>

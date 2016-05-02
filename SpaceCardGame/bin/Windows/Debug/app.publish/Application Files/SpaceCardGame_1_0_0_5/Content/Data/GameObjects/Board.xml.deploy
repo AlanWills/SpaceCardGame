@@ -1,0 +1,11 @@
+﻿<XnaContent>
+  <Asset Type="SpaceCardGameData.BoardData">
+    <TextureAsset>Backgrounds\TileableNebula</TextureAsset>
+    <AsteroidTextureAssets>
+      <Item>Objects\Asteroids\TinyAsteroid</Item>
+      <Item>Objects\Asteroids\SmallAsteroid</Item>
+      <Item>Objects\Asteroids\LargeAsteroid</Item>
+      <Item>Objects\Asteroids\HugeAsteroid</Item>
+    </AsteroidTextureAssets>
+  </Asset>
+</XnaContent>
