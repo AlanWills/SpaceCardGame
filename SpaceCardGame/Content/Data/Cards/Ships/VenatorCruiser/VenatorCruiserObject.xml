@@ -58,5 +58,6 @@
         <Y>130</Y>
       </Item>
     </DamageHardpoints>
+    <ExplosionSFXAsset>Explosions\LargeShipDeathExplosion</ExplosionSFXAsset>
   </Asset>
 </XnaContent>

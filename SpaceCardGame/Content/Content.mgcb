@@ -998,3 +998,51 @@
 /processorParam:Quality=Best
 /build:SFX/Turrets/DefaultTurret.wav
 
+#begin SFX/Explosions/BeamExplosion.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Explosions/BeamExplosion.wav
+
+#begin SFX/Explosions/KineticExplosion.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Explosions/KineticExplosion.wav
+
+#begin SFX/Explosions/LargeShipDeathExplosion.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Explosions/LargeShipDeathExplosion.wav
+
+#begin SFX/Explosions/MissileExplosion.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Explosions/MissileExplosion.wav
+
+#begin SFX/Explosions/ShieldExplosion.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Explosions/ShieldExplosion.wav
+
+#begin SFX/Explosions/SmallShipDeathExplosion.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Explosions/SmallShipDeathExplosion.wav
+
+#begin SFX/Explosions/LaserExplosion.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Explosions/LaserExplosion.wav
+
+#begin SFX/Engines/Engine.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Engines/Engine.wav
+

@@ -79,6 +79,7 @@ namespace SpaceCardGame
                     // Kills the projectile if it has collided with the target
                     Die();
 
+                    ExplosionSFX.Play();
                     Target.OnCollisionWith(this);
                 }
             }

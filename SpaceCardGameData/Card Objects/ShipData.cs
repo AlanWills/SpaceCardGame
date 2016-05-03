@@ -38,5 +38,10 @@ namespace SpaceCardGameData
         /// It's size will be Defence - 1
         /// </summary>
         public List<Vector2> DamageHardpoints { get; set; }
+
+        /// <summary>
+        /// The path of the SFX we will play when this ship dies.
+        /// </summary>
+        public string ExplosionSFXAsset { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using _2DEngine;
 using _2DEngineData;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using SpaceCardGameData;
 using System.Diagnostics;
 
@@ -86,6 +87,11 @@ namespace SpaceCardGame
         /// </summary>
         public DamageUI[] DamageUI { get; private set; }
 
+        /// <summary>
+        /// A reference to our explosion that is triggered when this ship dies.
+        /// </summary>
+        private SoundEffect ShipDeathExplosionSFX { get; set; }
+
         #endregion
 
         // The ship is tied to the card, so it's position will be amended when the card is added to the screen
@@ -115,6 +121,8 @@ namespace SpaceCardGame
 
             ShipData = Data as ShipData;
             DebugUtils.AssertNotNull(ShipData);
+
+            ShipDeathExplosionSFX = SFXManager.GetSoundEffect(ShipData.ExplosionSFXAsset);
 
             DamageModule = AddModule(new DamageableObjectModule(ShipData.Defence));
 
@@ -208,6 +216,7 @@ namespace SpaceCardGame
 
                 if (DamageModule.Dead)
                 {
+                    ShipDeathExplosionSFX.Play();
                     Die();
                 }
             }   

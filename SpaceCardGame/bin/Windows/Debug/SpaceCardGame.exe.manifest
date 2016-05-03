@@ -259,14 +259,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="229272">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="230296">
       <assemblyIdentity name="SpaceCardGame" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>JOtkNOnXHd25UwFXwlFxZkESdSSWzIlSpMJpuQDhaj0=</dsig:DigestValue>
+        <dsig:DigestValue>ILE6a7/WohZiH3gK1JV8h8evFS1ovrM7MAw1WTemHDU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -278,7 +278,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>EFTSSTCgfiwORzI/MLM5por0sRIqockZ4ZxihS1jpkY=</dsig:DigestValue>
+        <dsig:DigestValue>3HFYQW3dr3wasEA8yi4+Vs/1hfh2BwK+oQe5FpawUqo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -372,13 +372,13 @@
       <dsig:DigestValue>DEECJj5/R7u0oWSg8TrwFp6A5EWoji/gqG8m57s0k00=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Ships\BlazeInterceptor\BlazeInterceptorObject.xml" size="500" writeableType="applicationData">
+  <file name="Content\Data\Cards\Ships\BlazeInterceptor\BlazeInterceptorObject.xml" size="579" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>3bHIGNK8udgzfeb4O5H6ZehYoY+hmHK75G3GIj6JkBs=</dsig:DigestValue>
+      <dsig:DigestValue>yThuyNmsa0pqAHgG9W2Eu3MsYAIPVheFuqdVfKFiUrk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Ships\EagleFrigate\EagleFrigateCard.xml" size="448" writeableType="applicationData">
@@ -390,13 +390,13 @@
       <dsig:DigestValue>LtYMVUm+/EqYZGAQbE6E97of6o+agEs0PXbJVXf3+lE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Ships\EagleFrigate\EagleFrigateObject.xml" size="629" writeableType="applicationData">
+  <file name="Content\Data\Cards\Ships\EagleFrigate\EagleFrigateObject.xml" size="708" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>WMQD4nFDF3f76uosH/CkLAUJxPj4OQKbfbI63H2g3vU=</dsig:DigestValue>
+      <dsig:DigestValue>j2LObLtE68NOkF8UrtwhcOS8/19nld0lScag7TzwRps=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Ships\VenatorCruiser\VenatorCruiserCard.xml" size="444" writeableType="applicationData">
@@ -408,13 +408,13 @@
       <dsig:DigestValue>lBfxyqji7rHcJhLc4dP72lFPfvNpTKIMfJCYlXUcw3Y=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Ships\VenatorCruiser\VenatorCruiserObject.xml" size="1210" writeableType="applicationData">
+  <file name="Content\Data\Cards\Ships\VenatorCruiser\VenatorCruiserObject.xml" size="1289" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>hWuFVEUdA9pt7hM/JJQaUbK3vUy7B5+a42U0/G9jgBA=</dsig:DigestValue>
+      <dsig:DigestValue>gOK57BIugbrlfxwIJvjhx6u0k2rZ/jyszitTPp6PNlg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Ships\WaspFighter\WaspFighterCard.xml" size="431" writeableType="applicationData">
@@ -426,13 +426,13 @@
       <dsig:DigestValue>fEVaF6a2m8fQGnrkiA/oiISBk5wIFhFXCq3ACpUbSe0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Ships\WaspFighter\WaspFighterObject.xml" size="489" writeableType="applicationData">
+  <file name="Content\Data\Cards\Ships\WaspFighter\WaspFighterObject.xml" size="568" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>+OlbDrTRkFIsqsVCPqYukI2psikRJy4gkDOqq8ganA8=</dsig:DigestValue>
+      <dsig:DigestValue>YA2uO9ujcUf1wl4qjeJNKHD4A4w/mF/SidDZ9A/XEjw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Stations\BastionShipyard\BastionShipyardCard.xml" size="460" writeableType="applicationData">
@@ -444,22 +444,22 @@
       <dsig:DigestValue>wh+969rF4dcRWbt57M6gy99zN/7r/5BhqZSuS+80tBQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Stations\BastionShipyard\BastionShipyardObject.xml" size="1833" writeableType="applicationData">
+  <file name="Content\Data\Cards\Stations\BastionShipyard\BastionShipyardObject.xml" size="1912" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>6oCtvDLLdEerpd7TXvYfoyJqIymjOjcCa7+7Pxhupng=</dsig:DigestValue>
+      <dsig:DigestValue>14DUpJD40qBZGUuPEIVYLqaVmXwrH6cV0yrBLjT5Ieo=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretBullet.xml" size="270" writeableType="applicationData">
+  <file name="Content\Data\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretBullet.xml" size="339" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>puYsTxWzbvqpbujPlmtDaYuXc/vH1H5EIVc0gHWA+zA=</dsig:DigestValue>
+      <dsig:DigestValue>5UsROIDA1iCuf0+wFvdQugZQzrJMXHgA4jfUHcC+z3M=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xml" size="481" writeableType="applicationData">
@@ -480,13 +480,13 @@
       <dsig:DigestValue>P2cXQgCS+zdCJaUTIu0qZbh6+JVk3Nnxnrpkrn9e1hM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Weapons\DefaultBullet.xml" size="239" writeableType="applicationData">
+  <file name="Content\Data\Cards\Weapons\DefaultBullet.xml" size="311" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>08jhA+faUhgRjrjg+MIBK5aEhNVvGjn6sZIce5/aFFc=</dsig:DigestValue>
+      <dsig:DigestValue>gmMNM4rT3NDM/8amX7evKg8yNt/24OWWttThLGl31cs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Weapons\DefaultTurret.xml" size="267" writeableType="applicationData">
@@ -507,13 +507,13 @@
       <dsig:DigestValue>QXPb83X7LfxL6cv0XXgA0C3uurPxJBpuswQPS4Tgej4=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretBullet.xml" size="282" writeableType="applicationData">
+  <file name="Content\Data\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretBullet.xml" size="352" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Gt5gy0EwZeNV6/l/lb8uz94YExyjNEEO1ImkwVaEGK0=</dsig:DigestValue>
+      <dsig:DigestValue>5bbzAXDVXuYqrEA3rSeZe6KASWQz12nIywDqH/+G/ic=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xml" size="505" writeableType="applicationData">
@@ -534,13 +534,13 @@
       <dsig:DigestValue>hc9MYDN7RFyoaB69smdUvTso7i4CKkAU+kCRVFfRv+8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretBullet.xml" size="285" writeableType="applicationData">
+  <file name="Content\Data\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretBullet.xml" size="357" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>fmz5+MJJts9qZaOwLMIuK9UNuY+ssVv8AVHdcE6yf9c=</dsig:DigestValue>
+      <dsig:DigestValue>qKNkr7bshTOXdhexQJTOqNP5NAHSgCHbGAmzP6Lq81o=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xml" size="512" writeableType="applicationData">
@@ -1072,6 +1072,150 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>MoUw6HsOL/sNjyv2cb0C6G0Wzo2W/ouVMDcY5dQYzMo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\SFX\Engines\Engine.wav" size="17988">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ktl0PJxVeQL73C9DEAIn4V2a3CkkPiB1Cw0xBU6jnWU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\SFX\Engines\Engine.xnb" size="18049">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>x7IPEgREZop4C+rVs3y6os4OkONgkuG7wEAKNRuys3k=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\SFX\Explosions\BeamExplosion.wav" size="194478">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>sWBbZG9rNG+MsxYb3wmVOEqb513/KntMaUX+n18i83E=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\SFX\Explosions\BeamExplosion.xnb" size="194537">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xx1bW3xAn04p/Vf1q6+SuZUdTZvc3erRYKYcDgPZdik=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\SFX\Explosions\KineticExplosion.wav" size="88750">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>37k0yGxEeXSdZJWeHU3NmDyJ8JEeg5QYDs+s3lIt4cY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\SFX\Explosions\KineticExplosion.xnb" size="88809">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>l7WpftVLQhzo6MJ4q4mccJxskdhcxZ42lqlx02l2AkQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\SFX\Explosions\LargeShipDeathExplosion.wav" size="390318">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Jr4zqnjsE81RMpfl0FTBVuLE+YijiktMIdsFfkpujj0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\SFX\Explosions\LargeShipDeathExplosion.xnb" size="390377">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ZR5RC56yRLWOpYFXA6QxOMxd8gO3Esai287r64bIsHI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\SFX\Explosions\LaserExplosion.wav" size="186542">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>kNQ4zGPRrT9Y35yZPSCkvL1mJvheMkutlHSmAdJHOfU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\SFX\Explosions\LaserExplosion.xnb" size="186601">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>GcjyeQ2CeuSfYBKuf79HQyS6GqceJJmw5asPfusFlhs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\SFX\Explosions\MissileExplosion.wav" size="242094">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>EufYdRt1vsZ08YehRBvF/JoqJY1kRS0+AQ9+E6ujAEg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\SFX\Explosions\MissileExplosion.xnb" size="242153">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>F7b3hUpIb9EYI+twa/dgcJPjvPdt8FaGQjZqoJnEkFk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\SFX\Explosions\ShieldExplosion.wav" size="111022">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>TE/f2LZ6XdYEQf/lm21OWQDMJO96N5+Nle9Ta8xnGWo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\SFX\Explosions\ShieldExplosion.xnb" size="111081">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>dUipMD4PFCbquHKb+jJZQpUDr6o4WbMtUsfMh1o31L4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\SFX\Explosions\SmallShipDeathExplosion.wav" size="300974">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>GyqQ3ZnPJ4KNNFQ/F2+kcKdws/zAQhS+oszCk/mCHKg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\SFX\Explosions\SmallShipDeathExplosion.xnb" size="301033">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>PuhLcQlG+IN+NpboFf1bA2XrAZOuxw8LbZABsS0JI3U=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\SFX\Turrets\DefaultTurret.wav" size="132526">

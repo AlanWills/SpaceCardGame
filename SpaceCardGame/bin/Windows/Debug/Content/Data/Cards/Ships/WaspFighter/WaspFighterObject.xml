@@ -17,5 +17,6 @@
       </Item>
     </EngineHardpoints>
     <DamageHardpoints/>
+    <ExplosionSFXAsset>Explosions\SmallShipDeathExplosion</ExplosionSFXAsset>
   </Asset>
 </XnaContent>

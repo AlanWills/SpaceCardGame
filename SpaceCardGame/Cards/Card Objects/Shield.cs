@@ -1,6 +1,7 @@
 ﻿using _2DEngine;
 using _2DEngineData;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using SpaceCardGameData;
 
 namespace SpaceCardGame
@@ -26,6 +27,11 @@ namespace SpaceCardGame
         /// A reference to our flashing module - used as a cool battle effect
         /// </summary>
         public FlashingObjectModule FlashingModule { get; private set; }
+
+        /// <summary>
+        /// A reference to our shield explosion SFX that is triggered when this is hit by a bullet.
+        /// </summary>
+        private SoundEffect ShieldExplosionSFX { get; set; }
 
         #endregion
 
@@ -56,6 +62,8 @@ namespace SpaceCardGame
 
             ShieldData = Data as ShieldData;
             DebugUtils.AssertNotNull(ShieldData);
+
+            ShieldExplosionSFX = SFXManager.GetSoundEffect("Explosions\\ShieldExplosion");
 
             DamageModule = AddModule(new DamageableObjectModule(ShieldData.MaxShieldStrength));
             FlashingModule = AddModule(new FlashingObjectModule(0.15f, 1, 1));
@@ -104,6 +112,7 @@ namespace SpaceCardGame
         {
             if(collidedObject is Bullet)
             {
+                ShieldExplosionSFX.Play();
                 FlashingModule.Reset();
 
                 if (DamageModule.Dead)

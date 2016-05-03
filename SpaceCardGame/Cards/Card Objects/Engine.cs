@@ -1,6 +1,7 @@
 ﻿using _2DEngine;
 using _2DEngineData;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using SpaceCardGameData;
 
 namespace SpaceCardGame
@@ -26,6 +27,11 @@ namespace SpaceCardGame
         /// A reference to the engine blaze for this Engine
         /// </summary>
         public EngineBlaze EngineBlaze { get; private set; }
+
+        /// <summary>
+        /// A reference to the engine SFX for this Engine
+        /// </summary>
+        public SoundEffectInstance EngineSFX { get; set; }
 
         // A string which represents the default engine all ships have 
         private const string defaultEngineDataAsset = "Cards\\Engines\\DefaultEngine.xml";
@@ -67,6 +73,7 @@ namespace SpaceCardGame
             EngineData = Data as EngineData;
             DebugUtils.AssertNotNull(EngineData);
 
+            EngineSFX = SFXManager.CreateInstance("Engines\\Engine");
             EngineBlaze = AddChild(new EngineBlaze(Vector2.Zero));
 
             base.LoadContent();
@@ -81,7 +88,21 @@ namespace SpaceCardGame
 
             EngineBlaze.LocalPosition += new Vector2(0, EngineBlaze.Size.Y * 0.5f);
         }
-        
+
+        /// <summary>
+        /// Plays the engine sound effect
+        /// </summary>
+        /// <param name="elapsedGameTime"></param>
+        public override void Update(float elapsedGameTime)
+        {
+            base.Update(elapsedGameTime);
+
+            if (EngineSFX.State == SoundState.Stopped)
+            {
+                //EngineSFX.Play();
+            }
+        }
+
         #endregion
     }
 }

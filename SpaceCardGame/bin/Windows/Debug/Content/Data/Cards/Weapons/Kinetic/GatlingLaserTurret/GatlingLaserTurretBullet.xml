@@ -3,5 +3,6 @@
     <TextureAsset>Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretBullet</TextureAsset>
     <Damage>1</Damage>
     <FiringSFXAsset>Turrets\GatlingLaserTurret</FiringSFXAsset>
+    <ExplosionSFXAsset>Explosions\LaserExplosion</ExplosionSFXAsset>
   </Asset>
 </XnaContent>

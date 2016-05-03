@@ -56,6 +56,7 @@ namespace SpaceCardGame
                     fadeOut = true;
 
                     // Trigger the event when at full opacity
+                    ExplosionSFX.Play();
                     Target.OnCollisionWith(this);
                 }
             }
