@@ -36,14 +36,9 @@
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Weapons/DefaultTurret.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/UI/AttackLine.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/UI/NewCardIndicator.png</File>
-    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Music/Gameplay/BlindingLights.mp3</File>
-    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Music/Gameplay/HorrorOfSelf.mp3</File>
-    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Music/Gameplay/Mechanolith.mp3</File>
-    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Music/Gameplay/RidingTheAuroraBorealis.mp3</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Music/Menu/Emotional.mp3</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Music/Menu/HerVioletEyes.mp3</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Music/Menu/SoftBeat.mp3</File>
-    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Music/Gameplay/AngularMomentum.mp3</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Shields/PhaseEnergyShield/PhaseEnergyShieldCard.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Weapons/Beam/LaserBeamTurret/LaserBeamTurretObject.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretObject.png</File>
@@ -89,5 +84,17 @@
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/SFX/UI/ButtonHover.wav</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/SFX/UI/ButtonPressedSound.wav</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/SFX/UI/ProgressTurnButtonPressedSound.wav</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/SFX/Turrets/GatlingLaserTurret.wav</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/SFX/Turrets/LaserBeamTurret.wav</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/SFX/Turrets/VulcanMissileTurret.wav</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Music/Gameplay/AllForNothing.mp3</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Music/Gameplay/AngularMomentum.mp3</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Music/Gameplay/AtWhatCost.mp3</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Music/Gameplay/BlindingLights.mp3</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Music/Gameplay/Freemind.mp3</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Music/Gameplay/HorrorOfSelf.mp3</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Music/Gameplay/MessengersFromAbove.mp3</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Music/Gameplay/RidingTheAuroraBorealis.mp3</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/SFX/Turrets/DefaultTurret.wav</File>
   </SourceFiles>
 </SourceFileCollection>

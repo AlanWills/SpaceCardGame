@@ -27,6 +27,11 @@ namespace SpaceCardGame
         /// </summary>
         private BattleScreen BattleScreen { get; set; }
 
+        /// <summary>
+        /// An array of references to our card outlines we use in the card placement phase to show where we can place ships.
+        /// </summary>
+        private CardOutline[] CardOutlines { get; set; }
+
         #endregion
 
         public GameBoardSection(GamePlayer player, Vector2 localPosition, string dataAsset = AssetManager.EmptyGameObjectDataAsset) :
@@ -57,15 +62,19 @@ namespace SpaceCardGame
             ShipCardData stationData = Player.GetStationData();
             CardObjectPair stationPair = AddCard(stationData, Vector2.Zero, Vector2.Zero, false, false);
 
-            foreach (float xPosition in ShipCardControl.LocalXPositions)
+            CardOutlines = new CardOutline[ShipCardControl.LocalXPositions.Length];
+            for (int i = 0; i < ShipCardControl.LocalXPositions.Length; ++i)
             {
-                CardOutline cardOutline = AddChild(new CardOutline(stationPair.Card.Size, ShipCardControl.LocalPosition + new Vector2(xPosition, 0)), true, true);
-                cardOutline.Valid = false;
+                CardOutlines[i] = AddChild(new CardOutline(stationPair.Card.Size, ShipCardControl.LocalPosition + new Vector2(ShipCardControl.LocalXPositions[i], 0)), true, true);
+                CardOutlines[i].Valid = false;
             }
+
+            BattleScreen.OnCardPlacementStateStarted += ToggleCardOutlines;
+            BattleScreen.OnBattleStateStarted += ToggleCardOutlines;
         }
 
         #endregion
-
+        
         #region Specific Function for adding cards
 
         /// <summary>
@@ -94,6 +103,29 @@ namespace SpaceCardGame
             pair.Card.OnLay();
 
             return pair;
+        }
+
+        #endregion
+
+        #region Callbacks
+
+        /// <summary>
+        /// Hides or shows our card outlines based on the current phase of the turn we are in
+        /// </summary>
+        private void ToggleCardOutlines()
+        {
+            bool show = BattleScreen.TurnState == TurnState.kPlaceCards;
+            foreach (CardOutline cardOutline in CardOutlines)
+            {
+                if (show)
+                {
+                    cardOutline.Show();
+                }
+                else
+                {
+                    cardOutline.Hide();
+                }
+            }
         }
 
         #endregion

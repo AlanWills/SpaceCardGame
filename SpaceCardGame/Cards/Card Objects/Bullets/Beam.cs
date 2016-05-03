@@ -26,9 +26,20 @@ namespace SpaceCardGame
         }
 
         #region Virtual Functions
-        
+
         /// <summary>
-        /// Update our beam's opacity - first fades in and then out
+        /// Start playing the firing SFX.
+        /// </summary>
+        public override void Begin()
+        {
+            base.Begin();
+
+            FiringSFX.Play();
+        }
+
+        /// <summary>
+        /// Update our beam's opacity - first fades in and then out.
+        /// Continue to play the firing sfx until we are done.
         /// </summary>
         /// <param name="elapsedGameTime"></param>
         public override void Update(float elapsedGameTime)

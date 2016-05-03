@@ -21,6 +21,16 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
+        /// Play our firing sound effect
+        /// </summary>
+        public override void Begin()
+        {
+            base.Begin();
+
+            FiringSFX.Play(OptionsManager.SFXVolume, 0, 0);
+        }
+
+        /// <summary>
         /// Updates our bullet's position and kill's it if it has collided with our target
         /// </summary>
         /// <param name="elapsedGameTime"></param>

@@ -1,6 +1,7 @@
 ﻿using _2DEngine;
 using _2DEngineData;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using SpaceCardGameData;
 
 namespace SpaceCardGame
@@ -21,6 +22,11 @@ namespace SpaceCardGame
         /// A reference to our bullet data
         /// </summary>
         private ProjectileData ProjectileData { get; set; }
+
+        /// <summary>
+        /// A reference to our firing sfx.
+        /// </summary>
+        protected SoundEffect FiringSFX { get; private set; }
 
         #endregion
 
@@ -45,6 +51,18 @@ namespace SpaceCardGame
         protected override GameObjectData LoadGameObjectData()
         {
             return ProjectileData;
+        }
+
+        /// <summary>
+        /// Get our firing sfx
+        /// </summary>
+        public override void LoadContent()
+        {
+            CheckShouldLoad();
+
+            FiringSFX = SFXManager.GetSoundEffect(ProjectileData.FiringSFXAsset);
+
+            base.LoadContent();
         }
 
         #endregion

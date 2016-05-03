@@ -1,7 +1,8 @@
-﻿<XnaContent>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent>
   <Asset Type="_2DEngineData.OptionsData">
     <IsFullScreen>false</IsFullScreen>
-    <MusicVolume>0</MusicVolume>
-    <SFXVolume>0</SFXVolume>
+    <MusicVolume>0.5236842</MusicVolume>
+    <SFXVolume>0.3763158</SFXVolume>
   </Asset>
 </XnaContent>

@@ -386,30 +386,6 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/UI/NewCardIndicator.png
 
-#begin Music/Gameplay/BlindingLights.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Music/Gameplay/BlindingLights.mp3
-
-#begin Music/Gameplay/HorrorOfSelf.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Music/Gameplay/HorrorOfSelf.mp3
-
-#begin Music/Gameplay/Mechanolith.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Music/Gameplay/Mechanolith.mp3
-
-#begin Music/Gameplay/RidingTheAuroraBorealis.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Music/Gameplay/RidingTheAuroraBorealis.mp3
-
 #begin Music/Menu/Emotional.mp3
 /importer:Mp3Importer
 /processor:SongProcessor
@@ -427,12 +403,6 @@
 /processor:SongProcessor
 /processorParam:Quality=Best
 /build:Music/Menu/SoftBeat.mp3
-
-#begin Music/Gameplay/AngularMomentum.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Music/Gameplay/AngularMomentum.mp3
 
 #begin Sprites/Cards/Shields/PhaseEnergyShield/PhaseEnergyShieldCard.png
 /importer:TextureImporter
@@ -955,4 +925,76 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:SFX/UI/ProgressTurnButtonPressedSound.wav
+
+#begin SFX/Turrets/GatlingLaserTurret.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Turrets/GatlingLaserTurret.wav
+
+#begin SFX/Turrets/LaserBeamTurret.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Turrets/LaserBeamTurret.wav
+
+#begin SFX/Turrets/VulcanMissileTurret.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Turrets/VulcanMissileTurret.wav
+
+#begin Music/Gameplay/AllForNothing.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Gameplay/AllForNothing.mp3
+
+#begin Music/Gameplay/AngularMomentum.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Gameplay/AngularMomentum.mp3
+
+#begin Music/Gameplay/AtWhatCost.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Gameplay/AtWhatCost.mp3
+
+#begin Music/Gameplay/BlindingLights.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Gameplay/BlindingLights.mp3
+
+#begin Music/Gameplay/Freemind.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Gameplay/Freemind.mp3
+
+#begin Music/Gameplay/HorrorOfSelf.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Gameplay/HorrorOfSelf.mp3
+
+#begin Music/Gameplay/MessengersFromAbove.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Gameplay/MessengersFromAbove.mp3
+
+#begin Music/Gameplay/RidingTheAuroraBorealis.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Gameplay/RidingTheAuroraBorealis.mp3
+
+#begin SFX/Turrets/DefaultTurret.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Turrets/DefaultTurret.wav
 

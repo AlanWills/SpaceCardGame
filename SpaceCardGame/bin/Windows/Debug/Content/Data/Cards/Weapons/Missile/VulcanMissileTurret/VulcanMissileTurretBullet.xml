@@ -2,5 +2,6 @@
   <Asset Type="SpaceCardGameData.ProjectileData">
     <TextureAsset>Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretBullet</TextureAsset>
     <Damage>1</Damage>
+    <FiringSFXAsset>Turrets\VulcanMissileTurret</FiringSFXAsset>
   </Asset>
 </XnaContent>
