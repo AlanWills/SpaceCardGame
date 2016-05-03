@@ -96,8 +96,7 @@ namespace SpaceCardGame
             pair.Card.Size = size;
 
             // Deduct the resources
-            bool charge = true;
-            Player.AlterResources(cardData, charge);
+            Player.AlterResources(cardData, ChargeType.kCharge);
 
             pair.WhenAddedToGameBoard(this);
             pair.Card.OnLay();

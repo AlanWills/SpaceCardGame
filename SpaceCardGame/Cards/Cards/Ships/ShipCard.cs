@@ -11,26 +11,6 @@ namespace SpaceCardGame
         #region Properties and Fields
 
         /// <summary>
-        /// A reference to the card data for this ShipCard as ShipCardData.
-        /// Only initialised if used.
-        /// </summary>
-        /*private ShipCardData shipCardData;
-        public ShipCardData ShipCardData
-        {
-            get
-            {
-                DebugUtils.AssertNotNull(CardData);
-                if (shipCardData == null)
-                {
-                    Debug.Assert(CardData is ShipCardData);
-                    shipCardData = CardData as ShipCardData;
-                }
-
-                return shipCardData;
-            }
-        }*/
-
-        /// <summary>
         /// A reference to our parent as a CardShipPair
         /// </summary>
         private CardShipPair cardShipPair;

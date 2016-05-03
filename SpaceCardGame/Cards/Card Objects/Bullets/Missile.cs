@@ -16,6 +16,8 @@ namespace SpaceCardGame
         /// </summary>
         private Engine Engine { get; set; }
 
+        private static int side = -1;
+
         #endregion
 
         public Missile(GameObject target, Vector2 worldPosition, ProjectileData projectileData) :
@@ -35,8 +37,8 @@ namespace SpaceCardGame
 
             base.Initialise();
 
-            int side = (MathUtils.GenerateInt(0, 1) * 2) - 1;
             jutFinishPosition = LocalPosition + Vector2.Transform(new Vector2(side * 50, 0), Matrix.CreateRotationZ(WorldRotation)); ;
+            side *= -1;
 
             Engine = AddChild(new Engine(0, new Vector2(0, Size.Y * 0.5f)), true, true);
             Engine.Scale(new Vector2(0.2f, 1));

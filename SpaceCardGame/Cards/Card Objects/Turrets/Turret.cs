@@ -29,7 +29,7 @@ namespace SpaceCardGame
         /// <summary>
         /// The number of shots with this turret we have left
         /// </summary>
-        public int ShotsLeft { get; private set; }
+        public int ShotsLeft { get; set; }
 
         /// <summary>
         /// A read only property which returns the conditions necessary for this turret to be able to fire

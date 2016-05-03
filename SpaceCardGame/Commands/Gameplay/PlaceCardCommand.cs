@@ -73,9 +73,7 @@ namespace SpaceCardGame
             {
                 SendCardBackToHand();
 
-                // Refund the resources
-                bool refund = false;
-                BattleScreen.ActivePlayer.AlterResources(CardData, refund);
+                BattleScreen.ActivePlayer.AlterResources(CardData, ChargeType.kRefund);
             }
         }
 

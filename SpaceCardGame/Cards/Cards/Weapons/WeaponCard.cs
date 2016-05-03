@@ -1,4 +1,5 @@
 ﻿using _2DEngine;
+using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -7,6 +8,29 @@ namespace SpaceCardGame
     /// </summary>
     public abstract class WeaponCard : GameCard
     {
+        #region Properties and Fields
+
+        /// <summary>
+        /// A reference to our parent as a CardShipPair
+        /// </summary>
+        private CardWeaponPair cardWeaponPair;
+        protected CardWeaponPair CardWeaponPair
+        {
+            get
+            {
+                if (cardWeaponPair == null)
+                {
+                    DebugUtils.AssertNotNull(Parent);
+                    Debug.Assert(Parent is CardWeaponPair);
+                    cardWeaponPair = Parent as CardWeaponPair;
+                }
+
+                return cardWeaponPair;
+            }
+        }
+
+        #endregion
+
         public WeaponCard(WeaponCardData weaponCardData) :
             base(weaponCardData)
         {

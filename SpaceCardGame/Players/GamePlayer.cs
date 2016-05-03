@@ -5,6 +5,12 @@ using System.Diagnostics;
 
 namespace SpaceCardGame
 {
+    public enum ChargeType
+    {
+        kCharge,
+        kRefund
+    }
+
     public class GamePlayer : Player
     {
         public delegate void NewTurnHandler(GamePlayer newActivePlayer);
@@ -33,7 +39,7 @@ namespace SpaceCardGame
         public event NewTurnHandler OnNewTurn;
 
         public const int ResourceCardsCanLay = 10;
-        public const int MaxShipNumber = 8;
+        public const int MaxShipNumber = 6;
 
         #endregion
 
@@ -125,23 +131,36 @@ namespace SpaceCardGame
 
         /// <summary>
         /// Alters the current resources by the amount specified in the card data.
-        /// Either charges them or refunds them based on the input bool
+        /// Either charges them or refunds them based on the input enum
         /// </summary>
         /// <param name="cardData"></param>
         /// <param name="charge"></param>
-        public void AlterResources(CardData cardData, bool charge)
+        public void AlterResources(CardData cardData, ChargeType charge)
         {
             for (int typeIndex = 0; typeIndex < (int)ResourceType.kNumResourceTypes; typeIndex++)
             {
-                int numAvailableResources = Resources[typeIndex].Count;
-                Debug.Assert(numAvailableResources >= cardData.ResourceCosts[typeIndex]);
+                AlterResources((ResourceType)typeIndex, cardData.ResourceCosts[typeIndex], charge);
+            }
+        }
 
-                for (int i = 0; i < cardData.ResourceCosts[typeIndex]; ++i)
-                {
-                    // If the 'charge' bool is set to false, we are refunding so the resource should not be used
-                    // If the 'charge' bool is set to true, we are charging the player the resources, so they should be used
-                    Resources[typeIndex][i].Used = charge;
-                }
+        /// <summary>
+        /// Alters the current resources of the inputted type by the inputted amount.
+        /// Either charges them or refunds them based on the input enum
+        /// </summary>
+        /// <param name="cardData"></param>
+        /// <param name="charge"></param>
+        public void AlterResources(ResourceType resourceType, int amount, ChargeType charge)
+        {
+            int typeIndex = (int)resourceType;
+            int numAvailableResources = Resources[typeIndex].Count;
+
+            Debug.Assert(numAvailableResources >= amount);
+
+            for (int i = 0; i < amount; ++i)
+            {
+                // If the 'charge' enum is set to kRefund, we are refunding so the resource should not be used
+                // If the 'charge' enum is set to kCharge, we are charging the player the resources, so they should be used
+                Resources[typeIndex][i].Used = charge == ChargeType.kCharge ? true : false;
             }
         }
 

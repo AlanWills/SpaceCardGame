@@ -78,9 +78,7 @@ namespace SpaceCardGame
                 // The command has ended, but we have not chosen a ship
                 // Therefore we must send the card back to our hand and refund the resources
                 BattleScreen.ActivePlayer.AddCardToHand(CardToChooseTargetFor.CardData);
-
-                bool refunding = false;
-                BattleScreen.ActivePlayer.AlterResources(CardToChooseTargetFor.CardData, refunding);
+                BattleScreen.ActivePlayer.AlterResources(CardToChooseTargetFor.CardData, ChargeType.kRefund);
 
                 CardToChooseTargetFor.Die();
             }
