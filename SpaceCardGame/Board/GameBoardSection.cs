@@ -38,20 +38,14 @@ namespace SpaceCardGame
 
             Vector2 shipCardControlPosition = new Vector2(0, -Size.Y * 0.25f);
             Vector2 shipCardControlSize = new Vector2(Size.X * 0.8f, Size.Y * 0.5f);
-
-            //GridControl cardOutlineGridControl = AddChild(new GridControl(1, GamePlayer.MaxShipNumber, shipCardControlSize, shipCardControlPosition));
-            //for (int i = 0; i < GamePlayer.MaxShipNumber; ++i)
-            //{
-            //    cardOutlineGridControl.AddChild(new CardOutline(Vector2.Zero));
-            //}
-
+            
             ShipCardControl = AddChild(new ShipCardControl(shipCardControlSize, shipCardControlPosition));
         }
 
         #region Virtual Functions
 
         /// <summary>
-        /// Set up the reference to the battle screen
+        /// Set up the reference to the battle screen and add the card outlines for the ships.
         /// </summary>
         public override void Begin()
         {
@@ -61,7 +55,13 @@ namespace SpaceCardGame
             BattleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
 
             ShipCardData stationData = Player.GetStationData();
-            AddCard(stationData, Vector2.Zero, Vector2.Zero, false, false);
+            CardObjectPair stationPair = AddCard(stationData, Vector2.Zero, Vector2.Zero, false, false);
+
+            foreach (float xPosition in ShipCardControl.LocalXPositions)
+            {
+                CardOutline cardOutline = AddChild(new CardOutline(stationPair.Card.Size, ShipCardControl.LocalPosition + new Vector2(xPosition, 0)), true, true);
+                cardOutline.Valid = false;
+            }
         }
 
         #endregion
@@ -77,7 +77,7 @@ namespace SpaceCardGame
         /// <param name="load"></param>
         /// <param name="initialise"></param>
         /// <returns></returns>
-        public void AddCard(GameCardData cardData, Vector2 size, Vector2 desiredWorldPosition, bool load = true, bool initialise = true)
+        public CardObjectPair AddCard(GameCardData cardData, Vector2 size, Vector2 desiredWorldPosition, bool load = true, bool initialise = true)
         {
             // The size parameter comes from the card thumbnail
             // We pass it in to keep the sizes of things consistent
@@ -92,6 +92,8 @@ namespace SpaceCardGame
 
             pair.WhenAddedToGameBoard(this);
             pair.Card.OnLay();
+
+            return pair;
         }
 
         #endregion

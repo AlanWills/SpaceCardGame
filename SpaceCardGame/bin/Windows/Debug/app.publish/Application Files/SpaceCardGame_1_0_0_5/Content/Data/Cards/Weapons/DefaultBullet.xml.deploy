@@ -1,6 +1,0 @@
-﻿<XnaContent>
-  <Asset Type="SpaceCardGameData.ProjectileData">
-    <TextureAsset>Cards\Weapons\DefaultBullet</TextureAsset>
-    <Damage>0</Damage>
-  </Asset>
-</XnaContent>

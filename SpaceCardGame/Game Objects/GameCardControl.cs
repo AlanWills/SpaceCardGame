@@ -43,7 +43,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A cached array of the fixed positions of this card control
         /// </summary>
-        private float[] LocalXPositions { get; set; }
+        public float[] LocalXPositions { get; private set; }
         
         /// <summary>
         /// A cached array of stored cards

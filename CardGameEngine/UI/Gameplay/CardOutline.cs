@@ -22,13 +22,20 @@ namespace CardGameEngine
         #endregion
 
         public CardOutline(Vector2 size) :
-            base(size, Vector2.Zero, "Cards\\CardOutline")
+            this(size, Vector2.Zero)
+        {
+            
+        }
+
+        public CardOutline(Vector2 size, Vector2 localPosition) :
+            base(size, localPosition, "Cards\\CardOutline")
         {
             Valid = true;
         }
 
+
         #region Virtual Functions
-        
+
         /// <summary>
         /// Updates the colour of this outline
         /// </summary>

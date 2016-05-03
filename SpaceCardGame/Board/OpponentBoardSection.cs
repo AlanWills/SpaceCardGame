@@ -1,4 +1,5 @@
 ﻿using _2DEngine;
+using CardGameEngine;
 using Microsoft.Xna.Framework;
 
 namespace SpaceCardGame
@@ -29,6 +30,12 @@ namespace SpaceCardGame
             LocalRotation = MathHelper.Pi;
             GameBoardSection.LocalRotation = MathHelper.Pi;
             GameBoardSection.ShipCardControl.LocalPosition *= new Vector2(1, -1);
+
+            bool includeChildrenToAdd = true;
+            foreach (CardOutline cardOutline in GameBoardSection.GetChildrenOfType<CardOutline>(includeChildrenToAdd))
+            {
+                cardOutline.LocalPosition *= new Vector2(1, -1);
+            }
 
             UIBoardSection.LocalRotation = MathHelper.Pi;
             UIBoardSection.HandUI.LocalRotation = MathHelper.Pi;
