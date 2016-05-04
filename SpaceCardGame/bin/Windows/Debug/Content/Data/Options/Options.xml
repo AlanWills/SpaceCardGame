@@ -2,7 +2,7 @@
 <XnaContent>
   <Asset Type="_2DEngineData.OptionsData">
     <IsFullScreen>false</IsFullScreen>
-    <MusicVolume>0.5236842</MusicVolume>
-    <SFXVolume>0.3763158</SFXVolume>
+    <MusicVolume>0.139473692</MusicVolume>
+    <SFXVolume>0.0868421048</SFXVolume>
   </Asset>
 </XnaContent>

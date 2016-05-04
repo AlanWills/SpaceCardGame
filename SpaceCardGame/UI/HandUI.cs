@@ -28,6 +28,7 @@ namespace SpaceCardGame
             // Don't want any cut off on this UI
             UseScissorRectangle = false;
             BorderPadding = Vector2.Zero;       // No border padding for the HandUI
+            ScrollingEnabled = false;
         }
 
         #region Virtual Functions

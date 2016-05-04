@@ -78,6 +78,15 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
+        /// Add our custom escape dialog for this specific game.
+        /// </summary>
+        /// <returns></returns>
+        protected override InGameEscapeDialog AddInGameEscapeDialog()
+        {
+            return new CustomEscapeDialog();
+        }
+
+        /// <summary>
         /// Sets up our ambient light as white with full intensity for now
         /// </summary>
         protected override void AddInitialLights()

@@ -147,6 +147,7 @@
     <Compile Include="UI\Gameplay Sugar\Debris.cs" />
     <Compile Include="UI\HandUI.cs" />
     <Compile Include="Board\UIBoardSection.cs" />
+    <Compile Include="UI\In Game Dialogs\CustomEscapeDialog.cs" />
     <Compile Include="UI\Info Images\ShieldInfoImage.cs" />
     <Compile Include="UI\Info Images\WeaponInfoImage.cs" />
     <Compile Include="UI\ProgressTurnButton.cs" />
