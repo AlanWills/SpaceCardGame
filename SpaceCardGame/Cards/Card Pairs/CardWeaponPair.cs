@@ -71,7 +71,7 @@ namespace SpaceCardGame
 
             // Finally, scale the turret down by the same scaling as the ship
             float yScale = CardShipPair.CardObject.Size.Y / (2 * CardShipPair.CardObject.TextureCentre.Y);
-            Turret.Scale(new Vector2(yScale));
+            Turret.Scale(yScale);
 
             // Do scaling if we are not the default turret
             if (!Turret.IsDefaultTurret)

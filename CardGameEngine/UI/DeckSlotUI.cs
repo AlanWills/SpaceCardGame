@@ -123,6 +123,7 @@ namespace CardGameEngine
         private void DeleteButton_OnLeftClicked(BaseObject baseObject)
         {
             // Add a dialog box here and then properly delete it
+            Deck.Delete();
 
             UpdateUIStatus();
         }

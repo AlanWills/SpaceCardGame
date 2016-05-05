@@ -57,8 +57,7 @@ namespace SpaceCardGame
         /// </summary>
         public override void Begin()
         {
-            float yScale = MathHelper.Min(Card.Size.Y / CardObject.Size.Y, 1);
-            Ship.Scale(new Vector2(yScale));
+            Ship.Scale(MathHelper.Min(Card.Size.Y / CardObject.Size.Y, 1));
 
             AddDefaultWeapon();
 

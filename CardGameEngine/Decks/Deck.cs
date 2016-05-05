@@ -42,6 +42,8 @@ namespace CardGameEngine
         /// </summary>
         public void Create()
         {
+            // Our cards should be empty, otherwise something bad has happened
+            Debug.Assert(Cards.Count == 0);
             Debug.Assert(!IsCreated);
             IsCreated = true;
         }
