@@ -41,7 +41,7 @@ namespace SpaceCardGame
                 if (pair.Ship.ShipData.Defence + pair.Ship.ShipData.Speed <= 5)
                 {
                     pair.Ship.DamageModule.Damage(1, CardObjectPair);
-                    SpawnBulletAtTarget(pair.Ship);
+                    SpawnMissileAtTarget(pair.Ship);
                 }
             }
 
@@ -54,15 +54,15 @@ namespace SpaceCardGame
         #region Utility Functions
 
         /// <summary>
-        /// Spawns a bullet (not parented under a turret, but just as effect) which fires at the inputted target ship
+        /// Spawns a missile (not parented under a turret, but just as effect) which fires at the inputted target ship
         /// </summary>
         /// <param name="targetShip"></param>
-        private void SpawnBulletAtTarget(Ship targetShip)
+        private void SpawnMissileAtTarget(Ship targetShip)
         {
-            ProjectileData bulletData = AssetManager.GetData<ProjectileData>(Bullet.defaultBulletDataAsset);
-            DebugUtils.AssertNotNull(bulletData);
+            ProjectileData missileData = AssetManager.GetData<ProjectileData>(Missile.defaultMissileDataAsset);
+            DebugUtils.AssertNotNull(missileData);
 
-            ScreenManager.Instance.CurrentScreen.AddInGameUIObject(new Bullet(targetShip, WorldPosition, bulletData), true, true);
+            ScreenManager.Instance.CurrentScreen.AddInGameUIObject(new Missile(targetShip, WorldPosition, missileData), true, true);
         }
 
         #endregion

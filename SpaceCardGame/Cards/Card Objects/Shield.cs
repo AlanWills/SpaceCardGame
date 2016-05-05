@@ -31,7 +31,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to our shield explosion SFX that is triggered when this is hit by a bullet.
         /// </summary>
-        private SoundEffect ShieldExplosionSFX { get; set; }
+        private CustomSoundEffect ShieldExplosionSFX { get; set; }
 
         #endregion
 
@@ -63,7 +63,7 @@ namespace SpaceCardGame
             ShieldData = Data as ShieldData;
             DebugUtils.AssertNotNull(ShieldData);
 
-            ShieldExplosionSFX = SFXManager.GetSoundEffect("Explosions\\ShieldExplosion");
+            ShieldExplosionSFX = new CustomSoundEffect("Explosions\\ShieldExplosion");
 
             DamageModule = AddModule(new DamageableObjectModule(ShieldData.MaxShieldStrength));
             FlashingModule = AddModule(new FlashingObjectModule(0.15f, 1, 1));

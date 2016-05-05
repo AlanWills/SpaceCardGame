@@ -17,6 +17,7 @@ namespace SpaceCardGame
         private Engine Engine { get; set; }
 
         private static int side = -1;
+        public const string defaultMissileDataAsset = "Cards\\Weapons\\Missile\\VulcanMissileTurret\\VulcanMissileTurretBullet.xml";
 
         #endregion
 
@@ -59,7 +60,7 @@ namespace SpaceCardGame
                 {
                     finishedJutting = true;
                     Engine.Show();      // Have to call show because by default our Engine is hidden (since it is a CardObject)
-                    FiringSFX.Play(OptionsManager.SFXVolume, 0, 0);
+                    FiringSFX.Play();
                 }
             }
             else

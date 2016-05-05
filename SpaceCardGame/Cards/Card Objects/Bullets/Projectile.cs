@@ -26,12 +26,12 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to our firing sfx.
         /// </summary>
-        protected SoundEffect FiringSFX { get; private set; }
+        protected CustomSoundEffect FiringSFX { get; private set; }
 
         /// <summary>
         /// A reference to our explosion SFX.
         /// </summary>
-        protected SoundEffect ExplosionSFX { get; private set; }
+        protected CustomSoundEffect ExplosionSFX { get; private set; }
 
         #endregion
 
@@ -65,8 +65,8 @@ namespace SpaceCardGame
         {
             CheckShouldLoad();
 
-            FiringSFX = SFXManager.GetSoundEffect(ProjectileData.FiringSFXAsset);
-            ExplosionSFX = SFXManager.GetSoundEffect(ProjectileData.ExplosionSFXAsset);
+            FiringSFX = new CustomSoundEffect(ProjectileData.FiringSFXAsset);
+            ExplosionSFX = new CustomSoundEffect(ProjectileData.ExplosionSFXAsset);
 
             base.LoadContent();
         }

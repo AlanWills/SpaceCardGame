@@ -90,7 +90,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to our explosion that is triggered when this ship dies.
         /// </summary>
-        private SoundEffect ShipDeathExplosionSFX { get; set; }
+        private CustomSoundEffect ShipDeathExplosionSFX { get; set; }
 
         #endregion
 
@@ -122,7 +122,7 @@ namespace SpaceCardGame
             ShipData = Data as ShipData;
             DebugUtils.AssertNotNull(ShipData);
 
-            ShipDeathExplosionSFX = SFXManager.GetSoundEffect(ShipData.ExplosionSFXAsset);
+            ShipDeathExplosionSFX = new CustomSoundEffect(ShipData.ExplosionSFXAsset);
 
             DamageModule = AddModule(new DamageableObjectModule(ShipData.Defence));
 

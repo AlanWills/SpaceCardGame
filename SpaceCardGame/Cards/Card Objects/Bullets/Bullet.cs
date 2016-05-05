@@ -27,7 +27,7 @@ namespace SpaceCardGame
         {
             base.Begin();
 
-            FiringSFX.Play(OptionsManager.SFXVolume, 0, 0);
+            FiringSFX.Play();
         }
 
         /// <summary>

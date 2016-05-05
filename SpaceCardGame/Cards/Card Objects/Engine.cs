@@ -31,7 +31,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the engine SFX for this Engine
         /// </summary>
-        public SoundEffectInstance EngineSFX { get; set; }
+        public new CustomSoundEffect EngineSFX { get; set; }
 
         // A string which represents the default engine all ships have 
         private const string defaultEngineDataAsset = "Cards\\Engines\\DefaultEngine.xml";
@@ -73,7 +73,7 @@ namespace SpaceCardGame
             EngineData = Data as EngineData;
             DebugUtils.AssertNotNull(EngineData);
 
-            EngineSFX = SFXManager.CreateInstance("Engines\\Engine");
+            EngineSFX = new CustomSoundEffect("Engines\\Engine");
             EngineBlaze = AddChild(new EngineBlaze(Vector2.Zero));
 
             base.LoadContent();
@@ -97,10 +97,10 @@ namespace SpaceCardGame
         {
             base.Update(elapsedGameTime);
 
-            if (EngineSFX.State == SoundState.Stopped)
-            {
-                //EngineSFX.Play();
-            }
+            //if (EngineSFX.State == SoundState.Stopped)
+            //{
+            //    EngineSFX.Play();
+            //}
         }
 
         #endregion
