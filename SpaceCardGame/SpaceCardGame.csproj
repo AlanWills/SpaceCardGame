@@ -122,6 +122,7 @@
     <Compile Include="Modules\CardHoverInfoModule.cs" />
     <Compile Include="Modules\ShipCardHoverInfoModule.cs" />
     <Compile Include="Players\GamePlayer.cs" />
+    <Compile Include="Screens\Gameplay\TutorialScreen.cs" />
     <Compile Include="Screens\Menus\ChooseDeckMenuScreen.cs" />
     <Compile Include="Screens\Menus\HardpointScreen.cs" />
     <Compile Include="Screens\Menus\OpenCardPacksScreen.cs" />

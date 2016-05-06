@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="2DEngine.dll" size="282112">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="2DEngine.dll" size="283648">
       <assemblyIdentity name="2DEngine" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>IPm4Lx+S78pAWLbWa+uy14I3lo/YbHD2SVUUiN7ZbE4=</dsig:DigestValue>
+        <dsig:DigestValue>tZe9PQmi4C4SGHC/qoGOv7fUCcioHoEUQZ20u6fqmko=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>aFuKRDv1jimJwgCeXF5wjGBXK/nl9k8YzkLK50amCm8=</dsig:DigestValue>
+        <dsig:DigestValue>yrKrbWT3N+8zBh782GqLCnYS45J8t3U1W8RdCcBy3ak=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -266,7 +266,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bxyLb0k4c4CCtHMORTn2pSgWN6jyEK9OMHo0/kzUZgw=</dsig:DigestValue>
+        <dsig:DigestValue>DZKtXBqfmJHFBXbmEwFG43qESrj8YHOaMJfFhsLNQ1M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -633,13 +633,13 @@
       <dsig:DigestValue>Aw50XGapMhZiwXOieqSRahpOnZ4FnWQ8/9WmZXAoc3Y=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Player\StartingPlayerCardRegistryData.xml" size="1478" writeableType="applicationData">
+  <file name="Content\Data\Player\StartingPlayerCardRegistryData.xml" size="2906" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>sntdlfU5ICk6Ifaua4FHf9xCHz+eb2n82NMcTW+kyb8=</dsig:DigestValue>
+      <dsig:DigestValue>RZYa7QfpgjGRO9RRG4yIyS4kqGnnlG7yQQ3Lp7Arbe0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Screens\BattleScreen.xml" size="501" writeableType="applicationData">

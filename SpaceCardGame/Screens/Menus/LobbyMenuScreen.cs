@@ -25,11 +25,14 @@ namespace SpaceCardGame
         {
             base.AddInitialUI();
 
-            GridControl buttonGridControl = AddScreenUIObject(new GridControl(1, 3, ScreenCentre));
+            GridControl buttonGridControl = AddScreenUIObject(new GridControl(1, 4, ScreenCentre));
             buttonGridControl.BorderPadding = new Vector2(100, 50);
 
             Button playGameButton = buttonGridControl.AddChild(new Button("Play", Vector2.Zero));
             playGameButton.ClickableModule.OnLeftClicked += OnPlayGameButtonLeftClicked;
+
+            Button tutorialButton = buttonGridControl.AddChild(new Button("Tutorial", Vector2.Zero));
+            tutorialButton.ClickableModule.OnLeftClicked += OnTutorialButtonLeftClicked;
 
             // Disable the play button if we have no decks to choose from
             if (PlayerCardRegistry.Instance.AvailableDecks == 0)
@@ -68,6 +71,15 @@ namespace SpaceCardGame
         private void OnPlayGameButtonLeftClicked(BaseObject baseObject)
         {
             Transition(new ChooseDeckMenuScreen());
+        }
+
+        /// <summary>
+        /// The callback to execute when we press the 'Tutorial' button
+        /// </summary>
+        /// <param name="baseObject"></param>
+        private void OnTutorialButtonLeftClicked(BaseObject baseObject)
+        {
+            Transition(new TutorialScreen(PlayerCardRegistry.Instance.Decks[0]));
         }
 
         /// <summary>

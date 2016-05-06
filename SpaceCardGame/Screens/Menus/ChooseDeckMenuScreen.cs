@@ -53,7 +53,7 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(clickableImage.StoredObject);
             Debug.Assert(clickableImage.StoredObject is Deck);
 
-            Transition(new BattleScreen(clickableImage.StoredObject as Deck, "Screens\\BattleScreen.xml"));
+            Transition(new BattleScreen(clickableImage.StoredObject as Deck));
         }
 
         #endregion

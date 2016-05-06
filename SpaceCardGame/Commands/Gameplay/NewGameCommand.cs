@@ -24,9 +24,9 @@ namespace SpaceCardGame
         public NewGameCommand() :
             base()
         {
-            Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
-            BattleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
-            BattleScreen.ShouldHandleInput.Value = false;
+            Debug.Assert(ParentScreen is BattleScreen);
+            BattleScreen = ParentScreen as BattleScreen;
+            GameHandleInput = false;
         }
 
         #region Virtual Functions

@@ -68,7 +68,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public BattleScreen(Deck playerChosenDeck, string screenDataAsset) :
+        public BattleScreen(Deck playerChosenDeck, string screenDataAsset = "Screens\\BattleScreen.xml") :
             base(screenDataAsset)
         {
             Player = new GamePlayer(playerChosenDeck);
@@ -119,6 +119,16 @@ namespace SpaceCardGame
         }
 
         /// <summary>
+        /// Add our new game command.
+        /// </summary>
+        protected override void AddInitialCommands()
+        {
+            base.AddInitialCommands();
+
+            CommandManager.Instance.AddChild(new NewGameCommand(), true, true);
+        }
+
+        /// <summary>
         /// Set up our game board.
         /// We do this here (BAD) because we need to make sure that the current screen is the battle screen
         /// </summary>
@@ -131,7 +141,7 @@ namespace SpaceCardGame
             // Set the current active player to be the opponent, so that when we call NewPlayerTurn at the end of the script, we begin the game for the player
             ActivePlayer = Opponent;
             TurnState = TurnState.kBattle;
-            CommandManager.Instance.AddChild(new NewGameCommand(), true, true);
+            //CommandManager.Instance.AddChild(new NewGameCommand(), true, true);
         }
 
         #endregion
