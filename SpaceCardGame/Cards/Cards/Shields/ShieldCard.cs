@@ -7,8 +7,8 @@ namespace SpaceCardGame
     /// </summary>
     public class ShieldCard : GameCard
     {
-        public ShieldCard(ShieldCardData defenceCardData) :
-            base(defenceCardData)
+        public ShieldCard(ShieldCardData shieldCardData) :
+            base(shieldCardData)
         {
 
         }

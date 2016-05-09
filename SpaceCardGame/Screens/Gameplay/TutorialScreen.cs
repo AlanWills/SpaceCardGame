@@ -1,5 +1,6 @@
 ﻿using _2DEngine;
 using CardGameEngine;
+using System.Collections.Generic;
 
 namespace SpaceCardGame
 {
@@ -22,12 +23,94 @@ namespace SpaceCardGame
         /// </summary>
         protected override void AddInitialCommands()
         {
-            base.AddInitialCommands();
+            List<string> strings = new List<string>()
+            {
+                "Welcome to the tutorial.",
+                "Here you will learn the basics of the game by playing against a simple AI.",
+                "At the start of every game, your hand will have five cards.",
+                "It can hold a maximum of ten - if your hand is full, you will immediately discard any more you draw.",
+                "At the start of your turn, you will draw three cards from your deck.",
+                "Lets start with your turn..."
+            };
 
-            NewGameCommand newGameCommand = CommandManager.Instance.FindChild<NewGameCommand>();
-            DebugUtils.AssertNotNull(newGameCommand);
+            // Add our opening text info dialog
+            TextDialogBoxCommand openingTextDialog = AddCommand(new TextDialogBoxCommand(strings, true));
 
-            newGameCommand.PreviousCommand = AddCommand(new TextDialogBoxCommand("", true));
+            // Run our command for a new game
+            NewTutorialCommand newGameCommand = AddCommand(new NewTutorialCommand(), openingTextDialog);
+
+            strings = new List<string>()
+            {
+                "Great!",
+                "Now that you have your starting cards, lets take a closer look.",
+                "On the field already, you can see you and your opponent's STATION.",
+                "This is the heart of your fleet and if it is destroyed, you will lose this battle.",
+                "Similarly, if you destroy your opponent's station you will win.",
+                "Hover the mouse over your station now to see more information about it."
+            };
+
+            // Add our text box for explaining the role of the station
+            TextDialogBoxCommand stationExplanationTextDialog = AddCommand(new TextDialogBoxCommand(strings, true), newGameCommand);
+
+            // Wait for the player to hover over the station
+            WaitForConditionCommand waitForStationHovered = AddCommand(new WaitForConditionCommand(IsStationHoveredOver), stationExplanationTextDialog);
+
+            // Wait for the player to stop hovering over the station
+            WaitForConditionCommand waitForStationNotHovered = AddCommand(new WaitForConditionCommand(IsStationNotHoveredOver), waitForStationHovered);
+
+            strings = new List<string>()
+            {
+                "You are currently in the 'Card Placement' phase.",
+                "During this phase, you can hover the mouse over a card as you have just done to get a better look at it.",
+                "The other phase in a turn is the 'Battle' phase.",
+                "We will get to that shortly, but during the Battle phase you can do the same thing by holding SHIFT whilst hovering the mouse over the card.",
+                "In your hand, by hovering the mouse over each card find the FUEL resource card."
+            };
+
+            // Add our text box for explaining the battle phases
+            TextDialogBoxCommand phasesExplanationTextDialog = AddCommand(new TextDialogBoxCommand(strings, true), waitForStationNotHovered);
+
+            // Wait for the player to hover over the fuel card
+            WaitForConditionCommand waitForFuelCardHovered = AddCommand(new WaitForConditionCommand(IsFuelCardHovered), phasesExplanationTextDialog);
+
+            strings = new List<string>()
+            {
+                "Resources are what you use to build ships for your fleet."
+            };
+
+            // Add our text box for explaining the resourceCards
+            TextDialogBoxCommand resourceCardExplanationTextDialog = AddCommand(new TextDialogBoxCommand(strings, true), waitForFuelCardHovered);
+        }
+
+        #endregion
+
+        #region Callbacks
+
+        /// <summary>
+        /// We want to wait until our station is hovered over
+        /// </summary>
+        /// <returns></returns>
+        private bool IsStationHoveredOver()
+        {
+            return Board.PlayerBoardSection.GameBoardSection.ShipCardControl.FindChild<CardStationPair>().Card.Collider.IsEntered;
+        }
+
+        /// <summary>
+        /// We want to wait until our station is no longer hovered over;
+        /// </summary>
+        /// <returns></returns>
+        private bool IsStationNotHoveredOver()
+        {
+            return Board.PlayerBoardSection.GameBoardSection.ShipCardControl.FindChild<CardStationPair>().Card.Collider.IsExited;
+        }
+
+        /// <summary>
+        /// We want to wait until our fuel resource is hovered over
+        /// </summary>
+        /// <returns></returns>
+        private bool IsFuelCardHovered()
+        {
+            return Board.PlayerBoardSection.UIBoardSection.HandUI.FindChild<BaseUICard>(x => (x as BaseUICard).CardData.Type == "Resource").Collider.IsEntered;
         }
 
         #endregion

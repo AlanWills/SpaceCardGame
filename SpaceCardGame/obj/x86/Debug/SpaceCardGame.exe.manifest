@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="2DEngine.dll" size="283648">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="2DEngine.dll" size="284160">
       <assemblyIdentity name="2DEngine" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>tZe9PQmi4C4SGHC/qoGOv7fUCcioHoEUQZ20u6fqmko=</dsig:DigestValue>
+        <dsig:DigestValue>6XDUzvtb/J1mrTpug8uq+buc3Nc2C8JDdptTwUp5kY0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -67,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CardGameEngine.dll" size="182272">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CardGameEngine.dll" size="182784">
       <assemblyIdentity name="CardGameEngine" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>yrKrbWT3N+8zBh782GqLCnYS45J8t3U1W8RdCcBy3ak=</dsig:DigestValue>
+        <dsig:DigestValue>6aq9PhBlEyY7VKkO8yRCvX5IFqyUrENpfrFAxuNc1QY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -259,14 +259,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="230808">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="235928">
       <assemblyIdentity name="SpaceCardGame" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>DZKtXBqfmJHFBXbmEwFG43qESrj8YHOaMJfFhsLNQ1M=</dsig:DigestValue>
+        <dsig:DigestValue>0V/cOwE332yRE1qsyMiejm860zXJgOFqLY/ydwbxGm4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -309,49 +309,49 @@
       <dsig:DigestValue>UGh0y0TGPaFuv26wU6Gx4q0+z+gSo6QWpJPwoIaYHRc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Resources\CrewResource\CrewResourceCard.xml" size="435" writeableType="applicationData">
+  <file name="Content\Data\Cards\Resources\CrewResource\CrewResourceCard.xml" size="400" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>29Mb1n7rj+o/JEc2CqeN8LSBOSc6sgIZbDaw9yQ0lG0=</dsig:DigestValue>
+      <dsig:DigestValue>tvvQCj0f5AcVrVj4TQVF+U8l95KYRphuuLb8jOsWSCc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Resources\ElectronicsResource\ElectronicsResourceCard.xml" size="463" writeableType="applicationData">
+  <file name="Content\Data\Cards\Resources\ElectronicsResource\ElectronicsResourceCard.xml" size="428" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>zDwkYIZrQFZ6NtvMLqFqprx2XjzVlKObiqWf/Ks8xdc=</dsig:DigestValue>
+      <dsig:DigestValue>yHbih+P9nWgpp04q18GPSml9ZMJ2X+F2EF0CWJwY9hc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Resources\FuelResource\FuelResourceCard.xml" size="435" writeableType="applicationData">
+  <file name="Content\Data\Cards\Resources\FuelResource\FuelResourceCard.xml" size="400" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>6llEItqg4gIFyI3G3vWcwEKoZE168WApkbiHegkShlw=</dsig:DigestValue>
+      <dsig:DigestValue>h5S4OYxAiddy4YWX5rgzYf5hB/ppFGJbYjYoLGR6+Hw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Resources\MetalResource\MetalResourceCard.xml" size="439" writeableType="applicationData">
+  <file name="Content\Data\Cards\Resources\MetalResource\MetalResourceCard.xml" size="404" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>EMZ866BPFhJQXG1TUMtTt14scaE6Uh2F6ImSWH7/9M4=</dsig:DigestValue>
+      <dsig:DigestValue>pU8QF9iL4HMwbvBscSozBXRZVneRecKu8aD96EU2YAA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xml" size="472" writeableType="applicationData">
+  <file name="Content\Data\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xml" size="483" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>GP+Y4fE+86nMrsYcIJ2mcp5ZXjKB6ZoamVcVi4rmfTM=</dsig:DigestValue>
+      <dsig:DigestValue>feYp5L2yxRkwNJeLsweoFqJub9vJrXQdneVqAqisz1M=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldObject.xml" size="273" writeableType="applicationData">
@@ -363,13 +363,13 @@
       <dsig:DigestValue>IDxQULvbKBoVvDTVZaQOfp8EXKz1kZaLXn2aZ2h1SDI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Ships\BlazeInterceptor\BlazeInterceptorCard.xml" size="456" writeableType="applicationData">
+  <file name="Content\Data\Cards\Ships\BlazeInterceptor\BlazeInterceptorCard.xml" size="472" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>DEECJj5/R7u0oWSg8TrwFp6A5EWoji/gqG8m57s0k00=</dsig:DigestValue>
+      <dsig:DigestValue>vV2m/mOGW7kObA6sgBXSsF37G8/gLNgEzGJ8raEexPA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Ships\BlazeInterceptor\BlazeInterceptorObject.xml" size="579" writeableType="applicationData">
@@ -399,13 +399,13 @@
       <dsig:DigestValue>j2LObLtE68NOkF8UrtwhcOS8/19nld0lScag7TzwRps=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Ships\VenatorCruiser\VenatorCruiserCard.xml" size="444" writeableType="applicationData">
+  <file name="Content\Data\Cards\Ships\VenatorCruiser\VenatorCruiserCard.xml" size="458" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>lBfxyqji7rHcJhLc4dP72lFPfvNpTKIMfJCYlXUcw3Y=</dsig:DigestValue>
+      <dsig:DigestValue>6TCITyvN25HS43VK5Fnfbhz5PDz+IlFxmbhRmjFJFC4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Ships\VenatorCruiser\VenatorCruiserObject.xml" size="1289" writeableType="applicationData">
@@ -417,13 +417,13 @@
       <dsig:DigestValue>gOK57BIugbrlfxwIJvjhx6u0k2rZ/jyszitTPp6PNlg=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Ships\WaspFighter\WaspFighterCard.xml" size="431" writeableType="applicationData">
+  <file name="Content\Data\Cards\Ships\WaspFighter\WaspFighterCard.xml" size="442" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>fEVaF6a2m8fQGnrkiA/oiISBk5wIFhFXCq3ACpUbSe0=</dsig:DigestValue>
+      <dsig:DigestValue>egh3M7WNhDNRiZvaBuHJOq2ZW4HTrWe5Z4a8ngy4Bvg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Ships\WaspFighter\WaspFighterObject.xml" size="568" writeableType="applicationData">
@@ -633,13 +633,13 @@
       <dsig:DigestValue>Aw50XGapMhZiwXOieqSRahpOnZ4FnWQ8/9WmZXAoc3Y=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Player\StartingPlayerCardRegistryData.xml" size="2906" writeableType="applicationData">
+  <file name="Content\Data\Player\StartingPlayerCardRegistryData.xml" size="2346" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>RZYa7QfpgjGRO9RRG4yIyS4kqGnnlG7yQQ3Lp7Arbe0=</dsig:DigestValue>
+      <dsig:DigestValue>nYWklZZlkOXZHnX0O3vjJ0XfWZ2zJgmxPAr5manusKg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Screens\BattleScreen.xml" size="501" writeableType="applicationData">

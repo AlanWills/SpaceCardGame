@@ -94,15 +94,24 @@ namespace CardGameEngine
             for (int i = 0; i < numberOfCards; i++)
             {
                 CardData cardData = ChosenDeck.Draw();
-                if (OnCardDraw != null)
-                {
-                    OnCardDraw(cardData);
-                }
+                TriggerDrawCardEvents(cardData);
+            }
+        }
 
-                if (CurrentHand.Count < MaxHandSize)
-                {
-                    AddCardToHand(cardData);
-                }
+        /// <summary>
+        /// Fires the events for card draw
+        /// </summary>
+        /// <param name="cardData"></param>
+        protected void TriggerDrawCardEvents(CardData cardData)
+        {
+            if (OnCardDraw != null)
+            {
+                OnCardDraw(cardData);
+            }
+
+            if (CurrentHand.Count < MaxHandSize)
+            {
+                AddCardToHand(cardData);
             }
         }
 

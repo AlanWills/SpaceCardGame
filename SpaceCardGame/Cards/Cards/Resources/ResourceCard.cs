@@ -26,7 +26,7 @@ namespace SpaceCardGame
         /// <summary>
         /// An indicator of the resource type of this
         /// </summary>
-        public ResourceType ResourceType { get; private set; }
+        public ResourceType ResourceType { get; protected set; }
 
         /// <summary>
         /// A flag to indicate whether we have used the resource this card represents.
@@ -56,7 +56,7 @@ namespace SpaceCardGame
         public ResourceCard(ResourceCardData cardData) :
             base(cardData)
         {
-            ResourceType = (ResourceType)Enum.Parse(typeof(ResourceType), cardData.ResourceType);
+            
         }
 
         #region Virtual Functions

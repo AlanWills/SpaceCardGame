@@ -91,6 +91,21 @@ namespace SpaceCardGame
         #region Utility Functions
 
         /// <summary>
+        /// Draws a card from the deck of a certain type - useful for the beginning of the game to enforce certain cards appear in the player's hand.
+        /// Also useful in certain abilities which add a card type to your hand.
+        /// For example, to add a MissileBarrageAbilityCard to your hand, use DrawCard("MissileBarrageAbilityCard").
+        /// </summary>
+        /// <param name="resourceType"></param>
+        public void DrawCard(string cardTypeName)
+        {
+            Debug.Assert(ChosenDeck.Exists(x => (x as GameCardData).CardTypeName == cardTypeName));
+            CardData cardData = ChosenDeck.Find(x => (x as GameCardData).CardTypeName == cardTypeName);
+            ChosenDeck.Remove(cardData);
+
+            TriggerDrawCardEvents(cardData);
+        }
+
+        /// <summary>
         /// A function which obtains the data for the station in the player's deck and removes it from the deck so that we cannot draw it.
         /// Used at the start of the game to get the station data so we can add it to our board straightaway.
         /// </summary>

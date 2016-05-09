@@ -138,10 +138,9 @@ namespace SpaceCardGame
 
             Board = AddGameObject(new Board(ScreenCentre), true, true);         // TODO rethink this
 
-            // Set the current active player to be the opponent, so that when we call NewPlayerTurn at the end of the script, we begin the game for the player
+            // Set the current active player to be the opponent, so that when we call NewPlayerTurn at the end of the new game command, we begin the game for the player
             ActivePlayer = Opponent;
             TurnState = TurnState.kBattle;
-            //CommandManager.Instance.AddChild(new NewGameCommand(), true, true);
         }
 
         #endregion

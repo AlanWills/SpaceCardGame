@@ -1,5 +1,6 @@
 ﻿using _2DEngine;
 using CardGameEngine;
+using CardGameEngineData;
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
 
@@ -79,7 +80,11 @@ namespace SpaceCardGame
         /// <param name="baseObject"></param>
         private void OnTutorialButtonLeftClicked(BaseObject baseObject)
         {
-            Transition(new TutorialScreen(PlayerCardRegistry.Instance.Decks[0]));
+            PlayerCardRegistryData startingRegistryData = AssetManager.GetData<PlayerCardRegistryData>(PlayerCardRegistry.startingCardRegistryDataAsset);
+            Deck tutorialDeck = new Deck();
+            tutorialDeck.Create(startingRegistryData.Decks[0].CardDataAssets);
+
+            Transition(new TutorialScreen(tutorialDeck));
         }
 
         /// <summary>

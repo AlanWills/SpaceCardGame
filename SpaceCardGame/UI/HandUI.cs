@@ -126,7 +126,7 @@ namespace SpaceCardGame
                 }
                 else
                 {
-                    CommandManager.Instance.AddChild(new FlashingTextCommand(error, ScreenManager.Instance.ScreenCentre, Color.White, 2), true, true);
+                    CommandManager.Instance.AddChild(new FlashingTextCommand(error, ScreenManager.Instance.ScreenCentre, Color.White, false, 2), true, true);
                 }
             }
         }

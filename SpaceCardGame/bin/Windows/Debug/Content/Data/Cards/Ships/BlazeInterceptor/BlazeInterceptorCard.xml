@@ -6,6 +6,6 @@
     <DisplayName>Blaze Interceptor</DisplayName>
     <Rarity>Common</Rarity>
     <ResourceCosts>0 1 0 1</ResourceCosts>
-    <CardTypeName>ShipCard</CardTypeName>
+    <CardTypeName>BlazeInterceptorShipCard</CardTypeName>
   </Asset>
 </XnaContent>

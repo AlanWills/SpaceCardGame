@@ -49,6 +49,17 @@ namespace CardGameEngine
         }
 
         /// <summary>
+        /// Creates a list and loads the card data assets we have inputted.
+        /// </summary>
+        /// <param name="cards">The initial card data assets to add to this deck</param>
+        public void Create(List<string> cards)
+        {
+            Create();
+
+            Cards.AddRange(CentralCardRegistry.ConvertToDataList(cards));
+        }
+
+        /// <summary>
         /// Creates a list and adds the inputted cards to it.
         /// </summary>
         /// <param name="cards">The initial cards to add to this deck</param>

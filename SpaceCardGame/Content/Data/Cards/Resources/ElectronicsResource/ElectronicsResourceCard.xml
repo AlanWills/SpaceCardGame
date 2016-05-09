@@ -6,7 +6,6 @@
     <DisplayName>Electronics</DisplayName>
     <Rarity>Common</Rarity>
     <ResourceCosts>0 0 0 0</ResourceCosts>
-    <CardTypeName>ResourceCard</CardTypeName>
-    <ResourceType>Electronics</ResourceType>
+    <CardTypeName>ElectronicsResourceCard</CardTypeName>
   </Asset>
 </XnaContent>

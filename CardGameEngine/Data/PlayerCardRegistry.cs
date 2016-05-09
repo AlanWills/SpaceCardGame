@@ -104,7 +104,7 @@ namespace CardGameEngine
                 Debug.Assert(deckIndex < maxDeckNumber);
                 DebugUtils.AssertNotNull(Decks[deckIndex]);
 
-                Decks[deckIndex].Create(CentralCardRegistry.ConvertToDataList(deckData.CardDataAssets));
+                Decks[deckIndex].Create(deckData.CardDataAssets);
                 Decks[deckIndex].Name = deckData.Name;
 
                 deckIndex++;
