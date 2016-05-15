@@ -29,12 +29,17 @@ namespace SpaceCardGame
             }
         }
 
+        /// <summary>
+        /// A reference to our ShipCardData
+        /// </summary>
+        public ShipCardData ShipCardData { get; private set; }
+
         #endregion
 
         public ShipCard(ShipCardData shipCardData) :
             base(shipCardData)
         {
-
+            ShipCardData = shipCardData;
         }
 
         #region Virtual Functions

@@ -31,7 +31,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the engine SFX for this Engine
         /// </summary>
-        public new CustomSoundEffect EngineSFX { get; set; }
+        public CustomSoundEffect EngineSFX { get; set; }
 
         // A string which represents the default engine all ships have 
         private const string defaultEngineDataAsset = "Cards\\Engines\\DefaultEngine.xml";

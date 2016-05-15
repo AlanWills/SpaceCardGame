@@ -54,6 +54,12 @@ namespace CardGameEngine
         /// </summary>
         public int MaxHandSize { get; private set; }
 
+        /// <summary>
+        /// The number of cards our player will draw at the start of their turn.
+        /// By default set to 3.
+        /// </summary>
+        public int CardsToDrawPerTurn { get; set; }
+
         #endregion
 
         public Player(Deck chosenDeck)
@@ -61,6 +67,7 @@ namespace CardGameEngine
             ChosenDeck = new DeckInstance(chosenDeck);
             CurrentHand = new List<CardData>();
             MaxHandSize = 10;
+            CardsToDrawPerTurn = 3;
         }
 
         #region Virtual Functions
@@ -71,7 +78,7 @@ namespace CardGameEngine
         public virtual void NewTurn()
         {
             // Draw a card - in the draw method we will add it to our hand if we can
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < CardsToDrawPerTurn; i++)
             {
                 if (CardsLeftInDeck > 0)
                 {

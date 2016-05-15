@@ -30,7 +30,6 @@ namespace CardGameEngine
         // A timer used for some UI sugar, nothing more
         private float cardLifeTime = 0.15f;
         private const string cardsLeftString = "Cards Left: ";
-        private float padding = 5;
 
         #endregion
 
