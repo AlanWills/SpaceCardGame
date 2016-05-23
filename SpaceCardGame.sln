@@ -30,9 +30,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test2DEngineInGame", "..\2DEngine\Test2DEngineInGame\Test2DEngineInGame.csproj", "{D30B8519-2F59-4AC9-A21A-722C5C48BFD5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Game", "Game", "{C8ED011F-6EFF-468E-BD62-A9027592DF1D}"
-	ProjectSection(SolutionItems) = preProject
-		Z:\Sprites\Space\Icons\32x_starburst_hollow.png = Z:\Sprites\Space\Icons\32x_starburst_hollow.png
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

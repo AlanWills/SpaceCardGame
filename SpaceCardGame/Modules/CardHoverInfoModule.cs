@@ -69,7 +69,7 @@ namespace SpaceCardGame
                 if (IsInputValidToShowCard(battleScreen, colliderToCheck))
                 {
                     // If we have just entered the object, we add the info image to the screen
-                    battleScreen.AddScreenUIObject(InfoImage);
+                    battleScreen.AddInGameUIObject(InfoImage);
                     cardAdded = true;
                 }
             }
@@ -79,7 +79,7 @@ namespace SpaceCardGame
                 {
                     // If we have just exited the object, we extract the info image from the screen, but do not kill it
                     // This means we can cache it rather than constantly recreating it
-                    battleScreen.ExtractScreenUIObject(InfoImage);
+                    battleScreen.ExtractInGameUIObject(InfoImage);
                     cardAdded = false;
                 }
             }

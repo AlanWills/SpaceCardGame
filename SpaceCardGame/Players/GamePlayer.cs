@@ -80,10 +80,7 @@ namespace SpaceCardGame
                 }
             }
 
-            if (OnNewTurn != null)
-            {
-                OnNewTurn(this);
-            }
+            OnNewTurn?.Invoke(this);
         }
 
         #endregion

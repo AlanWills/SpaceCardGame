@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="2DEngine.dll" size="284160">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="2DEngine.dll" size="285184">
       <assemblyIdentity name="2DEngine" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>t5axm2Ch4FC0h5BqggH/d8zRuCcHTpd72QVAHvHxZJ4=</dsig:DigestValue>
+        <dsig:DigestValue>GfcN4U/L6wGenFkCLEHAAYHLS1Wv1kyOnFHmoZ4lnBg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>/iJKY4Zal27sfz8GdobElTM9J5zIvtWMd/tmqXD40Fs=</dsig:DigestValue>
+        <dsig:DigestValue>kv/gfYExe7ddjUZUbyQvuMHXr2Y3gpwscR0Un+jOPa0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -259,14 +259,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="237976">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="246680">
       <assemblyIdentity name="SpaceCardGame" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>lj4+hP97KNUAO5MQ1L6P4ggReSMBUz7k5hDVK/oH5bQ=</dsig:DigestValue>
+        <dsig:DigestValue>cSRMPKhTat9FuRlgGTJQybsURWQ2xJn/yBTEpmYyye4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

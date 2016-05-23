@@ -109,7 +109,7 @@
     <Compile Include="Cards\Cards\Ships\ShipCard.cs" />
     <Compile Include="Cards\Cards\Ships\EagleFrigateShipCard.cs" />
     <Compile Include="Cards\Cards\Ships\VenatorCruiserShipCard.cs" />
-    <Compile Include="Cards\Cards\Ships\WaspFighterCard.cs" />
+    <Compile Include="Cards\Cards\Ships\WaspFighterShipCard.cs" />
     <Compile Include="Cards\Cards\Weapons\Beam\LaserBeamTurretCard.cs" />
     <Compile Include="Cards\Cards\Weapons\DefaultTurretCard.cs" />
     <Compile Include="Cards\Cards\Weapons\Kinetic\GatlingLaserTurretCard.cs" />

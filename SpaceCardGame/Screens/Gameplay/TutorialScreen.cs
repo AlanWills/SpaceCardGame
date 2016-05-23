@@ -130,6 +130,137 @@ namespace SpaceCardGame
 
             // Wait for the wasp fighter to be added
             WaitForConditionCommand waitForWaspFighterToBeAdded = AddCommand(new WaitForConditionCommand(WaitForWaspFighterToBeAdded), shipCardExplanationTextDialog);
+
+            strings = new List<string>()
+            {
+                "Your first ship is deployed, but it will take a turn before it is ready for you to command",
+                "When you are ready, press the 'Ready For Battle' button to enter the BATTLE PHASE"
+            };
+
+            // Add our text box for ending our turn
+            TextDialogBoxCommand endTurnTextDialog = AddTextDialogBoxCommand(strings, waitForWaspFighterToBeAdded);
+
+            // Wait for the Ready For Battle button to be pressed
+            WaitForConditionCommand waitForBattlePhaseEntered = AddCommand(new WaitForConditionCommand(WaitForCardPlacementPhaseEnded), endTurnTextDialog);
+
+            strings = new List<string>()
+            {
+                "This is the Battle Phase",
+                "Here you will battle your opponent with the ships you deployed in the Card Placement phase",
+                "At any time, you can hover the mouse over a ship and press SHIFT to see it's card, or CTRL to see the ship in all it's full scale glory",
+                "The ship we have deployed is not ready yet, so we should end the turn by pressing the 'End Turn' button"
+            };
+
+            // Add our text box for explaining how the battle phase works
+            TextDialogBoxCommand battlePhaseExplanationTextDialog = AddTextDialogBoxCommand(strings, waitForBattlePhaseEntered);
+
+            // Wait for the battle phase to be finished
+            WaitForConditionCommand waitForBattlePhaseEnded = AddCommand(new WaitForConditionCommand(WaitForBattlePhaseEnded), battlePhaseExplanationTextDialog);
+
+            strings = new List<string>()
+            {
+                "It is now the AI's turn",
+                "Wait for it to complete it's turn"
+            };
+
+            // Add our text box for explaining the AI turn
+            TextDialogBoxCommand AITurnExplanationDialog = AddTextDialogBoxCommand(strings, waitForBattlePhaseEnded);
+
+            // Wait for the AI turn to be completed
+            WaitForConditionCommand waitAITurnCompleted = AddCommand(new WaitForConditionCommand(WaitForAITurnCompleted), AITurnExplanationDialog);
+
+            strings = new List<string>()
+            {
+                "You have just picked up some more resource cards",
+                "If you lay them now we will be able to look at some more card types"
+            };
+
+            TextDialogBoxCommand addSecondRoundOfResourcesTextDialog = AddTextDialogBoxCommand(strings, waitAITurnCompleted);
+
+            // Wait for the second round of resources to be layed
+            WaitForConditionCommand waitForSecondRoundOfResourcesToBeLayed = AddCommand(new WaitForConditionCommand(AllResourceCardsLayed), addSecondRoundOfResourcesTextDialog);
+
+            strings = new List<string>()
+            {
+                "Not only can you build ships, you can also improve them with SHIP UPGRADES",
+                "Upgrades come in several types, but firstly we will look at WEAPONS",
+                "Weapons allow you to upgrade your ship's default weapon system with a custom one instead",
+                "They require resources to build, but can offer increased damage or multiple shots",
+                "By having multiple shots, your ship can both fire on more than one target and counter attack multiple enemies",
+                "Find the VULCAN MISSILE TURRET card in your hand, select it and click anywhere on the screen",
+                "You can then select a target to add it to"
+            };
+
+            TextDialogBoxCommand weaponExplanationTextDialog = AddTextDialogBoxCommand(strings, waitForSecondRoundOfResourcesToBeLayed);
+
+            // Wait for the weapon card to be added to one of our ships
+            WaitForConditionCommand waitUntilWeaponAdded = AddCommand(new WaitForConditionCommand(WaitForWeaponAddedToShip), weaponExplanationTextDialog);
+
+            strings = new List<string>()
+            {
+                "This weapon actually has an ABILITY",
+                "Some cards have passive or active abilities that are either triggered automatically or by the player",
+                "The card will appear green if the ability can be used",
+                "Once every turn, the vulcan missile turret can fire an extra time if 1 fuel is payed",
+                "Activate this ability now by clicking on the turret card next to the ship it is equipped to (it will be GREEN)"
+            };
+
+            // Add our text box for explaining active abilities
+            TextDialogBoxCommand activeAbilitiesExplanationTextDialog = AddTextDialogBoxCommand(strings, waitUntilWeaponAdded);
+
+            // Wait for the vulcan missile turret's card to be activated
+            WaitForConditionCommand waitUntilAbilityActivated = AddCommand(new WaitForConditionCommand(WaitUntilVulcanTurretAbilityActivated), activeAbilitiesExplanationTextDialog);
+
+            strings = new List<string>()
+            {
+                "Excellent - we will make use of this in the Battle Phase",
+                "Now we are going to look at another ship upgrade - SHIELDS",
+                "Shields absorb damage that would otherwise be inflicted to the ship they are attached to",
+                "They also recharge a certain amount at the start of your turn",
+                "Add the PHASE ENERGY SHIELD in the same way as you did the weapon"
+            };
+
+            // Add our text box for explaining active abilities
+            TextDialogBoxCommand shieldsExplanationTextDialog = AddTextDialogBoxCommand(strings, waitUntilAbilityActivated);
+
+            // Wait for the phase energy shield card to be added to either one of our ships
+            WaitForConditionCommand waitUntilShieldAddedToShip = AddCommand(new WaitForConditionCommand(WaitForShieldAddedToShip), shieldsExplanationTextDialog);
+
+            strings = new List<string>()
+            {
+                "The final card type is the ABILITY card",
+                "These cards work exactly like abilities on other cards except they are stand alone and tend to be more powerful and varied",
+                "The ability card in your hand - MISSILE BARRAGE - is extremely useful at clearing your opponent's board of weak ships",
+                "Mastering these cards will be key to victory"
+            };
+
+            // Add our text box for explaining ability cards
+            TextDialogBoxCommand abilityCardExplanationTextDialog = AddTextDialogBoxCommand(strings, waitUntilShieldAddedToShip);
+
+            strings = new List<string>()
+            {
+                "Lets enter the Battle Phase again to wreak havok with these new upgrades"
+            };
+
+            // Add our text box for prompting the final battle phase
+            TextDialogBoxCommand finalBattlePhaseTextDialog = AddTextDialogBoxCommand(strings, abilityCardExplanationTextDialog);
+
+            WaitForConditionCommand waitForSecondBattlePhaseEntered = AddCommand(new WaitForConditionCommand(WaitForCardPlacementPhaseEnded), finalBattlePhaseTextDialog);
+
+            strings = new List<string>()
+            {
+                "Click on any ship with a weapon to start an attack order and click on any opponent to complete it",
+                "When you are finished with your turn, press the 'End Turn' button to go back to the Main Menu - you have nothing left to learn here"
+            };
+
+            // Add our text box for finalising the tutorial
+            TextDialogBoxCommand finalTextDialog = AddTextDialogBoxCommand(strings, waitForSecondBattlePhaseEntered);
+
+            // Wait for the battle phase to be finished
+            WaitForConditionCommand waitForSecondBattlePhaseEnded = AddCommand(new WaitForConditionCommand(WaitForBattlePhaseEnded), finalTextDialog);
+
+            // Transition to the main menu after we have pressed the 'End Turn' button
+            AddCommand(new CallbackCommand(TransitionToMainMenu), waitForSecondBattlePhaseEnded);
         }
 
         /// <summary>
@@ -159,6 +290,12 @@ namespace SpaceCardGame
             {
                 Player.DrawCard("MetalResourceCard");
                 Player.DrawCard("CrewResourceCard");
+                Player.DrawCard("ElectronicsResourceCard");
+            }
+            else if (TurnNumber == 2)
+            {
+                Player.DrawCard("MetalResourceCard");
+                Player.DrawCard("FuelResourceCard");
                 Player.DrawCard("ElectronicsResourceCard");
             }
         }
@@ -222,7 +359,71 @@ namespace SpaceCardGame
         /// <returns></returns>
         private bool WaitForWaspFighterToBeAdded()
         {
-            return Board.PlayerBoardSection.GameBoardSection.ShipCardControl.Exists(x => (x as CardShipPair).ShipCard.ShipCardData.CardTypeName == "WaspFighterCard");
+            return Board.PlayerBoardSection.GameBoardSection.ShipCardControl.Exists(x => (x as CardShipPair).ShipCard.GetType() == typeof(WaspFighterShipCard));
+        }
+
+        /// <summary>
+        /// Wait until we transition to the battle phase
+        /// </summary>
+        /// <returns></returns>
+        private bool WaitForCardPlacementPhaseEnded()
+        {
+            return TurnState == TurnState.kBattle;
+        }
+
+        /// <summary>
+        /// Wait until we have finished our turn
+        /// </summary>
+        /// <returns></returns>
+        private bool WaitForBattlePhaseEnded()
+        {
+            return TurnState == TurnState.kPlaceCards;
+        }
+
+        /// <summary>
+        /// Wait until the AI has finished it's turn
+        /// </summary>
+        /// <returns></returns>
+        private bool WaitForAITurnCompleted()
+        {
+            return ActivePlayer == Player;
+        }
+
+        /// <summary>
+        /// Wait until we have added the Vulcan Missile Turret card to one of our ships.
+        /// Have to be a little imaginative with our predicate because all ships have a CardWeaponPair by default for the default turret.
+        /// </summary>
+        /// <returns></returns>
+        private bool WaitForWeaponAddedToShip()
+        {
+            return Board.PlayerBoardSection.GameBoardSection.ShipCardControl.Exists(x => (x as CardShipPair).FindChild<CardWeaponPair>().WeaponCard.GetType() == typeof(VulcanMissileTurretCard));
+        }
+
+        /// <summary>
+        /// Wait until we have activated the ability on the Vulcan Missile Turret - we can tell this by one fuel being used up this turn
+        /// </summary>
+        /// <returns></returns>
+        private bool WaitUntilVulcanTurretAbilityActivated()
+        {
+            return Player.Resources[(int)ResourceType.Fuel].FindAll(x => x.Used == true).Count == 1;
+        }
+
+        /// <summary>
+        /// Wait until we have added the Phase Energy Shield card to one of our ships
+        /// </summary>
+        /// <returns></returns>
+        private bool WaitForShieldAddedToShip()
+        {
+            return Board.PlayerBoardSection.GameBoardSection.ShipCardControl.Exists(x => (x as CardShipPair).FindChild<CardShieldPair>() != null);
+        }
+
+        /// <summary>
+        /// After this tutorial is completed we transition back to the main menu
+        /// </summary>
+        /// <returns></returns>
+        private void TransitionToMainMenu()
+        {
+            Transition(new MainMenuScreen());
         }
 
         #endregion
