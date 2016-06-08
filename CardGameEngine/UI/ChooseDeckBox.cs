@@ -45,6 +45,12 @@ namespace CardGameEngine
         /// </summary>
         public override void Begin()
         {
+            // Add this in Begin so it gets drawn on top of this UI rather than behind it
+            Label chooseDeckLabel = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new Label("Choose Deck", WorldPosition + new Vector2(0, -Size.Y * 0.5f + BorderPadding.Y)), true, true);
+            chooseDeckLabel.Colour.Value = Color.White;
+            chooseDeckLabel.Size *= 1.5f;
+            chooseDeckLabel.IsAlive.Connect(IsAlive);       // Make sure that when this text box dies, the label dies too
+
             foreach (Deck deck in Array.FindAll(PlayerCardRegistry.Instance.Decks, x => x.IsCreated))
             {
                 ClickableImage deckUI = AddChild(new ClickableImage(ElementSize * 0.75f, Vector2.Zero, BaseUICard.CardBackTextureAsset), true, true);
@@ -60,6 +66,21 @@ namespace CardGameEngine
             }
 
             base.Begin();
+        }
+
+        /// <summary>
+        /// Kill this object when we press escape
+        /// </summary>
+        /// <param name="elapsedGameTime"></param>
+        /// <param name="mousePosition"></param>
+        public override void HandleInput(float elapsedGameTime, Vector2 mousePosition)
+        {
+            base.HandleInput(elapsedGameTime, mousePosition);
+
+            if (GameKeyboard.IsKeyPressed(Keys.Escape))
+            {
+                Die();
+            }
         }
 
         #endregion

@@ -55,6 +55,7 @@
     <Compile Include="Card Objects\ShipData.cs" />
     <Compile Include="Card Objects\TurretData.cs" />
     <Compile Include="Game Objects\BoardData.cs" />
+    <Compile Include="Missions\MissionData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

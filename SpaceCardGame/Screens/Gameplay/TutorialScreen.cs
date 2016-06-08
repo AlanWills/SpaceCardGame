@@ -20,7 +20,7 @@ namespace SpaceCardGame
         #endregion
 
         public TutorialScreen(Deck playerChosenDeck, string screenDataAsset = "Screens\\BattleScreen.xml") :
-            base(playerChosenDeck, screenDataAsset)
+            base(playerChosenDeck, playerChosenDeck, screenDataAsset)
         {
             TurnNumber = 0;
 

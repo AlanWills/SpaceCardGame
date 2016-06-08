@@ -132,7 +132,7 @@
     <Compile Include="Modules\ShipCardHoverInfoModule.cs" />
     <Compile Include="Players\GamePlayer.cs" />
     <Compile Include="Screens\Gameplay\TutorialScreen.cs" />
-    <Compile Include="Screens\Menus\ChooseDeckMenuScreen.cs" />
+    <Compile Include="Screens\Menus\CampaignMapScreen.cs" />
     <Compile Include="Screens\Menus\HardpointScreen.cs" />
     <Compile Include="Screens\Menus\OpenCardPacksScreen.cs" />
     <Compile Include="Commands\Gameplay\AITurnCommand.cs" />
@@ -158,11 +158,12 @@
     <Compile Include="UI\HandUI.cs" />
     <Compile Include="Board\UIBoardSection.cs" />
     <Compile Include="UI\In Game Dialogs\CustomEscapeDialog.cs" />
+    <Compile Include="UI\Info Images\MissionInfoImage.cs" />
     <Compile Include="UI\Info Images\ShieldInfoImage.cs" />
     <Compile Include="UI\Info Images\WeaponInfoImage.cs" />
     <Compile Include="UI\ProgressTurnButton.cs" />
     <Compile Include="UI\Info Images\ShipInfoImage.cs" />
-    <Compile Include="UI\TargetingLine.cs" />
+    <Compile Include="UI\Gameplay Sugar\TargetingLine.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
@@ -189,7 +190,31 @@
     <Content Include="Content\Data\GameObjects\Animations\RedFire.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Data\Screens\ChooseDeckMenuScreen.xml">
+    <Content Include="Content\Data\Missions\Mission8 - Pyron.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Missions\Mission7 - Zion.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Missions\Mission6 - Ranbron.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Missions\Mission5 - Freiza.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Missions\Mission4 - Elektrin.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Missions\Mission3 - Telegra.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Missions\Mission2 - Anthea.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Missions\Mission1 - Terra.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Screens\CampaignMapScreen.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Music\Gameplay\AllForNothing.mp3">
@@ -410,6 +435,30 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Objects\Debris\debris_sml3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Planets\AntheaThumbnail.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Planets\ElektrinThumbnail.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Planets\FreizaThumbnail.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Planets\PyronThumbnail.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Planets\RanbronThumbnail.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Planets\TelegraThumbnail.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Planets\TerraThumbnail.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Planets\ZionThumbnail.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\UI\CardStatThumnails\ShotsLeftThumbnail.png">

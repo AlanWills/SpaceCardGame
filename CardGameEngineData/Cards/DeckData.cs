@@ -14,7 +14,6 @@ namespace CardGameEngineData
         /// <summary>
         /// The list of card data assets in our deck
         /// </summary>
-        [XmlArrayItem(ElementName = "Item")]
         public List<string> CardDataAssets { get; set; }
     }
 }

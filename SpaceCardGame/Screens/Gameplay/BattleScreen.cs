@@ -68,11 +68,11 @@ namespace SpaceCardGame
 
         #endregion
 
-        public BattleScreen(Deck playerChosenDeck, string screenDataAsset = "Screens\\BattleScreen.xml") :
+        public BattleScreen(Deck playerChosenDeck, Deck opponentChosenDeck, string screenDataAsset = "Screens\\BattleScreen.xml") :
             base(screenDataAsset)
         {
             Player = new GamePlayer(playerChosenDeck);
-            Opponent = new GamePlayer(playerChosenDeck);
+            Opponent = new GamePlayer(opponentChosenDeck);
         }
 
         #region Virtual Functions

@@ -1,0 +1,55 @@
+﻿<XnaContent>
+  <Asset Type="SpaceCardGameData.MissionData">
+    <MissionName>Terra</MissionName>
+    <MissionThumbnailTextureAsset>Planets\TerraThumbnail</MissionThumbnailTextureAsset>
+    <MissionDescription>
+    Terra is a peaceful planet, unscarred by the touch of war.
+    
+    Until now...
+    
+    Pirates have descended on this sector of space
+    and Terra is an easy target.  Lead the planet's 
+    fleet in it's defence.
+  </MissionDescription>
+    <OpponentDeckData>
+      <Name>Terran Opponent</Name>
+      <CardDataAssets>
+        <Item>Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml</Item>
+        <Item>Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml</Item>
+        <Item>Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xml</Item>
+        <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
+        <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
+        <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
+        <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
+        <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
+        <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
+        <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
+        <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
+        <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
+        <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
+        <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
+        <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
+        <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
+        <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
+        <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
+        <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
+        <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
+        <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
+        <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
+        <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
+        <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
+        <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
+        <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
+        <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
+        <Item>Ships\BlazeInterceptor\BlazeInterceptorCard.xml</Item>
+        <Item>Ships\EagleFrigate\EagleFrigateCard.xml</Item>
+        <Item>Ships\VenatorCruiser\VenatorCruiserCard.xml</Item>
+        <Item>Ships\WaspFighter\WaspFighterCard.xml</Item>
+        <Item>Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xml</Item>
+        <Item>Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xml</Item>
+        <Item>Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xml</Item>
+        <Item>Stations\BastionShipyard\BastionShipyardCard.xml</Item>
+      </CardDataAssets>
+    </OpponentDeckData>
+  </Asset>
+</XnaContent>

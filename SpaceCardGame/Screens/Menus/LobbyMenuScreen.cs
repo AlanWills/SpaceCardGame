@@ -71,7 +71,7 @@ namespace SpaceCardGame
         /// <param name="baseObject"></param>
         private void OnPlayGameButtonLeftClicked(BaseObject baseObject)
         {
-            Transition(new ChooseDeckMenuScreen());
+            Transition(new CampaignMapScreen());
         }
 
         /// <summary>

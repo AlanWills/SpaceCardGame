@@ -1,6 +1,6 @@
 ﻿<XnaContent>
   <Asset Type="_2DEngineData.BaseScreenData">
-    <BackgroundTextureAsset/>
+    <BackgroundTextureAsset>Backgrounds\Nebula</BackgroundTextureAsset>
     <Music>
       <Item>Menu\Emotional</Item>
       <Item>Menu\HerVioletEyes</Item>
