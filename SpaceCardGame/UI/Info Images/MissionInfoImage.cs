@@ -42,11 +42,11 @@ namespace SpaceCardGame
             Image thumbnail = AddChild(new Image(new Vector2(0, -Size.Y * 0.25f), MissionData.MissionThumbnailTextureAsset), true, true);
 
             // Add the mission name label
-            Label missionNameLabel = thumbnail.AddChild(new Label(MissionData.MissionName, new Vector2(0, -thumbnail.Size.Y * 0.5f - SpriteFont.MeasureString(MissionData.MissionName).Y)), true, true);
+            Label missionNameLabel = thumbnail.AddChild(new Label(MissionData.MissionName + "\n\n", Anchor.kTopCentre, Depth.kOuter), true, true);
             missionNameLabel.Colour.Value = Color.White;
 
             // Add the mission description
-            Label missionDescriptionLabel = thumbnail.AddChild(new Label(MissionData.MissionDescription, new Vector2(0, thumbnail.Size.Y * 0.5f + SpriteFont.MeasureString(MissionData.MissionDescription).Y)), true, true);
+            Label missionDescriptionLabel = thumbnail.AddChild(new Label(MissionData.MissionDescription, Anchor.kBottomCentre, Depth.kOuter), true, true);
             missionDescriptionLabel.Colour.Value = Color.White;
 
             // Add the button to play the mission
