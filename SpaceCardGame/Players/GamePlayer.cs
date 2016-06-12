@@ -205,12 +205,12 @@ namespace SpaceCardGame
         /// Used at the start of the game to get the station data so we can add it to our board straightaway.
         /// </summary>
         /// <returns></returns>
-        public ShipCard GetStationData()
+        public StationCard GetStationData()
         {
             // This assert should NEVER trigger.  If it does, it means that the player has no station chosen.
             // This quite simply CANNOT happen otherwise we have no basis for a game!
-            Debug.Assert(Deck.Exists(x => x is ShipCard && (x as ShipCard).CardData.Type == "Station"));
-            ShipCard station = Deck.Find(x => x is ShipCard && (x as ShipCard).CardData.Type == "Station") as ShipCard;
+            Debug.Assert(Deck.Exists(x => x is StationCard));
+            StationCard station = Deck.Find(x => x is StationCard) as StationCard;
             Deck.Remove(station);
 
             return station;

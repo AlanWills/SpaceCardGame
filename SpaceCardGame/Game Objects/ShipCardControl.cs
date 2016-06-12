@@ -29,18 +29,18 @@ namespace SpaceCardGame
         /// We load and initialise the station too and handle all parenting problems.
         /// We have a separate function, because the station is a special card and we do no want it to go through the same pipeline as the normal CardShipPairs (i.e. AddChild)
         /// </summary>
-        /// <param name="stationCard"></param>
-        public void AddStation(CardObjectPair stationCard)
+        /// <param name="stationCardPair"></param>
+        public void AddStation(CardObjectPair stationCardPair)
         {
-            Debug.Assert(stationCard is CardStationPair);
+            Debug.Assert(stationCardPair is CardStationPair);
 
             // Do a shallow reparent - we do not want to go through AddChild because it will do unnecessary things to this station
             // Instead we have to manually do a bit of hacking
             bool dontWantToBeAddedViaAddChild = false;
-            stationCard.ReparentTo(this, dontWantToBeAddedViaAddChild);       // This does set up our new parent however
-            Children.AddChild(stationCard, true, true);
+            stationCardPair.ReparentTo(this, dontWantToBeAddedViaAddChild);       // This does set up our new parent however
+            Children.AddChild(stationCardPair, true, true);
 
-            stationCard.LocalPosition = StationPosition;
+            stationCardPair.LocalPosition = StationPosition;
         }
     }
 }

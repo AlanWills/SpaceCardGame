@@ -160,8 +160,11 @@ namespace SpaceCardGame
 
             UpdatePositions(LocalPosition);
 
-            // Experimental - have the card drop down to it's resting position
-            LocalPosition = HighlightedPosition;
+            if (!IsPlaced)
+            {
+                // Experimental - have the card drop down to it's resting position
+                LocalPosition = HighlightedPosition;
+            }
         }
 
         /// <summary>

@@ -58,8 +58,8 @@ namespace SpaceCardGame
             Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
             BattleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
 
-            ShipCard stationData = Player.GetStationData();
-            CardObjectPair stationPair = AddCard(stationData, Vector2.Zero, false, false);
+            ShipCard stationCard = Player.GetStationData();
+            CardObjectPair stationPair = AddCard(stationCard, WorldPosition, false, false);
 
             CardOutlines = new CardOutline[ShipCardControl.LocalXPositions.Length];
             for (int i = 0; i < ShipCardControl.LocalXPositions.Length; ++i)
