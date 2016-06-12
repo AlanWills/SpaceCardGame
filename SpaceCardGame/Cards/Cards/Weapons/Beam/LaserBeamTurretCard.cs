@@ -23,6 +23,11 @@
             return new BeamTurret(weaponObjectDataAsset);
         }
 
+        public override AICardWorthMetric CalculateAIMetric()
+        {
+            return AICardWorthMetric.kShouldNotPlayAtAll;
+        }
+
         #endregion
     }
 }

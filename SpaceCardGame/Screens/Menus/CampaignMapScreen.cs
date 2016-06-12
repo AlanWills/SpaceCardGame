@@ -45,6 +45,11 @@ namespace SpaceCardGame
             CurrentSelectedMission = AddScreenUIObject(new MissionInfoImage(allMissionData[allMissionData.Count - 1]));
         }
 
+        protected override void GoToPreviousScreen()
+        {
+            Transition(new LobbyMenuScreen());
+        }
+
         #endregion
 
         #region Callbacks

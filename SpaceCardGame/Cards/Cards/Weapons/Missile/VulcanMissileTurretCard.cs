@@ -76,6 +76,11 @@ namespace SpaceCardGame
             AbilityPerformed = false;
         }
 
+        public override AICardWorthMetric CalculateAIMetric()
+        {
+            return AICardWorthMetric.kShouldNotPlayAtAll;
+        }
+
         #endregion
 
         #region Callbacks

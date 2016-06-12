@@ -3,7 +3,7 @@
     /// <summary>
     /// A class used to represent an ability in our game.
     /// </summary>
-    public class AbilityCard : GameCard
+    public abstract class AbilityCard : GameCard
     {
         public AbilityCard(AbilityCardData abilityCardData) :
             base(abilityCardData)

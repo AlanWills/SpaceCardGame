@@ -2,6 +2,7 @@
 using CardGameEngine;
 using Microsoft.Xna.Framework;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace SpaceCardGame
@@ -27,6 +28,12 @@ namespace SpaceCardGame
         /// A reference to our battle screen
         /// </summary>
         private BattleScreen BattleScreen { get; set; }
+
+        /// <summary>
+        /// Each card each turn will be analysed for it's effectiveness if laid.
+        /// Cards will only be laid if their score is equal to or greather than this minimum.
+        /// </summary>
+        private AICardWorthMetric MinimumMetricScore { get { return AICardWorthMetric.kShouldNotPlayAtAll; } }
 
         private float timeBetweenCardLays = 1;
         private float timeBetweenAttacks = 1;
@@ -83,11 +90,27 @@ namespace SpaceCardGame
         #region Turn State Functions
 
         /// <summary>
-        /// Lay as many resource cards as possible and add appropriate ships/weapons etc.
+        /// Analyse the cards in our hand and lay those that score above the minimum score metric.
+        /// This will finish when we either have no cards left, no resources left to lay these cards or until we have no cards that meet the minimum score.
         /// </summary>
         private void OnPlaceCardsState(float elapsedGameTime)
         {
             currentTimeBetweenCardLays += elapsedGameTime;
+
+            // We cannot do this every loop - these need to be stored in class variables
+            // We have to move the calculate metric to the data classes - can we consolidate them into one instead?
+            string error = "";
+            if (AIPlayer.CurrentHand.Count != 0)
+            {
+                List<GameCardData> cardsWeCanLay = new List<GameCardData>();
+                foreach (GameCardData gameCardData in AIPlayer.CurrentHand)
+                {
+                    if (gameCardData.CanLay(AIPlayer, ref error))
+                    {
+                        cardsWeCanLay.Add(gameCardData);
+                    }
+                }
+            }
 
             // Check to see if we have laid the resource cards we can this turn and we have resources in our hand we can lay
             if (AIPlayer.CurrentHand.Exists(GetCardLayPredicate<ResourceCardData>()))
@@ -222,8 +245,6 @@ namespace SpaceCardGame
         /// <returns></returns>
         private bool ContinueBattlePhase()
         {
-            //return false;
-            
             // If we cannot find a ship which is ready, then return false
             if (!BoardSection.GameBoardSection.ShipCardControl.Exists(GetReadyShipPredicate()))
             {

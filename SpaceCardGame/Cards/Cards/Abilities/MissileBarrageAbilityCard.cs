@@ -49,6 +49,11 @@ namespace SpaceCardGame
             Parent.Die();
         }
 
+        public override AICardWorthMetric CalculateAIMetric()
+        {
+            return AICardWorthMetric.kShouldNotPlayAtAll;
+        }
+
         #endregion
 
         #region Utility Functions

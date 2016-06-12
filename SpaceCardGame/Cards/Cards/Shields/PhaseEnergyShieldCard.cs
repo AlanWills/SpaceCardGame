@@ -10,5 +10,14 @@
         {
 
         }
+
+        #region Virtual Functions
+
+        public override AICardWorthMetric CalculateAIMetric()
+        {
+            return AICardWorthMetric.kShouldNotPlayAtAll;
+        }
+
+        #endregion
     }
 }

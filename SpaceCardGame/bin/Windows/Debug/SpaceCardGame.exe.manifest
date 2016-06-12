@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="2DEngine.dll" size="287232">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="2DEngine.dll" size="287744">
       <assemblyIdentity name="2DEngine" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>yLGc1XUyHt4rTxxig9WC7lEesjnrpjZXzlsuIdRdq00=</dsig:DigestValue>
+        <dsig:DigestValue>zFnLOrH5D3h5bIzOmVF5PDx01ngDcTRMNYJvW0U7OWU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>/Vo9lIoRl5rGaNV8E/d/YYLkrICy0UoMno+kdTPIyNo=</dsig:DigestValue>
+        <dsig:DigestValue>wure+jghNCwJ455X0tCc+eItIKLY12PAWLqAZOfXsTU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -266,7 +266,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0084IvwkWXWMxXUQczsFqz8JYPjZmkJdeMl6CeWUasU=</dsig:DigestValue>
+        <dsig:DigestValue>lhChdO2DdQMiMGacJDSRMtIs2ylUjpDGOp7x7oyEYH8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

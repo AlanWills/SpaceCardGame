@@ -23,6 +23,11 @@
             return new KineticTurret(weaponObjectDataAsset);
         }
 
+        public override AICardWorthMetric CalculateAIMetric()
+        {
+            return AICardWorthMetric.kShouldNotPlayAtAll;
+        }
+
         #endregion
     }
 }

@@ -5,6 +5,15 @@ using System.Diagnostics;
 namespace SpaceCardGame
 {
     /// <summary>
+    /// A metric we can use to provide a hint to the AI as to how effective this card will be if played in the current board state.
+    /// </summary>
+    public enum AICardWorthMetric
+    {
+        kShouldNotPlayAtAll,
+        kShouldDefinitelyPlay,
+    }
+
+    /// <summary>
     /// A class used in our game for doing additional checks involving the resources in the GamePlayer class
     /// </summary>
     public abstract class GameCard : BaseGameCard, ICardObjectElement
@@ -83,6 +92,14 @@ namespace SpaceCardGame
         {
             return true;
         }
+
+        /// <summary>
+        /// When our AI is analysing the cards it has in it's hands, it needs to work out the best cards to lay.
+        /// By analysing the current board set up, other cards the AI has, cards the opponent has down etc. we 
+        /// can create a value for how good a choice for the AI laying this card will be.
+        /// This will also only be called if our card can actually be laid so we do not need to perform that validation here.
+        /// </summary>
+        public abstract AICardWorthMetric CalculateAIMetric();
 
         /// <summary>
         /// When we call Die on this card, calls Die on the parent too, to trigger killing the card object too

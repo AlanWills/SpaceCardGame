@@ -6,7 +6,7 @@ namespace SpaceCardGame
     /// <summary>
     /// A class used to represent a shield in our game.
     /// </summary>
-    public class ShipCard : GameCard
+    public abstract class ShipCard : GameCard
     {
         #region Properties and Fields
 

@@ -71,6 +71,16 @@ namespace SpaceCardGame
             Debug.Assert(ResourceType != ResourceType.kNumResourceTypes);
         }
 
+        /// <summary>
+        /// We should always play resource cards.
+        /// They have no cost and there is no reason not to play them.
+        /// </summary>
+        /// <returns></returns>
+        public override AICardWorthMetric CalculateAIMetric()
+        {
+            return AICardWorthMetric.kShouldDefinitelyPlay;
+        }
+
         #endregion
     }
 }

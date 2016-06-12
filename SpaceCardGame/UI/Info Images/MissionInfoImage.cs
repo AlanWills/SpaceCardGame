@@ -42,15 +42,15 @@ namespace SpaceCardGame
             Image thumbnail = AddChild(new Image(new Vector2(0, -Size.Y * 0.25f), MissionData.MissionThumbnailTextureAsset), true, true);
 
             // Add the mission name label
-            Label missionNameLabel = thumbnail.AddChild(new Label(MissionData.MissionName + "\n\n", Anchor.kTopCentre, Depth.kOuter), true, true);
+            Label missionNameLabel = thumbnail.AddChild(new Label(MissionData.MissionName, Anchor.kTopCentre, 2), true, true);
             missionNameLabel.Colour.Value = Color.White;
 
             // Add the mission description
-            Label missionDescriptionLabel = thumbnail.AddChild(new Label(MissionData.MissionDescription, Anchor.kBottomCentre, Depth.kOuter), true, true);
+            Label missionDescriptionLabel = thumbnail.AddChild(new Label(MissionData.MissionDescription, Anchor.kBottomCentre, 2), true, true);
             missionDescriptionLabel.Colour.Value = Color.White;
 
             // Add the button to play the mission
-            Button playMissionButton = missionDescriptionLabel.AddChild(new Button("Play Mission", Vector2.Zero, AssetManager.DefaultNarrowButtonTextureAsset, AssetManager.DefaultNarrowButtonHighlightedTextureAsset), true, true);
+            Button playMissionButton = missionDescriptionLabel.AddChild(new Button("Play Mission", Anchor.kBottomCentre, 2, AssetManager.DefaultNarrowButtonTextureAsset, AssetManager.DefaultNarrowButtonHighlightedTextureAsset), true, true);
             playMissionButton.LocalPosition = new Vector2(0, missionDescriptionLabel.Size.Y + playMissionButton.Size.Y);
             playMissionButton.ClickableModule.OnLeftClicked += PlayMissionCallback;
         }

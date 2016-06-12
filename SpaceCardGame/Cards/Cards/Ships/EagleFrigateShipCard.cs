@@ -60,6 +60,11 @@ namespace SpaceCardGame
             return baseAttack;
         }
 
+        public override AICardWorthMetric CalculateAIMetric()
+        {
+            return AICardWorthMetric.kShouldNotPlayAtAll;
+        }
+
         #endregion
     }
 }
