@@ -23,7 +23,7 @@ namespace SpaceCardGame
         /// <summary>
         /// The player who owns this card object pair
         /// </summary>
-        public GamePlayer Player { get; private set; }
+        public Player Player { get; private set; }
 
         /// <summary>
         /// A reference to the card part of our pair

@@ -72,7 +72,7 @@ namespace SpaceCardGame
         /// <param name="player"></param>
         public override void WhenAddedToGameBoard(GameBoardSection gameBoard)
         {
-            Debug.Assert(Player.CurrentShipsPlaced < GamePlayer.MaxShipNumber);
+            Debug.Assert(Player.CurrentShipsPlaced < Player.MaxShipNumber);
 
             ReparentTo(gameBoard.ShipCardControl);                       // Reparent this under the card ship control rather than the game board which it was initially added to
 

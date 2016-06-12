@@ -281,7 +281,7 @@ namespace SpaceCardGame
         /// A little nasty, but decides on a turn basis.
         /// </summary>
         /// <param name="newActivePlayer"></param>
-        private void DrawSpecificCardsForPlayer(GamePlayer newActivePlayer)
+        private void DrawSpecificCardsForPlayer(Player newActivePlayer)
         {
             TurnNumber++;
 

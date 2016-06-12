@@ -15,7 +15,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to our player
         /// </summary>
-        private GamePlayer Player { get; set; }
+        private Player Player { get; set; }
 
         /// <summary>
         /// A label which shows how many cards are left in the player's deck - will be shown when our mouse is over the deck.
@@ -33,7 +33,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public DeckUI(GamePlayer player, Vector2 localPosition, string textureAsset = Card.CardBackTextureAsset) :
+        public DeckUI(Player player, Vector2 localPosition, string textureAsset = Card.CardBackTextureAsset) :
             base(localPosition, textureAsset)
         {
             Player = player;

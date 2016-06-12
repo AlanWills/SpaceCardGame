@@ -87,10 +87,13 @@ namespace SpaceCardGame
         /// </summary>
         private void PerformAbility(BaseObject clickedObject)
         {
-            CardWeaponPair.Turret.ShotsLeft++;
-            (ScreenManager.Instance.CurrentScreen as BattleScreen).ActivePlayer.AlterResources(ResourceType.Fuel, 1, ChargeType.kCharge);
+            if (IsPlaced)
+            {
+                CardWeaponPair.Turret.ShotsLeft++;
+                (ScreenManager.Instance.CurrentScreen as BattleScreen).ActivePlayer.AlterResources(ResourceType.Fuel, 1, ChargeType.kCharge);
 
-            AbilityPerformed = true;
+                AbilityPerformed = true;
+            }
         }
 
         #endregion

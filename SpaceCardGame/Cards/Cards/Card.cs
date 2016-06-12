@@ -225,6 +225,12 @@ namespace SpaceCardGame
 
                 CardOutline.Size = DrawingSize;
             }
+            else
+            {
+                // We always do this so that the outline is always inline with the card size after we have placed it.
+                // If we have added a turret to a ship for example, the size will be smaller and we do not want to have to explicitly remember to fix up the size
+                CardOutline.Size = Size;
+            }
         }
 
         /// <summary>
@@ -246,14 +252,22 @@ namespace SpaceCardGame
         {
             if (FlipState == CardFlipState.kFaceUp)
             {
-                // Store the size of the card, but set the Size property to the DrawingSize for drawing ONLY
-                Vector2 currentSize = Size;
-                Size = DrawingSize;
+                if (!IsPlaced)
+                {
+                    // Store the size of the card, but set the Size property to the DrawingSize for drawing ONLY
+                    Vector2 currentSize = Size;
+                    Size = DrawingSize;
 
-                base.Draw(spriteBatch);
+                    base.Draw(spriteBatch);
 
-                // Set the Size back to it's original value
-                Size = currentSize;
+                    // Set the Size back to it's original value
+                    Size = currentSize;
+                }
+                else
+                {
+                    // If we are placed, we do not want to be changing the size to do the animation used for the hand
+                    base.Draw(spriteBatch);
+                }
             }
             else
             {
@@ -310,7 +324,7 @@ namespace SpaceCardGame
         /// <param name="player">The player attempting to lay the card</param>
         /// <param name="error">An error string which is returned for displaying error UI</param>
         /// <returns></returns>
-        public virtual bool CanLay(GamePlayer player, ref string error)
+        public virtual bool CanLay(Player player, ref string error)
         {
             return player.HaveSufficientResources(this, ref error);
         }

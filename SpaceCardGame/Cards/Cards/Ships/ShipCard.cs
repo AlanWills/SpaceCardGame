@@ -54,9 +54,9 @@ namespace SpaceCardGame
         /// <param name="player"></param>
         /// <param name="error"></param>
         /// <returns></returns>
-        public override bool CanLay(GamePlayer player, ref string error)
+        public override bool CanLay(Player player, ref string error)
         {
-            bool shipSlotsLeft = player.CurrentShipsPlaced < GamePlayer.MaxShipNumber;
+            bool shipSlotsLeft = player.CurrentShipsPlaced < Player.MaxShipNumber;
 
             return shipSlotsLeft && base.CanLay(player, ref error);
         }

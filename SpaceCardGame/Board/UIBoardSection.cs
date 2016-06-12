@@ -19,7 +19,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the player which this UI section is for
         /// </summary>
-        private GamePlayer Player { get; set; }
+        private Player Player { get; set; }
 
         /// <summary>
         /// A reference to this player's deck UI
@@ -33,7 +33,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public UIBoardSection(GamePlayer player, Vector2 localPosition, string textureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
+        public UIBoardSection(Player player, Vector2 localPosition, string textureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
             base(new Vector2(ScreenManager.Instance.ScreenDimensions.X, ScreenManager.Instance.ScreenDimensions.Y * 0.5f), localPosition, textureAsset)
         {
             Player = player;

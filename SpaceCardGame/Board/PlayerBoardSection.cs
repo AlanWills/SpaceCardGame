@@ -23,7 +23,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public PlayerBoardSection(GamePlayer player, Vector2 localPosition, string dataAsset = AssetManager.EmptyGameObjectDataAsset) :
+        public PlayerBoardSection(Player player, Vector2 localPosition, string dataAsset = AssetManager.EmptyGameObjectDataAsset) :
             base(localPosition, dataAsset)
         {
             Size = new Vector2(ScreenManager.Instance.ScreenDimensions.X, ScreenManager.Instance.ScreenDimensions.Y * 0.5f);

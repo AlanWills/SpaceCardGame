@@ -14,11 +14,11 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the player who's hand we're representing
         /// </summary>
-        private GamePlayer Player { get; set; }
+        private Player Player { get; set; }
 
         #endregion
 
-        public HandUI(GamePlayer player, Vector2 size, Vector2 localPosition, string backgroundTextureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
+        public HandUI(Player player, Vector2 size, Vector2 localPosition, string backgroundTextureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
             base(1, player.MaxHandSize, size, localPosition, backgroundTextureAsset)
         {
             Player = player;
@@ -71,13 +71,20 @@ namespace SpaceCardGame
         /// <param name="drawnCard"></param>
         private void AddPlayerHandCardUI(Card drawnCard)
         {
-            AddChild(drawnCard);
+            if (drawnCard.Parent == null)
+            {
+                // If we get in here, it means that we are being added from the deck
+                AddChild(drawnCard);
+            }
+            else
+            {
+                drawnCard.ReparentTo(this);
+            }
 
             CardFlipState cardFlipState = Player == BattleScreen.Player ? CardFlipState.kFaceUp : CardFlipState.kFaceDown;
             drawnCard.Flip(cardFlipState);
 
             drawnCard.ClickableModule.OnLeftClicked += RunPlaceCardCommand;
-            drawnCard.ClickableModule.OnLeftClicked += RebuildCallback;
         }
 
         /// <summary>
@@ -98,7 +105,15 @@ namespace SpaceCardGame
                 string error = "";
                 if (card.CanLay(Player, ref error))
                 {
-                    CommandManager.Instance.AddChild(new PlaceCardCommand(card), true, true);
+                    // Make sure the references to the cards in the player's hand are in sync with the actual UI
+                    Player.RemoveCardFromHand(card);
+
+                    PlaceCardCommand placeCommand = CommandManager.Instance.AddChild(new PlaceCardCommand(card), true, true);
+                    placeCommand.OnDeathCallback += RebuildCallback;
+
+                    // Once we have clicked this card for placement, we will either be added back to the hand in which case the event will be re-added
+                    // or we will be placed on the board in which case we do not want the event to exist any more
+                    card.ClickableModule.OnLeftClicked -= RunPlaceCardCommand;
                 }
                 else
                 {
@@ -108,9 +123,10 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// Indicates that we need to rebuild this UI
+        /// When the command dies, either we have placed a card, or have pushed it back into our hand.
+        /// Either way, we need to rebuild the HandUI.
         /// </summary>
-        private void RebuildCallback(BaseObject clickedObject)
+        private void RebuildCallback(Command placeCardCommand)
         {
             NeedsRebuild = true;
         }

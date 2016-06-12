@@ -11,10 +11,18 @@ namespace SpaceCardGame
         public DefaultTurretCard(CardData weaponCardData) :
             base(weaponCardData)
         {
-
+            // Never show an outline for the default turret card
+            CardOutline.Hide();
         }
 
         #region Virtual Functions
+
+        public override void Begin()
+        {
+            base.Begin();
+
+            CardOutline.Die();
+        }
 
         public override CardObjectPair CreateCardObjectPair()
         {

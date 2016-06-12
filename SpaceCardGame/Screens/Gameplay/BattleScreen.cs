@@ -22,22 +22,22 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to our human playable character
         /// </summary>
-        public static GamePlayer Player { get; private set; }
+        public static Player Player { get; private set; }
 
         /// <summary>
         /// A reference to our opponent
         /// </summary>
-        public static GamePlayer Opponent { get; private set; }
+        public static Player Opponent { get; private set; }
 
         /// <summary>
         /// A reference to the current player who's turn it is
         /// </summary>
-        public GamePlayer ActivePlayer { get; private set; }
+        public Player ActivePlayer { get; private set; }
 
         /// <summary>
         /// A reference to the non active player
         /// </summary>
-        public GamePlayer NonActivePlayer { get; private set; }
+        public Player NonActivePlayer { get; private set; }
 
         /// <summary>
         /// A reference to our GameBoard - handles all the actual Game Objects
@@ -70,8 +70,8 @@ namespace SpaceCardGame
         public BattleScreen(Deck playerChosenDeck, Deck opponentChosenDeck, string screenDataAsset = "Screens\\BattleScreen.xml") :
             base(screenDataAsset)
         {
-            Player = new GamePlayer(playerChosenDeck);
-            Opponent = new GamePlayer(opponentChosenDeck);
+            Player = new Player(playerChosenDeck);
+            Opponent = new Player(opponentChosenDeck);
         }
 
         #region Virtual Functions

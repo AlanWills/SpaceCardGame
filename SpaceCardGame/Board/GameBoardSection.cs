@@ -19,7 +19,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the human player
         /// </summary>
-        private GamePlayer Player { get; set; }
+        private Player Player { get; set; }
 
         /// <summary>
         /// A reference to the battle screen for convenience
@@ -33,7 +33,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public GameBoardSection(GamePlayer player, Vector2 localPosition, string dataAsset = AssetManager.EmptyGameObjectDataAsset) :
+        public GameBoardSection(Player player, Vector2 localPosition, string dataAsset = AssetManager.EmptyGameObjectDataAsset) :
             base(localPosition, dataAsset)
         {
             Player = player;

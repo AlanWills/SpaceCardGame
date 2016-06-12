@@ -22,9 +22,9 @@ namespace SpaceCardGame
     /// <param name="drawnCard"></param>
     public delegate void OnCardAddedToHandHandler(Card drawnCard);
 
-    public class GamePlayer
+    public class Player
     {
-        public delegate void NewTurnHandler(GamePlayer newActivePlayer);
+        public delegate void NewTurnHandler(Player newActivePlayer);
 
         #region Properties and Fields
 
@@ -92,7 +92,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public GamePlayer(Deck chosenDeck)
+        public Player(Deck chosenDeck)
         {
             ResourceCardsPlacedThisTurn = 0;
             CurrentShipsPlaced = 0;
@@ -125,7 +125,6 @@ namespace SpaceCardGame
             {
                 if (CardsLeftInDeck > 0)
                 {
-
                     DrawCard();
                 }
             }
@@ -183,6 +182,15 @@ namespace SpaceCardGame
         {
             CurrentHand.Add(card);
             OnCardAddedToHand?.Invoke(card);
+        }
+
+        /// <summary>
+        /// Removes the card from the player's hand
+        /// </summary>
+        /// <param name="cardData"></param>
+        public void RemoveCardFromHand(Card card)
+        {
+            CurrentHand.Remove(card);
         }
 
         /// <summary>

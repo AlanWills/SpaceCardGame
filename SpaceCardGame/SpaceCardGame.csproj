@@ -131,7 +131,7 @@
     <Compile Include="Modules\CardHoverInfoModule.cs" />
     <Compile Include="Modules\ShipCardHoverInfoModule.cs" />
     <Compile Include="Deck\DeckInstance.cs" />
-    <Compile Include="Players\GamePlayer.cs" />
+    <Compile Include="Players\Player.cs" />
     <Compile Include="Screens\Gameplay\TutorialScreen.cs" />
     <Compile Include="Screens\Menus\CampaignMapScreen.cs" />
     <Compile Include="Screens\Menus\HardpointScreen.cs" />

@@ -8,7 +8,7 @@ namespace SpaceCardGame
     /// </summary>
     public class OpponentBoardSection : PlayerBoardSection
     {
-        public OpponentBoardSection(GamePlayer player, Vector2 localPosition, string dataAsset = AssetManager.EmptyGameObjectDataAsset) :
+        public OpponentBoardSection(Player player, Vector2 localPosition, string dataAsset = AssetManager.EmptyGameObjectDataAsset) :
             base(player, localPosition, dataAsset)
         {
             UsesCollider = false;

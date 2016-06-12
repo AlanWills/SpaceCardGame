@@ -48,7 +48,7 @@ namespace SpaceCardGame
         /// <param name="player"></param>
         public override void WhenAddedToGameBoard(GameBoardSection gameBoard)
         {
-            Debug.Assert(Player.ResourceCardsPlacedThisTurn < GamePlayer.ResourceCardsCanLay);
+            Debug.Assert(Player.ResourceCardsPlacedThisTurn < Player.ResourceCardsCanLay);
 
             float padding = 10;
 

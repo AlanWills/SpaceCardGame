@@ -16,7 +16,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the AI player we will be controlling in this command
         /// </summary>
-        private GamePlayer AIPlayer { get; set; }
+        private Player AIPlayer { get; set; }
 
         /// <summary>
         /// A reference to the board section we will be controlling in this command
@@ -43,7 +43,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public AITurnCommand(GamePlayer player, PlayerBoardSection playerBoardSection) :
+        public AITurnCommand(Player player, PlayerBoardSection playerBoardSection) :
             base()
         {
             AIPlayer = player;
@@ -241,6 +241,8 @@ namespace SpaceCardGame
         /// <returns></returns>
         private bool ContinueBattlePhase()
         {
+            return false;
+
             // If we cannot find a ship which is ready, then return false
             if (!BoardSection.GameBoardSection.ShipCardControl.Exists(GetReadyShipPredicate()))
             {
