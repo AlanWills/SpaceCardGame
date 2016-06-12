@@ -40,20 +40,6 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
-        /// Set up the damage calculation event for our ship.
-        /// </summary>
-        public override void Initialise()
-        {
-            CheckShouldInitialise();
-
-            Debug.Assert(CardObjectPair is CardShipPair);
-            CardShipPair shipCardPair = CardObjectPair as CardShipPair;
-            shipCardPair.Ship.DamageModule.CalculateDamage += CalculateDamageDoneToThis;
-
-            base.Initialise();
-        }
-
-        /// <summary>
         /// Ship cards create a CardShipPair
         /// </summary>
         /// <returns></returns>
@@ -99,7 +85,7 @@ namespace SpaceCardGame
         /// </summary>
         /// <param name="objectDoingTheDamage"></param>
         /// <param name="inputDamage"></param>
-        protected virtual float CalculateDamageDoneToThis(BaseObject objectDoingTheAttacking, float inputDamage)
+        public virtual float CalculateDamageDoneToThis(BaseObject objectDoingTheAttacking, float inputDamage)
         {
             return inputDamage;
         }

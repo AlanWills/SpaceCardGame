@@ -1,5 +1,5 @@
 ﻿<XnaContent>
-  <Asset Type="SpaceCardGame.ShieldCardData">
+  <Asset Type="SpaceCardGame.CardData">
     <TextureAsset>Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldCard</TextureAsset>
     <ObjectDataAsset>Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldObject.xml</ObjectDataAsset>
     <Type>Shield</Type>

@@ -1,5 +1,5 @@
 ﻿<XnaContent>
-  <Asset Type="SpaceCardGame.ResourceCardData">
+  <Asset Type="SpaceCardGame.CardData">
     <TextureAsset>Cards\Resources\CrewResource\CrewResourceCard</TextureAsset>
     <ObjectDataAsset></ObjectDataAsset>
     <Type>Resource</Type>

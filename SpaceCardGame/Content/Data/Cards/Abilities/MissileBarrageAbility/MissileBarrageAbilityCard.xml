@@ -1,5 +1,5 @@
 ﻿<XnaContent>
-  <Asset Type="SpaceCardGame.AbilityCardData">
+  <Asset Type="SpaceCardGame.CardData">
     <TextureAsset>Cards\Abilities\MissileBarrageAbility\MissileBarrageAbilityCard</TextureAsset>
     <ObjectDataAsset></ObjectDataAsset>
     <Type>Ability</Type>

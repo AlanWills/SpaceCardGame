@@ -125,6 +125,7 @@ namespace SpaceCardGame
             ShipDeathExplosionSFX = new CustomSoundEffect(ShipData.ExplosionSFXAsset);
 
             DamageModule = AddModule(new DamageableObjectModule(ShipData.Defence));
+            DamageModule.CalculateDamage += CardShipPair.ShipCard.CalculateDamageDoneToThis;
 
             // Add engine UI from our data
             Engines = new Engine[ShipData.EngineHardpoints.Count];

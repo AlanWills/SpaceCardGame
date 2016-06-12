@@ -31,7 +31,6 @@ namespace SpaceCardGame
     {
         #region Properties and Fields
 
-
         /// <summary>
         /// The card data for this card
         /// </summary>
@@ -74,6 +73,11 @@ namespace SpaceCardGame
         /// The current flip state of this card
         /// </summary>
         public CardFlipState FlipState { get; private set; }
+
+        /// <summary>
+        /// We are placed on the board when we have been added to a suitable CardObjectPair 
+        /// </summary>
+        public bool IsPlaced { get { return Parent is CardObjectPair; } }
 
         /// <summary>
         /// An event which is called when the card flip state is changed.
@@ -123,6 +127,8 @@ namespace SpaceCardGame
             EnlargeOnHover = true;
             OffsetToHighlightedPosition = new Vector2(0, -140);
             ClickableModule = AddModule(new ClickableObjectModule());       // Add our clickable module
+            ClickableModule.OnLeftClicked += ClickableObjectModule.EmptyClick;
+
             CardOutline = AddChild(new CardOutline(Vector2.Zero));
         }
 
@@ -146,7 +152,8 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// If the mouse is over the card we show the info image, otherwise we hide it
+        /// If the mouse is over the card we show the info image, otherwise we hide it.
+        /// Also, performs animation if the card is in our hand.
         /// </summary>
         /// <param name="elapsedGameTime"></param>
         /// <param name="mousePosition"></param>
@@ -154,51 +161,54 @@ namespace SpaceCardGame
         {
             base.HandleInput(elapsedGameTime, mousePosition);
 
-            DebugUtils.AssertNotNull(Collider);
-            if (Collider.IsMouseOver)
+            if (!IsPlaced)
             {
-                // We are sufficiently far away from the end position
-                if (LocalPosition.Y - HighlightedPosition.Y > 2)
+                DebugUtils.AssertNotNull(Collider);
+                if (Collider.IsMouseOver)
                 {
-                    // Move upwards slightly if we are hovering over
-                    LocalPosition = Vector2.Lerp(LocalPosition, HighlightedPosition, elapsedGameTime * 5);
-                }
-                else
-                {
-                    // We are close enough to be at the end position
-                    LocalPosition = HighlightedPosition;
-                }
+                    // We are sufficiently far away from the end position
+                    if (LocalPosition.Y - HighlightedPosition.Y > 2)
+                    {
+                        // Move upwards slightly if we are hovering over
+                        LocalPosition = Vector2.Lerp(LocalPosition, HighlightedPosition, elapsedGameTime * 5);
+                    }
+                    else
+                    {
+                        // We are close enough to be at the end position
+                        LocalPosition = HighlightedPosition;
+                    }
 
-                if (EnlargeOnHover && FlipState == CardFlipState.kFaceUp)
-                {
-                    // If our card is face up and the mouse has no attached children (like other cards we want to place), increase the size
-                    DrawingSize = Size * 2;
+                    if (EnlargeOnHover && FlipState == CardFlipState.kFaceUp)
+                    {
+                        // If our card is face up and the mouse has no attached children (like other cards we want to place), increase the size
+                        DrawingSize = Size * 2;
+                    }
+                    else
+                    {
+                        // If the mouse is not over the card, it's size should go back to normal
+                        DrawingSize = Size;
+                    }
                 }
                 else
                 {
+                    // We are sufficiently far away from the initial position
+                    if (RestingPosition.Y - LocalPosition.Y > 2)
+                    {
+                        // Otherwise move back down to initial position
+                        LocalPosition = Vector2.Lerp(LocalPosition, RestingPosition, elapsedGameTime * 5);
+                    }
+                    else
+                    {
+                        // We are close enough to be at the initial position
+                        LocalPosition = RestingPosition;
+                    }
+
                     // If the mouse is not over the card, it's size should go back to normal
                     DrawingSize = Size;
                 }
-            }
-            else
-            {
-                // We are sufficiently far away from the initial position
-                if (RestingPosition.Y - LocalPosition.Y > 2)
-                {
-                    // Otherwise move back down to initial position
-                    LocalPosition = Vector2.Lerp(LocalPosition, RestingPosition, elapsedGameTime * 5);
-                }
-                else
-                {
-                    // We are close enough to be at the initial position
-                    LocalPosition = RestingPosition;
-                }
 
-                // If the mouse is not over the card, it's size should go back to normal
-                DrawingSize = Size;
+                CardOutline.Size = DrawingSize;
             }
-
-            CardOutline.Size = DrawingSize;
         }
 
         /// <summary>

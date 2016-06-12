@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zFnLOrH5D3h5bIzOmVF5PDx01ngDcTRMNYJvW0U7OWU=</dsig:DigestValue>
+        <dsig:DigestValue>mWCGgbZxp939n0xYK4mluZVZsr0aORuDgskZR7svtgQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -63,30 +63,6 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
         <dsig:DigestValue>F6JX4qaAxV2es0C5gSd58QfTcrTJMm25IJOik7o3dTE=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CardGameEngine.dll" size="183296">
-      <assemblyIdentity name="CardGameEngine" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wure+jghNCwJ455X0tCc+eItIKLY12PAWLqAZOfXsTU=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CardGameEngineData.dll" size="154624">
-      <assemblyIdentity name="CardGameEngineData" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ZaZwz9LDPPd5r02lvIoFTiqC4ZqCj5eHaCfMfkysec0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -259,45 +235,45 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="248728">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="272792">
       <assemblyIdentity name="SpaceCardGame" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>lhChdO2DdQMiMGacJDSRMtIs2ylUjpDGOp7x7oyEYH8=</dsig:DigestValue>
+        <dsig:DigestValue>aqGOBUQn8yeEW7hWwdJoUH/OucaN2PN4tvVgAA5m21Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGameData.dll" size="156160">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGameData.dll" size="158208">
       <assemblyIdentity name="SpaceCardGameData" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>lJ5ORWSgfQ4UHD1mO2RDSROkYta1bwouI1AYDV8M05M=</dsig:DigestValue>
+        <dsig:DigestValue>IlxZNBdCUYNjOPX0EMpExVvKF4onRqlji7+Si/2pTaA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Content\Data\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml" size="436" writeableType="applicationData">
+  <file name="Content\Data\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml" size="429" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>rHMV3YYSB3L6E9/XzrRdJOoV2hReuBFODJAP3Jt68fM=</dsig:DigestValue>
+      <dsig:DigestValue>/EoTTe+fTUbXG5sDYG1dxN6cAFmN0lzC9ibHmpz7osU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\CardRegistryData.xml" size="1298" writeableType="applicationData">
+  <file name="Content\Data\Cards\CardRegistryData.xml" size="1297" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>cmKxwYhG5YRRyEhqEcdtYw7r2Lv1FiFPKgECPCqvl68=</dsig:DigestValue>
+      <dsig:DigestValue>cb0fQ4TNa16CHti+aBqHYJUUKpPKYIU3JMM7RB219yU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Engines\DefaultEngine.xml" size="147" writeableType="applicationData">
@@ -309,49 +285,49 @@
       <dsig:DigestValue>UGh0y0TGPaFuv26wU6Gx4q0+z+gSo6QWpJPwoIaYHRc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Resources\CrewResource\CrewResourceCard.xml" size="400" writeableType="applicationData">
+  <file name="Content\Data\Cards\Resources\CrewResource\CrewResourceCard.xml" size="392" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>tvvQCj0f5AcVrVj4TQVF+U8l95KYRphuuLb8jOsWSCc=</dsig:DigestValue>
+      <dsig:DigestValue>/LE1uZqSIJyNm+8oAjCgEX++kB6AlL3mSzTjIpmVtSo=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Resources\ElectronicsResource\ElectronicsResourceCard.xml" size="428" writeableType="applicationData">
+  <file name="Content\Data\Cards\Resources\ElectronicsResource\ElectronicsResourceCard.xml" size="420" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>yHbih+P9nWgpp04q18GPSml9ZMJ2X+F2EF0CWJwY9hc=</dsig:DigestValue>
+      <dsig:DigestValue>7ohJoL0fpJcMnQyFJr3jyJYiNIS2p73wwjyTbv58ETo=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Resources\FuelResource\FuelResourceCard.xml" size="400" writeableType="applicationData">
+  <file name="Content\Data\Cards\Resources\FuelResource\FuelResourceCard.xml" size="392" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>h5S4OYxAiddy4YWX5rgzYf5hB/ppFGJbYjYoLGR6+Hw=</dsig:DigestValue>
+      <dsig:DigestValue>YadCESUTalh19z5UxbcV3OtkpmtrN9qURDKdtliwiJw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Resources\MetalResource\MetalResourceCard.xml" size="404" writeableType="applicationData">
+  <file name="Content\Data\Cards\Resources\MetalResource\MetalResourceCard.xml" size="396" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>pU8QF9iL4HMwbvBscSozBXRZVneRecKu8aD96EU2YAA=</dsig:DigestValue>
+      <dsig:DigestValue>ZtjeHC2B7NLbVlFfbz0gx9yMnzwpXfD2XFX12bC6RKY=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xml" size="483" writeableType="applicationData">
+  <file name="Content\Data\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xml" size="477" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>feYp5L2yxRkwNJeLsweoFqJub9vJrXQdneVqAqisz1M=</dsig:DigestValue>
+      <dsig:DigestValue>+VuguXiTu5FyGiLy4lSdd8kjChrV++kobb9xGq1qWWI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldObject.xml" size="273" writeableType="applicationData">
@@ -363,13 +339,13 @@
       <dsig:DigestValue>IDxQULvbKBoVvDTVZaQOfp8EXKz1kZaLXn2aZ2h1SDI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Ships\BlazeInterceptor\BlazeInterceptorCard.xml" size="472" writeableType="applicationData">
+  <file name="Content\Data\Cards\Ships\BlazeInterceptor\BlazeInterceptorCard.xml" size="468" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>vV2m/mOGW7kObA6sgBXSsF37G8/gLNgEzGJ8raEexPA=</dsig:DigestValue>
+      <dsig:DigestValue>/QPp1jZEysw8lKIdMoYzR4wOv/SE1FP5jRIuiRhejWU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Ships\BlazeInterceptor\BlazeInterceptorObject.xml" size="579" writeableType="applicationData">
@@ -381,13 +357,13 @@
       <dsig:DigestValue>yThuyNmsa0pqAHgG9W2Eu3MsYAIPVheFuqdVfKFiUrk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Ships\EagleFrigate\EagleFrigateCard.xml" size="448" writeableType="applicationData">
+  <file name="Content\Data\Cards\Ships\EagleFrigate\EagleFrigateCard.xml" size="444" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>LtYMVUm+/EqYZGAQbE6E97of6o+agEs0PXbJVXf3+lE=</dsig:DigestValue>
+      <dsig:DigestValue>Tp+/CO+RGoIii/4k+rmun7woriDxT5gAOvS7if3fslg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Ships\EagleFrigate\EagleFrigateObject.xml" size="708" writeableType="applicationData">
@@ -399,13 +375,13 @@
       <dsig:DigestValue>j2LObLtE68NOkF8UrtwhcOS8/19nld0lScag7TzwRps=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Ships\VenatorCruiser\VenatorCruiserCard.xml" size="458" writeableType="applicationData">
+  <file name="Content\Data\Cards\Ships\VenatorCruiser\VenatorCruiserCard.xml" size="454" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>6TCITyvN25HS43VK5Fnfbhz5PDz+IlFxmbhRmjFJFC4=</dsig:DigestValue>
+      <dsig:DigestValue>+1rx7WD7RocYavJ5/Fsmu8vumKQoD4G/gEqzmCRZNiQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Ships\VenatorCruiser\VenatorCruiserObject.xml" size="1289" writeableType="applicationData">
@@ -417,13 +393,13 @@
       <dsig:DigestValue>gOK57BIugbrlfxwIJvjhx6u0k2rZ/jyszitTPp6PNlg=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Ships\WaspFighter\WaspFighterCard.xml" size="442" writeableType="applicationData">
+  <file name="Content\Data\Cards\Ships\WaspFighter\WaspFighterCard.xml" size="438" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>egh3M7WNhDNRiZvaBuHJOq2ZW4HTrWe5Z4a8ngy4Bvg=</dsig:DigestValue>
+      <dsig:DigestValue>/LVgi8hLDMyUP72O6AjQqhftKuXBkIiDkpVQSbeDEKE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Ships\WaspFighter\WaspFighterObject.xml" size="568" writeableType="applicationData">
@@ -435,13 +411,13 @@
       <dsig:DigestValue>YA2uO9ujcUf1wl4qjeJNKHD4A4w/mF/SidDZ9A/XEjw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Stations\BastionShipyard\BastionShipyardCard.xml" size="460" writeableType="applicationData">
+  <file name="Content\Data\Cards\Stations\BastionShipyard\BastionShipyardCard.xml" size="467" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>wh+969rF4dcRWbt57M6gy99zN/7r/5BhqZSuS+80tBQ=</dsig:DigestValue>
+      <dsig:DigestValue>Rii29pLrWH173Ys9L6pcZ+AXv1lKV61/O4fsEYAmMDU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Stations\BastionShipyard\BastionShipyardObject.xml" size="1912" writeableType="applicationData">
@@ -462,13 +438,13 @@
       <dsig:DigestValue>5UsROIDA1iCuf0+wFvdQugZQzrJMXHgA4jfUHcC+z3M=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xml" size="481" writeableType="applicationData">
+  <file name="Content\Data\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xml" size="475" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>6NDZVc1qVCO821bUJmLp487Et88mYs06femuEF75W28=</dsig:DigestValue>
+      <dsig:DigestValue>J/xCRxM4LdPrUVw15jGAXe9fTQaYpCBQ8Z9K0Y+kfDY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretObject.xml" size="325" writeableType="applicationData">
@@ -498,13 +474,13 @@
       <dsig:DigestValue>k/TD7uAtCg75B/d/evTXFbumkw16GSmqv5YTsRONtF0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Weapons\DefaultTurretCard.xml" size="402" writeableType="applicationData">
+  <file name="Content\Data\Cards\Weapons\DefaultTurretCard.xml" size="396" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>QXPb83X7LfxL6cv0XXgA0C3uurPxJBpuswQPS4Tgej4=</dsig:DigestValue>
+      <dsig:DigestValue>69Itd01ljXzlTkMv+OyH6N1bwgFHdbGiPbreIkOW1cI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretBullet.xml" size="352" writeableType="applicationData">
@@ -516,13 +492,13 @@
       <dsig:DigestValue>5bbzAXDVXuYqrEA3rSeZe6KASWQz12nIywDqH/+G/ic=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xml" size="505" writeableType="applicationData">
+  <file name="Content\Data\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xml" size="499" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>+cay4JlQpnbcUNXN1cP6IoDTNTf021se0ZfRhpONkWM=</dsig:DigestValue>
+      <dsig:DigestValue>j0wUF+Xp0wQn1/uyIaM7KoWhgeMW3O7DeMTVBzzUytY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretObject.xml" size="341" writeableType="applicationData">
@@ -543,13 +519,13 @@
       <dsig:DigestValue>qKNkr7bshTOXdhexQJTOqNP5NAHSgCHbGAmzP6Lq81o=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xml" size="512" writeableType="applicationData">
+  <file name="Content\Data\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xml" size="506" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>ZdN5yJfILmnnu5t7WDzR9t0SSTUkn6U2m6dWWlK8JYQ=</dsig:DigestValue>
+      <dsig:DigestValue>rc3fcFYxPP87kzaVjEU0HZOg4d5FuyQRSMASBwd7giA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretObject.xml" size="347" writeableType="applicationData">
@@ -696,22 +672,22 @@
       <dsig:DigestValue>1KLtZShl5rit2qB4xJKbfCR4FiOlP+dPvVuA4i5YwIM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Player\PlayerCardRegistryData.xml" size="5149" writeableType="applicationData">
+  <file name="Content\Data\Player\PlayerCardRegistryData.xml" size="5148" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Aw50XGapMhZiwXOieqSRahpOnZ4FnWQ8/9WmZXAoc3Y=</dsig:DigestValue>
+      <dsig:DigestValue>suOe1JdPU0nsRKEJcxBky7iR0/bmnJIc0GH2ldf+AWQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Player\StartingPlayerCardRegistryData.xml" size="2346" writeableType="applicationData">
+  <file name="Content\Data\Player\StartingPlayerCardRegistryData.xml" size="2345" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>nYWklZZlkOXZHnX0O3vjJ0XfWZ2zJgmxPAr5manusKg=</dsig:DigestValue>
+      <dsig:DigestValue>zbjvTkFf3GrM6cFnD8v18rMaPYCYxgV1Co+rePUdO38=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Screens\BattleScreen.xml" size="501" writeableType="applicationData">

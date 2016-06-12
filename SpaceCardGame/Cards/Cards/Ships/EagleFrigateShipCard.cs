@@ -22,7 +22,7 @@ namespace SpaceCardGame
         /// </summary>
         /// <param name="shipDamageModule"></param>
         /// <param name="objectDoingTheDamage"></param>
-        protected override float CalculateDamageDoneToThis(BaseObject objectDoingTheDamage, float inputDamage)
+        public override float CalculateDamageDoneToThis(BaseObject objectDoingTheDamage, float inputDamage)
         {
             // Some sources of damage may not come from a ship (and indeed could be healing) so we wish to ignore those
             if (objectDoingTheDamage is CardShipPair)

@@ -48,7 +48,8 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
-        /// Creates the appropriate GameCard from this card data
+        /// Creates the appropriate Card from this card data.
+        /// Calls LoadContent and Initialise().
         /// </summary>
         /// <returns></returns>
         public Card CreateCard()
@@ -60,7 +61,11 @@ namespace SpaceCardGame
             Type cardType = typeof(CardData).Assembly.GetType("SpaceCardGame." + CardTypeName);
             DebugUtils.AssertNotNull(cardType);
 
-            return (Card)Activator.CreateInstance(cardType, this);
+            Card card = (Card)Activator.CreateInstance(cardType, this);
+            card.LoadContent();
+            card.Initialise();
+
+            return card;
         }
 
         #endregion

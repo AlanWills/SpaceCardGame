@@ -16,11 +16,6 @@ namespace SpaceCardGame
         /// </summary>
         private bool AbilityPerformed { get; set; }
 
-        /// <summary>
-        /// A reference to the module we can use to activate our ability
-        /// </summary>
-        private ClickableObjectModule Ability { get; set; }
-
         #endregion
 
         public VulcanMissileTurretCard(CardData weaponCardData) :
@@ -48,8 +43,7 @@ namespace SpaceCardGame
         {
             CheckShouldLoad();
 
-            Ability = AddModule(new ClickableObjectModule());
-            Ability.OnLeftClicked += PerformAbility;
+            ClickableModule.OnLeftClicked += PerformAbility;
 
             base.LoadContent();
         }
@@ -62,8 +56,11 @@ namespace SpaceCardGame
         {
             base.Update(elapsedGameTime);
 
-            // If our ability is not performed and we have unused fuel we can activate the UI for this card's ability
-            ValidateUI(!AbilityPerformed && CardObjectPair.Player.Resources[(int)ResourceType.Fuel].Exists(x => !x.Used));
+            if (IsPlaced)
+            {
+                // If our ability is not performed and we have unused fuel we can activate the UI for this card's ability
+                ValidateUI(!AbilityPerformed && CardObjectPair.Player.Resources[(int)ResourceType.Fuel].Exists(x => !x.Used));
+            }
         }
 
         /// <summary>
@@ -108,12 +105,12 @@ namespace SpaceCardGame
         {
             if (canUseAbility)
             {
-                Ability.ShouldHandleInput.Value = true;
+                ClickableModule.ShouldHandleInput.Value = true;
                 CardObjectPair.Colour.Value = Color.Green;
             }
             else
             {
-                Ability.ShouldHandleInput.Value = false;
+                ClickableModule.ShouldHandleInput.Value = false;
                 CardObjectPair.Colour.Value = Color.White;
             }
         }

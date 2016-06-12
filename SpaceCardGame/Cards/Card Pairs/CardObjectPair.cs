@@ -57,7 +57,7 @@ namespace SpaceCardGame
         public CardObjectPair(Card card) :
             base(Vector2.Zero, AssetManager.EmptyGameObjectDataAsset)
         {
-            Card = AddChild(card);
+            Card = card;
 
             UsesCollider = false;
             AddHoverInfoModule = true;
@@ -93,6 +93,9 @@ namespace SpaceCardGame
         public override void Begin()
         {
             base.Begin();
+
+            // Add the card as a child HERE so we do not call LoadContent or Initialise on it - this will be done right at the start of the BattleScreen in the DeckInstance
+            AddChild(Card);
 
             // We should have set these references by now
             DebugUtils.AssertNotNull(Card);

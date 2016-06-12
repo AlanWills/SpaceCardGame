@@ -160,10 +160,7 @@ namespace SpaceCardGame
                     {
                         // Change to the battle state
                         TurnState = TurnState.kBattle;
-                        if (OnBattleStateStarted != null)
-                        {
-                            OnBattleStateStarted();
-                        }
+                        OnBattleStateStarted?.Invoke();
 
                         break;
                     }
@@ -174,17 +171,11 @@ namespace SpaceCardGame
                         // Change to the place cards state and change the turns
                         TurnState = TurnState.kPlaceCards;
 
-                        if (OnTurnEnd != null)
-                        {
-                            OnTurnEnd();
-                        }
+                        OnTurnEnd?.Invoke();
 
                         NewPlayerTurn();
 
-                        if (OnCardPlacementStateStarted != null)
-                        {
-                            OnCardPlacementStateStarted();
-                        }
+                        OnCardPlacementStateStarted?.Invoke();
 
                         break;
                     }

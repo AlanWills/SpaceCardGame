@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent>
-  <Asset Type="CardGameEngineData.PlayerCardRegistryData">
+  <Asset Type="SpaceCardGameData.PlayerCardRegistryData">
     <AbilityCardDataAssets>
       <Item>Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml</Item>
     </AbilityCardDataAssets>
