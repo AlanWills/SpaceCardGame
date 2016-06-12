@@ -74,7 +74,7 @@ namespace SpaceCardGame
         {
             Debug.Assert(Player.CurrentShipsPlaced < GamePlayer.MaxShipNumber);
 
-            Reparent(gameBoard.ShipCardControl);                       // Reparent this under the card ship control rather than the game board which it was initially added to
+            ReparentTo(gameBoard.ShipCardControl);                       // Reparent this under the card ship control rather than the game board which it was initially added to
 
             Player.CurrentShipsPlaced++;
         }

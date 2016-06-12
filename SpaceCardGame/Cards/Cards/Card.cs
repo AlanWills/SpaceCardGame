@@ -135,6 +135,19 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
+        /// Fixup some the size of our CardOutline and Card after Initialising from the texture
+        /// </summary>
+        public override void Initialise()
+        {
+            CheckShouldInitialise();
+
+            base.Initialise();
+
+            Size *= 0.5f;       // Size correction
+            CardOutline.Size = Size;
+        }
+
+        /// <summary>
         /// Set up some constants for our animation effects here.
         /// By now the local position should be set.
         /// </summary>

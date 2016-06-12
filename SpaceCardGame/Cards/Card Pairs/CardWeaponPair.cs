@@ -60,7 +60,7 @@ namespace SpaceCardGame
         public override void AddToCardShipPair(CardShipPair cardShipPair)
         {
             // Reparent under the ship card
-            Reparent(cardShipPair);
+            ReparentTo(cardShipPair);
 
             // Set up the reference to the CardShipPair
             CardShipPair = cardShipPair;

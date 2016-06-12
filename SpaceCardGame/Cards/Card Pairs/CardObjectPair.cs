@@ -94,8 +94,16 @@ namespace SpaceCardGame
         {
             base.Begin();
 
-            // Add the card as a child HERE so we do not call LoadContent or Initialise on it - this will be done right at the start of the BattleScreen in the DeckInstance
-            AddChild(Card);
+            if (Card.Parent != null)
+            {
+                // Add the card as a child HERE so we do not call LoadContent or Initialise on it - this will be done right at the start of the BattleScreen in the DeckInstance
+                Card.ReparentTo(this);
+            }
+            else
+            {
+                // If the card had no parent (Station) then we just add it normally
+                AddChild(Card);
+            }
 
             // We should have set these references by now
             DebugUtils.AssertNotNull(Card);

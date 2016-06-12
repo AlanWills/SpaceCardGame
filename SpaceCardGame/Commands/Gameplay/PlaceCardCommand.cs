@@ -27,7 +27,7 @@ namespace SpaceCardGame
             base()
         {
             Card = cardThumbnail;
-            Card.Reparent(GameMouse.Instance);
+            Card.ReparentTo(GameMouse.Instance);
             Card.EnlargeOnHover = false;
         }
 
@@ -79,7 +79,6 @@ namespace SpaceCardGame
         {
             BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection.AddCard(Card, GameMouse.Instance.InGameWorldPosition);
 
-            Card.Die();
             Die();
         }
 
@@ -91,7 +90,6 @@ namespace SpaceCardGame
         {
             BattleScreen.ActivePlayer.AddCardToHand(Card);
 
-            Card.Die();
             Die();
         }
 

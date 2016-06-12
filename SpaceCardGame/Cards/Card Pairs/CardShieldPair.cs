@@ -51,7 +51,7 @@ namespace SpaceCardGame
         public override void AddToCardShipPair(CardShipPair cardShipPair)
         {
             // Reparent under the ship card
-            Reparent(cardShipPair);
+            ReparentTo(cardShipPair);
 
             // Change the size and position of the card so it appears to the top right of the ship card
             ShieldCard.Size = cardShipPair.Card.Size / 3;
