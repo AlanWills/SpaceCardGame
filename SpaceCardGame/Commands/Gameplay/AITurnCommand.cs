@@ -1,5 +1,4 @@
 ﻿using _2DEngine;
-using CardGameEngine;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -102,40 +101,40 @@ namespace SpaceCardGame
             string error = "";
             if (AIPlayer.CurrentHand.Count != 0)
             {
-                List<GameCardData> cardsWeCanLay = new List<GameCardData>();
-                foreach (GameCardData gameCardData in AIPlayer.CurrentHand)
+                List<Card> cardsWeCanLay = new List<Card>();
+                foreach (Card gameCard in AIPlayer.CurrentHand)
                 {
-                    if (gameCardData.CanLay(AIPlayer, ref error))
+                    if (gameCard.CanLay(AIPlayer, ref error))
                     {
-                        cardsWeCanLay.Add(gameCardData);
+                        cardsWeCanLay.Add(gameCard);
                     }
                 }
             }
 
             // Check to see if we have laid the resource cards we can this turn and we have resources in our hand we can lay
-            if (AIPlayer.CurrentHand.Exists(GetCardLayPredicate<ResourceCardData>()))
-            {
-                // Lay a resource card
-                GameCardData resourceCardData = AIPlayer.CurrentHand.Find(GetCardLayPredicate<ResourceCardData>()) as GameCardData;
+            //if (AIPlayer.CurrentHand.Exists(GetCardLayPredicate<ResourceCardData>()))
+            //{
+            //    // Lay a resource card
+            //    GameCardData resourceCardData = AIPlayer.CurrentHand.Find(GetCardLayPredicate<ResourceCardData>()) as GameCardData;
 
-                if (currentTimeBetweenCardLays >= timeBetweenCardLays)
-                {
-                    // TODO Can improve this by analysing the resource costs of the other cards and working out what cards would be best to lay
-                    LayCard(resourceCardData);
-                }
-            }
-            // Check to see if we have laid the ships we can and we have ships in our hand we can lay
-            else if (AIPlayer.CurrentShipsPlaced < GamePlayer.MaxShipNumber && AIPlayer.CurrentHand.Exists(GetCardLayPredicate<ShipCardData>()))
-            {
-                if (currentTimeBetweenCardLays >= timeBetweenCardLays)
-                {
-                    // Lay a ship card
-                    GameCardData shipCardData = AIPlayer.CurrentHand.Find(GetCardLayPredicate<ShipCardData>()) as GameCardData;
+            //    if (currentTimeBetweenCardLays >= timeBetweenCardLays)
+            //    {
+            //        // TODO Can improve this by analysing the resource costs of the other cards and working out what cards would be best to lay
+            //        LayCard(resourceCardData);
+            //    }
+            //}
+            //// Check to see if we have laid the ships we can and we have ships in our hand we can lay
+            //else if (AIPlayer.CurrentShipsPlaced < GamePlayer.MaxShipNumber && AIPlayer.CurrentHand.Exists(GetCardLayPredicate<ShipCardData>()))
+            //{
+            //    if (currentTimeBetweenCardLays >= timeBetweenCardLays)
+            //    {
+            //        // Lay a ship card
+            //        GameCardData shipCardData = AIPlayer.CurrentHand.Find(GetCardLayPredicate<ShipCardData>()) as GameCardData;
 
-                    LayCard(shipCardData);
-                }
-            }
-            else
+            //        LayCard(shipCardData);
+            //    }
+            //}
+            //else
             {
                 // Move to battle phase
                 ChangeState();
@@ -221,15 +220,12 @@ namespace SpaceCardGame
         /// Creates and adds a card using the inputted card data and resets the timer so we have spacing between adding cards.
         /// </summary>
         /// <param name="cardData"></param>
-        private void LayCard(GameCardData cardData)
+        private void LayCard(Card card)
         {
             Debug.Assert(currentTimeBetweenCardLays >= timeBetweenCardLays);
 
-            BaseUICard cardThumbnail = BoardSection.UIBoardSection.HandUI.FindCardThumbnail(cardData);
-            cardThumbnail.Die();
-
             // Set the position of the card so that when we add it to the game board section it will be added to a slot
-            BoardSection.GameBoardSection.AddCard(cardData, cardThumbnail.Size, new Vector2(float.MaxValue));
+            BoardSection.GameBoardSection.AddCard(card, new Vector2(float.MaxValue));
 
             currentTimeBetweenCardLays = 0;
         }
@@ -293,7 +289,7 @@ namespace SpaceCardGame
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        private Predicate<CardData> GetCardLayPredicate<T>() where T : GameCardData
+        private Predicate<CardData> GetCardLayPredicate<T>() where T : Card
         {
             string error = "";
             return new Predicate<CardData>(x => (x is T) && (x as T).CanLay(AIPlayer, ref error));

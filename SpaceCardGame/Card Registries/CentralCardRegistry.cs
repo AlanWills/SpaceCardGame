@@ -1,11 +1,10 @@
 ﻿using _2DEngine;
-using CardGameEngineData;
 using Microsoft.Xna.Framework.Content;
-using System;
+using SpaceCardGameData;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace CardGameEngine
+namespace SpaceCardGame
 {
     public static class CentralCardRegistry
     {
@@ -63,7 +62,7 @@ namespace CardGameEngine
             }
 
             // Load our universal card back texture
-            BaseUICard.CardBackTexture = AssetManager.GetSprite(BaseUICard.CardBackTextureAsset);
+            Card.CardBackTexture = AssetManager.GetSprite(Card.CardBackTextureAsset);
 
             IsLoaded = true;
         }

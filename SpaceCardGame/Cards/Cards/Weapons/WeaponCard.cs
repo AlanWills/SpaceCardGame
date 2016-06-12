@@ -6,7 +6,7 @@ namespace SpaceCardGame
     /// <summary>
     /// A class used to represent a weapon in our game.
     /// </summary>
-    public abstract class WeaponCard : GameCard
+    public abstract class WeaponCard : Card
     {
         #region Properties and Fields
 
@@ -29,15 +29,28 @@ namespace SpaceCardGame
             }
         }
 
+        // The path to a default weapon we will use to create a weapon for each ship initially
+        public const string defaultWeaponCardDataAsset = "Cards\\Weapons\\DefaultTurretCard.xml";
+
+
         #endregion
 
-        public WeaponCard(WeaponCardData weaponCardData) :
+        public WeaponCard(CardData weaponCardData) :
             base(weaponCardData)
         {
             
         }
 
         #region Virtual Functions
+
+        /// <summary>
+        /// Weapons create a CardWeaponPair
+        /// </summary>
+        /// <returns></returns>
+        public override CardObjectPair CreateCardObjectPair()
+        {
+            return new CardWeaponPair(this);
+        }
 
         /// <summary>
         /// An abstract function each weapon card will need to implement for specifying the type of turret we create

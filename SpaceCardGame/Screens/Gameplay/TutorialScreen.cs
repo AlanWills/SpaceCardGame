@@ -1,5 +1,4 @@
 ﻿using _2DEngine;
-using CardGameEngine;
 using System.Collections.Generic;
 
 namespace SpaceCardGame
@@ -332,7 +331,7 @@ namespace SpaceCardGame
         /// <returns></returns>
         private bool IsFuelCardHovered()
         {
-            return Board.PlayerBoardSection.UIBoardSection.HandUI.FindChild<BaseUICard>(x => (x as BaseUICard).CardData.Type == "Resource").Collider.IsEntered;
+            return Board.PlayerBoardSection.UIBoardSection.HandUI.FindChild<Card>(x => x is FuelResourceCard).Collider.IsEntered;
         }
 
         /// <summary>
@@ -350,7 +349,7 @@ namespace SpaceCardGame
         /// <returns></returns>
         private bool AllResourceCardsLayed()
         {
-            return !Board.PlayerBoardSection.UIBoardSection.HandUI.Exists(x => (x as BaseUICard).CardData.Type == "Resource");
+            return !Board.PlayerBoardSection.UIBoardSection.HandUI.Exists(x => x is ResourceCard);
         }
 
         /// <summary>

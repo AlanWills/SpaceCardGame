@@ -1,5 +1,4 @@
-﻿using _2DEngine;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System.Diagnostics;
 
 namespace SpaceCardGame
@@ -23,10 +22,10 @@ namespace SpaceCardGame
 
         #endregion
 
-        public CardShieldPair(ShieldCardData defenceCardData) :
-            base(defenceCardData)
+        public CardShieldPair(ShieldCard defenceCard) :
+            base(defenceCard)
         {
-            Shield = AddChild(new Shield(defenceCardData.ObjectDataAsset));
+            Shield = AddChild(new Shield(defenceCard.CardData.ObjectDataAsset));
             CardObject = Shield;
 
             Debug.Assert(Card is ShieldCard);

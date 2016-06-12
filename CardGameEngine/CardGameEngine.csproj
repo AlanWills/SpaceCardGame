@@ -47,16 +47,8 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Card Data\CardData.cs" />
     <Compile Include="CardGameplayScreen.cs" />
     <Compile Include="Cards\BaseCard.cs" />
-    <Compile Include="Cards\BaseGameCard.cs" />
-    <Compile Include="Cards\BaseUICard.cs" />
-    <Compile Include="Data\CentralCardRegistry.cs" />
-    <Compile Include="Data\PlayerCardRegistry.cs" />
-    <Compile Include="Decks\DeckInstance.cs" />
-    <Compile Include="Decks\Deck.cs" />
-    <Compile Include="Players\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Screens\DeckEditingScreen.cs" />
     <Compile Include="Screens\DeckManagerScreen.cs" />
@@ -65,7 +57,6 @@
     <Compile Include="UI\ChooseDeckBox.cs" />
     <Compile Include="UI\DeckCardTypeControl.cs" />
     <Compile Include="UI\DeckSlotUI.cs" />
-    <Compile Include="UI\Gameplay\DeckUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -76,9 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <MonoGameContentReference Include="Content\Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\2DEngine\2DEngineData\2DEngineData.csproj">

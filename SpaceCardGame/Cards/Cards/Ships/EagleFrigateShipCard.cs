@@ -8,7 +8,7 @@ namespace SpaceCardGame
     /// </summary>
     public class EagleFrigateShipCard : ShipCard
     {
-        public EagleFrigateShipCard(ShipCardData shipCardData) :
+        public EagleFrigateShipCard(CardData shipCardData) :
             base(shipCardData)
         {
 

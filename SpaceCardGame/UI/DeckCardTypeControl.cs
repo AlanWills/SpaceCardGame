@@ -1,9 +1,8 @@
 ﻿using _2DEngine;
-using CardGameEngineData;
 using Microsoft.Xna.Framework;
 using System;
 
-namespace CardGameEngine
+namespace SpaceCardGame
 {
     /// <summary>
     /// A class for editting a certain card type between our registry and our current deck.

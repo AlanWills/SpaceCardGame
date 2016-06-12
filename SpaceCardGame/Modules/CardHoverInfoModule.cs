@@ -105,7 +105,7 @@ namespace SpaceCardGame
         /// <returns></returns>
         private Image CreateInfoImageForAttachedCard()
         {
-            GameCard card = AttachedCardObjectPair.Card;
+            Card card = AttachedCardObjectPair.Card;
 
             Debug.Assert(card.Size != Vector2.Zero);
             Vector2 size = card.Size * 1.5f;

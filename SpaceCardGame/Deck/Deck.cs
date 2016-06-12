@@ -1,8 +1,7 @@
-﻿using CardGameEngineData;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace CardGameEngine
+namespace SpaceCardGame
 {
     /// <summary>
     /// A class representing our current usable deck - cards chosen from the player's registry

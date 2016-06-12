@@ -1,5 +1,4 @@
 ﻿using _2DEngineData;
-using CardGameEngineData;
 
 namespace SpaceCardGameData
 {

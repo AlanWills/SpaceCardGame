@@ -74,12 +74,7 @@
   <ItemGroup>
     <Compile Include="Board\OpponentBoardSection.cs" />
     <Compile Include="Board\PlayerBoardSection.cs" />
-    <Compile Include="Cards\Card Data\AbilityCardData.cs" />
-    <Compile Include="Cards\Card Data\GameCardData.cs" />
-    <Compile Include="Cards\Card Data\ShieldCardData.cs" />
-    <Compile Include="Cards\Card Data\ResourceCardData.cs" />
-    <Compile Include="Cards\Card Data\ShipCardData.cs" />
-    <Compile Include="Cards\Card Data\WeaponCardData.cs" />
+    <Compile Include="Cards\Card Data\CardData.cs" />
     <Compile Include="Cards\Card Objects\Ability.cs" />
     <Compile Include="Cards\Card Objects\Bullets\Beam.cs" />
     <Compile Include="Cards\Card Objects\Bullets\Bullet.cs" />
@@ -103,7 +98,7 @@
     <Compile Include="Cards\Cards\Resources\MetalResourceCard.cs" />
     <Compile Include="Cards\Cards\Shields\PhaseEnergyShieldCard.cs" />
     <Compile Include="Cards\Cards\Shields\ShieldCard.cs" />
-    <Compile Include="Cards\Cards\GameCard.cs" />
+    <Compile Include="Cards\Cards\Card.cs" />
     <Compile Include="Cards\Cards\Resources\ResourceCard.cs" />
     <Compile Include="Cards\Cards\Ships\BlazeInterceptorShipCard.cs" />
     <Compile Include="Cards\Cards\Ships\ShipCard.cs" />
@@ -123,6 +118,9 @@
     <Compile Include="Cards\Card Pairs\CardShipPair.cs" />
     <Compile Include="Cards\Card Pairs\CardWeaponPair.cs" />
     <Compile Include="Commands\Gameplay\NewTutorialCommand.cs" />
+    <Compile Include="Card Registries\CentralCardRegistry.cs" />
+    <Compile Include="Card Registries\PlayerCardRegistry.cs" />
+    <Compile Include="Deck\Deck.cs" />
     <Compile Include="Game Objects\Animations\Fire.cs" />
     <Compile Include="Game Objects\GameCardControl.cs" />
     <Compile Include="Board\GameBoardSection.cs" />
@@ -130,6 +128,7 @@
     <Compile Include="Interfaces\ICardObjectElement.cs" />
     <Compile Include="Modules\CardHoverInfoModule.cs" />
     <Compile Include="Modules\ShipCardHoverInfoModule.cs" />
+    <Compile Include="Deck\DeckInstance.cs" />
     <Compile Include="Players\GamePlayer.cs" />
     <Compile Include="Screens\Gameplay\TutorialScreen.cs" />
     <Compile Include="Screens\Menus\CampaignMapScreen.cs" />
@@ -145,14 +144,20 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Screens\Gameplay\BattleScreen.cs" />
-    <Compile Include="Screens\Menus\GameDeckEditingScreen.cs" />
-    <Compile Include="Screens\Menus\GameDeckManagerScreen.cs" />
+    <Compile Include="Screens\Menus\DeckEditingScreen.cs" />
+    <Compile Include="Screens\Menus\DeckManagerScreen.cs" />
     <Compile Include="Screens\Menus\GameOptionsScreen.cs" />
     <Compile Include="Screens\Menus\LobbyMenuScreen.cs" />
     <Compile Include="Screens\Menus\MainMenuScreen.cs" />
     <Compile Include="Game Objects\Animations\EngineBlaze.cs" />
     <Compile Include="Game Objects\Animations\Explosion.cs" />
+    <Compile Include="UI\CardGridControl.cs" />
+    <Compile Include="UI\ChooseDeckBox.cs" />
+    <Compile Include="UI\DeckCardTypeControl.cs" />
+    <Compile Include="UI\DeckSlotUI.cs" />
+    <Compile Include="UI\DeckUI.cs" />
     <Compile Include="UI\Gameplay Sugar\Asteroid.cs" />
+    <Compile Include="UI\Gameplay Sugar\CardOutline.cs" />
     <Compile Include="UI\Gameplay Sugar\DamageUI.cs" />
     <Compile Include="UI\Gameplay Sugar\Debris.cs" />
     <Compile Include="UI\HandUI.cs" />
@@ -699,14 +704,6 @@
     <ProjectReference Include="..\..\2DEngine\2DEngine\2DEngine.csproj">
       <Project>{b56f5aa9-69a8-454a-9ee5-a815735804b7}</Project>
       <Name>2DEngine</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CardGameEngineData\CardGameEngineData.csproj">
-      <Project>{b0f38153-06f2-4085-ac2a-e0069e00808c}</Project>
-      <Name>CardGameEngineData</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CardGameEngine\CardGameEngine.csproj">
-      <Project>{df91d356-e1b8-4dba-96e6-95a95fbeaa89}</Project>
-      <Name>CardGameEngine</Name>
     </ProjectReference>
     <ProjectReference Include="..\SpaceCardGameData\SpaceCardGameData.csproj">
       <Project>{abb06fbe-bad5-424a-8b9b-c1548a1a4b76}</Project>

@@ -1,19 +1,29 @@
-﻿using _2DEngine;
+﻿using System;
+using _2DEngine;
 
 namespace SpaceCardGame
 {
     /// <summary>
     /// A class used to represent a shield in our game.
     /// </summary>
-    public abstract class ShieldCard : GameCard
+    public abstract class ShieldCard : Card
     {
-        public ShieldCard(ShieldCardData shieldCardData) :
+        public ShieldCard(CardData shieldCardData) :
             base(shieldCardData)
         {
 
         }
 
         #region Virtual Functions
+
+        /// <summary>
+        /// Shields create a CardShieldPair
+        /// </summary>
+        /// <returns></returns>
+        public override CardObjectPair CreateCardObjectPair()
+        {
+            return new CardShieldPair(this);
+        }
 
         /// <summary>
         /// Defence cards can only be targetted on ships, so we just check that we have a CardShipPair which is not dead

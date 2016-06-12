@@ -65,8 +65,8 @@ namespace SpaceCardGame
 
             base.Initialise();
 
-            CurrentShieldStrength.LocalPosition -= new Vector2(-CurrentShieldStrength.Anchor.X * 0.5f, CurrentShieldStrength.Size.Y * 0.5f);
-            CurrentRechargeRate.LocalPosition -= new Vector2(CurrentRechargeRate.Anchor.X + CurrentRechargeRate.Size.X * 0.5f, CurrentRechargeRate.Size.Y * 0.5f);
+            CurrentShieldStrength.LocalPosition -= new Vector2(-CurrentShieldStrength.CentreAnchor.X * 0.5f, CurrentShieldStrength.Size.Y * 0.5f);
+            CurrentRechargeRate.LocalPosition -= new Vector2(CurrentRechargeRate.CentreAnchor.X + CurrentRechargeRate.Size.X * 0.5f, CurrentRechargeRate.Size.Y * 0.5f);
         }
 
         /// <summary>

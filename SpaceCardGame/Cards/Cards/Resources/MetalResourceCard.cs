@@ -5,7 +5,7 @@
     /// </summary>
     public class MetalResourceCard : ResourceCard
     {
-        public MetalResourceCard(ResourceCardData resourceCardData) :
+        public MetalResourceCard(CardData resourceCardData) :
             base(resourceCardData)
         {
             ResourceType = ResourceType.Metal;

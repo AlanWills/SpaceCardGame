@@ -10,7 +10,7 @@ namespace SpaceCardGame
     /// </summary>
     /// <param name="cardToChooseTargetFor"></param>
     /// <param name="currentTarget"></param>
-    public delegate bool ValidTargetFunctionHandler(GameCard cardToChooseTargetFor, CardShipPair currentTarget);
+    public delegate bool ValidTargetFunctionHandler(Card cardToChooseTargetFor, CardShipPair currentTarget);
 
     /// <summary>
     /// A script which uses a targeting line and loops through a collection of CardShipPair
@@ -31,7 +31,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the card we need to choose a target for.
         /// </summary>
-        protected GameCard CardToChooseTargetFor { get; private set; }
+        protected Card CardToChooseTargetFor { get; private set; }
 
         /// <summary>
         /// A reference to the line we use to indicate we're selecting
@@ -55,7 +55,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public ChooseShipCommand(GameCard card) :
+        public ChooseShipCommand(Card card) :
             base()
         {
             CardToChooseTargetFor = card;
@@ -158,7 +158,7 @@ namespace SpaceCardGame
         /// <param name="cardToChooseTargetFor"></param>
         /// <param name="currentTarget"></param>
         /// <returns></returns>
-        protected bool AlwaysValid(GameCard cardToChooseTargetFor, CardShipPair currentTarget)
+        protected bool AlwaysValid(Card cardToChooseTargetFor, CardShipPair currentTarget)
         {
             return true;
         }

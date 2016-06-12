@@ -1,8 +1,7 @@
 ﻿using _2DEngineData;
 using System.Collections.Generic;
-using System.Xml.Serialization;
 
-namespace CardGameEngineData
+namespace SpaceCardGameData
 {
     public class DeckData : BaseData
     {

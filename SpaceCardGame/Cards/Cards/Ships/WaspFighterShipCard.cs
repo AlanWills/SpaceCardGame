@@ -2,7 +2,7 @@
 {
     public class WaspFighterShipCard : ShipCard
     {
-        public WaspFighterShipCard(ShipCardData shipCardData) :
+        public WaspFighterShipCard(CardData shipCardData) :
             base(shipCardData)
         {
 

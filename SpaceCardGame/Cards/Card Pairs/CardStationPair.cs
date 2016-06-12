@@ -6,8 +6,8 @@
     /// </summary>
     public class CardStationPair : CardShipPair
     {
-        public CardStationPair(ShipCardData shipCardData) :
-            base(shipCardData)
+        public CardStationPair(ShipCard shipCard) :
+            base(shipCard)
         {
 
         }

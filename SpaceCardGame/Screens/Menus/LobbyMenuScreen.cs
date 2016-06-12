@@ -1,8 +1,6 @@
 ﻿using _2DEngine;
-using CardGameEngine;
-using CardGameEngineData;
 using Microsoft.Xna.Framework;
-using System.Diagnostics;
+using SpaceCardGameData;
 
 namespace SpaceCardGame
 {
@@ -93,7 +91,7 @@ namespace SpaceCardGame
         /// <param name="image"></param>
         private void OnDeckManagerButtonClicked(BaseObject baseObject)
         {
-            Transition(new GameDeckManagerScreen());
+            Transition(new DeckManagerScreen());
         }
 
         /// <summary>

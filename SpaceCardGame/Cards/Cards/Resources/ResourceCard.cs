@@ -1,6 +1,4 @@
-﻿using CardGameEngine;
-using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -19,7 +17,7 @@ namespace SpaceCardGame
     /// <summary>
     /// A class used to represent a resource in our game.
     /// </summary>
-    public class ResourceCard : GameCard
+    public class ResourceCard : Card
     {
         #region Properties and Fields
 
@@ -53,7 +51,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public ResourceCard(ResourceCardData cardData) :
+        public ResourceCard(CardData cardData) :
             base(cardData)
         {
             
@@ -72,6 +70,24 @@ namespace SpaceCardGame
         }
 
         /// <summary>
+        /// Only lay this resource card if we have laid less than our quote of resource cards this turn
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="error"></param>
+        /// <returns></returns>
+        public override bool CanLay(GamePlayer player, ref string error)
+        {
+            // Check to make sure we haven't laid 2 resource cards already
+            if (player.ResourceCardsPlacedThisTurn >= GamePlayer.ResourceCardsCanLay)
+            {
+                error = "Already laid two resource cards this turn";
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
         /// We should always play resource cards.
         /// They have no cost and there is no reason not to play them.
         /// </summary>
@@ -79,6 +95,15 @@ namespace SpaceCardGame
         public override AICardWorthMetric CalculateAIMetric()
         {
             return AICardWorthMetric.kShouldDefinitelyPlay;
+        }
+
+        /// <summary>
+        /// Resource cards create a CardResourcePair
+        /// </summary>
+        /// <returns></returns>
+        public override CardObjectPair CreateCardObjectPair()
+        {
+            return new CardResourcePair(this);
         }
 
         #endregion

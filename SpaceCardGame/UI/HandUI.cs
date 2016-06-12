@@ -1,5 +1,4 @@
 ﻿using _2DEngine;
-using CardGameEngine;
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
 
@@ -15,11 +14,11 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the player who's hand we're representing
         /// </summary>
-        private Player Player { get; set; }
+        private GamePlayer Player { get; set; }
 
         #endregion
 
-        public HandUI(Player player, Vector2 size, Vector2 localPosition, string backgroundTextureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
+        public HandUI(GamePlayer player, Vector2 size, Vector2 localPosition, string backgroundTextureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
             base(1, player.MaxHandSize, size, localPosition, backgroundTextureAsset)
         {
             Player = player;
@@ -40,7 +39,7 @@ namespace SpaceCardGame
         {
             base.RebuildList();
 
-            foreach (BaseUICard thumbnail in Children)
+            foreach (Card thumbnail in Children)
             {
                 thumbnail.UpdatePositions(thumbnail.LocalPosition);
             }
@@ -55,30 +54,10 @@ namespace SpaceCardGame
             base.Update(elapsedGameTime);
 
             string error = "";
-            foreach (BaseUICard card in Children)
+            foreach (Card card in Children)
             {
-                Debug.Assert(card.CardData is GameCardData);
-                card.CardOutline.Valid = (card.CardData as GameCardData).CanLay(Player, ref error);
+                card.CardOutline.Valid = card.CanLay(Player, ref error);
             }
-        }
-
-        #endregion
-
-        #region Utility Functions
-
-        /// <summary>
-        /// Tries to find the card thumbnail which represents the inputted card data's display name
-        /// </summary>
-        /// <param name="cardData"></param>
-        /// <returns></returns>
-        public BaseUICard FindCardThumbnail(CardData cardData)
-        {
-            // We use the find function here because it searched the objects to add too.
-            // Sometimes we may draw a card, so the card data is immediately added, but the UIObject takes one frame to be added
-            BaseUICard card = Children.FindChild<BaseUICard>(x => x.Name == cardData.DisplayName);
-
-            DebugUtils.AssertNotNull(card);
-            return card;
         }
 
         #endregion
@@ -90,17 +69,15 @@ namespace SpaceCardGame
         /// Adds appropriate UI for the newly drawn card.
         /// </summary>
         /// <param name="drawnCard"></param>
-        private void AddPlayerHandCardUI(CardData drawnCard)
+        private void AddPlayerHandCardUI(Card drawnCard)
         {
-            BaseUICard cardUI = AddChild(new BaseUICard(drawnCard, new Vector2(Size.X / Player.MaxHandSize, Size.Y), Vector2.Zero), true, true);
-            cardUI.Name = drawnCard.DisplayName;
+            AddChild(drawnCard);
 
             CardFlipState cardFlipState = Player == BattleScreen.Player ? CardFlipState.kFaceUp : CardFlipState.kFaceDown;
-            cardUI.Flip(cardFlipState);
+            drawnCard.Flip(cardFlipState);
 
-            cardUI.ClickableModule.OnLeftClicked += RunPlaceCardCommand;
-            cardUI.OnDeath += SyncPlayerHand;
-            cardUI.OnDeath += RebuildCallback;
+            drawnCard.ClickableModule.OnLeftClicked += RunPlaceCardCommand;
+            drawnCard.ClickableModule.OnLeftClicked += RebuildCallback;
         }
 
         /// <summary>
@@ -109,9 +86,8 @@ namespace SpaceCardGame
         /// <param name="clickable"></param>
         private void RunPlaceCardCommand(BaseObject baseObject)
         {
-            Debug.Assert(baseObject is BaseUICard);
-            BaseUICard card = baseObject as BaseUICard;
-            Debug.Assert(card.CardData is GameCardData);
+            Debug.Assert(baseObject is Card);
+            Card card = baseObject as Card;
 
             Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
             BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
@@ -120,7 +96,7 @@ namespace SpaceCardGame
             if (battleScreen.TurnState == TurnState.kPlaceCards)
             {
                 string error = "";
-                if ((card.CardData as GameCardData).CanLay(Player, ref error))
+                if (card.CanLay(Player, ref error))
                 {
                     CommandManager.Instance.AddChild(new PlaceCardCommand(card), true, true);
                 }
@@ -132,17 +108,9 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// Removes the card data the dead card thumbnail UI represents from the player's hand.
-        /// </summary>
-        private void SyncPlayerHand(BaseCard cardThumbnail)
-        {
-            Player.CurrentHand.Remove(cardThumbnail.CardData);
-        }
-
-        /// <summary>
         /// Indicates that we need to rebuild this UI
         /// </summary>
-        private void RebuildCallback(BaseCard cardThumbnail)
+        private void RebuildCallback(BaseObject clickedObject)
         {
             NeedsRebuild = true;
         }

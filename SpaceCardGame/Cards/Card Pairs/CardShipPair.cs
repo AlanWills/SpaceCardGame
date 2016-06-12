@@ -23,10 +23,10 @@ namespace SpaceCardGame
 
         #endregion
 
-        public CardShipPair(ShipCardData shipCardData) :
-            base(shipCardData)
+        public CardShipPair(ShipCard shipCard) :
+            base(shipCard)
         {
-            Ship = AddChild(new Ship(shipCardData.ObjectDataAsset));
+            Ship = AddChild(new Ship(shipCard.CardData.ObjectDataAsset));
             CardObject = Ship;
 
             Debug.Assert(Card is ShipCard);
@@ -107,8 +107,8 @@ namespace SpaceCardGame
         /// </summary>
         private void AddDefaultWeapon()
         {
-            WeaponCardData defaultWeaponCardData = AssetManager.GetData<WeaponCardData>(WeaponCardData.defaultWeaponCardDataAsset);
-            CardWeaponPair defaultWeapon = AddChild(new CardWeaponPair(defaultWeaponCardData), true, true);
+            CardData defaultWeaponCardData = AssetManager.GetData<CardData>(WeaponCard.defaultWeaponCardDataAsset);
+            CardWeaponPair defaultWeapon = AddChild(new CardWeaponPair(defaultWeaponCardData.CreateCard() as WeaponCard), true, true);
 
             defaultWeapon.AddToCardShipPair(this);
         }

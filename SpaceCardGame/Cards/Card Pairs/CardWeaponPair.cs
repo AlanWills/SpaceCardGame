@@ -28,13 +28,13 @@ namespace SpaceCardGame
 
         #endregion
 
-        public CardWeaponPair(WeaponCardData weaponCardData) :
-            base(weaponCardData)
+        public CardWeaponPair(WeaponCard weaponCard) :
+            base(weaponCard)
         {
             Debug.Assert(Card is WeaponCard);
             WeaponCard = Card as WeaponCard;
 
-            Turret = AddChild(WeaponCard.CreateTurret(weaponCardData.ObjectDataAsset));
+            Turret = AddChild(WeaponCard.CreateTurret(weaponCard.CardData.ObjectDataAsset));
             CardObject = Turret;
 
             // Only add a hover info module if this is not the default turret we add for all ships

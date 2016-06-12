@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 
-namespace CardGameEngine
+namespace SpaceCardGame
 {
     /// <summary>
     /// This class is really just UI sugar.
@@ -15,7 +15,7 @@ namespace CardGameEngine
         /// <summary>
         /// A reference to our player
         /// </summary>
-        private Player Player { get; set; }
+        private GamePlayer Player { get; set; }
 
         /// <summary>
         /// A label which shows how many cards are left in the player's deck - will be shown when our mouse is over the deck.
@@ -33,7 +33,7 @@ namespace CardGameEngine
 
         #endregion
 
-        public DeckUI(Player player, Vector2 localPosition, string textureAsset = BaseUICard.CardBackTextureAsset) :
+        public DeckUI(GamePlayer player, Vector2 localPosition, string textureAsset = Card.CardBackTextureAsset) :
             base(localPosition, textureAsset)
         {
             Player = player;
@@ -104,13 +104,13 @@ namespace CardGameEngine
         #region Callbacks
 
         /// <summary>
-        /// A callback when we draw a card to spawn some UI from our deck, showing a card has been drawn.
+        /// A callback when we draw a card to add it to our hand UI
         /// </summary>
         /// <param name="cardData"></param>
-        private void SpawnCardUIWhenCardDrawn(CardData cardData)
+        private void SpawnCardUIWhenCardDrawn(Card card)
         {
             // Image will be automatically parented under this
-            Image cardImage = AddChild(new Image(Size, Vector2.Zero, BaseUICard.CardBackTextureAsset), true, true);
+            Image cardImage = AddChild(new Image(Size, Vector2.Zero, Card.CardBackTextureAsset), true, true);
             cardImage.LifeTime = cardLifeTime;
 
             CardImagesList.Add(cardImage);
@@ -120,7 +120,7 @@ namespace CardGameEngine
         /// A callback for updating our UI when we draw a new card.
         /// </summary>
         /// <param name="cardData"></param>
-        private void UpdateDeckUI(CardData cardData)
+        private void UpdateDeckUI(Card card)
         {
             DeckCountLabel.Text = cardsLeftString + Player.CardsLeftInDeck.ToString();
 

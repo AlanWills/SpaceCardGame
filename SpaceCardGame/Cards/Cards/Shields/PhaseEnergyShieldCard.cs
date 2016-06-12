@@ -5,7 +5,7 @@
     /// </summary>
     public class PhaseEnergyShieldCard : ShieldCard
     {
-        public PhaseEnergyShieldCard(ShieldCardData shieldCardData) :
+        public PhaseEnergyShieldCard(CardData shieldCardData) :
             base(shieldCardData)
         {
 

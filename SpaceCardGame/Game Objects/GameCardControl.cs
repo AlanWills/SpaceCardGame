@@ -1,5 +1,4 @@
 ﻿using _2DEngine;
-using CardGameEngine;
 using Microsoft.Xna.Framework;
 using System;
 using System.Diagnostics;

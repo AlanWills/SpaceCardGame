@@ -1,5 +1,4 @@
 ﻿using _2DEngine;
-using CardGameEngine;
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
 
@@ -13,14 +12,9 @@ namespace SpaceCardGame
         #region Properties and Fields
 
         /// <summary>
-        /// A reference to the card data
+        /// A reference to the card we are placing
         /// </summary>
-        private GameCardData CardData { get; set; }
-
-        /// <summary>
-        /// A reference to the UI we will use to represent our card as we place it
-        /// </summary>
-        private BaseUICard CardThumbnail { get; set; }
+        private Card Card { get; set; }
 
         /// <summary>
         /// A reference to our batte screen
@@ -29,16 +23,12 @@ namespace SpaceCardGame
 
         #endregion
 
-        public PlaceCardCommand(BaseUICard cardThumbnail) :
+        public PlaceCardCommand(Card cardThumbnail) :
             base()
         {
-            DebugUtils.AssertNotNull(cardThumbnail.CardData);
-            Debug.Assert(cardThumbnail.CardData is GameCardData);
-            CardData = cardThumbnail.CardData as GameCardData;
-
-            CardThumbnail = cardThumbnail;
-            CardThumbnail.Reparent(GameMouse.Instance);
-            CardThumbnail.EnlargeOnHover = false;
+            Card = cardThumbnail;
+            Card.Reparent(GameMouse.Instance);
+            Card.EnlargeOnHover = false;
         }
 
         #region Virtual Functions
@@ -51,7 +41,7 @@ namespace SpaceCardGame
             base.Begin();
 
             BattleScreen = ParentScreen as BattleScreen;
-            CardThumbnail.LocalPosition = Vector2.Zero;
+            Card.LocalPosition = Vector2.Zero;
         }
 
         /// <summary>
@@ -73,7 +63,7 @@ namespace SpaceCardGame
             {
                 SendCardBackToHand();
 
-                BattleScreen.ActivePlayer.AlterResources(CardData, ChargeType.kRefund);
+                BattleScreen.ActivePlayer.AlterResources(Card, ChargeType.kRefund);
             }
         }
 
@@ -87,9 +77,9 @@ namespace SpaceCardGame
         /// </summary>
         private void AddCardToGame()
         {
-            BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection.AddCard(CardData, CardThumbnail.Size, GameMouse.Instance.InGameWorldPosition);
+            BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection.AddCard(Card, GameMouse.Instance.InGameWorldPosition);
 
-            CardThumbnail.Die();
+            Card.Die();
             Die();
         }
 
@@ -99,9 +89,9 @@ namespace SpaceCardGame
         /// </summary>
         private void SendCardBackToHand()
         {
-            BattleScreen.ActivePlayer.AddCardToHand(CardData);
+            BattleScreen.ActivePlayer.AddCardToHand(Card);
 
-            CardThumbnail.Die();
+            Card.Die();
             Die();
         }
 

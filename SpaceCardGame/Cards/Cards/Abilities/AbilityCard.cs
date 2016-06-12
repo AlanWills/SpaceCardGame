@@ -3,15 +3,24 @@
     /// <summary>
     /// A class used to represent an ability in our game.
     /// </summary>
-    public abstract class AbilityCard : GameCard
+    public abstract class AbilityCard : Card
     {
-        public AbilityCard(AbilityCardData abilityCardData) :
+        public AbilityCard(CardData abilityCardData) :
             base(abilityCardData)
         {
 
         }
 
         #region Virtual Functions
+
+        /// <summary>
+        /// Abilities create a CardAbilityPair
+        /// </summary>
+        /// <returns></returns>
+        public override CardObjectPair CreateCardObjectPair()
+        {
+            return new CardAbilityPair(this);
+        }
 
         /// <summary>
         /// Certain ability cards can only be used on certain items.

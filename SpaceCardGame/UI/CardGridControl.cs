@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 
-namespace CardGameEngine
+namespace SpaceCardGame
 {
     /// <summary>
     /// A list control which displays images of the cards in our deck of the inputted type sorted by the order they were added to the deck.
@@ -37,8 +37,6 @@ namespace CardGameEngine
 
         // Unused
         public ClickState ClickState { get { throw new NotImplementedException("Not used you walnut"); } }
-
-        //ClickableImage previousCard;
 
         #endregion
 

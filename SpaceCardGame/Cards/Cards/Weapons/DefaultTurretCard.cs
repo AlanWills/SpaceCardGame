@@ -8,13 +8,19 @@ namespace SpaceCardGame
     /// </summary>
     public class DefaultTurretCard : WeaponCard
     {
-        public DefaultTurretCard(WeaponCardData weaponCardData) :
+        public DefaultTurretCard(CardData weaponCardData) :
             base(weaponCardData)
         {
 
         }
 
         #region Virtual Functions
+
+        public override CardObjectPair CreateCardObjectPair()
+        {
+            Debug.Fail("This should never be called for the Default Turret Card");
+            return null;
+        }
 
         /// <summary>
         /// Creates a kinetic turret

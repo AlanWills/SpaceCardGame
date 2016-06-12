@@ -28,7 +28,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to the card part of our pair
         /// </summary>
-        public GameCard Card { get; protected set; }
+        public Card Card { get; protected set; }
 
         /// <summary>
         /// A reference to the object part of our pair
@@ -54,10 +54,10 @@ namespace SpaceCardGame
 
         #endregion
 
-        public CardObjectPair(GameCardData cardData) :
+        public CardObjectPair(Card card) :
             base(Vector2.Zero, AssetManager.EmptyGameObjectDataAsset)
         {
-            Card = AddChild(cardData.CreateCard());
+            Card = AddChild(card);
 
             UsesCollider = false;
             AddHoverInfoModule = true;

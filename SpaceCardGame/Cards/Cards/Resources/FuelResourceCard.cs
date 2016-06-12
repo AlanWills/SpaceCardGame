@@ -5,7 +5,7 @@
     /// </summary>
     public class FuelResourceCard : ResourceCard
     {
-        public FuelResourceCard(ResourceCardData resourceCardData) :
+        public FuelResourceCard(CardData resourceCardData) :
             base(resourceCardData)
         {
             ResourceType = ResourceType.Fuel;

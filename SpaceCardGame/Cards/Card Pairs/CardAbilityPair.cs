@@ -22,8 +22,8 @@ namespace SpaceCardGame
 
         #endregion
 
-        public CardAbilityPair(AbilityCardData abilityCardData) :
-            base(abilityCardData)
+        public CardAbilityPair(AbilityCard abilityCard) :
+            base(abilityCard)
         {
             Ability = AddChild(new Ability(AssetManager.EmptyGameObjectDataAsset));
             CardObject = Ability;

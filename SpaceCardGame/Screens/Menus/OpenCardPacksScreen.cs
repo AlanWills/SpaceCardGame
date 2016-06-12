@@ -1,6 +1,4 @@
 ﻿using _2DEngine;
-using CardGameEngine;
-using CardGameEngineData;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -22,12 +20,12 @@ namespace SpaceCardGame
         /// A list of references to the cards we opened from our pack.
         /// We use these to work out when we can open a new pack etc.
         /// </summary>
-        private List<BaseUICard> CardsFromPack { get; set; }
+        private List<Card> CardsFromPack { get; set; }
 
         public OpenCardPacksScreen(string screenDataAsset = "Screens\\OpenCardPacksScreen.xml") :
             base(screenDataAsset)
         {
-            CardsFromPack = new List<BaseUICard>();
+            CardsFromPack = new List<Card>();
         }
 
         #region Virtual Functions
@@ -43,7 +41,7 @@ namespace SpaceCardGame
             PacksGridControl = AddScreenUIObject(new GridControl(1, 8, new Vector2(ScreenDimensions.X, gridHeight), new Vector2(ScreenCentre.X, ScreenDimensions.Y - gridHeight * 0.5f)));
             for (int i = 0; i < PlayerCardRegistry.Instance.AvailablePacksToOpen; i++)
             {
-                ClickableImage cardPack = PacksGridControl.AddChild(new ClickableImage(new Vector2(gridHeight * 0.8f), Vector2.Zero, BaseUICard.CardBackTextureAsset));
+                ClickableImage cardPack = PacksGridControl.AddChild(new ClickableImage(new Vector2(gridHeight * 0.8f), Vector2.Zero, Card.CardBackTextureAsset));
                 cardPack.ClickableModule.OnLeftClicked += OnPackLeftClicked;
             }
         }
@@ -70,7 +68,7 @@ namespace SpaceCardGame
         private void OnPackLeftClicked(BaseObject baseObject)
         {
             // Remove any previous cards from packs we have opened
-            foreach (BaseUICard card in CardsFromPack)
+            foreach (Card card in CardsFromPack)
             {
                 card.Die();
             }
@@ -92,8 +90,8 @@ namespace SpaceCardGame
             for (int i = 0; i < cardData.Count; i++)
             {
                 // Position the cards incrementally along the screen and halfway between the top of the grid control and the top of the screen
-                Vector2 cardPosition = new Vector2(300 * (i + 1), (PacksGridControl.WorldPosition.Y - PacksGridControl.Size.Y * 0.5f) * 0.5f);
-                BaseUICard card = AddScreenUIObject(new BaseUICard(cardData[i], cardPosition), true, true);
+                Card card = AddScreenUIObject(cardData[i].CreateCard(), true, true);
+                card.LocalPosition = new Vector2(300 * (i + 1), (PacksGridControl.WorldPosition.Y - PacksGridControl.Size.Y * 0.5f) * 0.5f);
                 card.ClickableModule.OnLeftClicked += OnCardLeftClicked;
                 card.Flip(CardFlipState.kFaceDown);         // Make sure the card is face down initially, so we have the excitement of turning it over!
                 card.StoredObject = PlayerCardRegistry.Instance.PlayerOwnsCard(cardData[i]);
@@ -115,8 +113,8 @@ namespace SpaceCardGame
         /// <param name="baseObject"></param>
         private void OnCardLeftClicked(BaseObject baseObject)
         {
-            Debug.Assert(baseObject is BaseUICard);
-            BaseUICard card = (baseObject as BaseUICard);
+            Debug.Assert(baseObject is Card);
+            Card card = (baseObject as Card);
             card.Flip(CardFlipState.kFaceUp);
 
             // Add some UI if our card is new
@@ -146,7 +144,7 @@ namespace SpaceCardGame
         {
             Debug.Assert(CardsFromPack.Count == CentralCardRegistry.PackSize);
 
-            foreach (BaseUICard card in CardsFromPack)
+            foreach (Card card in CardsFromPack)
             {
                 if (card.FlipState == CardFlipState.kFaceDown)
                 {

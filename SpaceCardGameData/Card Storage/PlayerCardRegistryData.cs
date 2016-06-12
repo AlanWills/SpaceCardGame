@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace CardGameEngineData
+namespace SpaceCardGameData
 {
     /// <summary>
     /// A class which holds the names of all the cards the player has unlocked, as well as information about their current decks.

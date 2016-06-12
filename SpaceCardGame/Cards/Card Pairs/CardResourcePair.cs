@@ -23,8 +23,8 @@ namespace SpaceCardGame
 
         #endregion
 
-        public CardResourcePair(ResourceCardData resourceCardData) :
-            base(resourceCardData)
+        public CardResourcePair(ResourceCard resourceCard) :
+            base(resourceCard)
         {
             Resource = AddChild(new Resource(Vector2.Zero, AssetManager.EmptyGameObjectDataAsset));
             CardObject = Resource;

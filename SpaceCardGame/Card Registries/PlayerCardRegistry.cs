@@ -1,10 +1,10 @@
 ﻿using _2DEngine;
 using System.Collections.Generic;
-using CardGameEngineData;
 using System.Diagnostics;
 using System;
+using SpaceCardGameData;
 
-namespace CardGameEngine
+namespace SpaceCardGame
 {
     /// <summary>
     /// A class for the player's cards and decks.

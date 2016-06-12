@@ -54,6 +54,9 @@
     <Compile Include="Card Objects\ShipAddOnData.cs" />
     <Compile Include="Card Objects\ShipData.cs" />
     <Compile Include="Card Objects\TurretData.cs" />
+    <Compile Include="Card Storage\CardRegistryData.cs" />
+    <Compile Include="Card Storage\DeckData.cs" />
+    <Compile Include="Card Storage\PlayerCardRegistryData.cs" />
     <Compile Include="Game Objects\BoardData.cs" />
     <Compile Include="Missions\MissionData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,10 +78,6 @@
     <ProjectReference Include="..\..\2DEngine\2DEngineData\2DEngineData.csproj">
       <Project>{ed8a2787-963c-45ce-9405-d4a031b3a977}</Project>
       <Name>2DEngineData</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CardGameEngineData\CardGameEngineData.csproj">
-      <Project>{b0f38153-06f2-4085-ac2a-e0069e00808c}</Project>
-      <Name>CardGameEngineData</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

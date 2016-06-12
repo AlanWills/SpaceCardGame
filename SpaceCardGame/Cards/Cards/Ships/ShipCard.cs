@@ -1,12 +1,13 @@
 ﻿using _2DEngine;
 using System.Diagnostics;
+using System;
 
 namespace SpaceCardGame
 {
     /// <summary>
     /// A class used to represent a shield in our game.
     /// </summary>
-    public abstract class ShipCard : GameCard
+    public abstract class ShipCard : Card
     {
         #region Properties and Fields
 
@@ -29,17 +30,11 @@ namespace SpaceCardGame
             }
         }
 
-        /// <summary>
-        /// A reference to our ShipCardData
-        /// </summary>
-        public ShipCardData ShipCardData { get; private set; }
-
         #endregion
 
-        public ShipCard(ShipCardData shipCardData) :
+        public ShipCard(CardData shipCardData) :
             base(shipCardData)
         {
-            ShipCardData = shipCardData;
         }
 
         #region Virtual Functions
@@ -56,6 +51,28 @@ namespace SpaceCardGame
             shipCardPair.Ship.DamageModule.CalculateDamage += CalculateDamageDoneToThis;
 
             base.Initialise();
+        }
+
+        /// <summary>
+        /// Ship cards create a CardShipPair
+        /// </summary>
+        /// <returns></returns>
+        public override CardObjectPair CreateCardObjectPair()
+        {
+            return new CardShipPair(this);
+        }
+
+        /// <summary>
+        /// Can only lay this ship card if we have sufficient resources
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="error"></param>
+        /// <returns></returns>
+        public override bool CanLay(GamePlayer player, ref string error)
+        {
+            bool shipSlotsLeft = player.CurrentShipsPlaced < GamePlayer.MaxShipNumber;
+
+            return shipSlotsLeft && base.CanLay(player, ref error);
         }
 
         /// <summary>

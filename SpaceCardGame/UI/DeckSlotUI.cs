@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
 
-namespace CardGameEngine
+namespace SpaceCardGame
 {
     /// <summary>
     /// A class containing UI used in our DeckManager screen for a deck slot.
@@ -42,13 +42,13 @@ namespace CardGameEngine
 
         #endregion
 
-        public DeckSlotUI(Deck deck, Vector2 localPosition, string textureAsset = BaseUICard.CardBackTextureAsset) :
+        public DeckSlotUI(Deck deck, Vector2 localPosition, string textureAsset = Card.CardBackTextureAsset) :
             this(deck, Vector2.Zero, localPosition, textureAsset)
         {
             
         }
 
-        public DeckSlotUI(Deck deck, Vector2 size, Vector2 localPosition, string textureAsset = BaseUICard.CardBackTextureAsset) :
+        public DeckSlotUI(Deck deck, Vector2 size, Vector2 localPosition, string textureAsset = Card.CardBackTextureAsset) :
             base(size, localPosition, textureAsset)
         {
             Deck = deck;

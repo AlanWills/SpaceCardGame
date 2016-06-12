@@ -2,7 +2,7 @@
 {
     public class BlazeInterceptorShipCard : ShipCard
     {
-        public BlazeInterceptorShipCard(ShipCardData shipCardData) :
+        public BlazeInterceptorShipCard(CardData shipCardData) :
             base(shipCardData)
         {
 

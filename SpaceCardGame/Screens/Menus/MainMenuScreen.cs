@@ -1,7 +1,5 @@
 ﻿using _2DEngine;
-using CardGameEngine;
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using System.IO;
 
 namespace SpaceCardGame

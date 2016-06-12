@@ -5,7 +5,7 @@
     /// </summary>
     public class LaserBeamTurretCard : WeaponCard
     {
-        public LaserBeamTurretCard(WeaponCardData weaponCardData) :
+        public LaserBeamTurretCard(CardData weaponCardData) :
             base(weaponCardData)
         {
             

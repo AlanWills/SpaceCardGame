@@ -19,7 +19,7 @@ namespace SpaceCardGame
         #endregion
 
         public ShipCardControl(Vector2 size, Vector2 localPosition) :
-            base(typeof(ShipCardData), GamePlayer.MaxShipNumber, 1, size, localPosition)
+            base(typeof(ShipCard), GamePlayer.MaxShipNumber, 1, size, localPosition)
         {
             StationPosition = new Vector2(0, Size.Y * 0.75f);
         }

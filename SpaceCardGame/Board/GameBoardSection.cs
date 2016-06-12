@@ -1,5 +1,4 @@
 ﻿using _2DEngine;
-using CardGameEngine;
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
 
@@ -59,8 +58,8 @@ namespace SpaceCardGame
             Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
             BattleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
 
-            ShipCardData stationData = Player.GetStationData();
-            CardObjectPair stationPair = AddCard(stationData, Vector2.Zero, Vector2.Zero, false, false);
+            ShipCard stationData = Player.GetStationData();
+            CardObjectPair stationPair = AddCard(stationData, Vector2.Zero, false, false);
 
             CardOutlines = new CardOutline[ShipCardControl.LocalXPositions.Length];
             for (int i = 0; i < ShipCardControl.LocalXPositions.Length; ++i)
@@ -86,17 +85,16 @@ namespace SpaceCardGame
         /// <param name="load"></param>
         /// <param name="initialise"></param>
         /// <returns></returns>
-        public CardObjectPair AddCard(GameCardData cardData, Vector2 size, Vector2 desiredWorldPosition, bool load = true, bool initialise = true)
+        public CardObjectPair AddCard(Card card, Vector2 desiredWorldPosition, bool load = true, bool initialise = true)
         {
             // The size parameter comes from the card thumbnail
             // We pass it in to keep the sizes of things consistent
             // Could possibly remove this later, but for now it does the trick
-            CardObjectPair pair = AddChild(cardData.CreateCardObjectPair(), load, initialise);
+            CardObjectPair pair = AddChild(card.CreateCardObjectPair(), load, initialise);
             pair.LocalPosition = desiredWorldPosition - WorldPosition;
-            pair.Card.Size = size;
 
             // Deduct the resources
-            Player.AlterResources(cardData, ChargeType.kCharge);
+            Player.AlterResources(card, ChargeType.kCharge);
 
             pair.WhenAddedToGameBoard(this);
             pair.Card.OnLay();

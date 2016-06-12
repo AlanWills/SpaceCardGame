@@ -2,7 +2,7 @@
 {
     public class VenatorCruiserShipCard : ShipCard
     {
-        public VenatorCruiserShipCard(ShipCardData shipCardData) :
+        public VenatorCruiserShipCard(CardData shipCardData) :
             base(shipCardData)
         {
 

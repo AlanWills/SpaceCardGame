@@ -23,7 +23,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public VulcanMissileTurretCard(WeaponCardData weaponCardData) :
+        public VulcanMissileTurretCard(CardData weaponCardData) :
             base(weaponCardData)
         {
 
