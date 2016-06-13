@@ -249,6 +249,7 @@ namespace SpaceCardGame
             strings = new List<string>()
             {
                 "Click on any ship with a weapon to start an attack order and click on any opponent to complete it",
+                "You an always right click to cancel what you are doing",
                 "When you are finished with your turn, press the 'End Turn' button to go back to the Main Menu - you have nothing left to learn here"
             };
 
@@ -344,12 +345,12 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// Waits until we have layed all of our resource cards
+        /// Waits until we have layed all of our resource cards and none are waiting to be laid
         /// </summary>
         /// <returns></returns>
         private bool AllResourceCardsLayed()
         {
-            return !Board.PlayerBoardSection.UIBoardSection.HandUI.Exists(x => x is ResourceCard);
+            return !Board.PlayerBoardSection.UIBoardSection.HandUI.Exists(x => x is ResourceCard) && GameMouse.Instance.ChildrenCount == 0;
         }
 
         /// <summary>
