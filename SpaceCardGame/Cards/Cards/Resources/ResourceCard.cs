@@ -92,7 +92,7 @@ namespace SpaceCardGame
         /// They have no cost and there is no reason not to play them.
         /// </summary>
         /// <returns></returns>
-        public override AICardWorthMetric CalculateAIMetric()
+        public override AICardWorthMetric CalculateAIMetric(GameBoardSection aiGameBoardSection, GameBoardSection otherGameBoardSection)
         {
             return AICardWorthMetric.kShouldDefinitelyPlay;
         }

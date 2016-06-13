@@ -59,6 +59,7 @@ namespace SpaceCardGame
         {
             Card = card;
             Card.LocalPosition = Vector2.Zero;
+            Card.Flip(CardFlipState.kFaceUp);
 
             UsesCollider = false;
             AddHoverInfoModule = true;

@@ -49,10 +49,41 @@ namespace SpaceCardGame
             Parent.Die();
         }
 
-        public override AICardWorthMetric CalculateAIMetric()
+        /// <summary>
+        /// To decide if this ability is worth playing, we look at the number of ships it will actually affect.
+        /// </summary>
+        /// <param name="aiGameBoardSection"></param>
+        /// <param name="otherGameBoardSection"></param>
+        /// <returns></returns>
+        public override AICardWorthMetric CalculateAIMetric(GameBoardSection aiGameBoardSection, GameBoardSection otherGameBoardSection)
         {
-            return AICardWorthMetric.kShouldNotPlayAtAll;
+            int count = 0;
+            foreach (CardShipPair ship in otherGameBoardSection.ShipCardControl)
+            {
+                if (ship.Ship.ShipData.Defence + ship.Ship.ShipData.Speed <= 5)
+                {
+                    count++;
+                }
+            }
+
+            if (count >= 3)
+            {
+                return AICardWorthMetric.kGoodCardToPlay;
+            }
+            else if (count >= 2)
+            {
+                return AICardWorthMetric.kAverageCardToPlay;
+            }
+            else if (count >= 1)
+            {
+                return AICardWorthMetric.kBadCardToPlay;
+            }
+            else
+            {
+                return AICardWorthMetric.kShouldNotPlayAtAll;
+            }
         }
+
 
         #endregion
 

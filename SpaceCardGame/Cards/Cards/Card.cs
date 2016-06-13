@@ -12,6 +12,9 @@ namespace SpaceCardGame
     public enum AICardWorthMetric
     {
         kShouldNotPlayAtAll,
+        kBadCardToPlay,
+        kAverageCardToPlay,
+        kGoodCardToPlay,
         kShouldDefinitelyPlay,
     }
 
@@ -379,7 +382,7 @@ namespace SpaceCardGame
         /// can create a value for how good a choice for the AI laying this card will be.
         /// This will also only be called if our card can actually be laid so we do not need to perform that validation here.
         /// </summary>
-        public abstract AICardWorthMetric CalculateAIMetric();
+        public abstract AICardWorthMetric CalculateAIMetric(GameBoardSection aiGameBoardSection, GameBoardSection otherGameBoardSection);
 
         #endregion
 

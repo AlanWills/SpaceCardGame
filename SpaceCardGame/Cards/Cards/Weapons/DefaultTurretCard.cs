@@ -45,7 +45,7 @@ namespace SpaceCardGame
         /// Therefore it doesn't matter what we return here - it is never going to be called.
         /// </summary>
         /// <returns></returns>
-        public override AICardWorthMetric CalculateAIMetric()
+        public override AICardWorthMetric CalculateAIMetric(GameBoardSection aiGameBoardSection, GameBoardSection otherGameBoardSection)
         {
             Debug.Fail("This should never be called");
             return AICardWorthMetric.kShouldNotPlayAtAll;

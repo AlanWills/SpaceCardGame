@@ -1,7 +1,6 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace SpaceCardGame
@@ -32,7 +31,7 @@ namespace SpaceCardGame
         /// Each card each turn will be analysed for it's effectiveness if laid.
         /// Cards will only be laid if their score is equal to or greather than this minimum.
         /// </summary>
-        private AICardWorthMetric MinimumMetricScore { get { return AICardWorthMetric.kShouldNotPlayAtAll; } }
+        private AICardWorthMetric MinimumMetricScore { get { return AICardWorthMetric.kBadCardToPlay; } }
 
         private float timeBetweenCardLays = 1;
         private float timeBetweenAttacks = 1;
@@ -109,7 +108,10 @@ namespace SpaceCardGame
                     return;
                 }
 
-                Card nextCardToLay = AIPlayer.CurrentHand.Find(x => x.CanLay(AIPlayer, ref error) && x.CalculateAIMetric() >= MinimumMetricScore);
+                Card nextCardToLay = AIPlayer.CurrentHand.Find(
+                    x => x.CanLay(AIPlayer, ref error) && 
+                    x.CalculateAIMetric(BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection, BattleScreen.Board.NonActivePlayerBoardSection.GameBoardSection) >= MinimumMetricScore);
+
                 if (nextCardToLay != null)
                 {
                     LayCard(nextCardToLay);

@@ -235,14 +235,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="273304">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="273816">
       <assemblyIdentity name="SpaceCardGame" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>mKRfMx4dkVVVQWzqRiaDIzLtZqgOtOkVPgU6QXsjs44=</dsig:DigestValue>
+        <dsig:DigestValue>WkAKF2qORZrtC0OG2UNpr7J+v4zG2DQT8S636eNDXoY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
