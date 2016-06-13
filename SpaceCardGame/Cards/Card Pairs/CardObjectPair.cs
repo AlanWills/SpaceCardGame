@@ -58,6 +58,7 @@ namespace SpaceCardGame
             base(Vector2.Zero, AssetManager.EmptyGameObjectDataAsset)
         {
             Card = card;
+            Card.LocalPosition = Vector2.Zero;
 
             UsesCollider = false;
             AddHoverInfoModule = true;
@@ -104,6 +105,7 @@ namespace SpaceCardGame
                 // If the card had no parent (Station) then we just add it normally
                 AddChild(Card);
             }
+
 
             // We should have set these references by now
             DebugUtils.AssertNotNull(Card);

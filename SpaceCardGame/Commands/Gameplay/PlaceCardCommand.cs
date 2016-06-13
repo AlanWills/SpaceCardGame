@@ -78,6 +78,7 @@ namespace SpaceCardGame
         private void AddCardToGame()
         {
             BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection.AddCard(Card, GameMouse.Instance.InGameWorldPosition);
+            Debug.Assert(!BattleScreen.ActivePlayer.CurrentHand.Exists(x => x == Card));
 
             Die();
         }

@@ -109,7 +109,6 @@ namespace SpaceCardGame
                     Player.RemoveCardFromHand(card);
 
                     PlaceCardCommand placeCommand = CommandManager.Instance.AddChild(new PlaceCardCommand(card), true, true);
-                    placeCommand.OnDeathCallback += RebuildCallback;
 
                     // Once we have clicked this card for placement, we will either be added back to the hand in which case the event will be re-added
                     // or we will be placed on the board in which case we do not want the event to exist any more
@@ -120,15 +119,6 @@ namespace SpaceCardGame
                     CommandManager.Instance.AddChild(new FlashingTextCommand(error, ScreenManager.Instance.ScreenCentre, Color.White, false, 2), true, true);
                 }
             }
-        }
-
-        /// <summary>
-        /// When the command dies, either we have placed a card, or have pushed it back into our hand.
-        /// Either way, we need to rebuild the HandUI.
-        /// </summary>
-        private void RebuildCallback(Command placeCardCommand)
-        {
-            NeedsRebuild = true;
         }
 
         #endregion
