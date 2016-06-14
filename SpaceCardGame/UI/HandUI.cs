@@ -41,7 +41,7 @@ namespace SpaceCardGame
 
             foreach (Card thumbnail in Children)
             {
-                thumbnail.UpdatePositions(thumbnail.LocalPosition);
+                thumbnail.HandAnimationModule.UpdatePositions(thumbnail.LocalPosition);
             }
         }
         

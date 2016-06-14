@@ -47,6 +47,8 @@ namespace SpaceCardGame
         /// </summary>
         public override void OnLay()
         {
+            base.OnLay();
+
             CommandManager.Instance.AddChild(new ChooseFriendlyShipCommand(this), true, true);
         }
 

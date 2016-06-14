@@ -23,6 +23,8 @@ namespace SpaceCardGame
         /// </summary>
         public override void OnLay()
         {
+            base.OnLay();
+
             // No target
             UseAbility(null);
         }

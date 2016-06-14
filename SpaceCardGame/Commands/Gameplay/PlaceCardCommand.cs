@@ -28,7 +28,7 @@ namespace SpaceCardGame
         {
             Card = cardThumbnail;
             Card.ReparentTo(GameMouse.Instance);
-            Card.EnlargeOnHover = false;
+            Card.HandAnimationModule.EnlargeOnHover = false;
         }
 
         #region Virtual Functions

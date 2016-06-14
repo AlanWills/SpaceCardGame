@@ -45,27 +45,9 @@ namespace SpaceCardGame
         public ClickableObjectModule ClickableModule { get; private set; }
 
         /// <summary>
-        /// A flag to indicate whether we wish the card to increase in size whilst our mouse is over it.
-        /// True by default
+        /// Performs animation whilst the card is in our hand, but is removed during the OnLay function
         /// </summary>
-        public bool EnlargeOnHover { get; set; }
-
-        /// <summary>
-        /// A reference to our size we will use to alter the size of this card if hovered over.
-        /// This size really drives the size of the card
-        /// </summary>
-        private Vector2 DrawingSize { get; set; }
-
-        /// <summary>
-        /// Used for some effects - our card if the mouse is over will move up the screen slightly
-        /// </summary>
-        private Vector2 RestingPosition { get; set; }
-        private Vector2 HighlightedPosition { get; set; }
-
-        /// <summary>
-        /// A vector property that is a local offset from the position of this card to it's highlighted position
-        /// </summary>
-        public Vector2 OffsetToHighlightedPosition { get; set; }
+        public CardHandAnimationModule HandAnimationModule { get; private set; }
 
         /// <summary>
         /// An image which shows an outline round our card - we can update it with colours to show validity etc.
@@ -127,10 +109,10 @@ namespace SpaceCardGame
             FlipState = CardFlipState.kFaceUp;
             UsesCollider = true;                    // Explicitly state this because Image does not use a collider
 
-            EnlargeOnHover = true;
-            OffsetToHighlightedPosition = new Vector2(0, -140);
             ClickableModule = AddModule(new ClickableObjectModule());       // Add our clickable module
             ClickableModule.OnLeftClicked += ClickableObjectModule.EmptyClick;
+
+            HandAnimationModule = AddModule(new CardHandAnimationModule());
 
             CardOutline = AddChild(new CardOutline(Vector2.Zero));
         }
@@ -151,26 +133,6 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// Set up some constants for our animation effects here.
-        /// By now the local position should be set.
-        /// </summary>
-        public override void Begin()
-        {
-            base.Begin();
-
-            Debug.Assert(Size != Vector2.Zero);
-            DrawingSize = Size;
-
-            UpdatePositions(LocalPosition);
-
-            if (!IsPlaced)
-            {
-                // Experimental - have the card drop down to it's resting position
-                LocalPosition = HighlightedPosition;
-            }
-        }
-
-        /// <summary>
         /// If the mouse is over the card we show the info image, otherwise we hide it.
         /// Also, performs animation if the card is in our hand.
         /// </summary>
@@ -182,51 +144,7 @@ namespace SpaceCardGame
 
             if (!IsPlaced)
             {
-                DebugUtils.AssertNotNull(Collider);
-                if (Collider.IsMouseOver)
-                {
-                    // We are sufficiently far away from the end position
-                    if (LocalPosition.Y - HighlightedPosition.Y > 2)
-                    {
-                        // Move upwards slightly if we are hovering over
-                        LocalPosition = Vector2.Lerp(LocalPosition, HighlightedPosition, elapsedGameTime * 5);
-                    }
-                    else
-                    {
-                        // We are close enough to be at the end position
-                        LocalPosition = HighlightedPosition;
-                    }
-
-                    if (EnlargeOnHover && FlipState == CardFlipState.kFaceUp)
-                    {
-                        // If our card is face up and the mouse has no attached children (like other cards we want to place), increase the size
-                        DrawingSize = Size * 2;
-                    }
-                    else
-                    {
-                        // If the mouse is not over the card, it's size should go back to normal
-                        DrawingSize = Size;
-                    }
-                }
-                else
-                {
-                    // We are sufficiently far away from the initial position
-                    if (RestingPosition.Y - LocalPosition.Y > 2)
-                    {
-                        // Otherwise move back down to initial position
-                        LocalPosition = Vector2.Lerp(LocalPosition, RestingPosition, elapsedGameTime * 5);
-                    }
-                    else
-                    {
-                        // We are close enough to be at the initial position
-                        LocalPosition = RestingPosition;
-                    }
-
-                    // If the mouse is not over the card, it's size should go back to normal
-                    DrawingSize = Size;
-                }
-
-                CardOutline.Size = DrawingSize;
+                CardOutline.Size = HandAnimationModule.DrawingSize;
             }
             else
             {
@@ -243,8 +161,15 @@ namespace SpaceCardGame
         /// <param name="size"></param>
         public override void UpdateCollider(ref Vector2 position, ref Vector2 size)
         {
-            position = WorldPosition;
-            size = new Vector2(DrawingSize.X, DrawingSize.Y + Math.Abs(RestingPosition.Y - LocalPosition.Y));   // Not perfect, but better.  Over estimates the top
+            if (IsPlaced)
+            {
+                base.UpdateCollider(ref position, ref size);
+            }
+            else
+            {
+                position = WorldPosition;
+                size = new Vector2(HandAnimationModule.DrawingSize.X, HandAnimationModule.DrawingSize.Y + Math.Abs(HandAnimationModule.RestingPosition.Y - LocalPosition.Y));   // Not perfect, but better.  Over estimates the top
+            }
         }
 
         /// <summary>
@@ -259,7 +184,7 @@ namespace SpaceCardGame
                 {
                     // Store the size of the card, but set the Size property to the DrawingSize for drawing ONLY
                     Vector2 currentSize = Size;
-                    Size = DrawingSize;
+                    Size = HandAnimationModule.DrawingSize;
 
                     base.Draw(spriteBatch);
 
@@ -335,9 +260,15 @@ namespace SpaceCardGame
         /// <summary>
         /// Override this function to perform custom behaviour when first layed.
         /// Called as soon as we add the object to the scene and right after WhenAddedToGameBoard.
+        /// Removes the hand animation module.
         /// If a target has to be chosen etc. then run a script in here to perform that.
         /// </summary>
-        public virtual void OnLay() { }
+        public virtual void OnLay()
+        {
+            // This should clean up the HandAnimationModule
+            HandAnimationModule.Die();
+            HandAnimationModule = null;
+        }
 
         /// <summary>
         /// Override this function to perform custom behaviour when our turn begins.
@@ -398,17 +329,6 @@ namespace SpaceCardGame
 
             // Call our on flip event if it's not null
             OnFlip?.Invoke(this, FlipState, oldFlipState);
-        }
-
-        /// <summary>
-        /// Recalculates the extra positions we use for our lerping effect
-        /// </summary>
-        /// <param name="newLocalPosition"></param>
-        public void UpdatePositions(Vector2 newLocalPosition)
-        {
-            LocalPosition = newLocalPosition;
-            RestingPosition = newLocalPosition;
-            HighlightedPosition = newLocalPosition + OffsetToHighlightedPosition;
         }
 
         #endregion
