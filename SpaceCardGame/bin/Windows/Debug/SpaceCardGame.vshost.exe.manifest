@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="2DEngine.dll" size="287744">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="2DEngine.dll" size="288256">
       <assemblyIdentity name="2DEngine" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>kg+RVBUwy1CjyCCvf5t/GXqIKv2c/WsUU8MvAhOYkHs=</dsig:DigestValue>
+        <dsig:DigestValue>YiVJ5oB1sN5dh19o9PFwu/o+NhmLrX9f/7Vhck0SXTc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -235,14 +235,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="273816">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="274328">
       <assemblyIdentity name="SpaceCardGame" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>WkAKF2qORZrtC0OG2UNpr7J+v4zG2DQT8S636eNDXoY=</dsig:DigestValue>
+        <dsig:DigestValue>reHjN6luwMaOzfCryhvJmP3Z4eYTDIilvk3Q2fJuBgc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

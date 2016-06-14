@@ -40,7 +40,7 @@ namespace SpaceCardGame
                 // Add up the ship's speed and defence and if it is less than or equal to 5, we do one damage to it
                 if (pair.Ship.ShipData.Defence + pair.Ship.ShipData.Speed <= 5)
                 {
-                    pair.Ship.DamageModule.Damage(1, CardObjectPair);
+                    pair.Ship.DamageModule.Damage(1, this);
                     SpawnMissileAtTarget(pair.Ship);
                 }
             }

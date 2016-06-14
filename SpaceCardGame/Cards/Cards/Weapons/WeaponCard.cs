@@ -77,10 +77,22 @@ namespace SpaceCardGame
 
         /// <summary>
         /// When we lay a WeaponCard we need to run a script to find a ship to add it to.
+        /// Alternatively, if the AI is laying a card it should add it without running the script.
         /// </summary>
         public override void OnLay()
         {
             CommandManager.Instance.AddChild(new ChooseFriendlyShipCommand(this), true, true);
+        }
+
+        /// <summary>
+        /// Any weapon is good to lay
+        /// </summary>
+        /// <param name="aiGameBoardSection"></param>
+        /// <param name="otherGameBoardSection"></param>
+        /// <returns></returns>
+        public override AICardWorthMetric CalculateAIMetric(GameBoardSection aiGameBoardSection, GameBoardSection otherGameBoardSection)
+        {
+            return AICardWorthMetric.kGoodCardToPlay;
         }
 
         #endregion

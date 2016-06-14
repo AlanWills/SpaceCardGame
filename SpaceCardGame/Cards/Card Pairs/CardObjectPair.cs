@@ -58,6 +58,18 @@ namespace SpaceCardGame
             base(Vector2.Zero, AssetManager.EmptyGameObjectDataAsset)
         {
             Card = card;
+
+            if (Card.Parent != null)
+            {
+                // If the card is being laid from the hand it will have a parent so we need to reparent
+                Card.ReparentTo(this);
+            }
+            else
+            {
+                // If the card had no parent (Station) then we just add it normally
+                AddChild(Card);
+            }
+
             Card.LocalPosition = Vector2.Zero;
             Card.Flip(CardFlipState.kFaceUp);
 
@@ -95,18 +107,6 @@ namespace SpaceCardGame
         public override void Begin()
         {
             base.Begin();
-
-            if (Card.Parent != null)
-            {
-                // Add the card as a child HERE so we do not call LoadContent or Initialise on it - this will be done right at the start of the BattleScreen in the DeckInstance
-                Card.ReparentTo(this);
-            }
-            else
-            {
-                // If the card had no parent (Station) then we just add it normally
-                AddChild(Card);
-            }
-
 
             // We should have set these references by now
             DebugUtils.AssertNotNull(Card);

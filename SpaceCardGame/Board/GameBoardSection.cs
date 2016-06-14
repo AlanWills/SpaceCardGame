@@ -91,12 +91,10 @@ namespace SpaceCardGame
             // We pass it in to keep the sizes of things consistent
             // Could possibly remove this later, but for now it does the trick
             CardObjectPair pair = AddChild(card.CreateCardObjectPair(), load, initialise);
-
             pair.LocalPosition = desiredWorldPosition - WorldPosition;
 
             // Deduct the resources
             Player.AlterResources(card, ChargeType.kCharge);
-
             pair.WhenAddedToGameBoard(this);
             pair.Card.OnLay();
 

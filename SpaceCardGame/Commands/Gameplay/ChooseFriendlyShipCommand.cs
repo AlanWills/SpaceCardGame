@@ -15,7 +15,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A flag to indicate whether we have selected a ship when this command dies
         /// </summary>
-        private bool ShipChosen { get; set; }
+        private bool ShipChosen { get { return Target != null; } }
 
         #endregion
 
@@ -34,7 +34,17 @@ namespace SpaceCardGame
         {
             base.Begin();
 
+            DebugUtils.AssertNotNull(BattleScreen);
             ContainerToLookThrough = BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection.ShipCardControl;
+
+            // If the AI is running this script we immediately set the target and kill the script 
+            if (BattleScreen.ActivePlayer == BattleScreen.Opponent)
+            {
+                // Get the first valid target (may overwrite the already existing Shield)
+                Target = BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection.ShipCardControl.FindChild<CardShipPair>(x => ValidIfCanUseOn(x as CardShipPair));
+                Die();
+            }
+
             SelectingLine.Colour.Value = Color.Green;
         }
 
@@ -52,7 +62,6 @@ namespace SpaceCardGame
             {
                 if (Target != null)
                 {
-                    ShipChosen = true;
                     Die();
                 }
             }
@@ -94,9 +103,9 @@ namespace SpaceCardGame
         /// <param name="cardToChooseTargetFor"></param>
         /// <param name="currentTarget"></param>
         /// <returns></returns>
-        private bool ValidIfCanUseOn(Card cardToChooseTargetFor, CardShipPair currentTarget)
+        private bool ValidIfCanUseOn(CardShipPair currentTarget)
         {
-            return cardToChooseTargetFor.CanUseOn(currentTarget);
+            return CardToChooseTargetFor.CanUseOn(currentTarget);
         }
 
         #endregion

@@ -138,7 +138,7 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
-        /// Fixup some the size of our CardOutline and Card after Initialising from the texture
+        /// Perform some fixup of Sizes and make sure the CardOutline is inline with the size of the card.
         /// </summary>
         public override void Initialise()
         {

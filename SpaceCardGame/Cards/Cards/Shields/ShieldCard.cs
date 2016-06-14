@@ -1,5 +1,4 @@
-﻿using System;
-using _2DEngine;
+﻿using _2DEngine;
 
 namespace SpaceCardGame
 {
@@ -43,7 +42,8 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// When we lay a shield we need to run a script to choose a ship to add it to
+        /// When we lay a shield we need to run a script to choose a ship to add it to.
+        /// /// Alternatively, if the AI is laying a card it should add it without running the script.
         /// </summary>
         public override void OnLay()
         {

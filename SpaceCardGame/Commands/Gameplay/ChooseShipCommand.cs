@@ -10,7 +10,7 @@ namespace SpaceCardGame
     /// </summary>
     /// <param name="cardToChooseTargetFor"></param>
     /// <param name="currentTarget"></param>
-    public delegate bool ValidTargetFunctionHandler(Card cardToChooseTargetFor, CardShipPair currentTarget);
+    public delegate bool ValidTargetFunctionHandler(CardShipPair currentTarget);
 
     /// <summary>
     /// A script which uses a targeting line and loops through a collection of CardShipPair
@@ -41,7 +41,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A reference to a card ship pair which we are currently targeting
         /// </summary>
-        protected CardShipPair Target { get; private set; }
+        protected CardShipPair Target { get; set; }
 
         /// <summary>
         /// The game object container we will look through to find a valid target
@@ -103,7 +103,7 @@ namespace SpaceCardGame
                 {
                     // Check to see whether this current object is a valid match for the card we want to find a target for
                     DebugUtils.AssertNotNull(ValidTargetFunction);
-                    if (ValidTargetFunction(CardToChooseTargetFor, pair))
+                    if (ValidTargetFunction(pair))
                     {
                         pair.Colour.Value = Color.LightGreen;
                         Target = pair;
@@ -158,7 +158,7 @@ namespace SpaceCardGame
         /// <param name="cardToChooseTargetFor"></param>
         /// <param name="currentTarget"></param>
         /// <returns></returns>
-        protected bool AlwaysValid(Card cardToChooseTargetFor, CardShipPair currentTarget)
+        protected bool AlwaysValid(CardShipPair currentTarget)
         {
             return true;
         }

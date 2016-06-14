@@ -96,7 +96,7 @@ namespace SpaceCardGame
         /// <param name="cardToChooseTargetFor"></param>
         /// <param name="currentTarget"></param>
         /// <returns></returns>
-        protected bool IsShipDamageModuleAlive(Card cardToChooseTargetFor, CardShipPair currentTarget)
+        protected bool IsShipDamageModuleAlive(CardShipPair currentTarget)
         {
             return !currentTarget.Ship.DamageModule.Dead;
         }
