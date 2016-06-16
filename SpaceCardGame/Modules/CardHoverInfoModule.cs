@@ -60,7 +60,7 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(AttachedCardObjectPair.Card.Collider);
             DebugUtils.AssertNotNull(AttachedCardObjectPair.CardObject.Collider);
 
-            BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
+            BattleScreen battleScreen = ScreenManager.Instance.GetCurrentScreenAs<BattleScreen>();
             // Depending on the turn state, show this UI based on the card or the object's collider
             Collider colliderToCheck = battleScreen.TurnState == TurnState.kPlaceCards ? AttachedCardObjectPair.Card.Collider : AttachedCardObjectPair.CardObject.Collider;
 

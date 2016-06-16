@@ -63,7 +63,7 @@ namespace SpaceCardGame
         {
             base.HandleInput(elapsedGameTime, mousePosition);
 
-            BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
+            BattleScreen battleScreen = ScreenManager.Instance.GetCurrentScreenAs<BattleScreen>();
 
             DebugUtils.AssertNotNull(CardShipPair.Ship.Collider);
             if (!scaled)

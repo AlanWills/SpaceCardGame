@@ -50,8 +50,7 @@ namespace SpaceCardGame
             // Loop through both player boards and check to see if any turret has unresolved bullets
             // If one exists, disable this button
 
-            Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
-            BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
+            BattleScreen battleScreen = ScreenManager.Instance.GetCurrentScreenAs<BattleScreen>();
 
             if (battleScreen.FindInGameUIObject<Explosion>(x => x is Explosion) != null)
             {
@@ -103,8 +102,7 @@ namespace SpaceCardGame
         /// <returns></returns>
         private string GetTurnStateButtonText()
         {
-            Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
-            BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
+            BattleScreen battleScreen = ScreenManager.Instance.GetCurrentScreenAs<BattleScreen>();
 
             switch (battleScreen.TurnState)
             {

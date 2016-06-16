@@ -42,12 +42,7 @@ namespace SpaceCardGame
             DeckUI = AddChild(new DeckUI(Player, Vector2.Zero));
             HandUI = AddChild(new HandUI(Player, new Vector2(Size.X * 0.8f, Size.Y * 0.25f), new Vector2(0, Size.Y * 0.4f)));
 
-            Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
-            BattleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
-
-            // Removed this at the moment because when we quickly transition between states we get flickering - not actually sure we want to hide anything anyway
-            //BattleScreen.OnCardPlacementStateStarted += SetupUIForCardPlacement;
-            //BattleScreen.OnBattleStateStarted += SetupUIForBattle;
+            BattleScreen = ScreenManager.Instance.GetCurrentScreenAs<BattleScreen>();
         }
 
         #region Virtual Functions

@@ -80,8 +80,7 @@ namespace SpaceCardGame
         {
             CheckShouldInitialise();
 
-            Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
-            BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
+            BattleScreen battleScreen = ScreenManager.Instance.GetCurrentScreenAs<BattleScreen>();
 
             battleScreen.OnCardPlacementStateStarted += SetUpGameObjectsForCardPlacement;
             battleScreen.OnBattleStateStarted += SetUpGameObjectsForBattle;

@@ -96,8 +96,7 @@ namespace SpaceCardGame
             Debug.Assert(baseObject is Card);
             Card card = baseObject as Card;
 
-            Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
-            BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
+            BattleScreen battleScreen = ScreenManager.Instance.GetCurrentScreenAs<BattleScreen>();
 
             // Only lay our cards during the card placement phase
             if (battleScreen.TurnState == TurnState.kPlaceCards)

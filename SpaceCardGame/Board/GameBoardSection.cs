@@ -55,8 +55,7 @@ namespace SpaceCardGame
         {
             base.Begin();
 
-            Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
-            BattleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
+            BattleScreen = ScreenManager.Instance.GetCurrentScreenAs<BattleScreen>();
 
             ShipCard stationCard = Player.GetStationData();
             CardObjectPair stationPair = AddCard(stationCard, WorldPosition, false, false);

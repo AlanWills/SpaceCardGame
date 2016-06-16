@@ -77,8 +77,7 @@ namespace SpaceCardGame
             Size = ScreenManager.Instance.ScreenDimensions;
             UsesCollider = false;
 
-            Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
-            BattleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
+            BattleScreen = ScreenManager.Instance.GetCurrentScreenAs<BattleScreen>();
         }
 
         #region Virtual Functions

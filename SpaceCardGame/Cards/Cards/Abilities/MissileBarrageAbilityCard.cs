@@ -34,8 +34,7 @@ namespace SpaceCardGame
         /// </summary>
         public override void UseAbility(CardObjectPair target)
         {
-            Debug.Assert(ScreenManager.Instance.CurrentScreen is BattleScreen);
-            BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
+            BattleScreen battleScreen = ScreenManager.Instance.GetCurrentScreenAs<BattleScreen>();
 
             foreach (CardShipPair pair in battleScreen.Board.NonActivePlayerBoardSection.GameBoardSection.ShipCardControl)
             {
