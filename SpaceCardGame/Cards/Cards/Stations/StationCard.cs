@@ -5,8 +5,8 @@
     /// </summary>
     public abstract class StationCard : ShipCard
     {
-        public StationCard(CardData stationCardData) :
-            base(stationCardData)
+        public StationCard(Player player, CardData stationCardData) :
+            base(player, stationCardData)
         {
 
         }

@@ -5,8 +5,8 @@
     /// </summary>
     public class PhaseEnergyShieldCard : ShieldCard
     {
-        public PhaseEnergyShieldCard(CardData shieldCardData) :
-            base(shieldCardData)
+        public PhaseEnergyShieldCard(Player player, CardData shieldCardData) :
+            base(player, shieldCardData)
         {
 
         }

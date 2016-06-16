@@ -1,5 +1,6 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
+using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -48,6 +49,17 @@ namespace SpaceCardGame
 
             DebugUtils.AssertNotNull(Parent);
             Parent.Die();
+        }
+
+        /// <summary>
+        /// A templated function for accessing our parent as a specialized version of CardObjectPair
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public T GetCardObjectPair<T>() where T : CardObjectPair
+        {
+            Debug.Assert(Parent is T);
+            return Parent as T;
         }
 
         #endregion

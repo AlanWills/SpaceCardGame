@@ -21,11 +21,6 @@ namespace SpaceCardGame
         #region Properties and Fields
 
         /// <summary>
-        /// The player who owns this card object pair
-        /// </summary>
-        public Player Player { get; private set; }
-
-        /// <summary>
         /// A reference to the card part of our pair
         /// </summary>
         public Card Card { get; protected set; }
@@ -77,10 +72,6 @@ namespace SpaceCardGame
             AddHoverInfoModule = true;
 
             IsReady = new Property<bool>(false);
-
-            // We get the player who owns this card by using the active player - this card is created on the owning player's turn
-            BattleScreen battleScreen = ScreenManager.Instance.CurrentScreen as BattleScreen;
-            Player = battleScreen.ActivePlayer;
         }
 
         #region Virtual Functions
@@ -122,7 +113,10 @@ namespace SpaceCardGame
         /// </summary>
         /// <param name="gameBoard"></param>
         /// <param name="player"></param>
-        public abstract void WhenAddedToGameBoard(GameBoardSection gameBoard);
+        public virtual void WhenAddedToGameBoard(GameBoardSection gameBoard)
+        {
+            Card.OnLay();
+        }
 
         /// <summary>
         /// A function called when this card is added to a card ship pair.

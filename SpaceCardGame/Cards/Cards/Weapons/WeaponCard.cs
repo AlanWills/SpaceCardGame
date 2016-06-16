@@ -1,5 +1,4 @@
 ﻿using _2DEngine;
-using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -10,33 +9,13 @@ namespace SpaceCardGame
     {
         #region Properties and Fields
 
-        /// <summary>
-        /// A reference to our parent as a CardShipPair
-        /// </summary>
-        private CardWeaponPair cardWeaponPair;
-        protected CardWeaponPair CardWeaponPair
-        {
-            get
-            {
-                if (cardWeaponPair == null)
-                {
-                    DebugUtils.AssertNotNull(Parent);
-                    Debug.Assert(Parent is CardWeaponPair);
-                    cardWeaponPair = Parent as CardWeaponPair;
-                }
-
-                return cardWeaponPair;
-            }
-        }
-
         // The path to a default weapon we will use to create a weapon for each ship initially
         public const string defaultWeaponCardDataAsset = "Cards\\Weapons\\DefaultTurretCard.xml";
 
-
         #endregion
 
-        public WeaponCard(CardData weaponCardData) :
-            base(weaponCardData)
+        public WeaponCard(Player player, CardData weaponCardData) :
+            base(player, weaponCardData)
         {
             
         }

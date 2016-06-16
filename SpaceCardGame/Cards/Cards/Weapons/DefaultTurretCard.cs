@@ -8,8 +8,8 @@ namespace SpaceCardGame
     /// </summary>
     public class DefaultTurretCard : WeaponCard
     {
-        public DefaultTurretCard(CardData weaponCardData) :
-            base(weaponCardData)
+        public DefaultTurretCard(Player player, CardData weaponCardData) :
+            base(player, weaponCardData)
         {
             // Never show an outline for the default turret card
             CardOutline.Hide();

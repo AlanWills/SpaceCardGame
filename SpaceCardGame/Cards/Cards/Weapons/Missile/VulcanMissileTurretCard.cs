@@ -18,8 +18,8 @@ namespace SpaceCardGame
 
         #endregion
 
-        public VulcanMissileTurretCard(CardData weaponCardData) :
-            base(weaponCardData)
+        public VulcanMissileTurretCard(Player player, CardData weaponCardData) :
+            base(player, weaponCardData)
         {
 
         }
@@ -59,7 +59,7 @@ namespace SpaceCardGame
             if (IsPlaced)
             {
                 // If our ability is not performed and we have unused fuel we can activate the UI for this card's ability
-                ValidateUI(!AbilityPerformed && CardObjectPair.Player.Resources[(int)ResourceType.Fuel].Exists(x => !x.Used));
+                ValidateUI(!AbilityPerformed && CardObjectPair.Card.Player.Resources[(int)ResourceType.Fuel].Exists(x => !x.Used));
             }
         }
 
@@ -84,8 +84,10 @@ namespace SpaceCardGame
         {
             if (IsPlaced)
             {
-                CardWeaponPair.Turret.ShotsLeft++;
-                (ScreenManager.Instance.CurrentScreen as BattleScreen).ActivePlayer.AlterResources(ResourceType.Fuel, 1, ChargeType.kCharge);
+                CardWeaponPair cardWeaponPair = GetCardObjectPair<CardWeaponPair>();
+
+                cardWeaponPair.Turret.ShotsLeft++;
+                ScreenManager.Instance.GetCurrentScreenAs<BattleScreen>().ActivePlayer.AlterResources(ResourceType.Fuel, 1, ChargeType.kCharge);
 
                 AbilityPerformed = true;
             }
@@ -103,7 +105,10 @@ namespace SpaceCardGame
         {
             if (canUseAbility)
             {
-                ClickableModule.ShouldHandleInput.Value = true;
+                // It may not be the owner of the cards go, in which case we do not want to be able to use the ability anyway
+                // The module will do that validation, but we only want it to be clickable if we can use it and it is our go
+                // we still want the colour if we can use it - even if it is not our card
+                ClickableModule.ShouldHandleInput.Value &= true;
                 CardObjectPair.Colour.Value = Color.Green;
             }
             else

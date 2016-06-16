@@ -72,11 +72,9 @@ namespace SpaceCardGame
         /// <param name="player"></param>
         public override void WhenAddedToGameBoard(GameBoardSection gameBoard)
         {
-            Debug.Assert(Player.CurrentShipsPlaced < Player.MaxShipNumber);
+            base.WhenAddedToGameBoard(gameBoard);
 
-            ReparentTo(gameBoard.ShipCardControl);                       // Reparent this under the card ship control rather than the game board which it was initially added to
-
-            Player.CurrentShipsPlaced++;
+            ReparentTo(gameBoard.ShipCardControl);   // Reparent this under the card ship control rather than the game board which it was initially added to
         }
 
         /// <summary>
@@ -88,16 +86,6 @@ namespace SpaceCardGame
             Debug.Fail("Cannot add ships to other ships");
         }
         
-        /// <summary>
-        /// When this ship dies we want to reduce the number of player ships by one
-        /// </summary>
-        public override void Die()
-        {
-            base.Die();
-
-            Player.CurrentShipsPlaced--;
-        }
-
         #endregion
 
         #region Utility Functions
@@ -108,7 +96,7 @@ namespace SpaceCardGame
         private void AddDefaultWeapon()
         {
             CardData defaultWeaponCardData = AssetManager.GetData<CardData>(WeaponCard.defaultWeaponCardDataAsset);
-            CardWeaponPair defaultWeapon = AddChild(new CardWeaponPair(defaultWeaponCardData.CreateCard() as WeaponCard), true, true);
+            CardWeaponPair defaultWeapon = AddChild(new CardWeaponPair(defaultWeaponCardData.CreateCard(Card.Player) as WeaponCard), true, true);
 
             defaultWeapon.AddToCardShipPair(this);
         }

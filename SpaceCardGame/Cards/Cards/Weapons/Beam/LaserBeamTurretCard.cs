@@ -5,8 +5,8 @@
     /// </summary>
     public class LaserBeamTurretCard : WeaponCard
     {
-        public LaserBeamTurretCard(CardData weaponCardData) :
-            base(weaponCardData)
+        public LaserBeamTurretCard(Player player, CardData weaponCardData) :
+            base(player, weaponCardData)
         {
             
         }

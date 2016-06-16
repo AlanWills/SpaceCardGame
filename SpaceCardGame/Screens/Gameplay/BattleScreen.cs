@@ -211,8 +211,8 @@ namespace SpaceCardGame
             }
 
             // Update the appropriate board sections so that we cannot interact unless we are the current active player
-            Board.NonActivePlayerBoardSection.ShouldHandleInput.Value = false;
-            Board.ActivePlayerBoardSection.ShouldHandleInput.Value = true;
+            //Board.NonActivePlayerBoardSection.ShouldHandleInput.Value = false;
+            //Board.ActivePlayerBoardSection.ShouldHandleInput.Value = true;
 
             ActivePlayer.NewTurn();
         }

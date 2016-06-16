@@ -91,7 +91,7 @@ namespace SpaceCardGame
         /// A callback which adds a card in our hand to the game
         /// </summary>
         /// <param name="clickable"></param>
-        private void RunPlaceCardCommand(BaseObject baseObject)
+        public void RunPlaceCardCommand(BaseObject baseObject)
         {
             Debug.Assert(baseObject is Card);
             Card card = baseObject as Card;
@@ -109,10 +109,6 @@ namespace SpaceCardGame
                     Player.RemoveCardFromHand(card);
 
                     PlaceCardCommand placeCommand = CommandManager.Instance.AddChild(new PlaceCardCommand(card), true, true);
-
-                    // Once we have clicked this card for placement, we will either be added back to the hand in which case the event will be re-added
-                    // or we will be placed on the board in which case we do not want the event to exist any more
-                    card.ClickableModule.OnLeftClicked -= RunPlaceCardCommand;
                 }
                 else
                 {

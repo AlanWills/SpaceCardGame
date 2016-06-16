@@ -128,6 +128,7 @@
     <Compile Include="Board\GameBoardSection.cs" />
     <Compile Include="Game Objects\ShipCardControl.cs" />
     <Compile Include="Interfaces\ICardObjectElement.cs" />
+    <Compile Include="Modules\ClickableCardModule.cs" />
     <Compile Include="Modules\CardHandAnimationModule.cs" />
     <Compile Include="Modules\CardHoverInfoModule.cs" />
     <Compile Include="Modules\ShipCardHoverInfoModule.cs" />

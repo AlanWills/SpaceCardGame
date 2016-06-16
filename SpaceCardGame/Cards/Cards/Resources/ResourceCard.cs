@@ -51,8 +51,8 @@ namespace SpaceCardGame
 
         #endregion
 
-        public ResourceCard(CardData cardData) :
-            base(cardData)
+        public ResourceCard(Player player, CardData cardData) :
+            base(player, cardData)
         {
             
         }

@@ -5,8 +5,8 @@
     /// </summary>
     public abstract class AbilityCard : Card
     {
-        public AbilityCard(CardData abilityCardData) :
-            base(abilityCardData)
+        public AbilityCard(Player player, CardData abilityCardData) :
+            base(player, abilityCardData)
         {
 
         }

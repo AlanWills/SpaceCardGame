@@ -1,7 +1,6 @@
 ﻿using _2DEngine;
 using _2DEngineData;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
 using SpaceCardGameData;
 using System.Diagnostics;
 
@@ -16,23 +15,6 @@ namespace SpaceCardGame
         /// </summary>
         public ShipData ShipData { get; private set; }
 
-        /// <summary>
-        /// A local reference to the parent CardShipPair (for convenience)
-        private CardShipPair cardShipPair;
-        private CardShipPair CardShipPair
-        {
-            get
-            {
-                if (cardShipPair == null)
-                {
-                    DebugUtils.AssertNotNull(Parent);
-                    cardShipPair = Parent as CardShipPair;
-                }
-
-                return cardShipPair;
-            }
-        }
-        
         /// <summary>
         /// A reference to our damageable object module - useful for reference to it's health etc.
         /// </summary>
@@ -125,7 +107,7 @@ namespace SpaceCardGame
             ShipDeathExplosionSFX = new CustomSoundEffect(ShipData.ExplosionSFXAsset);
 
             DamageModule = AddModule(new DamageableObjectModule(ShipData.Defence));
-            DamageModule.CalculateDamage += CardShipPair.ShipCard.CalculateDamageDoneToThis;
+            DamageModule.CalculateDamage += GetCardObjectPair<CardShipPair>().ShipCard.CalculateDamageDoneToThis;
 
             // Add engine UI from our data
             Engines = new Engine[ShipData.EngineHardpoints.Count];
@@ -159,8 +141,13 @@ namespace SpaceCardGame
         {
             base.HandleInput(elapsedGameTime, mousePosition);
 
+            CardShipPair cardShipPair = GetCardObjectPair<CardShipPair>();
+
             DebugUtils.AssertNotNull(Collider);
-            if (Collider.IsClicked && Turret.CanFire && CardShipPair.IsReady)
+
+            // Check to see that the player who is interacting is the owner of this card
+            bool isOwningPlayersTurn = cardShipPair.Card.Player == ScreenManager.Instance.GetCurrentScreenAs<BattleScreen>().ActivePlayer;
+            if (isOwningPlayersTurn && Collider.IsClicked && Turret.CanFire && cardShipPair.IsReady)
             {
                 DebugUtils.AssertNotNull(Parent);
                 Debug.Assert(Parent is CardShipPair);
@@ -169,7 +156,7 @@ namespace SpaceCardGame
 
             // Updates the colour of the ship if our mouse is over it
             // Green if we can attack - red if we cannot
-            Color hoverColour = (Turret.CanFire && CardShipPair.IsReady) ? Color.LightGreen : Color.Red;
+            Color hoverColour = (Turret.CanFire && cardShipPair.IsReady) ? Color.LightGreen : Color.Red;
             Parent.Colour.Value = Collider.IsMouseOver ? hoverColour : Color.White;
         }
 

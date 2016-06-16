@@ -2,8 +2,8 @@
 {
     public class BastionShipyardCard : StationCard
     {
-        public BastionShipyardCard(CardData stationCardData) :
-            base(stationCardData)
+        public BastionShipyardCard(Player player, CardData stationCardData) :
+            base(player, stationCardData)
         {
 
         }

@@ -48,12 +48,14 @@ namespace SpaceCardGame
         /// <param name="player"></param>
         public override void WhenAddedToGameBoard(GameBoardSection gameBoard)
         {
-            Debug.Assert(Player.ResourceCardsPlacedThisTurn < Player.ResourceCardsCanLay);
+            base.WhenAddedToGameBoard(gameBoard);
+
+            Debug.Assert(Card.Player.ResourceCardsPlacedThisTurn < Player.ResourceCardsCanLay);
 
             float padding = 10;
 
             int typeIndex = (int)ResourceCard.ResourceType;
-            int cardCount = Player.Resources[typeIndex].Count;
+            int cardCount = Card.Player.Resources[typeIndex].Count;
 
             if (cardCount == 0)
             {
@@ -63,11 +65,11 @@ namespace SpaceCardGame
             else
             {
                 // We are adding another resource card, so overlay it on top and slightly to the side of the previous one
-                LocalPosition = Player.Resources[typeIndex][cardCount - 1].Parent.LocalPosition + new Vector2(ResourceCard.Size.X * 0.15f, 0);
+                LocalPosition = Card.Player.Resources[typeIndex][cardCount - 1].Parent.LocalPosition + new Vector2(ResourceCard.Size.X * 0.15f, 0);
             }
 
-            Player.Resources[typeIndex].Add(ResourceCard);
-            Player.ResourceCardsPlacedThisTurn++;
+            Card.Player.Resources[typeIndex].Add(ResourceCard);
+            Card.Player.ResourceCardsPlacedThisTurn++;
         }
 
         /// <summary>

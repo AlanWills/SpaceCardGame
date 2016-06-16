@@ -44,16 +44,6 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
-        /// Add a script to choose a ship to add this weapon to
-        /// </summary>
-        /// <param name="gameBoard"></param>
-        /// <param name="player"></param>
-        public override void WhenAddedToGameBoard(GameBoardSection gameBoard)
-        {
-            
-        }
-
-        /// <summary>
         /// Adds a weapon to our ship
         /// </summary>
         /// <param name="cardShipPair"></param>

@@ -2,8 +2,8 @@
 {
     public class BlazeInterceptorShipCard : ShipCard
     {
-        public BlazeInterceptorShipCard(CardData shipCardData) :
-            base(shipCardData)
+        public BlazeInterceptorShipCard(Player player, CardData shipCardData) :
+            base(player, shipCardData)
         {
 
         }

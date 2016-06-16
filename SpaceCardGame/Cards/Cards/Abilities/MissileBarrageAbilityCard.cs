@@ -10,8 +10,8 @@ namespace SpaceCardGame
     /// </summary>
     public class MissileBarrageAbilityCard : AbilityCard
     {
-        public MissileBarrageAbilityCard(CardData abilityCardData) :
-            base(abilityCardData)
+        public MissileBarrageAbilityCard(Player player, CardData abilityCardData) :
+            base(player, abilityCardData)
         {
 
         }

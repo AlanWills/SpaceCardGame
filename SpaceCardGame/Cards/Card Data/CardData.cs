@@ -52,7 +52,7 @@ namespace SpaceCardGame
         /// Calls LoadContent and Initialise().
         /// </summary>
         /// <returns></returns>
-        public Card CreateCard()
+        public Card CreateCard(Player player)
         {
             // Remove all the whitespace from the display name
             string squashedDisplayName = DisplayName.Replace(" ", "");
@@ -61,7 +61,7 @@ namespace SpaceCardGame
             Type cardType = typeof(CardData).Assembly.GetType("SpaceCardGame." + CardTypeName);
             DebugUtils.AssertNotNull(cardType);
 
-            Card card = (Card)Activator.CreateInstance(cardType, this);
+            Card card = (Card)Activator.CreateInstance(cardType, player, this);
             card.LoadContent();
             card.Initialise();
 

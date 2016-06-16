@@ -1,6 +1,4 @@
 ﻿using _2DEngine;
-using System.Diagnostics;
-using System;
 
 namespace SpaceCardGame
 {
@@ -9,31 +7,8 @@ namespace SpaceCardGame
     /// </summary>
     public abstract class ShipCard : Card
     {
-        #region Properties and Fields
-
-        /// <summary>
-        /// A reference to our parent as a CardShipPair
-        /// </summary>
-        private CardShipPair cardShipPair;
-        protected CardShipPair CardShipPair
-        {
-            get
-            {
-                if (cardShipPair == null)
-                {
-                    DebugUtils.AssertNotNull(Parent);
-                    Debug.Assert(Parent is CardShipPair);
-                    cardShipPair = Parent as CardShipPair;
-                }
-
-                return cardShipPair;
-            }
-        }
-
-        #endregion
-
-        public ShipCard(CardData shipCardData) :
-            base(shipCardData)
+        public ShipCard(Player player, CardData shipCardData) :
+            base(player, shipCardData)
         {
         }
 
@@ -97,13 +72,15 @@ namespace SpaceCardGame
         /// <returns></returns>
         public virtual float CalculateAttack(BaseObject targetBaseObject)
         {
-            if (CardShipPair.Ship.Turret.IsDefaultTurret)
+            CardShipPair cardShipPair = GetCardObjectPair<CardShipPair>();
+
+            if (cardShipPair.Ship.Turret.IsDefaultTurret)
             {
-                return CardShipPair.Ship.ShipData.Attack;
+                return cardShipPair.Ship.ShipData.Attack;
             }
             else
             {
-                return CardShipPair.Ship.Turret.BulletData.Damage;
+                return cardShipPair.Ship.Turret.BulletData.Damage;
             }
         }
 

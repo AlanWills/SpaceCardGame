@@ -8,8 +8,8 @@ namespace SpaceCardGame
     /// </summary>
     public class EagleFrigateShipCard : ShipCard
     {
-        public EagleFrigateShipCard(CardData shipCardData) :
-            base(shipCardData)
+        public EagleFrigateShipCard(Player player, CardData shipCardData) :
+            base(player, shipCardData)
         {
 
         }
@@ -27,8 +27,10 @@ namespace SpaceCardGame
             // Some sources of damage may not come from a ship (and indeed could be healing) so we wish to ignore those
             if (objectDoingTheDamage is CardShipPair)
             {
+                CardShipPair cardShipPair = GetCardObjectPair<CardShipPair>();
+
                 CardShipPair attackingShipPair = objectDoingTheDamage as CardShipPair;
-                if (attackingShipPair.Ship.ShipData.Speed < CardShipPair.Ship.ShipData.Speed)
+                if (attackingShipPair.Ship.ShipData.Speed < cardShipPair.Ship.ShipData.Speed)
                 {
                     // We are being damaged by a ship which is slower than us so we can remove one damage
                     inputDamage--;
@@ -47,10 +49,12 @@ namespace SpaceCardGame
         {
             float baseAttack = base.CalculateAttack(targetBaseObject);
 
+            CardShipPair cardShipPair = GetCardObjectPair<CardShipPair>();
+
             if (targetBaseObject != null && targetBaseObject is CardShipPair)
             {
                 CardShipPair targetCardShipPair = targetBaseObject as CardShipPair;
-                if (CardShipPair.Ship.ShipData.Speed > targetCardShipPair.Ship.ShipData.Speed)
+                if (cardShipPair.Ship.ShipData.Speed > targetCardShipPair.Ship.ShipData.Speed)
                 {
                     // If we have a higher speed, we do more damage
                     baseAttack++;

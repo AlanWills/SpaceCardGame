@@ -90,7 +90,7 @@ namespace SpaceCardGame
             for (int i = 0; i < cardData.Count; i++)
             {
                 // Position the cards incrementally along the screen and halfway between the top of the grid control and the top of the screen
-                Card card = AddScreenUIObject(cardData[i].CreateCard(), true, true);
+                Card card = AddScreenUIObject(cardData[i].CreateCard(null), true, true);
                 card.LocalPosition = new Vector2(300 * (i + 1), (PacksGridControl.WorldPosition.Y - PacksGridControl.Size.Y * 0.5f) * 0.5f);
                 card.ClickableModule.OnLeftClicked += OnCardLeftClicked;
                 card.Flip(CardFlipState.kFaceDown);         // Make sure the card is face down initially, so we have the excitement of turning it over!

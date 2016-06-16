@@ -35,14 +35,19 @@ namespace SpaceCardGame
         #region Properties and Fields
 
         /// <summary>
+        /// The player who owns this card
+        /// </summary>
+        public Player Player { get; private set; }
+
+        /// <summary>
         /// The card data for this card
         /// </summary>
         public CardData CardData { get; private set; }
 
         /// <summary>
-        /// A reference to the clickable module attached to this UI card.
+        /// A reference to the clickable module attached to this card.
         /// </summary>
-        public ClickableObjectModule ClickableModule { get; private set; }
+        public ClickableCardModule ClickableModule { get; private set; }
 
         /// <summary>
         /// Performs animation whilst the card is in our hand, but is removed during the OnLay function
@@ -99,17 +104,18 @@ namespace SpaceCardGame
 
         #endregion
 
-        public Card(CardData cardData) :
+        public Card(Player player, CardData cardData) :
             base(Vector2.Zero, "")
         {
             DebugUtils.AssertNotNull(cardData);
 
+            Player = player;
             CardData = cardData;
             TextureAsset = cardData.TextureAsset;
             FlipState = CardFlipState.kFaceUp;
             UsesCollider = true;                    // Explicitly state this because Image does not use a collider
 
-            ClickableModule = AddModule(new ClickableObjectModule());       // Add our clickable module
+            ClickableModule = AddModule(new ClickableCardModule());       // Add our clickable module
             ClickableModule.OnLeftClicked += ClickableObjectModule.EmptyClick;
 
             HandAnimationModule = AddModule(new CardHandAnimationModule());
@@ -245,6 +251,17 @@ namespace SpaceCardGame
         }
 
         /// <summary>
+        /// Templated function for accessing our parent as a specific CardObjectPair
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public T GetCardObjectPair<T>() where T : CardObjectPair
+        {
+            Debug.Assert(Parent is T);
+            return Parent as T;
+        }
+
+        /// <summary>
         /// A function that we will override with specific implementations for each card type.
         /// A function which can be used to determine whether the player can lay a card - could be used for resources, limiting a specific number of cards per turn etc.
         /// By default, checks the resource costs of this card against the inputted player's resources
@@ -265,6 +282,9 @@ namespace SpaceCardGame
         /// </summary>
         public virtual void OnLay()
         {
+            Player.AlterResources(this, ChargeType.kCharge);
+            Player.CurrentHand.Remove(this);
+
             // This should clean up the HandAnimationModule
             HandAnimationModule.Die();
             HandAnimationModule = null;

@@ -35,16 +35,6 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
-        /// Adds an ability card to the game board section
-        /// </summary>
-        /// <param name="gameBoard"></param>
-        /// <param name="player"></param>
-        public override void WhenAddedToGameBoard(GameBoardSection gameBoard)
-        {
-            
-        }
-
-        /// <summary>
         /// Adds an ability to our ship
         /// </summary>
         /// <param name="cardShipPair"></param>

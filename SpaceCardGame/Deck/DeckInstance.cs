@@ -10,12 +10,12 @@ namespace SpaceCardGame
     /// </summary>
     public class DeckInstance : List<Card>
     {
-        public DeckInstance(Deck chosenDeck) :
+        public DeckInstance(Player player, Deck chosenDeck) :
             base(chosenDeck.Cards.Count)
         {
             foreach (CardData cardData in chosenDeck.Cards.FindAll(x => x is CardData))
             {
-                Add(cardData.CreateCard());
+                Add(cardData.CreateCard(player));
             }
         }
 

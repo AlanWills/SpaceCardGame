@@ -87,18 +87,14 @@ namespace SpaceCardGame
         /// <returns></returns>
         public CardObjectPair AddCard(Card card, Vector2 desiredWorldPosition, bool load = true, bool initialise = true)
         {
-            // The size parameter comes from the card thumbnail
-            // We pass it in to keep the sizes of things consistent
-            // Could possibly remove this later, but for now it does the trick
+            // Once we have clicked this card for placement, do not want this event to run any more
+            card.ClickableModule.OnLeftClicked -= BattleScreen.Board.ActivePlayerBoardSection.UIBoardSection.HandUI.RunPlaceCardCommand;
+
             CardObjectPair pair = AddChild(card.CreateCardObjectPair(), load, initialise);
             pair.LocalPosition = desiredWorldPosition - WorldPosition;
 
             // Deduct the resources
-            Player.AlterResources(card, ChargeType.kCharge);
             pair.WhenAddedToGameBoard(this);
-            pair.Card.OnLay();
-
-            Player.CurrentHand.Remove(card);
             BattleScreen.Board.ActivePlayerBoardSection.UIBoardSection.HandUI.NeedsRebuild = true;
             
             return pair;

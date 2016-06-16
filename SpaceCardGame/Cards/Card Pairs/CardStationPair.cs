@@ -22,6 +22,9 @@
         /// <param name="player"></param>
         public override void WhenAddedToGameBoard(GameBoardSection gameBoard)
         {
+            // Do not call through to base implementation, because our station is added differently to our normal ships
+            Card.OnLay();
+
             // This function will handle parenting
             gameBoard.ShipCardControl.AddStation(this);         // Call the specific function we have for stations - this is for positioning purposes mainly
         }

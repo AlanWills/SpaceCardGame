@@ -109,7 +109,7 @@ namespace SpaceCardGame
             };
 
             CurrentHand = new List<Card>();
-            Deck = new DeckInstance(chosenDeck);
+            Deck = new DeckInstance(this, chosenDeck);
         }
 
         #region Virtual Functions

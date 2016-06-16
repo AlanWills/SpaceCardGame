@@ -13,10 +13,9 @@ namespace SpaceCardGame
         {
             UsesCollider = false;
 
-            // We should not be able to interact with the opponent's board section
+            // We should not be able to interact with the opponent's Hand
             // Instead we will use an AI script to add things
-            UIBoardSection.ShouldHandleInput.Value = false;
-            GameBoardSection.ShouldHandleInput.Value = false;
+            UIBoardSection.HandUI.ShouldHandleInput.Value = false;
         }
 
         #region Virtual Functions
