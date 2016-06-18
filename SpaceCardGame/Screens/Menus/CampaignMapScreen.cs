@@ -34,15 +34,23 @@ namespace SpaceCardGame
 
             MissionGridControl = AddScreenUIObject(new GridControl(4, 4, new Vector2(ScreenDimensions.X * 0.5f, ScreenDimensions.Y), new Vector2(ScreenCentre.X * 0.5f, ScreenCentre.Y)));
 
+            int index = 0;
             List<MissionData> allMissionData = AssetManager.GetAllDataOfType<MissionData>();
             foreach (MissionData missionData in allMissionData)
             {
                 ClickableImage clickImage = MissionGridControl.AddChild(new ClickableImage(Vector2.Zero, missionData.MissionThumbnailTextureAsset));
                 clickImage.ClickableModule.OnLeftClicked += OnMissionLeftClicked;
                 clickImage.StoredObject = missionData;
+
+                if (index > SessionManager.PlayerGameData.CurrentLevel)
+                {
+                    clickImage.Hide();
+                }
+
+                index++;
             }
 
-            CurrentSelectedMission = AddScreenUIObject(new MissionInfoImage(allMissionData[allMissionData.Count - 1]));
+            CurrentSelectedMission = AddScreenUIObject(new MissionInfoImage(allMissionData[SessionManager.PlayerGameData.CurrentLevel]));
         }
 
         protected override void GoToPreviousScreen()

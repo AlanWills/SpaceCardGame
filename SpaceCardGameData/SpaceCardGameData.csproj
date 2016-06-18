@@ -59,6 +59,7 @@
     <Compile Include="Card Storage\PlayerCardRegistryData.cs" />
     <Compile Include="Game Objects\BoardData.cs" />
     <Compile Include="Missions\MissionData.cs" />
+    <Compile Include="PlayerGameData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

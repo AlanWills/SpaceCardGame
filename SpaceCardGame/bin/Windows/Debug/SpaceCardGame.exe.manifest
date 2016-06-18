@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>BHqYlRwwNCCCY9JWLVj/YLvfJhGc4NrN/oklrO/AXhg=</dsig:DigestValue>
+        <dsig:DigestValue>wL8c5pbYTDBQi0ZosHjnYuMjfU/k6fcaSe+HinA1hfg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -235,14 +235,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="274840">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="275352">
       <assemblyIdentity name="SpaceCardGame" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>rLUHLJG7R+bFl059vVs4X2kP8dnewJL0yn4z98pEJR8=</dsig:DigestValue>
+        <dsig:DigestValue>ETuuBOinJiBwXLYw2C3y0ab8m3UCmpspup0RTckhAtU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -254,7 +254,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>IlxZNBdCUYNjOPX0EMpExVvKF4onRqlji7+Si/2pTaA=</dsig:DigestValue>
+        <dsig:DigestValue>loNHunMlDgI0hdLuhBEH8RO/iESJQxHxHrz/j8VLDy8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -670,6 +670,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>1KLtZShl5rit2qB4xJKbfCR4FiOlP+dPvVuA4i5YwIM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Data\Options\PlayerGameData.xml" size="129" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>SVaSt/Z7yqtfIRK5fQS/NmrfNAvP4dc993yat1/mzc8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Player\PlayerCardRegistryData.xml" size="5148" writeableType="applicationData">

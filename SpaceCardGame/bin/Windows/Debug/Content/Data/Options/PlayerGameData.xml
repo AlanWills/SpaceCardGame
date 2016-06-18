@@ -1,0 +1,5 @@
+﻿<XnaContent>
+  <Asset Type="SpaceCardGameData.PlayerGameData">
+    <CurrentLevel>4</CurrentLevel>
+  </Asset>
+</XnaContent>

@@ -155,6 +155,7 @@
     <Compile Include="Screens\Menus\MainMenuScreen.cs" />
     <Compile Include="Game Objects\Animations\EngineBlaze.cs" />
     <Compile Include="Game Objects\Animations\Explosion.cs" />
+    <Compile Include="Managers\SessionManager.cs" />
     <Compile Include="UI\CardGridControl.cs" />
     <Compile Include="UI\ChooseDeckBox.cs" />
     <Compile Include="UI\DeckCardTypeControl.cs" />
@@ -221,6 +222,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Missions\Mission1 - Terra.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Options\PlayerGameData.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Screens\CampaignMapScreen.xml">
