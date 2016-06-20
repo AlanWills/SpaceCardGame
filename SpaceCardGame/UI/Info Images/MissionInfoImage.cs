@@ -1,7 +1,9 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
+using System;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace SpaceCardGame
 {
@@ -77,9 +79,17 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(clickableImage.StoredObject);
             Debug.Assert(clickableImage.StoredObject is Deck);
 
+            // Create our opponent's deck using the cards in our mission data
             Deck opponentDeck = new Deck();
             opponentDeck.Create(MissionData.OpponentDeckData.CardDataAssets);
-            ScreenManager.Instance.CurrentScreen.Transition(new BattleScreen(clickableImage.StoredObject as Deck, opponentDeck));
+
+            // Find the appropriate type of screen we should transition to based on the mission
+            Type missionScreenType = Assembly.GetExecutingAssembly().GetType("SpaceCardGame." + MissionData.MissionName + "Mission");
+            DebugUtils.AssertNotNull(missionScreenType);
+
+            // Transition to the new screen
+            BattleScreen missionScreen = (BattleScreen)Activator.CreateInstance(missionScreenType, clickableImage.StoredObject as Deck, opponentDeck);
+            ScreenManager.Instance.CurrentScreen.Transition(missionScreen);
         }
 
         #endregion

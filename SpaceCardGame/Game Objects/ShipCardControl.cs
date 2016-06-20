@@ -7,7 +7,7 @@ namespace SpaceCardGame
     /// A card control specifically for ship cards.
     /// Also implements functions for setting up our station too.
     /// </summary>
-    public class ShipCardControl : GameCardControl
+    public class ShipCardControl : CardControl
     {
         #region Properties and Fields
 

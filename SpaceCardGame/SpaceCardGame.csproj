@@ -119,12 +119,13 @@
     <Compile Include="Cards\Card Pairs\CardResourcePair.cs" />
     <Compile Include="Cards\Card Pairs\CardShipPair.cs" />
     <Compile Include="Cards\Card Pairs\CardWeaponPair.cs" />
+    <Compile Include="Commands\Gameplay\CharacterDialogBoxCommand.cs" />
     <Compile Include="Commands\Gameplay\NewTutorialCommand.cs" />
     <Compile Include="Card Registries\CentralCardRegistry.cs" />
     <Compile Include="Card Registries\PlayerCardRegistry.cs" />
     <Compile Include="Deck\Deck.cs" />
     <Compile Include="Game Objects\Animations\Fire.cs" />
-    <Compile Include="Game Objects\GameCardControl.cs" />
+    <Compile Include="Game Objects\CardControl.cs" />
     <Compile Include="Board\GameBoardSection.cs" />
     <Compile Include="Game Objects\ShipCardControl.cs" />
     <Compile Include="Interfaces\ICardObjectElement.cs" />
@@ -134,6 +135,14 @@
     <Compile Include="Modules\ShipCardHoverInfoModule.cs" />
     <Compile Include="Deck\DeckInstance.cs" />
     <Compile Include="Players\Player.cs" />
+    <Compile Include="Screens\Gameplay\Missions\AntheaMission.cs" />
+    <Compile Include="Screens\Gameplay\Missions\ElektrinMission.cs" />
+    <Compile Include="Screens\Gameplay\Missions\FreizaMission.cs" />
+    <Compile Include="Screens\Gameplay\Missions\PyronMission.cs" />
+    <Compile Include="Screens\Gameplay\Missions\RanbronMission.cs" />
+    <Compile Include="Screens\Gameplay\Missions\TelegraMission.cs" />
+    <Compile Include="Screens\Gameplay\Missions\TerraMission.cs" />
+    <Compile Include="Screens\Gameplay\Missions\ZionMission.cs" />
     <Compile Include="Screens\Gameplay\TutorialScreen.cs" />
     <Compile Include="Screens\Menus\CampaignMapScreen.cs" />
     <Compile Include="Screens\Menus\HardpointScreen.cs" />
@@ -157,6 +166,7 @@
     <Compile Include="Game Objects\Animations\Explosion.cs" />
     <Compile Include="Managers\SessionManager.cs" />
     <Compile Include="UI\CardGridControl.cs" />
+    <Compile Include="UI\CharacterDialogBox.cs" />
     <Compile Include="UI\ChooseDeckBox.cs" />
     <Compile Include="UI\DeckCardTypeControl.cs" />
     <Compile Include="UI\DeckSlotUI.cs" />
@@ -474,6 +484,13 @@
     <Content Include="Content\Sprites\Planets\ZionThumbnail.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Sprites\Portraits\PirateCommander.png" />
+    <Content Include="Content\Sprites\Portraits\ComputerAI.png" />
+    <Content Include="Content\Sprites\Portraits\El%27EkCommander.png" />
+    <Content Include="Content\Sprites\Portraits\K%27ThanCommander.png" />
+    <Content Include="Content\Sprites\Portraits\ScavengerCommander.png" />
+    <Content Include="Content\Sprites\Portraits\Sentinel.png" />
+    <Content Include="Content\Sprites\Portraits\TerranCommander.png" />
     <Content Include="Content\Sprites\UI\CardStatThumnails\ShotsLeftThumbnail.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

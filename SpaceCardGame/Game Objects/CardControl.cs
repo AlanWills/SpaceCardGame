@@ -11,7 +11,7 @@ namespace SpaceCardGame
     /// Specific to one type of card - others will not be able to be laid.
     /// Also allows us to restrict the maximum number of elements we can add.
     /// </summary>
-    public class GameCardControl : GameObject
+    public class CardControl : GameObject
     {
         private enum Space
         {
@@ -51,7 +51,7 @@ namespace SpaceCardGame
 
         private float columnWidth;
 
-        public GameCardControl(Type filterType, int columns, int rows, Vector2 size, Vector2 localPosition) :
+        public CardControl(Type filterType, int columns, int rows, Vector2 size, Vector2 localPosition) :
             base(localPosition, AssetManager.EmptyGameObjectDataAsset)
         {
             FilterType = filterType;

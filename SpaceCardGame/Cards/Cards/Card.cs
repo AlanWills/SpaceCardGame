@@ -222,7 +222,7 @@ namespace SpaceCardGame
 
         /// <summary>
         /// Calls the OnDeath event if it is hooked up.
-        /// We call die on the parent triggering this and the CardObject to die too.
+        /// If we are parented under a CardObjectPair we call die on the parent triggering this and the CardObject to die too.
         /// </summary>
         public override void Die()
         {
@@ -230,8 +230,10 @@ namespace SpaceCardGame
 
             base.Die();
 
-            Debug.Assert(Parent is CardObjectPair);
-            Parent.Die();
+            if (Parent is CardObjectPair)
+            {
+                Parent.Die();
+            }
 
             OnDeath?.Invoke(this);
         }

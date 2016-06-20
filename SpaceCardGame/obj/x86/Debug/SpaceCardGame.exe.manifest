@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wL8c5pbYTDBQi0ZosHjnYuMjfU/k6fcaSe+HinA1hfg=</dsig:DigestValue>
+        <dsig:DigestValue>N6Q2wbVsJ6IA9QP0DNPYcCic8ltKxoSJNg0miWzyt9M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -235,14 +235,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="275352">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="277912">
       <assemblyIdentity name="SpaceCardGame" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ETuuBOinJiBwXLYw2C3y0ab8m3UCmpspup0RTckhAtU=</dsig:DigestValue>
+        <dsig:DigestValue>S/OAXCVjv+QqkTuDFq/B8IVezdD7bxF1LzOmiERnALA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -254,7 +254,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>loNHunMlDgI0hdLuhBEH8RO/iESJQxHxHrz/j8VLDy8=</dsig:DigestValue>
+        <dsig:DigestValue>fR9q3QEGr3kasHpsXMikwcHPJCWlzvgidKDIHLvqOIQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -678,7 +678,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>SVaSt/Z7yqtfIRK5fQS/NmrfNAvP4dc993yat1/mzc8=</dsig:DigestValue>
+      <dsig:DigestValue>IR237N2AyKJbZCNL35489QYfRVZ/ED0U2ZDo/bLY+YA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Player\PlayerCardRegistryData.xml" size="5148" writeableType="applicationData">
@@ -2596,6 +2596,42 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>Tsq4Cz9NvliTgGLl7jx5uA/PMGa6pAL9py0mVPYdLnQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Portraits\PirateCommander.png" size="32722">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ZYSrm8Fmb98HlL47uWtzLBLx011XzcxepFCzvAOq3Ow=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Portraits\PirateCommander.xnb" size="65621">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>nBn5VE9AF8d2aNVc8t7mPhDGwYqEhZVIdVpi4JwQ9Vc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Portraits\TerranCommander.png" size="25544">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>gpZ6LDdNkA70hO+s8rOLtG3P0BToEZ2FiXoWLgMsV34=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Portraits\TerranCommander.xnb" size="65621">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>oJVFYqup4rDsZBv9HN1kAtHVGr2q+8puYRVD5HZR7p8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Sprites\UI\AttackLine.png" size="1446">
