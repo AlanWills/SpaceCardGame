@@ -1,0 +1,30 @@
+﻿<XnaContent>
+  <Asset Type="SpaceCardGameData.ShipData">
+    <TextureAsset>Cards\Ships\EagleFrigate\EagleFrigateObject</TextureAsset>
+    <Attack>2</Attack>
+    <Defence>1</Defence>
+    <Speed>3</Speed>
+    <TurretHardpoints>
+      <Item>
+        <X>0</X>
+        <Y>-47</Y>
+      </Item>
+      <Item>
+        <X>0</X>
+        <Y>-44</Y>
+      </Item>
+    </TurretHardpoints>
+    <EngineHardpoints>
+      <Item>
+        <X>-23</X>
+        <Y>98</Y>
+      </Item>
+      <Item>
+        <X>23</X>
+        <Y>98</Y>
+      </Item>
+    </EngineHardpoints>
+    <DamageHardpoints/>
+    <ExplosionSFXAsset>Explosions\LargeShipDeathExplosion</ExplosionSFXAsset>
+  </Asset>
+</XnaContent>

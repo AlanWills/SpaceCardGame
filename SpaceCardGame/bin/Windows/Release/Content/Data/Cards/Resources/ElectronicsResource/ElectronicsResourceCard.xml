@@ -1,0 +1,11 @@
+﻿<XnaContent>
+  <Asset Type="SpaceCardGame.CardData">
+    <TextureAsset>Cards\Resources\ElectronicsResource\ElectronicsResourceCard</TextureAsset>
+    <ObjectDataAsset></ObjectDataAsset>
+    <Type>Resource</Type>
+    <DisplayName>Electronics</DisplayName>
+    <Rarity>Common</Rarity>
+    <ResourceCosts>0 0 0 0</ResourceCosts>
+    <CardTypeName>ElectronicsResourceCard</CardTypeName>
+  </Asset>
+</XnaContent>

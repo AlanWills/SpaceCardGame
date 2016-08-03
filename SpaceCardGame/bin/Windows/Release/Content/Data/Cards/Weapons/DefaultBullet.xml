@@ -1,0 +1,8 @@
+﻿<XnaContent>
+  <Asset Type="SpaceCardGameData.ProjectileData">
+    <TextureAsset>Cards\Weapons\DefaultBullet</TextureAsset>
+    <Damage>0</Damage>
+    <FiringSFXAsset>Turrets\DefaultTurret</FiringSFXAsset>
+    <ExplosionSFXAsset>Explosions\KineticExplosion</ExplosionSFXAsset>
+  </Asset>
+</XnaContent>

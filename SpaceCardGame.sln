@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test2DEngine", "..\2DEngine
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceCardGameData", "SpaceCardGameData\SpaceCardGameData.csproj", "{ABB06FBE-BAD5-424A-8B9B-C1548A1A4B76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestGameProject", "..\2DEngine\UnitTestGameProject\UnitTestGameProject.csproj", "{7F26DCD0-E04C-43CE-B785-9E28E7120805}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2DEngineUnitTestGameProject", "..\2DEngine\UnitTestGameProject\2DEngineUnitTestGameProject.csproj", "{7F26DCD0-E04C-43CE-B785-9E28E7120805}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engines", "Engines", "{CD89DBA7-5D26-46C7-8B1B-D2746752A9A0}"
 EndProject

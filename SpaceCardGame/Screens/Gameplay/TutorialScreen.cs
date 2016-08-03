@@ -16,6 +16,8 @@ namespace SpaceCardGame
         /// </summary>
         private int TurnNumber { get; set; }
 
+        private Queue<List<string>> StringSets { get; set; }
+
         #endregion
 
         public TutorialScreen(Deck playerChosenDeck, string screenDataAsset = "Screens\\BattleScreen.xml") :
@@ -26,14 +28,16 @@ namespace SpaceCardGame
             // We want complete control over what cards our player draws
             Player.CardsToDrawPerTurn = 0;
             Player.OnNewTurn += DrawSpecificCardsForPlayer;
+            StringSets = new Queue<List<string>>();
+
+            SetupStringSets();
         }
 
-        #region Virtual Functions
-
         /// <summary>
-        /// Add our dialog boxes for this tutorial
+        /// Adds all the strings we will be using in our text dialog boxes to a queue, so we can just pop them off.
+        /// Makes manipulating order etc. easier and makes the AddInitialCommands much tidier.
         /// </summary>
-        protected override void AddInitialCommands()
+        private void SetupStringSets()
         {
             List<string> strings = new List<string>()
             {
@@ -44,12 +48,7 @@ namespace SpaceCardGame
                 "At the start of your turn, you will draw three cards from your deck.",
                 "Lets start with your turn..."
             };
-
-            // Add our opening text info dialog
-            TextDialogBoxCommand openingTextDialog = AddTextDialogBoxCommand(strings);
-
-            // Run our command for a new game
-            NewTutorialCommand newGameCommand = AddCommand(new NewTutorialCommand(), openingTextDialog);
+            StringSets.Enqueue(strings);
 
             strings = new List<string>()
             {
@@ -59,15 +58,7 @@ namespace SpaceCardGame
                 "Similarly, if you destroy your opponent's station you will win.",
                 "Hover the mouse over your station now to see more information about it."
             };
-
-            // Add our text box for explaining the role of the station
-            TextDialogBoxCommand stationExplanationTextDialog = AddTextDialogBoxCommand(strings, newGameCommand);
-
-            // Wait for the player to hover over the station
-            WaitForConditionCommand waitForStationHovered = AddCommand(new WaitForConditionCommand(IsStationHoveredOver), stationExplanationTextDialog);
-
-            // Wait for the player to stop hovering over the station
-            WaitForConditionCommand waitForStationNotHovered = AddCommand(new WaitForConditionCommand(IsStationNotHoveredOver), waitForStationHovered);
+            StringSets.Enqueue(strings);
 
             strings = new List<string>()
             {
@@ -77,13 +68,7 @@ namespace SpaceCardGame
                 "We will get to that shortly, but during the Battle phase you can do the same thing by holding SHIFT whilst hovering the mouse over the card.",
                 "In your hand, by hovering the mouse over each card find the FUEL resource card."
             };
-
-            // Add our text box for explaining the battle phases
-            TextDialogBoxCommand phasesExplanationTextDialog = AddTextDialogBoxCommand(strings, waitForStationNotHovered);
-            phasesExplanationTextDialog.OnDeathCallback += ActivateUI;
-
-            // Wait for the player to hover over the fuel card
-            WaitForConditionCommand waitForFuelCardHovered = AddCommand(new WaitForConditionCommand(IsFuelCardHovered), phasesExplanationTextDialog);
+            StringSets.Enqueue(strings);
 
             strings = new List<string>()
             {
@@ -99,48 +84,28 @@ namespace SpaceCardGame
                 "This usually depends on whether you have enough resources, but some cards also require other conditions too.",
                 "Now, click on the fuel resource card and click on your board to lay it."
             };
-
-            // Add our text box for explaining the resourceCards
-            TextDialogBoxCommand resourceCardExplanationTextDialog = AddTextDialogBoxCommand(strings, waitForFuelCardHovered);
-
-            // Wait until our fuel resource card has been layed
-            WaitForConditionCommand waitForFuelLayed = AddCommand(new WaitForConditionCommand(IsFuelCardPlaced), resourceCardExplanationTextDialog);
+            StringSets.Enqueue(strings);
 
             strings = new List<string>()
             {
                 "Resource cards have no cost, so it is a good idea to lay them as soon as you can.",
                 "Do this now for any other resource cards you have.",
             };
-
-            // Add our text box for prompting the laying of the other resource cards
-            TextDialogBoxCommand layOtherResourcesTextDialog = AddTextDialogBoxCommand(strings, waitForFuelLayed);
-
-            // Wait until all of our resources have been layed
-            WaitForConditionCommand waitForAllResources = AddCommand(new WaitForConditionCommand(AllResourceCardsLayed), layOtherResourcesTextDialog);
+            StringSets.Enqueue(strings);
 
             strings = new List<string>()
             {
                 "Now that you have laid some resources, you should be able to build your first ship.",
                 "In your hand find the WASP FIGHTER card, select it and click on one of the slots on your side of the board.",
             };
-
-            // Add our text box for ship card information
-            TextDialogBoxCommand shipCardExplanationTextDialog = AddTextDialogBoxCommand(strings, waitForAllResources);
-
-            // Wait for the wasp fighter to be added
-            WaitForConditionCommand waitForWaspFighterToBeAdded = AddCommand(new WaitForConditionCommand(WaitForWaspFighterToBeAdded), shipCardExplanationTextDialog);
+            StringSets.Enqueue(strings);
 
             strings = new List<string>()
             {
                 "Your first ship is deployed, but it will take a turn before it is ready for you to command",
                 "When you are ready, press the 'Ready For Battle' button to enter the BATTLE PHASE"
             };
-
-            // Add our text box for ending our turn
-            TextDialogBoxCommand endTurnTextDialog = AddTextDialogBoxCommand(strings, waitForWaspFighterToBeAdded);
-
-            // Wait for the Ready For Battle button to be pressed
-            WaitForConditionCommand waitForBattlePhaseEntered = AddCommand(new WaitForConditionCommand(WaitForCardPlacementPhaseEnded), endTurnTextDialog);
+            StringSets.Enqueue(strings);
 
             strings = new List<string>()
             {
@@ -149,21 +114,77 @@ namespace SpaceCardGame
                 "At any time, you can hover the mouse over a ship and press SHIFT to see it's card, or CTRL to see the ship in all it's full scale glory",
                 "The ship we have deployed is not ready yet, so we should end the turn by pressing the 'End Turn' button"
             };
-
-            // Add our text box for explaining how the battle phase works
-            TextDialogBoxCommand battlePhaseExplanationTextDialog = AddTextDialogBoxCommand(strings, waitForBattlePhaseEntered);
-
-            // Wait for the battle phase to be finished
-            WaitForConditionCommand waitForBattlePhaseEnded = AddCommand(new WaitForConditionCommand(WaitForBattlePhaseEnded), battlePhaseExplanationTextDialog);
+            StringSets.Enqueue(strings);
 
             strings = new List<string>()
             {
                 "It is now the AI's turn",
                 "Wait for it to complete it's turn"
             };
+            StringSets.Enqueue(strings);
+        }
+
+        #region Virtual Functions
+
+        /// <summary>
+        /// Add our dialog boxes for this tutorial
+        /// </summary>
+        protected override void AddInitialCommands()
+        {
+            // Add our opening text info dialog
+            TextDialogBoxCommand openingTextDialog = AddTextDialogBoxCommand(StringSets.Dequeue());
+
+            // Run our command for a new game
+            NewTutorialCommand newGameCommand = openingTextDialog.NextCommand(new NewTutorialCommand());
+
+            // Add our text box for explaining the role of the station
+            TextDialogBoxCommand stationExplanationTextDialog = AddTextDialogBoxCommand(StringSets.Dequeue(), newGameCommand);
+
+            // Wait for the player to hover over the station
+            WaitForConditionCommand waitForStationHovered = stationExplanationTextDialog.NextCommand(new WaitForConditionCommand(IsStationHoveredOver));
+
+            // Wait for the player to stop hovering over the station
+            WaitForConditionCommand waitForStationNotHovered = waitForStationHovered.NextCommand(new WaitForConditionCommand(IsStationNotHoveredOver));
+
+            // Add our text box for explaining the battle phases
+            TextDialogBoxCommand phasesExplanationTextDialog = AddTextDialogBoxCommand(StringSets.Dequeue(), waitForStationNotHovered);
+            phasesExplanationTextDialog.OnDeathCallback += ActivateUI;
+
+            // Wait for the player to hover over the fuel card
+            WaitForConditionCommand waitForFuelCardHovered = AddCommand(new WaitForConditionCommand(IsFuelCardHovered), phasesExplanationTextDialog);
+
+            // Add our text box for explaining the resourceCards
+            TextDialogBoxCommand resourceCardExplanationTextDialog = AddTextDialogBoxCommand(StringSets.Dequeue(), waitForFuelCardHovered);
+
+            // Wait until our fuel resource card has been layed
+            WaitForConditionCommand waitForFuelLayed = AddCommand(new WaitForConditionCommand(IsFuelCardPlaced), resourceCardExplanationTextDialog);
+
+            // Add our text box for prompting the laying of the other resource cards
+            TextDialogBoxCommand layOtherResourcesTextDialog = AddTextDialogBoxCommand(StringSets.Dequeue(), waitForFuelLayed);
+
+            // Wait until all of our resources have been layed
+            WaitForConditionCommand waitForAllResources = AddCommand(new WaitForConditionCommand(AllResourceCardsLayed), layOtherResourcesTextDialog);
+
+            // Add our text box for ship card information
+            TextDialogBoxCommand shipCardExplanationTextDialog = AddTextDialogBoxCommand(StringSets.Dequeue(), waitForAllResources);
+
+            // Wait for the wasp fighter to be added
+            WaitForConditionCommand waitForWaspFighterToBeAdded = AddCommand(new WaitForConditionCommand(WaitForWaspFighterToBeAdded), shipCardExplanationTextDialog);
+
+            // Add our text box for ending our turn
+            TextDialogBoxCommand endTurnTextDialog = AddTextDialogBoxCommand(StringSets.Dequeue(), waitForWaspFighterToBeAdded);
+
+            // Wait for the Ready For Battle button to be pressed
+            WaitForConditionCommand waitForBattlePhaseEntered = AddCommand(new WaitForConditionCommand(WaitForCardPlacementPhaseEnded), endTurnTextDialog);
+
+            // Add our text box for explaining how the battle phase works
+            TextDialogBoxCommand battlePhaseExplanationTextDialog = AddTextDialogBoxCommand(StringSets.Dequeue(), waitForBattlePhaseEntered);
+
+            // Wait for the battle phase to be finished
+            WaitForConditionCommand waitForBattlePhaseEnded = AddCommand(new WaitForConditionCommand(WaitForBattlePhaseEnded), battlePhaseExplanationTextDialog);
 
             // Add our text box for explaining the AI turn
-            TextDialogBoxCommand AITurnExplanationDialog = AddTextDialogBoxCommand(strings, waitForBattlePhaseEnded);
+            TextDialogBoxCommand AITurnExplanationDialog = AddTextDialogBoxCommand(StringSets.Dequeue(), waitForBattlePhaseEnded);
 
             // Wait for the AI turn to be completed
             WaitForConditionCommand waitAITurnCompleted = AddCommand(new WaitForConditionCommand(WaitForAITurnCompleted), AITurnExplanationDialog);
