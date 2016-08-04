@@ -122,6 +122,68 @@ namespace SpaceCardGame
                 "Wait for it to complete it's turn"
             };
             StringSets.Enqueue(strings);
+
+            strings = new List<string>()
+            {
+                "You have just picked up some more resource cards",
+                "If you lay them now we will be able to look at some more card types"
+            };
+            StringSets.Enqueue(strings);
+
+            strings = new List<string>()
+            {
+                "Not only can you build ships, you can also improve them with SHIP UPGRADES",
+                "Upgrades come in several types, but firstly we will look at WEAPONS",
+                "Weapons allow you to upgrade your ship's default weapon system with a custom one instead",
+                "They require resources to build, but can offer increased damage or multiple shots",
+                "By having multiple shots, your ship can both fire on more than one target and counter attack multiple enemies",
+                "Find the VULCAN MISSILE TURRET card in your hand, select it and click anywhere on the screen",
+                "You can then select a target to add it to"
+            };
+            StringSets.Enqueue(strings);
+
+            strings = new List<string>()
+            {
+                "This weapon actually has an ABILITY",
+                "Some cards have passive or active abilities that are either triggered automatically or by the player",
+                "The card will appear green if the ability can be used",
+                "Once every turn, the vulcan missile turret can fire an extra time if 1 fuel is payed",
+                "Activate this ability now by clicking on the turret card next to the ship it is equipped to (it will be GREEN)"
+            };
+            StringSets.Enqueue(strings);
+
+            strings = new List<string>()
+            {
+                "Excellent - we will make use of this in the Battle Phase",
+                "Now we are going to look at another ship upgrade - SHIELDS",
+                "Shields absorb damage that would otherwise be inflicted to the ship they are attached to",
+                "They also recharge a certain amount at the start of your turn",
+                "Add the PHASE ENERGY SHIELD in the same way as you did the weapon"
+            };
+            StringSets.Enqueue(strings);
+
+            strings = new List<string>()
+            {
+                "The final card type is the ABILITY card",
+                "These cards work exactly like abilities on other cards except they are stand alone and tend to be more powerful and varied",
+                "The ability card in your hand - MISSILE BARRAGE - is extremely useful at clearing your opponent's board of weak ships",
+                "Mastering these cards will be key to victory"
+            };
+            StringSets.Enqueue(strings);
+
+            strings = new List<string>()
+            {
+                "Lets enter the Battle Phase again to wreak havok with these new upgrades"
+            };
+            StringSets.Enqueue(strings);
+
+            strings = new List<string>()
+            {
+                "Click on any ship with a weapon to start an attack order and click on any opponent to complete it",
+                "You an always right click to cancel what you are doing",
+                "When you are finished with your turn, press the 'End Turn' button to go back to the Main Menu - you have nothing left to learn here"
+            };
+            StringSets.Enqueue(strings);
         }
 
         #region Virtual Functions
@@ -189,93 +251,38 @@ namespace SpaceCardGame
             // Wait for the AI turn to be completed
             WaitForConditionCommand waitAITurnCompleted = AddCommand(new WaitForConditionCommand(WaitForAITurnCompleted), AITurnExplanationDialog);
 
-            strings = new List<string>()
-            {
-                "You have just picked up some more resource cards",
-                "If you lay them now we will be able to look at some more card types"
-            };
-
-            TextDialogBoxCommand addSecondRoundOfResourcesTextDialog = AddTextDialogBoxCommand(strings, waitAITurnCompleted);
+            TextDialogBoxCommand addSecondRoundOfResourcesTextDialog = AddTextDialogBoxCommand(StringSets.Dequeue(), waitAITurnCompleted);
 
             // Wait for the second round of resources to be layed
             WaitForConditionCommand waitForSecondRoundOfResourcesToBeLayed = AddCommand(new WaitForConditionCommand(AllResourceCardsLayed), addSecondRoundOfResourcesTextDialog);
 
-            strings = new List<string>()
-            {
-                "Not only can you build ships, you can also improve them with SHIP UPGRADES",
-                "Upgrades come in several types, but firstly we will look at WEAPONS",
-                "Weapons allow you to upgrade your ship's default weapon system with a custom one instead",
-                "They require resources to build, but can offer increased damage or multiple shots",
-                "By having multiple shots, your ship can both fire on more than one target and counter attack multiple enemies",
-                "Find the VULCAN MISSILE TURRET card in your hand, select it and click anywhere on the screen",
-                "You can then select a target to add it to"
-            };
-
-            TextDialogBoxCommand weaponExplanationTextDialog = AddTextDialogBoxCommand(strings, waitForSecondRoundOfResourcesToBeLayed);
+            TextDialogBoxCommand weaponExplanationTextDialog = AddTextDialogBoxCommand(StringSets.Dequeue(), waitForSecondRoundOfResourcesToBeLayed);
 
             // Wait for the weapon card to be added to one of our ships
             WaitForConditionCommand waitUntilWeaponAdded = AddCommand(new WaitForConditionCommand(WaitForWeaponAddedToShip), weaponExplanationTextDialog);
 
-            strings = new List<string>()
-            {
-                "This weapon actually has an ABILITY",
-                "Some cards have passive or active abilities that are either triggered automatically or by the player",
-                "The card will appear green if the ability can be used",
-                "Once every turn, the vulcan missile turret can fire an extra time if 1 fuel is payed",
-                "Activate this ability now by clicking on the turret card next to the ship it is equipped to (it will be GREEN)"
-            };
-
             // Add our text box for explaining active abilities
-            TextDialogBoxCommand activeAbilitiesExplanationTextDialog = AddTextDialogBoxCommand(strings, waitUntilWeaponAdded);
+            TextDialogBoxCommand activeAbilitiesExplanationTextDialog = AddTextDialogBoxCommand(StringSets.Dequeue(), waitUntilWeaponAdded);
 
             // Wait for the vulcan missile turret's card to be activated
             WaitForConditionCommand waitUntilAbilityActivated = AddCommand(new WaitForConditionCommand(WaitUntilVulcanTurretAbilityActivated), activeAbilitiesExplanationTextDialog);
 
-            strings = new List<string>()
-            {
-                "Excellent - we will make use of this in the Battle Phase",
-                "Now we are going to look at another ship upgrade - SHIELDS",
-                "Shields absorb damage that would otherwise be inflicted to the ship they are attached to",
-                "They also recharge a certain amount at the start of your turn",
-                "Add the PHASE ENERGY SHIELD in the same way as you did the weapon"
-            };
-
             // Add our text box for explaining active abilities
-            TextDialogBoxCommand shieldsExplanationTextDialog = AddTextDialogBoxCommand(strings, waitUntilAbilityActivated);
+            TextDialogBoxCommand shieldsExplanationTextDialog = AddTextDialogBoxCommand(StringSets.Dequeue(), waitUntilAbilityActivated);
 
             // Wait for the phase energy shield card to be added to either one of our ships
             WaitForConditionCommand waitUntilShieldAddedToShip = AddCommand(new WaitForConditionCommand(WaitForShieldAddedToShip), shieldsExplanationTextDialog);
 
-            strings = new List<string>()
-            {
-                "The final card type is the ABILITY card",
-                "These cards work exactly like abilities on other cards except they are stand alone and tend to be more powerful and varied",
-                "The ability card in your hand - MISSILE BARRAGE - is extremely useful at clearing your opponent's board of weak ships",
-                "Mastering these cards will be key to victory"
-            };
-
             // Add our text box for explaining ability cards
-            TextDialogBoxCommand abilityCardExplanationTextDialog = AddTextDialogBoxCommand(strings, waitUntilShieldAddedToShip);
-
-            strings = new List<string>()
-            {
-                "Lets enter the Battle Phase again to wreak havok with these new upgrades"
-            };
+            TextDialogBoxCommand abilityCardExplanationTextDialog = AddTextDialogBoxCommand(StringSets.Dequeue(), waitUntilShieldAddedToShip);
 
             // Add our text box for prompting the final battle phase
-            TextDialogBoxCommand finalBattlePhaseTextDialog = AddTextDialogBoxCommand(strings, abilityCardExplanationTextDialog);
+            TextDialogBoxCommand finalBattlePhaseTextDialog = AddTextDialogBoxCommand(StringSets.Dequeue(), abilityCardExplanationTextDialog);
 
             WaitForConditionCommand waitForSecondBattlePhaseEntered = AddCommand(new WaitForConditionCommand(WaitForCardPlacementPhaseEnded), finalBattlePhaseTextDialog);
 
-            strings = new List<string>()
-            {
-                "Click on any ship with a weapon to start an attack order and click on any opponent to complete it",
-                "You an always right click to cancel what you are doing",
-                "When you are finished with your turn, press the 'End Turn' button to go back to the Main Menu - you have nothing left to learn here"
-            };
-
             // Add our text box for finalising the tutorial
-            TextDialogBoxCommand finalTextDialog = AddTextDialogBoxCommand(strings, waitForSecondBattlePhaseEntered);
+            TextDialogBoxCommand finalTextDialog = AddTextDialogBoxCommand(StringSets.Dequeue(), waitForSecondBattlePhaseEntered);
 
             // Wait for the battle phase to be finished
             WaitForConditionCommand waitForSecondBattlePhaseEnded = AddCommand(new WaitForConditionCommand(WaitForBattlePhaseEnded), finalTextDialog);
