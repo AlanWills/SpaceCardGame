@@ -209,7 +209,9 @@ namespace SpaceCardGame
             NextCommand(new WaitForConditionCommand(IsStationNotHoveredOver)).
 
             // Add our text box for explaining the battle phases
-            NextCommand(new TextDialogBoxCommand(StringSets.Dequeue())).            //phasesExplanationTextDialog.OnDeathCallback += ActivateUI;
+            NextCommand(new TextDialogBoxCommand(StringSets.Dequeue())).
+
+            NextCommand(new CallbackCommand(ActivateUI)).
 
             // Wait for the player to hover over the fuel card
             NextCommand(new WaitForConditionCommand(IsFuelCardHovered)).
@@ -348,7 +350,7 @@ namespace SpaceCardGame
         /// <summary>
         /// Now makes the player's game board section available for input.
         /// </summary>
-        private void ActivateUI(Command command)
+        private void ActivateUI()
         {
             Board.PlayerBoardSection.UIBoardSection.ShouldHandleInput.Value = true;
         }
