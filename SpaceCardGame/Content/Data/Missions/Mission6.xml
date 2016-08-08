@@ -1,11 +1,15 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.MissionData">
-    <MissionName>Freiza</MissionName>
-    <MissionThumbnailTextureAsset>Planets\FreizaThumbnail</MissionThumbnailTextureAsset>
+    <MissionName>Ranbron</MissionName>
+    <MissionThumbnailTextureAsset>Planets\RanbronThumbnail</MissionThumbnailTextureAsset>
+    <MissionNumber>6</MissionNumber>
     <MissionDescription>
-    With the fearsome warships of the El'ek bolstering your fleet,
-    you move to the planet of Freiza where a K'Than attack has
-    been reported.
+    You defeat the fleet of K'Than ships that was dispatched against you,
+    but their true purpose is now clear.  As the fighting took place, the
+    main K'Than force has glassed Freiza and is now closing in on your position.
+    
+    Your fleet jumps to hyperspace, but with no time to program a destination
+    there is now way of knowing where you will emerge...
     </MissionDescription>
     <OpponentDeckData>
       <Name>Terran Opponent</Name>
@@ -47,5 +51,13 @@
         <Item>Stations\BastionShipyard\BastionShipyardCard.xml</Item>
       </CardDataAssets>
     </OpponentDeckData>
+    <RewardData>
+      <Money>500</Money>
+      <CardDataAssets>
+        <Item>Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xml</Item>
+        <Item>Ships\BlazeInterceptor\BlazeInterceptorCard.xml</Item>
+      </CardDataAssets>
+      <CardPacks>2</CardPacks>
+    </RewardData>
   </Asset>
 </XnaContent>

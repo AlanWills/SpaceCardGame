@@ -1,16 +1,15 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.MissionData">
-    <MissionName>Terra</MissionName>
-    <MissionThumbnailTextureAsset>Planets\TerraThumbnail</MissionThumbnailTextureAsset>
+    <MissionName>Zion</MissionName>
+    <MissionThumbnailTextureAsset>Planets\ZionThumbnail</MissionThumbnailTextureAsset>
+    <MissionNumber>7</MissionNumber>
     <MissionDescription>
-    Terra is a peaceful planet, unscarred by the touch of war.
+    Data retrieved from the Sentinel reveals the coordinates of a planet
+    that does not appear on your star map.  It would seem it is the
+    source of this fearsome weapon and home to a race the Sentinel calls:
     
-    Until now...
-    
-    Pirates have descended on this sector of space
-    and Terra is an easy target.  Lead the planet's 
-    fleet in it's defence.
-  </MissionDescription>
+    The Sanaj'Ah
+    </MissionDescription>
     <OpponentDeckData>
       <Name>Terran Opponent</Name>
       <CardDataAssets>
@@ -51,5 +50,13 @@
         <Item>Stations\BastionShipyard\BastionShipyardCard.xml</Item>
       </CardDataAssets>
     </OpponentDeckData>
+    <RewardData>
+      <Money>500</Money>
+      <CardDataAssets>
+        <Item>Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xml</Item>
+        <Item>Ships\BlazeInterceptor\BlazeInterceptorCard.xml</Item>
+      </CardDataAssets>
+      <CardPacks>2</CardPacks>
+    </RewardData>
   </Asset>
 </XnaContent>

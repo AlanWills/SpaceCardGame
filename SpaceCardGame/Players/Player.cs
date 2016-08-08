@@ -31,7 +31,7 @@ namespace SpaceCardGame
         /// <summary>
         /// The list of cards we have instantiated from our inputted Deck
         /// </summary>
-        private DeckInstance Deck { get; set; }
+        public DeckInstance DeckInstance { get; private set; }
 
         /// <summary>
         /// A list of the current cards that the player has in their hand
@@ -41,7 +41,7 @@ namespace SpaceCardGame
         /// <summary>
         /// An int representing the number of cards left in our deck
         /// </summary>
-        public int CardsLeftInDeck { get { return Deck.Count; } }
+        public int CardsLeftInDeck { get { return DeckInstance.Count; } }
 
         /// <summary>
         /// An array of resource card lists.
@@ -109,7 +109,7 @@ namespace SpaceCardGame
             };
 
             CurrentHand = new List<Card>();
-            Deck = new DeckInstance(this, chosenDeck);
+            DeckInstance = new DeckInstance(this, chosenDeck);
         }
 
         #region Virtual Functions
@@ -155,7 +155,7 @@ namespace SpaceCardGame
         {
             for (int i = 0; i < numberOfCards; i++)
             {
-                Card card = Deck.Draw();
+                Card card = DeckInstance.Draw();
                 TriggerDrawCardEvents(card);
             }
         }
@@ -201,9 +201,9 @@ namespace SpaceCardGame
         /// <param name="resourceType"></param>
         public void DrawCard(string cardTypeName)
         {
-            Debug.Assert(Deck.Exists(x => x.GetType().Name == cardTypeName));
-            Card card = Deck.Find(x => x.GetType().Name == cardTypeName);
-            Deck.Remove(card);
+            Debug.Assert(DeckInstance.Exists(x => x.GetType().Name == cardTypeName));
+            Card card = DeckInstance.Find(x => x.GetType().Name == cardTypeName);
+            DeckInstance.Remove(card);
 
             TriggerDrawCardEvents(card);
         }
@@ -217,9 +217,9 @@ namespace SpaceCardGame
         {
             // This assert should NEVER trigger.  If it does, it means that the player has no station chosen.
             // This quite simply CANNOT happen otherwise we have no basis for a game!
-            Debug.Assert(Deck.Exists(x => x is StationCard));
-            StationCard station = Deck.Find(x => x is StationCard) as StationCard;
-            Deck.Remove(station);
+            Debug.Assert(DeckInstance.Exists(x => x is StationCard));
+            StationCard station = DeckInstance.Find(x => x is StationCard) as StationCard;
+            DeckInstance.Remove(station);
 
             return station;
         }

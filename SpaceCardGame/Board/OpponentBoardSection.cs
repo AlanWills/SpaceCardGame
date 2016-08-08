@@ -21,7 +21,7 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
-        /// Fixes up our UI for the batle screen
+        /// Fixes up our UI for the battle screen
         /// </summary>
         public override void Begin()
         {

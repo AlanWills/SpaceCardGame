@@ -67,7 +67,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public BattleScreen(Deck playerChosenDeck, Deck opponentChosenDeck, string screenDataAsset = "Screens\\BattleScreen.xml") :
+        public BattleScreen(Deck playerChosenDeck, Deck opponentChosenDeck, string screenDataAsset) :
             base(screenDataAsset)
         {
             Player = new Player(playerChosenDeck);
@@ -133,9 +133,12 @@ namespace SpaceCardGame
         /// </summary>
         public override void Begin()
         {
+            Board = AddGameObject(new Board(ScreenCentre), true, true);         // TODO rethink this
+
             base.Begin();
 
-            Board = AddGameObject(new Board(ScreenCentre), true, true);         // TODO rethink this
+            Board.PlayerBoardSection.GameBoardSection.ShipCardControl.FindChild<CardStationPair>().OnStationDestroyed += OnPlayerDefeated;
+            Board.OpponentBoardSection.GameBoardSection.ShipCardControl.FindChild<CardStationPair>().OnStationDestroyed += OnOpponentDefeated;
 
             // Set the current active player to be the opponent, so that when we call NewPlayerTurn at the end of the new game command, we begin the game for the player
             ActivePlayer = Opponent;
@@ -144,7 +147,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        #region Click Callbacks
+        #region Callbacks
 
         /// <summary>
         /// A callback to progress the current state of the game.
@@ -187,6 +190,19 @@ namespace SpaceCardGame
                     }
             }
         }
+
+        /// <summary>
+        /// Adds the defeat menu UI to the user when they have been beaten
+        /// </summary>
+        private void OnPlayerDefeated()
+        {
+            Board.ShouldHandleInput.Value = false;
+            Board.ShouldUpdate.Value = false;
+
+            AddScreenUIObject(new PlayerDefeatedUI(), true, true);
+        }
+
+        protected virtual void OnOpponentDefeated() { }
 
         #endregion
 

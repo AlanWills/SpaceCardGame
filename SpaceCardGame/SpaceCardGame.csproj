@@ -138,6 +138,7 @@
     <Compile Include="Screens\Gameplay\Missions\AntheaMission.cs" />
     <Compile Include="Screens\Gameplay\Missions\ElektrinMission.cs" />
     <Compile Include="Screens\Gameplay\Missions\FreizaMission.cs" />
+    <Compile Include="Screens\Gameplay\Missions\MissionScreen.cs" />
     <Compile Include="Screens\Gameplay\Missions\PyronMission.cs" />
     <Compile Include="Screens\Gameplay\Missions\RanbronMission.cs" />
     <Compile Include="Screens\Gameplay\Missions\TelegraMission.cs" />
@@ -181,6 +182,8 @@
     <Compile Include="UI\Info Images\MissionInfoImage.cs" />
     <Compile Include="UI\Info Images\ShieldInfoImage.cs" />
     <Compile Include="UI\Info Images\WeaponInfoImage.cs" />
+    <Compile Include="UI\PlayerDefeatedUI.cs" />
+    <Compile Include="UI\PlayerVictoryUI.cs" />
     <Compile Include="UI\ProgressTurnButton.cs" />
     <Compile Include="UI\Info Images\ShipInfoImage.cs" />
     <Compile Include="UI\Gameplay Sugar\TargetingLine.cs" />
@@ -210,34 +213,58 @@
     <Content Include="Content\Data\GameObjects\Animations\RedFire.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Data\Missions\Mission8 - Pyron.xml">
+    <Content Include="Content\Data\Missions\Mission8.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Data\Missions\Mission7 - Zion.xml">
+    <Content Include="Content\Data\Missions\Mission7.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Data\Missions\Mission6 - Ranbron.xml">
+    <Content Include="Content\Data\Missions\Mission6.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Data\Missions\Mission5 - Freiza.xml">
+    <Content Include="Content\Data\Missions\Mission5.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Data\Missions\Mission4 - Elektrin.xml">
+    <Content Include="Content\Data\Missions\Mission4.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Data\Missions\Mission3 - Telegra.xml">
+    <Content Include="Content\Data\Missions\Mission3.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Data\Missions\Mission2 - Anthea.xml">
+    <Content Include="Content\Data\Missions\Mission2.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Data\Missions\Mission1 - Terra.xml">
+    <Content Include="Content\Data\Missions\Mission1.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Options\PlayerGameData.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Screens\CampaignMapScreen.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Screens\Missions\Mission8 - Pyron.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Screens\Missions\Mission7 - Zion.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Screens\Missions\Mission6 - Ranbron.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Screens\Missions\Mission5 - Freiza.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Screens\Missions\Mission4  - Elektrin.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Screens\Missions\Mission3 - Telegra.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Screens\Missions\Mission2 - Anthea.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Screens\Missions\Mission1 - Terra.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Music\Gameplay\AllForNothing.mp3">

@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8hWQ+04exyx4uHuLFNlwMlExfwLG8zN7YS1OXqG1dIE=</dsig:DigestValue>
+        <dsig:DigestValue>zOZm8AGpieRKx6TjpWkoM/fC/qwMKiIruKlNNkZukdY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>AxOn4gF0+cbZKu9FJzGwzpJ/JUgDoMeRegNRfgUwQHo=</dsig:DigestValue>
+        <dsig:DigestValue>zYVtBUL8NXsSZ+qatgkMLdpDs4hEErzldpC8CSUEBN4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -235,14 +235,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="276888">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="278936">
       <assemblyIdentity name="SpaceCardGame" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>BzcUxWm2CBg4tmciWZxh5sPQ2lJ659nBKxkP9S8f3L0=</dsig:DigestValue>
+        <dsig:DigestValue>pqidwrkCLbCKBw50zR/a2WlqGizu/EbPiCZ56smXCKk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -254,7 +254,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>UtkHkbymdgQU92G0A1XznlfG9GVMmc04gGiLDcgQ1Rk=</dsig:DigestValue>
+        <dsig:DigestValue>lJl2G1qKzlV/1HHeCnyMGKQzj5HJOR2NDbXI0i2pUVg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

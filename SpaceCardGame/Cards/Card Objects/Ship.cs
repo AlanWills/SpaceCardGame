@@ -119,7 +119,7 @@ namespace SpaceCardGame
             }
 
             Debug.Assert(ShipData.Defence > 0);
-            Debug.Assert(ShipData.DamageHardpoints.Count == ShipData.Defence - 1);
+            Debug.Assert(ShipData.DamageHardpoints.Count >= ShipData.Defence - 1);
             DamageUI = new DamageUI[ShipData.Defence - 1];
 
             for (int i = 0; i < ShipData.Defence - 1; i++)
@@ -169,18 +169,6 @@ namespace SpaceCardGame
             base.MakeReadyForBattle();
 
             ShowDamage();
-        }
-
-        /// <summary>
-        /// Kills our parent which will kill us and the card we are attached too
-        /// </summary>
-        public override void Die()
-        {
-            // Make sure we call Die so that when our parent calls Die on us again, we will already be dead and not have this function called again
-            base.Die();
-
-            DebugUtils.AssertNotNull(Parent);
-            Parent.Die();
         }
 
         /// <summary>

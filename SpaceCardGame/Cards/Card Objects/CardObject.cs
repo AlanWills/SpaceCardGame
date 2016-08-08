@@ -48,7 +48,11 @@ namespace SpaceCardGame
             base.Die();
 
             DebugUtils.AssertNotNull(Parent);
-            Parent.Die();
+
+            if (Parent.IsAlive)
+            {
+                Parent.Die();
+            }
         }
 
         /// <summary>

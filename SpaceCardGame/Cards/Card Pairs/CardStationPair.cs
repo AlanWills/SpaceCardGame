@@ -1,11 +1,27 @@
 ﻿namespace SpaceCardGame
 {
     /// <summary>
+    /// Delegate specification for a function called when the station is destroyed.
+    /// Will allow us to perform custom end-game behaviour when either the player or the opponent's station is destroyed.
+    /// </summary>
+    public delegate void OnStationDestroyedHandler();
+
+    /// <summary>
     /// A specific implentation of a ship for our singular station object that both players will have.
     /// This is the win condition - if you destroy your opponents' you win.
     /// </summary>
     public class CardStationPair : CardShipPair
     {
+        #region Properties and Fields
+
+        /// <summary>
+        /// This will fire when the station is destroyed.
+        /// Can subscribe to this event to add a victory/defeat screen or other end game behaviour when a station is destroyed.
+        /// </summary>
+        public event OnStationDestroyedHandler OnStationDestroyed;
+
+        #endregion
+
         public CardStationPair(ShipCard shipCard) :
             base(shipCard)
         {
@@ -47,6 +63,16 @@
             {
                 Ship.Engines[i].Hide();
             }
+        }
+
+        /// <summary>
+        /// Invokes the OnStationDestroyed event.
+        /// </summary>
+        public override void Die()
+        {
+            base.Die();
+
+            OnStationDestroyed?.Invoke();
         }
 
         #endregion

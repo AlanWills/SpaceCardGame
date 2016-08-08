@@ -10,9 +10,20 @@ namespace SpaceCardGame
     /// </summary>
     public class DeckInstance : List<Card>
     {
+        #region Properties and Fields
+
+        /// <summary>
+        /// The underlying deck that this instance is made from
+        /// </summary>
+        public Deck Deck { get; private set; }
+
+        #endregion
+
         public DeckInstance(Player player, Deck chosenDeck) :
             base(chosenDeck.Cards.Count)
         {
+            Deck = chosenDeck;
+
             foreach (CardData cardData in chosenDeck.Cards.FindAll(x => x is CardData))
             {
                 Add(cardData.CreateCard(player));

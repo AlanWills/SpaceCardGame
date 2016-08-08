@@ -230,7 +230,7 @@ namespace SpaceCardGame
 
             base.Die();
 
-            if (Parent is CardObjectPair)
+            if (Parent is CardObjectPair && Parent.IsAlive)
             {
                 Parent.Die();
             }

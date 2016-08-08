@@ -59,8 +59,10 @@
     <Compile Include="Card Storage\PlayerCardRegistryData.cs" />
     <Compile Include="Game Objects\BoardData.cs" />
     <Compile Include="Missions\MissionData.cs" />
+    <Compile Include="Missions\RewardData.cs" />
     <Compile Include="PlayerGameData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\MissionScreenData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

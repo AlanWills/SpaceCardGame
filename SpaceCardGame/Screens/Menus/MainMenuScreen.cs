@@ -67,8 +67,8 @@ namespace SpaceCardGame
             // Need to load assets before we transition to the next screen
             PlayerCardRegistry.Instance.LoadAssets(PlayerCardRegistry.startingCardRegistryDataAsset);
 
-            // Reset the player's current level to 0
-            SessionManager.PlayerGameData.CurrentLevel = 0;
+            // Reset the player's current level to 1
+            SessionManager.PlayerGameData.CurrentLevel = 1;
             Transition(new LobbyMenuScreen());
         }
 
