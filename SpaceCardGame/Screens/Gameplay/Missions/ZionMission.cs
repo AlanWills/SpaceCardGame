@@ -18,6 +18,8 @@ namespace SpaceCardGame
         {
             base.AddDialogStrings();
 
+            // Pre fight dialogue
+
             Dialog.Enqueue(new List<string>()
             {
                 "The fleet has arrived at the coordinates we obtained from the Sentinel",
@@ -31,11 +33,37 @@ namespace SpaceCardGame
 
             Dialog.Enqueue(new List<string>()
             {
-                "The ships have responded to the carrier wave of the Sentinel",
+                "The ships have responded to the carrier wave of the Sentinel, but there is a control signal emanating from one of them",
                 "I can override their systems, but it will take time",
-                "You will have to weather their attack whilst I integrate with them",
+                "You will have to destroy the control ship, whilst I integrate with their systems",
                 "Commander,",
                 "Destroy as few ships as you can - we will need all we can get against the K'Than"
+            });
+
+            // Post fight dialogue
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "Captain, I have fully integrated",
+                "With the control ship destroyed, these ships are completely under your control",
+                "They will require only a skeleton crew to fully operate"
+            });
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "Never have I seen such design",
+                "The ancients truly were blessed"
+            });
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "Have the crews sent over",
+                "Monitor long range communications for mention of the K'Than fleet"
+            });
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "Captain, I have them"
             });
         }
 
@@ -52,6 +80,20 @@ namespace SpaceCardGame
             AddCommand(new CharacterDialogBoxCommand(computerAIPortrait, Dialog.Dequeue())).
                 NextCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue())).
                 NextCommand(new CharacterDialogBoxCommand(computerAIPortrait, Dialog.Dequeue()));
+        }
+
+        protected override void OnOpponentDefeated()
+        {
+            string computerAIPortrait = "Portraits\\ComputerAI";
+            string terranCommanderPortrait = "Portraits\\TerranCommander";
+            string elekCommanderPortrait = "Portraits\\El'EkCommander";
+
+            AddCommand(new CharacterDialogBoxCommand(computerAIPortrait, Dialog.Dequeue())).
+                NextCommand(new CharacterDialogBoxCommand(elekCommanderPortrait, Dialog.Dequeue())).
+                NextCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue())).
+                NextCommand(new CharacterDialogBoxCommand(computerAIPortrait, Dialog.Dequeue()));
+
+            base.OnOpponentDefeated();
         }
 
         #endregion

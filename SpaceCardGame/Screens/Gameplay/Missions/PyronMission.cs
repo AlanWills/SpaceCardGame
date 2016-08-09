@@ -16,6 +16,8 @@ namespace SpaceCardGame
         {
             base.AddDialogStrings();
 
+            // Pre fight dialogue
+
             Dialog.Enqueue(new List<string>()
             {
                 "K'Than fleet, this is the Commander of a unified Terran and El'Ek fleet",

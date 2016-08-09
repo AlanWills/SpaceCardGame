@@ -1,4 +1,5 @@
-﻿using SpaceCardGameData;
+﻿using _2DEngine;
+using SpaceCardGameData;
 using System.Collections.Generic;
 
 namespace SpaceCardGame
@@ -15,6 +16,8 @@ namespace SpaceCardGame
         protected override void AddDialogStrings()
         {
             base.AddDialogStrings();
+
+            // Pre fight dialogue
 
             Dialog.Enqueue(new List<string>()
             {
@@ -45,6 +48,26 @@ namespace SpaceCardGame
                 "We will not be bullied by pirate scum",
                 "Ready the fleet, we will show these invaders our full strength"
             });
+
+            // Post fight dialogue
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "Mercy!",
+                "I will give you anything you want, just spare my life"
+            });
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "How you were going to spare ours?",
+                "Fleet, wipe them out"
+            });
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "Commander, there is sizeable wreckage left over from the battle",
+                "I have begun a salvage operation"
+            });
         }
 
         /// <summary>
@@ -62,6 +85,22 @@ namespace SpaceCardGame
                 NextCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue())).
                 NextCommand(new CharacterDialogBoxCommand(pirateCommanderPortrait, Dialog.Dequeue())).
                 NextCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue()));
+        }
+
+        protected override void OnOpponentDefeated()
+        {
+            string computerAIPortrait = "Portraits\\ComputerAI";
+            string terranCommanderPortrait = "Portraits\\TerranCommander";
+            string pirateCommanderPortrait = "Portraits\\PirateCommander";
+
+            // Add dialog before we add the victory UI
+            AddCommand(new CharacterDialogBoxCommand(pirateCommanderPortrait, Dialog.Dequeue())).
+                NextCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue())).
+                NextCommand(new WaitCommand(1)).
+                NextCommand(new CharacterDialogBoxCommand(computerAIPortrait, Dialog.Dequeue())).
+                NextCommand(new WaitCommand(0.5f));
+
+            base.OnOpponentDefeated();
         }
 
         #endregion

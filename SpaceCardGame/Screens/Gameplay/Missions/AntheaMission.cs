@@ -21,6 +21,8 @@ namespace SpaceCardGame
         {
             base.AddDialogStrings();
 
+            // Pre fight dialogue
+
             Dialog.Enqueue(new List<string>()
             {
                 "We have arrived at the Anthea colony",
@@ -68,6 +70,14 @@ namespace SpaceCardGame
             {
                 "FIRE BACK!"
             });
+
+            // Post fight dialogue
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "Our fleet has broken the scavenger force sir and repair crews are on their way to the shipyard",
+                "There is only minor damage so construction can begin shortly"
+            });
         }
 
         /// <summary>
@@ -90,6 +100,15 @@ namespace SpaceCardGame
                 NextCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue())).
                 NextCommand(new CharacterDialogBoxCommand(computerAIPortrait, Dialog.Dequeue())).
                 NextCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue()));
+        }
+
+        protected override void OnOpponentDefeated()
+        {
+            string computerAIPortrait = "Portraits\\ComputerAI";
+
+            AddCommand(new CharacterDialogBoxCommand(computerAIPortrait, Dialog.Dequeue()));
+
+            base.OnOpponentDefeated();
         }
 
         #endregion

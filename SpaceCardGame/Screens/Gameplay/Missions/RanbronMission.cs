@@ -18,6 +18,8 @@ namespace SpaceCardGame
         {
             base.AddDialogStrings();
 
+            // Pre fight dialogue
+
             Dialog.Enqueue(new List<string>()
             {
                 "Our coordinates match no known Terran space charts",
@@ -73,6 +75,27 @@ namespace SpaceCardGame
             {
                 "I was afraid of that happening..."
             });
+
+            // Post fight dialogue
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "This ship is more ancient than our civilization"
+            });
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "Commander, I have been able to translate some of the ship's data core",
+                "It refers to itself as 'The Sentinel'",
+                "It could take me years to process all the information it has stored, but already I am seeing the same coordinates mentioned time and again",
+                "The Sentinel calls it 'Akkar'",
+                "Home"
+            });
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "Plot a course"
+            });
         }
 
         /// <summary>
@@ -100,6 +123,19 @@ namespace SpaceCardGame
                 NextCommand(new WaitCommand(0.5f)).
                 NextCommand(new CharacterDialogBoxCommand(sentinelPortrait, Dialog.Dequeue())).
                 NextCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue()));
+        }
+
+        protected override void OnOpponentDefeated()
+        {
+            string computerAIPortrait = "Portraits\\ComputerAI";
+            string terranCommanderPortrait = "Portraits\\TerranCommander";
+            string elekCommanderPortrait = "Portraits\\El'EkCommander";
+
+            AddCommand(new CharacterDialogBoxCommand(elekCommanderPortrait, Dialog.Dequeue())).
+                NextCommand(new CharacterDialogBoxCommand(computerAIPortrait, Dialog.Dequeue())).
+                NextCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue()));
+
+            base.OnOpponentDefeated();
         }
 
         #endregion

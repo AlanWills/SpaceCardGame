@@ -16,6 +16,8 @@ namespace SpaceCardGame
         {
             base.AddDialogStrings();
 
+            // Pre fight dialogue
+
             Dialog.Enqueue(new List<string>()
             {
                 "Commander, we have arrived at the supposed coordinates of the El'Ek homeworld",
@@ -58,6 +60,14 @@ namespace SpaceCardGame
                 "We shall test you to measure your worth to the universe",
                 "If you survive, you have your help"
             });
+
+            // Post fight dialogue
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "Your technology is basic, but your race shows great promise Terran",
+                "We will add our strength to yours to fight that which threatens us all"
+            });
         }
 
         /// <summary>
@@ -79,6 +89,15 @@ namespace SpaceCardGame
                 NextCommand(new CharacterDialogBoxCommand(elekCommanderPortrait, Dialog.Dequeue())).
                 NextCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue())).
                 NextCommand(new CharacterDialogBoxCommand(elekCommanderPortrait, Dialog.Dequeue()));
+        }
+
+        protected override void OnOpponentDefeated()
+        {
+            string elekCommanderPortrait = "Portraits\\El'EkCommander";
+
+            AddCommand(new CharacterDialogBoxCommand(elekCommanderPortrait, Dialog.Dequeue()));
+
+            base.OnOpponentDefeated();
         }
 
         #endregion
