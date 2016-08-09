@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SpaceCardGame
 {
-    public class AntheaMission : BattleScreen
+    public class AntheaMission : MissionScreen
     {
         // Need to change the starter pack
         // For this mission, have the shipyard as a card that is there in addition to our station
@@ -11,11 +11,64 @@ namespace SpaceCardGame
         // When done, we get the shipyard card
 
         public AntheaMission(Deck playerChosenDeck, Deck opponentChosenDeck) :
-            base(playerChosenDeck, opponentChosenDeck, "Screens\\BattleScreen.xml")
+            base(playerChosenDeck, opponentChosenDeck, "Screens\\Missions\\Mission2 - Anthea.xml")
         {
         }
 
         #region Virtual Functions
+
+        protected override void AddDialogStrings()
+        {
+            base.AddDialogStrings();
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "We have arrived at the Anthea colony",
+                "Computer, locate the shipyard"
+            });
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "I have located the shipyard",
+                "However, we are not alone",
+                "Sensors indicate many small scavenger craft moving towards the shipyard",
+                "I am plotting a course which should get us to the shipyard before them"
+            });
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "Unidentified craft, this is the commander of the 1st Terran Fleet",
+                "You are trespassing in our space",
+                "Power down and allow us to escort you from this system"
+            });
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "Fat chance Terran",
+                "This plunder will make us rich as kings, then we won't have to take orders from the likes of you",
+                "Come on boys, lets turn 'em into scrap"
+            });
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "Commander, it appears their actions are hostile"
+            });
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "Of course their actions are hostile, they're firing at us!"
+            });
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "What are you orders sir?"
+            });
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "FIRE BACK!"
+            });
+        }
 
         /// <summary>
         /// Set up our dialog box commands
@@ -28,71 +81,15 @@ namespace SpaceCardGame
             string terranCommanderPortrait = "Portraits\\TerranCommander";
             string scavengerCommanderPortrait = "Portraits\\ScavengerCommander";
 
-            List<string> dialog = new List<string>()
-            {
-                "We have arrived at the Anthea colony",
-                "Computer, locate the shipyard"
-            };
-
-            Command previousCommand = AddCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, dialog));
-
-            previousCommand = AddCommand(new WaitCommand(1), previousCommand);
-
-            dialog = new List<string>()
-            {
-                "I have located the shipyard",
-                "However, we are not alone",
-                "Sensors indicate many small scavenger craft moving towards the shipyard",
-                "I am plotting a course which should get us to the shipyard before them"
-            };
-
-            previousCommand = AddCommand(new CharacterDialogBoxCommand(computerAIPortrait, dialog), previousCommand);
-
-            dialog = new List<string>()
-            {
-                "Unidentified craft, this is the commander of the 1st Terran Fleet",
-                "You are trespassing in our space",
-                "Power down and allow us to escort you from this system"
-            };
-
-            previousCommand = AddCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, dialog), previousCommand);
-
-            dialog = new List<string>()
-            {
-                "Fat chance Terran",
-                "This plunder will make us rich as kings, then we won't have to take orders from the likes of you",
-                "Come on boys, lets turn 'em into scrap"
-            };
-
-            previousCommand = AddCommand(new CharacterDialogBoxCommand(scavengerCommanderPortrait, dialog), previousCommand);
-
-            dialog = new List<string>()
-            {
-                "Commander, it appears their actions are hostile"
-            };
-
-            previousCommand = AddCommand(new CharacterDialogBoxCommand(computerAIPortrait, dialog), previousCommand);
-
-            dialog = new List<string>()
-            {
-                "Of course their actions are hostile, they're firing at us!"
-            };
-
-            previousCommand = AddCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, dialog), previousCommand);
-
-            dialog = new List<string>()
-            {
-                "What are you orders sir?"
-            };
-
-            previousCommand = AddCommand(new CharacterDialogBoxCommand(computerAIPortrait, dialog), previousCommand);
-
-            dialog = new List<string>()
-            {
-                "FIRE BACK!"
-            };
-
-            previousCommand = AddCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, dialog), previousCommand);
+            AddCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue())).
+                NextCommand(new WaitCommand(1)).
+                NextCommand(new CharacterDialogBoxCommand(computerAIPortrait, Dialog.Dequeue())).
+                NextCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue())).
+                NextCommand(new CharacterDialogBoxCommand(scavengerCommanderPortrait, Dialog.Dequeue())).
+                NextCommand(new CharacterDialogBoxCommand(computerAIPortrait, Dialog.Dequeue())).
+                NextCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue())).
+                NextCommand(new CharacterDialogBoxCommand(computerAIPortrait, Dialog.Dequeue())).
+                NextCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue()));
         }
 
         #endregion

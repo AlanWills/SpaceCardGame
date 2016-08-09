@@ -23,6 +23,8 @@
       <Item>Ships\BlazeInterceptor\BlazeInterceptorCard.xml</Item>
       <Item>Ships\BlazeInterceptor\BlazeInterceptorCard.xml</Item>
       <Item>Ships\BlazeInterceptor\BlazeInterceptorCard.xml</Item>
+      <Item>Ships\BlazeInterceptor\BlazeInterceptorCard.xml</Item>
+      <Item>Ships\BlazeInterceptor\BlazeInterceptorCard.xml</Item>
     </ShipCardDataAssets>
     <WeaponCardDataAssets>
       <Item>Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xml</Item>
@@ -38,6 +40,8 @@
       <Item>Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xml</Item>
       <Item>Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xml</Item>
       <Item>Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xml</Item>
+      <Item>Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xml</Item>
+      <Item>Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xml</Item>
       <Item>Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xml</Item>
     </WeaponCardDataAssets>
     <Decks>

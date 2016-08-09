@@ -171,11 +171,6 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Objects\Debris\debris_sml1.xnb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Objects\Debris\debris_sml2.xnb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Objects\Debris\debris_sml3.xnb
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\CardStatThumnails\DamageThumbnail.xnb
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\CardStatThumnails\DefenceThumbnail.xnb
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\CardStatThumnails\ShieldRechargeThumbnail.xnb
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\CardStatThumnails\ShotsLeftThumbnail.xnb
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\CardStatThumnails\SpeedThumbnail.xnb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Cards\CardBack.xnb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\SFX\ButtonHover.xnb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\SFX\ButtonPressedSound.xnb
@@ -272,10 +267,6 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Objects\Debris\debris_sml1.png
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Objects\Debris\debris_sml2.png
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\Objects\Debris\debris_sml3.png
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\CardStatThumnails\ShotsLeftThumbnail.png
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\CardStatThumnails\DefenceThumbnail.png
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\CardStatThumnails\ShieldRechargeThumbnail.png
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\CardStatThumnails\DamageThumbnail.png
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\ButtonHighlighted.png
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\Button.png
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\Menu.png
@@ -351,3 +342,13 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Screens\Missions\Mission3 - Telegra.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Screens\Missions\Mission2 - Anthea.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Data\Screens\Missions\Mission1 - Terra.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\CardStatThumbnails\ShotsLeftThumbnail.png
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\CardStatThumbnails\DefenceThumbnail.png
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\CardStatThumbnails\ShieldRechargeThumbnail.png
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\CardStatThumbnails\DamageThumbnail.png
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\MoneyIcon.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\CardStatThumbnails\DamageThumbnail.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\CardStatThumbnails\DefenceThumbnail.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\CardStatThumbnails\ShieldRechargeThumbnail.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\CardStatThumbnails\ShotsLeftThumbnail.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGame\bin\Windows\Debug\Content\Sprites\UI\CardStatThumbnails\SpeedThumbnail.xnb

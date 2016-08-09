@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ucbeKi8/Rg9zLyp3zJLC0WQZakx7uplEWD3bDamTnZ8=</dsig:DigestValue>
+        <dsig:DigestValue>J0xp2UdCXfyeaa2WI3LZkpiwdvvIMIc3h+YFDzN01RI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -235,14 +235,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="292760">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="294296">
       <assemblyIdentity name="SpaceCardGame" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>lbGZIsbCynrPHaQXkTkb9hmcaXaueaLYZIEFfA4xKv4=</dsig:DigestValue>
+        <dsig:DigestValue>FbjaUcZ1l6wvXQWQ38p9Uaz8+EWPol3/0TWTy0ksfC0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -2859,7 +2859,7 @@
       <dsig:DigestValue>etjppReKsaTkY9rDJpvfVuoQwJhjenMbU8RMDQEoyGk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Sprites\UI\CardStatThumnails\DamageThumbnail.png" size="1820">
+  <file name="Content\Sprites\UI\CardStatThumbnails\DamageThumbnail.png" size="1820">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -2868,7 +2868,7 @@
       <dsig:DigestValue>xRoJ8pPoP+J1fA7OXUDOqGRcnXUaP2cx2ea2zEcG6xA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Sprites\UI\CardStatThumnails\DamageThumbnail.xnb" size="4181">
+  <file name="Content\Sprites\UI\CardStatThumbnails\DamageThumbnail.xnb" size="4181">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -2877,7 +2877,7 @@
       <dsig:DigestValue>FWo9Lqv2PZhiFcwAka31jM9fDCki0fRECaKpeCJsC8o=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Sprites\UI\CardStatThumnails\DefenceThumbnail.png" size="1298">
+  <file name="Content\Sprites\UI\CardStatThumbnails\DefenceThumbnail.png" size="1298">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -2886,7 +2886,7 @@
       <dsig:DigestValue>Twoo6HYx/c51VxTJam3mRrFCJE5gLOMj87POdLiCp54=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Sprites\UI\CardStatThumnails\DefenceThumbnail.xnb" size="4181">
+  <file name="Content\Sprites\UI\CardStatThumbnails\DefenceThumbnail.xnb" size="4181">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -2895,7 +2895,7 @@
       <dsig:DigestValue>u979QKSD8PzvB5pfjNbq/xnbSqoeLyYATpU9YeGG6ko=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Sprites\UI\CardStatThumnails\ShieldRechargeThumbnail.png" size="1394">
+  <file name="Content\Sprites\UI\CardStatThumbnails\ShieldRechargeThumbnail.png" size="1394">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -2904,7 +2904,7 @@
       <dsig:DigestValue>FImZ91ZU7gnUf6gDtY1JqB983Wbm4UmghHGD/ES9wgM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Sprites\UI\CardStatThumnails\ShieldRechargeThumbnail.xnb" size="4181">
+  <file name="Content\Sprites\UI\CardStatThumbnails\ShieldRechargeThumbnail.xnb" size="4181">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -2913,7 +2913,7 @@
       <dsig:DigestValue>OWASKQrbI8juazY2gsyvKYOYc0uBa1mtHkNOB/75KWs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Sprites\UI\CardStatThumnails\ShotsLeftThumbnail.png" size="1739">
+  <file name="Content\Sprites\UI\CardStatThumbnails\ShotsLeftThumbnail.png" size="1739">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -2922,7 +2922,7 @@
       <dsig:DigestValue>NPcyiA6kCcbtEQcu/CUvPKGPK7lKED/hyX47zK7ZZYU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Sprites\UI\CardStatThumnails\ShotsLeftThumbnail.xnb" size="4181">
+  <file name="Content\Sprites\UI\CardStatThumbnails\ShotsLeftThumbnail.xnb" size="4181">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -2931,7 +2931,7 @@
       <dsig:DigestValue>7Y4jii5geYKFHENIwIj44K6bBHK+WzQtVsk+ibCt7Tw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Sprites\UI\CardStatThumnails\SpeedThumbnail.png" size="1795">
+  <file name="Content\Sprites\UI\CardStatThumbnails\SpeedThumbnail.png" size="1795">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -2940,7 +2940,7 @@
       <dsig:DigestValue>UUB3zOQxtF4XT9+4/cgAanSeQM4RcKWJNUXoG/rJ17M=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Sprites\UI\CardStatThumnails\SpeedThumbnail.xnb" size="4181">
+  <file name="Content\Sprites\UI\CardStatThumbnails\SpeedThumbnail.xnb" size="4181">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -3019,6 +3019,24 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>iK/6yM2DoMfOZKrQeyWK0wNSxWDqR1MmdkzIhTl+SP0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\UI\MoneyIcon.png" size="1217">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>24xWYij0xIM71wWAI+o+ga/69pMoi/qHsj3u2lY8VpI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\UI\MoneyIcon.xnb" size="4181">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>NTlGCBt85HeGZuDQ5gJKq6wgdgqw8NI1nUBm4dEFjwM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Sprites\UI\NarrowButton.png" size="6953">

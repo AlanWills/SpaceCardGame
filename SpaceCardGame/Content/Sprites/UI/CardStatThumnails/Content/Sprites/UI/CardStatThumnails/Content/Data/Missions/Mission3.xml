@@ -1,0 +1,62 @@
+﻿<XnaContent>
+  <Asset Type="SpaceCardGameData.MissionData">
+    <MissionName>Telegra</MissionName>
+    <MissionThumbnailTextureAsset>Planets\TelegraThumbnail</MissionThumbnailTextureAsset>
+    <MissionNumber>3</MissionNumber>
+    <MissionDescription>
+    It's time to deal with this pirate threat and secure your homeworld.
+    Intercepted transmissions have revealed that the system of Telegra is
+    now a staging area for pirate incursions.
+    
+    Wipe out their production capabilities and end this.
+    </MissionDescription>
+    <OpponentDeckData>
+      <Name>Terran Opponent</Name>
+      <CardDataAssets>
+        <Item>Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml</Item>
+        <Item>Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml</Item>
+        <Item>Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xml</Item>
+        <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
+        <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
+        <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
+        <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
+        <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
+        <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
+        <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
+        <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
+        <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
+        <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
+        <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
+        <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
+        <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
+        <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
+        <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
+        <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
+        <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
+        <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
+        <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
+        <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
+        <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
+        <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
+        <Item>Resources\FuelResource\FuelResourceCard.xml</Item>
+        <Item>Resources\MetalResource\MetalResourceCard.xml</Item>
+        <Item>Ships\BlazeInterceptor\BlazeInterceptorCard.xml</Item>
+        <Item>Ships\EagleFrigate\EagleFrigateCard.xml</Item>
+        <Item>Ships\VenatorCruiser\VenatorCruiserCard.xml</Item>
+        <Item>Ships\WaspFighter\WaspFighterCard.xml</Item>
+        <Item>Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xml</Item>
+        <Item>Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xml</Item>
+        <Item>Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xml</Item>
+        <Item>Stations\BastionShipyard\BastionShipyardCard.xml</Item>
+      </CardDataAssets>
+    </OpponentDeckData>
+    <RewardData>
+      <Money>500</Money>
+      <CardDataAssets>
+        <Item>Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xml</Item>
+        <Item>Ships\BlazeInterceptor\BlazeInterceptorCard.xml</Item>
+      </CardDataAssets>
+      <CardPacks>2</CardPacks>
+    </RewardData>
+  </Asset>
+</XnaContent>

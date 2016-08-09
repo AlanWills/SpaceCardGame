@@ -3,14 +3,39 @@ using System.Collections.Generic;
 
 namespace SpaceCardGame
 {
-    public class PyronMission : BattleScreen
+    public class PyronMission : MissionScreen
     {
         public PyronMission(Deck playerChosenDeck, Deck opponentChosenDeck) :
-            base(playerChosenDeck, opponentChosenDeck, "Screens\\BattleScreen.xml")
+            base(playerChosenDeck, opponentChosenDeck, "Screens\\Missions\\Mission8 - Pyron.xml")
         {
         }
 
         #region Virtual Functions
+
+        protected override void AddDialogStrings()
+        {
+            base.AddDialogStrings();
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "K'Than fleet, this is the Commander of a unified Terran and El'Ek fleet",
+                "We are here to stop your reign of terror throughout this system"
+            });
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "Did I not destroy you and your pitiful fleet at Freiza?",
+                "No matter, it will take just as little effort to wipe you out again"
+            });
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "This is it fleet",
+                "No other objectives",
+                "Take out their command ship and this threat will be over",
+                "Lets finish this"
+            });
+        }
 
         /// <summary>
         /// Set up our dialog box commands
@@ -22,31 +47,9 @@ namespace SpaceCardGame
             string terranCommanderPortrait = "Portraits\\TerranCommander";
             string kthanCommanderPortrait = "Portraits\\K'ThanCommander";
 
-            List<string> dialog = new List<string>()
-            {
-                "K'Than fleet, this is the Commander of a unified Terran and El'Ek fleet",
-                "We are here to stop your reign of terror throughout this system"
-            };
-
-            Command previousCommand = AddCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, dialog));
-
-            dialog = new List<string>()
-            {
-                "Did I not destroy you and your pitiful fleet at Freiza?",
-                "No matter, it will take just as little effort to wipe you out again"
-            };
-
-            previousCommand = AddCommand(new CharacterDialogBoxCommand(kthanCommanderPortrait, dialog));
-
-            dialog = new List<string>()
-            {
-                "This is it fleet",
-                "No other objectives",
-                "Take out their command ship and this threat will be over",
-                "Lets finish this"
-            };
-
-            previousCommand = AddCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, dialog));
+            AddCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue())).
+                NextCommand(new CharacterDialogBoxCommand(kthanCommanderPortrait, Dialog.Dequeue())).
+                NextCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue()));
         }
 
         #endregion

@@ -70,11 +70,10 @@ namespace SpaceCardGame
             // Create the reward UI here
 
             // Money earnt
-            Debug.Fail("TODO");
-            Image moneyImage = AddChild(new Image(Vector2.Zero, AssetManager.DefaultEmptyPanelTextureAsset));
-            Label moneyEarntExplanation = moneyImage.AddChild(new Label("Money Earnt", Anchor.kTopCentre, 2));
+            Image moneyImage = AddChild(new Image(Vector2.Zero, "UI\\MoneyIcon"));
+            Label moneyEarntExplanation = moneyImage.AddChild(new Label("Money Earnt", Anchor.kTopCentre, 4));
             moneyEarntExplanation.Colour.Value = Color.White;
-            Label moneyEarntValue = moneyImage.AddChild(new Label(RewardData.Money.ToString(), Anchor.kBottomCentre, 2));
+            Label moneyEarntValue = moneyImage.AddChild(new Label(RewardData.Money.ToString(), Anchor.kBottomCentre, 4));
             moneyEarntValue.Colour.Value = Color.White;
             RewardUI.Add(moneyImage);
 

@@ -3,14 +3,27 @@ using System.Collections.Generic;
 
 namespace SpaceCardGame
 {
-    public class TelegraMission : BattleScreen
+    public class TelegraMission : MissionScreen
     {
         public TelegraMission(Deck playerChosenDeck, Deck opponentChosenDeck) :
-            base(playerChosenDeck, opponentChosenDeck, "Screens\\BattleScreen.xml")
+            base(playerChosenDeck, opponentChosenDeck, "Screens\\Missions\\Mission3 - Telegra.xml")
         {
         }
 
         #region Virtual Functions
+
+        protected override void AddDialogStrings()
+        {
+            base.AddDialogStrings();
+
+            Dialog.Enqueue(new List<string>()
+            {
+                "Fleet, this is the Commander",
+                "We shall shortly be completing our trans-space jump and will appear on the edge of the pirate's sensors",
+                "We will have the element of surprise",
+                "Let us use it to eradicate the scourge that threatened our home"
+            });
+        }
 
         /// <summary>
         /// Set up our dialog box commands
@@ -21,15 +34,7 @@ namespace SpaceCardGame
 
             string terranCommanderPortrait = "Portraits\\TerranCommander";
 
-            List<string> dialog = new List<string>()
-            {
-                "Fleet, this is the Commander",
-                "We shall shortly be completing our trans-space jump and will appear on the edge of the pirate's sensors",
-                "We will have the element of surprise",
-                "Let us use it to eradicate the scourge that threatened our home"
-            };
-
-            Command previousCommand = AddCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, dialog));
+            AddCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue()));
         }
 
         #endregion

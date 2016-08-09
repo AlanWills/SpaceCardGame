@@ -50,15 +50,15 @@ namespace SpaceCardGame
 
             CheckShouldLoad();
 
-            CurrentAttack = AddChild(new ImageAndLabel("", new Vector2(-Size.X * 0.5f, Size.Y * 0.5f), "UI\\CardStatThumnails\\DamageThumbnail"));
+            CurrentAttack = AddChild(new ImageAndLabel("", new Vector2(-Size.X * 0.5f, Size.Y * 0.5f), "UI\\CardStatThumbnails\\DamageThumbnail"));
             CurrentAttack.Colour.Value = Color.Red;
             CurrentAttack.Label.Size = textSize;
 
-            CurrentDefence = AddChild(new ImageAndLabel("", new Vector2(0, Size.Y * 0.5f), "UI\\CardStatThumnails\\DefenceThumbnail"));
+            CurrentDefence = AddChild(new ImageAndLabel("", new Vector2(0, Size.Y * 0.5f), "UI\\CardStatThumbnails\\DefenceThumbnail"));
             CurrentDefence.Colour.Value = Color.LightGreen;
             CurrentDefence.Label.Size = textSize;
 
-            CurrentSpeed = AddChild(new ImageAndLabel("", Size * 0.5f, "UI\\CardStatThumnails\\SpeedThumbnail"));
+            CurrentSpeed = AddChild(new ImageAndLabel("", Size * 0.5f, "UI\\CardStatThumbnails\\SpeedThumbnail"));
             CurrentSpeed.Colour.Value = Color.White;
             CurrentSpeed.Label.Size = textSize;
 
