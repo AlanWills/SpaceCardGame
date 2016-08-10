@@ -24,11 +24,6 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// A list of all the available cards that the player has unlocked
-        /// </summary>
-        public List<CardData> AvailableCards { get; private set; }
-
-        /// <summary>
         /// A data structure for all of the player's decks the player has created
         /// </summary>
         public Deck[] Decks { get; private set; }
@@ -54,8 +49,8 @@ namespace SpaceCardGame
         /// </summary>
         public PlayerDataRegistryData PlayerData { get; set; }
         
-        public const string playerCardRegistryDataAsset = "Player\\PlayerDataRegistryData.xml";
-        public const string startingCardRegistryDataAsset = "Player\\StartingPlayerDataRegistryData.xml";
+        public const string playerDataRegistryDataAsset = "Player\\PlayerDataRegistryData.xml";
+        public const string startingDataRegistryDataAsset = "Player\\StartingPlayerDataRegistryData.xml";
         public const int maxDeckNumber = 8;
 
         #endregion
@@ -78,7 +73,6 @@ namespace SpaceCardGame
             // If we have already loaded there is no need to load again - just raises the possibility of overwriting data
             if (Loaded) { return; }
 
-            AvailableCards = new List<CardData>();
             Decks = new Deck[maxDeckNumber];
 
             for (int i = 0; i < maxDeckNumber; i++)
@@ -88,12 +82,6 @@ namespace SpaceCardGame
 
             PlayerData = AssetManager.GetData<PlayerDataRegistryData>(path);
             DebugUtils.AssertNotNull(PlayerData);
-
-            LoadCardType(PlayerData.AbilityCardDataAssets);
-            LoadCardType(PlayerData.ShieldCardDataAssets);
-            LoadCardType(PlayerData.ResourceCardDataAssets);
-            LoadCardType(PlayerData.ShipCardDataAssets);
-            LoadCardType(PlayerData.WeaponCardDataAssets);
 
             // Load decks too
             Debug.Assert(PlayerData.Decks.Count <= maxDeckNumber);
@@ -118,33 +106,7 @@ namespace SpaceCardGame
         /// </summary>
         public void SaveAssets()
         {
-            // Create a map of card types and a list of card assets we will serialize
-            Dictionary<string, List<string>> dataMap = new Dictionary<string, List<string>>();
-
-            // Set up all of our lists of card data for each resource type
-            foreach (string cardType in CentralCardRegistry.CardTypes)
-            {
-                dataMap.Add(cardType, new List<string>());
-            }
-
-            // Loop through our available cards and add them into the appropriate list in our map
-            foreach (CardData cardData in AvailableCards)
-            {
-                Debug.Assert(dataMap.ContainsKey(cardData.Type));
-
-                dataMap[cardData.Type].Add(CentralCardRegistry.FindCardDataAsset(cardData));
-            }
-
-            Debug.Fail("Refactor this");
-            // Maybe somehow just use the PlayerData's lists of string assets and keep loading them throughout the program
-
-            // This is fragile at the moment - need to have a way of mapping card type to Asset list
-            PlayerData.AbilityCardDataAssets = dataMap["Ability"];
-            PlayerData.ShieldCardDataAssets = dataMap["Shield"];
-            PlayerData.ResourceCardDataAssets = dataMap["Resource"];
-            PlayerData.ShipCardDataAssets = dataMap["Ship"];
-            PlayerData.WeaponCardDataAssets = dataMap["Weapon"];
-            PlayerData.Decks = new List<DeckData>();
+            PlayerData.Decks.Clear();
 
             // Now add our decks to our data
             for (int i = 0; i < maxDeckNumber; i++)
@@ -161,56 +123,7 @@ namespace SpaceCardGame
             }
 
             // Save our player card registry data
-            AssetManager.SaveData(PlayerData, playerCardRegistryDataAsset);
-        }
-
-        #region Utility Functions for saving and loading
-
-        /// <summary>
-        /// Load our resource cards not being used in decks
-        /// </summary>
-        /// <param name="content"></param>
-        private void LoadCardType(List<string> assetsToLoad)
-        {
-            // Load the resource cards from the central registry
-            List<CardData> data = CentralCardRegistry.ConvertToDataList(assetsToLoad);
-
-            AvailableCards.AddRange(data);
-        }
-
-        #endregion
-
-        #endregion
-
-        #region Utility Functions
-
-        /// <summary>
-        /// A function to determine whether the player already has the inputted card data available or in a deck.
-        /// </summary>
-        /// <param name="cardData"></param>
-        /// <returns></returns>
-        public bool PlayerOwnsCard(CardData cardData)
-        {
-            // Check our available cards
-            if (AvailableCards.Contains(cardData))
-            {
-                return true;
-            }
-
-            // Then check each deck
-            for (int i = 0; i < Decks.Length; i++)
-            {
-                if (Decks[i] != null)
-                {
-                    if (Decks[i].Cards.Exists(x => x == cardData))
-                    {
-                        return true;
-                    }
-                }
-            }
-
-            // If we have got here then the player cannot own it
-            return false;
+            AssetManager.SaveData(PlayerData, playerDataRegistryDataAsset);
         }
 
         #endregion

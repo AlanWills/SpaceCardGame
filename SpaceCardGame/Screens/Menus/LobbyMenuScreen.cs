@@ -78,7 +78,7 @@ namespace SpaceCardGame
         /// <param name="baseObject"></param>
         private void OnTutorialButtonLeftClicked(BaseObject baseObject)
         {
-            PlayerDataRegistryData startingRegistryData = AssetManager.GetData<PlayerDataRegistryData>(PlayerDataRegistry.startingCardRegistryDataAsset);
+            PlayerDataRegistryData startingRegistryData = AssetManager.GetData<PlayerDataRegistryData>(PlayerDataRegistry.startingDataRegistryDataAsset);
             Deck tutorialDeck = new Deck();
             tutorialDeck.Create(startingRegistryData.Decks[0].CardDataAssets);
 

@@ -235,26 +235,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="300440">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="298904">
       <assemblyIdentity name="SpaceCardGame" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Fr8h7nVSkEbpD7zEHKdaU39zsS+ddQS/neLAroaULmc=</dsig:DigestValue>
+        <dsig:DigestValue>0/+xwFh+N1kRgZUBdRYO6jzEqvL0ohGrlmwX+RmaIY8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGameData.dll" size="159232">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGameData.dll" size="158208">
       <assemblyIdentity name="SpaceCardGameData" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ICvHbPYnUFuFdGfc0jlgQeFwUozDl6Kf+2Eqw4Fvqt8=</dsig:DigestValue>
+        <dsig:DigestValue>xTy+LYIWrcwURl7ZoAdxDpChLfxNzEbxU9Mc+HZhN1c=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -267,13 +267,13 @@
       <dsig:DigestValue>/EoTTe+fTUbXG5sDYG1dxN6cAFmN0lzC9ibHmpz7osU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Cards\CardRegistryData.xml" size="1297" writeableType="applicationData">
+  <file name="Content\Data\Cards\CardRegistryData.xml" size="1055" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>cb0fQ4TNa16CHti+aBqHYJUUKpPKYIU3JMM7RB219yU=</dsig:DigestValue>
+      <dsig:DigestValue>AVTQaK/zuUCY7s3VogPFN0dyAhDrWTiiQOX1z/btgvE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Engines\DefaultEngine.xml" size="147" writeableType="applicationData">
@@ -762,22 +762,22 @@
       <dsig:DigestValue>1KLtZShl5rit2qB4xJKbfCR4FiOlP+dPvVuA4i5YwIM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Player\PlayerDataRegistryData.xml" size="5222" writeableType="applicationData">
+  <file name="Content\Data\Player\PlayerDataRegistryData.xml" size="7337" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>ZiDoKzfRVK8UreKeSu6aCoXFLsqwSNMnO92txK6YrCw=</dsig:DigestValue>
+      <dsig:DigestValue>b9UsMlZ34r/LBTKXqAZpt8zrcPP61NtALouLlhRYvf8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Player\StartingPlayerDataRegistryData.xml" size="2417" writeableType="applicationData">
+  <file name="Content\Data\Player\StartingPlayerDataRegistryData.xml" size="4116" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>GiSYgLr1O6B8FlpH0wXzC1+njyiYCVT3hciFxXieXts=</dsig:DigestValue>
+      <dsig:DigestValue>CpTHqJ/om+Gr+WuTUstBUB5C86sw8r2YzyhfvdweR5I=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Screens\BattleScreen.xml" size="501" writeableType="applicationData">

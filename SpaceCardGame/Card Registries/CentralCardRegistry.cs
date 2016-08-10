@@ -1,6 +1,7 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework.Content;
 using SpaceCardGameData;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -140,16 +141,18 @@ namespace SpaceCardGame
         /// Picks cards from all the registered cards for when our player opens a pack.
         /// </summary>
         /// <returns></returns>
-        public static List<CardData> PickCardsForPackOpening()
+        public static List<string> PickCardsForPackOpening()
         {
-            List<CardData> cards = new List<CardData>(PackSize);
-            CardData[] registeredCards = new CardData[CardData.Count];
-            CardData.Values.CopyTo(registeredCards, 0);
+            List<string> cards = new List<string>(PackSize);
+            string[] registeredCardsDataAssets = new string[CardData.Count];
+
+            // Ouch
+            CardData.Keys.CopyTo(registeredCardsDataAssets, 0);
 
             for (int i = 0; i < PackSize; i++)
             {
-                int randomIndex = MathUtils.GenerateInt(0, registeredCards.Length - 1);
-                cards.Add(registeredCards[randomIndex]);
+                int randomIndex = MathUtils.GenerateInt(0, registeredCardsDataAssets.Length - 1);
+                cards.Add(registeredCardsDataAssets[randomIndex]);
             }
 
             return cards;

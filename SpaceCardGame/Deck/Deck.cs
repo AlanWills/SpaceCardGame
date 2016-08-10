@@ -71,21 +71,14 @@ namespace SpaceCardGame
 
         /// <summary>
         /// The function to call to remove a deck and mark it as not created.
-        /// Sends any cards inside of it back to the PlayerCardRegistry.
         /// </summary>
         public void Delete()
         {
-            // Send all cards back to our PlayerCardRegistry.
-            PlayerDataRegistry.Instance.AvailableCards.AddRange(Cards);
-
             // Clear our deck and mark it as not created.
             Cards.Clear();
             IsCreated = false;
         }
 
         #endregion
-
-        // Create the deck as an empty list and store flags for whether it's been created etc. rather than storing null to begin with in PlayerCardRegistry.
-        // This SHOULD mean we can pass the deck reference around rather than the index
     }
 }

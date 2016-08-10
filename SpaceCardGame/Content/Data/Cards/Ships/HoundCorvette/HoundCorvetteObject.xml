@@ -1,0 +1,22 @@
+﻿<XnaContent>
+  <Asset Type="SpaceCardGameData.ShipData">
+    <TextureAsset>Cards\Ships\HoundCorvette\HoundCorvette</TextureAsset>
+    <Attack>2</Attack>
+    <Defence>2</Defence>
+    <Speed>2</Speed>
+    <TurretHardpoints>
+      <Item>
+        <X>0</X>
+        <Y>-8</Y>
+      </Item>
+    </TurretHardpoints>
+    <EngineHardpoints>
+      <Item>
+        <X>0</X>
+        <Y>22</Y>
+      </Item>
+    </EngineHardpoints>
+    <DamageHardpoints/>
+    <ExplosionSFXAsset>Explosions\SmallShipDeathExplosion</ExplosionSFXAsset>
+  </Asset>
+</XnaContent>

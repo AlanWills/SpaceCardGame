@@ -1,6 +1,7 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
 using System;
+using System.Collections.Generic;
 
 namespace SpaceCardGame
 {
@@ -60,7 +61,7 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
-        /// Create our 
+        /// Create our two controls for showing the cards in our deck and that are available to be added
         /// </summary>
         public override void Initialise()
         {
@@ -73,8 +74,10 @@ namespace SpaceCardGame
 
             // Do this here because we need to add the IncludePredicate before we initialise the control.
             AddChild(DeckCardListControl, true, true);
+            
+            List<CardData> availableCards = CentralCardRegistry.ConvertToDataList(PlayerDataRegistry.Instance.PlayerData.CardDataAssets);
 
-            RegistryCardListControl = new CardGridControl(PlayerDataRegistry.Instance.AvailableCards, 5, registryColumns, new Vector2(Size.X * (1 - ratio), Size.Y), new Vector2(-ratio * 0.5f * Size.X, 0));
+            RegistryCardListControl = new CardGridControl(availableCards, 5, registryColumns, new Vector2(Size.X * (1 - ratio), Size.Y), new Vector2(-ratio * 0.5f * Size.X, 0));
             // Find all cards of our type that are also not in our deck already
             RegistryCardListControl.IncludePredicate = new Predicate<CardData>(x => x.Type == CardType);
             RegistryCardListControl.OnLeftClicked += AddToDeck;
@@ -104,7 +107,6 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(cardData);
 
             Deck.Cards.Remove(cardData);
-            PlayerDataRegistry.Instance.AvailableCards.Add(cardData);
 
             RegistryCardListControl.AddCard(cardData);
         }
@@ -126,7 +128,6 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(cardData);
 
             Deck.Cards.Add(cardData);
-            PlayerDataRegistry.Instance.AvailableCards.Remove(cardData);
 
             DeckCardListControl.AddCard(cardData);
         }

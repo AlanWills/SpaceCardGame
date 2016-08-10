@@ -1,5 +1,6 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -83,24 +84,26 @@ namespace SpaceCardGame
             PlayerDataRegistry.Instance.PlayerData.AvailablePacksToOpen--;
 
             // Pick random cards from the registry
-            List<CardData> cardData = CentralCardRegistry.PickCardsForPackOpening();
-            Debug.Assert(cardData.Count == CentralCardRegistry.PackSize);
+            List<string> cardDataAssets = CentralCardRegistry.PickCardsForPackOpening();
+            Debug.Assert(cardDataAssets.Count == CentralCardRegistry.PackSize);
 
             // Add cards to our screen to show these new cards
-            for (int i = 0; i < cardData.Count; i++)
+            for (int i = 0; i < cardDataAssets.Count; i++)
             {
+                CardData cardData = CentralCardRegistry.CardData[cardDataAssets[i]];
+
                 // Position the cards incrementally along the screen and halfway between the top of the grid control and the top of the screen
-                Card card = AddScreenUIObject(cardData[i].CreateCard(null), true, true);
+                Card card = AddScreenUIObject(cardData.CreateCard(null), true, true);
                 card.LocalPosition = new Vector2(300 * (i + 1), (PacksGridControl.WorldPosition.Y - PacksGridControl.Size.Y * 0.5f) * 0.5f);
                 card.ClickableModule.OnLeftClicked += OnCardLeftClicked;
                 card.Flip(CardFlipState.kFaceDown);         // Make sure the card is face down initially, so we have the excitement of turning it over!
-                card.StoredObject = PlayerDataRegistry.Instance.PlayerOwnsCard(cardData[i]);
+                card.StoredObject = PlayerDataRegistry.Instance.PlayerData.CardDataAssets.Contains(cardDataAssets[i]);
 
                 CardsFromPack.Add(card);
             }
 
             // Add the newly unlocked cards to the Player's card registry
-            PlayerDataRegistry.Instance.AvailableCards.AddRange(cardData);
+            PlayerDataRegistry.Instance.PlayerData.CardDataAssets.AddRange(cardDataAssets);
 
             // Stop our grid control from accepting input
             PacksGridControl.ShouldHandleInput.Value = false;

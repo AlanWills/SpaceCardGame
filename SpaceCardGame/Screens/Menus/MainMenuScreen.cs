@@ -59,7 +59,7 @@ namespace SpaceCardGame
         private void OnNewGameButtonLeftClicked(BaseObject baseObject)
         {
             // Need to load assets before we transition to the next screen
-            PlayerDataRegistry.Instance.LoadAssets(PlayerDataRegistry.startingCardRegistryDataAsset);
+            PlayerDataRegistry.Instance.LoadAssets(PlayerDataRegistry.startingDataRegistryDataAsset);
 
             // Reset the player's current level to 1
             PlayerDataRegistry.Instance.PlayerData.CurrentLevel = 1;
@@ -73,7 +73,7 @@ namespace SpaceCardGame
         private void OnContinueButtonLeftClicked(BaseObject baseObject)
         {
             // Need to load assets before we transition to the next screen
-            PlayerDataRegistry.Instance.LoadAssets(PlayerDataRegistry.playerCardRegistryDataAsset);
+            PlayerDataRegistry.Instance.LoadAssets(PlayerDataRegistry.playerDataRegistryDataAsset);
             Transition(new LobbyMenuScreen());
         }
 

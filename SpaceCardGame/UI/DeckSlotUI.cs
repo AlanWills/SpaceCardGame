@@ -82,6 +82,14 @@ namespace SpaceCardGame
 
             DeleteButton = EditButton.AddChild(new Button("Delete", buttonSize, new Vector2(0, EditButton.Size.Y + padding), AssetManager.DefaultNarrowButtonTextureAsset, AssetManager.DefaultNarrowButtonHighlightedTextureAsset), true, true);
             DeleteButton.ClickableModule.OnLeftClicked += DeleteButton_OnLeftClicked;
+        }
+
+        /// <summary>
+        /// Do final set up of the UI
+        /// </summary>
+        public override void Begin()
+        {
+            base.Begin();
 
             UpdateUIStatus();
         }
