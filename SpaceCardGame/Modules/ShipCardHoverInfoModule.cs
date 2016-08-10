@@ -1,12 +1,13 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using System.Diagnostics;
 
 namespace SpaceCardGame
 {
     /// <summary>
     /// An extension of the hover card info module designed for use with ships.
-    /// As well as displaying the standard card info, if shift is held whilst the mouse is over, the full scale ship will be shown.
+    /// As well as displaying the standard card info, if shift is held whilst the mouse is over, the full scale ship will be shown (only during battle phase).
     /// </summary>
     public class ShipCardHoverInfoModule : CardHoverInfoModule
     {
@@ -32,6 +33,11 @@ namespace SpaceCardGame
 
         #endregion
 
+        /// <summary>
+        /// Pass in the card ship pair here because the attached object will not be set in the constructor.
+        /// Also provides a way of limiting what objects can use this module.
+        /// </summary>
+        /// <param name="cardShipPair"></param>
         public ShipCardHoverInfoModule(CardShipPair cardShipPair) :
             base(cardShipPair)
         {
@@ -72,7 +78,7 @@ namespace SpaceCardGame
                 {
                     CardShipPair.Scale(scale);
                     CardShipPair.LocalPosition = PreviewPosition;
-                    InfoImage.Hide();
+                    ToolTip.Hide();
 
                     scaled = true;
                 }
@@ -83,7 +89,7 @@ namespace SpaceCardGame
                 {
                     CardShipPair.Scale(inverseScale);
                     CardShipPair.LocalPosition = CardControlPosition;
-                    InfoImage.Show();
+                    ToolTip.Show();
 
                     scaled = false;
                 }

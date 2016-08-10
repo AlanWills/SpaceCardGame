@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>YUaXr+44TBudY2IG2L6sPnBEJTw9kQNVnZ6+wtaAvdg=</dsig:DigestValue>
+        <dsig:DigestValue>98phBhyaaUjdIcXaS425yStBFHRniHtk3nLSCJp3Izc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -235,14 +235,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="298904">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="298392">
       <assemblyIdentity name="SpaceCardGame" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>vS85G+PtWgqfhJztYT2uhXP7a/2sUOsU0OsUAKZiVW0=</dsig:DigestValue>
+        <dsig:DigestValue>zdHV2XL1ScXIylYR25IplxGGfgW9YJjKhlx0megYYzo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

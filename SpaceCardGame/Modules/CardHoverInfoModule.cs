@@ -8,93 +8,36 @@ namespace SpaceCardGame
     /// <summary>
     /// A module which creates an enlarged version of a game card in the centre of the screenwhen the mouse is hovered over it.
     /// </summary>
-    public class CardHoverInfoModule : BaseObjectModule
+    public class CardHoverInfoModule : ToolTipModule
     {
         #region Properties and Fields
-
-        /// <summary>
-        /// A reference to our our info image - will cache this and then insert/extract it from the current screen as appropriate
-        /// </summary>
-        protected Image InfoImage { get; private set; }
 
         /// <summary>
         /// A reference to the attached card we are showing info
         /// </summary>
         private CardObjectPair AttachedCardObjectPair { get; set; }
 
-        private bool cardAdded;
+        protected override Vector2 ToolTipPosition
+        {
+            get
+            {
+                return ScreenManager.Instance.ScreenCentre;
+            }
+        }
 
         #endregion
 
+        /// <summary>
+        /// Pass in the card object pair here because the attached object will not be set in the constructor.
+        /// Also provides a way of limiting what objects can use this module.
+        /// </summary>
+        /// <param name="cardObjectPair"></param>
         public CardHoverInfoModule(CardObjectPair cardObjectPair)
         {
             AttachedCardObjectPair = cardObjectPair;
+
+            ToolTip = CreateInfoImageForAttachedCard();
         }
-
-        #region Virtual Functions
-
-        /// <summary>
-        /// Creates, loads and initialises the info image
-        /// </summary>
-        public override void Initialise()
-        {
-            CheckShouldInitialise();
-
-            InfoImage = CreateInfoImageForAttachedCard();
-            InfoImage.LoadContent();
-            InfoImage.Initialise();
-
-            base.Initialise();
-        }
-
-        /// <summary>
-        /// Adds or removes the object from the main screen as approprite
-        /// </summary>
-        /// <param name="elapsedGameTime"></param>
-        /// <param name="mousePosition"></param>
-        public override void HandleInput(float elapsedGameTime, Vector2 mousePosition)
-        {
-            base.HandleInput(elapsedGameTime, mousePosition);
-
-            DebugUtils.AssertNotNull(AttachedCardObjectPair.Card.Collider);
-            DebugUtils.AssertNotNull(AttachedCardObjectPair.CardObject.Collider);
-
-            BattleScreen battleScreen = ScreenManager.Instance.GetCurrentScreenAs<BattleScreen>();
-            // Depending on the turn state, show this UI based on the card or the object's collider
-            Collider colliderToCheck = battleScreen.TurnState == TurnState.kPlaceCards ? AttachedCardObjectPair.Card.Collider : AttachedCardObjectPair.CardObject.Collider;
-
-            if (!cardAdded)
-            {
-                if (IsInputValidToShowCard(battleScreen, colliderToCheck))
-                {
-                    // If we have just entered the object, we add the info image to the screen
-                    battleScreen.AddInGameUIObject(InfoImage);
-                    cardAdded = true;
-                }
-            }
-            else
-            {
-                if (!IsInputValidToShowCard(battleScreen, colliderToCheck))
-                {
-                    // If we have just exited the object, we extract the info image from the screen, but do not kill it
-                    // This means we can cache it rather than constantly recreating it
-                    battleScreen.ExtractInGameUIObject(InfoImage);
-                    cardAdded = false;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Really make sure that we kill the info image if this is killed - it could still be inserted in the screen somewhere.
-        /// </summary>
-        public override void Die()
-        {
-            base.Die();
-
-            InfoImage.Die();
-        }
-
-        #endregion
 
         #region Utility Functions
 
@@ -121,15 +64,21 @@ namespace SpaceCardGame
         /// <param name="battleScreen"></param>
         /// <param name="colliderToCheck"></param>
         /// <returns></returns>
-        private bool IsInputValidToShowCard(BattleScreen battleScreen, Collider colliderToCheck)
+        protected override bool IsInputValidToShowToolTip()
         {
+            DebugUtils.AssertNotNull(AttachedCardObjectPair.Card.Collider);
+            DebugUtils.AssertNotNull(AttachedCardObjectPair.CardObject.Collider);
+
+            BattleScreen battleScreen = ScreenManager.Instance.GetCurrentScreenAs<BattleScreen>();
+
+            // Depending on the turn state, show this UI based on the card or the object's collider
             if (battleScreen.TurnState == TurnState.kPlaceCards)
             {
-                return colliderToCheck.IsMouseOver;
+                return AttachedCardObjectPair.Card.Collider.IsMouseOver;
             }
             else
             {
-                return colliderToCheck.IsMouseOver && GameKeyboard.IsKeyDown(Keys.LeftShift);
+                return AttachedCardObjectPair.CardObject.Collider.IsMouseOver && GameKeyboard.IsKeyDown(Keys.LeftShift);
             }
         }
 
