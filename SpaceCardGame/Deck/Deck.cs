@@ -76,7 +76,7 @@ namespace SpaceCardGame
         public void Delete()
         {
             // Send all cards back to our PlayerCardRegistry.
-            PlayerCardRegistry.Instance.AvailableCards.AddRange(Cards);
+            PlayerDataRegistry.Instance.AvailableCards.AddRange(Cards);
 
             // Clear our deck and mark it as not created.
             Cards.Clear();

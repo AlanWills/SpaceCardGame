@@ -38,11 +38,11 @@ namespace SpaceCardGame
             DeckSlotUIGridControl = AddScreenUIObject(new GridControl(2, 4, ScreenDimensions, ScreenCentre));
             DeckSlotUIGridControl.BorderPadding = new Vector2(ScreenDimensions.X * 0.1f, ScreenDimensions.Y * 0.05f);
 
-            for (int i = 0; i < PlayerCardRegistry.maxDeckNumber; ++i)
+            for (int i = 0; i < PlayerDataRegistry.maxDeckNumber; ++i)
             {
-                DebugUtils.AssertNotNull(PlayerCardRegistry.Instance.Decks[i]);
-                DeckSlotUI deckSlotUI = DeckSlotUIGridControl.AddChild(new DeckSlotUI(PlayerCardRegistry.Instance.Decks[i], slotSize, Vector2.Zero));
-                deckSlotUI.StoredObject = PlayerCardRegistry.Instance.Decks[i];
+                DebugUtils.AssertNotNull(PlayerDataRegistry.Instance.Decks[i]);
+                DeckSlotUI deckSlotUI = DeckSlotUIGridControl.AddChild(new DeckSlotUI(PlayerDataRegistry.Instance.Decks[i], slotSize, Vector2.Zero));
+                deckSlotUI.StoredObject = PlayerDataRegistry.Instance.Decks[i];
             }
         }
 
@@ -66,7 +66,7 @@ namespace SpaceCardGame
         /// </summary>
         protected override void GoToPreviousScreen()
         {
-            PlayerCardRegistry.Instance.SaveAssets();
+            PlayerDataRegistry.Instance.SaveAssets();
             Transition(new LobbyMenuScreen());
         }
 

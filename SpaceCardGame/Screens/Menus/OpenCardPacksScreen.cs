@@ -39,7 +39,7 @@ namespace SpaceCardGame
 
             float gridHeight = ScreenDimensions.Y * 0.25f;
             PacksGridControl = AddScreenUIObject(new GridControl(1, 8, new Vector2(ScreenDimensions.X, gridHeight), new Vector2(ScreenCentre.X, ScreenDimensions.Y - gridHeight * 0.5f)));
-            for (int i = 0; i < PlayerCardRegistry.Instance.AvailablePacksToOpen; i++)
+            for (int i = 0; i < PlayerDataRegistry.Instance.PlayerData.AvailablePacksToOpen; i++)
             {
                 ClickableImage cardPack = PacksGridControl.AddChild(new ClickableImage(new Vector2(gridHeight * 0.8f), Vector2.Zero, Card.CardBackTextureAsset));
                 cardPack.ClickableModule.OnLeftClicked += OnPackLeftClicked;
@@ -52,7 +52,7 @@ namespace SpaceCardGame
         /// </summary>
         protected override void GoToPreviousScreen()
         {
-            PlayerCardRegistry.Instance.SaveAssets();
+            PlayerDataRegistry.Instance.SaveAssets();
             Transition(new LobbyMenuScreen());
         }
 
@@ -80,7 +80,7 @@ namespace SpaceCardGame
             baseObject.Die();
 
             // Remove an available pack from our player
-            PlayerCardRegistry.Instance.AvailablePacksToOpen--;
+            PlayerDataRegistry.Instance.PlayerData.AvailablePacksToOpen--;
 
             // Pick random cards from the registry
             List<CardData> cardData = CentralCardRegistry.PickCardsForPackOpening();
@@ -94,13 +94,13 @@ namespace SpaceCardGame
                 card.LocalPosition = new Vector2(300 * (i + 1), (PacksGridControl.WorldPosition.Y - PacksGridControl.Size.Y * 0.5f) * 0.5f);
                 card.ClickableModule.OnLeftClicked += OnCardLeftClicked;
                 card.Flip(CardFlipState.kFaceDown);         // Make sure the card is face down initially, so we have the excitement of turning it over!
-                card.StoredObject = PlayerCardRegistry.Instance.PlayerOwnsCard(cardData[i]);
+                card.StoredObject = PlayerDataRegistry.Instance.PlayerOwnsCard(cardData[i]);
 
                 CardsFromPack.Add(card);
             }
 
             // Add the newly unlocked cards to the Player's card registry
-            PlayerCardRegistry.Instance.AvailableCards.AddRange(cardData);
+            PlayerDataRegistry.Instance.AvailableCards.AddRange(cardData);
 
             // Stop our grid control from accepting input
             PacksGridControl.ShouldHandleInput.Value = false;

@@ -74,7 +74,7 @@ namespace SpaceCardGame
             // Do this here because we need to add the IncludePredicate before we initialise the control.
             AddChild(DeckCardListControl, true, true);
 
-            RegistryCardListControl = new CardGridControl(PlayerCardRegistry.Instance.AvailableCards, 5, registryColumns, new Vector2(Size.X * (1 - ratio), Size.Y), new Vector2(-ratio * 0.5f * Size.X, 0));
+            RegistryCardListControl = new CardGridControl(PlayerDataRegistry.Instance.AvailableCards, 5, registryColumns, new Vector2(Size.X * (1 - ratio), Size.Y), new Vector2(-ratio * 0.5f * Size.X, 0));
             // Find all cards of our type that are also not in our deck already
             RegistryCardListControl.IncludePredicate = new Predicate<CardData>(x => x.Type == CardType);
             RegistryCardListControl.OnLeftClicked += AddToDeck;
@@ -104,7 +104,7 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(cardData);
 
             Deck.Cards.Remove(cardData);
-            PlayerCardRegistry.Instance.AvailableCards.Add(cardData);
+            PlayerDataRegistry.Instance.AvailableCards.Add(cardData);
 
             RegistryCardListControl.AddCard(cardData);
         }
@@ -126,7 +126,7 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(cardData);
 
             Deck.Cards.Add(cardData);
-            PlayerCardRegistry.Instance.AvailableCards.Remove(cardData);
+            PlayerDataRegistry.Instance.AvailableCards.Remove(cardData);
 
             DeckCardListControl.AddCard(cardData);
         }
@@ -139,7 +139,7 @@ namespace SpaceCardGame
         private void SaveDeck(IClickable clickable)
         {
             //Deck.Save();
-            PlayerCardRegistry.Instance.Decks[0] = Deck;
+            PlayerDataRegistry.Instance.Decks[0] = Deck;
         }
 
         #endregion

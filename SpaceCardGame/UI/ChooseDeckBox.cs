@@ -51,7 +51,7 @@ namespace SpaceCardGame
             chooseDeckLabel.Size *= 1.5f;
             chooseDeckLabel.IsAlive.Connect(IsAlive);       // Make sure that when this text box dies, the label dies too
 
-            foreach (Deck deck in Array.FindAll(PlayerCardRegistry.Instance.Decks, x => x.IsCreated))
+            foreach (Deck deck in Array.FindAll(PlayerDataRegistry.Instance.Decks, x => x.IsCreated))
             {
                 ClickableImage deckUI = AddChild(new ClickableImage(ElementSize * 0.75f, Vector2.Zero, Card.CardBackTextureAsset), true, true);
                 deckUI.StoredObject = deck;

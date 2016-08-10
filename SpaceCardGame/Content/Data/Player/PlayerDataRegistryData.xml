@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent>
-  <Asset Type="SpaceCardGameData.PlayerCardRegistryData">
+  <Asset Type="SpaceCardGameData.PlayerDataRegistryData">
     <AbilityCardDataAssets>
       <Item>Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml</Item>
     </AbilityCardDataAssets>
@@ -80,6 +80,8 @@
         </CardDataAssets>
       </Item>
     </Decks>
+    <CurrentLevel>3</CurrentLevel>
+    <CurrentMoney>500</CurrentMoney>
     <AvailablePacksToOpen>0</AvailablePacksToOpen>
   </Asset>
 </XnaContent>

@@ -235,14 +235,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="294296">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="300440">
       <assemblyIdentity name="SpaceCardGame" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>FbjaUcZ1l6wvXQWQ38p9Uaz8+EWPol3/0TWTy0ksfC0=</dsig:DigestValue>
+        <dsig:DigestValue>Fr8h7nVSkEbpD7zEHKdaU39zsS+ddQS/neLAroaULmc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -254,7 +254,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>PV8+0wBEoCshD3Fy+rYLxJGFmvTQotFsHDmsQ0uSRjQ=</dsig:DigestValue>
+        <dsig:DigestValue>ICvHbPYnUFuFdGfc0jlgQeFwUozDl6Kf+2Eqw4Fvqt8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -375,6 +375,60 @@
       <dsig:DigestValue>j2LObLtE68NOkF8UrtwhcOS8/19nld0lScag7TzwRps=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\Data\Cards\Ships\KaikenSupport\KaikenSupportCard.xml" size="450" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>1bBO4kFuNAOc3PEZ78H4Bwy61XYvgZ2oKaVzYt6I500=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Data\Cards\Ships\KaikenSupport\KaikenSupportObject.xml" size="567" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>mvCKOExfeKcVa3KlSCW9w6EMK7oyEejf1ZD10tHvcdY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Data\Cards\Ships\TantoFrigate\TantoFrigateCard.xml" size="444" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ftFsUXQ3j+5TuOSlfPMj5PyurANJoayxJAabjYRzIws=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Data\Cards\Ships\TantoFrigate\TantoFrigateObject.xml" size="1279" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>DVfhxPK0p20YCoHYTUQxzMaEiIDdVMTXZA19eHHrw2Q=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Data\Cards\Ships\TetDrone\TetDroneCard.xml" size="420" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Y43JjQp4wSk3XdITv//7pyi/dDknkkC3YdAyODS9q0o=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Data\Cards\Ships\TetDrone\TetDroneObject.xml" size="1271" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>A5TtSPJdNledMGRyLzOTWJalUd8NsUwZLZW7f+vFczo=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\Data\Cards\Ships\VenatorCruiser\VenatorCruiserCard.xml" size="454" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
@@ -411,6 +465,24 @@
       <dsig:DigestValue>YA2uO9ujcUf1wl4qjeJNKHD4A4w/mF/SidDZ9A/XEjw=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\Data\Cards\Ships\Y'AkaiBomber\Y'AkaiBomberCard.xml" size="444" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>2xqb9FT77jFa8pK/WrgRRih+wCI9oynC+Dxdmg6AlFo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Data\Cards\Ships\Y'AkaiBomber\Y'AkaiBomberObject.xml" size="564" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>4E8O0lVL/zhrI+7WahRrWcTha2JC6nHkCdlbwoxtojI=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\Data\Cards\Stations\BastionShipyard\BastionShipyardCard.xml" size="467" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
@@ -427,6 +499,24 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>B1bIJykvAGyVt64INXl0xEb7RFLomSuWVJVLo0HGizs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Data\Cards\Stations\RaiuT'Ek\RaiuT'EkCard.xml" size="425" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>hs+SpeA0KwVMpvzF9lgXEVVRe4EhbFOIj8z/WimhOUE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Data\Cards\Stations\RaiuT'Ek\RaiuT'EkObject.xml" size="561" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>SiTRWC30wA31h/tpOCh/X6VBK8b+djcc3c9ORgv8Yyg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretBullet.xml" size="339" writeableType="applicationData">
@@ -645,13 +735,13 @@
       <dsig:DigestValue>lUWb814viMpqpTSrQVG3vuriOi5WUl3Txdu9EFJ3daw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Missions\Mission7.xml" size="3467" writeableType="applicationData">
+  <file name="Content\Data\Missions\Mission7.xml" size="3465" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>OPZsUWR50XGWic4zjpngGUCAvLiHsCQNuDGdjzio+zU=</dsig:DigestValue>
+      <dsig:DigestValue>h8dhEtoYjepb+WzGyqhGcU+N21q6kmlY9vPGueaWbmo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Missions\Mission8.xml" size="3429" writeableType="applicationData">
@@ -672,31 +762,22 @@
       <dsig:DigestValue>1KLtZShl5rit2qB4xJKbfCR4FiOlP+dPvVuA4i5YwIM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Options\PlayerGameData.xml" size="129" writeableType="applicationData">
+  <file name="Content\Data\Player\PlayerDataRegistryData.xml" size="5222" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>r8hS4fEBve4ppNyJah9nfUXZ6t7DrIsTh64ZS/2f7As=</dsig:DigestValue>
+      <dsig:DigestValue>ZiDoKzfRVK8UreKeSu6aCoXFLsqwSNMnO92txK6YrCw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Player\PlayerCardRegistryData.xml" size="5148" writeableType="applicationData">
+  <file name="Content\Data\Player\StartingPlayerDataRegistryData.xml" size="2417" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>suOe1JdPU0nsRKEJcxBky7iR0/bmnJIc0GH2ldf+AWQ=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Content\Data\Player\StartingPlayerCardRegistryData.xml" size="2345" writeableType="applicationData">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>zbjvTkFf3GrM6cFnD8v18rMaPYCYxgV1Co+rePUdO38=</dsig:DigestValue>
+      <dsig:DigestValue>GiSYgLr1O6B8FlpH0wXzC1+njyiYCVT3hciFxXieXts=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Screens\BattleScreen.xml" size="501" writeableType="applicationData">
@@ -1725,6 +1806,24 @@
       <dsig:DigestValue>p+jYTnDWkpoB02F+p2eq9/NJ4twz922eAJ9YUOdB51g=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\Sprites\Cards\Ships\AzmodaeusSupercruiser\AzmodaeusSupercruiser.png" size="559980">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>HPKW2ew21QgIBREd6zI5rI61PmJJNrUCEykmBJ5rKHA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\AzmodaeusSupercruiser\AzmodaeusSupercruiserCard.png" size="43795">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Dce6jxyDlUHEM+Cvzh8eqUThKRaaa7nrJ+30hEFEeok=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\Sprites\Cards\Ships\BlazeInterceptor\BlazeInterceptorCard.png" size="45869">
     <hash>
       <dsig:Transforms>
@@ -1761,6 +1860,24 @@
       <dsig:DigestValue>MCwcDG5rEgb5wLWxdJBs8rihT8kAFO0achb75vaih7g=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\Sprites\Cards\Ships\BuzzerDroid\BuzzerDroid.png" size="5850">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>/hiiM+7QtAAN4eKoPqzjUNA/ZKiMHw/el5kcZjUxyNE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\BuzzerDroid\BuzzerDroidCard.png" size="50212">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>fRMPWW1fEeF/UK4Xg+dma82r0qS9FDcdc0IYvDLzAfs=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\Sprites\Cards\Ships\EagleFrigate\EagleFrigateCard.png" size="51199">
     <hash>
       <dsig:Transforms>
@@ -1795,6 +1912,348 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>X+ZJZIfNlrtsaxJeBI0o6i4MMz43w+83Y/GcwYdsKEI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\FalconCruiser\FalconCruiser.png" size="180025">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ssXHubBdiLgy80Hr0OYAJoRe2q8WLaobCa2ZuGncEFA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\FalconCruiser\FalconCruiserCard.png" size="47503">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Z99QBgA7DBYBUNobJHj4vvTcI5EycLveHtezrCxY3mw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\HoundCorvette\HoundCorvette.png" size="5620">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>+4ZQZcfD16+1VMM70crPOrtj6O5DkjEy5oSdKIqj7sY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\HoundCorvette\HoundCorvetteCard.png" size="43290">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>uIeFutwUzmEu3VdCN0Nncdq3CcVcM6Nlkm3BRh9CQq0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\HulkDreadnought\HulkDreadnought.png" size="189497">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>au1ft7RhwSmg9jz0Bs5hIFVLwtaMlcLppVGPL0JR3oM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\HulkDreadnought\HulkDreadnoughtCard.png" size="49288">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Z+Uyu43sdeI2gMPBn54T2dxoORc0/ioZGdFtRqgUgKQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\KaikenSupport\KaikenSupport.png" size="16999">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>VKoVN+oFRvEiufkmxIomcW9CgQB9pzJSkSlAoTdRKPE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\KaikenSupport\KaikenSupportCard.png" size="51585">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>8S0BefwWaKd9RN/8TWaPNuiwBQXUM988/NLOUzhyzi0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\K'ThanCounselor\K'ThanCounselor.png" size="55850">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xi0NiwY1Sq0FG/h7ghtyiy7rFIk8EgDTe687HB0kOGk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\K'ThanCounselor\K'ThanCounselorCard.png" size="48812">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>pRxCLIDel6jV7KRyb6Ms21KTYR0ThwkhFkY2ghn/Pe0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\LightningFighter\LightningFighter.png" size="2773">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>p+61e8EO22/e46ykenFSCb1+VwA+td9+QbE0HJY6YYY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\LightningFighter\LightningFighterCard.png" size="42096">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>fJjH5BqPph9O1My8Z5revSvYgwXzrj/zRIuFsRV3ZvI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\MigFighter\MigFighter.png" size="811">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>WHkK9ItWOrMefeMaRCztXTvrTK6QPwV6XwlOXozCieg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\MigFighter\MigFighterCard.png" size="41632">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>N4agnkOET4lSps3wTGgwwumRgdGX22SUnK5cYTN5Db8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\MiningDrone\MiningDrone.png" size="2212">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>9UTZTNubgcRwD+G1qZZQLtlsebr/Jf5L089Q8qXlGXY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\MiningDrone\MiningDroneCard.png" size="47058">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>HP85+wTeI1UWhn4Kih2vZq2V87AljMhURMu6l89D5+Q=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\MunitionsLoader\MunitionsLoader.png" size="17894">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>K2Jj0D1Q2MTbkTASOwebEckd3Pyp9XmkXWqNBh6U6a4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\MunitionsLoader\MunitionsLoaderCard.png" size="52797">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>886ULX53gjX/IxtZMziES+McNKfBk5Ri57Jlch7UBlk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\OmegaCruiser\OmegaCruiser.png" size="841188">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>miNDuuNoORo9g1pR4EOFJ//WnhF7DgNQRLZir38yDy4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\OmegaCruiser\OmegaCruiserCard.png" size="48640">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ToVgYcvbpEnfrHVx3+FB4jk496Qve+sCmCWcoSY2Ddc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\PirateCatapult\PirateCatapult.png" size="24960">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>f0TroXHcWzENhrx18N9+HZPb7ZDhfsuYEz9MPiPlfjQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\PirateCatapult\PirateCatapultCard.png" size="49153">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>BjA0BQ7QJdjW6Rckhyuhv90AFVXGQ+rtrcCqqtBSDOU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\PirateRaider\PirateRaider.png" size="13536">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>JBZjen26gJ867WMmVNHAiBxLtC05AK3wr6t+abV3b8E=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\PirateRaider\PirateRaiderCard.png" size="46745">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>1tZnOktzXjXaoXhK4WIIJc6WS4I3AlenIHiK0K+rJMk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\PirateScavengerCard\PirateScavenger.png" size="63888">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>umm2TD2AqfxncopcU8pU7kivkJN9oPNZzg+jSMgIUBw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\PirateScavengerCard\PirateScavengerCard.png" size="53606">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>U55tXTCSqFyRG1CU3OeKrnccllXT/Ebtg3jCpfR8C4o=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\RaiuT'Ek\RaiuT'Ek.png" size="114985">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>vfRBmfmDPBE1+jQfe+gJmf0YaplgGkGGU7WBAVoMIPo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\RaiuT'Ek\RaiuT'EkCard.png" size="51626">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Ry0+dFqseSvzmFxwJr4UE7b7dPXrLLJzu7ANaUtYvKk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\ShimmerFighter\ShimmerFighter.png" size="954">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Rkq2HGhyhXXrwF3bCU6iVzanVjBg72lOM63MaeQw2KU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\ShimmerFighter\ShimmerFighterCard.png" size="48943">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>YAxR0VoTxLarSjlcQnnjShpogqDNdPzP9qSAy5l7WdA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\TantoFrigate\TantoFrigate.png" size="42185">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>MAuSNdGXHAqtxGBNxTrEpgoDG1gX8ImdaIuPq8O4Hvg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\TantoFrigate\TantoFrigateCard.png" size="45706">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>y8Z0pNbsP6vpQczyi2siLHN/jap19AWAzGWTldgwSWI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\TetDrone\TetDrone.png" size="3478">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>0f/Fb9QPmmVmkhjoQN9hVnvHVrpUmh0Lq3vss4/sPNs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\TetDrone\TetDroneCard.png" size="39958">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>1fLCxMv1kodlpbRxjn1NR14U3ToJg8rNHHK107CKw90=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\ValkyrieFrigate\ValkryieFrigateCard.png" size="45365">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>YsFp976Kzlom3K7/JbAzwQIhh9HNbzIkxoqfZ59vwgA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\ValkyrieFrigate\ValkyrieFrigate.png" size="55336">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>R8wsE/OGJsWQby3sxs4KaXomlyWrzE5/csLktWv+J+g=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\VaticanFrigate\VaticanFrigate.png" size="311693">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>1FDSXzQr5jsZvDzX1sFL1s8WpaP4cfcFyROk9baIyBA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\VaticanFrigate\VaticanFrigateCard.png" size="46204">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>b9PFeTqgKk8+OgDHrxXA6/BwmqI5tEuq+YMlhp6dqrc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Sprites\Cards\Ships\VenatorCruiser\VenatorCruiserCard.png" size="48689">
@@ -1867,6 +2326,42 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>Dr63K5WJnTwDQx2M64/LB3XEQWsPkQRYfxDQ8+RQoik=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\Y'AkaiBomber\Y'AkaiBomber.png" size="2959">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>0rx4iGKl94ilyBXnFIMDStEUwv5qKn3/vzLCZA6NDqg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\Y'AkaiBomber\Y'AkaiBomberCard.png" size="49835">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>qha1Gjd2fr2aS2jnaOHxgpSxWEUXH5qs8c2093Htyhg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\YoshuraBattleship\YoshuraBattleship.png" size="254385">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>bEFin1I5WY//hkEaX3XMsR1GynW8yk4rHuIqqDwebcM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Cards\Ships\YoshuraBattleship\YoshuraBattleshipCard.png" size="46367">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>+oMV8kvEk8m2+DmaXI5gkZqQb7kPT1kPtq0+X+HFxBY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Sprites\Cards\Stations\BastionShipyard\BastionShipyardCard.png" size="52601">

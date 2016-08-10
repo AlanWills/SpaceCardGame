@@ -10,15 +10,15 @@ namespace SpaceCardGame
     /// A class for the player's cards and decks.
     /// Singleton.
     /// </summary>
-    public class PlayerCardRegistry
+    public class PlayerDataRegistry
     {
         #region Properties and Fields
 
         /// <summary>
         /// A singleton for the PlayerCardRegistry
         /// </summary>
-        private static PlayerCardRegistry instance = new PlayerCardRegistry();
-        public static PlayerCardRegistry Instance
+        private static PlayerDataRegistry instance = new PlayerDataRegistry();
+        public static PlayerDataRegistry Instance
         {
             get { return instance; }
         }
@@ -50,17 +50,17 @@ namespace SpaceCardGame
         private bool Loaded { get; set; }
 
         /// <summary>
-        /// A flag to indicate the number of packs our player can open
+        /// The data file for the PlayerDataRegistry
         /// </summary>
-        public int AvailablePacksToOpen { get; set; }
-
-        public const string playerCardRegistryDataAsset = "Player\\PlayerCardRegistryData.xml";
-        public const string startingCardRegistryDataAsset = "Player\\StartingPlayerCardRegistryData.xml";
+        public PlayerDataRegistryData PlayerData { get; set; }
+        
+        public const string playerCardRegistryDataAsset = "Player\\PlayerDataRegistryData.xml";
+        public const string startingCardRegistryDataAsset = "Player\\StartingPlayerDataRegistryData.xml";
         public const int maxDeckNumber = 8;
 
         #endregion
 
-        public PlayerCardRegistry()
+        public PlayerDataRegistry()
         {
             ScreenManager.Instance.SaveAssets += SaveAssets;
         }
@@ -86,20 +86,20 @@ namespace SpaceCardGame
                 Decks[i] = new Deck();
             }
 
-            PlayerCardRegistryData playerData = AssetManager.GetData<PlayerCardRegistryData>(path);
-            DebugUtils.AssertNotNull(playerData);
+            PlayerData = AssetManager.GetData<PlayerDataRegistryData>(path);
+            DebugUtils.AssertNotNull(PlayerData);
 
-            LoadCardType(playerData.AbilityCardDataAssets);
-            LoadCardType(playerData.ShieldCardDataAssets);
-            LoadCardType(playerData.ResourceCardDataAssets);
-            LoadCardType(playerData.ShipCardDataAssets);
-            LoadCardType(playerData.WeaponCardDataAssets);
+            LoadCardType(PlayerData.AbilityCardDataAssets);
+            LoadCardType(PlayerData.ShieldCardDataAssets);
+            LoadCardType(PlayerData.ResourceCardDataAssets);
+            LoadCardType(PlayerData.ShipCardDataAssets);
+            LoadCardType(PlayerData.WeaponCardDataAssets);
 
             // Load decks too
-            Debug.Assert(playerData.Decks.Count <= maxDeckNumber);
+            Debug.Assert(PlayerData.Decks.Count <= maxDeckNumber);
 
             int deckIndex = 0;
-            foreach (DeckData deckData in playerData.Decks)
+            foreach (DeckData deckData in PlayerData.Decks)
             {
                 Debug.Assert(deckIndex < maxDeckNumber);
                 DebugUtils.AssertNotNull(Decks[deckIndex]);
@@ -109,8 +109,6 @@ namespace SpaceCardGame
 
                 deckIndex++;
             }
-
-            AvailablePacksToOpen = playerData.AvailablePacksToOpen;
 
             Loaded = true;
         }
@@ -137,14 +135,16 @@ namespace SpaceCardGame
                 dataMap[cardData.Type].Add(CentralCardRegistry.FindCardDataAsset(cardData));
             }
 
+            Debug.Fail("Refactor this");
+            // Maybe somehow just use the PlayerData's lists of string assets and keep loading them throughout the program
+
             // This is fragile at the moment - need to have a way of mapping card type to Asset list
-            PlayerCardRegistryData playerData = new PlayerCardRegistryData();
-            playerData.AbilityCardDataAssets = dataMap["Ability"];
-            playerData.ShieldCardDataAssets = dataMap["Shield"];
-            playerData.ResourceCardDataAssets = dataMap["Resource"];
-            playerData.ShipCardDataAssets = dataMap["Ship"];
-            playerData.WeaponCardDataAssets = dataMap["Weapon"];
-            playerData.Decks = new List<DeckData>();
+            PlayerData.AbilityCardDataAssets = dataMap["Ability"];
+            PlayerData.ShieldCardDataAssets = dataMap["Shield"];
+            PlayerData.ResourceCardDataAssets = dataMap["Resource"];
+            PlayerData.ShipCardDataAssets = dataMap["Ship"];
+            PlayerData.WeaponCardDataAssets = dataMap["Weapon"];
+            PlayerData.Decks = new List<DeckData>();
 
             // Now add our decks to our data
             for (int i = 0; i < maxDeckNumber; i++)
@@ -156,14 +156,12 @@ namespace SpaceCardGame
                     deckData.Name = Decks[i].Name;
                     deckData.CardDataAssets = CentralCardRegistry.ConvertToAssetList(Decks[i].Cards);
 
-                    playerData.Decks.Add(deckData);
+                    PlayerData.Decks.Add(deckData);
                 }
             }
 
-            playerData.AvailablePacksToOpen = AvailablePacksToOpen;
-
             // Save our player card registry data
-            AssetManager.SaveData(playerData, playerCardRegistryDataAsset);
+            AssetManager.SaveData(PlayerData, playerCardRegistryDataAsset);
         }
 
         #region Utility Functions for saving and loading

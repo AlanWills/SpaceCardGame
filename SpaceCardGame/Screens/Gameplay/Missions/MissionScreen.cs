@@ -53,7 +53,7 @@ namespace SpaceCardGame
             base.OnOpponentDefeated();
 
             MissionData missionData = AssetManager.GetData<MissionData>((ScreenData as MissionScreenData).MissionDataAsset);
-            SessionManager.PlayerGameData.CurrentLevel = missionData.MissionNumber + 1;
+            PlayerDataRegistry.Instance.PlayerData.CurrentLevel = missionData.MissionNumber + 1;
 
             AddScreenUIObject(new PlayerVictoryUI(missionData.RewardData), true, true);
         }

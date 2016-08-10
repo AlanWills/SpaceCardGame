@@ -35,12 +35,6 @@ namespace SpaceCardGame
             Button continueGameButton = buttonControl.AddChild(new Button("Continue", Vector2.Zero));
             continueGameButton.ClickableModule.OnLeftClicked += OnContinueButtonLeftClicked;
 
-            // Disable the continue button if we have no saved data file
-            if (!File.Exists(ScreenManager.Instance.Content.RootDirectory + "\\Data\\" + PlayerCardRegistry.playerCardRegistryDataAsset))
-            {
-                continueGameButton.Disable();
-            }
-
             Button optionsButton = buttonControl.AddChild(new Button("Options", Vector2.Zero));
             optionsButton.ClickableModule.OnLeftClicked += OnOptionsButtonClicked;
 
@@ -65,10 +59,10 @@ namespace SpaceCardGame
         private void OnNewGameButtonLeftClicked(BaseObject baseObject)
         {
             // Need to load assets before we transition to the next screen
-            PlayerCardRegistry.Instance.LoadAssets(PlayerCardRegistry.startingCardRegistryDataAsset);
+            PlayerDataRegistry.Instance.LoadAssets(PlayerDataRegistry.startingCardRegistryDataAsset);
 
             // Reset the player's current level to 1
-            SessionManager.PlayerGameData.CurrentLevel = 1;
+            PlayerDataRegistry.Instance.PlayerData.CurrentLevel = 1;
             Transition(new LobbyMenuScreen());
         }
 
@@ -79,7 +73,7 @@ namespace SpaceCardGame
         private void OnContinueButtonLeftClicked(BaseObject baseObject)
         {
             // Need to load assets before we transition to the next screen
-            PlayerCardRegistry.Instance.LoadAssets(PlayerCardRegistry.playerCardRegistryDataAsset);
+            PlayerDataRegistry.Instance.LoadAssets(PlayerDataRegistry.playerCardRegistryDataAsset);
             Transition(new LobbyMenuScreen());
         }
 

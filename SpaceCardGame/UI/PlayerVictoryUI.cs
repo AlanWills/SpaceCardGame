@@ -183,8 +183,8 @@ namespace SpaceCardGame
         /// <param name="clickedObject"></param>
         private void AddRewards(BaseObject clickedObject)
         {
-            PlayerCardRegistry.Instance.AvailableCards.AddRange(CentralCardRegistry.ConvertToDataList(RewardData.CardDataAssets));
-            PlayerCardRegistry.Instance.AvailablePacksToOpen = RewardData.CardPacks;
+            PlayerDataRegistry.Instance.AvailableCards.AddRange(CentralCardRegistry.ConvertToDataList(RewardData.CardDataAssets));
+            PlayerDataRegistry.Instance.PlayerData.AvailablePacksToOpen += RewardData.CardPacks;
 
             ScreenManager.Instance.CurrentScreen.Transition(new CampaignMapScreen());
         }

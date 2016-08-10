@@ -34,7 +34,7 @@ namespace SpaceCardGame
             tutorialButton.ClickableModule.OnLeftClicked += OnTutorialButtonLeftClicked;
 
             // Disable the play button if we have no decks to choose from
-            if (PlayerCardRegistry.Instance.AvailableDecks == 0)
+            if (PlayerDataRegistry.Instance.AvailableDecks == 0)
             {
                 playGameButton.Disable();
             }
@@ -45,7 +45,7 @@ namespace SpaceCardGame
             Button openPacksButton = buttonGridControl.AddChild(new Button("Open Packs", Vector2.Zero));
             openPacksButton.ClickableModule.OnLeftClicked += OnOpenPacksButtonLeftClicked;
 
-            if (PlayerCardRegistry.Instance.AvailablePacksToOpen <= 0)
+            if (PlayerDataRegistry.Instance.PlayerData.AvailablePacksToOpen <= 0)
             {
                 openPacksButton.Disable();
             }
@@ -78,7 +78,7 @@ namespace SpaceCardGame
         /// <param name="baseObject"></param>
         private void OnTutorialButtonLeftClicked(BaseObject baseObject)
         {
-            PlayerCardRegistryData startingRegistryData = AssetManager.GetData<PlayerCardRegistryData>(PlayerCardRegistry.startingCardRegistryDataAsset);
+            PlayerDataRegistryData startingRegistryData = AssetManager.GetData<PlayerDataRegistryData>(PlayerDataRegistry.startingCardRegistryDataAsset);
             Deck tutorialDeck = new Deck();
             tutorialDeck.Create(startingRegistryData.Decks[0].CardDataAssets);
 

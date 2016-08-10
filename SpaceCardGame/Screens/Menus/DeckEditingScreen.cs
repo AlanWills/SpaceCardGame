@@ -49,7 +49,7 @@ namespace SpaceCardGame
         /// <returns></returns>
         protected override void GoToPreviousScreen()
         {
-            PlayerCardRegistry.Instance.SaveAssets();
+            PlayerDataRegistry.Instance.SaveAssets();
             Transition(new DeckManagerScreen());
         }
 

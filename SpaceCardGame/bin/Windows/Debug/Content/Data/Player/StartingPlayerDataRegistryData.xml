@@ -1,5 +1,5 @@
 ﻿<XnaContent>
-  <Asset Type="SpaceCardGameData.PlayerCardRegistryData">
+  <Asset Type="SpaceCardGameData.PlayerDataRegistryData">
     <AbilityCardDataAssets/>
     <ShieldCardDataAssets/>
     <ResourceCardDataAssets/>
@@ -38,6 +38,8 @@
         </CardDataAssets>
       </Item>
     </Decks>
+    <CurrentLevel>1</CurrentLevel>
+    <CurrentMoney>0</CurrentMoney>
     <AvailablePacksToOpen>0</AvailablePacksToOpen>
   </Asset>
 </XnaContent>

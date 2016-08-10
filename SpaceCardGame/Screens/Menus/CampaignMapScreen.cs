@@ -41,13 +41,13 @@ namespace SpaceCardGame
                 clickImage.ClickableModule.OnLeftClicked += OnMissionLeftClicked;
                 clickImage.StoredObject = missionData;
 
-                if (missionData.MissionNumber > SessionManager.PlayerGameData.CurrentLevel)
+                if (missionData.MissionNumber > PlayerDataRegistry.Instance.PlayerData.CurrentLevel)
                 {
                     clickImage.Hide();
                 }
             }
 
-            CurrentSelectedMission = AddScreenUIObject(new MissionInfoImage(allMissionData[SessionManager.PlayerGameData.CurrentLevel - 1]));
+            CurrentSelectedMission = AddScreenUIObject(new MissionInfoImage(allMissionData[PlayerDataRegistry.Instance.PlayerData.CurrentLevel - 1]));
         }
 
         protected override void GoToPreviousScreen()
