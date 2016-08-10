@@ -1,0 +1,22 @@
+﻿<XnaContent>
+  <Asset Type="SpaceCardGameData.ShipData">
+    <TextureAsset>Cards\Ships\K'ThanCounseor\K'ThanCounselor</TextureAsset>
+    <Attack>4</Attack>
+    <Defence>2</Defence>
+    <Speed>4</Speed>
+    <TurretHardpoints>
+      <Item>
+        <X>0</X>
+        <Y>-8</Y>
+      </Item>
+    </TurretHardpoints>
+    <EngineHardpoints>
+      <Item>
+        <X>0</X>
+        <Y>22</Y>
+      </Item>
+    </EngineHardpoints>
+    <DamageHardpoints/>
+    <ExplosionSFXAsset>Explosions\LargeShipDeathExplosion</ExplosionSFXAsset>
+  </Asset>
+</XnaContent>

@@ -29,10 +29,11 @@ namespace SpaceCardGame
 
             GridControl buttonControl = AddScreenUIObject(new GridControl(rows, 4, ScreenCentre));
 
-            Button newGameButton = buttonControl.AddChild(new Button("New Game", Vector2.Zero));
+            Button newGameButton = buttonControl.AddChild(new Button("New Campaign", Vector2.Zero));
+            newGameButton.AddModule(new ToolTipModule("Begin a new campaign"));
             newGameButton.ClickableModule.OnLeftClicked += OnNewGameButtonLeftClicked;
 
-            Button continueGameButton = buttonControl.AddChild(new Button("Continue", Vector2.Zero));
+            Button continueGameButton = buttonControl.AddChild(new Button("Continue Campaign", Vector2.Zero));
             continueGameButton.ClickableModule.OnLeftClicked += OnContinueButtonLeftClicked;
 
             Button optionsButton = buttonControl.AddChild(new Button("Options", Vector2.Zero));

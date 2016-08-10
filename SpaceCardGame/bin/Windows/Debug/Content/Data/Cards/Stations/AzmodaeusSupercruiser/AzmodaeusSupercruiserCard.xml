@@ -1,0 +1,11 @@
+﻿<XnaContent>
+  <Asset Type="SpaceCardGame.CardData">
+    <TextureAsset>Cards\Stations\AzmodaeusSupercruiser\AzmodaeusSupercruiserCard</TextureAsset>
+    <ObjectDataAsset>Cards\Stations\AzmodaeusSupercruiser\AzmodaeusSupercruiserObject.xml</ObjectDataAsset>
+    <Type>Station</Type>
+    <DisplayName>Azmodaeus</DisplayName>
+    <Rarity>Common</Rarity>
+    <ResourceCosts>0 0 0 0</ResourceCosts>
+    <CardTypeName>AzmodaeusCard</CardTypeName>
+  </Asset>
+</XnaContent>

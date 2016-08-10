@@ -1,0 +1,11 @@
+﻿<XnaContent>
+  <Asset Type="SpaceCardGame.CardData">
+    <TextureAsset>Cards\Ships\PirateCatapult\PirateCatapultCard</TextureAsset>
+    <ObjectDataAsset>Cards\Ships\PirateCatapult\PirateCatapultObject.xml</ObjectDataAsset>
+    <Type>Ship</Type>
+    <DisplayName>Pirate Catapult</DisplayName>
+    <Rarity>Common</Rarity>
+    <ResourceCosts>1 0 0 3</ResourceCosts>
+    <CardTypeName>PirateCatapultShipCard</CardTypeName>
+  </Asset>
+</XnaContent>

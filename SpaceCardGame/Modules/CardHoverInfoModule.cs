@@ -26,8 +26,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public CardHoverInfoModule(CardObjectPair cardObjectPair) :
-            base()
+        public CardHoverInfoModule(CardObjectPair cardObjectPair)
         {
             AttachedCardObjectPair = cardObjectPair;
         }
