@@ -1,6 +1,7 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
+using System.Linq;
 
 namespace SpaceCardGame
 {
@@ -65,11 +66,14 @@ namespace SpaceCardGame
             // Create a new piece of UI that is a tab control with different sections for each card type in an inputted list.
             // Then the DeckCardTypeControl can override that using some custom functionality for clicking, but leave the UI layout to the base class
             // We can also then plonk it in here to do something similar
-            TabControl cardTabControl = AddScreenUIObject(new TabControl(new Vector2(ScreenDimensions.X * 0.4f, ScreenDimensions.Y * 0.8f), new Vector2(ScreenDimensions.X * 0.75f, ScreenCentre.Y)));
+            TabControl cardTabControl = AddScreenUIObject(new TabControl(new Vector2(ScreenDimensions.X * 0.5f, ScreenDimensions.Y * 0.05f), new Vector2(ScreenDimensions.X * 0.75f, ScreenDimensions.Y * 0.2f)));
             
             foreach (string cardType in CentralCardRegistry.CardTypes)
             {
-                
+                CardGridControl cardGridControl = new CardGridControl(CentralCardRegistry.CardData[cardType].Values.ToList(), 5, 4, new Vector2(ScreenDimensions.X * 0.5f, ScreenDimensions.Y * 0.7f), new Vector2(0, ScreenDimensions.Y * 0.35f));
+                cardGridControl.Name = cardType;
+                cardGridControl.OnLeftClicked += PurchaseCard;
+                cardTabControl.AddChild(cardGridControl);
             }
 
             RefreshUI();
@@ -111,6 +115,11 @@ namespace SpaceCardGame
             PlayerMoney -= packPrice;
 
             RefreshUI();
+        }
+
+        private void PurchaseCard(BaseObject clickedObject)
+        {
+
         }
 
         #endregion

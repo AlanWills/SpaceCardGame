@@ -570,10 +570,10 @@
     <Content Include="Content\Sprites\Cards\Ships\PirateRaider\PirateRaider.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Ships\PirateScavengerCard\PirateScavengerCard.png">
+    <Content Include="Content\Sprites\Cards\Ships\PirateScavenger\PirateScavengerCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Ships\PirateScavengerCard\PirateScavenger.png">
+    <Content Include="Content\Sprites\Cards\Ships\PirateScavenger\PirateScavenger.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Stations\RaiuT%27Ek\RaiuT%27Ek.png">
@@ -600,7 +600,7 @@
     <Content Include="Content\Sprites\Cards\Ships\TetDrone\TetDroneCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Ships\ValkyrieFrigate\ValkryieFrigateCard.png">
+    <Content Include="Content\Sprites\Cards\Ships\ValkyrieFrigate\ValkyrieFrigateCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Ships\ValkyrieFrigate\ValkyrieFrigate.png">

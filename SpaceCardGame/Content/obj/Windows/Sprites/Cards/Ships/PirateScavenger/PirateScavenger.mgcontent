@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Ships/ValkyrieFrigate/ValkryieFrigateCard.png</SourceFile>
-  <SourceTime>2016-08-10T20:59:28.9317549+01:00</SourceTime>
-  <DestFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/bin/Windows/Sprites/Cards/Ships/ValkyrieFrigate/ValkryieFrigateCard.xnb</DestFile>
-  <DestTime>2016-08-10T21:17:46.8726588+01:00</DestTime>
+  <SourceFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Ships/PirateScavenger/PirateScavenger.png</SourceFile>
+  <SourceTime>2016-08-09T19:05:10.2901911+01:00</SourceTime>
+  <DestFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/bin/Windows/Sprites/Cards/Ships/PirateScavenger/PirateScavenger.xnb</DestFile>
+  <DestTime>2016-08-11T22:44:18.5692181+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T07:36:08+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

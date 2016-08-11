@@ -7,7 +7,8 @@ using System.Collections.Generic;
 namespace SpaceCardGame
 {
     /// <summary>
-    /// A list control which displays images of the inputted cards
+    /// A list control which displays images of the inputted cards.
+    /// Can specify a predicate to only include certain cards, but by default adds all contained in the inputted list
     /// </summary>
     public class CardGridControl : GridControl, IClickable
     {
@@ -52,7 +53,7 @@ namespace SpaceCardGame
             base(rows, columns, size, localPosition, textureAsset)
         {
             CardList = cardList;
-            
+            IncludePredicate = new Predicate<CardData>(x => true);  // By default all the cards we input will be added
         }
 
         #endregion

@@ -51,7 +51,7 @@ namespace SpaceCardGame
         {
             Deck = deck;
             CardType = cardType;
-            Name = cardType + "s";
+            Name = cardType;
 
             ratio = deckColumns / (float)(deckColumns + registryColumns);
 
