@@ -134,18 +134,6 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Backgrounds/Nebula.jpg
 
-#begin Sprites/Cards/Stations/BastionShipyard/BastionShipyardCard.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Cards/Stations/BastionShipyard/BastionShipyardCard.png
-
 #begin Sprites/Cards/Resources/CrewResource/CrewResourceCard.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1166,7 +1154,7 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/UI/CardStatThumbnails/SpeedThumbnail.png
 
-#begin Sprites/Cards/Ships/AzmodaeusSupercruiser/AzmodaeusSupercruiser.png
+#begin Sprites/Cards/Stations/AzmodaeusSupercruiser/AzmodaeusSupercruiser.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1176,9 +1164,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/Cards/Ships/AzmodaeusSupercruiser/AzmodaeusSupercruiser.png
+/build:Sprites/Cards/Stations/AzmodaeusSupercruiser/AzmodaeusSupercruiser.png
 
-#begin Sprites/Cards/Ships/AzmodaeusSupercruiser/AzmodaeusSupercruiserCard.png
+#begin Sprites/Cards/Stations/AzmodaeusSupercruiser/AzmodaeusSupercruiserCard.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1188,7 +1176,115 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/Cards/Ships/AzmodaeusSupercruiser/AzmodaeusSupercruiserCard.png
+/build:Sprites/Cards/Stations/AzmodaeusSupercruiser/AzmodaeusSupercruiserCard.png
+
+#begin Sprites/Cards/Stations/BastionShipyard/BastionShipyardCard.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/Stations/BastionShipyard/BastionShipyardCard.png
+
+#begin Sprites/Cards/Stations/BastionShipyard/BastionShipyardObject.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/Stations/BastionShipyard/BastionShipyardObject.png
+
+#begin Sprites/Cards/Stations/HulkDreadnought/HulkDreadnought.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/Stations/HulkDreadnought/HulkDreadnought.png
+
+#begin Sprites/Cards/Stations/HulkDreadnought/HulkDreadnoughtCard.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/Stations/HulkDreadnought/HulkDreadnoughtCard.png
+
+#begin Sprites/Cards/Stations/OmegaCruiser/OmegaCruiser.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/Stations/OmegaCruiser/OmegaCruiser.png
+
+#begin Sprites/Cards/Stations/OmegaCruiser/OmegaCruiserCard.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/Stations/OmegaCruiser/OmegaCruiserCard.png
+
+#begin Sprites/Cards/Stations/RaiuT'Ek/RaiuT'Ek.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/Stations/RaiuT'Ek/RaiuT'Ek.png
+
+#begin Sprites/Cards/Stations/RaiuT'Ek/RaiuT'EkCard.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/Stations/RaiuT'Ek/RaiuT'EkCard.png
+
+#begin Sprites/Cards/Ships/BlazeInterceptor/BlazeInterceptor.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/Ships/BlazeInterceptor/BlazeInterceptor.png
 
 #begin Sprites/Cards/Ships/BlazeInterceptor/BlazeInterceptorCard.png
 /importer:TextureImporter
@@ -1201,18 +1297,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/Cards/Ships/BlazeInterceptor/BlazeInterceptorCard.png
-
-#begin Sprites/Cards/Ships/BlazeInterceptor/BlazeInterceptorObject.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Cards/Ships/BlazeInterceptor/BlazeInterceptorObject.png
 
 #begin Sprites/Cards/Ships/BuzzerDroid/BuzzerDroid.png
 /importer:TextureImporter
@@ -1238,6 +1322,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Cards/Ships/BuzzerDroid/BuzzerDroidCard.png
 
+#begin Sprites/Cards/Ships/EagleFrigate/EagleFrigate.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/Ships/EagleFrigate/EagleFrigate.png
+
 #begin Sprites/Cards/Ships/EagleFrigate/EagleFrigateCard.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1249,18 +1345,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/Cards/Ships/EagleFrigate/EagleFrigateCard.png
-
-#begin Sprites/Cards/Ships/EagleFrigate/EagleFrigateObject.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Cards/Ships/EagleFrigate/EagleFrigateObject.png
 
 #begin Sprites/Cards/Ships/FalconCruiser/FalconCruiser.png
 /importer:TextureImporter
@@ -1309,30 +1393,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/Cards/Ships/HoundCorvette/HoundCorvetteCard.png
-
-#begin Sprites/Cards/Ships/HulkDreadnought/HulkDreadnought.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Cards/Ships/HulkDreadnought/HulkDreadnought.png
-
-#begin Sprites/Cards/Ships/HulkDreadnought/HulkDreadnoughtCard.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Cards/Ships/HulkDreadnought/HulkDreadnoughtCard.png
 
 #begin Sprites/Cards/Ships/K'ThanCounselor/K'ThanCounselor.png
 /importer:TextureImporter
@@ -1478,30 +1538,6 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Cards/Ships/MunitionsLoader/MunitionsLoaderCard.png
 
-#begin Sprites/Cards/Ships/OmegaCruiser/OmegaCruiser.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Cards/Ships/OmegaCruiser/OmegaCruiser.png
-
-#begin Sprites/Cards/Ships/OmegaCruiser/OmegaCruiserCard.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Cards/Ships/OmegaCruiser/OmegaCruiserCard.png
-
 #begin Sprites/Cards/Ships/PirateCatapult/PirateCatapult.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1573,30 +1609,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/Cards/Ships/PirateScavengerCard/PirateScavengerCard.png
-
-#begin Sprites/Cards/Ships/RaiuT'Ek/RaiuT'Ek.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Cards/Ships/RaiuT'Ek/RaiuT'Ek.png
-
-#begin Sprites/Cards/Ships/RaiuT'Ek/RaiuT'EkCard.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Cards/Ships/RaiuT'Ek/RaiuT'EkCard.png
 
 #begin Sprites/Cards/Ships/ShimmerFighter/ShimmerFighter.png
 /importer:TextureImporter
@@ -1718,6 +1730,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Cards/Ships/VaticanFrigate/VaticanFrigateCard.png
 
+#begin Sprites/Cards/Ships/VenatorCruiser/VenatorCruiser.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/Ships/VenatorCruiser/VenatorCruiser.png
+
 #begin Sprites/Cards/Ships/VenatorCruiser/VenatorCruiserCard.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1730,7 +1754,7 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Cards/Ships/VenatorCruiser/VenatorCruiserCard.png
 
-#begin Sprites/Cards/Ships/VenatorCruiser/VenatorCruiserObject.png
+#begin Sprites/Cards/Ships/WaspFighter/WaspFighter.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1740,7 +1764,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/Cards/Ships/VenatorCruiser/VenatorCruiserObject.png
+/build:Sprites/Cards/Ships/WaspFighter/WaspFighter.png
 
 #begin Sprites/Cards/Ships/WaspFighter/WaspFighterCard.png
 /importer:TextureImporter
@@ -1753,18 +1777,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/Cards/Ships/WaspFighter/WaspFighterCard.png
-
-#begin Sprites/Cards/Ships/WaspFighter/WaspFighterObject.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Cards/Ships/WaspFighter/WaspFighterObject.png
 
 #begin Sprites/Cards/Ships/Y'AkaiBomber/Y'AkaiBomber.png
 /importer:TextureImporter

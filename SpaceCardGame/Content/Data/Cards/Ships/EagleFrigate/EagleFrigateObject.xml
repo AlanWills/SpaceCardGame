@@ -1,6 +1,6 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.ShipData">
-    <TextureAsset>Cards\Ships\EagleFrigate\EagleFrigateObject</TextureAsset>
+    <TextureAsset>Cards\Ships\EagleFrigate\EagleFrigate</TextureAsset>
     <Attack>2</Attack>
     <Defence>1</Defence>
     <Speed>3</Speed>

@@ -108,6 +108,6 @@
     </Decks>
     <CurrentLevel>3</CurrentLevel>
     <CurrentMoney>500</CurrentMoney>
-    <AvailablePacksToOpen>0</AvailablePacksToOpen>
+    <AvailablePacksToOpen>5</AvailablePacksToOpen>
   </Asset>
 </XnaContent>

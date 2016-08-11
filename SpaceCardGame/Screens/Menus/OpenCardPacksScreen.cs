@@ -93,11 +93,13 @@ namespace SpaceCardGame
                 CardData cardData = CentralCardRegistry.CardData[cardDataAssets[i]];
 
                 // Position the cards incrementally along the screen and halfway between the top of the grid control and the top of the screen
-                Card card = AddScreenUIObject(cardData.CreateCard(null), true, true);
+                // CreateCard calls LoadContent and Initialise
+                Card card = AddScreenUIObject(cardData.CreateCard(null));
                 card.LocalPosition = new Vector2(300 * (i + 1), (PacksGridControl.WorldPosition.Y - PacksGridControl.Size.Y * 0.5f) * 0.5f);
                 card.ClickableModule.OnLeftClicked += OnCardLeftClicked;
                 card.Flip(CardFlipState.kFaceDown);         // Make sure the card is face down initially, so we have the excitement of turning it over!
                 card.StoredObject = PlayerDataRegistry.Instance.PlayerData.CardDataAssets.Contains(cardDataAssets[i]);
+                card.HandAnimationModule.OffsetToHighlightedPosition = Vector2.Zero;
 
                 CardsFromPack.Add(card);
             }
@@ -120,12 +122,19 @@ namespace SpaceCardGame
             Card card = (baseObject as Card);
             card.Flip(CardFlipState.kFaceUp);
 
+            // Remove the clickable module - we do not want to repeat this when a card is turned over
+            card.ClickableModule.Die();
+
             // Add some UI if our card is new
             DebugUtils.AssertNotNull(card.StoredObject);
             if (!(bool)card.StoredObject)
             {
-                Image newCardIndicator = card.AddChild(new Image(new Vector2(card.Size.X, -card.Size.Y) * 0.5f, "UI\\NewCardIndicator"), true, true);
-                newCardIndicator.Colour.Value = Color.Yellow;
+                Image newCardIndicator = card.AddChild(new Image(new Vector2(32, 32), new Vector2(card.Size.X, -card.Size.Y) * 0.5f, "UI\\NewCardIndicator"), true, true);
+                newCardIndicator.Colour.Value = Color.Gold;
+
+                // Add a tooltip to the card explaining that it is new
+                ToolTipModule toolTipModule = card.AddModule(new ToolTipModule("A new card!"), true, true);
+                toolTipModule.ToolTip.Colour.Value = Color.Red;
             }
 
             if (CheckAllCardsFlippedFaceUp())

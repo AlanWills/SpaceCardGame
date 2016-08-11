@@ -1,6 +1,6 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.ShipData">
-    <TextureAsset>Cards\Ships\VenatorCruiser\VenatorCruiserObject</TextureAsset>
+    <TextureAsset>Cards\Ships\VenatorCruiser\VenatorCruiser</TextureAsset>
     <Attack>4</Attack>
     <Defence>3</Defence>
     <Speed>3</Speed>

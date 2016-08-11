@@ -1,6 +1,6 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.ShipData">
-    <TextureAsset>Cards\Ships\HulkDreadnought\HulkDreadnought</TextureAsset>
+    <TextureAsset>Cards\Stations\HulkDreadnought\HulkDreadnought</TextureAsset>
     <Attack>0</Attack>
     <Defence>40</Defence>
     <Speed>0</Speed>

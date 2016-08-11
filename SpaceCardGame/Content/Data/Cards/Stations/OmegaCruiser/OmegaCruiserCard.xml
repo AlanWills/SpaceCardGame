@@ -1,11 +1,11 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGame.CardData">
-    <TextureAsset>Cards\Ships\OmegaCruiser\OmegaCruiserCard</TextureAsset>
-    <ObjectDataAsset>Cards\Ships\OmegaCruiser\OmegaCruiserObject.xml</ObjectDataAsset>
+    <TextureAsset>Cards\Stations\OmegaCruiser\OmegaCruiserCard</TextureAsset>
+    <ObjectDataAsset>Cards\Stations\OmegaCruiser\OmegaCruiserObject.xml</ObjectDataAsset>
     <Type>Station</Type>
     <DisplayName>Omega Cruiser</DisplayName>
     <Rarity>Common</Rarity>
     <ResourceCosts>0 0 0 0</ResourceCosts>
-    <CardTypeName>OmegaCruiserShipCard</CardTypeName>
+    <CardTypeName>OmegaCruiserStationCard</CardTypeName>
   </Asset>
 </XnaContent>

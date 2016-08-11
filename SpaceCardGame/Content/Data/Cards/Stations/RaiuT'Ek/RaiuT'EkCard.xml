@@ -6,6 +6,6 @@
     <DisplayName>Raiu T'Ek</DisplayName>
     <Rarity>Common</Rarity>
     <ResourceCosts>0 0 0 0</ResourceCosts>
-    <CardTypeName>RaiuT'EkCard</CardTypeName>
+    <CardTypeName>RaiuT_EkStationCard</CardTypeName>
   </Asset>
 </XnaContent>

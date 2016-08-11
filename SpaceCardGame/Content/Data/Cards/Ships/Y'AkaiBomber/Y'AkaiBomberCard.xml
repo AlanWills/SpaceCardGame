@@ -6,6 +6,6 @@
     <DisplayName>Y'Akai Bomber</DisplayName>
     <Rarity>Common</Rarity>
     <ResourceCosts>0 1 1 1</ResourceCosts>
-    <CardTypeName>Y'AkaiBomberShipCard</CardTypeName>
+    <CardTypeName>Y_AkaiBomberShipCard</CardTypeName>
   </Asset>
 </XnaContent>

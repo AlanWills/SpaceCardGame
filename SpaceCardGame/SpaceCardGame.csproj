@@ -100,12 +100,35 @@
     <Compile Include="Cards\Cards\Shields\ShieldCard.cs" />
     <Compile Include="Cards\Cards\Card.cs" />
     <Compile Include="Cards\Cards\Resources\ResourceCard.cs" />
+    <Compile Include="Cards\Cards\Ships\ValkyrieFrigateShipCard.cs" />
+    <Compile Include="Cards\Cards\Ships\TetDroneShipCard.cs" />
+    <Compile Include="Cards\Cards\Ships\TantoFrigateShipCard.cs" />
+    <Compile Include="Cards\Cards\Ships\ShimmerFighterShipCard.cs" />
+    <Compile Include="Cards\Cards\Ships\PirateScavengerShipCard.cs" />
+    <Compile Include="Cards\Cards\Ships\PirateRaiderShipCard.cs" />
+    <Compile Include="Cards\Cards\Ships\PirateCatapultShipCard.cs" />
+    <Compile Include="Cards\Cards\Ships\MunitionsLoaderShipCard.cs" />
+    <Compile Include="Cards\Cards\Ships\MiningDroneShipCard.cs" />
+    <Compile Include="Cards\Cards\Ships\MigFighterShipCard.cs" />
+    <Compile Include="Cards\Cards\Ships\LightningFighterShipCard.cs" />
+    <Compile Include="Cards\Cards\Ships\KaikenSupportShipCard.cs" />
+    <Compile Include="Cards\Cards\Ships\K%27ThanCounselorShipCard.cs" />
+    <Compile Include="Cards\Cards\Ships\HoundCorvetteShipCard.cs" />
+    <Compile Include="Cards\Cards\Ships\FalconCruiserShipCard.cs" />
+    <Compile Include="Cards\Cards\Ships\BuzzerDroidShipCard.cs" />
     <Compile Include="Cards\Cards\Ships\BlazeInterceptorShipCard.cs" />
     <Compile Include="Cards\Cards\Ships\ShipCard.cs" />
     <Compile Include="Cards\Cards\Ships\EagleFrigateShipCard.cs" />
+    <Compile Include="Cards\Cards\Ships\VaticanFrigateShipCard.cs" />
     <Compile Include="Cards\Cards\Ships\VenatorCruiserShipCard.cs" />
+    <Compile Include="Cards\Cards\Ships\YoshuraBattleshipShipCard.cs" />
+    <Compile Include="Cards\Cards\Ships\Y%27AkaiBomberShipCard.cs" />
     <Compile Include="Cards\Cards\Ships\WaspFighterShipCard.cs" />
-    <Compile Include="Cards\Cards\Stations\BastionShipyardCard.cs" />
+    <Compile Include="Cards\Cards\Stations\AzmodaeusSupercruiserStationCard.cs" />
+    <Compile Include="Cards\Cards\Stations\BastionShipyardStationCard.cs" />
+    <Compile Include="Cards\Cards\Stations\HulkDreadnoughtStationCard.cs" />
+    <Compile Include="Cards\Cards\Stations\OmegaCruiserStationCard.cs" />
+    <Compile Include="Cards\Cards\Stations\RaiuT%27EkStationCard.cs" />
     <Compile Include="Cards\Cards\Stations\StationCard.cs" />
     <Compile Include="Cards\Cards\Weapons\Beam\LaserBeamTurretCard.cs" />
     <Compile Include="Cards\Cards\Weapons\DefaultTurretCard.cs" />
@@ -165,6 +188,7 @@
     <Compile Include="Screens\Menus\MainMenuScreen.cs" />
     <Compile Include="Game Objects\Animations\EngineBlaze.cs" />
     <Compile Include="Game Objects\Animations\Explosion.cs" />
+    <Compile Include="Screens\Menus\ShopScreen.cs" />
     <Compile Include="UI\CardGridControl.cs" />
     <Compile Include="UI\CharacterDialogBox.cs" />
     <Compile Include="UI\ChooseDeckBox.cs" />
@@ -178,6 +202,7 @@
     <Compile Include="UI\HandUI.cs" />
     <Compile Include="Board\UIBoardSection.cs" />
     <Compile Include="UI\In Game Dialogs\CustomEscapeDialog.cs" />
+    <Compile Include="UI\Info Images\CardInfoImage.cs" />
     <Compile Include="UI\Info Images\MissionInfoImage.cs" />
     <Compile Include="UI\Info Images\ShieldInfoImage.cs" />
     <Compile Include="UI\Info Images\WeaponInfoImage.cs" />
@@ -377,6 +402,9 @@
     <Content Include="Content\Data\Screens\CampaignMapScreen.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Data\Screens\ShopScreen.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Data\Screens\Missions\Mission8 - Pyron.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -458,10 +486,10 @@
     <Content Include="Content\SFX\UI\ProgressTurnButtonPressedSound.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Ships\AzmodaeusSupercruiser\AzmodaeusSupercruiserCard.png">
+    <Content Include="Content\Sprites\Cards\Stations\AzmodaeusSupercruiser\AzmodaeusSupercruiserCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Ships\AzmodaeusSupercruiser\AzmodaeusSupercruiser.png">
+    <Content Include="Content\Sprites\Cards\Stations\AzmodaeusSupercruiser\AzmodaeusSupercruiser.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Ships\BuzzerDroid\BuzzerDroidCard.png">
@@ -482,10 +510,10 @@
     <Content Include="Content\Sprites\Cards\Ships\HoundCorvette\HoundCorvette.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Ships\HulkDreadnought\HulkDreadnoughtCard.png">
+    <Content Include="Content\Sprites\Cards\Stations\HulkDreadnought\HulkDreadnoughtCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Ships\HulkDreadnought\HulkDreadnought.png">
+    <Content Include="Content\Sprites\Cards\Stations\HulkDreadnought\HulkDreadnought.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Ships\K%27ThanCounselor\K%27ThanCounselorCard.png">
@@ -524,10 +552,10 @@
     <Content Include="Content\Sprites\Cards\Ships\MunitionsLoader\MunitionsLoader.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Ships\OmegaCruiser\OmegaCruiser.png">
+    <Content Include="Content\Sprites\Cards\Stations\OmegaCruiser\OmegaCruiser.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Ships\OmegaCruiser\OmegaCruiserCard.png">
+    <Content Include="Content\Sprites\Cards\Stations\OmegaCruiser\OmegaCruiserCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Ships\PirateCatapult\PirateCatapultCard.png">
@@ -548,10 +576,10 @@
     <Content Include="Content\Sprites\Cards\Ships\PirateScavengerCard\PirateScavenger.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Ships\RaiuT%27Ek\RaiuT%27Ek.png">
+    <Content Include="Content\Sprites\Cards\Stations\RaiuT%27Ek\RaiuT%27Ek.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Ships\RaiuT%27Ek\RaiuT%27EkCard.png">
+    <Content Include="Content\Sprites\Cards\Stations\RaiuT%27Ek\RaiuT%27EkCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Ships\ShimmerFighter\ShimmerFighter.png">
@@ -645,7 +673,7 @@
     <Content Include="Content\Sprites\Cards\Shields\PhaseEnergyShield\PhaseEnergyShield.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Ships\EagleFrigate\EagleFrigateObject.png">
+    <Content Include="Content\Sprites\Cards\Ships\EagleFrigate\EagleFrigate.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretBullet.png">
@@ -949,7 +977,7 @@
     <Content Include="Content\Sprites\Cards\Ships\BlazeInterceptor\BlazeInterceptorCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Ships\BlazeInterceptor\BlazeInterceptorObject.png">
+    <Content Include="Content\Sprites\Cards\Ships\BlazeInterceptor\BlazeInterceptor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Ships\EagleFrigate\EagleFrigateCard.png">
@@ -958,13 +986,13 @@
     <Content Include="Content\Sprites\Cards\Ships\VenatorCruiser\VenatorCruiserCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Ships\VenatorCruiser\VenatorCruiserObject.png">
+    <Content Include="Content\Sprites\Cards\Ships\VenatorCruiser\VenatorCruiser.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Ships\WaspFighter\WaspFighterCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Ships\WaspFighter\WaspFighterObject.png">
+    <Content Include="Content\Sprites\Cards\Ships\WaspFighter\WaspFighter.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Cards\Stations\BastionShipyard\BastionShipyardCard.png">

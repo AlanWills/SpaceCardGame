@@ -1,6 +1,6 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.ShipData">
-    <TextureAsset>Cards\Ships\OmegaCruiser\OmegaCruiser</TextureAsset>
+    <TextureAsset>Cards\Stations\OmegaCruiser\OmegaCruiser</TextureAsset>
     <Attack>0</Attack>
     <Defence>50</Defence>
     <Speed>0</Speed>

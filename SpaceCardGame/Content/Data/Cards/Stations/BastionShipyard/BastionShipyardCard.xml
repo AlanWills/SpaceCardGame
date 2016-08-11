@@ -6,6 +6,6 @@
     <DisplayName>Bastion Shipyard</DisplayName>
     <Rarity>Common</Rarity>
     <ResourceCosts>0 0 0 0</ResourceCosts>
-    <CardTypeName>BastionShipyardCard</CardTypeName>
+    <CardTypeName>BastionShipyardStationCard</CardTypeName>
   </Asset>
 </XnaContent>

@@ -24,7 +24,7 @@ namespace SpaceCardGame
         {
             base.AddInitialUI();
 
-            GridControl buttonGridControl = AddScreenUIObject(new GridControl(1, 4, ScreenCentre));
+            GridControl buttonGridControl = AddScreenUIObject(new GridControl(1, 5, ScreenCentre));
             buttonGridControl.BorderPadding = new Vector2(100, 50);
 
             Button playGameButton = buttonGridControl.AddChild(new Button("Play", Vector2.Zero));
@@ -41,6 +41,12 @@ namespace SpaceCardGame
 
             Button deckManagerButton = buttonGridControl.AddChild(new Button("Decks", Vector2.Zero));
             deckManagerButton.ClickableModule.OnLeftClicked += OnDeckManagerButtonClicked;
+
+            Button shopButton = buttonGridControl.AddChild(new Button("Shop", Vector2.Zero));
+            shopButton.ClickableModule.OnLeftClicked += delegate
+            {
+                Transition(new ShopScreen());
+            };
 
             Button openPacksButton = buttonGridControl.AddChild(new Button("Open Packs", Vector2.Zero));
             openPacksButton.ClickableModule.OnLeftClicked += OnOpenPacksButtonLeftClicked;

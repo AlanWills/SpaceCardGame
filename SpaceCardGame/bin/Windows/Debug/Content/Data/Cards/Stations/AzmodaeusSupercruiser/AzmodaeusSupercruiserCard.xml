@@ -6,6 +6,6 @@
     <DisplayName>Azmodaeus</DisplayName>
     <Rarity>Common</Rarity>
     <ResourceCosts>0 0 0 0</ResourceCosts>
-    <CardTypeName>AzmodaeusCard</CardTypeName>
+    <CardTypeName>AzmodaeusSupercruiserStationCard</CardTypeName>
   </Asset>
 </XnaContent>

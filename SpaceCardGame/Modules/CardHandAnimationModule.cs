@@ -17,7 +17,7 @@ namespace SpaceCardGame
         /// <summary>
         /// A vector property that is a local offset from the position of this card to it's highlighted position
         /// </summary>
-        private Vector2 OffsetToHighlightedPosition { get; set; }
+        public Vector2 OffsetToHighlightedPosition { private get; set; }
 
         /// <summary>
         /// A flag to indicate whether we wish the card to increase in size whilst our mouse is over it.

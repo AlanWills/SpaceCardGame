@@ -69,6 +69,7 @@
         <Name>TEST</Name>
         <CardDataAssets>
           <Item>Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml</Item>
+          <Item>Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml</Item>
           <Item>Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xml</Item>
           <Item>Resources\CrewResource\CrewResourceCard.xml</Item>
           <Item>Resources\ElectronicsResource\ElectronicsResourceCard.xml</Item>
@@ -102,12 +103,11 @@
           <Item>Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xml</Item>
           <Item>Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xml</Item>
           <Item>Stations\BastionShipyard\BastionShipyardCard.xml</Item>
-          <Item>Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml</Item>
         </CardDataAssets>
       </Item>
     </Decks>
     <CurrentLevel>3</CurrentLevel>
     <CurrentMoney>500</CurrentMoney>
-    <AvailablePacksToOpen>0</AvailablePacksToOpen>
+    <AvailablePacksToOpen>5</AvailablePacksToOpen>
   </Asset>
 </XnaContent>

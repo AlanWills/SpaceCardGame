@@ -134,8 +134,8 @@ namespace SpaceCardGame
 
             base.Initialise();
 
-            Size *= 0.5f;       // Size correction
-            CardOutline.Size = Size;
+            // Hard coded asset size correction
+            Scale(0.5f);
         }
 
         /// <summary>
@@ -148,16 +148,16 @@ namespace SpaceCardGame
         {
             base.HandleInput(elapsedGameTime, mousePosition);
 
-            if (!IsPlaced)
-            {
-                CardOutline.Size = HandAnimationModule.DrawingSize;
-            }
-            else
-            {
-                // We always do this so that the outline is always inline with the card size after we have placed it.
-                // If we have added a turret to a ship for example, the size will be smaller and we do not want to have to explicitly remember to fix up the size
-                CardOutline.Size = Size;
-            }
+            //if (!IsPlaced)
+            //{
+            //    CardOutline.Size = HandAnimationModule.DrawingSize;
+            //}
+            //else
+            //{
+            //    // We always do this so that the outline is always inline with the card size after we have placed it.
+            //    // If we have added a turret to a ship for example, the size will be smaller and we do not want to have to explicitly remember to fix up the size
+            //    CardOutline.Size = Size;
+            //}
         }
 
         /// <summary>
@@ -190,12 +190,14 @@ namespace SpaceCardGame
                 {
                     // Store the size of the card, but set the Size property to the DrawingSize for drawing ONLY
                     Vector2 currentSize = Size;
-                    Size = HandAnimationModule.DrawingSize;
+
+                    // Scale the card and all of it's children up to the drawing size
+                    Scale(Vector2.Divide(HandAnimationModule.DrawingSize, currentSize));
 
                     base.Draw(spriteBatch);
 
-                    // Set the Size back to it's original value
-                    Size = currentSize;
+                    // And then reset the size
+                    Scale(Vector2.Divide(currentSize, HandAnimationModule.DrawingSize));
                 }
                 else
                 {
