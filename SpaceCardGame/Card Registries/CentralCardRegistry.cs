@@ -7,6 +7,11 @@ using System.Diagnostics;
 
 namespace SpaceCardGame
 {
+    /// <summary>
+    /// This class is not designed to replace the AssetManager for querying data, but rather to provide extra utility functions such as finding cards of specific types
+    /// or reverse look up to find data asset strings.
+    /// Using AssetManager.GetData to get CardData is still the best thing to do - this is just meant to provide custom functionality for our game.
+    /// </summary>
     public static class CentralCardRegistry
     {
         /// <summary>
@@ -15,9 +20,9 @@ namespace SpaceCardGame
         public static List<string> CardTypes { get; set; }
 
         /// <summary>
-        /// A lookup of card data assets to their loaded data.
+        /// A lookup of card data type to a dictionary of card data asset to card data of that type
         /// </summary>
-        public static Dictionary<string, CardData> CardData { get; set; }
+        public static Dictionary<string, Dictionary<string, CardData>> CardData { get; set; }
 
         /// <summary>
         /// A reference to our loaded card registry data.
@@ -46,20 +51,23 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(CardRegistryData);
 
             CardTypes = new List<string>();
-            CardData = new Dictionary<string, CardData>();
+            CardData = new Dictionary<string, Dictionary<string, CardData>>();
 
             // Adds all of the loaded card data to our registry
             List<KeyValuePair<string, CardData>> allCardData = AssetManager.GetAllDataPairsOfType<CardData>();
             foreach (KeyValuePair<string, CardData> dataPair in allCardData)
             {
-                // Remove "Cards\\" from the front of the data key - if they are stored here we know they are Cards!
-                string key = dataPair.Key.Remove(0, 6);
-                CardData.Add(key, dataPair.Value);
-
+                // Make sure we register new types
                 if (!CardTypes.Exists(x => x == dataPair.Value.Type))
                 {
+                    // If this is a new type, we also need to initialise the list in the Dictionary look up for it
                     CardTypes.Add(dataPair.Value.Type);
+                    CardData.Add(dataPair.Value.Type, new Dictionary<string, CardData>());
                 }
+
+                // Remove "Cards\\" from the front of the data key - if they are stored here we know they are Cards!
+                string key = dataPair.Key.Remove(0, 6);
+                CardData[dataPair.Value.Type].Add(key, dataPair.Value);
             }
 
             // Load our universal card back texture
@@ -73,8 +81,8 @@ namespace SpaceCardGame
         #region Utility Functions
 
         /// <summary>
-        /// REALLY BAD AND HORRIBLE.
-        /// Looks through each key and sees if it corresponds to the inputted cardData
+        /// Uses the card data's type to search through the appropriate sub dictionary in the CardData dictionary and matches on display name.
+        /// This is not as costly as you may fear so do not be afraid about using this rather than some other roundabout function (although obviously don't be stupid!).
         /// </summary>
         /// <param name="cardData">The card data we wish to find the string of</param>
         /// <returns>The semi-string of the card data e.g. 'Resources\\Crew\\CrewResource.xml'.  Empty string if it couldn't be found.</returns>
@@ -82,11 +90,13 @@ namespace SpaceCardGame
         {
             // If we have not loaded we are going to run into trouble here
             Debug.Assert(IsLoaded);
+            Debug.Assert(CardData.ContainsKey(cardData.Type));
 
-            foreach (string dataAsset in CardData.Keys)
+            foreach (string dataAsset in CardData[cardData.Type].Keys)
             {
                 // Match on display names - GULP!
-                if (CardData[dataAsset].DisplayName == cardData.DisplayName)
+                Debug.Fail("Can we reference check this instead - write a unit test.  Also, need to extract this into a separate list and do a lookup using LINQ");
+                if (CardData[cardData.Type][dataAsset].DisplayName == cardData.DisplayName)
                 {
                     return dataAsset;
                 }
@@ -128,31 +138,29 @@ namespace SpaceCardGame
             List<CardData> cardDataList = new List<CardData>();
             foreach (string cardDataAsset in cardDataAssetList)
             {
-                Debug.Assert(CardData.ContainsKey(cardDataAsset));
-                DebugUtils.AssertNotNull(CardData[cardDataAsset]);
+                // Load from AssetManager here - iteration lookup through the dictionaries is too costly
+                CardData cardData = AssetManager.GetData<CardData>("Cards\\" + cardDataAsset);
+                DebugUtils.AssertNotNull(cardData);
 
-                cardDataList.Add(CardData[cardDataAsset]);
+                cardDataList.Add(cardData);
             }
 
             return cardDataList;
         }
 
         /// <summary>
-        /// Picks cards from all the registered cards for when our player opens a pack.
+        /// Picks #PackSize cards from all the loaded cards for when our player opens a pack and returns the CardData for those cards.
         /// </summary>
         /// <returns></returns>
-        public static List<string> PickCardsForPackOpening()
+        public static List<CardData> PickCardsForPackOpening()
         {
-            List<string> cards = new List<string>(PackSize);
-            string[] registeredCardsDataAssets = new string[CardData.Count];
-
-            // Ouch
-            CardData.Keys.CopyTo(registeredCardsDataAssets, 0);
+            List<CardData> cards = new List<CardData>(PackSize);
+            List<CardData> allLoadedCardData = AssetManager.GetAllDataOfType<CardData>();
 
             for (int i = 0; i < PackSize; i++)
             {
-                int randomIndex = MathUtils.GenerateInt(0, registeredCardsDataAssets.Length - 1);
-                cards.Add(registeredCardsDataAssets[randomIndex]);
+                int randomIndex = MathUtils.GenerateInt(0, allLoadedCardData.Count - 1);
+                cards.Add(allLoadedCardData[randomIndex]);
             }
 
             return cards;

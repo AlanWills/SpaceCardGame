@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace SpaceCardGame
 {
     /// <summary>
-    /// A list control which displays images of the cards in our deck of the inputted type sorted by the order they were added to the deck.
+    /// A list control which displays images of the inputted cards
     /// </summary>
     public class CardGridControl : GridControl, IClickable
     {
@@ -60,7 +60,7 @@ namespace SpaceCardGame
         #region Properties and Fields
 
         /// <summary>
-        /// Add the current cards in the deck to this list control
+        /// Add the current cards in the list to this list control
         /// </summary>
         public override void Initialise()
         {
