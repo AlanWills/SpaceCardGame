@@ -21,13 +21,7 @@ namespace SpaceCardGame
         {
             base.AddInitialUI();
 
-            // When not in debug, we should only have 1 rows of four buttons, but when in debug we will need 2 rows
-            int rows = 1;
-#if DEBUG
-            rows++;
-#endif
-
-            GridControl buttonControl = AddScreenUIObject(new GridControl(rows, 4, ScreenCentre));
+            GridControl buttonControl = AddScreenUIObject(new GridControl(4, new Vector2(ScreenDimensions.X, ScreenDimensions.Y * 0.75f), ScreenCentre));
 
             Button newGameButton = buttonControl.AddChild(new Button("New Campaign", Vector2.Zero));
             newGameButton.AddModule(new ToolTipModule("Begin a new campaign"));

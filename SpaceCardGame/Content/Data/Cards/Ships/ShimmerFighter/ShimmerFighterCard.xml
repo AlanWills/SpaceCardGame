@@ -7,5 +7,6 @@
     <Rarity>Common</Rarity>
     <ResourceCosts>1 2 1 1</ResourceCosts>
     <CardTypeName>ShimmerFighterShipCard</CardTypeName>
+    <Price>250</Price>
   </Asset>
 </XnaContent>

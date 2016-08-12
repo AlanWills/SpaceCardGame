@@ -7,5 +7,6 @@
     <Rarity>Common</Rarity>
     <ResourceCosts>0 2 0 1</ResourceCosts>
     <CardTypeName>LaserBeamTurretCard</CardTypeName>
+    <Price>250</Price>
   </Asset>
 </XnaContent>

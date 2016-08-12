@@ -54,9 +54,9 @@
     <Compile Include="Card Objects\ShipAddOnData.cs" />
     <Compile Include="Card Objects\ShipData.cs" />
     <Compile Include="Card Objects\TurretData.cs" />
-    <Compile Include="Card Storage\CardRegistryData.cs" />
-    <Compile Include="Card Storage\DeckData.cs" />
-    <Compile Include="Card Storage\PlayerDataRegistryData.cs" />
+    <Compile Include="Card Registry and Player Data\CardRegistryData.cs" />
+    <Compile Include="Card Registry and Player Data\DeckData.cs" />
+    <Compile Include="Card Registry and Player Data\PlayerDataRegistryData.cs" />
     <Compile Include="Game Objects\BoardData.cs" />
     <Compile Include="Missions\MissionData.cs" />
     <Compile Include="Missions\RewardData.cs" />

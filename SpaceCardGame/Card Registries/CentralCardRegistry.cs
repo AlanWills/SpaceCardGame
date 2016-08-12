@@ -55,6 +55,8 @@ namespace SpaceCardGame
 
             // Adds all of the loaded card data to our registry
             List<KeyValuePair<string, CardData>> allCardData = AssetManager.GetAllDataPairsOfType<CardData>();
+            allCardData.RemoveAll(x => x.Key == WeaponCard.DefaultWeaponCardDataAsset);
+
             foreach (KeyValuePair<string, CardData> dataPair in allCardData)
             {
                 // Make sure we register new types

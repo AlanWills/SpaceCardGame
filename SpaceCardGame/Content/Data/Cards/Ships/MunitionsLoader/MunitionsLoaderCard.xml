@@ -7,5 +7,6 @@
     <Rarity>Common</Rarity>
     <ResourceCosts>2 2 1 2</ResourceCosts>
     <CardTypeName>MunitionsLoaderShipCard</CardTypeName>
+    <Price>1000</Price>
   </Asset>
 </XnaContent>

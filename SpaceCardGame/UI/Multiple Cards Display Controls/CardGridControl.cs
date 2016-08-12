@@ -43,14 +43,14 @@ namespace SpaceCardGame
 
         #region Constructors
 
-        public CardGridControl(List<CardData> cardList, int rows, int columns, Vector2 localPosition, string textureAsset = AssetManager.DefaultMenuTextureAsset) :
-            this(cardList, rows, columns, Vector2.Zero, localPosition, textureAsset)
+        public CardGridControl(List<CardData> cardList, int columns, Vector2 localPosition, string textureAsset = AssetManager.DefaultMenuTextureAsset) :
+            this(cardList, columns, Vector2.Zero, localPosition, textureAsset)
         {
 
         }
 
-        public CardGridControl(List<CardData> cardList, int rows, int columns, Vector2 size, Vector2 localPosition, string textureAsset = AssetManager.DefaultMenuTextureAsset) :
-            base(rows, columns, size, localPosition, textureAsset)
+        public CardGridControl(List<CardData> cardList, int columns, Vector2 size, Vector2 localPosition, string textureAsset = AssetManager.DefaultMenuTextureAsset) :
+            base(columns, size, localPosition, textureAsset)
         {
             CardList = cardList;
             IncludePredicate = new Predicate<CardData>(x => true);  // By default all the cards we input will be added
@@ -135,6 +135,7 @@ namespace SpaceCardGame
             previousCard.OnRightClicked += CardImage_OnRightClicked;*/
 
             ClickableImage image = AddChild(new ClickableImage(ElementSize, Vector2.Zero, cardData.TextureAsset), true, true);
+            ToolTipModule toolTipModule = image.AddModule(new ToolTipModule("Price: " + cardData.Price.ToString()), true, true);
             image.StoredObject = cardData;
 
             // These are probably not going to be used, but set them up anyway

@@ -26,14 +26,14 @@ namespace SpaceCardGame
 
         #endregion
 
-        public ChooseDeckGridControl(int rows, int columns, Vector2 localPosition, string textureAsset = AssetManager.DefaultMenuTextureAsset) :
-            this(rows, columns, Vector2.Zero, localPosition, textureAsset)
+        public ChooseDeckGridControl(int columns, Vector2 localPosition, string textureAsset = AssetManager.DefaultMenuTextureAsset) :
+            this(columns, Vector2.Zero, localPosition, textureAsset)
         {
             
         }
 
-        public ChooseDeckGridControl(int rows, int columns, Vector2 size, Vector2 localPosition, string textureAsset = AssetManager.DefaultMenuTextureAsset)
-            : base(rows, columns, size, localPosition, textureAsset)
+        public ChooseDeckGridControl(int columns, Vector2 size, Vector2 localPosition, string textureAsset = AssetManager.DefaultMenuTextureAsset)
+            : base(columns, size, localPosition, textureAsset)
         {
             
         }

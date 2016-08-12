@@ -7,5 +7,6 @@
     <Rarity>Common</Rarity>
     <ResourceCosts>1 3 3 3</ResourceCosts>
     <CardTypeName>YoshuraBattleshipShipCard</CardTypeName>
+    <Price>1200</Price>
   </Asset>
 </XnaContent>

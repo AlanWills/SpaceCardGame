@@ -35,7 +35,7 @@ namespace SpaceCardGame
 
             Vector2 slotSize = new Vector2(200, 300);
 
-            DeckSlotUIGridControl = AddScreenUIObject(new GridControl(2, 4, ScreenDimensions, ScreenCentre));
+            DeckSlotUIGridControl = AddScreenUIObject(new GridControl(4, ScreenDimensions, ScreenCentre));
             DeckSlotUIGridControl.BorderPadding = new Vector2(ScreenDimensions.X * 0.1f, ScreenDimensions.Y * 0.05f);
 
             for (int i = 0; i < PlayerDataRegistry.maxDeckNumber; ++i)

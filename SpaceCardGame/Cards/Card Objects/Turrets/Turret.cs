@@ -75,7 +75,7 @@ namespace SpaceCardGame
         public bool IsDefaultTurret { get; private set; }
 
         // A string which represents the default turret all ships have 
-        private const string defaultTurretDataAsset = "Cards\\Weapons\\DefaultTurret.xml";
+        public const string DefaultTurretDataAsset = "Cards\\Weapons\\DefaultTurret.xml";
 
         #endregion
 
@@ -86,7 +86,7 @@ namespace SpaceCardGame
         public Turret(string turretDataAsset) :
             base(Vector2.Zero, turretDataAsset)
         {
-            IsDefaultTurret = turretDataAsset == defaultTurretDataAsset;
+            IsDefaultTurret = turretDataAsset == DefaultTurretDataAsset;
         }
 
         #region Virtual Functions

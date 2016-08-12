@@ -39,7 +39,7 @@ namespace SpaceCardGame
             base.AddInitialUI();
 
             float gridHeight = ScreenDimensions.Y * 0.25f;
-            PacksGridControl = AddScreenUIObject(new GridControl(1, 8, new Vector2(ScreenDimensions.X, gridHeight), new Vector2(ScreenCentre.X, ScreenDimensions.Y - gridHeight * 0.5f)));
+            PacksGridControl = AddScreenUIObject(new GridControl(8, new Vector2(ScreenDimensions.X, gridHeight), new Vector2(ScreenCentre.X, ScreenDimensions.Y - gridHeight * 0.5f)));
             for (int i = 0; i < PlayerDataRegistry.Instance.PlayerData.AvailablePacksToOpen; i++)
             {
                 ClickableImage cardPack = PacksGridControl.AddChild(new ClickableImage(new Vector2(gridHeight * 0.8f), Vector2.Zero, Card.CardBackTextureAsset));

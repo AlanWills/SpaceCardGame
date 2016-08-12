@@ -74,7 +74,7 @@
   <ItemGroup>
     <Compile Include="Board\OpponentBoardSection.cs" />
     <Compile Include="Board\PlayerBoardSection.cs" />
-    <Compile Include="Cards\Card Data\CardData.cs" />
+    <Compile Include="Cards\Cards\CardData.cs" />
     <Compile Include="Cards\Card Objects\Ability.cs" />
     <Compile Include="Cards\Card Objects\Bullets\Beam.cs" />
     <Compile Include="Cards\Card Objects\Bullets\Bullet.cs" />
@@ -189,26 +189,27 @@
     <Compile Include="Game Objects\Animations\EngineBlaze.cs" />
     <Compile Include="Game Objects\Animations\Explosion.cs" />
     <Compile Include="Screens\Menus\ShopScreen.cs" />
-    <Compile Include="UI\CardGridControl.cs" />
-    <Compile Include="UI\CharacterDialogBox.cs" />
+    <Compile Include="UI\Multiple Cards Display Controls\CardGridControl.cs" />
+    <Compile Include="UI\Multiple Cards Display Controls\CardTypesTabControl.cs" />
+    <Compile Include="UI\In Game Dialogs\CharacterDialogBox.cs" />
     <Compile Include="UI\ChooseDeckBox.cs" />
-    <Compile Include="UI\DeckCardTypeControl.cs" />
-    <Compile Include="UI\DeckSlotUI.cs" />
-    <Compile Include="UI\DeckUI.cs" />
+    <Compile Include="UI\Multiple Cards Display Controls\DeckCardTypeControl.cs" />
+    <Compile Include="UI\In Game\DeckSlotUI.cs" />
+    <Compile Include="UI\In Game\DeckUI.cs" />
     <Compile Include="UI\Gameplay Sugar\Asteroid.cs" />
     <Compile Include="UI\Gameplay Sugar\CardOutline.cs" />
     <Compile Include="UI\Gameplay Sugar\DamageUI.cs" />
     <Compile Include="UI\Gameplay Sugar\Debris.cs" />
-    <Compile Include="UI\HandUI.cs" />
+    <Compile Include="UI\In Game\HandUI.cs" />
     <Compile Include="Board\UIBoardSection.cs" />
     <Compile Include="UI\In Game Dialogs\CustomEscapeDialog.cs" />
     <Compile Include="UI\Info Images\CardInfoImage.cs" />
     <Compile Include="UI\Info Images\MissionInfoImage.cs" />
     <Compile Include="UI\Info Images\ShieldInfoImage.cs" />
     <Compile Include="UI\Info Images\WeaponInfoImage.cs" />
-    <Compile Include="UI\PlayerDefeatedUI.cs" />
-    <Compile Include="UI\PlayerVictoryUI.cs" />
-    <Compile Include="UI\ProgressTurnButton.cs" />
+    <Compile Include="UI\In Game\PlayerDefeatedUI.cs" />
+    <Compile Include="UI\In Game\PlayerVictoryUI.cs" />
+    <Compile Include="UI\In Game\ProgressTurnButton.cs" />
     <Compile Include="UI\Info Images\ShipInfoImage.cs" />
     <Compile Include="UI\Gameplay Sugar\TargetingLine.cs" />
   </ItemGroup>
@@ -363,7 +364,7 @@
     <Content Include="Content\Data\Cards\Stations\RaiuT%27Ek\RaiuT%27EkCard.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Data\Cards\Stations\RaiuT%27Ek\RaiuT%27EkObject.xml">
+    <Content Include="Content\Data\Cards\Weapons\RaiuT%27EkObject.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Cards\Stations\BastionShipyard\BastionShipyardCard.xml">

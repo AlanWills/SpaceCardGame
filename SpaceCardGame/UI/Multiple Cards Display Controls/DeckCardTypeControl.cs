@@ -67,7 +67,7 @@ namespace SpaceCardGame
         {
             base.Initialise();
 
-            DeckCardListControl = new CardGridControl(Deck.Cards, 5, deckColumns, new Vector2(Size.X * ratio, Size.Y), new Vector2(Size.X * (0.5f - 0.5f * ratio), 0));
+            DeckCardListControl = new CardGridControl(Deck.Cards, deckColumns, new Vector2(Size.X * ratio, Size.Y), new Vector2(Size.X * (0.5f - 0.5f * ratio), 0));
             // Add all the cards in our deck that are of our type
             DeckCardListControl.IncludePredicate = new Predicate<CardData>(x => x.Type == CardType);
             DeckCardListControl.OnRightClicked += RemoveFromDeck;
@@ -77,7 +77,7 @@ namespace SpaceCardGame
             
             List<CardData> availableCards = CentralCardRegistry.ConvertToDataList(PlayerDataRegistry.Instance.PlayerData.CardDataAssets);
 
-            RegistryCardListControl = new CardGridControl(availableCards, 5, registryColumns, new Vector2(Size.X * (1 - ratio), Size.Y), new Vector2(-ratio * 0.5f * Size.X, 0));
+            RegistryCardListControl = new CardGridControl(availableCards, registryColumns, new Vector2(Size.X * (1 - ratio), Size.Y), new Vector2(-ratio * 0.5f * Size.X, 0));
             // Find all cards of our type that are also not in our deck already
             RegistryCardListControl.IncludePredicate = new Predicate<CardData>(x => x.Type == CardType);
             RegistryCardListControl.OnLeftClicked += AddToDeck;

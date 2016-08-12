@@ -7,5 +7,6 @@
     <Rarity>Common</Rarity>
     <ResourceCosts>0 0 0 0</ResourceCosts>
     <CardTypeName>BastionShipyardStationCard</CardTypeName>
+    <Price>1000</Price>
   </Asset>
 </XnaContent>

@@ -7,5 +7,6 @@
     <Rarity>Common</Rarity>
     <ResourceCosts>0 0 0 0</ResourceCosts>
     <CardTypeName>RaiuT_EkStationCard</CardTypeName>
+    <Price>2000</Price>
   </Asset>
 </XnaContent>

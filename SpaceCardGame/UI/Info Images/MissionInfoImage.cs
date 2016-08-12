@@ -63,7 +63,7 @@ namespace SpaceCardGame
         private void PlayMissionCallback(BaseObject clickedObject)
         {
             // Have to do this separately so we get the callbacks added to our objects during load
-            ChooseDeckGridControl chooseDeckBox = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new ChooseDeckGridControl(1, 4, ScreenManager.Instance.ScreenCentre), true, true);
+            ChooseDeckGridControl chooseDeckBox = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new ChooseDeckGridControl(4, ScreenManager.Instance.ScreenCentre), true, true);
             chooseDeckBox.OnLeftClicked += ChooseDeckBoxClicked;
         }
 

@@ -7,5 +7,6 @@
     <Rarity>Common</Rarity>
     <ResourceCosts>3 1 1 3</ResourceCosts>
     <CardTypeName>K_ThanCounselorShipCard</CardTypeName>
+    <Price>1500</Price>
   </Asset>
 </XnaContent>

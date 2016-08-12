@@ -7,5 +7,6 @@
     <Rarity>Common</Rarity>
     <ResourceCosts>0 0 0 2</ResourceCosts>
     <CardTypeName>MigFighterShipCard</CardTypeName>
+    <Price>250</Price>
   </Asset>
 </XnaContent>

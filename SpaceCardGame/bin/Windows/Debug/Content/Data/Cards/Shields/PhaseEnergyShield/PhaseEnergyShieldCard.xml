@@ -7,5 +7,6 @@
     <Rarity>Common</Rarity>
     <ResourceCosts>1 0 1 1</ResourceCosts>
     <CardTypeName>PhaseEnergyShieldCard</CardTypeName>
+    <Price>250</Price>
   </Asset>
 </XnaContent>

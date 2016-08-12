@@ -7,5 +7,6 @@
     <Rarity>Common</Rarity>
     <ResourceCosts>0 0 0 0</ResourceCosts>
     <CardTypeName>AzmodaeusSupercruiserStationCard</CardTypeName>
+    <Price>3000</Price>
   </Asset>
 </XnaContent>

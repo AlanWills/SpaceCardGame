@@ -7,5 +7,6 @@
     <Rarity>Rare</Rarity>
     <ResourceCosts>3 4 0 4</ResourceCosts>
     <CardTypeName>VenatorCruiserShipCard</CardTypeName>
+    <Price>600</Price>
   </Asset>
 </XnaContent>

@@ -43,6 +43,11 @@ namespace SpaceCardGame
         /// </summary>
         public string CardTypeName { get; set; }
 
+        /// <summary>
+        /// How much this card costs to buy from the shop
+        /// </summary>
+        public int Price { get; set; }
+
         #endregion
 
         #region Virtual Functions

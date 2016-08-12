@@ -95,7 +95,7 @@ namespace SpaceCardGame
         /// </summary>
         private void AddDefaultWeapon()
         {
-            CardData defaultWeaponCardData = AssetManager.GetData<CardData>(WeaponCard.defaultWeaponCardDataAsset);
+            CardData defaultWeaponCardData = AssetManager.GetData<CardData>(WeaponCard.DefaultWeaponCardDataAsset);
             CardWeaponPair defaultWeapon = AddChild(new CardWeaponPair(defaultWeaponCardData.CreateCard(Card.Player) as WeaponCard), true, true);
 
             defaultWeapon.AddToCardShipPair(this);

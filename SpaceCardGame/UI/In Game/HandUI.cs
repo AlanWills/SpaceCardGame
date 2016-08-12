@@ -19,7 +19,7 @@ namespace SpaceCardGame
         #endregion
 
         public HandUI(Player player, Vector2 size, Vector2 localPosition, string backgroundTextureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
-            base(1, player.MaxHandSize, size, localPosition, backgroundTextureAsset)
+            base(player.MaxHandSize, size, localPosition, backgroundTextureAsset)
         {
             Player = player;
             Player.OnCardAddedToHand += AddPlayerHandCardUI;
