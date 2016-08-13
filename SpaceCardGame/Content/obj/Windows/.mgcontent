@@ -169,5 +169,7 @@
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Ships/PirateScavenger/PirateScavenger.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Ships/PirateScavenger/PirateScavengerCard.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Ships/ValkyrieFrigate/ValkyrieFrigateCard.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/UI/Button.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/UI/ButtonHighlighted.png</File>
   </SourceFiles>
 </SourceFileCollection>

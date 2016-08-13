@@ -86,15 +86,6 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
-        /// Loads the ship object data
-        /// </summary>
-        /// <returns></returns>
-        protected override GameObjectData LoadGameObjectData()
-        {
-            return AssetManager.GetData<ShipData>(DataAsset);
-        }
-
-        /// <summary>
         /// Loads the ship data and sets up it's stats
         /// </summary>
         public override void LoadContent()
@@ -181,9 +172,6 @@ namespace SpaceCardGame
         {
             if (collidedObject is Projectile)
             {
-                // Adds an explosion
-                ScreenManager.Instance.CurrentScreen.AddInGameUIObject(new Explosion(WorldPosition), true, true);
-
                 // Adds debris
                 ScreenManager.Instance.CurrentScreen.AddGameObject(new Debris(WorldPosition), true, true);
 

@@ -24,8 +24,8 @@ namespace SpaceCardGame
         {
             base.AddInitialUI();
 
-            GridControl buttonGridControl = AddScreenUIObject(new GridControl(5, new Vector2(ScreenDimensions.X, ScreenDimensions.Y * 0.75f), ScreenCentre));
-            buttonGridControl.BorderPadding = new Vector2(100, 50);
+            ListControl buttonGridControl = AddScreenUIObject(new ListControl(new Vector2(ScreenDimensions.X * 0.75f, ScreenDimensions.Y * 0.4f)));
+            buttonGridControl.UseScissorRectangle = false;
 
             Button playGameButton = buttonGridControl.AddChild(new Button("Play", Vector2.Zero));
             playGameButton.ClickableModule.OnLeftClicked += OnPlayGameButtonLeftClicked;

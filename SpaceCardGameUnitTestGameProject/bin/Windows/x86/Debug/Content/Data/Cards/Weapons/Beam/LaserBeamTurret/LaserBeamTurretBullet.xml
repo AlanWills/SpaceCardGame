@@ -1,0 +1,8 @@
+﻿<XnaContent>
+  <Asset Type="SpaceCardGameData.ProjectileData">
+    <TextureAsset>Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretBullet</TextureAsset>
+    <Damage>2</Damage>
+    <FiringSFXAsset>Turrets\LaserBeamTurret</FiringSFXAsset>
+    <ExplosionSFXAsset>Explosions\BeamExplosion</ExplosionSFXAsset>
+  </Asset>
+</XnaContent>

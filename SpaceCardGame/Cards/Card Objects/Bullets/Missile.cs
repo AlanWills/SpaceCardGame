@@ -85,7 +85,18 @@ namespace SpaceCardGame
                 }
             }
         }
-        
+
+        /// <summary>
+        /// Add an explosion when the missile dies
+        /// </summary>
+        public override void Die()
+        {
+            base.Die();
+
+            // Adds an explosion
+            ScreenManager.Instance.CurrentScreen.AddInGameUIObject(new Explosion(WorldPosition), true, true);
+        }
+
         #endregion
     }
 }

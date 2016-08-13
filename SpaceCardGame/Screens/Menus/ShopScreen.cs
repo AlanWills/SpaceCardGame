@@ -84,6 +84,14 @@ namespace SpaceCardGame
             base.Begin();
 
             RefreshUI();
+
+            foreach (CardGridControl gridControl in CardTabControl.TabbedObjects)
+            {
+                foreach (Card card in gridControl)
+                {
+                    card.AddModule(new ToolTipModule("Price: " + card.CardData.Price.ToString()), true, true);
+                }
+            }
         }
 
         /// <summary>
@@ -113,14 +121,10 @@ namespace SpaceCardGame
 
             foreach (CardGridControl gridControl in CardTabControl.TabbedObjects)
             {
-                foreach (ClickableImage card in gridControl)
+                foreach (Card card in gridControl)
                 {
-                    Debug.Assert(card is ClickableImage);
-                    Debug.Assert((card as ClickableImage).StoredObject is CardData);
-                    CardData cardData = (card as ClickableImage).StoredObject as CardData;
-
                     // If card price is greater than money, turn it grey and disable the click module so we cannot buy it
-                    if (cardData.Price > PlayerMoney)
+                    if (card.CardData.Price > PlayerMoney)
                     {
                         card.Colour.Value = Color.Red;
                         card.ClickableModule.Hide();        // This will disable the clicking
@@ -149,9 +153,8 @@ namespace SpaceCardGame
         private void PurchaseCard(BaseObject clickedObject)
         {
             // The clicked object has the card data stored (this is set up by the CardGridControl)
-            Debug.Assert(clickedObject is ClickableImage);
-            Debug.Assert((clickedObject as ClickableImage).StoredObject is CardData);
-            CardData cardData = (clickedObject as ClickableImage).StoredObject as CardData;
+            Debug.Assert(clickedObject is Card);
+            CardData cardData = (clickedObject as Card).CardData;
 
             Debug.Assert(PlayerMoney >= cardData.Price);
             PlayerMoney -= cardData.Price;

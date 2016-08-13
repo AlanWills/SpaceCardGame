@@ -1,0 +1,12 @@
+﻿<XnaContent>
+  <Asset Type="SpaceCardGame.CardData">
+    <TextureAsset>Cards\Stations\BastionShipyard\BastionShipyardCard</TextureAsset>
+    <ObjectDataAsset>Cards\Stations\BastionShipyard\BastionShipyardObject.xml</ObjectDataAsset>
+    <Type>Station</Type>
+    <DisplayName>Bastion Shipyard</DisplayName>
+    <Rarity>Common</Rarity>
+    <ResourceCosts>0 0 0 0</ResourceCosts>
+    <CardTypeName>BastionShipyardStationCard</CardTypeName>
+    <Price>1000</Price>
+  </Asset>
+</XnaContent>

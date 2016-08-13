@@ -625,6 +625,8 @@
     <Content Include="Content\Sprites\Cards\Ships\YoshuraBattleship\YoshuraBattleshipCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Sprites\UI\Button.png" />
+    <Content Include="Content\Sprites\UI\ButtonHighlighted.png" />
     <Content Include="Content\Sprites\UI\MoneyIcon.png" />
     <Content Include="Content\Sprites\Cards\CardBack.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -833,10 +835,10 @@
     <Content Include="Content\Sprites\UI\CardStatThumbnails\DamageThumbnail.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\UI\ButtonHighlighted.png">
+    <Content Include="Content\Sprites\UI\ButtonHighlighted_.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\UI\Button.png">
+    <Content Include="Content\Sprites\UI\Button_.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\UI\Menu.png">

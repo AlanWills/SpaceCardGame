@@ -45,15 +45,6 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
-        /// Loads the shield object data
-        /// </summary>
-        /// <returns></returns>
-        protected override GameObjectData LoadGameObjectData()
-        {
-            return AssetManager.GetData<ShieldData>(DataAsset);
-        }
-
-        /// <summary>
         /// Loads the shield data and sets up it's stats
         /// </summary>
         public override void LoadContent()

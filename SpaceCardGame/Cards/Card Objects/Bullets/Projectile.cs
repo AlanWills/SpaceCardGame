@@ -3,6 +3,7 @@ using _2DEngineData;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using SpaceCardGameData;
+using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -17,11 +18,6 @@ namespace SpaceCardGame
         /// A reference to the target we are firing the bullet at
         /// </summary>
         protected GameObject Target { get; private set; }
-
-        /// <summary>
-        /// A reference to our bullet data
-        /// </summary>
-        private ProjectileData ProjectileData { get; set; }
 
         /// <summary>
         /// A reference to our firing sfx.
@@ -39,24 +35,13 @@ namespace SpaceCardGame
             base(worldPosition, "")
         {
             Target = target;
-            ProjectileData = projectileData;
+            Data = projectileData;
 
             float angle = MathUtils.AngleBetweenPoints(worldPosition, target.WorldPosition);
             LocalRotation = angle;
-
-            DebugUtils.AssertNotNull(ProjectileData);
         }
 
         #region Virtual Functions
-
-        /// <summary>
-        /// Return our loaded bullet data
-        /// </summary>
-        /// <returns></returns>
-        protected override GameObjectData LoadGameObjectData()
-        {
-            return ProjectileData;
-        }
 
         /// <summary>
         /// Get our firing sfx
@@ -65,8 +50,11 @@ namespace SpaceCardGame
         {
             CheckShouldLoad();
 
-            FiringSFX = new CustomSoundEffect(ProjectileData.FiringSFXAsset);
-            ExplosionSFX = new CustomSoundEffect(ProjectileData.ExplosionSFXAsset);
+            Debug.Assert(Data is ProjectileData);
+            ProjectileData projectileData = Data as ProjectileData;
+
+            FiringSFX = new CustomSoundEffect(projectileData.FiringSFXAsset);
+            ExplosionSFX = new CustomSoundEffect(projectileData.ExplosionSFXAsset);
 
             base.LoadContent();
         }

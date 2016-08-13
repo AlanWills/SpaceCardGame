@@ -83,15 +83,6 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
-        /// Loads the data file for our Board as BoardData
-        /// </summary>
-        /// <returns></returns>
-        protected override GameObjectData LoadGameObjectData()
-        {
-            return AssetManager.GetData<BoardData>(DataAsset);
-        }
-
-        /// <summary>
         /// Create the asteroids and board sections.
         /// </summary>
         public override void LoadContent()

@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="2DEngine.dll" size="290304">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="2DEngine.dll" size="290816">
       <assemblyIdentity name="2DEngine" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0YfLNA4yLnaIZ7EyPpSOgDyV0sl0lqj/0x5G03ERJy8=</dsig:DigestValue>
+        <dsig:DigestValue>0WBMMXx2e+AvpfkxUFMP7dEPiJ7FWJ17jVncG/6eXJc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -235,14 +235,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="307096">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="308120">
       <assemblyIdentity name="SpaceCardGame" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>SRVk1HCml4JlUsH4HNcmrgvSwnoxMxzMTwZShI1yUeg=</dsig:DigestValue>
+        <dsig:DigestValue>FIbeG2kgO43xD7oxJDV0XK0IsY1Y0pFzJyFtAkvifWk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -4146,7 +4146,25 @@
       <dsig:DigestValue>zqBMZZAntJ+5x9+ck9Mqk1bGHuLPKMTAR4xQDbf/ZDU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Sprites\UI\Button.png" size="15141">
+  <file name="Content\Sprites\UI\Button.png" size="269">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>zxZhKCmS1JLFkYw71jxKalbRM2LyVCpcOGxSmRQCVyI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\UI\Button.xnb" size="38485">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>zwC3+LSOzyVjfjajslhPc67z0hWFQheh/ud1GQjiFSc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\UI\Button_.png" size="15141">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -4155,7 +4173,25 @@
       <dsig:DigestValue>lf0LZpR4kw/tPUsbiynOvFFBg53mLJNgX1/r6BbRu5g=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Sprites\UI\ButtonHighlighted.png" size="23580">
+  <file name="Content\Sprites\UI\ButtonHighlighted.png" size="267">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>5lYawi/UGvekeGVgkmCAcyP7EGg7iDE7gz8pCBFXeFc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\UI\ButtonHighlighted.xnb" size="38485">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>G+vuImTVvycbnz3sd3sIj9klO9g9ITJOYHaQOTIybTU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\UI\ButtonHighlighted_.png" size="23580">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />

@@ -92,15 +92,6 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
-        /// Loads our turret data
-        /// </summary>
-        /// <returns></returns>
-        protected override GameObjectData LoadGameObjectData()
-        {
-            return AssetManager.GetData<TurretData>(DataAsset);
-        }
-
-        /// <summary>
         /// Sets up the turret's stats and load the bullet data
         /// </summary>
         public override void LoadContent()

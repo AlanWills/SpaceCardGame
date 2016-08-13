@@ -4,6 +4,7 @@ using SpaceCardGameData;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace SpaceCardGame
 {
@@ -83,29 +84,28 @@ namespace SpaceCardGame
         #region Utility Functions
 
         /// <summary>
-        /// Uses the card data's type to search through the appropriate sub dictionary in the CardData dictionary and matches on display name.
+        /// Uses the card data's type to search through the appropriate sub dictionary in the CardData dictionary and matches on reference.
         /// This is not as costly as you may fear so do not be afraid about using this rather than some other roundabout function (although obviously don't be stupid!).
         /// </summary>
         /// <param name="cardData">The card data we wish to find the string of</param>
         /// <returns>The semi-string of the card data e.g. 'Resources\\Crew\\CrewResource.xml'.  Empty string if it couldn't be found.</returns>
         public static string FindCardDataAsset(CardData cardData)
         {
+            if (cardData == null)
+            {
+                Debug.Fail("Inputted Card Data cannot be null");
+                return "";
+            }
+
             // If we have not loaded we are going to run into trouble here
             Debug.Assert(IsLoaded);
             Debug.Assert(CardData.ContainsKey(cardData.Type));
 
-            foreach (string dataAsset in CardData[cardData.Type].Keys)
-            {
-                // Match on display names - GULP!
-                Debug.Fail("Can we reference check this instead - write a unit test.  Also, need to extract this into a separate list and do a lookup using LINQ");
-                if (CardData[cardData.Type][dataAsset].DisplayName == cardData.DisplayName)
-                {
-                    return dataAsset;
-                }
-            }
-
-            Debug.Fail("Couldn't find string data asset for inputted card data.");
-            return "";
+            List<string> cardDataAssets = CardData[cardData.Type].Keys.ToList();
+            string result = cardDataAssets.Find(x => CardData[cardData.Type][x] == cardData);   // This will return null if the string is not found
+            
+            Debug.Assert(!string.IsNullOrEmpty(result), "Couldn't find string data asset for inputted card data.");
+            return result != null ? result : "";    // If our result is null we return "" rather than null
         }
 
         /// <summary>

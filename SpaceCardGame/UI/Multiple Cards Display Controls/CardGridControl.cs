@@ -43,13 +43,13 @@ namespace SpaceCardGame
 
         #region Constructors
 
-        public CardGridControl(List<CardData> cardList, int columns, Vector2 localPosition, string textureAsset = AssetManager.DefaultMenuTextureAsset) :
+        public CardGridControl(List<CardData> cardList, int columns, Vector2 localPosition, string textureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
             this(cardList, columns, Vector2.Zero, localPosition, textureAsset)
         {
 
         }
 
-        public CardGridControl(List<CardData> cardList, int columns, Vector2 size, Vector2 localPosition, string textureAsset = AssetManager.DefaultMenuTextureAsset) :
+        public CardGridControl(List<CardData> cardList, int columns, Vector2 size, Vector2 localPosition, string textureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
             base(columns, size, localPosition, textureAsset)
         {
             CardList = cardList;
@@ -101,65 +101,33 @@ namespace SpaceCardGame
         /// <param name="rebuild">A flag we can use to skip rebuilding the UI</param>
         public void AddCard(CardData cardData, bool rebuild = true)
         {
-            // Calculate the next position for our card image based on the number of elements in our list
-
-            // Maybe don't do this? Maybe do if it's horrendous
-            /*Vector2 position = new Vector2();
-
-            if (previousCard == null)
-            {
-                // If we are adding our first card, do the position manually
-                position = new Vector2((-Size.X + elementSize.X) * 0.5f, (-Size.Y + elementSize.Y) * 0.5f);
-            }
-            else
-            {
-                // Add relative to the position of the last card
-                int column = (ElementCount - 1) % Columns;
-                if (column == 0)
-                {
-                    // We add to new row in first column
-                    position = new Vector2((-Size.X + elementSize.X) * 0.5f, previousCard.LocalPosition.Y + elementSize.Y);
-                }
-                else
-                {
-                    // Add to next column along on same row
-                    position = previousCard.LocalPosition + new Vector2(elementSize.X, 0);
-                }
-
-                // Check we are indeed creating in a different place
-                Debug.Assert(position != previousCard.LocalPosition);
-            }
-            
-            previousCard = AddObject(new ClickableImage(elementSize, position, cardData.TextureAsset), true, true) as ClickableImage;
-            previousCard.StoredObject = cardData;
-            previousCard.OnRightClicked += CardImage_OnRightClicked;*/
-
-            ClickableImage image = AddChild(new ClickableImage(ElementSize, Vector2.Zero, cardData.TextureAsset), true, true);
-            ToolTipModule toolTipModule = image.AddModule(new ToolTipModule("Price: " + cardData.Price.ToString()), true, true);
-            image.StoredObject = cardData;
+            Card card = AddChild(cardData.CreateCard(null));
+            card.HandAnimationModule.Die();     // Don't need animation or card outlines for the shop screen
+            card.CardOutline.Die();
+            card.AddModule(new CardHoverInfoModule(card), true, true);
 
             // These are probably not going to be used, but set them up anyway
-            image.ClickableModule.LeftClickAccelerator = LeftClickAccelerator;
-            image.ClickableModule.MiddleClickAccelerator = MiddleClickAccelerator;
-            image.ClickableModule.RightClickAccelerator = RightClickAccelerator;
+            card.ClickableModule.LeftClickAccelerator = LeftClickAccelerator;
+            card.ClickableModule.MiddleClickAccelerator = MiddleClickAccelerator;
+            card.ClickableModule.RightClickAccelerator = RightClickAccelerator;
 
             // Add the click callbacks if they exist
             if (OnLeftClicked != null)
             {
-                image.ClickableModule.OnLeftClicked += OnLeftClicked;
-                image.ClickableModule.OnLeftClicked += Rebuild_Callback;
+                card.ClickableModule.OnLeftClicked += OnLeftClicked;
+                card.ClickableModule.OnLeftClicked += Rebuild_Callback;
             }
 
             if (OnMiddleClicked != null)
             {
-                image.ClickableModule.OnMiddleClicked += OnMiddleClicked;
-                image.ClickableModule.OnMiddleClicked += Rebuild_Callback;
+                card.ClickableModule.OnMiddleClicked += OnMiddleClicked;
+                card.ClickableModule.OnMiddleClicked += Rebuild_Callback;
             }
 
             if (OnRightClicked != null)
             {
-                image.ClickableModule.OnRightClicked += OnRightClicked;
-                image.ClickableModule.OnRightClicked += Rebuild_Callback;
+                card.ClickableModule.OnRightClicked += OnRightClicked;
+                card.ClickableModule.OnRightClicked += Rebuild_Callback;
             }
 
             // If we have already been marked as needing rebuild, we should do it already, otherwise only do it if indicated

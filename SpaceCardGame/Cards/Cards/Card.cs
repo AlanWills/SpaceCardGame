@@ -167,7 +167,7 @@ namespace SpaceCardGame
         /// <param name="size"></param>
         public override void UpdateCollider(ref Vector2 position, ref Vector2 size)
         {
-            if (IsPlaced)
+            if (IsPlaced || !HandAnimationModule.IsAlive)
             {
                 base.UpdateCollider(ref position, ref size);
             }

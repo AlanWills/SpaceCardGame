@@ -55,15 +55,6 @@ namespace SpaceCardGame
         #region Virtual Functions
 
         /// <summary>
-        /// Loads the engine object data
-        /// </summary>
-        /// <returns></returns>
-        protected override GameObjectData LoadGameObjectData()
-        {
-            return AssetManager.GetData<EngineData>(DataAsset);
-        }
-
-        /// <summary>
         /// Loads the engine data and sets up it's stats
         /// </summary>
         public override void LoadContent()

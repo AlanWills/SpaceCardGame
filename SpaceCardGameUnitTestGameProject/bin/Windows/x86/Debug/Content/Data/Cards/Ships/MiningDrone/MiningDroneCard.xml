@@ -1,0 +1,12 @@
+﻿<XnaContent>
+  <Asset Type="SpaceCardGame.CardData">
+    <TextureAsset>Cards\Ships\MiningDrone\MiningDroneCard</TextureAsset>
+    <ObjectDataAsset>Cards\Ships\MiningDrone\MiningDroneObject.xml</ObjectDataAsset>
+    <Type>Ship</Type>
+    <DisplayName>Mining Drone</DisplayName>
+    <Rarity>Common</Rarity>
+    <ResourceCosts>0 1 1 1</ResourceCosts>
+    <CardTypeName>MiningDroneShipCard</CardTypeName>
+    <Price>750</Price>
+  </Asset>
+</XnaContent>

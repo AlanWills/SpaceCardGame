@@ -53,7 +53,7 @@ namespace SpaceCardGame
 
             foreach (Deck deck in Array.FindAll(PlayerDataRegistry.Instance.Decks, x => x.IsCreated))
             {
-                ClickableImage deckUI = AddChild(new ClickableImage(ElementSize * 0.75f, Vector2.Zero, Card.CardBackTextureAsset), true, true);
+                ClickableImage deckUI = AddChild(new ClickableImage(Vector2.Zero, Card.CardBackTextureAsset), true, true);
                 deckUI.StoredObject = deck;
 
                 // A lot of these will be unused but it will avoid bugs down the road if we just do this in case they are used
