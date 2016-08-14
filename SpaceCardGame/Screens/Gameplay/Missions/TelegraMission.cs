@@ -65,7 +65,8 @@ namespace SpaceCardGame
 
             string terranCommanderPortrait = "Portraits\\TerranCommander";
 
-            AddCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue()));
+            AddCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue())).
+                NextCommand(new NewGameCommand());
         }
 
         protected override void OnOpponentDefeated()

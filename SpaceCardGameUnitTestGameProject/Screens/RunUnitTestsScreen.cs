@@ -159,7 +159,7 @@ namespace SpaceCardGameUnitTestGameProject
         /// <param name="baseObject"></param>
         private void RunAllTestsEvent(BaseObject baseObject)
         {
-            RunTestsListControl.ShouldHandleInput.Value = false;
+            RunTestsListControl.ShouldHandleInput = false;
             RunningTestThread = ThreadManager.CreateThread(RunAllTests, FinishedTestingRun);
         }
 
@@ -174,7 +174,7 @@ namespace SpaceCardGameUnitTestGameProject
 
             Debug.Assert(UnitTestsDictionary.TryGetValue(button, out selectedTest));
 
-            RunTestsListControl.ShouldHandleInput.Value = false;
+            RunTestsListControl.ShouldHandleInput = false;
             RunningTestThread = ThreadManager.CreateThread(RunTest, FinishedTestingRun);
         }
 
@@ -204,7 +204,7 @@ namespace SpaceCardGameUnitTestGameProject
         private void FinishedTestingRun()
         {
             RunningTestThread = null;
-            RunTestsListControl.ShouldHandleInput.Value = true;
+            RunTestsListControl.ShouldHandleInput = true;
         }
 
         /// <summary>

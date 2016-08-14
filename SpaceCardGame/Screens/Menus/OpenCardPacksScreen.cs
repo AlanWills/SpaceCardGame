@@ -106,7 +106,7 @@ namespace SpaceCardGame
             PlayerDataRegistry.Instance.PlayerData.CardDataAssets.AddRange(CentralCardRegistry.ConvertToAssetList(cardData));
 
             // Stop our grid control from accepting input
-            PacksGridControl.ShouldHandleInput.Value = false;
+            PacksGridControl.ShouldHandleInput = false;
         }
 
         /// <summary>
@@ -138,7 +138,7 @@ namespace SpaceCardGame
             if (CheckAllCardsFlippedFaceUp())
             {
                 // Allow our grid control to accept input again now that all the cards are face up
-                PacksGridControl.ShouldHandleInput.Value = true;
+                PacksGridControl.ShouldHandleInput = true;
             }
         }
 

@@ -49,7 +49,7 @@ namespace SpaceCardGame
         {
             base.Die();
 
-            BattleScreen.ShouldHandleInput.Value = true;
+            BattleScreen.ShouldHandleInput = true;
             BattleScreen.ProgressTurnButton.ClickableModule.ForceClick();
             BattleScreen.ProgressTurnButton.Show();
         }

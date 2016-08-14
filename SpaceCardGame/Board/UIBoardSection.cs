@@ -1,6 +1,5 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
-using System.Diagnostics;
 
 namespace SpaceCardGame
 {
@@ -40,7 +39,7 @@ namespace SpaceCardGame
             UsesCollider = false;
 
             DeckUI = AddChild(new DeckUI(Player, Vector2.Zero));
-            HandUI = AddChild(new HandUI(Player, new Vector2(Size.X * 0.8f, Size.Y * 0.25f), new Vector2(0, Size.Y * 0.4f)));
+            HandUI = AddChild(new HandUI(Player));
 
             BattleScreen = ScreenManager.Instance.GetCurrentScreenAs<BattleScreen>();
         }

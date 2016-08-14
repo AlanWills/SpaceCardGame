@@ -120,13 +120,14 @@ namespace SpaceCardGame
         }
 
         /// <summary>
-        /// Add our new game command.
+        /// Adds our new game command.
+        /// By setting the previous command on this (by searching in a subclassed screen), you can make it run after other commands (like dialog) have finished
         /// </summary>
         protected override void AddInitialCommands()
         {
             base.AddInitialCommands();
 
-            CommandManager.Instance.AddChild(new NewGameCommand(), true, true);
+            CommandManager.Instance.AddChild(new NewGameCommand());
         }
 
         /// <summary>
@@ -135,7 +136,7 @@ namespace SpaceCardGame
         /// </summary>
         public override void Begin()
         {
-            Board = AddGameObject(new Board(ScreenCentre), true, true);         // TODO rethink this
+            Board = AddGameObject(new Board(), true, true);         // TODO rethink this
 
             base.Begin();
 
@@ -198,8 +199,8 @@ namespace SpaceCardGame
         /// </summary>
         private void OnPlayerDefeated()
         {
-            Board.ShouldHandleInput.Value = false;
-            Board.ShouldUpdate.Value = false;
+            Board.ShouldHandleInput = false;
+            Board.ShouldUpdate = false;
 
             AddScreenUIObject(new PlayerDefeatedUI(), true, true);
         }

@@ -148,16 +148,12 @@ namespace SpaceCardGame
         {
             base.HandleInput(elapsedGameTime, mousePosition);
 
-            //if (!IsPlaced)
-            //{
-            //    CardOutline.Size = HandAnimationModule.DrawingSize;
-            //}
-            //else
-            //{
-            //    // We always do this so that the outline is always inline with the card size after we have placed it.
-            //    // If we have added a turret to a ship for example, the size will be smaller and we do not want to have to explicitly remember to fix up the size
-            //    CardOutline.Size = Size;
-            //}
+            if (IsPlaced)
+            {
+                // We always do this so that the outline is always inline with the card size after we have placed it.
+                // If we have added a turret to a ship for example, the size will be smaller and we do not want to have to explicitly remember to fix up the size
+                CardOutline.Size = Size;
+            }
         }
 
         /// <summary>

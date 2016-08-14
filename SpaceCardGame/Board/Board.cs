@@ -10,7 +10,7 @@ namespace SpaceCardGame
     /// A game object container for the two player game board sections in our game
     /// They perform most of the logic, but this is a nice grouping class to keep things componentised
     /// </summary>
-    public class Board : Image
+    public class Board : UIObject
     {
         /// <summary>
         /// A local reference to the battle screen just for ease
@@ -63,10 +63,9 @@ namespace SpaceCardGame
             }
         }
 
-        public Board(Vector2 localPosition, string backgroundTextureAsset = "Backgrounds\\Background-1") :
-            base(localPosition, backgroundTextureAsset)
+        public Board() :
+            base(ScreenManager.Instance.ScreenDimensions, ScreenManager.Instance.ScreenCentre, AssetManager.DefaultEmptyPanelTextureAsset)
         {
-            Size = ScreenManager.Instance.ScreenDimensions;
             UsesCollider = false;
 
             BattleScreen = ScreenManager.Instance.GetCurrentScreenAs<BattleScreen>();

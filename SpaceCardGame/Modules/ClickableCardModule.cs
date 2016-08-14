@@ -39,7 +39,7 @@ namespace SpaceCardGame
 
             if (Card.Parent is CardObjectPair)
             {
-                ShouldHandleInput.Value = Card.Player == ScreenManager.Instance.GetCurrentScreenAs<BattleScreen>().ActivePlayer;
+                ShouldHandleInput = Card.Player == ScreenManager.Instance.GetCurrentScreenAs<BattleScreen>().ActivePlayer;
             }
         }
 

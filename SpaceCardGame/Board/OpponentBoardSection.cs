@@ -15,7 +15,7 @@ namespace SpaceCardGame
 
             // We should not be able to interact with the opponent's Hand
             // Instead we will use an AI script to add things
-            UIBoardSection.HandUI.ShouldHandleInput.Value = false;
+            UIBoardSection.HandUI.ShouldHandleInput = false;
         }
 
         #region Virtual Functions

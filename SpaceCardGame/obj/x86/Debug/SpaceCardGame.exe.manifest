@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="2DEngine.dll" size="293376">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="2DEngine.dll" size="292864">
       <assemblyIdentity name="2DEngine" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8YWyomER0rBzW5yqG4T1L1aciA4O2swQqWpBEH/qJlc=</dsig:DigestValue>
+        <dsig:DigestValue>lDkmzqLqPKCz6E/Ec5kF/np4s7p7e7a75kCFCW1Sy78=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -235,14 +235,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="310168">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="309656">
       <assemblyIdentity name="SpaceCardGame" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>y4jyH5faqhlluf4nrYerbWvHVdPd8/f/1v6fJGCn5f8=</dsig:DigestValue>
+        <dsig:DigestValue>2dTo2aGxNGaBHSFu3Hga8ZSx2d//EbusviEoMVQxRT4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1176,76 +1176,76 @@
       <dsig:DigestValue>zPTs13+PvQGq5k9hx3er4rA6jhF0ODNPZPUYFc+o+2U=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Screens\Missions\Mission1 - Terra.xml" size="572" writeableType="applicationData">
+  <file name="Content\Data\Screens\Missions\Mission1 - Terra.xml" size="620" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>JQC7FLXJi7Yo7ID7f2MFGEwg5k2eic8uDsz0gL1rt5k=</dsig:DigestValue>
+      <dsig:DigestValue>N1d+jc8p9YBOXnTbR9AcC64E0wqmV69/0e8J+Cxgizw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Screens\Missions\Mission2 - Anthea.xml" size="572" writeableType="applicationData">
+  <file name="Content\Data\Screens\Missions\Mission2 - Anthea.xml" size="620" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>9nJP8keOHtGWb/vk+yrwAnj+YMaE/Ak2petoa8Ia6HU=</dsig:DigestValue>
+      <dsig:DigestValue>j7WohRHJrQ+dngSg1XdDyN9LWec/qyVk498SOIv9rtM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Screens\Missions\Mission3 - Telegra.xml" size="572" writeableType="applicationData">
+  <file name="Content\Data\Screens\Missions\Mission3 - Telegra.xml" size="620" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>5I5LhjkrJiEJInKCjwXSfoGG5nYKIFmhZMntRy22W34=</dsig:DigestValue>
+      <dsig:DigestValue>ysGQ1yhIoxCjDY7oN8pAyUrxxGd8NAlYGthiyoyTLy8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Screens\Missions\Mission4  - Elektrin.xml" size="572" writeableType="applicationData">
+  <file name="Content\Data\Screens\Missions\Mission4  - Elektrin.xml" size="620" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Gs9SxjongkQj1hoeH7pAsGFd3v+RggwkE1y0WhqZdmk=</dsig:DigestValue>
+      <dsig:DigestValue>sG0lMSkeLLWGAjQ3ja32kdlGQZ7+xnDxA06XyiPAXf0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Screens\Missions\Mission5 - Freiza.xml" size="572" writeableType="applicationData">
+  <file name="Content\Data\Screens\Missions\Mission5 - Freiza.xml" size="620" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>oP6hXGqtJNgkR1aBJs5g6NguItk0ULeggjgchd00f98=</dsig:DigestValue>
+      <dsig:DigestValue>TRfQGTeOurfQ6FhCUzmQDNYRkc7Yb1DYaoHqH+nClFE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Screens\Missions\Mission6 - Ranbron.xml" size="572" writeableType="applicationData">
+  <file name="Content\Data\Screens\Missions\Mission6 - Ranbron.xml" size="620" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>kdxHCXafJZqrXJvXlGnrya4ijzp+oqfpM/mCJ9pJh0I=</dsig:DigestValue>
+      <dsig:DigestValue>8o7fR1FBQ95yiBIl7TEdmIuYIjBiYpO6zNrZ69f0v+Y=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Screens\Missions\Mission7 - Zion.xml" size="572" writeableType="applicationData">
+  <file name="Content\Data\Screens\Missions\Mission7 - Zion.xml" size="620" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Fma7FiZ3AFbCyUB6B2vAOfKfsrbu94j+Y/LIRi3O2Tg=</dsig:DigestValue>
+      <dsig:DigestValue>+lmx297pGpvCjqJOGCPDEMDXakrt698djuBj5CvX4tk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Screens\Missions\Mission8 - Pyron.xml" size="572" writeableType="applicationData">
+  <file name="Content\Data\Screens\Missions\Mission8 - Pyron.xml" size="620" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>8VXTNw+ao4Wn3VtSFT56eOYweyfxkV4skyv3QrKHSsM=</dsig:DigestValue>
+      <dsig:DigestValue>l5ahTLU9opNKjXCHSMgSRQhK7QFwe5gD1RWtaOwqQyU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Screens\OpenCardPacksScreen.xml" size="255" writeableType="applicationData">

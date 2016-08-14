@@ -47,7 +47,7 @@ namespace SpaceCardGame
 
             base.LoadContent();
         }
-        
+
         /// <summary>
         /// Disables the UI for activating our ability if we do not have enough fuel to use it
         /// </summary>
@@ -105,19 +105,18 @@ namespace SpaceCardGame
         {
             if (canUseAbility)
             {
-                // It may not be the owner of the cards go, in which case we do not want to be able to use the ability anyway
-                // The module will do that validation, but we only want it to be clickable if we can use it and it is our go
-                // we still want the colour if we can use it - even if it is not our card
-                ClickableModule.ShouldHandleInput.Value &= true;
+                // Enable the clickable module and update the card to show this is now valid
+                ClickableModule.ShouldHandleInput = true;
                 CardObjectPair.Colour.Value = Color.Green;
             }
             else
             {
-                ClickableModule.ShouldHandleInput.Value = false;
+                // Disable the clickable module and update the card to show this is now invalid
+                ClickableModule.ShouldHandleInput = false;
                 CardObjectPair.Colour.Value = Color.White;
             }
         }
-
-        #endregion
     }
+
+    #endregion
 }

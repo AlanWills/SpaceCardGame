@@ -45,11 +45,11 @@ namespace SpaceCardGame
         /// </summary>
         public override void Begin()
         {
-            // Add this in Begin so it gets drawn on top of this UI rather than behind it
-            Label chooseDeckLabel = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new Label("Choose Deck", WorldPosition + new Vector2(0, -Size.Y * 0.5f + BorderPadding.Y)), true, true);
-            chooseDeckLabel.Colour.Value = Color.White;
-            chooseDeckLabel.Size *= 1.5f;
-            chooseDeckLabel.IsAlive.Connect(IsAlive);       // Make sure that when this text box dies, the label dies too
+            //// Add this in Begin so it gets drawn on top of this UI rather than behind it
+            //Label chooseDeckLabel = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new Label("Choose Deck", WorldPosition + new Vector2(0, -Size.Y * 0.5f + BorderPadding.Y)), true, true);
+            //chooseDeckLabel.Colour.Value = Color.White;
+            //chooseDeckLabel.Size *= 1.5f;
+            //chooseDeckLabel.IsAlive.Connect(IsAlive);       // Make sure that when this text box dies, the label dies too
 
             foreach (Deck deck in Array.FindAll(PlayerDataRegistry.Instance.Decks, x => x.IsCreated))
             {

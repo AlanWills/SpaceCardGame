@@ -79,7 +79,8 @@ namespace SpaceCardGame
 
             AddCommand(new CharacterDialogBoxCommand(computerAIPortrait, Dialog.Dequeue())).
                 NextCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue())).
-                NextCommand(new CharacterDialogBoxCommand(computerAIPortrait, Dialog.Dequeue()));
+                NextCommand(new CharacterDialogBoxCommand(computerAIPortrait, Dialog.Dequeue())).
+                NextCommand(new NewGameCommand());
         }
 
         protected override void OnOpponentDefeated()

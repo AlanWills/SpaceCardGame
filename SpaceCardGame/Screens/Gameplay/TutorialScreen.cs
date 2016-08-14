@@ -299,7 +299,7 @@ namespace SpaceCardGame
         {
             base.Begin();
 
-            Board.PlayerBoardSection.UIBoardSection.ShouldHandleInput.Value = false;
+            Board.PlayerBoardSection.UIBoardSection.ShouldHandleInput = false;
         }
 
         #endregion
@@ -352,7 +352,7 @@ namespace SpaceCardGame
         /// </summary>
         private void ActivateUI()
         {
-            Board.PlayerBoardSection.UIBoardSection.ShouldHandleInput.Value = true;
+            Board.PlayerBoardSection.UIBoardSection.ShouldHandleInput = true;
         }
 
         /// <summary>

@@ -84,7 +84,8 @@ namespace SpaceCardGame
                 NextCommand(new CharacterDialogBoxCommand(pirateCommanderPortrait, Dialog.Dequeue())).
                 NextCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue())).
                 NextCommand(new CharacterDialogBoxCommand(pirateCommanderPortrait, Dialog.Dequeue())).
-                NextCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue()));
+                NextCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue())).
+                NextCommand(new NewGameCommand());
         }
 
         protected override void OnOpponentDefeated()

@@ -46,6 +46,14 @@ namespace SpaceCardGame
         }
 
         /// <summary>
+        /// Do not call through to the base class because it will add the NewGameCommand before we are ready.
+        /// </summary>
+        protected override void AddInitialCommands()
+        {
+            
+        }
+
+        /// <summary>
         /// Update the player's data so that we record they have completed this mission
         /// </summary>
         protected override void OnOpponentDefeated()

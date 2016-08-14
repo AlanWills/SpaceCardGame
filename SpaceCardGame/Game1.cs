@@ -76,8 +76,8 @@ namespace SpaceCardGame
 
             ScreenManager screenManager = ScreenManager.Instance;
 
-            if (screenManager.ShouldHandleInput.Value) { screenManager.HandleInput(elapsedGameTime, GameMouse.Instance.WorldPosition); }
-            if (screenManager.ShouldUpdate.Value) { screenManager.Update(elapsedGameTime); }
+            if (screenManager.ShouldHandleInput) { screenManager.HandleInput(elapsedGameTime, GameMouse.Instance.WorldPosition); }
+            if (screenManager.ShouldUpdate) { screenManager.Update(elapsedGameTime); }
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace SpaceCardGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         { 
-            if (ScreenManager.Instance.ShouldDraw.Value) { ScreenManager.Instance.Draw(spriteBatch); }
+            if (ScreenManager.Instance.ShouldDraw) { ScreenManager.Instance.Draw(spriteBatch); }
 
             base.Draw(gameTime);
         }

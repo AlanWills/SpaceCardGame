@@ -18,15 +18,17 @@ namespace SpaceCardGame
 
         #endregion
 
-        public HandUI(Player player, Vector2 size, Vector2 localPosition, string backgroundTextureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
-            base(player.MaxHandSize, size, localPosition, backgroundTextureAsset)
+        public HandUI(Player player, string backgroundTextureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
+            base(player.MaxHandSize, 
+                new Vector2(ScreenManager.Instance.ScreenDimensions.X, ScreenManager.Instance.ScreenDimensions.Y * 0.25f), 
+                new Vector2(0, ScreenManager.Instance.ScreenDimensions.Y * 0.25f), 
+                backgroundTextureAsset)
         {
             Player = player;
             Player.OnCardAddedToHand += AddPlayerHandCardUI;
 
             // Don't want any cut off on this UI
             UseScissorRectangle = false;
-            BorderPadding = Vector2.Zero;       // No border padding for the HandUI
             ScrollingEnabled = false;
         }
 

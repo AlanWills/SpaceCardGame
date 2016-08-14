@@ -51,7 +51,8 @@ namespace SpaceCardGame
 
             AddCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue())).
                 NextCommand(new CharacterDialogBoxCommand(kthanCommanderPortrait, Dialog.Dequeue())).
-                NextCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue()));
+                NextCommand(new CharacterDialogBoxCommand(terranCommanderPortrait, Dialog.Dequeue())).
+                NextCommand(new NewGameCommand());
         }
 
         #endregion
