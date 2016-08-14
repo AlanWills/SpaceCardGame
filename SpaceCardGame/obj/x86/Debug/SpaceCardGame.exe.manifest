@@ -235,14 +235,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="309656">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="310168">
       <assemblyIdentity name="SpaceCardGame" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>vqEmwMI0z0D11ff/UtrC7UOK64nXEElDZY1ynaNZF+o=</dsig:DigestValue>
+        <dsig:DigestValue>y4jyH5faqhlluf4nrYerbWvHVdPd8/f/1v6fJGCn5f8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1158,13 +1158,13 @@
       <dsig:DigestValue>4CvkLYx1RuwN9M6znEsukpctaZkW1QrMcKIQGcsGB2w=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Screens\LobbyMenuScreen.xml" size="255" writeableType="applicationData">
+  <file name="Content\Data\Screens\LobbyMenuScreen.xml" size="303" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>LkyKBXXpouloRQ8XyTmx8keP2CPjKVFar+2jLOqdERM=</dsig:DigestValue>
+      <dsig:DigestValue>zPTs13+PvQGq5k9hx3er4rA6jhF0ODNPZPUYFc+o+2U=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Screens\MainMenuScreen.xml" size="303" writeableType="applicationData">

@@ -16,6 +16,11 @@ namespace SpaceCardGame
         /// </summary>
         private Asteroid[] Asteroids { get; set; }
 
+        /// <summary>
+        /// The area that our asteroids will be bounded to
+        /// </summary>
+        private Vector2 Region { get; set; }
+
         private const int asteroidDensity = 5;
         private const string backgroundDataAsset = "GameObjects\\SpaceBackground.xml";
 
@@ -25,7 +30,7 @@ namespace SpaceCardGame
         /// <param name="baseScreen"></param>
         public SpaceBackgroundModule(BaseScreen baseScreen)
         {
-
+            Region = ScreenManager.Instance.ScreenDimensions;
         }
 
         #region Virtual Functions
@@ -53,8 +58,8 @@ namespace SpaceCardGame
             {
                 for (int i = 0; i < asteroidDensity; ++i)
                 {
-                    float xPos = MathUtils.GenerateFloat(-size.X * 0.5f, size.X * 0.4f);
-                    float yPos = MathUtils.GenerateFloat(-size.Y * 0.5f, size.Y * 0.5f);
+                    float xPos = MathUtils.GenerateFloat(-Region.X * 0.1f, Region.X * 0.9f);
+                    float yPos = MathUtils.GenerateFloat(0, Region.Y);
 
                     // Make sure this is all rendered at the back by doing add game object
                     Asteroids[asteroidTypeIndex * asteroidDensity + i] = screen.AddGameObject(new Asteroid(new Vector2(xPos, yPos), asteroidTextureAsset), true);
@@ -79,12 +84,12 @@ namespace SpaceCardGame
 
             foreach (Asteroid asteroid in Asteroids)
             {
-                if (asteroid.LocalPosition.X > (size.X + asteroid.Size.X) * 0.5f)
+                if (asteroid.LocalPosition.X > Region.X + asteroid.Size.X * 0.5f)
                 {
-                    float yPos = MathUtils.GenerateFloat(-size.Y * 0.5f, size.Y * 0.5f);
+                    float yPos = MathUtils.GenerateFloat(0, Region.Y);
                     float speed = MathUtils.GenerateFloat(1, 20);
 
-                    asteroid.LocalPosition = new Vector2(-asteroid.LocalPosition.X, yPos);
+                    asteroid.LocalPosition = new Vector2(-Region.X * 0.1f, yPos);
                     asteroid.RigidBody.LinearVelocity = new Vector2(speed, 0);
                 }
             }

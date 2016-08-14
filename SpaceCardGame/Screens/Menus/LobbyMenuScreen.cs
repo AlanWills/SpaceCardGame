@@ -12,7 +12,7 @@ namespace SpaceCardGame
         public LobbyMenuScreen(string screenDataAsset = "Screens\\LobbyMenuScreen.xml") :
             base(screenDataAsset)
         {
-
+            AddModule(new SpaceBackgroundModule(this));
         }
 
         #region Properties and Fields
