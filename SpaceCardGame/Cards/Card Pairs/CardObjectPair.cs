@@ -52,7 +52,7 @@ namespace SpaceCardGame
         /// Some cards need to wait one turn before they can be interacted with (i.e. ships need to wait a turn before they can attack).
         /// This bool property indicates whether this condition has been satisfied.
         /// </summary>
-        public Property<bool> IsReady { get; protected set; }
+        public bool IsReady { get; protected set; }
 
         /// <summary>
         /// A flag to indicate whether we should create a hover info module.
@@ -88,8 +88,6 @@ namespace SpaceCardGame
 
             UsesCollider = false;
             AddHoverInfoModule = true;
-
-            IsReady = new Property<bool>(false);
         }
 
         #region Virtual Functions
@@ -167,7 +165,7 @@ namespace SpaceCardGame
         /// </summary>
         public virtual void OnTurnEnd()
         {
-            IsReady.Value = true;
+            IsReady = true;
 
             foreach (BaseObject child in Children)
             {
