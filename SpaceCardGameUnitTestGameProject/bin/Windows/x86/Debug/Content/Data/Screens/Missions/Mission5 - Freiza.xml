@@ -1,6 +1,6 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.MissionScreenData">
-    <BackgroundTextureAsset/>
+    <BackgroundTextureAsset>Backgrounds\Background-1</BackgroundTextureAsset>
     <Music>
       <Item>Gameplay\AllForNothing</Item>
       <Item>Gameplay\AngularMomentum</Item>
