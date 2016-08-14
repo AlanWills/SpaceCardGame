@@ -107,13 +107,13 @@ namespace SpaceCardGame
             {
                 // Enable the clickable module and update the card to show this is now valid
                 ClickableModule.ShouldHandleInput = true;
-                CardObjectPair.Colour.Value = Color.Green;
+                CardObjectPair.Colour = Color.Green;
             }
             else
             {
                 // Disable the clickable module and update the card to show this is now invalid
                 ClickableModule.ShouldHandleInput = false;
-                CardObjectPair.Colour.Value = Color.White;
+                CardObjectPair.Colour = Color.White;
             }
         }
     }

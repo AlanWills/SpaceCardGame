@@ -25,7 +25,7 @@ namespace SpaceCardGame
             CheckShouldLoad();
 
             Label title = AddChild(new Label("Defeat", Anchor.kTopCentre, -1));
-            title.Colour.Value = Color.White;
+            title.Colour = Color.White;
 
             Button replayMissionButton = AddChild(new Button("Replay Mission", Vector2.Zero, AssetManager.DefaultNarrowButtonTextureAsset, AssetManager.DefaultNarrowButtonHighlightedTextureAsset));
             replayMissionButton.ClickableModule.OnLeftClicked += ReplayMission;

@@ -46,11 +46,11 @@ namespace SpaceCardGame
             CheckShouldLoad();
 
             CurrentShieldStrength = AddChild(new ImageAndLabel("", new Vector2(-Size.X * 0.5f, Size.Y * 0.5f), "UI\\CardStatThumbnails\\DefenceThumbnail"));
-            CurrentShieldStrength.Colour.Value = Color.LightGreen;
+            CurrentShieldStrength.Colour = Color.LightGreen;
             CurrentShieldStrength.Label.Size = textSize;
 
             CurrentRechargeRate = AddChild(new ImageAndLabel("", Size * 0.5f, "UI\\CardStatThumbnails\\ShieldRechargeThumbnail"));
-            CurrentRechargeRate.Colour.Value = Color.Red;
+            CurrentRechargeRate.Colour = Color.Red;
             CurrentRechargeRate.Label.Size = textSize;
 
             base.LoadContent();

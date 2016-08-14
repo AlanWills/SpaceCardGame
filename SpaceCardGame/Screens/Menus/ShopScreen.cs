@@ -59,10 +59,10 @@ namespace SpaceCardGame
             base.AddInitialUI();
 
             Label title = AddScreenUIObject(new Label("Shop", new Vector2(ScreenCentre.X, ScreenDimensions.Y * 0.1f)));
-            title.Colour.Value = Color.Green;
+            title.Colour = Color.Green;
 
             Money = AddScreenUIObject(new ImageAndLabel(PlayerDataRegistry.Instance.PlayerData.CurrentMoney.ToString(), new Vector2(ScreenCentre.X, ScreenDimensions.Y * 0.9f), "UI\\MoneyIcon"));
-            Money.Colour.Value = Color.Black;
+            Money.Colour = Color.Black;
 
             BuyPackButton = AddScreenUIObject(new Button("Click to Buy Packs (" + packPrice.ToString() + ")", new Vector2(ScreenDimensions.X * 0.1f, ScreenCentre.Y), Card.CardBackTextureAsset, Card.CardBackTextureAsset));
             BuyPackButton.AddModule(new ToolTipModule("Contains 5 cards, one of which is at least rare."));
@@ -126,12 +126,12 @@ namespace SpaceCardGame
                     // If card price is greater than money, turn it grey and disable the click module so we cannot buy it
                     if (card.CardData.Price > PlayerMoney)
                     {
-                        card.Colour.Value = Color.Red;
+                        card.Colour = Color.Red;
                         card.ClickableModule.Hide();        // This will disable the clicking
                     }
                     else
                     {
-                        card.Colour.Value = Color.White;
+                        card.Colour = Color.White;
                         card.ClickableModule.Show();        // Enable the card for clicking
                     }
                 }

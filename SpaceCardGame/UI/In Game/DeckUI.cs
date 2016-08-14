@@ -51,7 +51,7 @@ namespace SpaceCardGame
             CheckShouldLoad();
 
             DeckCountLabel = AddChild(new Label(cardsLeftString + Player.CardsLeftInDeck.ToString(), Vector2.Zero));
-            DeckCountLabel.Colour.Value = Color.White;
+            DeckCountLabel.Colour = Color.White;
             DeckCountLabel.Hide();
 
             base.LoadContent();

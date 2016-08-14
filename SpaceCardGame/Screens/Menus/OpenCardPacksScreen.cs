@@ -128,11 +128,11 @@ namespace SpaceCardGame
             if (!(bool)card.StoredObject)
             {
                 Image newCardIndicator = card.AddChild(new Image(new Vector2(32, 32), new Vector2(card.Size.X, -card.Size.Y) * 0.5f, "UI\\NewCardIndicator"), true, true);
-                newCardIndicator.Colour.Value = Color.Gold;
+                newCardIndicator.Colour = Color.Gold;
 
                 // Add a tooltip to the card explaining that it is new
                 ToolTipModule toolTipModule = card.AddModule(new ToolTipModule("A new card!"), true, true);
-                toolTipModule.ToolTip.Colour.Value = Color.Red;
+                toolTipModule.ToolTip.Colour = Color.Red;
             }
 
             if (CheckAllCardsFlippedFaceUp())

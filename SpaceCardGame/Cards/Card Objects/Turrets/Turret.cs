@@ -116,7 +116,7 @@ namespace SpaceCardGame
         {
             base.Update(elapsedGameTime);
 
-            Parent.Colour.Value = CanFire ? Color.Green : Color.Red;
+            Parent.Colour = CanFire ? Color.Green : Color.Red;
         }
 
         /// <summary>

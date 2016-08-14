@@ -212,7 +212,7 @@ namespace SpaceCardGame
                     TextureCentre,
                     WorldRotation,
                     Vector2.Divide(Size, new Vector2(CardBackTexture.Width, CardBackTexture.Height)),
-                    Colour.Value * Opacity,
+                    Colour * Opacity,
                     SpriteEffect,
                     0);
             }

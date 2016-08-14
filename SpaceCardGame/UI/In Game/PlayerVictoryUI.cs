@@ -72,9 +72,9 @@ namespace SpaceCardGame
             // Money earnt
             Image moneyImage = AddChild(new Image(Vector2.Zero, "UI\\MoneyIcon"));
             Label moneyEarntExplanation = moneyImage.AddChild(new Label("Money Earnt", Anchor.kTopCentre, 4));
-            moneyEarntExplanation.Colour.Value = Color.White;
+            moneyEarntExplanation.Colour = Color.White;
             Label moneyEarntValue = moneyImage.AddChild(new Label(RewardData.Money.ToString(), Anchor.kBottomCentre, 4));
-            moneyEarntValue.Colour.Value = Color.White;
+            moneyEarntValue.Colour = Color.White;
             RewardUI.Add(moneyImage);
 
             // Cards earnt
@@ -83,18 +83,18 @@ namespace SpaceCardGame
                 CardData cardData = AssetManager.GetData<CardData>("Cards\\" + cardDataAsset);
                 Image cardImage = AddChild(new Image(Vector2.Zero, cardData.TextureAsset));
                 Label cardWonExplanation = cardImage.AddChild(new Label("Card Won", Anchor.kTopCentre, 2));
-                cardWonExplanation.Colour.Value = Color.White;
+                cardWonExplanation.Colour = Color.White;
                 Label cardWonName = cardImage.AddChild(new Label(cardData.DisplayName, Anchor.kBottomCentre, 2));
-                cardWonName.Colour.Value = Color.White;
+                cardWonName.Colour = Color.White;
                 RewardUI.Add(cardImage);
             }
 
             // Packs won
             Image packsWonImage = AddChild(new Image(Vector2.Zero, Card.CardBackTextureAsset));
             Label packsWonExplanation = packsWonImage.AddChild(new Label("Packs Won", Anchor.kTopCentre, 2));
-            packsWonExplanation.Colour.Value = Color.White;
+            packsWonExplanation.Colour = Color.White;
             Label packsWonValue = packsWonImage.AddChild(new Label(RewardData.CardPacks.ToString(), Anchor.kBottomCentre, 2));
-            packsWonValue.Colour.Value = Color.White;
+            packsWonValue.Colour = Color.White;
             RewardUI.Add(packsWonImage);
 
             // We have set the current UI to be 0, so make sure the UI is updated to reflect this

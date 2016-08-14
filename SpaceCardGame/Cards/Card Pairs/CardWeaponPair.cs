@@ -88,7 +88,7 @@ namespace SpaceCardGame
         {
             base.OnTurnBegin();
 
-            Colour.Value = Color.White;
+            Colour = Color.White;
 
             LocalPosition = new Vector2((CardShipPair.Card.Size.X + WeaponCard.Size.X) * 0.5f, (3 * WeaponCard.Size.Y - CardShipPair.Card.Size.Y) * 0.5f);
         }

@@ -46,11 +46,11 @@ namespace SpaceCardGame
             CheckShouldLoad();
 
             CurrentDamage = AddChild(new ImageAndLabel("", new Vector2(-Size.X * 0.5f, Size.Y * 0.5f), "UI\\CardStatThumbnails\\DamageThumbnail"));
-            CurrentDamage.Colour.Value = Color.Red;
+            CurrentDamage.Colour = Color.Red;
             CurrentDamage.Label.Size = textSize;
 
             CurrentShotsLeft = AddChild(new ImageAndLabel("", Size * 0.5f, "UI\\CardStatThumbnails\\ShotsLeftThumbnail"));
-            CurrentShotsLeft.Colour.Value = Color.LightGray;
+            CurrentShotsLeft.Colour = Color.LightGray;
             CurrentShotsLeft.Label.Size = textSize;
 
             base.LoadContent();

@@ -31,6 +31,24 @@ namespace SpaceCardGame
         public GameObject CardObject { get; protected set; }
 
         /// <summary>
+        /// Set the colour of the Card and CardObject when we set the colour of this
+        /// </summary>
+        public override Color Colour
+        {
+            get
+            {
+                return base.Colour;
+            }
+
+            set
+            {
+                base.Colour = value;
+                Card.Colour = value;
+                CardObject.Colour = value;
+            }
+        }
+
+        /// <summary>
         /// Some cards need to wait one turn before they can be interacted with (i.e. ships need to wait a turn before they can attack).
         /// This bool property indicates whether this condition has been satisfied.
         /// </summary>
@@ -90,21 +108,6 @@ namespace SpaceCardGame
             }
 
             base.LoadContent();
-        }
-
-        /// <summary>
-        /// Just checks we have set up references correctly and sets the active object to the card
-        /// </summary>
-        public override void Begin()
-        {
-            base.Begin();
-
-            // We should have set these references by now
-            DebugUtils.AssertNotNull(Card);
-            DebugUtils.AssertNotNull(CardObject);
-
-            Card.Colour.Connect(Colour);
-            CardObject.Colour.Connect(Colour);
         }
 
         /// <summary>

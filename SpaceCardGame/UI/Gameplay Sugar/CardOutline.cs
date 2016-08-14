@@ -44,7 +44,7 @@ namespace SpaceCardGame
         {
             base.Update(elapsedGameTime);
 
-            Colour.Value = Valid ? Color.Green : Color.Gray;
+            Colour = Valid ? Color.Green : Color.Gray;
         }
 
         #endregion

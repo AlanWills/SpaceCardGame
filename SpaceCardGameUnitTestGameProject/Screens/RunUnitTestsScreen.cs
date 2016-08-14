@@ -214,7 +214,7 @@ namespace SpaceCardGameUnitTestGameProject
         private void LogInfo(string text)
         {
             Label resultLabel = OutputLog.AddChild(new Label(text, Vector2.Zero), true, true);
-            resultLabel.Colour.Value = Color.White;
+            resultLabel.Colour = Color.White;
         }
 
         /// <summary>

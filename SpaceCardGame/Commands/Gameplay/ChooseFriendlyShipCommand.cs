@@ -45,7 +45,7 @@ namespace SpaceCardGame
                 Die();
             }
 
-            SelectingLine.Colour.Value = Color.Green;
+            SelectingLine.Colour = Color.Green;
         }
 
         /// <summary>
