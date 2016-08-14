@@ -72,6 +72,8 @@ namespace SpaceCardGame
         {
             Player = new Player(playerChosenDeck);
             Opponent = new Player(opponentChosenDeck);
+
+            AddModule(new SpaceBackgroundModule(this));
         }
 
         #region Virtual Functions

@@ -4,6 +4,9 @@ using SpaceCardGameData;
 
 namespace SpaceCardGame
 {
+    /// <summary>
+    /// Fires a missile which tracks it's target
+    /// </summary>
     public class Missile : Projectile
     {
         #region Properties and Fields
@@ -52,6 +55,9 @@ namespace SpaceCardGame
         public override void Update(float elapsedGameTime)
         {
             base.Update(elapsedGameTime);
+
+            // The missile may have been killed by a lifetime module already so we should not progress any further with it's updating
+            if (!IsAlive) { return; }
 
             if (!finishedJutting)
             {

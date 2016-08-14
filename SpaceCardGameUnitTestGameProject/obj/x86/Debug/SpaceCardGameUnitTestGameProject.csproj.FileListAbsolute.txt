@@ -165,7 +165,6 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameU
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretObject.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\GameObjects\Animations\EngineBlaze.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\GameObjects\Animations\Smoke.xml
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\GameObjects\Board.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\HardpointScreen.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\Cards\Shields\PhaseEnergyShield\PhaseEnergyShield.png
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\Cards\Ships\EagleFrigate\EagleFrigate.png
@@ -528,3 +527,7 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameU
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\UI\ButtonHighlighted.xnb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\UI\ButtonHighlighted_.png
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\UI\Button_.png
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\Backgrounds\Background-1.jpg
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\Backgrounds\Background-2.jpg
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\Backgrounds\Background-3.jpg
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\GameObjects\SpaceBackground.xml

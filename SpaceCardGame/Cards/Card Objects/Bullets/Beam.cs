@@ -17,12 +17,12 @@ namespace SpaceCardGame
 
         #endregion
 
-        public Beam(GameObject target, Vector2 worldPosition, ProjectileData projectileData) :
-            base(target, worldPosition, projectileData)
+        public Beam(GameObject target, Vector2 beamOrigin, ProjectileData projectileData) :
+            base(target, beamOrigin, projectileData)
         {
             Opacity = 0;
-            Size = new Vector2(5, (target.WorldPosition - worldPosition).Length());
-            LocalPosition = (target.WorldPosition + worldPosition) * 0.5f;
+            Size = new Vector2(5, (target.WorldPosition - beamOrigin).Length());
+            LocalPosition = (target.WorldPosition + beamOrigin) * 0.5f;
         }
 
         #region Virtual Functions

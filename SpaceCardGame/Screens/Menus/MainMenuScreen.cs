@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
 using System;
-using System.IO;
 
 namespace SpaceCardGame
 {
@@ -11,13 +10,16 @@ namespace SpaceCardGame
         private const float shipSpawnTime = 2;
         private float currentShipSpawnTimer = shipSpawnTime;
 
-        private const float missileSpawnTime = 0.5f;
-        private float currentMissileSpawnTime = missileSpawnTime;
+        private const float bulletSpawnTime = 0.2f;
+        private float currentBulletSpawnTime;
+
+        private const int missileSpawnCounter = 5;
+        private float currentMissileSpawnCounter = missileSpawnCounter;
 
         public MainMenuScreen(string screenDataAsset = "Screens\\MainMenuScreen.xml") :
             base(screenDataAsset)
         {
-
+            AddModule(new SpaceBackgroundModule(this));
         }
 
         #region Virtual Functions
@@ -77,11 +79,12 @@ namespace SpaceCardGame
                 SpawnSmallShip();
             }
 
-            currentMissileSpawnTime += elapsedGameTime;
-            if (currentMissileSpawnTime > missileSpawnTime)
+            currentBulletSpawnTime += elapsedGameTime;
+            // Firing missiles is done in FireAtSmallShips so we don't have to loop over objects multiple times
+            if (currentBulletSpawnTime > bulletSpawnTime)
             {
-                currentMissileSpawnTime = 0;
-                FireAtSmallShips();
+                currentBulletSpawnTime = 0;
+                Fire();
             }
         }
 
@@ -91,36 +94,55 @@ namespace SpaceCardGame
 
         private void AddShips()
         {
-            GameObject eagleFrigate = AddGameObject(new GameObject(new Vector2(ScreenDimensions.X * 0.25f, ScreenDimensions.Y * 0.75f), "Cards\\Ships\\EagleFrigate\\EagleFrigateObject.xml"), true, true);
+            GameObject eagleFrigate = AddGameObject(new GameObject(new Vector2(ScreenDimensions.X * 0.35f, ScreenDimensions.Y * 0.35f), "Cards\\Ships\\EagleFrigate\\EagleFrigateObject.xml"), true, true);
             eagleFrigate.Name = "Eagle Frigate";
+            eagleFrigate.LocalRotation = MathHelper.PiOver2;
             float maxDimension = Math.Max(eagleFrigate.Size.X, eagleFrigate.Size.Y);
 
             Image eagleShield = eagleFrigate.AddChild(new Image(new Vector2(1.75f * maxDimension), Vector2.Zero, "Cards\\Shields\\PhaseEnergyShield\\PhaseEnergyShield"), true, true);
+
+            GameObject pirateRaider = AddGameObject(new GameObject(new Vector2(ScreenDimensions.X * 0.25f, ScreenDimensions.Y * 0.85f), "Cards\\Ships\\PirateRaider\\PirateRaiderObject.xml"), true, true);
+            pirateRaider.Name = "Pirate Raider";
         }
 
         private void SpawnSmallShip()
         { 
-            GameObject smallShip = AddGameObject(new GameObject(new Vector2(ScreenCentre.X, -100), "Cards\\Ships\\BlazeInterceptor\\BlazeInterceptorObject.xml"), true, true);
-            smallShip.LocalRotation = MathHelper.Pi;
+            GameObject smallShip = AddGameObject(new GameObject(new Vector2(-100, ScreenDimensions.Y * 0.1f), "Cards\\Ships\\BlazeInterceptor\\BlazeInterceptorObject.xml"), true, true);
+            smallShip.LocalRotation = MathHelper.PiOver2;
             smallShip.Name = "Target";
-            smallShip.AddModule(new MoveToDestinationModule(new Vector2(ScreenCentre.X, ScreenDimensions.Y + 30), 375), true, true);
+            smallShip.AddModule(new MoveToDestinationModule(new Vector2(ScreenDimensions.X + 100, ScreenDimensions.Y * 0.1f), 600), true, true);
+            smallShip.AddModule(new LifeTimeModule(3.5f), true, true);
         }
 
-        // Change this so it doesn't fire missiles, but instead fires gatling bullets in a straight line - one bullet for each ship
-        // Use the RigidBodyModule
-        // Also, add the Board background onto the main menu screen - not sure how we add the background per-se but it's awesome - Screen Module?  YES TRY IT
-
-        private void FireAtSmallShips()
+        /// <summary>
+        /// Called when we should fire bullets.
+        /// We also fire missiles after we have called this missileSpawnCounter number of times.
+        /// This function takes care of maintaining the missile counter.
+        /// </summary>
+        private void Fire()
         {
             GameObject eagleFrigate = FindGameObject<GameObject>(x => x.Name == "Eagle Frigate");
             DebugUtils.AssertNotNull(eagleFrigate);
 
-            foreach (GameObject gameObject in GameObjects)
+            // Fire at the latest small ship we have added - one should always exist so don't bother checking the result of LastChild
+            Projectile projectile = AddGameObject(new Bullet(GameObjects.LastChild<GameObject>(x => x.Name == "Target"), eagleFrigate.WorldPosition, AssetManager.GetData<ProjectileData>("Cards\\Weapons\\Kinetic\\GatlingLaserTurret\\GatlingLaserTurretBullet.xml")), true, true);
+            projectile.AddModule(new LifeTimeModule(1), true, true);
+
+            GameObject pirateRaider = FindGameObject<GameObject>(x => x.Name == "Pirate Raider");
+            DebugUtils.AssertNotNull(pirateRaider);
+
+            currentMissileSpawnCounter++;
+
+            // See if we have reached the number of spawn calls to fire missiles
+            if (currentMissileSpawnCounter >= missileSpawnCounter)
             {
-                if (gameObject.Name == "Target")
-                {
-                    Missile missile = AddGameObject(new Missile(gameObject, eagleFrigate.WorldPosition, AssetManager.GetData<ProjectileData>("Cards\\Weapons\\Missile\\VulcanMissileTurret\\VulcanMissileTurretBullet.xml")), true, true);
-                }
+                Projectile missile = AddGameObject(new Missile(pirateRaider, eagleFrigate.WorldPosition, AssetManager.GetData<ProjectileData>("Cards\\Weapons\\Missile\\VulcanMissileTurret\\VulcanMissileTurretBullet.xml")), true, true);
+                missile.AddModule(new LifeTimeModule(3), true, true);
+
+                Beam beam = AddGameObject(new Beam(eagleFrigate, pirateRaider.WorldPosition, AssetManager.GetData<ProjectileData>("Cards\\Weapons\\Beam\\LaserBeamTurret\\LaserBeamTurretBullet.xml")), true, true);
+                beam.AddModule(new LifeTimeModule(3), true, true);
+
+                currentMissileSpawnCounter = 0;
             }
         }
 

@@ -1,6 +1,5 @@
 ﻿<XnaContent>
-  <Asset Type="SpaceCardGameData.BoardData">
-    <TextureAsset>Backgrounds\Background-1</TextureAsset>
+  <Asset Type="SpaceCardGameData.SpaceBackgroundData">
     <AsteroidTextureAssets>
       <Item>Objects\Asteroids\TinyAsteroid</Item>
       <Item>Objects\Asteroids\SmallAsteroid</Item>

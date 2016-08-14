@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="2DEngine.dll" size="290816">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="2DEngine.dll" size="293376">
       <assemblyIdentity name="2DEngine" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0WBMMXx2e+AvpfkxUFMP7dEPiJ7FWJ17jVncG/6eXJc=</dsig:DigestValue>
+        <dsig:DigestValue>8YWyomER0rBzW5yqG4T1L1aciA4O2swQqWpBEH/qJlc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -235,14 +235,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="308120">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceCardGame.exe" size="309656">
       <assemblyIdentity name="SpaceCardGame" version="3.5.0.1141" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>FIbeG2kgO43xD7oxJDV0XK0IsY1Y0pFzJyFtAkvifWk=</dsig:DigestValue>
+        <dsig:DigestValue>vqEmwMI0z0D11ff/UtrC7UOK64nXEElDZY1ynaNZF+o=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -254,7 +254,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>HgF32BTaszFLoyq6kEnEEZvUm8TkA3c5UVKv53s6gCo=</dsig:DigestValue>
+        <dsig:DigestValue>ZdxFxzmae0MvyvJDZCsNG9ySRBd5I7peg4RXyBJf3mI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -987,15 +987,6 @@
       <dsig:DigestValue>FVCCK6DvI0semLN7LHZn74JLGq/VYtKDW1EEkkkpCSE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\GameObjects\Board.xml" size="412" writeableType="applicationData">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>gBTfUF88kjovgRJlLjE/nSE1whraLoNcDa4YdQn6vnk=</dsig:DigestValue>
-    </hash>
-  </file>
   <file name="Content\Data\GameObjects\Empty.xml" size="147" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
@@ -1003,6 +994,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>vuJHYS4utaAaSpfpp04XumQVT0bUAMMcs85PnZD8Bmg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Data\GameObjects\SpaceBackground.xml" size="363" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>TS2+sLnVx+EO4Vlmd/+Bpa4mu8R6s9qlijOSTNH0NxU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Missions\Mission1.xml" size="3455" writeableType="applicationData">
@@ -1104,13 +1104,13 @@
       <dsig:DigestValue>CpTHqJ/om+Gr+WuTUstBUB5C86sw8r2YzyhfvdweR5I=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Screens\BattleScreen.xml" size="501" writeableType="applicationData">
+  <file name="Content\Data\Screens\BattleScreen.xml" size="549" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>xeCZpSGg+Hz+G6ZxdUeNPsjQcOTNT/QAJc1hZ42RXMw=</dsig:DigestValue>
+      <dsig:DigestValue>JIjS26cZCjUlOE3MmIGaxWXo/Qa3574r9u+pMjwEqdU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Screens\CampaignMapScreen.xml" size="297" writeableType="applicationData">
@@ -1167,13 +1167,13 @@
       <dsig:DigestValue>LkyKBXXpouloRQ8XyTmx8keP2CPjKVFar+2jLOqdERM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Data\Screens\MainMenuScreen.xml" size="255" writeableType="applicationData">
+  <file name="Content\Data\Screens\MainMenuScreen.xml" size="303" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>LkyKBXXpouloRQ8XyTmx8keP2CPjKVFar+2jLOqdERM=</dsig:DigestValue>
+      <dsig:DigestValue>zPTs13+PvQGq5k9hx3er4rA6jhF0ODNPZPUYFc+o+2U=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Data\Screens\Missions\Mission1 - Terra.xml" size="572" writeableType="applicationData">
@@ -1905,6 +1905,15 @@
       <dsig:DigestValue>vJT8nHAMAtiQ0u0Q25QshkDQgs9sfMXjrcMsH4jA5no=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\Sprites\Backgrounds\Background-1.jpg" size="1375721">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>UBp64lnVzsZQKjvLlWVhCaS1UEbzueJt+Xj9kXojxvM=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\Sprites\Backgrounds\Background-1.xnb" size="16785493">
     <hash>
       <dsig:Transforms>
@@ -1914,6 +1923,15 @@
       <dsig:DigestValue>i8I67oxpMlph/OXNCDeXfhFhAD6oXmE/WW5S8SHUgaw=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\Sprites\Backgrounds\Background-2.jpg" size="1884059">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>QVUo7QsUY+Dr6qScmvef2Pu9oMse8TG5Tcfjao86zNE=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\Sprites\Backgrounds\Background-2.xnb" size="16785493">
     <hash>
       <dsig:Transforms>
@@ -1921,6 +1939,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>uqW3sJCKYqjfcGXL468JuMfj6CaYwIVVDpVwgn7Zi1Q=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\Backgrounds\Background-3.jpg" size="2129250">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>MtnL+WXPwvPUxGQ4f1+7VHycyXqAkdutJ7XRsdVNsn0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Sprites\Backgrounds\Background-3.xnb" size="16785493">
