@@ -41,8 +41,6 @@
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Screens\RunUnitTestsScreen.cs" />
-    <Compile Include="Screens\UnitTestGameMainMenuScreen.cs" />
     <Compile Include="Tests\TestCentralCardRegistry.cs" />
   </ItemGroup>
   <ItemGroup>

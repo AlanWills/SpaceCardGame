@@ -155,7 +155,6 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameU
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\Cards\CardBack.png
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\Cards\CardOutline.png
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.png
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\Cards\Stations\BastionShipyard\BastionShipyardObject.png
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretBullet.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretObject.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Weapons\DefaultTurretCard.xml
@@ -398,7 +397,6 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameU
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\Cards\Stations\AzmodaeusSupercruiser\AzmodaeusSupercruiser.xnb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\Cards\Stations\AzmodaeusSupercruiser\AzmodaeusSupercruiserCard.xnb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\Cards\Stations\BastionShipyard\BastionShipyardCard.xnb
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\Cards\Stations\BastionShipyard\BastionShipyardObject.xnb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\Cards\Stations\HulkDreadnought\HulkDreadnought.xnb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\Cards\Stations\HulkDreadnought\HulkDreadnoughtCard.xnb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\Cards\Stations\OmegaCruiser\OmegaCruiser.xnb
@@ -496,11 +494,9 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameU
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.XInput.dll
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.RawInput.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Microsoft.Xna.Framework.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Microsoft.Xna.Framework.Video.dll
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\2DEngineData.pdb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\2DEngine.pdb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SpaceCardGameData.pdb
@@ -515,11 +511,9 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameU
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.XInput.xml
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.RawInput.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Microsoft.Xna.Framework.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Microsoft.Xna.Framework.Video.xml
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\obj\x86\Debug\SpaceCardGameUnitTestGameProject.csprojResolveAssemblyReference.cache
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\obj\x86\Debug\SpaceCardGameUnitTestGameProject.exe
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\obj\x86\Debug\SpaceCardGameUnitTestGameProject.pdb
@@ -531,3 +525,10 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameU
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\Backgrounds\Background-2.jpg
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\Backgrounds\Background-3.jpg
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\GameObjects\SpaceBackground.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Stations\RaiuT'Ek\RaiuT'EkObject.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\Cards\Stations\BastionShipyard\BastionShipyard.png
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\Cards\Stations\BastionShipyard\BastionShipyard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.RawInput.dll
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.RawInput.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml

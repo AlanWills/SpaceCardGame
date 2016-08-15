@@ -111,7 +111,7 @@ namespace SpaceCardGame
         {
             // Image will be automatically parented under this
             Image cardImage = AddChild(new Image(Size, Vector2.Zero, Card.CardBackTextureAsset), true, true);
-            cardImage.LifeTime = cardLifeTime;
+            cardImage.AddModule(new LifeTimeModule(cardLifeTime), true, true);      // Add a module to kill this after a certain amount of time
 
             CardImagesList.Add(cardImage);
         }

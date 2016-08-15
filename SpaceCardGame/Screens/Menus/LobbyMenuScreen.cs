@@ -113,7 +113,7 @@ namespace SpaceCardGame
             GameObject gameObject = AddGameObject(new GameObject(Vector2.Zero, asset), true, true);
 
             gameObject.LocalPosition = new Vector2(ScreenDimensions.X * 0.35f, ScreenDimensions.Y + gameObject.Size.Y * 0.5f);
-            gameObject.AddModule(new MoveToDestinationModule(new Vector2(ScreenDimensions.X * 0.35f, -gameObject.Size.Y * 0.5f), 400), true, true);
+            gameObject.AddModule(new MoveToDestinationModule(new Vector2(ScreenDimensions.X * 0.35f, -gameObject.Size.Y * 0.5f), 300), true, true);
             gameObject.AddModule(new LifeTimeModule(5f), true, true);
         }
 
