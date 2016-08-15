@@ -1,6 +1,8 @@
 ﻿using _2DEngine;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
+using System;
+using System.Collections.Generic;
 
 namespace SpaceCardGame
 {
@@ -9,13 +11,30 @@ namespace SpaceCardGame
     /// </summary>
     public class LobbyMenuScreen : MenuScreen
     {
+        #region Properties and Fields
+
+        private const float shipSpawnTimer = 5;
+        private float currentShipSpawnTimer = shipSpawnTimer;
+
+        private List<string> ShipsAssets { get; set; }
+
+        #endregion
+
         public LobbyMenuScreen(string screenDataAsset = "Screens\\LobbyMenuScreen.xml") :
             base(screenDataAsset)
         {
             AddModule(new SpaceBackgroundModule(this));
+            ShipsAssets = new List<string>()
+            {
+                "Cards\\Stations\\AzmodaeusSupercruiser\\AzmodaeusSupercruiserObject.xml",
+                "Cards\\Stations\\BastionShipyard\\BastionShipyardObject.xml",
+                "Cards\\Stations\\HulkDreadnought\\HulkDreadnoughtObject.xml",
+                "Cards\\Stations\\OmegaCruiser\\OmegaCruiserObject.xml",
+                "Cards\\Stations\\RaiuT'Ek\\RaiuT'EkObject.xml",
+            };
         }
 
-        #region Properties and Fields
+        #region Virtual Functions
 
         /// <summary>
         /// Adds our buttons for playing or managing decks
@@ -63,6 +82,39 @@ namespace SpaceCardGame
         protected override void GoToPreviousScreen()
         {
             Transition(new MainMenuScreen());
+        }
+
+        /// <summary>
+        /// Add ships every so often from a certain list of ship assets
+        /// </summary>
+        /// <param name="elapsedGameTime"></param>
+        public override void Update(float elapsedGameTime)
+        {
+            base.Update(elapsedGameTime);
+
+            currentShipSpawnTimer += elapsedGameTime;
+            if (currentShipSpawnTimer >= shipSpawnTimer)
+            {
+                AddShip();
+                currentShipSpawnTimer = 0;
+            }
+        }
+
+        #endregion
+
+        #region Animated Ship UI Sugar
+
+        /// <summary>
+        /// Adds a ship using a randomly selected asset from the list we made in the constructir
+        /// </summary>
+        private void AddShip()
+        {
+            string asset = ShipsAssets[MathUtils.GenerateInt(0, ShipsAssets.Count - 1)];
+            GameObject gameObject = AddGameObject(new GameObject(Vector2.Zero, asset), true, true);
+
+            gameObject.LocalPosition = new Vector2(ScreenDimensions.X * 0.35f, ScreenDimensions.Y + gameObject.Size.Y * 0.5f);
+            gameObject.AddModule(new MoveToDestinationModule(new Vector2(ScreenDimensions.X * 0.35f, -gameObject.Size.Y * 0.5f), 400), true, true);
+            gameObject.AddModule(new LifeTimeModule(5f), true, true);
         }
 
         #endregion

@@ -1,6 +1,6 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.ShipData">
-    <TextureAsset>Cards\Stations\AzmodaeusSupercruiser\AzmodaeusSupercruiserObject</TextureAsset>
+    <TextureAsset>Cards\Stations\AzmodaeusSupercruiser\AzmodaeusSupercruiser</TextureAsset>
     <Attack>0</Attack>
     <Defence>1</Defence>
     <Speed>0</Speed>

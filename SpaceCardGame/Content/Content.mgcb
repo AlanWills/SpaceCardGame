@@ -1190,18 +1190,6 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Cards/Stations/BastionShipyard/BastionShipyardCard.png
 
-#begin Sprites/Cards/Stations/BastionShipyard/BastionShipyardObject.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Cards/Stations/BastionShipyard/BastionShipyardObject.png
-
 #begin Sprites/Cards/Stations/HulkDreadnought/HulkDreadnought.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1849,4 +1837,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/UI/ButtonHighlighted.png
+
+#begin Sprites/Cards/Stations/BastionShipyard/BastionShipyard.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cards/Stations/BastionShipyard/BastionShipyard.png
 

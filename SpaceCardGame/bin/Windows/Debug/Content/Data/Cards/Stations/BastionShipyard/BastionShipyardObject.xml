@@ -1,6 +1,6 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.ShipData">
-    <TextureAsset>Cards\Stations\BastionShipyard\BastionShipyardObject</TextureAsset>
+    <TextureAsset>Cards\Stations\BastionShipyard\BastionShipyard</TextureAsset>
     <Attack>0</Attack>
     <Defence>1</Defence>
     <Speed>0</Speed>

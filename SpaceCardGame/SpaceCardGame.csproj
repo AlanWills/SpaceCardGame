@@ -362,6 +362,9 @@
     <Content Include="Content\Data\Cards\Ships\Y%27AkaiBomber\Y%27AkaiBomberObject.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Data\Cards\Stations\RaiuT%27Ek\RaiuT%27EkObject.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Data\Cards\Stations\RaiuT%27Ek\RaiuT%27EkCard.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -647,7 +650,7 @@
     <Content Include="Content\Sprites\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Cards\Stations\BastionShipyard\BastionShipyardObject.png">
+    <Content Include="Content\Sprites\Cards\Stations\BastionShipyard\BastionShipyard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretBullet.xml">
