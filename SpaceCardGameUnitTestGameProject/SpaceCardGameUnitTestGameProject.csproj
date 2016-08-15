@@ -144,9 +144,9 @@
       <Project>{b56f5aa9-69a8-454a-9ee5-a815735804b7}</Project>
       <Name>2DEngine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\UnitTestFramework\UnitTestFramework\UnitTestFramework.csproj">
+    <ProjectReference Include="..\..\MonoGameUnitTestFramework\MonoGameUnitTestFramework\MonoGameUnitTestFramework.csproj">
       <Project>{a9189426-6668-474f-b709-6050f2707c02}</Project>
-      <Name>UnitTestFramework</Name>
+      <Name>MonoGameUnitTestFramework</Name>
     </ProjectReference>
     <ProjectReference Include="..\SpaceCardGameData\SpaceCardGameData.csproj">
       <Project>{abb06fbe-bad5-424a-8b9b-c1548a1a4b76}</Project>
