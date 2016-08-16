@@ -13,10 +13,11 @@ namespace SpaceCardGame
     {
         #region Properties and Fields
 
-        private const float shipSpawnTimer = 5;
+        private const float shipSpawnTimer = 22;
         private float currentShipSpawnTimer = shipSpawnTimer;
 
         private List<string> ShipsAssets { get; set; }
+        private List<GameObject> Ships { get; set; }
 
         #endregion
 
@@ -24,6 +25,8 @@ namespace SpaceCardGame
             base(screenDataAsset)
         {
             AddModule(new SpaceBackgroundModule(this));
+
+            // Create instances of game objects
             ShipsAssets = new List<string>()
             {
                 "Cards\\Stations\\AzmodaeusSupercruiser\\AzmodaeusSupercruiserObject.xml",
@@ -32,6 +35,8 @@ namespace SpaceCardGame
                 "Cards\\Stations\\OmegaCruiser\\OmegaCruiserObject.xml",
                 "Cards\\Stations\\RaiuT'Ek\\RaiuT'EkObject.xml",
             };
+
+            Ships = new List<GameObject>();
         }
 
         #region Virtual Functions
@@ -77,6 +82,24 @@ namespace SpaceCardGame
         }
 
         /// <summary>
+        /// Load the ship assets
+        /// </summary>
+        public override void LoadContent()
+        {
+            CheckShouldLoad();
+
+            foreach (string shipAsset in ShipsAssets)
+            {
+                GameObject ship = AddGameObject(new GameObject(Vector2.Zero, shipAsset));
+                ship.Hide();
+
+                Ships.Add(ship);
+            }
+
+            base.LoadContent();
+        }
+
+        /// <summary>
         /// Transition back to our main menu screen
         /// </summary>
         protected override void GoToPreviousScreen()
@@ -109,12 +132,14 @@ namespace SpaceCardGame
         /// </summary>
         private void AddShip()
         {
-            string asset = ShipsAssets[MathUtils.GenerateInt(0, ShipsAssets.Count - 1)];
-            GameObject gameObject = AddGameObject(new GameObject(Vector2.Zero, asset), true, true);
+            int index = MathUtils.GenerateInt(0, Ships.Count - 1);
+            GameObject ship = Ships[index];
+            Ships.RemoveAt(index);
 
-            gameObject.LocalPosition = new Vector2(ScreenDimensions.X * 0.35f, ScreenDimensions.Y + gameObject.Size.Y * 0.5f);
-            gameObject.AddModule(new MoveToDestinationModule(new Vector2(ScreenDimensions.X * 0.35f, -gameObject.Size.Y * 0.5f), 300), true, true);
-            gameObject.AddModule(new LifeTimeModule(5f), true, true);
+            ship.LocalPosition = new Vector2(ScreenDimensions.X * 0.35f, ScreenDimensions.Y + ship.Size.Y * 0.5f);
+            ship.AddModule(new MoveToDestinationModule(new Vector2(ScreenDimensions.X * 0.35f, -ship.Size.Y * 0.5f), 100), true, true);
+            ship.AddModule(new LifeTimeModule(shipSpawnTimer), true, true);
+            ship.Show();
         }
 
         #endregion
