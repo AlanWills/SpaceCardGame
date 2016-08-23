@@ -485,8 +485,6 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameU
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\MonoGame.Framework.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SpaceCardGame.exe
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SpaceCardGameData.dll
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\UnitTestFramework.dll
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Microsoft.Xna.Framework.Content.Pipeline.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
@@ -494,16 +492,11 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameU
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.XInput.dll
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Microsoft.Xna.Framework.dll
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Microsoft.Xna.Framework.Video.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\2DEngineData.pdb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\2DEngine.pdb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SpaceCardGameData.pdb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SpaceCardGame.pdb
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\UnitTestFramework.pdb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\MonoGame.Framework.xml
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Microsoft.Xna.Framework.Content.Pipeline.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
@@ -511,9 +504,6 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameU
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.XInput.xml
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Microsoft.Xna.Framework.xml
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Microsoft.Xna.Framework.Video.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\obj\x86\Debug\SpaceCardGameUnitTestGameProject.csprojResolveAssemblyReference.cache
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\obj\x86\Debug\SpaceCardGameUnitTestGameProject.exe
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\obj\x86\Debug\SpaceCardGameUnitTestGameProject.pdb
@@ -532,3 +522,5 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameU
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.RawInput.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\MonoGameUnitTestFramework.dll
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\MonoGameUnitTestFramework.pdb

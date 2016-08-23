@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/SFX/Explosions/ShieldExplosion.wav</SourceFile>
   <SourceTime>2016-05-03T23:01:25.0316674+01:00</SourceTime>
   <DestFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/bin/Windows/SFX/Explosions/ShieldExplosion.xnb</DestFile>
-  <DestTime>2016-05-03T23:01:51.310701+01:00</DestTime>
+  <DestTime>2016-08-22T23:54:53.7460743+01:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2016-03-30T07:36:08+01:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

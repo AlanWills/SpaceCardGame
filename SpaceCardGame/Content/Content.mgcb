@@ -11,6 +11,7 @@
 #-------------------------------- References --------------------------------#
 
 /reference:..\bin\Windows\Debug\SpaceCardGameData.dll
+/reference:..\bin\Windows\Debug\CelesteEngineData.dll
 
 #---------------------------------- Content ---------------------------------#
 
@@ -1849,4 +1850,179 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/Cards/Stations/BastionShipyard/BastionShipyard.png
+
+#begin Data/GameObjects/Animations/EngineBlaze.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/GameObjects/Animations/EngineBlaze.xml
+
+#begin Data/GameObjects/Animations/Explosion.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/GameObjects/Animations/Explosion.xml
+
+#begin Data/GameObjects/Animations/RedFire.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/GameObjects/Animations/RedFire.xml
+
+#begin Data/GameObjects/Animations/Smoke.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/GameObjects/Animations/Smoke.xml
+
+#begin Data/GameObjects/Empty.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/GameObjects/Empty.xml
+
+#begin Data/GameObjects/SpaceBackground.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/GameObjects/SpaceBackground.xml
+
+#begin Data/Missions/Mission1.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Missions/Mission1.xml
+
+#begin Data/Missions/Mission2.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Missions/Mission2.xml
+
+#begin Data/Missions/Mission3.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Missions/Mission3.xml
+
+#begin Data/Missions/Mission4.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Missions/Mission4.xml
+
+#begin Data/Missions/Mission5.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Missions/Mission5.xml
+
+#begin Data/Missions/Mission6.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Missions/Mission6.xml
+
+#begin Data/Missions/Mission7.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Missions/Mission7.xml
+
+#begin Data/Missions/Mission8.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Missions/Mission8.xml
+
+#begin Data/Options/Options.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Options/Options.xml
+
+#begin Data/Screens/Missions/Mission1 - Terra.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Screens/Missions/Mission1 - Terra.xml
+
+#begin Data/Screens/Missions/Mission2 - Anthea.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Screens/Missions/Mission2 - Anthea.xml
+
+#begin Data/Screens/Missions/Mission3 - Telegra.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Screens/Missions/Mission3 - Telegra.xml
+
+#begin Data/Screens/Missions/Mission4  - Elektrin.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Screens/Missions/Mission4  - Elektrin.xml
+
+#begin Data/Screens/Missions/Mission5 - Freiza.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Screens/Missions/Mission5 - Freiza.xml
+
+#begin Data/Screens/Missions/Mission6 - Ranbron.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Screens/Missions/Mission6 - Ranbron.xml
+
+#begin Data/Screens/Missions/Mission7 - Zion.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Screens/Missions/Mission7 - Zion.xml
+
+#begin Data/Screens/Missions/Mission8 - Pyron.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Screens/Missions/Mission8 - Pyron.xml
+
+#begin Data/Screens/BattleScreen.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Screens/BattleScreen.xml
+
+#begin Data/Screens/CampaignMapScreen.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Screens/CampaignMapScreen.xml
+
+#begin Data/Screens/DeckEditingScreen.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Screens/DeckEditingScreen.xml
+
+#begin Data/Screens/DeckManagerScreen.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Screens/DeckManagerScreen.xml
+
+#begin Data/Screens/HardpointScreen.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Screens/HardpointScreen.xml
+
+#begin Data/Screens/LoadingScreen.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Screens/LoadingScreen.xml
+
+#begin Data/Screens/LobbyMenuScreen.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Screens/LobbyMenuScreen.xml
+
+#begin Data/Screens/MainMenuScreen.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Screens/MainMenuScreen.xml
+
+#begin Data/Screens/OpenCardPacksScreen.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Screens/OpenCardPacksScreen.xml
+
+#begin Data/Screens/OptionsScreen.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Screens/OptionsScreen.xml
+
+#begin Data/Screens/ShopScreen.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Screens/ShopScreen.xml
+
+#begin Data/Screens/StartupLogoScreen.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Screens/StartupLogoScreen.xml
 

@@ -1,4 +1,4 @@
-﻿using _2DEngineData;
+﻿using CelesteEngineData;
 using System.Collections.Generic;
 
 namespace SpaceCardGameData

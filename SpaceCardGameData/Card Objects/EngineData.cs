@@ -1,6 +1,4 @@
-﻿using _2DEngineData;
-
-namespace SpaceCardGameData
+﻿namespace SpaceCardGameData
 {
     public class EngineData : ShipAddOnData
     {

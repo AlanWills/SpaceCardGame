@@ -1,7 +1,7 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
-using _2DEngineData;
+using CelesteEngineData;
 using SpaceCardGameData;
 
 namespace SpaceCardGame

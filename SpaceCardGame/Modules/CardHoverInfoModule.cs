@@ -1,4 +1,4 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System.Diagnostics;
@@ -92,7 +92,7 @@ namespace SpaceCardGame
                 else
                 {
                     DebugUtils.AssertNotNull(AttachedCard.GetCardObjectPair<CardObjectPair>().CardObject.Collider);
-                    return GameKeyboard.IsKeyDown(Keys.LeftShift) && AttachedCard.GetCardObjectPair<CardObjectPair>().CardObject.Collider.IsMouseOver;
+                    return GameKeyboard.Instance.IsKeyDown(Keys.LeftShift) && AttachedCard.GetCardObjectPair<CardObjectPair>().CardObject.Collider.IsMouseOver;
                 }
             }
             else

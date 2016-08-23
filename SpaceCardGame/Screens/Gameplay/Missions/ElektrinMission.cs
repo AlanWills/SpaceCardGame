@@ -1,4 +1,4 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using System.Collections.Generic;
 
 namespace SpaceCardGame
@@ -6,7 +6,7 @@ namespace SpaceCardGame
     public class ElektrinMission : MissionScreen
     {
         public ElektrinMission(Deck playerChosenDeck, Deck opponentChosenDeck) :
-            base(playerChosenDeck, opponentChosenDeck, "Screens\\Missions\\Mission4 - Elektrin.xml")
+            base(playerChosenDeck, opponentChosenDeck, "Mission4 - Elektrin")
         {
         }
 

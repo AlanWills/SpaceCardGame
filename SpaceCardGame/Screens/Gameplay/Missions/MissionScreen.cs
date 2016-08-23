@@ -1,6 +1,7 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using SpaceCardGameData;
 using System.Collections.Generic;
+using System.IO;
 
 namespace SpaceCardGame
 {
@@ -20,7 +21,7 @@ namespace SpaceCardGame
         #endregion
 
         public MissionScreen(Deck playerChosenDeck, Deck opponentChosenDeck, string screenDataAsset) :
-            base(playerChosenDeck, opponentChosenDeck, screenDataAsset)
+            base(playerChosenDeck, opponentChosenDeck, Path.Combine("Missions", screenDataAsset))
         {
             Dialog = new Queue<List<string>>();
         }

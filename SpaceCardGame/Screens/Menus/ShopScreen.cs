@@ -1,7 +1,6 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
-using System.Linq;
 
 namespace SpaceCardGame
 {
@@ -46,8 +45,8 @@ namespace SpaceCardGame
 
         #endregion
 
-        public ShopScreen(string screenDataAsset = "Screens\\ShopScreen.xml") :
-            base(screenDataAsset)
+        public ShopScreen() :
+            base("ShopScreen")
         {
 
         }

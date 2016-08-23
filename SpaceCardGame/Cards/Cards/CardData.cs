@@ -1,5 +1,5 @@
-﻿using _2DEngine;
-using _2DEngineData;
+﻿using CelesteEngine;
+using CelesteEngineData;
 using System;
 using System.Collections.Generic;
 

@@ -1,4 +1,4 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using System.Collections.Generic;
 
 namespace SpaceCardGame
@@ -11,7 +11,7 @@ namespace SpaceCardGame
         // When done, we get the shipyard card
 
         public AntheaMission(Deck playerChosenDeck, Deck opponentChosenDeck) :
-            base(playerChosenDeck, opponentChosenDeck, "Screens\\Missions\\Mission2 - Anthea.xml")
+            base(playerChosenDeck, opponentChosenDeck, "Mission2 - Anthea")
         {
         }
 

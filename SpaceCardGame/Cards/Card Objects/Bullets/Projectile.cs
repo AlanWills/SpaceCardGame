@@ -1,7 +1,5 @@
-﻿using _2DEngine;
-using _2DEngineData;
+﻿using CelesteEngine;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
 using SpaceCardGameData;
 using System.Diagnostics;
 

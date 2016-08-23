@@ -1,4 +1,4 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using Microsoft.Xna.Framework;
 
 namespace SpaceCardGame
@@ -17,8 +17,8 @@ namespace SpaceCardGame
 
         #endregion
 
-        public DeckEditingScreen(Deck deck, string dataAsset = "Screens\\DeckEditingScreen.xml") :
-            base(dataAsset)
+        public DeckEditingScreen(Deck deck) :
+            base("DeckEditingScreen")
         {
             Deck = deck;
         }

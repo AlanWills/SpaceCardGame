@@ -1,6 +1,5 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using Microsoft.Xna.Framework;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -23,8 +22,8 @@ namespace SpaceCardGame
         /// </summary>
         private List<Card> CardsFromPack { get; set; }
 
-        public OpenCardPacksScreen(string screenDataAsset = "Screens\\OpenCardPacksScreen.xml") :
-            base(screenDataAsset)
+        public OpenCardPacksScreen() :
+            base("OpenCardPacksScreen")
         {
             CardsFromPack = new List<Card>();
         }

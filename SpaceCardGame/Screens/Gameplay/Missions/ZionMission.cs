@@ -1,4 +1,4 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using System.Collections.Generic;
 
 namespace SpaceCardGame
@@ -8,7 +8,7 @@ namespace SpaceCardGame
         // Get the cards for all enemy ships left over at the end of this mission
 
         public ZionMission(Deck playerChosenDeck, Deck opponentChosenDeck) :
-            base(playerChosenDeck, opponentChosenDeck, "Screens\\Missions\\Mission7 - Zion.xml")
+            base(playerChosenDeck, opponentChosenDeck, "Mission7 - Zion")
         {
         }
 

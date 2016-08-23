@@ -1,4 +1,4 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using System.Collections.Generic;
 
 namespace SpaceCardGame
@@ -20,8 +20,8 @@ namespace SpaceCardGame
 
         #endregion
 
-        public TutorialScreen(Deck playerChosenDeck, string screenDataAsset = "Screens\\BattleScreen.xml") :
-            base(playerChosenDeck, playerChosenDeck, screenDataAsset)
+        public TutorialScreen(Deck playerChosenDeck) :
+            base(playerChosenDeck, playerChosenDeck, "BattleScreen")
         {
             TurnNumber = 0;
 

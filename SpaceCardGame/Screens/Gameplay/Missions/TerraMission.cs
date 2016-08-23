@@ -1,4 +1,4 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using SpaceCardGameData;
 using System.Collections.Generic;
 
@@ -7,7 +7,7 @@ namespace SpaceCardGame
     public class TerraMission : MissionScreen
     {
         public TerraMission(Deck playerChosenDeck, Deck opponentChosenDeck) :
-            base(playerChosenDeck, opponentChosenDeck, "Screens\\Missions\\Mission1 - Terra.xml")
+            base(playerChosenDeck, opponentChosenDeck, "Mission1 - Terra")
         {
         }
 

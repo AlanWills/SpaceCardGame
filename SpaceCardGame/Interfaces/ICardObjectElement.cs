@@ -1,4 +1,4 @@
-﻿namespace _2DEngine
+﻿namespace SpaceCardGame
 {
     /// <summary>
     /// An interface for elements associated with cards.

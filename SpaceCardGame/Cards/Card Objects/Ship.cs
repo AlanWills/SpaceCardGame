@@ -1,5 +1,5 @@
-﻿using _2DEngine;
-using _2DEngineData;
+﻿using CelesteEngine;
+using CelesteEngineData;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
 using System.Diagnostics;

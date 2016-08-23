@@ -1,7 +1,6 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
-using System;
 using System.Collections.Generic;
 
 namespace SpaceCardGame
@@ -21,8 +20,8 @@ namespace SpaceCardGame
 
         #endregion
 
-        public LobbyMenuScreen(string screenDataAsset = "Screens\\LobbyMenuScreen.xml") :
-            base(screenDataAsset)
+        public LobbyMenuScreen() :
+            base("LobbyMenuScreen")
         {
             AddModule(new SpaceBackgroundModule(this));
 

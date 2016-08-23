@@ -1,4 +1,4 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
 using System.Collections.Generic;
@@ -17,8 +17,8 @@ namespace SpaceCardGame
 
         #endregion
 
-        public CampaignMapScreen(string campaignMapScreenDataAsset = "Screens\\CampaignMapScreen.xml") :
-            base(campaignMapScreenDataAsset)
+        public CampaignMapScreen() :
+            base("CampaignMapScreen")
         {
 
         }

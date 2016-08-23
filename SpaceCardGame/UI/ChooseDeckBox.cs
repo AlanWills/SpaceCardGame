@@ -1,4 +1,4 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using Microsoft.Xna.Framework;
 using System;
 using Microsoft.Xna.Framework.Input;
@@ -77,7 +77,7 @@ namespace SpaceCardGame
         {
             base.HandleInput(elapsedGameTime, mousePosition);
 
-            if (GameKeyboard.IsKeyPressed(Keys.Escape))
+            if (GameKeyboard.Instance.IsKeyPressed(Keys.Escape))
             {
                 Die();
             }

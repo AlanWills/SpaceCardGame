@@ -1,5 +1,5 @@
 ﻿<XnaContent>
-  <Asset Type="_2DEngineData.AnimationData">
+  <Asset Type="CelesteEngineData.AnimationData">
     <TextureAsset>Effects\Animation\Smoke45Frames</TextureAsset>
     <TextureFramesX>7</TextureFramesX>
     <TextureFramesY>7</TextureFramesY>

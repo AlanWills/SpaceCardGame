@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/SFX/Turrets/VulcanMissileTurret.wav</SourceFile>
   <SourceTime>2016-05-03T20:50:47.4415389+01:00</SourceTime>
   <DestFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/bin/Windows/SFX/Turrets/VulcanMissileTurret.xnb</DestFile>
-  <DestTime>2016-05-03T20:52:18.4144461+01:00</DestTime>
+  <DestTime>2016-08-23T00:11:35.0254951+01:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2016-03-30T07:36:08+01:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

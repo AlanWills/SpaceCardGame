@@ -1,4 +1,4 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using System.Collections.Generic;
 
 namespace SpaceCardGame
@@ -6,7 +6,7 @@ namespace SpaceCardGame
     public class PyronMission : MissionScreen
     {
         public PyronMission(Deck playerChosenDeck, Deck opponentChosenDeck) :
-            base(playerChosenDeck, opponentChosenDeck, "Screens\\Missions\\Mission8 - Pyron.xml")
+            base(playerChosenDeck, opponentChosenDeck, "Mission8 - Pyron")
         {
         }
 

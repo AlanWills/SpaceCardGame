@@ -1,4 +1,4 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System.Diagnostics;
@@ -85,7 +85,7 @@ namespace SpaceCardGame
             }
             else
             {
-                if (!GameKeyboard.IsKeyDown(Keys.LeftControl))
+                if (!GameKeyboard.Instance.IsKeyDown(Keys.LeftControl))
                 {
                     CardShipPair.Scale(inverseScale);
                     CardShipPair.LocalPosition = CardControlPosition;
@@ -112,7 +112,7 @@ namespace SpaceCardGame
         {
             if (battleScreen.TurnState == TurnState.kBattle)
             {
-                return colliderToCheck.IsMouseOver && GameKeyboard.IsKeyDown(Keys.LeftControl);
+                return colliderToCheck.IsMouseOver && GameKeyboard.Instance.IsKeyDown(Keys.LeftControl);
             }
 
             return false;

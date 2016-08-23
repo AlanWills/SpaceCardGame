@@ -1,12 +1,11 @@
-﻿using _2DEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace SpaceCardGame
 {
     public class FreizaMission : MissionScreen
     {
         public FreizaMission(Deck playerChosenDeck, Deck opponentChosenDeck) :
-            base(playerChosenDeck, opponentChosenDeck, "Screens\\Missions\\Mission5 - Freiza.xml")
+            base(playerChosenDeck, opponentChosenDeck, "Mission5 - Freiza")
         {
         }
 

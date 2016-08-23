@@ -1,4 +1,4 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -33,11 +33,6 @@ namespace SpaceCardGame
         protected override void Initialize()
         {
             base.Initialize();
-
-            ScreenManager.Instance.Initialise();
-
-            ScreenManager.Instance.StartGame(new MainMenuScreen());
-            StartupLogoScreen.LoadAssets += CentralCardRegistry.LoadAssets;
         }
 
         /// <summary>
@@ -49,8 +44,9 @@ namespace SpaceCardGame
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            ScreenManager.Instance.Setup(this, spriteBatch, graphics);
-            ScreenManager.Instance.LoadContent();
+            ScreenManager.Instance.Setup(this, spriteBatch, graphics, new WindowsAssetCollection());
+            StartupLogoScreen.LoadAssets += CentralCardRegistry.LoadAssets;
+            ScreenManager.Instance.StartGame(new MainMenuScreen());
         }
 
         /// <summary>

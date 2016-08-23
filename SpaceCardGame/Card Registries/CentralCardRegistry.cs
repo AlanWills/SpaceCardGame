@@ -1,9 +1,10 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using Microsoft.Xna.Framework.Content;
 using SpaceCardGameData;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 
 namespace SpaceCardGame
@@ -36,8 +37,8 @@ namespace SpaceCardGame
         /// </summary>
         public static bool IsLoaded { get; private set; }
 
-        private const string cardRegistryDataPath = "Cards\\CardRegistryData.xml";
-        public const string CardFolderPath = "Cards\\";
+        private static string cardRegistryDataPath = Path.Combine("Cards", "CardRegistryData");
+        public const string CardFolderPath = "Cards";
 
         public const int PackSize = 5;
 
@@ -141,7 +142,7 @@ namespace SpaceCardGame
             foreach (string cardDataAsset in cardDataAssetList)
             {
                 // Load from AssetManager here - iteration lookup through the dictionaries is too costly
-                CardData cardData = AssetManager.GetData<CardData>("Cards\\" + cardDataAsset);
+                CardData cardData = AssetManager.GetData<CardData>(Path.Combine("Cards", cardDataAsset));
                 DebugUtils.AssertNotNull(cardData);
 
                 cardDataList.Add(cardData);

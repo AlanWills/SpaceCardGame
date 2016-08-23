@@ -72,6 +72,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Asset Collection\WindowsAssetCollection.cs" />
     <Compile Include="Board\OpponentBoardSection.cs" />
     <Compile Include="Board\PlayerBoardSection.cs" />
     <Compile Include="Cards\Cards\CardData.cs" />
@@ -223,7 +224,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Data\Cards\Engines\DefaultEngine.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Content\Data\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldObject.xml">
@@ -865,28 +865,17 @@
     <Content Include="Content\Sprites\UI\NewCardIndicator.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Data\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Content\Data\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml" />
     <Content Include="Content\Data\Cards\CardRegistryData.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Content\Data\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Data\Cards\Resources\CrewResource\CrewResourceCard.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Data\Cards\Resources\ElectronicsResource\ElectronicsResourceCard.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Data\Cards\Resources\FuelResource\FuelResourceCard.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Data\Cards\Resources\MetalResource\MetalResourceCard.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Content\Data\Cards\Resources\CrewResource\CrewResourceCard.xml" />
+    <Content Include="Content\Data\Cards\Resources\ElectronicsResource\ElectronicsResourceCard.xml" />
+    <Content Include="Content\Data\Cards\Resources\FuelResource\FuelResourceCard.xml" />
+    <Content Include="Content\Data\Cards\Resources\MetalResource\MetalResourceCard.xml" />
     <Content Include="Content\Data\Cards\Ships\BlazeInterceptor\BlazeInterceptorCard.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1065,13 +1054,17 @@
     <None Include="SpaceCardGame_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\2DEngine\2DEngineData\2DEngineData.csproj">
-      <Project>{ed8a2787-963c-45ce-9405-d4a031b3a977}</Project>
-      <Name>2DEngineData</Name>
+    <ProjectReference Include="..\..\CelesteEngine\CelesteEngineData\CelesteEngineData.csproj">
+      <Project>{7516016d-ef87-429a-adad-5c2061ed668b}</Project>
+      <Name>CelesteEngineData</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\2DEngine\2DEngine\2DEngine.csproj">
-      <Project>{b56f5aa9-69a8-454a-9ee5-a815735804b7}</Project>
-      <Name>2DEngine</Name>
+    <ProjectReference Include="..\..\CelesteEngine\CelesteEngine\CelesteEngine.csproj">
+      <Project>{b4c3c278-bc1c-49cd-82bf-76b93ef7f59d}</Project>
+      <Name>CelesteEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MonoGameUnitTestFramework\MonoGameUnitTestFramework\MonoGameUnitTestFramework.csproj">
+      <Project>{A9189426-6668-474F-B709-6050F2707C02}</Project>
+      <Name>MonoGameUnitTestFramework</Name>
     </ProjectReference>
     <ProjectReference Include="..\SpaceCardGameData\SpaceCardGameData.csproj">
       <Project>{abb06fbe-bad5-424a-8b9b-c1548a1a4b76}</Project>
@@ -1090,7 +1083,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

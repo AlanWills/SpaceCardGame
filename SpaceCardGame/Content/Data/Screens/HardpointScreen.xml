@@ -1,5 +1,5 @@
 ﻿<XnaContent>
-  <Asset Type="_2DEngineData.BaseScreenData">
+  <Asset Type="CelesteEngineData.BaseScreenData">
     <BackgroundTextureAsset/>
     <Music/>
   </Asset>

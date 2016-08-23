@@ -77,9 +77,9 @@
     <MonoGameContentReference Include="Content\Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\2DEngine\2DEngineData\2DEngineData.csproj">
-      <Project>{ed8a2787-963c-45ce-9405-d4a031b3a977}</Project>
-      <Name>2DEngineData</Name>
+    <ProjectReference Include="..\..\CelesteEngine\CelesteEngineData\CelesteEngineData.csproj">
+      <Project>{7516016d-ef87-429a-adad-5c2061ed668b}</Project>
+      <Name>CelesteEngineData</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

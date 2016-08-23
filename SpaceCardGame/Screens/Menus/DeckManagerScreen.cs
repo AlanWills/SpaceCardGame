@@ -1,4 +1,4 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
 
@@ -18,8 +18,8 @@ namespace SpaceCardGame
 
         #endregion
 
-        public DeckManagerScreen(string screenDataAsset = "Screens\\DeckManagerScreen.xml") :
-            base(screenDataAsset)
+        public DeckManagerScreen() :
+            base("DeckManagerScreen")
         {
 
         }

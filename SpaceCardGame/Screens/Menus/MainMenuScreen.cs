@@ -1,4 +1,4 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using Microsoft.Xna.Framework;
 using SpaceCardGameData;
 using System;
@@ -16,8 +16,8 @@ namespace SpaceCardGame
         private const int missileSpawnCounter = 5;
         private float currentMissileSpawnCounter = missileSpawnCounter;
 
-        public MainMenuScreen(string screenDataAsset = "Screens\\MainMenuScreen.xml") :
-            base(screenDataAsset)
+        public MainMenuScreen() :
+            base("MainMenuScreen")
         {
             AddModule(new SpaceBackgroundModule(this));
         }

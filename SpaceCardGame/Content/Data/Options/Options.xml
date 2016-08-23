@@ -1,5 +1,5 @@
 ﻿<XnaContent>
-  <Asset Type="_2DEngineData.OptionsData">
+  <Asset Type="CelesteEngineData.OptionsData">
     <IsFullScreen>false</IsFullScreen>
     <MusicVolume>0</MusicVolume>
     <SFXVolume>0</SFXVolume>

@@ -1,4 +1,4 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using System.Collections.Generic;
 
 namespace SpaceCardGame
@@ -8,7 +8,7 @@ namespace SpaceCardGame
         // Get the sentinel card after this mission
 
         public RanbronMission(Deck playerChosenDeck, Deck opponentChosenDeck) :
-            base(playerChosenDeck, opponentChosenDeck, "Screens\\Missions\\Mission6 - Ranbron.xml")
+            base(playerChosenDeck, opponentChosenDeck, "Mission6 - Ranbron")
         {
         }
 

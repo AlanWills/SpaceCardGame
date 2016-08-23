@@ -1,4 +1,4 @@
-﻿using _2DEngine;
+﻿using CelesteEngine;
 using Microsoft.Xna.Framework;
 
 namespace SpaceCardGame
@@ -25,8 +25,8 @@ namespace SpaceCardGame
 
         #endregion
 
-        public HardpointScreen(string hardpointScreen = "Screens\\HardpointScreen.xml") :
-            base(hardpointScreen)
+        public HardpointScreen() :
+            base("HardpointScreen")
         {
 
         }

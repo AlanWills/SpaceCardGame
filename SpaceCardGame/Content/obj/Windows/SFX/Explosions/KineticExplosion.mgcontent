@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/SFX/Explosions/KineticExplosion.wav</SourceFile>
   <SourceTime>2016-05-03T23:01:02.2807635+01:00</SourceTime>
   <DestFile>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/bin/Windows/SFX/Explosions/KineticExplosion.xnb</DestFile>
-  <DestTime>2016-05-03T23:01:51.028009+01:00</DestTime>
+  <DestTime>2016-08-22T23:54:53.4878531+01:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2016-03-30T07:36:08+01:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
