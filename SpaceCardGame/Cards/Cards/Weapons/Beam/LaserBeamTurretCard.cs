@@ -1,4 +1,6 @@
-﻿namespace SpaceCardGame
+﻿using SpaceCardGameData;
+
+namespace SpaceCardGame
 {
     /// <summary>
     /// The laser beam turret fires beams at ships.

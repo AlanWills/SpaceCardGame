@@ -1,4 +1,6 @@
-﻿namespace SpaceCardGame
+﻿using SpaceCardGameData;
+
+namespace SpaceCardGame
 {
     /// <summary>
     /// Class for the electronics resource card

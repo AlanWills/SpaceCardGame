@@ -1,5 +1,5 @@
 ﻿<XnaContent>
-  <Asset Type="_2DEngineData.BaseScreenData">
+  <Asset Type="CelesteEngineData.BaseScreenData">
     <BackgroundTextureAsset>Backgrounds\Nebula</BackgroundTextureAsset>
     <Music>
       <Item>Menu\Emotional</Item>

@@ -1,5 +1,5 @@
 ﻿<XnaContent>
-  <Asset Type="_2DEngineData.GameObjectData">
+  <Asset Type="CelesteEngineData.GameObjectData">
     <TextureAsset>UI\EmptyPanelBackground</TextureAsset>
   </Asset>
 </XnaContent>

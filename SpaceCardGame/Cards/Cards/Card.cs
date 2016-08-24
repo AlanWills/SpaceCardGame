@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Diagnostics;
+using SpaceCardGameData;
 
 namespace SpaceCardGame
 {
@@ -122,7 +123,7 @@ namespace SpaceCardGame
 
             CardOutline = AddChild(new CardOutline(Vector2.Zero));
         }
-
+        
         #region Virtual Functions
 
         /// <summary>

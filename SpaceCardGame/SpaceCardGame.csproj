@@ -75,7 +75,6 @@
     <Compile Include="Asset Collection\WindowsAssetCollection.cs" />
     <Compile Include="Board\OpponentBoardSection.cs" />
     <Compile Include="Board\PlayerBoardSection.cs" />
-    <Compile Include="Cards\Cards\CardData.cs" />
     <Compile Include="Cards\Card Objects\Ability.cs" />
     <Compile Include="Cards\Card Objects\Bullets\Beam.cs" />
     <Compile Include="Cards\Card Objects\Bullets\Bullet.cs" />
@@ -93,6 +92,7 @@
     <Compile Include="Cards\Card Pairs\CardStationPair.cs" />
     <Compile Include="Cards\Cards\Abilities\AbilityCard.cs" />
     <Compile Include="Cards\Cards\Abilities\MissileBarrageAbilityCard.cs" />
+    <Compile Include="Cards\Cards\CardDataExtensionFunctions.cs" />
     <Compile Include="Cards\Cards\Resources\CrewResourceCard.cs" />
     <Compile Include="Cards\Cards\Resources\ElectronicsResourceCard.cs" />
     <Compile Include="Cards\Cards\Resources\FuelResourceCard.cs" />
@@ -365,9 +365,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Cards\Stations\RaiuT%27Ek\RaiuT%27EkCard.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Data\Cards\Weapons\RaiuT%27EkObject.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Cards\Stations\BastionShipyard\BastionShipyardCard.xml">
@@ -1067,7 +1064,7 @@
       <Name>MonoGameUnitTestFramework</Name>
     </ProjectReference>
     <ProjectReference Include="..\SpaceCardGameData\SpaceCardGameData.csproj">
-      <Project>{abb06fbe-bad5-424a-8b9b-c1548a1a4b76}</Project>
+      <Project>{c9a104ad-2c4b-42b8-9b88-958dc6a4c926}</Project>
       <Name>SpaceCardGameData</Name>
     </ProjectReference>
   </ItemGroup>

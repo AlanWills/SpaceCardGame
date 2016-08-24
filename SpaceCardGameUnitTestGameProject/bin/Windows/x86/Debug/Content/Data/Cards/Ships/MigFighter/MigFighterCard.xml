@@ -1,5 +1,5 @@
 ﻿<XnaContent>
-  <Asset Type="SpaceCardGame.CardData">
+  <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Ships\MigFighter\MigFighterCard</TextureAsset>
     <ObjectDataAsset>Cards\Ships\MigFighter\MigFighterObject.xml</ObjectDataAsset>
     <Type>Ship</Type>

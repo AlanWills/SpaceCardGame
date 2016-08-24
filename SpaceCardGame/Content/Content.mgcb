@@ -10,8 +10,8 @@
 
 #-------------------------------- References --------------------------------#
 
-/reference:..\bin\Windows\Debug\SpaceCardGameData.dll
-/reference:..\bin\Windows\Debug\CelesteEngineData.dll
+/reference:..\..\..\CelesteEngine\CelesteEngineData\bin\Debug\CelesteEngineData.dll
+/reference:..\..\SpaceCardGameData\bin\Debug\SpaceCardGameData.dll
 
 #---------------------------------- Content ---------------------------------#
 
@@ -1851,6 +1851,391 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Cards/Stations/BastionShipyard/BastionShipyard.png
 
+#begin Data/Cards/Abilities/MissileBarrageAbility/MissileBarrageAbilityCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Abilities/MissileBarrageAbility/MissileBarrageAbilityCard.xml
+
+#begin Data/Cards/Engines/DefaultEngine.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Engines/DefaultEngine.xml
+
+#begin Data/Cards/Resources/CrewResource/CrewResourceCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Resources/CrewResource/CrewResourceCard.xml
+
+#begin Data/Cards/Resources/ElectronicsResource/ElectronicsResourceCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Resources/ElectronicsResource/ElectronicsResourceCard.xml
+
+#begin Data/Cards/Resources/FuelResource/FuelResourceCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Resources/FuelResource/FuelResourceCard.xml
+
+#begin Data/Cards/Resources/MetalResource/MetalResourceCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Resources/MetalResource/MetalResourceCard.xml
+
+#begin Data/Cards/Shields/PhaseEnergyShield/PhaseEnergyShieldCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Shields/PhaseEnergyShield/PhaseEnergyShieldCard.xml
+
+#begin Data/Cards/Shields/PhaseEnergyShield/PhaseEnergyShieldObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Shields/PhaseEnergyShield/PhaseEnergyShieldObject.xml
+
+#begin Data/Cards/Ships/BlazeInterceptor/BlazeInterceptorCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/BlazeInterceptor/BlazeInterceptorCard.xml
+
+#begin Data/Cards/Ships/BlazeInterceptor/BlazeInterceptorObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/BlazeInterceptor/BlazeInterceptorObject.xml
+
+#begin Data/Cards/Ships/BuzzerDroid/BuzzerDroidCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/BuzzerDroid/BuzzerDroidCard.xml
+
+#begin Data/Cards/Ships/BuzzerDroid/BuzzerDroidObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/BuzzerDroid/BuzzerDroidObject.xml
+
+#begin Data/Cards/Ships/EagleFrigate/EagleFrigateCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/EagleFrigate/EagleFrigateCard.xml
+
+#begin Data/Cards/Ships/EagleFrigate/EagleFrigateObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/EagleFrigate/EagleFrigateObject.xml
+
+#begin Data/Cards/Ships/FalconCruiser/FalconCruiserCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/FalconCruiser/FalconCruiserCard.xml
+
+#begin Data/Cards/Ships/FalconCruiser/FalconCruiserObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/FalconCruiser/FalconCruiserObject.xml
+
+#begin Data/Cards/Ships/HoundCorvette/HoundCorvetteCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/HoundCorvette/HoundCorvetteCard.xml
+
+#begin Data/Cards/Ships/HoundCorvette/HoundCorvetteObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/HoundCorvette/HoundCorvetteObject.xml
+
+#begin Data/Cards/Ships/K'ThanCounselor/K'ThanCounselorCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/K'ThanCounselor/K'ThanCounselorCard.xml
+
+#begin Data/Cards/Ships/K'ThanCounselor/K'ThanCounselorObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/K'ThanCounselor/K'ThanCounselorObject.xml
+
+#begin Data/Cards/Ships/KaikenSupport/KaikenSupportCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/KaikenSupport/KaikenSupportCard.xml
+
+#begin Data/Cards/Ships/KaikenSupport/KaikenSupportObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/KaikenSupport/KaikenSupportObject.xml
+
+#begin Data/Cards/Ships/LightningFighter/LightningFighterCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/LightningFighter/LightningFighterCard.xml
+
+#begin Data/Cards/Ships/LightningFighter/LightningFighterObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/LightningFighter/LightningFighterObject.xml
+
+#begin Data/Cards/Ships/MigFighter/MigFighterCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/MigFighter/MigFighterCard.xml
+
+#begin Data/Cards/Ships/MigFighter/MigFighterObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/MigFighter/MigFighterObject.xml
+
+#begin Data/Cards/Ships/MiningDrone/MiningDroneCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/MiningDrone/MiningDroneCard.xml
+
+#begin Data/Cards/Ships/MiningDrone/MiningDroneObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/MiningDrone/MiningDroneObject.xml
+
+#begin Data/Cards/Ships/MunitionsLoader/MunitionsLoaderCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/MunitionsLoader/MunitionsLoaderCard.xml
+
+#begin Data/Cards/Ships/MunitionsLoader/MunitionsLoaderObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/MunitionsLoader/MunitionsLoaderObject.xml
+
+#begin Data/Cards/Ships/PirateCatapult/PirateCatapultCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/PirateCatapult/PirateCatapultCard.xml
+
+#begin Data/Cards/Ships/PirateCatapult/PirateCatapultObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/PirateCatapult/PirateCatapultObject.xml
+
+#begin Data/Cards/Ships/PirateRaider/PirateRaiderCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/PirateRaider/PirateRaiderCard.xml
+
+#begin Data/Cards/Ships/PirateRaider/PirateRaiderObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/PirateRaider/PirateRaiderObject.xml
+
+#begin Data/Cards/Ships/PirateScavenger/PirateScavengerCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/PirateScavenger/PirateScavengerCard.xml
+
+#begin Data/Cards/Ships/PirateScavenger/PirateScavengerObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/PirateScavenger/PirateScavengerObject.xml
+
+#begin Data/Cards/Ships/ShimmerFighter/ShimmerFighterCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/ShimmerFighter/ShimmerFighterCard.xml
+
+#begin Data/Cards/Ships/ShimmerFighter/ShimmerFighterObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/ShimmerFighter/ShimmerFighterObject.xml
+
+#begin Data/Cards/Ships/TantoFrigate/TantoFrigateCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/TantoFrigate/TantoFrigateCard.xml
+
+#begin Data/Cards/Ships/TantoFrigate/TantoFrigateObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/TantoFrigate/TantoFrigateObject.xml
+
+#begin Data/Cards/Ships/TetDrone/TetDroneCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/TetDrone/TetDroneCard.xml
+
+#begin Data/Cards/Ships/TetDrone/TetDroneObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/TetDrone/TetDroneObject.xml
+
+#begin Data/Cards/Ships/ValkyrieFrigate/ValkryieFrigateCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/ValkyrieFrigate/ValkryieFrigateCard.xml
+
+#begin Data/Cards/Ships/ValkyrieFrigate/ValkryieFrigateObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/ValkyrieFrigate/ValkryieFrigateObject.xml
+
+#begin Data/Cards/Ships/VaticanFrigate/VaticanFrigateCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/VaticanFrigate/VaticanFrigateCard.xml
+
+#begin Data/Cards/Ships/VaticanFrigate/VaticanFrigateObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/VaticanFrigate/VaticanFrigateObject.xml
+
+#begin Data/Cards/Ships/VenatorCruiser/VenatorCruiserCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/VenatorCruiser/VenatorCruiserCard.xml
+
+#begin Data/Cards/Ships/VenatorCruiser/VenatorCruiserObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/VenatorCruiser/VenatorCruiserObject.xml
+
+#begin Data/Cards/Ships/WaspFighter/WaspFighterCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/WaspFighter/WaspFighterCard.xml
+
+#begin Data/Cards/Ships/WaspFighter/WaspFighterObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/WaspFighter/WaspFighterObject.xml
+
+#begin Data/Cards/Ships/Y'AkaiBomber/Y'AkaiBomberCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/Y'AkaiBomber/Y'AkaiBomberCard.xml
+
+#begin Data/Cards/Ships/Y'AkaiBomber/Y'AkaiBomberObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/Y'AkaiBomber/Y'AkaiBomberObject.xml
+
+#begin Data/Cards/Ships/YoshuraBattleship/YoshuraBattleshipCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/YoshuraBattleship/YoshuraBattleshipCard.xml
+
+#begin Data/Cards/Ships/YoshuraBattleship/YoshuraBattleshipObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Ships/YoshuraBattleship/YoshuraBattleshipObject.xml
+
+#begin Data/Cards/Stations/AzmodaeusSupercruiser/AzmodaeusSupercruiserCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Stations/AzmodaeusSupercruiser/AzmodaeusSupercruiserCard.xml
+
+#begin Data/Cards/Stations/AzmodaeusSupercruiser/AzmodaeusSupercruiserObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Stations/AzmodaeusSupercruiser/AzmodaeusSupercruiserObject.xml
+
+#begin Data/Cards/Stations/BastionShipyard/BastionShipyardCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Stations/BastionShipyard/BastionShipyardCard.xml
+
+#begin Data/Cards/Stations/BastionShipyard/BastionShipyardObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Stations/BastionShipyard/BastionShipyardObject.xml
+
+#begin Data/Cards/Stations/HulkDreadnought/HulkDreadnoughtCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Stations/HulkDreadnought/HulkDreadnoughtCard.xml
+
+#begin Data/Cards/Stations/HulkDreadnought/HulkDreadnoughtObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Stations/HulkDreadnought/HulkDreadnoughtObject.xml
+
+#begin Data/Cards/Stations/OmegaCruiser/OmegaCruiserCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Stations/OmegaCruiser/OmegaCruiserCard.xml
+
+#begin Data/Cards/Stations/OmegaCruiser/OmegaCruiserObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Stations/OmegaCruiser/OmegaCruiserObject.xml
+
+#begin Data/Cards/Stations/RaiuT'Ek/RaiuT'EkCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Stations/RaiuT'Ek/RaiuT'EkCard.xml
+
+#begin Data/Cards/Stations/RaiuT'Ek/RaiuT'EkObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Stations/RaiuT'Ek/RaiuT'EkObject.xml
+
+#begin Data/Cards/Weapons/Beam/LaserBeamTurret/LaserBeamTurretBullet.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Weapons/Beam/LaserBeamTurret/LaserBeamTurretBullet.xml
+
+#begin Data/Cards/Weapons/Beam/LaserBeamTurret/LaserBeamTurretCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Weapons/Beam/LaserBeamTurret/LaserBeamTurretCard.xml
+
+#begin Data/Cards/Weapons/Beam/LaserBeamTurret/LaserBeamTurretObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Weapons/Beam/LaserBeamTurret/LaserBeamTurretObject.xml
+
+#begin Data/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretBullet.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretBullet.xml
+
+#begin Data/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretCard.xml
+
+#begin Data/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretObject.xml
+
+#begin Data/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretBullet.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretBullet.xml
+
+#begin Data/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretCard.xml
+
+#begin Data/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretObject.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretObject.xml
+
+#begin Data/Cards/Weapons/DefaultBullet.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Weapons/DefaultBullet.xml
+
+#begin Data/Cards/Weapons/DefaultTurret.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Weapons/DefaultTurret.xml
+
+#begin Data/Cards/Weapons/DefaultTurretCard.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/Weapons/DefaultTurretCard.xml
+
+#begin Data/Cards/CardRegistryData.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Cards/CardRegistryData.xml
+
 #begin Data/GameObjects/Animations/EngineBlaze.xml
 /importer:XmlImporter
 /processor:PassThroughProcessor
@@ -1925,6 +2310,16 @@
 /importer:XmlImporter
 /processor:PassThroughProcessor
 /build:Data/Options/Options.xml
+
+#begin Data/Player/PlayerDataRegistryData.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Player/PlayerDataRegistryData.xml
+
+#begin Data/Player/StartingPlayerDataRegistryData.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Player/StartingPlayerDataRegistryData.xml
 
 #begin Data/Screens/Missions/Mission1 - Terra.xml
 /importer:XmlImporter

@@ -149,7 +149,7 @@
       <Name>MonoGameUnitTestFramework</Name>
     </ProjectReference>
     <ProjectReference Include="..\SpaceCardGameData\SpaceCardGameData.csproj">
-      <Project>{abb06fbe-bad5-424a-8b9b-c1548a1a4b76}</Project>
+      <Project>{C9A104AD-2C4B-42B8-9B88-958DC6A4C926}</Project>
       <Name>SpaceCardGameData</Name>
     </ProjectReference>
     <ProjectReference Include="..\SpaceCardGame\SpaceCardGame.csproj">

@@ -1,6 +1,7 @@
 ﻿using CelesteEngine;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using SpaceCardGameData;
 using System;
 using System.Collections.Generic;
 

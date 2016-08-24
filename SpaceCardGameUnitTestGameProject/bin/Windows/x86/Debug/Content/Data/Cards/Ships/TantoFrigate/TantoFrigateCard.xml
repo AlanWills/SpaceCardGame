@@ -1,5 +1,5 @@
 ﻿<XnaContent>
-  <Asset Type="SpaceCardGame.CardData">
+  <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Ships\TantoFrigate\TantoFrigateCard</TextureAsset>
     <ObjectDataAsset>Cards\Ships\TantoFrigate\TantoFrigateObject.xml</ObjectDataAsset>
     <Type>Ship</Type>

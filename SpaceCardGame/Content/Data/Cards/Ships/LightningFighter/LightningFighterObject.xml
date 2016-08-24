@@ -5,16 +5,10 @@
     <Defence>3</Defence>
     <Speed>1</Speed>
     <TurretHardpoints>
-      <Item>
-        <X>0</X>
-        <Y>-8</Y>
-      </Item>
+      0 -8
     </TurretHardpoints>
     <EngineHardpoints>
-      <Item>
-        <X>0</X>
-        <Y>22</Y>
-      </Item>
+      0 22
     </EngineHardpoints>
     <DamageHardpoints/>
     <ExplosionSFXAsset>Explosions\SmallShipDeathExplosion</ExplosionSFXAsset>

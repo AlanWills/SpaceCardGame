@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MonoGameUnitTestFramework;
 using SpaceCardGame;
+using SpaceCardGameData;
 
 namespace SpaceCardGameUnitTestGameProject
 {

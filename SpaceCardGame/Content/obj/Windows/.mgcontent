@@ -171,12 +171,108 @@
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/UI/Button.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/UI/ButtonHighlighted.png</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Sprites/Cards/Stations/BastionShipyard/BastionShipyard.png</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Abilities/MissileBarrageAbility/MissileBarrageAbilityCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Engines/DefaultEngine.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Resources/CrewResource/CrewResourceCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Resources/ElectronicsResource/ElectronicsResourceCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Resources/FuelResource/FuelResourceCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Resources/MetalResource/MetalResourceCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Shields/PhaseEnergyShield/PhaseEnergyShieldCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Shields/PhaseEnergyShield/PhaseEnergyShieldObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/BlazeInterceptor/BlazeInterceptorCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/BlazeInterceptor/BlazeInterceptorObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/BuzzerDroid/BuzzerDroidCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/BuzzerDroid/BuzzerDroidObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/EagleFrigate/EagleFrigateCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/EagleFrigate/EagleFrigateObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/FalconCruiser/FalconCruiserCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/FalconCruiser/FalconCruiserObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/HoundCorvette/HoundCorvetteCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/HoundCorvette/HoundCorvetteObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/K'ThanCounselor/K'ThanCounselorCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/K'ThanCounselor/K'ThanCounselorObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/KaikenSupport/KaikenSupportCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/KaikenSupport/KaikenSupportObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/LightningFighter/LightningFighterCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/LightningFighter/LightningFighterObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/MigFighter/MigFighterCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/MigFighter/MigFighterObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/MiningDrone/MiningDroneCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/MiningDrone/MiningDroneObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/MunitionsLoader/MunitionsLoaderCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/MunitionsLoader/MunitionsLoaderObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/PirateCatapult/PirateCatapultCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/PirateCatapult/PirateCatapultObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/PirateRaider/PirateRaiderCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/PirateRaider/PirateRaiderObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/PirateScavenger/PirateScavengerCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/PirateScavenger/PirateScavengerObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/ShimmerFighter/ShimmerFighterCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/ShimmerFighter/ShimmerFighterObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/TantoFrigate/TantoFrigateCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/TantoFrigate/TantoFrigateObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/TetDrone/TetDroneCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/TetDrone/TetDroneObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/ValkyrieFrigate/ValkryieFrigateCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/ValkyrieFrigate/ValkryieFrigateObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/VaticanFrigate/VaticanFrigateCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/VaticanFrigate/VaticanFrigateObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/VenatorCruiser/VenatorCruiserCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/VenatorCruiser/VenatorCruiserObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/WaspFighter/WaspFighterCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/WaspFighter/WaspFighterObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/Y'AkaiBomber/Y'AkaiBomberCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/Y'AkaiBomber/Y'AkaiBomberObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/YoshuraBattleship/YoshuraBattleshipCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Ships/YoshuraBattleship/YoshuraBattleshipObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Stations/AzmodaeusSupercruiser/AzmodaeusSupercruiserCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Stations/AzmodaeusSupercruiser/AzmodaeusSupercruiserObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Stations/BastionShipyard/BastionShipyardCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Stations/BastionShipyard/BastionShipyardObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Stations/HulkDreadnought/HulkDreadnoughtCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Stations/HulkDreadnought/HulkDreadnoughtObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Stations/OmegaCruiser/OmegaCruiserCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Stations/OmegaCruiser/OmegaCruiserObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Stations/RaiuT'Ek/RaiuT'EkCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Stations/RaiuT'Ek/RaiuT'EkObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Weapons/Beam/LaserBeamTurret/LaserBeamTurretBullet.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Weapons/Beam/LaserBeamTurret/LaserBeamTurretCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Weapons/Beam/LaserBeamTurret/LaserBeamTurretObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretBullet.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Weapons/Kinetic/GatlingLaserTurret/GatlingLaserTurretObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretBullet.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Weapons/Missile/VulcanMissileTurret/VulcanMissileTurretObject.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Weapons/DefaultBullet.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Weapons/DefaultTurret.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/Weapons/DefaultTurretCard.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Cards/CardRegistryData.xml</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/GameObjects/Animations/EngineBlaze.xml</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/GameObjects/Animations/Explosion.xml</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/GameObjects/Animations/RedFire.xml</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/GameObjects/Animations/Smoke.xml</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/GameObjects/Empty.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/GameObjects/SpaceBackground.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Missions/Mission1.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Missions/Mission2.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Missions/Mission3.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Missions/Mission4.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Missions/Mission5.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Missions/Mission6.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Missions/Mission7.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Missions/Mission8.xml</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Options/Options.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Player/PlayerDataRegistryData.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Player/StartingPlayerDataRegistryData.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Screens/Missions/Mission1 - Terra.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Screens/Missions/Mission2 - Anthea.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Screens/Missions/Mission3 - Telegra.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Screens/Missions/Mission4  - Elektrin.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Screens/Missions/Mission5 - Freiza.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Screens/Missions/Mission6 - Ranbron.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Screens/Missions/Mission7 - Zion.xml</File>
+    <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Screens/Missions/Mission8 - Pyron.xml</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Screens/BattleScreen.xml</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Screens/CampaignMapScreen.xml</File>
     <File>C:/Users/Alan/Documents/Visual Studio 2015/Projects/SpaceCardGame/SpaceCardGame/Content/Data/Screens/DeckEditingScreen.xml</File>

@@ -1,5 +1,5 @@
 ﻿<XnaContent>
-  <Asset Type="SpaceCardGame.CardData">
+  <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>UI\EmptyPanelBackground</TextureAsset>
     <ObjectDataAsset>Cards\Weapons\DefaultTurret.xml</ObjectDataAsset>
     <Type>Weapon</Type>

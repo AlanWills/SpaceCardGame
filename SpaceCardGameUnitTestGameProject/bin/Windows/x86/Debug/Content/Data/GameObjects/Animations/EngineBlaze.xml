@@ -1,5 +1,5 @@
 ﻿<XnaContent>
-  <Asset Type="_2DEngineData.AnimationData">
+  <Asset Type="CelesteEngineData.AnimationData">
     <TextureAsset>Effects\Animation\EngineTrail2</TextureAsset>
     <TextureFramesX>8</TextureFramesX>
     <TextureFramesY>1</TextureFramesY>

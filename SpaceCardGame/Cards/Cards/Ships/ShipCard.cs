@@ -1,4 +1,5 @@
 ﻿using CelesteEngine;
+using SpaceCardGameData;
 
 namespace SpaceCardGame
 {

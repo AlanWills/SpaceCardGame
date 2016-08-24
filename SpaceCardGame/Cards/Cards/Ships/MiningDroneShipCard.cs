@@ -1,4 +1,6 @@
-﻿namespace SpaceCardGame
+﻿using SpaceCardGameData;
+
+namespace SpaceCardGame
 {
     public class MiningDroneShipCard : ShipCard
     {

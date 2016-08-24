@@ -1,5 +1,6 @@
 ﻿using CelesteEngine;
 using Microsoft.Xna.Framework;
+using SpaceCardGameData;
 using System.Diagnostics;
 
 namespace SpaceCardGame

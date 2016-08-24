@@ -1,4 +1,6 @@
-﻿namespace SpaceCardGame
+﻿using SpaceCardGameData;
+
+namespace SpaceCardGame
 {
     /// <summary>
     /// The gatling laser turret creates a kinetic turret.

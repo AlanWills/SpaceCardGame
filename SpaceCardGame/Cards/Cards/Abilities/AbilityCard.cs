@@ -1,4 +1,6 @@
-﻿namespace SpaceCardGame
+﻿using SpaceCardGameData;
+
+namespace SpaceCardGame
 {
     /// <summary>
     /// A class used to represent an ability in our game.

@@ -1,24 +1,3 @@
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Required Content\Effects\LightEffect.fx
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Required Content\Screens\LoadingScreen.xml
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Required Content\Screens\MainMenuScreen.xml
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Required Content\Screens\OptionsScreen.xml
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Required Content\Screens\StartupLogoScreen.xml
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Required Content\SFX\UI\ButtonHover.wav
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Required Content\SFX\UI\ButtonPressedSound.wav
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Required Content\Sprites\UI\BarBackground.png
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Required Content\Sprites\UI\BlueSliderDown.png
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Required Content\Sprites\UI\Button.png
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Required Content\Sprites\UI\ButtonHighlighted.png
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Required Content\Sprites\UI\Cursor.png
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Required Content\Sprites\UI\EmptyPanelBackground.png
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Required Content\Sprites\UI\Logo.png
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Required Content\Sprites\UI\Menu.png
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Required Content\Sprites\UI\NarrowButton.png
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Required Content\Sprites\UI\NarrowButtonHighlighted.png
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Required Content\Sprites\UI\SliderBar.png
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Required Content\Sprites\UI\TextEntryBox.png
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Required Content\SpriteFonts\DefaultSpriteFont.spritefont
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Engines\DefaultEngine.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldObject.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\BuzzerDroid\BuzzerDroidCard.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\BuzzerDroid\BuzzerDroidObject.xml
@@ -65,7 +44,6 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameU
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\Y'AkaiBomber\Y'AkaiBomberCard.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\Y'AkaiBomber\Y'AkaiBomberObject.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Stations\RaiuT'Ek\RaiuT'EkCard.xml
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Weapons\RaiuT'EkObject.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Stations\BastionShipyard\BastionShipyardCard.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Stations\BastionShipyard\BastionShipyardObject.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\GameObjects\Animations\RedFire.xml
@@ -222,13 +200,7 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameU
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\UI\NarrowButton.png
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\UI\NarrowButtonHighlighted.png
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Sprites\UI\NewCardIndicator.png
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xml
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\CardRegistryData.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xml
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Resources\CrewResource\CrewResourceCard.xml
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Resources\ElectronicsResource\ElectronicsResourceCard.xml
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Resources\FuelResource\FuelResourceCard.xml
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Resources\MetalResource\MetalResourceCard.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\BlazeInterceptor\BlazeInterceptorCard.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\EagleFrigate\EagleFrigateCard.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\EagleFrigate\EagleFrigateObject.xml
@@ -479,8 +451,6 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameU
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Test\TestOptionsData.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SpaceCardGameUnitTestGameProject.exe
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SpaceCardGameUnitTestGameProject.pdb
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\2DEngine.dll
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\2DEngineData.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\MonoGame.Framework.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SpaceCardGame.exe
@@ -492,8 +462,6 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameU
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.XInput.dll
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\2DEngineData.pdb
-C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\2DEngine.pdb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SpaceCardGameData.pdb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SpaceCardGame.pdb
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\MonoGame.Framework.xml
@@ -524,3 +492,121 @@ C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameU
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\MonoGameUnitTestFramework.dll
 C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\MonoGameUnitTestFramework.pdb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\GameObjects\Empty.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\GameObjects\SpaceBackground.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\GameObjects\Animations\EngineBlaze.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\GameObjects\Animations\Explosion.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\GameObjects\Animations\RedFire.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\GameObjects\Animations\Smoke.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Options\Options.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\LoadingScreen.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\MainMenuScreen.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\OptionsScreen.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\StartupLogoScreen.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\CelesteEngine.dll
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\CelesteEngineData.dll
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\CelesteEngineData.pdb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\CelesteEngine.pdb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\CardRegistryData.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Abilities\MissileBarrageAbility\MissileBarrageAbilityCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Engines\DefaultEngine.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Resources\CrewResource\CrewResourceCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Resources\ElectronicsResource\ElectronicsResourceCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Resources\FuelResource\FuelResourceCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Resources\MetalResource\MetalResourceCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\BlazeInterceptor\BlazeInterceptorCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\BlazeInterceptor\BlazeInterceptorObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\BuzzerDroid\BuzzerDroidCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\BuzzerDroid\BuzzerDroidObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\EagleFrigate\EagleFrigateCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\EagleFrigate\EagleFrigateObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\FalconCruiser\FalconCruiserCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\FalconCruiser\FalconCruiserObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\HoundCorvette\HoundCorvetteCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\HoundCorvette\HoundCorvetteObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\K'ThanCounselor\K'ThanCounselorCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\K'ThanCounselor\K'ThanCounselorObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\KaikenSupport\KaikenSupportCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\KaikenSupport\KaikenSupportObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\LightningFighter\LightningFighterCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\LightningFighter\LightningFighterObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\MigFighter\MigFighterCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\MigFighter\MigFighterObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\MiningDrone\MiningDroneCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\MiningDrone\MiningDroneObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\MunitionsLoader\MunitionsLoaderCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\MunitionsLoader\MunitionsLoaderObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\PirateCatapult\PirateCatapultCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\PirateCatapult\PirateCatapultObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\PirateRaider\PirateRaiderCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\PirateRaider\PirateRaiderObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\PirateScavenger\PirateScavengerCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\PirateScavenger\PirateScavengerObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\ShimmerFighter\ShimmerFighterCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\ShimmerFighter\ShimmerFighterObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\TantoFrigate\TantoFrigateCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\TantoFrigate\TantoFrigateObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\TetDrone\TetDroneCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\TetDrone\TetDroneObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\ValkyrieFrigate\ValkryieFrigateCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\ValkyrieFrigate\ValkryieFrigateObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\VaticanFrigate\VaticanFrigateCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\VaticanFrigate\VaticanFrigateObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\VenatorCruiser\VenatorCruiserCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\VenatorCruiser\VenatorCruiserObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\WaspFighter\WaspFighterCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\WaspFighter\WaspFighterObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\Y'AkaiBomber\Y'AkaiBomberCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\Y'AkaiBomber\Y'AkaiBomberObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\YoshuraBattleship\YoshuraBattleshipCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Ships\YoshuraBattleship\YoshuraBattleshipObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Stations\AzmodaeusSupercruiser\AzmodaeusSupercruiserCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Stations\AzmodaeusSupercruiser\AzmodaeusSupercruiserObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Stations\BastionShipyard\BastionShipyardCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Stations\BastionShipyard\BastionShipyardObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Stations\HulkDreadnought\HulkDreadnoughtCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Stations\HulkDreadnought\HulkDreadnoughtObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Stations\OmegaCruiser\OmegaCruiserCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Stations\OmegaCruiser\OmegaCruiserObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Stations\RaiuT'Ek\RaiuT'EkCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Stations\RaiuT'Ek\RaiuT'EkObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Weapons\DefaultBullet.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Weapons\DefaultTurret.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Weapons\DefaultTurretCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretBullet.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretBullet.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretBullet.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretCard.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Cards\Weapons\Missile\VulcanMissileTurret\VulcanMissileTurretObject.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Missions\Mission1.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Missions\Mission2.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Missions\Mission3.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Missions\Mission4.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Missions\Mission5.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Missions\Mission6.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Missions\Mission7.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Missions\Mission8.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Player\PlayerDataRegistryData.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Player\StartingPlayerDataRegistryData.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\BattleScreen.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\CampaignMapScreen.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\DeckEditingScreen.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\DeckManagerScreen.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\HardpointScreen.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\LobbyMenuScreen.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\OpenCardPacksScreen.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\ShopScreen.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\Missions\Mission1 - Terra.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\Missions\Mission2 - Anthea.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\Missions\Mission3 - Telegra.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\Missions\Mission4  - Elektrin.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\Missions\Mission5 - Freiza.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\Missions\Mission6 - Ranbron.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\Missions\Mission7 - Zion.xnb
+C:\Users\Alan\Documents\Visual Studio 2015\Projects\SpaceCardGame\SpaceCardGameUnitTestGameProject\bin\Windows\x86\Debug\Content\Data\Screens\Missions\Mission8 - Pyron.xnb

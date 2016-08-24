@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using SpaceCardGameData;
+using System.Diagnostics;
 
 namespace SpaceCardGame
 {

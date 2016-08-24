@@ -1,4 +1,6 @@
-﻿namespace SpaceCardGame
+﻿using SpaceCardGameData;
+
+namespace SpaceCardGame
 {
     /// <summary>
     /// A general class to represent a station, which is a unique form of Ship

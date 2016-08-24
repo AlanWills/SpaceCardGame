@@ -5,58 +5,22 @@
     <Defence>1</Defence>
     <Speed>3</Speed>
     <TurretHardpoints>
-      <Item>
-        <X>0</X>
-        <Y>-49</Y>
-      </Item>
-      <Item>
-        <X>0</X>
-        <Y>144</Y>
-      </Item>
-      <Item>
-        <X>-80</X>
-        <Y>165</Y>
-      </Item>
-      <Item>
-        <X>80</X>
-        <Y>165</Y>
-      </Item>
+      0 -49
+      0 144
+      -80 165
+      80 165
     </TurretHardpoints>
     <EngineHardpoints>
-      <Item>
-        <X>-116</X>
-        <Y>227</Y>
-      </Item>
-      <Item>
-        <X>-77</X>
-        <Y>240</Y>
-      </Item>
-      <Item>
-        <X>-15</X>
-        <Y>268</Y>
-      </Item>
-      <Item>
-        <X>116</X>
-        <Y>227</Y>
-      </Item>
-      <Item>
-        <X>77</X>
-        <Y>240</Y>
-      </Item>
-      <Item>
-        <X>15</X>
-        <Y>268</Y>
-      </Item>
+      -116 227
+      -77 240
+      -15 268
+      116 227
+      77 240
+      15 268
     </EngineHardpoints>
     <DamageHardpoints>
-      <Item>
-        <X>-13</X>
-        <Y>-109</Y>
-      </Item>
-      <Item>
-        <X>42</X>
-        <Y>130</Y>
-      </Item>
+      -13 -109
+      42 130
     </DamageHardpoints>
     <ExplosionSFXAsset>Explosions\SmallShipDeathExplosion</ExplosionSFXAsset>
   </Asset>

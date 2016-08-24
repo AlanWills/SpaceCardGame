@@ -1,5 +1,5 @@
 ﻿<XnaContent>
-  <Asset Type="SpaceCardGame.CardData">
+  <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Stations\HulkDreadnought\HulkDreadnoughtCard</TextureAsset>
     <ObjectDataAsset>Cards\Stations\HulkDreadnought\HulkDreadnoughtObject.xml</ObjectDataAsset>
     <Type>Station</Type>
