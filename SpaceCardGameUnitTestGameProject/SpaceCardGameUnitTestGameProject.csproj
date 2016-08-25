@@ -144,9 +144,9 @@
       <Project>{B4C3C278-BC1C-49CD-82BF-76B93EF7F59D}</Project>
       <Name>CelesteEngine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\MonoGameUnitTestFramework\MonoGameUnitTestFramework\MonoGameUnitTestFramework.csproj">
+    <ProjectReference Include="..\..\CelesteEngine\CelesteUnitTestFramework\CelesteEngineUnitTestFramework.csproj">
       <Project>{a9189426-6668-474f-b709-6050f2707c02}</Project>
-      <Name>MonoGameUnitTestFramework</Name>
+      <Name>CelesteEngineUnitTestFramework</Name>
     </ProjectReference>
     <ProjectReference Include="..\SpaceCardGameData\SpaceCardGameData.csproj">
       <Project>{C9A104AD-2C4B-42B8-9B88-958DC6A4C926}</Project>
