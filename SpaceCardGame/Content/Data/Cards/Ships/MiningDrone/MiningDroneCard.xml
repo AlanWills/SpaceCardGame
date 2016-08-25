@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Ships\MiningDrone\MiningDroneCard</TextureAsset>
-    <ObjectDataAsset>Cards\Ships\MiningDrone\MiningDroneObject.xml</ObjectDataAsset>
+    <ObjectDataAsset>Cards\Ships\MiningDrone\MiningDroneObject</ObjectDataAsset>
     <Type>Ship</Type>
     <DisplayName>Mining Drone</DisplayName>
     <Rarity>Common</Rarity>

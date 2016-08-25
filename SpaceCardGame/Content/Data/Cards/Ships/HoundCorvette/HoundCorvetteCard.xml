@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Ships\HoundCorvette\HoundCorvetteCard</TextureAsset>
-    <ObjectDataAsset>Cards\Ships\HoundCorvette\HoundCorvetteObject.xml</ObjectDataAsset>
+    <ObjectDataAsset>Cards\Ships\HoundCorvette\HoundCorvetteObject</ObjectDataAsset>
     <Type>Ship</Type>
     <DisplayName>Hound Corvette</DisplayName>
     <Rarity>Common</Rarity>

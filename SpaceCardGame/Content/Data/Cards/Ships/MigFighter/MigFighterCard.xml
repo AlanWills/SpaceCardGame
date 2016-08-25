@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Ships\MigFighter\MigFighterCard</TextureAsset>
-    <ObjectDataAsset>Cards\Ships\MigFighter\MigFighterObject.xml</ObjectDataAsset>
+    <ObjectDataAsset>Cards\Ships\MigFighter\MigFighterObject</ObjectDataAsset>
     <Type>Ship</Type>
     <DisplayName>Mig Fighter</DisplayName>
     <Rarity>Common</Rarity>

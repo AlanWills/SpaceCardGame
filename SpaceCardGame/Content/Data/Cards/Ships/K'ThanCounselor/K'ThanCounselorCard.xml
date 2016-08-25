@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Ships\K'ThanCounselor\K'ThanCounselorCard</TextureAsset>
-    <ObjectDataAsset>Cards\Ships\K'ThanCounselor\K'ThanCounselorObject.xml</ObjectDataAsset>
+    <ObjectDataAsset>Cards\Ships\K'ThanCounselor\K'ThanCounselorObject</ObjectDataAsset>
     <Type>Ship</Type>
     <DisplayName>K'Than Counselor</DisplayName>
     <Rarity>Common</Rarity>

@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Ships\BuzzerDroid\BuzzerDroidCard</TextureAsset>
-    <ObjectDataAsset>Cards\Ships\BuzzerDroid\BuzzerDroidObject.xml</ObjectDataAsset>
+    <ObjectDataAsset>Cards\Ships\BuzzerDroid\BuzzerDroidObject</ObjectDataAsset>
     <Type>Ship</Type>
     <DisplayName>Buzzer Droid</DisplayName>
     <Rarity>Common</Rarity>

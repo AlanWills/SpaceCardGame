@@ -28,11 +28,11 @@ namespace SpaceCardGame
             // Create instances of game objects
             ShipsAssets = new List<string>()
             {
-                "Cards\\Stations\\AzmodaeusSupercruiser\\AzmodaeusSupercruiserObject.xml",
-                "Cards\\Stations\\BastionShipyard\\BastionShipyardObject.xml",
-                "Cards\\Stations\\HulkDreadnought\\HulkDreadnoughtObject.xml",
-                "Cards\\Stations\\OmegaCruiser\\OmegaCruiserObject.xml",
-                "Cards\\Stations\\RaiuT'Ek\\RaiuT'EkObject.xml",
+                "Cards\\Stations\\AzmodaeusSupercruiser\\AzmodaeusSupercruiserObject",
+                "Cards\\Stations\\BastionShipyard\\BastionShipyardObject",
+                "Cards\\Stations\\HulkDreadnought\\HulkDreadnoughtObject",
+                "Cards\\Stations\\OmegaCruiser\\OmegaCruiserObject",
+                "Cards\\Stations\\RaiuT'Ek\\RaiuT'EkObject",
             };
 
             Ships = new List<GameObject>();

@@ -75,7 +75,7 @@ namespace SpaceCardGame
         public bool IsDefaultTurret { get; private set; }
 
         // A string which represents the default turret all ships have 
-        public const string DefaultTurretDataAsset = "Cards\\Weapons\\DefaultTurret.xml";
+        public const string DefaultTurretDataAsset = "Cards\\Weapons\\DefaultTurret";
 
         #endregion
 

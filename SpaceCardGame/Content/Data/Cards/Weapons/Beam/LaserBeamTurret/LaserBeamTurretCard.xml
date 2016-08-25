@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretCard</TextureAsset>
-    <ObjectDataAsset>Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretObject.xml</ObjectDataAsset>
+    <ObjectDataAsset>Cards\Weapons\Beam\LaserBeamTurret\LaserBeamTurretObject</ObjectDataAsset>
     <Type>Weapon</Type>
     <DisplayName>Laser Beam Turret</DisplayName>
     <Rarity>Common</Rarity>

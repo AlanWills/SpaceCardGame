@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Ships\KaikenSupport\KaikenSupportCard</TextureAsset>
-    <ObjectDataAsset>Cards\Ships\KaikenSupport\KaikenSupportObject.xml</ObjectDataAsset>
+    <ObjectDataAsset>Cards\Ships\KaikenSupport\KaikenSupportObject</ObjectDataAsset>
     <Type>Ship</Type>
     <DisplayName>Kaiken Support</DisplayName>
     <Rarity>Common</Rarity>

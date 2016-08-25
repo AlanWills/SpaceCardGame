@@ -89,7 +89,7 @@ namespace SpaceCardGame
         /// This is not as costly as you may fear so do not be afraid about using this rather than some other roundabout function (although obviously don't be stupid!).
         /// </summary>
         /// <param name="cardData">The card data we wish to find the string of</param>
-        /// <returns>The semi-string of the card data e.g. 'Resources\\Crew\\CrewResource.xml'.  Empty string if it couldn't be found.</returns>
+        /// <returns>The semi-string of the card data e.g. 'Resources\\Crew\\CrewResource'.  Empty string if it couldn't be found.</returns>
         public static string FindCardDataAsset(CardData cardData)
         {
             if (cardData == null)
@@ -113,7 +113,7 @@ namespace SpaceCardGame
         /// Takes an inputted list of card data (could be a deck) and returns a list of their data assets - used in saving.
         /// </summary>
         /// <param name="cardDataList">The list of card data we wish to convert</param>
-        /// <returns>The list of card data assets we have obtained.  In the form e.g. 'Resources\Crew\CrewResourceCard.xml'</returns>
+        /// <returns>The list of card data assets we have obtained.  In the form e.g. 'Resources\Crew\CrewResourceCard'</returns>
         public static List<string> ConvertToAssetList(List<CardData> cardDataList)
         {
             // If we have not loaded we are going to run into trouble here

@@ -94,20 +94,20 @@ namespace SpaceCardGame
 
         private void AddShips()
         {
-            GameObject eagleFrigate = AddGameObject(new GameObject(new Vector2(ScreenDimensions.X * 0.35f, ScreenDimensions.Y * 0.35f), "Cards\\Ships\\EagleFrigate\\EagleFrigateObject.xml"), true, true);
+            GameObject eagleFrigate = AddGameObject(new GameObject(new Vector2(ScreenDimensions.X * 0.35f, ScreenDimensions.Y * 0.35f), "Cards\\Ships\\EagleFrigate\\EagleFrigateObject"), true, true);
             eagleFrigate.Name = "Eagle Frigate";
             eagleFrigate.LocalRotation = MathHelper.PiOver2;
             float maxDimension = Math.Max(eagleFrigate.Size.X, eagleFrigate.Size.Y);
 
             Image eagleShield = eagleFrigate.AddChild(new Image(new Vector2(1.75f * maxDimension), Vector2.Zero, "Cards\\Shields\\PhaseEnergyShield\\PhaseEnergyShield"), true, true);
 
-            GameObject pirateRaider = AddGameObject(new GameObject(new Vector2(ScreenDimensions.X * 0.25f, ScreenDimensions.Y * 0.85f), "Cards\\Ships\\PirateRaider\\PirateRaiderObject.xml"), true, true);
+            GameObject pirateRaider = AddGameObject(new GameObject(new Vector2(ScreenDimensions.X * 0.25f, ScreenDimensions.Y * 0.85f), "Cards\\Ships\\PirateRaider\\PirateRaiderObject"), true, true);
             pirateRaider.Name = "Pirate Raider";
         }
 
         private void SpawnSmallShip()
         { 
-            GameObject smallShip = AddGameObject(new GameObject(new Vector2(-100, ScreenDimensions.Y * 0.1f), "Cards\\Ships\\BlazeInterceptor\\BlazeInterceptorObject.xml"), true, true);
+            GameObject smallShip = AddGameObject(new GameObject(new Vector2(-100, ScreenDimensions.Y * 0.1f), "Cards\\Ships\\BlazeInterceptor\\BlazeInterceptorObject"), true, true);
             smallShip.LocalRotation = MathHelper.PiOver2;
             smallShip.Name = "Target";
             smallShip.AddModule(new MoveToDestinationModule(new Vector2(ScreenDimensions.X + 100, ScreenDimensions.Y * 0.1f), 600), true, true);
@@ -125,7 +125,7 @@ namespace SpaceCardGame
             DebugUtils.AssertNotNull(eagleFrigate);
 
             // Fire at the latest small ship we have added - one should always exist so don't bother checking the result of LastChild
-            Projectile projectile = AddGameObject(new Bullet(GameObjects.LastChild<GameObject>(x => x.Name == "Target"), eagleFrigate.WorldPosition, AssetManager.GetData<ProjectileData>("Cards\\Weapons\\Kinetic\\GatlingLaserTurret\\GatlingLaserTurretBullet.xml")), true, true);
+            Projectile projectile = AddGameObject(new Bullet(GameObjects.LastChild<GameObject>(x => x.Name == "Target"), eagleFrigate.WorldPosition, AssetManager.GetData<ProjectileData>("Cards\\Weapons\\Kinetic\\GatlingLaserTurret\\GatlingLaserTurretBullet")), true, true);
             projectile.AddModule(new LifeTimeModule(1), true, true);
 
             GameObject pirateRaider = FindGameObject<GameObject>(x => x.Name == "Pirate Raider");
@@ -136,10 +136,10 @@ namespace SpaceCardGame
             // See if we have reached the number of spawn calls to fire missiles
             if (currentMissileSpawnCounter >= missileSpawnCounter)
             {
-                Projectile missile = AddGameObject(new Missile(pirateRaider, eagleFrigate.WorldPosition, AssetManager.GetData<ProjectileData>("Cards\\Weapons\\Missile\\VulcanMissileTurret\\VulcanMissileTurretBullet.xml")), true, true);
+                Projectile missile = AddGameObject(new Missile(pirateRaider, eagleFrigate.WorldPosition, AssetManager.GetData<ProjectileData>("Cards\\Weapons\\Missile\\VulcanMissileTurret\\VulcanMissileTurretBullet")), true, true);
                 missile.AddModule(new LifeTimeModule(3), true, true);
 
-                Beam beam = AddGameObject(new Beam(eagleFrigate, pirateRaider.WorldPosition, AssetManager.GetData<ProjectileData>("Cards\\Weapons\\Beam\\LaserBeamTurret\\LaserBeamTurretBullet.xml")), true, true);
+                Beam beam = AddGameObject(new Beam(eagleFrigate, pirateRaider.WorldPosition, AssetManager.GetData<ProjectileData>("Cards\\Weapons\\Beam\\LaserBeamTurret\\LaserBeamTurretBullet")), true, true);
                 beam.AddModule(new LifeTimeModule(3), true, true);
 
                 currentMissileSpawnCounter = 0;

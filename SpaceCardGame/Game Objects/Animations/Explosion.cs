@@ -10,7 +10,7 @@ namespace SpaceCardGame
     public class Explosion : AnimatedGameObject
     {
         public Explosion(Vector2 localPosition) :
-            base(localPosition, "GameObjects\\Animations\\Explosion.xml")
+            base(localPosition, "GameObjects\\Animations\\Explosion")
         {
             UsesCollider = false;
         }

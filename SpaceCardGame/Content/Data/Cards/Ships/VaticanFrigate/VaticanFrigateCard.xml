@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Ships\VaticanFrigate\VaticanFrigateCard</TextureAsset>
-    <ObjectDataAsset>Cards\Ships\VaticanFrigate\VaticanFrigateObject.xml</ObjectDataAsset>
+    <ObjectDataAsset>Cards\Ships\VaticanFrigate\VaticanFrigateObject</ObjectDataAsset>
     <Type>Ship</Type>
     <DisplayName>Vatican Frigate</DisplayName>
     <Rarity>Common</Rarity>

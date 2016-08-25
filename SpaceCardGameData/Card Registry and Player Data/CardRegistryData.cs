@@ -7,7 +7,7 @@ namespace SpaceCardGameData
     {
         /// <summary>
         /// The central list of all the available cards in the game.
-        /// Do not need to add 'Cards\' on the front, e.g. an item in the XML may be <Item>Abilities\MissileBarrageAbility\MissileBarrageAbility.xml</Item>
+        /// Do not need to add 'Cards\' on the front, e.g. an item in the XML may be <Item>Abilities\MissileBarrageAbility\MissileBarrageAbility</Item>
         /// </summary>
         public List<string> CardDataAssets { get; set; }
     }

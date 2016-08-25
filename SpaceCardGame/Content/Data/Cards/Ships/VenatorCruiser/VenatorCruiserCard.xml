@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Ships\VenatorCruiser\VenatorCruiserCard</TextureAsset>
-    <ObjectDataAsset>Cards\Ships\VenatorCruiser\VenatorCruiserObject.xml</ObjectDataAsset>
+    <ObjectDataAsset>Cards\Ships\VenatorCruiser\VenatorCruiserObject</ObjectDataAsset>
     <Type>Ship</Type>
     <DisplayName>Venator Cruiser</DisplayName>
     <Rarity>Rare</Rarity>

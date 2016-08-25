@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Ships\ValkyrieFrigate\ValkyrieFrigateCard</TextureAsset>
-    <ObjectDataAsset>Cards\Ships\ValkyrieFrigate\ValkyrieFrigateObject.xml</ObjectDataAsset>
+    <ObjectDataAsset>Cards\Ships\ValkyrieFrigate\ValkyrieFrigateObject</ObjectDataAsset>
     <Type>Ship</Type>
     <DisplayName>Valkyrie Frigate</DisplayName>
     <Rarity>Common</Rarity>

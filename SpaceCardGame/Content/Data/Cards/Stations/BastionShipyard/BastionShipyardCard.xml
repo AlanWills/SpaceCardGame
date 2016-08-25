@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Stations\BastionShipyard\BastionShipyardCard</TextureAsset>
-    <ObjectDataAsset>Cards\Stations\BastionShipyard\BastionShipyardObject.xml</ObjectDataAsset>
+    <ObjectDataAsset>Cards\Stations\BastionShipyard\BastionShipyardObject</ObjectDataAsset>
     <Type>Station</Type>
     <DisplayName>Bastion Shipyard</DisplayName>
     <Rarity>Common</Rarity>

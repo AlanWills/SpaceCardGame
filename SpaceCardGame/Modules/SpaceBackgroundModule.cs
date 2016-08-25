@@ -22,7 +22,7 @@ namespace SpaceCardGame
         private Vector2 Region { get; set; }
 
         private const int asteroidDensity = 5;
-        private const string backgroundDataAsset = "GameObjects\\SpaceBackground.xml";
+        private const string backgroundDataAsset = "GameObjects\\SpaceBackground";
 
         /// <summary>
         /// Restrict this module to just screens

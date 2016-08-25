@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Ships\YoshuraBattleship\YoshuraBattleshipCard</TextureAsset>
-    <ObjectDataAsset>Cards\Ships\YoshuraBattleship\YoshuraBattleshipObject.xml</ObjectDataAsset>
+    <ObjectDataAsset>Cards\Ships\YoshuraBattleship\YoshuraBattleshipObject</ObjectDataAsset>
     <Type>Ship</Type>
     <DisplayName>Yoshura Battleship</DisplayName>
     <Rarity>Common</Rarity>

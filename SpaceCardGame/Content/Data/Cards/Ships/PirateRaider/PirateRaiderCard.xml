@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Ships\PirateRaider\PirateRaiderCard</TextureAsset>
-    <ObjectDataAsset>Cards\Ships\PirateRaider\PirateRaiderObject.xml</ObjectDataAsset>
+    <ObjectDataAsset>Cards\Ships\PirateRaider\PirateRaiderObject</ObjectDataAsset>
     <Type>Ship</Type>
     <DisplayName>Pirate Raider</DisplayName>
     <Rarity>Common</Rarity>

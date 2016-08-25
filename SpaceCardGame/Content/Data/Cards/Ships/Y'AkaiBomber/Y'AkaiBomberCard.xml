@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Ships\Y'AkaiBomber\Y'AkaiBomberCard</TextureAsset>
-    <ObjectDataAsset>Cards\Ships\Y'AkaiBomber\Y'AkaiBomberObject.xml</ObjectDataAsset>
+    <ObjectDataAsset>Cards\Ships\Y'AkaiBomber\Y'AkaiBomberObject</ObjectDataAsset>
     <Type>Ship</Type>
     <DisplayName>Y'Akai Bomber</DisplayName>
     <Rarity>Common</Rarity>

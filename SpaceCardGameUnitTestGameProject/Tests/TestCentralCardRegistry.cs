@@ -4,7 +4,7 @@ using MonoGameUnitTestFramework;
 using SpaceCardGame;
 using SpaceCardGameData;
 
-namespace SpaceCardGameUnitTestGameProject
+namespace SpaceCardGameCelesteEngineUnitTestGameProject
 {
     [TestClass]
     public class TestCentralCardRegistry : UnitTest
@@ -17,7 +17,7 @@ namespace SpaceCardGameUnitTestGameProject
         [TestMethod]
         public void TestFindCardDataAsset_Success()
         {
-            string expectedCardDataAsset = "TestCardData.xml";
+            string expectedCardDataAsset = "TestCardData";
             CardData cardData = AssetManager.GetData<CardData>("Cards\\" + expectedCardDataAsset);
 
             string actualCardDataAsset = CentralCardRegistry.FindCardDataAsset(cardData);
@@ -41,7 +41,7 @@ namespace SpaceCardGameUnitTestGameProject
             CentralCardRegistry.CardData["Ship"].Clear();
 
             string expectedCardDataAsset = "";
-            CardData cardData = AssetManager.GetData<CardData>("Cards\\TestCardData.xml");
+            CardData cardData = AssetManager.GetData<CardData>("Cards\\TestCardData");
 
             string actualCardDataAsset = CentralCardRegistry.FindCardDataAsset(cardData);
 

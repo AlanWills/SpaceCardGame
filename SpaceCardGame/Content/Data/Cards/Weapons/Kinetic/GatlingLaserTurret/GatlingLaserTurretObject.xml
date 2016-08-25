@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.TurretData">
     <TextureAsset>Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretObject</TextureAsset>
-    <ProjectileDataAsset>Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretBullet.xml</ProjectileDataAsset>
+    <ProjectileDataAsset>Cards\Weapons\Kinetic\GatlingLaserTurret\GatlingLaserTurretBullet</ProjectileDataAsset>
     <ShotsPerTurn>5</ShotsPerTurn>
 </Asset>
 </XnaContent>

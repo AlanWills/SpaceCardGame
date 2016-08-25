@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Ships\ShimmerFighter\ShimmerFighterCard</TextureAsset>
-    <ObjectDataAsset>Cards\Ships\ShimmerFighter\ShimmerFighterObject.xml</ObjectDataAsset>
+    <ObjectDataAsset>Cards\Ships\ShimmerFighter\ShimmerFighterObject</ObjectDataAsset>
     <Type>Ship</Type>
     <DisplayName>Shimmer Fighter</DisplayName>
     <Rarity>Common</Rarity>

@@ -11,7 +11,7 @@ namespace SpaceCardGame
         #region Properties and Fields
 
         // The path to a default weapon we will use to create a weapon for each ship initially
-        public const string DefaultWeaponCardDataAsset = "Cards\\Weapons\\DefaultTurretCard.xml";
+        public const string DefaultWeaponCardDataAsset = "Cards\\Weapons\\DefaultTurretCard";
 
         #endregion
 

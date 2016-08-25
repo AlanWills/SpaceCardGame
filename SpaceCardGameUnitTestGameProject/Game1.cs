@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameUnitTestFramework;
 
-namespace SpaceCardGameUnitTestGameProject
+namespace SpaceCardGameCelesteEngineUnitTestGameProject
 {
     /// <summary>
     /// This is the main type for your game.

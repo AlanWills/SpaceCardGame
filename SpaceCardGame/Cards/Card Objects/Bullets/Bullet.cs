@@ -16,7 +16,7 @@ namespace SpaceCardGame
         /// </summary>
         private RigidBodyModule RigidBody { get; set; }
 
-        public const string defaultBulletDataAsset = "Cards\\Weapons\\DefaultBullet.xml";
+        public const string defaultBulletDataAsset = "Cards\\Weapons\\DefaultBullet";
 
         #endregion
 

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SpaceCardGameUnitTestGameProject
+namespace SpaceCardGameCelesteEngineUnitTestGameProject
 {
 #if WINDOWS || LINUX
     /// <summary>

@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Stations\RaiuT'Ek\RaiuT'EkCard</TextureAsset>
-    <ObjectDataAsset>Cards\Stations\RaiuT'Ek\RaiuT'EkObject.xml</ObjectDataAsset>
+    <ObjectDataAsset>Cards\Stations\RaiuT'Ek\RaiuT'EkObject</ObjectDataAsset>
     <Type>Station</Type>
     <DisplayName>Raiu T'Ek</DisplayName>
     <Rarity>Common</Rarity>

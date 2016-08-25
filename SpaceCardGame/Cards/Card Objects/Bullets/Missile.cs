@@ -20,7 +20,7 @@ namespace SpaceCardGame
         private Engine Engine { get; set; }
 
         private static int side = -1;
-        public const string defaultMissileDataAsset = "Cards\\Weapons\\Missile\\VulcanMissileTurret\\VulcanMissileTurretBullet.xml";
+        public const string defaultMissileDataAsset = "Cards\\Weapons\\Missile\\VulcanMissileTurret\\VulcanMissileTurretBullet";
 
         #endregion
 

@@ -11,6 +11,6 @@
       <Item>Gameplay\MessengersFromAbove</Item>
       <Item>Gameplay\RidingTheAuroraBorealis</Item>
     </Music>
-    <MissionDataAsset>Missions\Mission1.xml</MissionDataAsset>
+    <MissionDataAsset>Missions\Mission1</MissionDataAsset>
   </Asset>
 </XnaContent>

@@ -152,6 +152,7 @@
     <Compile Include="Game Objects\CardControl.cs" />
     <Compile Include="Board\GameBoardSection.cs" />
     <Compile Include="Game Objects\ShipCardControl.cs" />
+    <Compile Include="Input\WindowsInputManager.cs" />
     <Compile Include="Interfaces\ICardObjectElement.cs" />
     <Compile Include="Modules\ClickableCardModule.cs" />
     <Compile Include="Modules\CardHandAnimationModule.cs" />
@@ -1058,10 +1059,6 @@
     <ProjectReference Include="..\..\CelesteEngine\CelesteEngine\CelesteEngine.csproj">
       <Project>{b4c3c278-bc1c-49cd-82bf-76b93ef7f59d}</Project>
       <Name>CelesteEngine</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\MonoGameUnitTestFramework\MonoGameUnitTestFramework\MonoGameUnitTestFramework.csproj">
-      <Project>{A9189426-6668-474F-B709-6050F2707C02}</Project>
-      <Name>MonoGameUnitTestFramework</Name>
     </ProjectReference>
     <ProjectReference Include="..\SpaceCardGameData\SpaceCardGameData.csproj">
       <Project>{c9a104ad-2c4b-42b8-9b88-958dc6a4c926}</Project>

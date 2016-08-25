@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldCard</TextureAsset>
-    <ObjectDataAsset>Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldObject.xml</ObjectDataAsset>
+    <ObjectDataAsset>Cards\Shields\PhaseEnergyShield\PhaseEnergyShieldObject</ObjectDataAsset>
     <Type>Shield</Type>
     <DisplayName>Phase Energy Shield</DisplayName>
     <Rarity>Common</Rarity>

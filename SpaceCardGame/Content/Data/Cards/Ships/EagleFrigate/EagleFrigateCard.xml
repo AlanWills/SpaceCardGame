@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="SpaceCardGameData.CardData">
     <TextureAsset>Cards\Ships\EagleFrigate\EagleFrigateCard</TextureAsset>
-    <ObjectDataAsset>Cards\Ships\EagleFrigate\EagleFrigateObject.xml</ObjectDataAsset>
+    <ObjectDataAsset>Cards\Ships\EagleFrigate\EagleFrigateObject</ObjectDataAsset>
     <Type>Ship</Type>
     <DisplayName>Eagle Frigate</DisplayName>
     <Rarity>Common</Rarity>

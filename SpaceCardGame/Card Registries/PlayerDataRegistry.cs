@@ -49,8 +49,8 @@ namespace SpaceCardGame
         /// </summary>
         public PlayerDataRegistryData PlayerData { get; set; }
         
-        public const string playerDataRegistryDataAsset = "Player\\PlayerDataRegistryData.xml";
-        public const string startingDataRegistryDataAsset = "Player\\StartingPlayerDataRegistryData.xml";
+        public const string playerDataRegistryDataAsset = "Player\\PlayerDataRegistryData";
+        public const string startingDataRegistryDataAsset = "Player\\StartingPlayerDataRegistryData";
         public const int maxDeckNumber = 8;
 
         #endregion
