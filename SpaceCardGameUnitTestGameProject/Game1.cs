@@ -1,7 +1,7 @@
 ﻿using CelesteEngine;
+using CelesteEngineUnitTestFramework;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MonoGameUnitTestFramework;
 
 namespace SpaceCardGameCelesteEngineUnitTestGameProject
 {
@@ -30,10 +30,7 @@ namespace SpaceCardGameCelesteEngineUnitTestGameProject
         /// </summary>
         protected override void Initialize()
         {
-            base.Initialize();
-
-            ScreenManager.Instance.Initialise();
-            ScreenManager.Instance.StartGame(new UnitTestGameMainMenuScreen());
+            base.Initialize();            
         }
 
         /// <summary>
@@ -46,7 +43,7 @@ namespace SpaceCardGameCelesteEngineUnitTestGameProject
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             ScreenManager.Instance.Setup(this, spriteBatch, graphics);
-            ScreenManager.Instance.LoadContent();
+            ScreenManager.Instance.StartGame(new UnitTestGameMainMenuScreen());
         }
 
         /// <summary>
