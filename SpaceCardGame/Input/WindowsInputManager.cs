@@ -1,6 +1,7 @@
 ﻿using CelesteEngine;
 using System;
 using System.Diagnostics;
+using CheckFuncs = System.Tuple<System.Func<object[], bool>, System.Func<object[], bool>>;
 
 namespace SpaceCardGame
 {
@@ -19,13 +20,12 @@ namespace SpaceCardGame
         /// Returns true if platform input was sufficient for the event and false if not.
         /// </summary>
         /// <param name="eventName"></param>
-        public override bool CheckInputEvent(string eventName)
+        public override bool CheckInputEvent(string eventName, object[] windowsParameters, object[] androidParameters)
         {
-            Tuple<Func<bool>, Func<bool>> checkFuncs;
+            CheckFuncs checkFuncs = new CheckFuncs(EmptyCheck, EmptyCheck);
             Debug.Assert(EventFuncMap.TryGetValue(eventName, out checkFuncs));
 
-            return checkFuncs.Item1.Invoke();
-
+            return checkFuncs.Item1.Invoke(windowsParameters);
         }
 
         #endregion

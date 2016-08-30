@@ -42,7 +42,7 @@ namespace SpaceCardGameCelesteEngineUnitTestGameProject
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            ScreenManager.Instance.Setup(this, spriteBatch, graphics);
+            ScreenManager.Instance.Setup(this, spriteBatch, graphics, null);
             ScreenManager.Instance.StartGame(new UnitTestGameMainMenuScreen());
         }
 

@@ -28,7 +28,7 @@ namespace SpaceCardGame
         {
             Card = cardThumbnail;
             Card.ReparentTo(GameMouse.Instance);
-            Card.HandAnimationModule.EnlargeOnHover = false;
+            Card.ShouldHandleInput = false;
         }
 
         #region Virtual Functions
@@ -77,6 +77,7 @@ namespace SpaceCardGame
         /// </summary>
         private void AddCardToGame()
         {
+            Card.ShouldHandleInput = true;
             BattleScreen.Board.ActivePlayerBoardSection.GameBoardSection.AddCard(Card, GameMouse.Instance.InGameWorldPosition);
             Debug.Assert(!BattleScreen.ActivePlayer.CurrentHand.Exists(x => x == Card));
 
@@ -89,7 +90,6 @@ namespace SpaceCardGame
         /// </summary>
         private void SendCardBackToHand()
         {
-            BattleScreen.ActivePlayer.AddCardToHand(Card);
 
             Die();
         }

@@ -31,7 +31,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public DamageUI(Vector2 localPosition, string textureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
+        public DamageUI(Vector2 localPosition, string textureAsset = AssetManager.DefaultEmptyTextureAsset) :
             base(localPosition, DamageAssets[MathUtils.GenerateInt(0, DamageAssets.Count - 1)])
         {
             Fire = AddChild(new Fire(Vector2.Zero));

@@ -43,8 +43,16 @@ namespace SpaceCardGame
             set
             {
                 base.Colour = value;
-                Card.Colour = value;
-                CardObject.Colour = value;
+
+                if (Card != null)
+                {
+                    Card.Colour = value;
+                }
+
+                if (CardObject != null)
+                {
+                    CardObject.Colour = value;
+                }
             }
         }
 

@@ -40,7 +40,7 @@ namespace SpaceCardGame
         /// <param name="size"></param>
         /// <param name="localPosition"></param>
         /// <param name="textureAsset"></param>
-        public CardTypesTabControl(Dictionary<string, Dictionary<string, CardData>> cardData, Vector2 tabsTotalSize, Vector2 cardPagesSize, Vector2 localPosition, OnClicked cardOnLeftClicked = null, string textureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
+        public CardTypesTabControl(Dictionary<string, Dictionary<string, CardData>> cardData, Vector2 tabsTotalSize, Vector2 cardPagesSize, Vector2 localPosition, OnClicked cardOnLeftClicked = null, string textureAsset = AssetManager.DefaultEmptyTextureAsset) :
             base(tabsTotalSize, localPosition, textureAsset)
         {
             CardData = cardData;
@@ -58,7 +58,7 @@ namespace SpaceCardGame
         /// <param name="cardPagesSize"></param>
         /// <param name="localPosition"></param>
         /// <param name="textureAsset"></param>
-        public CardTypesTabControl(List<string> cardDataAssets, Vector2 tabsTotalSize, Vector2 cardPagesSize, Vector2 localPosition, OnClicked cardOnLeftClicked = null, string textureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
+        public CardTypesTabControl(List<string> cardDataAssets, Vector2 tabsTotalSize, Vector2 cardPagesSize, Vector2 localPosition, OnClicked cardOnLeftClicked = null, string textureAsset = AssetManager.DefaultEmptyTextureAsset) :
             base(tabsTotalSize, localPosition, textureAsset)
         {
             CardData = new Dictionary<string, Dictionary<string, CardData>>();

@@ -64,7 +64,7 @@ namespace SpaceCardGame
         }
 
         public Board() :
-            base(ScreenManager.Instance.ScreenDimensions, ScreenManager.Instance.ScreenCentre, AssetManager.DefaultEmptyPanelTextureAsset)
+            base(ScreenManager.Instance.ScreenDimensions, ScreenManager.Instance.ScreenCentre, AssetManager.DefaultEmptyTextureAsset)
         {
             UsesCollider = false;
 

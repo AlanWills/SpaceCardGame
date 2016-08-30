@@ -33,6 +33,7 @@ namespace SpaceCardGame
             base.AddInitialUI();
 
             MissionGridControl = AddScreenUIObject(new GridControl(4, new Vector2(ScreenDimensions.X * 0.5f, ScreenDimensions.Y), new Vector2(ScreenCentre.X * 0.5f, ScreenCentre.Y)));
+            MissionGridControl.Padding = new Vector2(60, 60);
 
             List<MissionData> allMissionData = AssetManager.GetAllDataOfType<MissionData>();
             foreach (MissionData missionData in allMissionData)

@@ -44,13 +44,13 @@ namespace SpaceCardGame
 
         #region Constructors
 
-        public CardGridControl(List<CardData> cardList, int columns, Vector2 localPosition, string textureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
+        public CardGridControl(List<CardData> cardList, int columns, Vector2 localPosition, string textureAsset = AssetManager.DefaultEmptyTextureAsset) :
             this(cardList, columns, Vector2.Zero, localPosition, textureAsset)
         {
 
         }
 
-        public CardGridControl(List<CardData> cardList, int columns, Vector2 size, Vector2 localPosition, string textureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
+        public CardGridControl(List<CardData> cardList, int columns, Vector2 size, Vector2 localPosition, string textureAsset = AssetManager.DefaultEmptyTextureAsset) :
             base(columns, size, localPosition, textureAsset)
         {
             CardList = cardList;

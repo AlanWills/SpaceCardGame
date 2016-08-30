@@ -19,7 +19,7 @@ namespace SpaceCardGame
             string squashedDisplayName = data.DisplayName.Replace(" ", "");
 
             // Use the squashed display name to create the card itself - assumes a lot about naming, but ok for now
-            Type cardType = typeof(CardData).Assembly.GetType("SpaceCardGame." + data.CardTypeName);
+            Type cardType = typeof(Card).Assembly.GetType("SpaceCardGame." + data.CardTypeName);
             DebugUtils.AssertNotNull(cardType);
 
             Card card = (Card)Activator.CreateInstance(cardType, player, data);

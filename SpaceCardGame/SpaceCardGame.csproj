@@ -195,7 +195,7 @@
     <Compile Include="UI\Multiple Cards Display Controls\CardGridControl.cs" />
     <Compile Include="UI\Multiple Cards Display Controls\CardTypesTabControl.cs" />
     <Compile Include="UI\In Game Dialogs\CharacterDialogBox.cs" />
-    <Compile Include="UI\ChooseDeckBox.cs" />
+    <Compile Include="UI\ChooseDeckListControl.cs" />
     <Compile Include="UI\Multiple Cards Display Controls\DeckCardTypeControl.cs" />
     <Compile Include="UI\In Game\DeckSlotUI.cs" />
     <Compile Include="UI\In Game\DeckUI.cs" />

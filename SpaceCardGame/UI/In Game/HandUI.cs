@@ -18,7 +18,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public HandUI(Player player, string backgroundTextureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
+        public HandUI(Player player, string backgroundTextureAsset = AssetManager.DefaultEmptyTextureAsset) :
             base(player.MaxHandSize, 
                 new Vector2(ScreenManager.Instance.ScreenDimensions.X, ScreenManager.Instance.ScreenDimensions.Y * 0.25f), 
                 new Vector2(0, ScreenManager.Instance.ScreenDimensions.Y * 0.25f), 

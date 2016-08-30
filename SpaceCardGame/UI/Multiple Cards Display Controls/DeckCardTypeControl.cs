@@ -41,13 +41,13 @@ namespace SpaceCardGame
 
         #endregion
 
-        public DeckCardTypeControl(Deck deck, string cardType, Vector2 localPosition, string textureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
+        public DeckCardTypeControl(Deck deck, string cardType, Vector2 localPosition, string textureAsset = AssetManager.DefaultEmptyTextureAsset) :
             this(deck, cardType, Vector2.Zero, localPosition, textureAsset)
         {
 
         }
 
-        public DeckCardTypeControl(Deck deck, string cardType, Vector2 size, Vector2 localPosition, string textureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
+        public DeckCardTypeControl(Deck deck, string cardType, Vector2 size, Vector2 localPosition, string textureAsset = AssetManager.DefaultEmptyTextureAsset) :
             base(size, localPosition, textureAsset)
         {
             Deck = deck;

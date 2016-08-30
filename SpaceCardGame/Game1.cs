@@ -44,7 +44,7 @@ namespace SpaceCardGame
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            ScreenManager.Instance.Setup(this, spriteBatch, graphics, new WindowsAssetCollection());
+            ScreenManager.Instance.Setup(this, spriteBatch, graphics, new WindowsInputManager(), new WindowsAssetCollection());
             StartupLogoScreen.LoadAssets += CentralCardRegistry.LoadAssets;
             ScreenManager.Instance.StartGame(new MainMenuScreen());
         }

@@ -32,7 +32,7 @@ namespace SpaceCardGame
 
         #endregion
 
-        public UIBoardSection(Player player, Vector2 localPosition, string textureAsset = AssetManager.DefaultEmptyPanelTextureAsset) :
+        public UIBoardSection(Player player, Vector2 localPosition, string textureAsset = AssetManager.DefaultEmptyTextureAsset) :
             base(new Vector2(ScreenManager.Instance.ScreenDimensions.X, ScreenManager.Instance.ScreenDimensions.Y * 0.5f), localPosition, textureAsset)
         {
             Player = player;

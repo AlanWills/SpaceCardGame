@@ -6,10 +6,10 @@ using Microsoft.Xna.Framework.Input;
 namespace SpaceCardGame
 {
     /// <summary>
-    /// A class which has a grid control for our decks as the main UI element.
-    /// Each element in the grid control will represent one of our player's decks which they will choose when beginning a match.
+    /// A class which has a list control for our decks as the main UI element.
+    /// Each element in the list control will represent one of our player's decks which they will choose when beginning a match.
     /// </summary>
-    public class ChooseDeckGridControl : GridControl, IClickable
+    public class ChooseDeckListControl : ListControl, IClickable
     {
         #region Properties and Fields
 
@@ -26,14 +26,14 @@ namespace SpaceCardGame
 
         #endregion
 
-        public ChooseDeckGridControl(int columns, Vector2 localPosition, string textureAsset = AssetManager.DefaultMenuTextureAsset) :
-            this(columns, Vector2.Zero, localPosition, textureAsset)
+        public ChooseDeckListControl(Vector2 localPosition, string textureAsset = AssetManager.DefaultMenuTextureAsset) :
+            this(Vector2.Zero, localPosition, textureAsset)
         {
             
         }
 
-        public ChooseDeckGridControl(int columns, Vector2 size, Vector2 localPosition, string textureAsset = AssetManager.DefaultMenuTextureAsset)
-            : base(columns, size, localPosition, textureAsset)
+        public ChooseDeckListControl(Vector2 size, Vector2 localPosition, string textureAsset = AssetManager.DefaultMenuTextureAsset)
+            : base(size, localPosition, textureAsset)
         {
             
         }
@@ -45,12 +45,6 @@ namespace SpaceCardGame
         /// </summary>
         public override void Begin()
         {
-            //// Add this in Begin so it gets drawn on top of this UI rather than behind it
-            //Label chooseDeckLabel = ScreenManager.Instance.CurrentScreen.AddScreenUIObject(new Label("Choose Deck", WorldPosition + new Vector2(0, -Size.Y * 0.5f + BorderPadding.Y)), true, true);
-            //chooseDeckLabel.Colour.Value = Color.White;
-            //chooseDeckLabel.Size *= 1.5f;
-            //chooseDeckLabel.IsAlive.Connect(IsAlive);       // Make sure that when this text box dies, the label dies too
-
             foreach (Deck deck in Array.FindAll(PlayerDataRegistry.Instance.Decks, x => x.IsCreated))
             {
                 ClickableImage deckUI = AddChild(new ClickableImage(Vector2.Zero, Card.CardBackTextureAsset), true, true);

@@ -181,6 +181,7 @@ namespace SpaceCardGame
         public void AddCardToHand(Card card)
         {
             CurrentHand.Add(card);
+            card.HandAnimationModule.Show();
             OnCardAddedToHand?.Invoke(card);
         }
 
