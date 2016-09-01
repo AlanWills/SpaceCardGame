@@ -103,7 +103,7 @@ namespace SpaceCardGame
             strings = new List<string>()
             {
                 "Your first ship is deployed, but it will take a turn before it is ready for you to command",
-                "When you are ready, press the 'Ready For Battle' button to enter the BATTLE PHASE"
+                "When you are ready, press the 'Start Battle' button to enter the BATTLE PHASE"
             };
             StringSets.Enqueue(strings);
 

@@ -46,7 +46,6 @@ namespace SpaceCardGame
         {
             RewardData = rewardData;
             RewardUI = new List<UIObject>();
-            UsesCollider = false;
         }
 
         #region Virtual Functions

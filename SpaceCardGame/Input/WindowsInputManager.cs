@@ -23,7 +23,8 @@ namespace SpaceCardGame
         public override bool CheckInputEvent(string eventName, object[] windowsParameters, object[] androidParameters)
         {
             CheckFuncs checkFuncs = new CheckFuncs(EmptyCheck, EmptyCheck);
-            Debug.Assert(EventFuncMap.TryGetValue(eventName, out checkFuncs));
+            bool result = EventFuncMap.TryGetValue(eventName, out checkFuncs);  // Do not put this in the assert!  I did this and then in release it didn't work....
+            Debug.Assert(result);
 
             return checkFuncs.Item1.Invoke(windowsParameters);
         }
