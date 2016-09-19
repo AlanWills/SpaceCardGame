@@ -64,7 +64,8 @@ namespace SpaceCardGame
             MissionData missionData = AssetManager.GetData<MissionData>((ScreenData as MissionScreenData).MissionDataAsset);
             PlayerDataRegistry.Instance.PlayerData.CurrentLevel = missionData.MissionNumber + 1;
 
-            AddScreenUIObject(new PlayerVictoryUI(missionData.RewardData), true, true);
+            PlayerVictoryUI victoryUI = AddScreenUIObject(new PlayerVictoryUI(missionData.RewardData), true, true);
+            AddCommand(new AddModalObjectCommand(victoryUI), CommandManager.Instance.LastChildToBeAdded<Command>());
         }
 
         #endregion

@@ -1,7 +1,7 @@
 ﻿<XnaContent>
   <Asset Type="CelesteEngineData.OptionsData">
     <IsFullScreen>false</IsFullScreen>
-    <MusicVolume>0.5</MusicVolume>
-    <SFXVolume>0.08</SFXVolume>
+    <MusicVolume>0</MusicVolume>
+    <SFXVolume>0</SFXVolume>
   </Asset>
 </XnaContent>

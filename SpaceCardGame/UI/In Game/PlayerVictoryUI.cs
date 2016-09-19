@@ -102,6 +102,17 @@ namespace SpaceCardGame
             base.LoadContent();
         }
 
+        /// <summary>
+        /// Make sure that when we show, we are showing the correct UI by calling RefreshUI
+        /// </summary>
+        /// <param name="showChildren"></param>
+        public override void Show(bool showChildren = true)
+        {
+            base.Show(showChildren);
+
+            RefreshUI();
+        }
+
         #endregion
 
         #region Utility Functions

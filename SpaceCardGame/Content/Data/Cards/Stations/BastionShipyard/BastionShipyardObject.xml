@@ -2,7 +2,7 @@
   <Asset Type="SpaceCardGameData.ShipData">
     <TextureAsset>Cards\Stations\BastionShipyard\BastionShipyard</TextureAsset>
     <Attack>0</Attack>
-    <Defence>20</Defence>
+    <Defence>3</Defence>
     <Speed>0</Speed>
     <TurretHardpoints>
       0 -8
